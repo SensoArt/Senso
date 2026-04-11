@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Principium</title>
     <style>
+        /* DICHIARAZIONE DEL TUO FONT */
+        @font-face {
+            font-family: 'FuturaLight';
+            /* Assicurati che il file sia nella cartella Fonts e si chiami così */
+            src: url('Fonts/futura-light.ttf') format('truetype');
+        }
+
         body {
             background-color: #000;
             color: #fff;
             margin: 0;
             padding: 0;
-            font-family: 'Times New Roman', serif;
+            font-family: 'Times New Roman', serif; /* Font di base elegante */
             text-align: center;
             -webkit-font-smoothing: antialiased;
         }
@@ -55,12 +62,14 @@
             letter-spacing: 2px;
         }
 
+        /* APPLICAZIONE FUTURA AI TESTI DELLE COLONNE */
         .lang-column p {
-            font-family: Arial, sans-serif;
+            font-family: 'FuturaLight', sans-serif;
             line-height: 1.8;
-            font-size: 1.05rem;
-            opacity: 0.85;
+            font-size: 1rem;
+            opacity: 0.9;
             margin-bottom: 25px;
+            letter-spacing: 0.5px;
         }
 
         .final-call {
@@ -81,10 +90,11 @@
             height: auto;
         }
 
+        /* APPLICAZIONE FUTURA ALLA DATA E AL FOOTER */
         footer {
             padding: 60px 40px;
             border-top: 1px solid #333;
-            font-family: Arial, sans-serif;
+            font-family: 'FuturaLight', sans-serif;
             font-size: 0.9rem;
             display: flex;
             justify-content: space-between;
@@ -92,10 +102,20 @@
             max-width: 1100px;
             margin: 0 auto 80px;
             letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .date-info { text-align: left; }
-        .date-big { font-size: 2.8rem; font-weight: bold; display: block; margin-bottom: 10px; }
+        
+        .date-big { 
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 2.8rem; 
+            font-weight: normal; 
+            display: block; 
+            margin-bottom: 10px; 
+            letter-spacing: 3px;
+        }
+
         .contact-info { text-align: right; opacity: 0.8; }
 
         @media (max-width: 850px) {
@@ -125,7 +145,7 @@
         <div class="lang-column">
             <h2>Principium — ES</h2>
             <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
-            <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea di esplorare l'origine di tutte le cose, il momento in cui la materia e l'emozione iniziano a prendere forma.</p>
+            <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
             <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
             <p class="final-call">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
