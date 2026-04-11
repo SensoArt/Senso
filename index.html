@@ -1,84 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SENSO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senso — Principium</title>
+    <style>
+        /* CARICAMENTO FONT - Assicurati che i file siano nella cartella /fonts */
+        @font-face {
+            font-family: 'BehindTheNineties';
+            src: url('fonts/Behind-The-Nineties-It.woff2') format('woff2');
+            font-style: italic;
+        }
+        @font-face {
+            font-family: 'Gilroy-Light';
+            src: url('fonts/Gilroy-Light.woff2') format('woff2');
+        }
+        @font-face {
+            font-family: 'Gilroy-ExtraBold';
+            src: url('fonts/Gilroy-ExtraBold.woff2') format('woff2');
+        }
 
-  <style>
-    body{
-      margin:0;
-      background:#000;
-      color:#fff;
-      font-family: Arial, sans-serif;
-      height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-    }
+        :root {
+            --bg: #000;
+            --white: #fff;
+            --serif: 'BehindTheNineties', serif;
+            --sans: 'Gilroy-Light', sans-serif;
+            --sans-bold: 'Gilroy-ExtraBold', sans-serif;
+        }
 
-    .wrap{
-      max-width:700px;
-      padding:40px;
-    }
+        body {
+            background-color: var(--bg);
+            color: var(--white);
+            margin: 0;
+            padding: 0;
+            font-family: var(--sans);
+            -webkit-font-smoothing: antialiased;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    h1{
-      font-size:72px;
-      letter-spacing:14px;
-      font-weight:400;
-      margin:0;
-    }
+        /* HEADER */
+        header {
+            text-align: center;
+            padding: 100px 20px 60px;
+            width: 100%;
+        }
 
-    p{
-      margin-top:30px;
-      font-size:16px;
-      opacity:0.7;
-      line-height:1.8;
-    }
+        .main-title {
+            font-family: var(--serif);
+            font-size: clamp(3.5rem, 15vw, 9rem);
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin: 0;
+            font-weight: normal;
+        }
 
-    .tag{
-      margin-top:40px;
-      font-size:12px;
-      letter-spacing:3px;
-      opacity:0.4;
-    }
+        .tagline {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            margin-top: 20px;
+            opacity: 0.9;
+        }
 
-    .contact{
-      margin-top:60px;
-      font-size:12px;
-      opacity:0.5;
-      letter-spacing:1px;
-    }
+        /* HERO IMAGE */
+        .hero-container {
+            width: 100%;
+            max-width: 1100px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
 
-    .contact a{
-      color:#fff;
-      text-decoration:none;
-      opacity:0.8;
-    }
+        .hero-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
-    .contact a:hover{
-      opacity:1;
-    }
-  </style>
-</head>
+        /* TESTO CURATORIALE - DOPPIA COLONNA */
+        .curatorial-section {
+            max-width: 1100px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            padding: 80px 40px;
+            text-align: justify;
+        }
 
-<body>
-  <div class="wrap">
-    <h1>SENSO</h1>
+        .lang-column h3 {
+            font-family: var(--serif);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: normal;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
 
-    <p>
-      An artistic project that transforms art into a journey.<br>
-      Perception. Emotion. Direction.
-    </p>
+        .lang-column p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            opacity: 0.85;
+        }
 
-    <div class="tag">
-      Where Art becomes experience
-    </div>
+        /* CITAZIONE CENTRALE */
+        .experience-break {
+            width: 100%;
+            text-align: center;
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            padding: 60px 20px;
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+            margin: 40px 0;
+        }
 
-    <div class="contact">
-      contact: <a href="mailto:contact@senso-art.com">contact@senso-art.com</a>
-    </div>
-  </div>
-</body>
-</html>
+        /* LOGO SENSO */
+        .logo-section {
+            padding: 80px 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .logo-section img {
+            width: 280px;
+            height: auto;
+        }
+
+        /* FOOTER INFO */
+        footer {
+            width: 100%;
+            max-width: 1100px;
+            padding: 40px;
+            border-top: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .date-big {
+            font-family: var(--sans-bold);
+            font-size: 3rem;
+            display: block;
+            line-height: 1;
+        }
+
+        .details-text {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        .social-contact {
+            text-align: right;
+        }
+
+        .social-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: block;
+            margin-top: 8
