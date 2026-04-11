@@ -9,94 +9,140 @@
             background-color: #000;
             color: #fff;
             margin: 0;
-            font-family: 'Times New Roman', serif; /* Font elegante universale */
+            font-family: 'Times New Roman', serif;
             text-align: center;
+            -webkit-font-smoothing: antialiased;
         }
 
-        header { padding: 80px 20px; }
+        header { padding: 100px 20px 40px; }
 
         h1 {
-            font-size: clamp(3rem, 10vw, 7rem);
+            font-size: clamp(3rem, 12vw, 8rem);
             text-transform: uppercase;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             margin: 0;
             font-weight: 300;
         }
 
         .tagline {
             font-style: italic;
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
             opacity: 0.8;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .hero-img {
             width: 100%;
-            max-width: 900px;
-            margin: 20px auto;
+            max-width: 1100px;
+            margin: 40px auto;
             display: block;
         }
 
         .quote {
             font-style: italic;
-            font-size: 2rem;
-            padding: 60px 20px;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            padding: 80px 20px;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
+            margin: 40px 0;
         }
 
-        .columns {
-            display: flex;
-            max-width: 1000px;
+        .curatorial-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
-            gap: 40px;
+            padding: 40px 20px;
+            gap: 60px;
             text-align: left;
-            font-family: Arial, sans-serif; /* Più leggibile per il testo */
+            font-family: Arial, sans-serif;
         }
 
-        .col { flex: 1; line-height: 1.8; opacity: 0.9; }
-        
-        .logo { width: 200px; margin: 60px 0; }
+        .col h3 {
+            font-family: 'Times New Roman', serif;
+            font-size: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        .col p {
+            line-height: 1.8;
+            font-size: 1.05rem;
+            opacity: 0.85;
+            margin-bottom: 20px;
+        }
+
+        .logo-wrap { padding: 100px 20px; }
+        .logo-img { width: 250px; }
 
         footer {
-            padding: 40px;
+            padding: 60px 40px;
             border-top: 1px solid #333;
             font-family: Arial, sans-serif;
-            text-transform: uppercase;
-            font-size: 0.8rem;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            max-width: 1100px;
+            margin: 0 auto 60px;
         }
 
-        @media (max-width: 700px) {
-            .columns { flex-direction: column; }
+        .date-info { text-align: left; }
+        .date-big { font-size: 2.5rem; font-weight: bold; display: block; margin-bottom: 10px; }
+
+        @media (max-width: 800px) {
+            .curatorial-container { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; gap: 40px; align-items: center; }
+            .date-info { text-align: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Principium</h1>
-        <p class="tagline">In the Beginning there was Chaos</p>
+        <h1>PRINCIPIUM</h1>
+        <p class="tagline">In the beginning there was chaos</p>
     </header>
 
     <img src="nebula.jpg" alt="Chaos" class="hero-img">
 
     <div class="quote">where art becomes experience</div>
 
-    <div class="columns">
+    <main class="curatorial-container">
         <div class="col">
-            <p><b>EN —</b> Before form, before order, before beauty, there was chaos. Principium emerges from the idea of exploring the origin of everything. The exhibition brings together contemporary artists creating an unstable balance of tensions.</p>
+            <h3>Principium — EN</h3>
+            <p>Before form, before order, before beauty, there was chaos.</p>
+            <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything — the moment when matter and emotion begin to take shape.</p>
+            <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
+            <p>Analog sound and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
+            <p><i>Principium is an invitation to return to the beginning. To the point where everything begins.</i></p>
         </div>
+
         <div class="col">
-            <p><b>ES —</b> Antes de la forma, antes del orden, antes de la belleza, existía el caos. Principium nace de la idea de explorar el origen de todas las cosas. La exposición reúne a artistas contemporáneos generando un equilibrio inestable.</p>
+            <h3>Principium — ES</h3>
+            <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
+            <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
+            <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
+            <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
+            <p><i>Principium es una invitación a volver al inicio. Al punto en el que todo nace.</i></p>
         </div>
+    </main>
+
+    <div class="logo-wrap">
+        <img src="logo.png" alt="Senso Logo" class="logo-img">
     </div>
 
-    <img src="logo.png" alt="Senso" class="logo">
-
     <footer>
-        16.05.2026 | 17:00 - 21:00 | Pallars 317, Barcelona<br>
-        @senso_art_ | contact@senso-art.com
+        <div class="date-info">
+            <span class="date-big">16.05.2026</span>
+            Start at 17:00 - 21:00 | Pallars 317, Barcelona
+        </div>
+        <div class="contact-info">
+            @senso_art_<br>
+            contact@senso-art.com
+        </div>
     </footer>
 
 </body>
