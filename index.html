@@ -5,162 +5,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Principium</title>
     <style>
-        /* CARICAMENTO FONT - Assicurati che i file siano nella cartella /fonts */
-        @font-face {
-            font-family: 'BehindTheNineties';
-            src: url('fonts/Behind-The-Nineties-It.woff2') format('woff2');
-            font-style: italic;
-        }
-        @font-face {
-            font-family: 'Gilroy-Light';
-            src: url('fonts/Gilroy-Light.woff2') format('woff2');
-        }
-        @font-face {
-            font-family: 'Gilroy-ExtraBold';
-            src: url('fonts/Gilroy-ExtraBold.woff2') format('woff2');
-        }
-
-        :root {
-            --bg: #000;
-            --white: #fff;
-            --serif: 'BehindTheNineties', serif;
-            --sans: 'Gilroy-Light', sans-serif;
-            --sans-bold: 'Gilroy-ExtraBold', sans-serif;
-        }
-
         body {
-            background-color: var(--bg);
-            color: var(--white);
+            background-color: #000;
+            color: #fff;
             margin: 0;
-            padding: 0;
-            font-family: var(--sans);
-            -webkit-font-smoothing: antialiased;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* HEADER */
-        header {
+            font-family: 'Times New Roman', serif; /* Font elegante universale */
             text-align: center;
-            padding: 100px 20px 60px;
-            width: 100%;
         }
 
-        .main-title {
-            font-family: var(--serif);
-            font-size: clamp(3.5rem, 15vw, 9rem);
+        header { padding: 80px 20px; }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 7rem);
             text-transform: uppercase;
-            line-height: 0.9;
+            letter-spacing: 5px;
             margin: 0;
-            font-weight: normal;
+            font-weight: 300;
         }
 
         .tagline {
-            font-family: var(--serif);
             font-style: italic;
-            font-size: clamp(1.2rem, 3vw, 2rem);
-            margin-top: 20px;
-            opacity: 0.9;
-        }
-
-        /* HERO IMAGE */
-        .hero-container {
-            width: 100%;
-            max-width: 1100px;
-            padding: 0 20px;
-            box-sizing: border-box;
+            font-size: 1.5rem;
+            opacity: 0.8;
+            margin-top: 10px;
         }
 
         .hero-img {
             width: 100%;
-            height: auto;
+            max-width: 900px;
+            margin: 20px auto;
             display: block;
         }
 
-        /* TESTO CURATORIALE - DOPPIA COLONNA */
-        .curatorial-section {
-            max-width: 1100px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            padding: 80px 40px;
-            text-align: justify;
-        }
-
-        .lang-column h3 {
-            font-family: var(--serif);
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            font-weight: normal;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
-
-        .lang-column p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            opacity: 0.85;
-        }
-
-        /* CITAZIONE CENTRALE */
-        .experience-break {
-            width: 100%;
-            text-align: center;
-            font-family: var(--serif);
+        .quote {
             font-style: italic;
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 2rem;
             padding: 60px 20px;
             border-top: 1px solid #222;
             border-bottom: 1px solid #222;
-            margin: 40px 0;
         }
 
-        /* LOGO SENSO */
-        .logo-section {
-            padding: 80px 20px;
-            width: 100%;
-            text-align: center;
+        .columns {
+            display: flex;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            gap: 40px;
+            text-align: left;
+            font-family: Arial, sans-serif; /* Più leggibile per il testo */
         }
 
-        .logo-section img {
-            width: 280px;
-            height: auto;
-        }
+        .col { flex: 1; line-height: 1.8; opacity: 0.9; }
+        
+        .logo { width: 200px; margin: 60px 0; }
 
-        /* FOOTER INFO */
         footer {
-            width: 100%;
-            max-width: 1100px;
             padding: 40px;
             border-top: 1px solid #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
-        }
-
-        .date-big {
-            font-family: var(--sans-bold);
-            font-size: 3rem;
-            display: block;
-            line-height: 1;
-        }
-
-        .details-text {
+            font-family: Arial, sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-size: 0.85rem;
-            margin-top: 10px;
+            font-size: 0.8rem;
         }
 
-        .social-contact {
-            text-align: right;
+        @media (max-width: 700px) {
+            .columns { flex-direction: column; }
         }
+    </style>
+</head>
+<body>
 
-        .social-contact a {
-            color: var(--white);
-            text-decoration: none;
-            display: block;
-            margin-top: 8
+    <header>
+        <h1>Principium</h1>
+        <p class="tagline">In the Beginning there was Chaos</p>
+    </header>
+
+    <img src="nebula.jpg" alt="Chaos" class="hero-img">
+
+    <div class="quote">where art becomes experience</div>
+
+    <div class="columns">
+        <div class="col">
+            <p><b>EN —</b> Before form, before order, before beauty, there was chaos. Principium emerges from the idea of exploring the origin of everything. The exhibition brings together contemporary artists creating an unstable balance of tensions.</p>
+        </div>
+        <div class="col">
+            <p><b>ES —</b> Antes de la forma, antes del orden, antes de la belleza, existía el caos. Principium nace de la idea de explorar el origen de todas las cosas. La exposición reúne a artistas contemporáneos generando un equilibrio inestable.</p>
+        </div>
+    </div>
+
+    <img src="logo.png" alt="Senso" class="logo">
+
+    <footer>
+        16.05.2026 | 17:00 - 21:00 | Pallars 317, Barcelona<br>
+        @senso_art_ | contact@senso-art.com
+    </footer>
+
+</body>
+</html>
