@@ -34,7 +34,7 @@
             font-family: 'Times New Roman', serif;
         }
 
-        /* TAGLINE RIPRISTINATA AL FONT ORIGINALE */
+        /* TAGLINE AL FONT ORIGINALE */
         .tagline {
             font-family: 'Times New Roman', serif;
             font-style: italic;
@@ -65,7 +65,6 @@
             letter-spacing: 2px;
         }
 
-        /* COLONNE IN FUTURA */
         .lang-column p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 1.8;
@@ -87,9 +86,9 @@
             height: auto;
         }
 
-        /* FOOTER ALLINEATO */
+        /* FOOTER CORRETTO */
         footer {
-            padding: 60px 40px;
+            padding: 60px 25px; /* Allineato ai margini della grid sopra */
             border-top: 1px solid #333;
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.9rem;
@@ -102,12 +101,11 @@
             text-transform: uppercase;
         }
 
-        /* DATA ALLINEATA A SINISTRA SOPRA L'INDIRIZZO */
+        /* DATA E INDIRIZZO ALLINEATI A SINISTRA */
         .date-info { 
             text-align: left; 
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            display: block; /* Cambiato in block per sicurezza */
+            flex: 1;
         }
         
         .date-big { 
@@ -117,15 +115,19 @@
             margin-bottom: 5px; 
             letter-spacing: 3px;
             line-height: 1;
+            text-align: left; /* Forza l'allineamento */
         }
 
-        .contact-info { text-align: right; opacity: 0.8; }
+        .contact-info { 
+            text-align: right; 
+            opacity: 0.8; 
+            flex: 1;
+        }
 
         @media (max-width: 850px) {
             .curatorial-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; text-align: center; gap: 50px; align-items: center; }
-            .date-info { align-items: center; text-align: center; }
-            .contact-info { text-align: center; }
+            footer { flex-direction: column; text-align: center; gap: 50px; }
+            .date-big, .date-info, .contact-info { text-align: center; }
         }
     </style>
 </head>
