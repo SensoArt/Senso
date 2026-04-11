@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Principium</title>
     <style>
-        /* DICHIARAZIONE FONT FUTURA */
+        /* FONT FUTURA PER TESTI E DATA */
         @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
@@ -34,7 +34,7 @@
             font-family: 'Times New Roman', serif;
         }
 
-        /* TAGLINE RIPRISTINATA COME ORIGINALE */
+        /* TAGLINE RIPRISTINATA AL FONT ORIGINALE */
         .tagline {
             font-family: 'Times New Roman', serif;
             font-style: italic;
@@ -65,11 +65,11 @@
             letter-spacing: 2px;
         }
 
-        /* APPLICAZIONE FUTURA ALLE COLONNE */
+        /* COLONNE IN FUTURA */
         .lang-column p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 1.8;
-            font-size: 1rem; /* Leggermente più piccolo per Futura */
+            font-size: 1rem;
             opacity: 0.9;
             margin-bottom: 25px;
             letter-spacing: 0.5px;
@@ -87,7 +87,7 @@
             height: auto;
         }
 
-        /* APPLICAZIONE FUTURA ALLA DATA E FOOTER */
+        /* FOOTER ALLINEATO */
         footer {
             padding: 60px 40px;
             border-top: 1px solid #333;
@@ -102,18 +102,30 @@
             text-transform: uppercase;
         }
 
+        /* DATA ALLINEATA A SINISTRA SOPRA L'INDIRIZZO */
+        .date-info { 
+            text-align: left; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
         .date-big { 
             font-family: 'FuturaLight', sans-serif;
             font-size: 2.8rem; 
             display: block; 
-            margin-bottom: 10px; 
+            margin-bottom: 5px; 
             letter-spacing: 3px;
+            line-height: 1;
         }
+
+        .contact-info { text-align: right; opacity: 0.8; }
 
         @media (max-width: 850px) {
             .curatorial-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; text-align: center; gap: 50px; align-items: center; }
-            .date-info, .contact-info { text-align: center; }
+            .date-info { align-items: center; text-align: center; }
+            .contact-info { text-align: center; }
         }
     </style>
 </head>
@@ -139,7 +151,7 @@
             <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
-            <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar e sentir.</p>
+            <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
             <p style="font-family: 'Times New Roman', serif; font-style: italic;">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
     </main>
@@ -151,7 +163,7 @@
     <footer>
         <div class="date-info">
             <span class="date-big">16.05.2026</span>
-            Start at 17:00 - 21:00 | Pallars 317, Barcelona
+            <span>Start at 17:00 - 21:00 | Pallars 317, Barcelona</span>
         </div>
         <div class="contact-info">
             @senso_art_<br>
