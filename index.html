@@ -15,7 +15,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* TITOLO IN ALTO */
+        /* HEADER CON TITOLO */
         header { padding: 100px 20px 20px; }
 
         h1 {
@@ -50,7 +50,7 @@
             margin: 60px 0;
         }
 
-        /* DUE COLONNE */
+        /* DUE COLONNE TESTO */
         .curatorial-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -86,6 +86,91 @@
             display: block;
         }
 
-        /* LOGO SENSO AL SUO POSTO */
+        /* SEZIONE LOGO SENSO */
         .logo-section { 
-            padding:
+            padding: 80px 20px; 
+            display: flex;
+            justify-content: center;
+        }
+        
+        .logo-img { 
+            width: 300px; 
+            max-width: 80%; 
+            height: auto;
+        }
+
+        /* FOOTER CON INFO COMPLETE */
+        footer {
+            padding: 60px 40px;
+            border-top: 1px solid #333;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            max-width: 1100px;
+            margin: 0 auto 80px;
+            letter-spacing: 1.5px;
+        }
+
+        .date-info { text-align: left; }
+        .date-big { font-size: 2.8rem; font-weight: bold; display: block; margin-bottom: 10px; }
+        .contact-info { text-align: right; opacity: 0.8; }
+
+        @media (max-width: 850px) {
+            .curatorial-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; gap: 50px; align-items: center; }
+            .contact-info { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>PRINCIPIUM</h1>
+        <p class="tagline">In the beginning there was chaos</p>
+    </header>
+
+    <img src="nebula.jpg" alt="Principium Art" class="hero-img">
+
+    <div class="quote-divider">where art becomes experience</div>
+
+    <main class="curatorial-grid">
+        
+        <div class="lang-column">
+            <h2>Principium — EN</h2>
+            <p>Before form, before order, before beauty, there was chaos.</p>
+            <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
+            <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
+            <p>Analog sound and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
+            <p class="final-call">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
+        </div>
+
+        <div class="lang-column">
+            <h2>Principium — ES</h2>
+            <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
+            <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
+            <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma e riconoscibile, che conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
+            <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
+            <p class="final-call">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
+        </div>
+
+    </main>
+
+    <div class="logo-section">
+        <img src="logo.png" alt="Senso Art Logo" class="logo-img">
+    </div>
+
+    <footer>
+        <div class="date-info">
+            <span class="date-big">16.05.2026</span>
+            Start at 17:00 - 21:00 | Pallars 317, Barcelona
+        </div>
+        <div class="contact-info">
+            @senso_art_<br>
+            contact@senso-art.com
+        </div>
+    </footer>
+
+</body>
+</html>
