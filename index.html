@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Principium</title>
     <style>
-        /* DICHIARAZIONE DEL TUO FONT */
+        /* 1. DICHIARAZIONE FONT - CONTROLLA CHE IL NOME FILE SIA IDENTICO */
         @font-face {
             font-family: 'FuturaLight';
-            /* Assicurati che il file sia nella cartella Fonts e si chiami così */
-            src: url('Fonts/futura-light.ttf') format('truetype');
+            src: url('./Fonts/futura-light.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
         }
 
         body {
@@ -17,7 +18,7 @@
             color: #fff;
             margin: 0;
             padding: 0;
-            font-family: 'Times New Roman', serif; /* Font di base elegante */
+            font-family: serif; /* Font di emergenza */
             text-align: center;
             -webkit-font-smoothing: antialiased;
         }
@@ -31,9 +32,11 @@
             margin: 0;
             font-weight: 300;
             line-height: 1;
+            font-family: 'Times New Roman', serif; /* Titolo resta Serif per contrasto */
         }
 
         .tagline {
+            font-family: 'FuturaLight', sans-serif;
             font-style: italic;
             font-size: clamp(1.1rem, 2.5vw, 1.8rem);
             opacity: 0.8;
@@ -62,20 +65,14 @@
             letter-spacing: 2px;
         }
 
-        /* APPLICAZIONE FUTURA AI TESTI DELLE COLONNE */
+        /* TESTO COLONNE IN FUTURA */
         .lang-column p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 1.8;
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 25px;
             letter-spacing: 0.5px;
-        }
-
-        .final-call {
-            font-style: italic;
-            margin-top: 30px;
-            display: block;
         }
 
         .logo-section { 
@@ -90,7 +87,7 @@
             height: auto;
         }
 
-        /* APPLICAZIONE FUTURA ALLA DATA E AL FOOTER */
+        /* DATA E FOOTER IN FUTURA */
         footer {
             padding: 60px 40px;
             border-top: 1px solid #333;
@@ -105,23 +102,17 @@
             text-transform: uppercase;
         }
 
-        .date-info { text-align: left; }
-        
         .date-big { 
             font-family: 'FuturaLight', sans-serif;
             font-size: 2.8rem; 
-            font-weight: normal; 
             display: block; 
             margin-bottom: 10px; 
             letter-spacing: 3px;
         }
 
-        .contact-info { text-align: right; opacity: 0.8; }
-
         @media (max-width: 850px) {
             .curatorial-grid { grid-template-columns: 1fr; }
             footer { flex-direction: column; text-align: center; gap: 50px; align-items: center; }
-            .date-info, .contact-info { text-align: center; }
         }
     </style>
 </head>
@@ -139,7 +130,7 @@
             <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
             <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
             <p>Analog sound and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
-            <p class="final-call">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
+            <p style="font-style: italic;">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
         </div>
 
         <div class="lang-column">
@@ -148,7 +139,7 @@
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
             <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
-            <p class="final-call">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
+            <p style="font-style: italic;">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
     </main>
 
