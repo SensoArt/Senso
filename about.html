@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — About</title>
     <style>
+        /* FONT FUTURA PER IL TESTO */
         @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* NUOVO FONT CORSIVO PER I TITOLI */
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
         }
@@ -65,39 +74,54 @@
         header { padding: 150px 20px 40px; }
 
         h1 {
-            font-size: clamp(3rem, 12vw, 7rem);
-            text-transform: uppercase;
-            letter-spacing: 15px;
+            /* Nuovo Font e dimensione più grande */
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(4rem, 15vw, 9rem); 
+            font-weight: normal;
+            text-transform: lowercase; /* Molti font corsivi sono più belli in minuscolo */
             margin: 0;
-            font-weight: 300;
-            font-family: 'Times New Roman', serif;
+            line-height: 1;
         }
 
         .content-container {
-            max-width: 750px; 
+            max-width: 850px; 
             margin: 0 auto;
-            padding: 40px 25px 100px;
+            padding: 40px 25px 120px; /* Più spazio in basso per l'isotipo */
             text-align: left;
         }
 
         .lang-content p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 2;
-            font-size: 1.1rem;
+            /* Testo più grande come richiesto */
+            font-size: 1.2rem;
             opacity: 0.85;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             letter-spacing: 0.5px;
         }
 
         .hidden { display: none; }
 
-        .logo-section { padding: 60px 20px; display: flex; justify-content: center; }
-        .logo-img { width: 180px; opacity: 0.7; }
+        /* SEZIONE ISOTIPO A PIÈ DI PAGINA */
+        .isotipo-section { 
+            padding: 80px 20px; 
+            display: flex; 
+            justify-content: center; 
+            border-top: 1px solid #1a1a1a; /* Linea sottile sopra */
+        }
+        
+        .isotipo-img { 
+            width: 80px; /* Dimensione piccola e discreta per l'isotipo */
+            height: auto;
+            opacity: 0.7; 
+            filter: invert(1); /* Se il tuo file è nero, lo rende bianco per il fondo nero */
+        }
 
         @media (max-width: 600px) {
             header { padding-top: 120px; }
-            h1 { letter-spacing: 8px; }
-            .lang-content p { font-size: 1rem; line-height: 1.8; }
+            h1 { font-size: clamp(3rem, 12vw, 5rem); }
+            .lang-content p { font-size: 1.1rem; line-height: 1.9; }
+            .isotipo-img { width: 60px; }
         }
     </style>
 </head>
@@ -111,18 +135,18 @@
     </div>
 
     <header>
-        <h1>ABOUT</h1>
+        <h1>About</h1>
     </header>
 
     <main class="content-container">
         
         <div id="lang-en" class="lang-content">
             <p>SENSO was born in 2025 from an idea by Claudia Alizieri and Adrian Villanueva, a vision shaped by intuition, passion, and the desire to create something meaningful.</p>
-            <p>At the beginning of 2026, this vision starts to take form, preparing to reveal itself through its inaugural event, <i>Principium: In the beginning there was chaos</i>.</p>
+            <p>At the beginning of 2026, this vision starts to take form, preparing to reveal itself through its inaugural event, <span style="font-family: 'BehindNineties', serif; font-size: 1.4rem;">Principium: In the beginning there was chaos</span>.</p>
             <p>Not simply an opening, but a moment of origin. A threshold. A quiet anticipation before creation.</p>
             <p>SENSO emerges from the belief that art is not only to be seen, but to be felt. That every encounter with art can awaken perception, stir emotion, and guide direction. It is a space imagined as a journey, where senses become language and experiences leave a lasting trace.</p>
             <p>Rooted in Barcelona and open to the world, SENSO grows from connection: between artists and audience, between vision and expression.</p>
-            <p style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.3rem; margin-top: 40px;">
+            <p style="font-family: 'BehindNineties', serif; font-size: 1.6rem; margin-top: 60px; text-align: center; text-transform: lowercase;">
                 Because every creation begins in silence.<br>
                 Every vision begins with a feeling.<br>
                 And every beginning carries the promise of what is yet to come.
@@ -131,11 +155,11 @@
 
         <div id="lang-es" class="lang-content hidden">
             <p>SENSO nació en 2025 a partir de una idea de Claudia Alizieri y Adrian Villanueva, una visión guiada por la intuición, la pasión y el deseo de crear algo con significado profundo.</p>
-            <p>A principios de 2026, esta visión empieza a tomar forma y se prepara para revelarse a través de su evento inaugural, <i>Principium: In the beginning there was chaos</i>.</p>
+            <p>A principios de 2026, esta visión empieza a tomar forma y se prepara para revelarse a través de su evento inaugural, <span style="font-family: 'BehindNineties', serif; font-size: 1.4rem;">Principium: In the beginning there was chaos</span>.</p>
             <p>No será simplemente una apertura, sino un momento de origen. Un umbral. Una espera silenciosa antes de la creación.</p>
             <p>SENSO nace de la convicción de que el arte no es solo algo que se observa, sino algo que se siente. Que cada encuentro con el arte puede despertar la percepción, mover la emoción y dar dirección. Es un espacio imaginado como un viaje, donde los sentidos se convierten en lenguaje y las experiencias dejan una huella duradera.</p>
             <p>Enraizado en Barcelona y abierto al mundo, SENSO crece a partir de la conexión: entre artistas y público, entre visión y expresión.</p>
-            <p style="font-family: 'Times New Roman', serif; font-style: italic; font-size: 1.3rem; margin-top: 40px;">
+            <p style="font-family: 'BehindNineties', serif; font-size: 1.6rem; margin-top: 60px; text-align: center; text-transform: lowercase;">
                 Porque toda creación comienza en silencio.<br>
                 Toda visión nace de una emoción.<br>
                 Y todo comienzo lleva consigo la promesa de lo que está por venir.
@@ -144,8 +168,8 @@
 
     </main>
 
-    <div class="logo-section">
-        <img src="senso_logo blanco_fondo negro.png" alt="Senso Art Logo" class="logo-img">
+    <div class="isotipo-section">
+        <img src="isotipo.png" alt="Senso Isotipo" class="isotipo-img">
     </div>
 
     <script>
