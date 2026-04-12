@@ -22,7 +22,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        header { padding: 100px 20px 60px; }
+        header { padding: 80px 20px 40px; }
 
         h1 {
             font-size: clamp(3.5rem, 15vw, 9rem);
@@ -48,7 +48,7 @@
             grid-template-columns: 1fr 1fr;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 80px 25px;
+            padding: 60px 25px;
             gap: 60px;
             text-align: left;
             border-top: 1px solid #222;
@@ -74,21 +74,22 @@
             letter-spacing: 0.5px;
         }
 
+        /* SEZIONE LOGO - SPAZIO RIDOTTO */
         .logo-section { 
-            padding: 80px 20px; 
+            padding: 20px 20px; 
             display: flex;
             justify-content: center;
         }
         
         .logo-img { 
-            width: 300px; 
+            width: 250px; 
             max-width: 80%; 
             height: auto;
         }
 
-        /* FOOTER CORRETTO */
+        /* FOOTER CORRETTO E PIÙ VICINO */
         footer {
-            padding: 60px 25px; /* Allineato ai margini della grid sopra */
+            padding: 20px 25px 60px; 
             border-top: 1px solid #333;
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.9rem;
@@ -96,7 +97,7 @@
             justify-content: space-between;
             align-items: flex-end;
             max-width: 1100px;
-            margin: 0 auto 80px;
+            margin: 0 auto;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
@@ -104,7 +105,7 @@
         /* DATA E INDIRIZZO ALLINEATI A SINISTRA */
         .date-info { 
             text-align: left; 
-            display: block; /* Cambiato in block per sicurezza */
+            display: block;
             flex: 1;
         }
         
@@ -115,7 +116,7 @@
             margin-bottom: 5px; 
             letter-spacing: 3px;
             line-height: 1;
-            text-align: left; /* Forza l'allineamento */
+            text-align: left;
         }
 
         .contact-info { 
@@ -126,8 +127,9 @@
 
         @media (max-width: 850px) {
             .curatorial-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; text-align: center; gap: 50px; }
+            footer { flex-direction: column; text-align: center; gap: 40px; padding-bottom: 40px; }
             .date-big, .date-info, .contact-info { text-align: center; }
+            header { padding-top: 60px; }
         }
     </style>
 </head>
