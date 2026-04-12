@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senso — Contacts</title>
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+        }
+
+        /* ANIMAZIONE FADE IN */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.4s; }
+        .delay-2 { animation-delay: 0.9s; }
+        .delay-3 { animation-delay: 1.4s; }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'FuturaLight', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            text-align: center;
+        }
+
+        /* TORNA ALLA HOME */
+        .back-home {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'FuturaLight', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+
+        .back-home:hover { opacity: 1; }
+
+        /* TITOLO PAGINA */
+        h1 {
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            text-transform: lowercase;
+            margin-bottom: 50px;
+            font-weight: normal;
+        }
+
+        /* SEZIONE LINKS */
+        .contact-links {
+            margin-bottom: 80px;
+        }
+
+        .contact-links a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin: 15px 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .contact-links a:hover { opacity: 1; }
+
+        /* BOX PROFILAZIONE / NEWSLETTER */
+        .newsletter-box {
+            max-width: 350px;
+            width: 85%;
+            border-top: 1px solid #1a1a1a;
+            padding-top: 50px;
+        }
+
+        .newsletter-box p {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            opacity: 0.6;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input {
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            color: #fff;
+            padding: 10px 5px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            outline: none;
+            text-transform: uppercase;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            border-bottom-color: #fff;
+        }
+
+        input::placeholder {
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .submit-btn {
+            background: none;
+            border: 1px solid #fff;
+            color: #fff;
+            padding: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.65rem;
+            opacity: 0.7;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            opacity: 1;
+            background: #fff;
+            color: #000;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 3rem; }
+            .newsletter-box { width: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home">← Home</a>
+
+    <header class="fade-in delay-1">
+        <h1>contacts</h1>
+    </header>
+
+    <div class="contact-links fade-in delay-2">
+        <a href="mailto:contact@senso-art.com">contact@senso-art.com</a>
+        <a href="https://www.instagram.com/senso_art_/" target="_blank">@senso_art_</a>
+    </div>
+
+    <div class="newsletter-box fade-in delay-3">
+        <p>Get updates on artists, exhibitions, and events.</p>
+        
+        <form class="form-group">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            
+            <button type="submit" class="submit-btn">Subscribe</button>
+        </form>
+    </div>
+
+</body>
+</html>
