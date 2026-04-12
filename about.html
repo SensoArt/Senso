@@ -19,6 +19,20 @@
             font-style: normal;
         }
 
+        /* ANIMAZIONE DI COMPARSA */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0; /* Parte invisibile */
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.8s; }
+
         body {
             background-color: #000;
             color: #fff;
@@ -67,17 +81,16 @@
 
         .lang-btn.active { opacity: 1; }
 
-        /* HEADER ALLINEATO A SINISTRA */
         header { 
             padding: 150px 20px 40px; 
             max-width: 850px; 
             margin: 0 auto; 
-            text-align: left; /* Allineamento a sinistra */
+            text-align: left; 
         }
 
         h1 {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Rimpicciolito */
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
             font-weight: normal;
             text-transform: lowercase;
             margin: 0;
@@ -102,7 +115,6 @@
 
         .hidden { display: none; }
 
-        /* ISOTIPO IN FONDO */
         .isotipo-section { 
             padding: 80px 20px; 
             display: flex; 
@@ -132,11 +144,11 @@
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <header>
+    <header class="fade-in delay-1">
         <h1>about</h1>
     </header>
 
-    <main class="content-container">
+    <main class="content-container fade-in delay-2">
         
         <div id="lang-en" class="lang-content">
             <p>SENSO was born in 2025 from an idea by Claudia Alizieri and Adrian Villanueva, a vision shaped by intuition, passion, and the desire to create something meaningful.</p>
@@ -166,7 +178,7 @@
 
     </main>
 
-    <div class="isotipo-section">
+    <div class="isotipo-section fade-in delay-2">
         <img src="senso_isotipo_blanco.png" alt="Senso Isotipo" class="isotipo-img">
     </div>
 
