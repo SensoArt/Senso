@@ -67,11 +67,17 @@
 
         .lang-btn.active { opacity: 1; }
 
-        header { padding: 150px 20px 40px; }
+        /* HEADER ALLINEATO A SINISTRA */
+        header { 
+            padding: 150px 20px 40px; 
+            max-width: 850px; 
+            margin: 0 auto; 
+            text-align: left; /* Allineamento a sinistra */
+        }
 
         h1 {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(4rem, 15vw, 9rem); 
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Rimpicciolito */
             font-weight: normal;
             text-transform: lowercase;
             margin: 0;
@@ -81,7 +87,7 @@
         .content-container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 40px 25px 100px;
+            padding: 20px 25px 100px;
             text-align: left;
         }
 
@@ -111,8 +117,8 @@
         }
 
         @media (max-width: 600px) {
-            header { padding-top: 120px; }
-            h1 { font-size: clamp(3rem, 12vw, 5rem); }
+            header { padding-top: 120px; padding-left: 25px; }
+            h1 { font-size: 3rem; }
             .lang-content p { font-size: 1.1rem; line-height: 1.9; }
         }
     </style>
@@ -127,7 +133,7 @@
     </div>
 
     <header>
-        <h1>About</h1>
+        <h1>about</h1>
     </header>
 
     <main class="content-container">
