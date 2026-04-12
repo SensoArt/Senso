@@ -12,12 +12,33 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* ANIMAZIONE DI COMPARSA */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.8s; }
+
         body {
             background-color: #000;
             color: #fff;
             margin: 0;
             padding: 0;
-            text-align: center;
+            text-align: center; /* Tutto centrato */
             -webkit-font-smoothing: antialiased;
         }
 
@@ -58,60 +79,74 @@
             text-transform: uppercase;
         }
 
-        .lang-btn.active {
-            opacity: 1;
+        .lang-btn.active { opacity: 1; }
+
+        /* HEADER CENTRATO */
+        header { 
+            padding: 150px 20px 60px; 
+            max-width: 900px; 
+            margin: 0 auto; 
         }
 
-        /* HEADER ORIGINALE POTENTE */
-        header { padding: 140px 20px 60px; }
-
         h1 {
-            font-size: clamp(3.2rem, 14vw, 8.5rem);
-            text-transform: uppercase;
-            letter-spacing: 8px;
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(3rem, 12vw, 6rem); /* Un po' più grande perché centrato */
+            text-transform: uppercase; /* Lo teniamo maiuscolo per impatto? Altrimenti metti lowercase */
+            letter-spacing: 4px;
             margin: 0;
-            font-weight: 300;
-            line-height: 0.9;
-            font-family: 'Times New Roman', serif;
+            font-weight: normal;
+            line-height: 1;
         }
 
         .tagline {
-            font-family: 'Times New Roman', serif;
-            font-style: italic;
-            font-size: clamp(1rem, 2.5vw, 1.7rem);
-            opacity: 0.8;
-            margin-top: 25px;
-            letter-spacing: 1px;
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            opacity: 0.7;
+            margin-top: 20px;
+            text-transform: lowercase;
         }
 
-        /* CONTENUTO */
+        /* CONTENUTO CENTRATO */
         .content-container {
             max-width: 800px; 
             margin: 0 auto;
             padding: 40px 25px;
-            text-align: left;
-            border-top: 1px solid #222;
+            text-align: center; /* Centrato */
         }
 
         .lang-content p {
             font-family: 'FuturaLight', sans-serif;
-            line-height: 1.8;
-            font-size: 1.05rem;
+            line-height: 2;
+            font-size: 1.2rem;
             opacity: 0.85;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight-text {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.8rem;
+            margin-top: 50px;
+            opacity: 1;
+            text-transform: lowercase;
         }
 
         .hidden { display: none; }
 
-        .logo-section { padding: 40px 20px; display: flex; justify-content: center; }
-        .logo-img { width: 220px; max-width: 70%; opacity: 0.9; }
+        .logo-section { 
+            padding: 60px 20px; 
+            display: flex; 
+            justify-content: center; 
+            border-top: 1px solid #1a1a1a;
+        }
+        .logo-img { width: 220px; max-width: 80%; opacity: 0.9; }
 
-        /* FOOTER REVISIONATO */
+        /* FOOTER */
         footer {
-            padding: 40px 25px 80px;
-            border-top: 1px solid #222;
+            padding: 60px 25px 100px;
+            border-top: 1px solid #1a1a1a;
             font-family: 'FuturaLight', sans-serif;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             text-transform: uppercase;
             letter-spacing: 1.5px;
@@ -121,42 +156,35 @@
         .event-details {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            text-align: left;
+            align-items: center;
         }
 
         .date-row {
             display: flex;
             flex-direction: column;
             gap: 5px;
+            text-align: left;
         }
 
         .date-text {
-            font-size: 1.2rem; /* Data più piccola ed elegante */
+            font-size: 1.4rem;
             letter-spacing: 3px;
-        }
-
-        .time-text {
-            opacity: 0.6;
         }
 
         .location-text {
             text-align: right;
             opacity: 0.8;
+            line-height: 1.6;
         }
 
-        /* ADATTAMENTO CELLULARE */
         @media (max-width: 600px) {
-            header { padding-top: 100px; padding-bottom: 40px; }
-            h1 { letter-spacing: 4px; }
+            header { padding-top: 120px; }
+            h1 { font-size: 3.5rem; }
             .event-details { 
                 flex-direction: column; 
-                align-items: center; 
-                text-align: center; 
-                gap: 25px; 
+                gap: 40px; 
             }
-            .location-text { text-align: center; }
-            .back-home, .lang-switch { top: 20px; }
+            .date-row, .location-text { text-align: center; }
         }
     </style>
 </head>
@@ -169,43 +197,43 @@
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <header>
-        <h1>PRINCIPIUM</h1>
-        <p class="tagline">In the beginning there was chaos</p>
+    <header class="fade-in delay-1">
+        <h1>principium</h1>
+        <p class="tagline">in the beginning there was chaos</p>
     </header>
 
-    <main class="content-container">
+    <main class="content-container fade-in delay-2">
         
         <div id="lang-en" class="lang-content">
             <p>Before form, before order, before beauty, there was chaos.</p>
             <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
             <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
             <p>Analog sound and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
-            <p style="font-family: 'Times New Roman', serif; font-style: italic;">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
+            <p class="highlight-text">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
         </div>
 
         <div id="lang-es" class="lang-content hidden">
             <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
-            <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
+            <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y affinities.</p>
             <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
-            <p style="font-family: 'Times New Roman', serif; font-style: italic;">Principium è una invitación a volver al inicio. Al punto en el que todo nace.</p>
+            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
 
     </main>
 
-    <div class="logo-section">
+    <div class="logo-section fade-in delay-2">
         <img src="senso_logo blanco_fondo negro.png" alt="Senso Art Logo" class="logo-img">
     </div>
 
-    <footer>
+    <footer class="fade-in delay-2">
         <div class="event-details">
             <div class="date-row">
                 <span class="date-text">16.05.2026</span>
                 <span class="time-text">Start at 17:00 — 21:00</span>
             </div>
             <div class="location-text">
-                <span>Pallars 317, Barcelona</span>
+                <span>Carrer de Pallars 317,<br>Barcelona</span>
             </div>
         </div>
     </footer>
