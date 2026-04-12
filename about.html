@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — About</title>
     <style>
+        /* FUENTES */
         @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
@@ -19,19 +20,19 @@
             font-style: normal;
         }
 
-        /* ANIMAZIONE DI COMPARSA */
+        /* ANIMACIÓN DE ENTRADA */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
-            opacity: 0; /* Parte invisibile */
-            animation: fadeIn 1.2s ease-out forwards;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
         }
 
-        .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.8s; }
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1s; }
 
         body {
             background-color: #000;
@@ -40,9 +41,35 @@
             padding: 0;
             text-align: center;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* Evita scroll horizontal */
         }
 
-        /* NAVIGAZIONE */
+        /* IMAGEN DE FONDO FULLSCREEN CON CAPA OSCURA */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Reemplaza 'sillas.jpg' si el nombre es distinto en tu GitHub */
+            background-image: url('sillas.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2; /* Detrás de todo */
+        }
+
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Capa negra al 60% para legibilidad */
+            z-index: -1; /* Entre la imagen y el texto */
+        }
+
+        /* NAVEGACIÓN FIJA */
         .back-home {
             position: fixed;
             top: 25px;
@@ -53,7 +80,7 @@
             text-transform: uppercase;
             font-size: 0.65rem;
             letter-spacing: 2px;
-            opacity: 0.5;
+            opacity: 0.7;
             transition: opacity 0.3s;
             z-index: 1000;
         }
@@ -66,6 +93,7 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             z-index: 1000;
+            opacity: 0.7;
         }
 
         .lang-btn {
@@ -74,15 +102,16 @@
             color: #fff;
             cursor: pointer;
             padding: 0 5px;
-            opacity: 0.3;
+            opacity: 0.4;
             transition: 0.3s;
             text-transform: uppercase;
         }
 
         .lang-btn.active { opacity: 1; }
 
+        /* HEADER Y CONTENIDO */
         header { 
-            padding: 150px 20px 40px; 
+            padding: 160px 20px 40px; 
             max-width: 850px; 
             margin: 0 auto; 
             text-align: left; 
@@ -100,42 +129,52 @@
         .content-container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 20px 25px 100px;
+            padding: 20px 25px 120px;
             text-align: left;
+            position: relative; /* Para scroll sobre el fondo */
         }
 
         .lang-content p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 2;
-            font-size: 1.2rem;
-            opacity: 0.85;
-            margin-bottom: 30px;
+            font-size: 1.25rem; /* Ligeramente más grande para máxima legibilidad */
+            opacity: 0.95;
+            margin-bottom: 35px;
             letter-spacing: 0.5px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra suave para contrastar con la foto */
         }
 
         .hidden { display: none; }
 
+        /* ISOTIPO FINAL */
         .isotipo-section { 
             padding: 80px 20px; 
             display: flex; 
             justify-content: center; 
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid rgba(255,255,255,0.1); /* Línea sutil */
+            position: relative;
         }
         
         .isotipo-img { 
             width: 80px; 
             height: auto;
-            opacity: 0.8; 
+            opacity: 0.9; 
         }
 
+        /* RESPONSIVE */
         @media (max-width: 600px) {
             header { padding-top: 120px; padding-left: 25px; }
             h1 { font-size: 3rem; }
             .lang-content p { font-size: 1.1rem; line-height: 1.9; }
+            .isotipo-img { width: 60px; }
+            .back-home, .lang-switch { background: rgba(0,0,0,0.5); padding: 5px; border-radius: 4px; }
         }
     </style>
 </head>
 <body>
+
+    <div class="background-image"></div>
+    <div class="background-overlay"></div>
 
     <a href="index.html" class="back-home">← Home</a>
 
