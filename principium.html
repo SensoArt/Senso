@@ -21,7 +21,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* TASTO HOME */
+        /* NAVIGAZIONE FISSA */
         .back-home {
             position: fixed;
             top: 30px;
@@ -37,7 +37,6 @@
             z-index: 1000;
         }
 
-        /* SWITCHER LINGUA */
         .lang-switch {
             position: fixed;
             top: 30px;
@@ -63,77 +62,75 @@
             opacity: 1;
         }
 
-        header { padding: 150px 20px 60px; }
+        /* HEADER ORIGINALE (POTENTE) */
+        header { padding: 120px 20px 40px; }
 
         h1 {
-            /* Titolo più sottile e spaziato */
-            font-size: clamp(2.5rem, 10vw, 6rem);
+            font-size: clamp(3.5rem, 15vw, 9rem); /* Tornato alla grandezza originale */
             text-transform: uppercase;
-            letter-spacing: 15px; /* Più respiro tra le lettere */
+            letter-spacing: 8px;
             margin: 0;
-            font-family: 'Times New Roman', serif;
             font-weight: 300;
+            line-height: 1;
+            font-family: 'Times New Roman', serif;
         }
 
         .tagline {
             font-family: 'Times New Roman', serif;
             font-style: italic;
-            font-size: clamp(1rem, 2vw, 1.4rem);
-            opacity: 0.7;
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem); /* Tornata alla grandezza originale */
+            opacity: 0.8;
             margin-top: 20px;
-            letter-spacing: 1px;
         }
 
+        /* CONTENUTO */
         .content-container {
-            max-width: 750px; 
+            max-width: 900px; 
             margin: 0 auto;
             padding: 60px 25px;
             text-align: left;
-            border-top: 1px solid #1a1a1a;
+            border-top: 1px solid #222;
         }
 
         .lang-content p {
             font-family: 'FuturaLight', sans-serif;
-            line-height: 1.9;
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-            letter-spacing: 0.3px;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
         }
 
         .hidden { display: none; }
 
-        .logo-section { padding: 60px 20px; display: flex; justify-content: center; }
-        .logo-img { width: 180px; opacity: 0.9; }
+        .logo-section { padding: 40px 20px; display: flex; justify-content: center; }
+        .logo-img { width: 250px; max-width: 80%; }
 
+        /* FOOTER PULITO */
         footer {
-            padding: 60px 25px;
-            border-top: 1px solid #1a1a1a;
+            padding: 40px 25px 60px;
+            border-top: 1px solid #333;
             font-family: 'FuturaLight', sans-serif;
-            max-width: 750px;
+            max-width: 1100px;
             margin: 0 auto;
-            letter-spacing: 2px;
             text-transform: uppercase;
+            letter-spacing: 1.5px;
         }
 
         .event-details {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            opacity: 0.8;
-            font-size: 0.8rem;
+            align-items: flex-end;
         }
 
         .date-big {
-            font-size: 2.2rem;
-            letter-spacing: 5px;
-            display: block;
+            font-size: 2.8rem;
+            letter-spacing: 3px;
+            line-height: 1;
         }
 
         @media (max-width: 850px) {
-            header { padding-top: 120px; }
-            .event-details { flex-direction: column; gap: 20px; text-align: center; }
-            h1 { letter-spacing: 8px; }
+            header { padding-top: 100px; }
+            .event-details { flex-direction: column; text-align: center; gap: 20px; align-items: center; }
         }
     </style>
 </head>
@@ -142,7 +139,7 @@
     <a href="index.html" class="back-home">← Home</a>
 
     <div class="lang-switch">
-        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button>
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
@@ -162,7 +159,7 @@
         </div>
 
         <div id="lang-es" class="lang-content hidden">
-            <p>Antes de la forma, antes del orden, antes de la bellezza, existía el caos.</p>
+            <p>Antes de la forma, antes del orden, antes de la belleza, existía il caos.</p>
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
             <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
@@ -179,6 +176,7 @@
         <div class="event-details">
             <div style="text-align: left;">
                 <span class="date-big">16.05.2026</span>
+                <span style="font-size: 0.8rem; display: block; margin-top: 5px;">Start at 17:00 - 21:00</span>
             </div>
             <div style="text-align: right;">
                 <span>Pallars 317, Barcelona</span>
