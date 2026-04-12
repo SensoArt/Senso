@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Principium</title>
     <style>
-        /* FONT FUTURA PER TESTI E DATA */
         @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
@@ -22,7 +21,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* STILE TASTO BACK HOME */
+        /* TASTO HOME */
         .back-home {
             position: fixed;
             top: 30px;
@@ -38,19 +37,41 @@
             z-index: 1000;
         }
 
-        .back-home:hover {
-            opacity: 1;
+        /* SWITCHER LINGUA */
+        .lang-switch {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            z-index: 1000;
+            opacity: 0.8;
         }
 
-        header { padding: 120px 20px 40px; } /* Aumentato padding per non sovrapporsi al tasto Home su desktop */
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 0 5px;
+            opacity: 0.4;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        header { padding: 120px 20px 40px; }
 
         h1 {
             font-size: clamp(3.5rem, 15vw, 9rem);
             text-transform: uppercase;
             letter-spacing: 8px;
             margin: 0;
-            font-weight: 300;
-            line-height: 1;
             font-family: 'Times New Roman', serif;
         }
 
@@ -62,101 +83,44 @@
             margin-top: 20px;
         }
 
-        .curatorial-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            max-width: 1100px;
+        .content-container {
+            max-width: 800px; /* Più stretto per leggere meglio ora che è una colonna sola */
             margin: 0 auto;
             padding: 60px 25px;
-            gap: 60px;
             text-align: left;
             border-top: 1px solid #222;
         }
 
-        .lang-column h2 {
-            font-family: 'Times New Roman', serif;
-            font-weight: normal;
-            font-size: 1.8rem;
-            border-bottom: 1px solid #333;
-            padding-bottom: 15px;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .lang-column p {
+        .lang-content p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 1.8;
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 25px;
-            letter-spacing: 0.5px;
         }
 
-        .logo-section { 
-            padding: 20px 20px; 
-            display: flex;
-            justify-content: center;
-        }
-        
-        .logo-img { 
-            width: 250px; 
-            max-width: 80%; 
-            height: auto;
-        }
+        /* NASCONDI LA LINGUA NON SELEZIONATA */
+        .hidden { display: none; }
+
+        .logo-section { padding: 40px 20px; display: flex; justify-content: center; }
+        .logo-img { width: 200px; max-width: 80%; }
 
         footer {
-            padding: 20px 25px 60px; 
+            padding: 40px 25px 60px;
             border-top: 1px solid #333;
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
             max-width: 1100px;
             margin: 0 auto;
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
 
-        .date-info { 
-            text-align: left; 
-            display: block;
-            flex: 1;
-        }
-        
-        .date-big { 
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 2.8rem; 
-            display: block; 
-            margin-bottom: 5px; 
-            letter-spacing: 3px;
-            line-height: 1;
-            text-align: left;
-        }
-
-        .contact-info { 
-            text-align: right; 
-            opacity: 0.8; 
-            flex: 1;
-        }
-
-        .contact-info a {
-            color: inherit;
-            text-decoration: none;
-            transition: opacity 0.3s;
-        }
-
-        .contact-info a:hover {
-            opacity: 0.5;
-        }
-
         @media (max-width: 850px) {
-            .curatorial-grid { grid-template-columns: 1fr; }
-            footer { flex-direction: column; text-align: center; gap: 40px; padding-bottom: 40px; }
-            .date-big, .date-info, .contact-info { text-align: center; }
+            footer { flex-direction: column; text-align: center; gap: 30px; }
             header { padding-top: 100px; }
-            .back-home { top: 20px; left: 20px; font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -164,14 +128,19 @@
 
     <a href="index.html" class="back-home">← Home</a>
 
+    <div class="lang-switch">
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
+        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+    </div>
+
     <header>
         <h1>PRINCIPIUM</h1>
         <p class="tagline">In the beginning there was chaos</p>
     </header>
 
-    <main class="curatorial-grid">
-        <div class="lang-column">
-            <h2>Principium — EN</h2>
+    <main class="content-container">
+        
+        <div id="lang-en" class="lang-content">
             <p>Before form, before order, before beauty, there was chaos.</p>
             <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
             <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
@@ -179,14 +148,14 @@
             <p style="font-family: 'Times New Roman', serif; font-style: italic;">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
         </div>
 
-        <div class="lang-column">
-            <h2>Principium — ES</h2>
+        <div id="lang-es" class="lang-content hidden">
             <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
             <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
             <p style="font-family: 'Times New Roman', serif; font-style: italic;">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
+
     </main>
 
     <div class="logo-section">
@@ -194,15 +163,31 @@
     </div>
 
     <footer>
-        <div class="date-info">
-            <span class="date-big">16.05.2026</span>
-            <span>Start at 17:00 - 21:00 | Pallars 317, Barcelona</span>
+        <div style="text-align: left;">
+            <span style="font-size: 2rem; display: block; margin-bottom: 10px;">16.05.2026</span>
+            <span>Pallars 317, Barcelona</span>
         </div>
-        <div class="contact-info">
-            <a href="https://www.instagram.com/senso_art_/" target="_blank">@senso_art_</a><br>
+        <div style="text-align: right;">
+            <a href="https://www.instagram.com/senso_art_/" target="_blank" style="color:#fff; text-decoration:none;">@senso_art_</a><br>
             contact@senso-art.com
         </div>
     </footer>
+
+    <script>
+        function setLang(lang) {
+            // Nascondi tutti i contenuti
+            document.getElementById('lang-en').classList.add('hidden');
+            document.getElementById('lang-es').classList.add('hidden');
+            
+            // Mostra quello scelto
+            document.getElementById('lang-' + lang).classList.remove('hidden');
+            
+            // Gestisci l'aspetto dei bottoni
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-es').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
 
 </body>
 </html>
