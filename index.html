@@ -34,7 +34,6 @@
             font-family: 'Times New Roman', serif;
         }
 
-        /* TAGLINE AL FONT ORIGINALE */
         .tagline {
             font-family: 'Times New Roman', serif;
             font-style: italic;
@@ -74,7 +73,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* SEZIONE LOGO - SPAZIO RIDOTTO */
         .logo-section { 
             padding: 20px 20px; 
             display: flex;
@@ -87,7 +85,6 @@
             height: auto;
         }
 
-        /* FOOTER CORRETTO E PIÙ VICINO */
         footer {
             padding: 20px 25px 60px; 
             border-top: 1px solid #333;
@@ -102,7 +99,6 @@
             text-transform: uppercase;
         }
 
-        /* DATA E INDIRIZZO ALLINEATI A SINISTRA */
         .date-info { 
             text-align: left; 
             display: block;
@@ -123,6 +119,17 @@
             text-align: right; 
             opacity: 0.8; 
             flex: 1;
+        }
+
+        /* Stile per il link Instagram */
+        .contact-info a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.5;
         }
 
         @media (max-width: 850px) {
@@ -170,7 +177,7 @@
             <span>Start at 17:00 - 21:00 | Pallars 317, Barcelona</span>
         </div>
         <div class="contact-info">
-            @senso_art_<br>
+            <a href="https://www.instagram.com/senso_art_/" target="_blank">@senso_art_</a><br>
             contact@senso-art.com
         </div>
     </footer>
