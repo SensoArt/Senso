@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,19 +19,21 @@
             font-style: normal;
         }
 
-        /* ANIMAZIONE DI COMPARSA */
+        /* ANIMAZIONE DI COMPARSA (FADE-IN) */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.2s ease-out forwards;
+            opacity: 0; /* Parte invisibile */
+            animation: fadeIn 1.5s ease-out forwards;
         }
 
+        /* Ritardi per un'apparizione ritmata */
         .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.8s; }
+        .delay-2 { animation-delay: 0.9s; }
+        .delay-3 { animation-delay: 1.4s; }
 
         body {
             background-color: #000;
@@ -81,48 +83,51 @@
 
         .lang-btn.active { opacity: 1; }
 
-        /* HEADER CENTRATO */
+        /* HEADER CENTRATO CON FONT CLASSICO */
         header { 
-            padding: 150px 20px 60px; 
-            max-width: 900px; 
+            padding: 160px 20px 60px; 
+            max-width: 950px; 
             margin: 0 auto; 
         }
 
         h1 {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(3rem, 12vw, 6rem); /* Un po' più grande perché centrato */
-            text-transform: uppercase; /* Lo teniamo maiuscolo per impatto? Altrimenti metti lowercase */
-            letter-spacing: 4px;
+            /* Ripristino font classico potente */
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: clamp(3rem, 12vw, 8rem); /* Grande e d'impatto */
+            text-transform: uppercase;
+            letter-spacing: 12px; /* Molta spaziatura */
             margin: 0;
-            font-weight: normal;
-            line-height: 1;
+            font-weight: 300; /* Leggero */
+            line-height: 0.9;
         }
 
         .tagline {
+            /* Tagline con font speciale per contrasto */
             font-family: 'BehindNineties', serif;
             font-size: clamp(1.2rem, 3vw, 2rem);
             opacity: 0.7;
-            margin-top: 20px;
+            margin-top: 25px;
             text-transform: lowercase;
         }
 
-        /* CONTENUTO CENTRATO */
+        /* CONTENUTO CENTRATO E LEGGIBILE */
         .content-container {
-            max-width: 800px; 
+            max-width: 850px; 
             margin: 0 auto;
             padding: 40px 25px;
-            text-align: center; /* Centrato */
+            text-align: center;
         }
 
         .lang-content p {
             font-family: 'FuturaLight', sans-serif;
             line-height: 2;
-            font-size: 1.2rem;
-            opacity: 0.85;
+            font-size: 1.25rem; /* Testo grande per leggibilità */
+            opacity: 0.9;
             margin-bottom: 35px;
             letter-spacing: 0.5px;
         }
 
+        /* Frase finale d'effetto */
         .highlight-text {
             font-family: 'BehindNineties', serif;
             font-size: 1.8rem;
@@ -133,8 +138,9 @@
 
         .hidden { display: none; }
 
+        /* SEZIONE LOGO */
         .logo-section { 
-            padding: 60px 20px; 
+            padding: 80px 20px; 
             display: flex; 
             justify-content: center; 
             border-top: 1px solid #1a1a1a;
@@ -143,7 +149,7 @@
 
         /* FOOTER */
         footer {
-            padding: 60px 25px 100px;
+            padding: 60px 25px 120px;
             border-top: 1px solid #1a1a1a;
             font-family: 'FuturaLight', sans-serif;
             max-width: 850px;
@@ -177,9 +183,10 @@
             line-height: 1.6;
         }
 
+        /* ADATTAMENTO MOBILE */
         @media (max-width: 600px) {
-            header { padding-top: 120px; }
-            h1 { font-size: 3.5rem; }
+            header { padding-top: 130px; }
+            h1 { font-size: 3.5rem; letter-spacing: 6px; }
             .event-details { 
                 flex-direction: column; 
                 gap: 40px; 
@@ -198,7 +205,7 @@
     </div>
 
     <header class="fade-in delay-1">
-        <h1>principium</h1>
+        <h1>PRINCIPIUM</h1>
         <p class="tagline">in the beginning there was chaos</p>
     </header>
 
@@ -222,11 +229,11 @@
 
     </main>
 
-    <div class="logo-section fade-in delay-2">
+    <div class="logo-section fade-in delay-3">
         <img src="senso_logo blanco_fondo negro.png" alt="Senso Art Logo" class="logo-img">
     </div>
 
-    <footer class="fade-in delay-2">
+    <footer class="fade-in delay-3">
         <div class="event-details">
             <div class="date-row">
                 <span class="date-text">16.05.2026</span>
