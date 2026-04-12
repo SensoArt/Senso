@@ -15,7 +15,6 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
         }
 
-        /* ANIMAZIONE FADE IN */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
@@ -45,7 +44,6 @@
             text-align: center;
         }
 
-        /* TORNA ALLA HOME */
         .back-home {
             position: fixed;
             top: 25px;
@@ -57,13 +55,9 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             opacity: 0.5;
-            transition: opacity 0.3s;
             z-index: 1000;
         }
 
-        .back-home:hover { opacity: 1; }
-
-        /* TITOLO PAGINA */
         h1 {
             font-family: 'BehindNineties', serif;
             font-size: clamp(2.5rem, 8vw, 4rem);
@@ -72,7 +66,6 @@
             font-weight: normal;
         }
 
-        /* SEZIONE LINKS */
         .contact-links {
             margin-bottom: 70px;
         }
@@ -85,12 +78,8 @@
             letter-spacing: 2px;
             margin: 15px 0;
             opacity: 0.8;
-            transition: opacity 0.3s;
         }
 
-        .contact-links a:hover { opacity: 1; }
-
-        /* BOX PROFILAZIONE / NEWSLETTER */
         .newsletter-box {
             max-width: 500px;
             width: 85%;
@@ -98,7 +87,6 @@
             padding-top: 60px;
         }
 
-        /* Testo aggiornato: più grande e leggibile */
         .newsletter-box p {
             font-size: 1.1rem;
             letter-spacing: 1.5px;
@@ -125,15 +113,6 @@
             outline: none;
             text-transform: uppercase;
             text-align: center;
-            transition: border-color 0.3s;
-        }
-
-        input:focus {
-            border-bottom-color: #fff;
-        }
-
-        input::placeholder {
-            color: #444;
         }
 
         .submit-btn {
@@ -146,20 +125,16 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             font-size: 0.65rem;
-            opacity: 0.7;
-            transition: all 0.3s;
+            transition: 0.3s;
         }
 
         .submit-btn:hover {
-            opacity: 1;
-            border-color: #fff;
             background: #fff;
             color: #000;
         }
 
         @media (max-width: 600px) {
             h1 { font-size: 3rem; }
-            .newsletter-box { width: 90%; }
             .newsletter-box p { font-size: 1rem; }
         }
     </style>
@@ -180,10 +155,10 @@
     <div class="newsletter-box fade-in delay-3">
         <p>Get updates on artists, exhibitions, and events.</p>
         
-        <form class="form-group">
-            <input type="text" placeholder="First Name" required>
-            <input type="text" placeholder="Last Name" required>
-            <input type="email" placeholder="Email Address" required>
+        <form action="https://formspree.io/f/IL_TUO_ID_QUI" method="POST" class="form-group">
+            <input type="text" name="First Name" placeholder="First Name" required>
+            <input type="text" name="Last Name" placeholder="Last Name" required>
+            <input type="email" name="Email" placeholder="Email Address" required>
             
             <button type="submit" class="submit-btn">Subscribe</button>
         </form>
