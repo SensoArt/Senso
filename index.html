@@ -11,7 +11,7 @@
         }
 
         body {
-            background-color: #000;
+            background-color: #000; /* Nero assoluto */
             color: #fff;
             margin: 0;
             height: 100vh;
@@ -28,8 +28,8 @@
             width: 350px; 
             max-width: 80%;
             margin-bottom: 50px;
-            /* FIX PER MOBILE: fonde il nero dell'immagine con il nero del sito */
-            mix-blend-mode: screen;
+            /* TRUCCO PER MOBILE: Elimina il rettangolo nero differente */
+            mix-blend-mode: screen; 
             filter: brightness(1.1);
         }
 
@@ -54,12 +54,13 @@
 
         @media (max-width: 600px) {
             nav { flex-direction: column; gap: 20px; }
+            .logo-home { width: 280px; }
         }
     </style>
 </head>
 <body>
 
-    <img src="senso_logo blanco_fondo negro.png" alt="SENSO Logo" class="logo-home">
+    <img src="senso_logo_blanco.png" alt="SENSO Logo" class="logo-home">
 
     <nav>
         <a href="principium.html">Principium (Current)</a>
