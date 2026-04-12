@@ -37,7 +37,7 @@
             padding: 0;
             text-align: center;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden; /* Impedisce lo scorrimento laterale */
+            overflow-x: hidden;
         }
 
         .back-home {
@@ -149,27 +149,42 @@
         .date-text { font-size: 1.4rem; letter-spacing: 3px; }
         .location-text { text-align: right; opacity: 0.8; }
 
-        /* FIX PER MOBILE - RISOLVE L'EFFETTO "SMOLLATO" */
+        /* MODIFICHE PER MOBILE AGGIORNATE */
         @media (max-width: 600px) {
-            header { padding-top: 120px; padding-bottom: 40px; }
+            header { padding-top: 140px; padding-bottom: 30px; }
             
             h1 { 
-                font-size: 2.2rem; /* Ridotto sensibilmente */
-                letter-spacing: 4px; /* Ridotto per non uscire dai bordi */
+                font-size: 3.2rem; /* Aumentato per impatto visivo */
+                letter-spacing: 2px; /* Ridotto lo spazio tra lettere per farlo stare in larghezza */
+                line-height: 1;
                 width: 100%;
             }
 
-            .tagline { font-size: 1.1rem; }
+            .tagline { 
+                font-size: 1.3rem; 
+                margin-top: 15px;
+            }
 
-            .content-container { padding: 20px; }
-            .lang-content p { font-size: 1.1rem; line-height: 1.8; }
+            .content-container { padding: 10px 25px; }
+            
+            .lang-content p { 
+                font-size: 1.2rem; /* Testo più leggibile */
+                line-height: 1.7; 
+                margin-bottom: 25px;
+            }
+
+            .highlight-text {
+                font-size: 1.6rem;
+                line-height: 1.4;
+            }
 
             .event-details { 
                 flex-direction: column; 
-                gap: 30px; 
+                gap: 40px; 
                 text-align: center;
             }
             .date-row, .location-text { text-align: center; }
+            .date-text { font-size: 1.6rem; }
         }
     </style>
 </head>
