@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Principium</title>
     
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         @font-face { 
@@ -17,70 +17,79 @@
             background-color: #000;
             color: #fff;
             margin: 0;
-            height: 100vh;
+            padding: 0;
+            height: 100dvh; /* dvh serve per il mobile, evita i problemi con la barra di Safari */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: 'FuturaLight', sans-serif;
             text-align: center;
+            overflow: hidden;
         }
 
-        /* SOLUZIONE DEFINITIVA PER IL CORSIVO */
-        h1 {
+        /* TITOLO: Times New Roman, dritto, adattivo */
+        .main-title {
             font-family: "Times New Roman", Times, serif !important;
-            font-style: normal !important; /* Forza il testo dritto */
-            font-weight: 400 !important; /* Forza lo spessore regolare, non grassetto */
-            font-size: clamp(3.5rem, 12vw, 7rem);
+            font-style: normal !important;
+            font-weight: normal !important;
+            /* Si adatta perfettamente tra mobile e desktop */
+            font-size: clamp(2.8rem, 10vw, 7rem); 
             margin: 0;
             text-transform: lowercase;
-            letter-spacing: -2px;
-            display: block;
-            -webkit-font-style: normal !important; /* Specifica per browser Safari/Chrome */
+            letter-spacing: -1px;
+            line-height: 1;
         }
 
         .subtitle {
-            letter-spacing: 6px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: clamp(0.6rem, 2vw, 0.75rem);
             opacity: 0.5;
-            margin-top: 5px;
-            margin-bottom: 80px;
+            margin-top: 10px;
+            margin-bottom: 8vh; /* Spazio fluido basato sull'altezza dello schermo */
         }
 
+        /* COUNTDOWN ADATTIVO */
         #countdown {
             display: flex;
-            gap: 45px;
+            gap: clamp(15px, 5vw, 45px);
         }
 
         .time-segment {
             display: flex;
             flex-direction: column;
-            min-width: 70px;
+            min-width: clamp(45px, 12vw, 80px);
         }
 
         .time-value {
-            font-size: 2rem;
-            letter-spacing: 2px;
+            font-size: clamp(1.2rem, 5vw, 2.2rem);
+            letter-spacing: 1px;
         }
 
         .label {
-            font-size: 0.55rem;
+            font-size: clamp(0.45rem, 1.5vw, 0.55rem);
             opacity: 0.4;
-            margin-top: 10px;
-            letter-spacing: 3px;
+            margin-top: 8px;
+            letter-spacing: 2px;
         }
 
         .back-home {
-            position: fixed;
-            top: 25px;
+            position: absolute;
+            top: 20px;
             left: 20px;
             text-decoration: none;
             color: #fff;
             text-transform: uppercase;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 2px;
-            opacity: 0.5;
+            opacity: 0.4;
+        }
+
+        /* FIX SPECIFICO PER SCHERMI MOLTO PICCOLI */
+        @media (max-height: 500px) {
+            .subtitle { margin-bottom: 20px; }
+            .main-title { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -88,7 +97,7 @@
 
     <a href="index.html" class="back-home">← Home</a>
 
-    <h1>principium</h1>
+    <div class="main-title">principium</div>
     <p class="subtitle">May 16, 2026 — Barcelona</p>
 
     <div id="countdown">
