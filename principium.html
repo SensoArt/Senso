@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Principium</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#000000">
 
     <style>
         @font-face {
@@ -55,7 +58,10 @@
             letter-spacing: 2px;
             opacity: 0.5;
             z-index: 1000;
+            transition: opacity 0.3s;
         }
+
+        .back-home:hover { opacity: 1; }
 
         .lang-switch {
             position: fixed;
@@ -152,40 +158,14 @@
         .date-text { font-size: 1.4rem; letter-spacing: 3px; }
         .location-text { text-align: right; opacity: 0.8; }
 
-        /* MODIFICHE PER MOBILE AGGIORNATE */
         @media (max-width: 600px) {
             header { padding-top: 140px; padding-bottom: 30px; }
-            
-            h1 { 
-                font-size: 3.2rem; 
-                letter-spacing: 2px; 
-                line-height: 1;
-                width: 100%;
-            }
-
-            .tagline { 
-                font-size: 1.3rem; 
-                margin-top: 15px;
-            }
-
+            h1 { font-size: 3.2rem; letter-spacing: 2px; line-height: 1; width: 100%; }
+            .tagline { font-size: 1.3rem; margin-top: 15px; }
             .content-container { padding: 10px 25px; }
-            
-            .lang-content p { 
-                font-size: 1.2rem; 
-                line-height: 1.7; 
-                margin-bottom: 25px;
-            }
-
-            .highlight-text {
-                font-size: 1.6rem;
-                line-height: 1.4;
-            }
-
-            .event-details { 
-                flex-direction: column; 
-                gap: 40px; 
-                text-align: center;
-            }
+            .lang-content p { font-size: 1.2rem; line-height: 1.7; margin-bottom: 25px; }
+            .highlight-text { font-size: 1.6rem; line-height: 1.4; }
+            .event-details { flex-direction: column; gap: 40px; text-align: center; }
             .date-row, .location-text { text-align: center; }
             .date-text { font-size: 1.6rem; }
         }
