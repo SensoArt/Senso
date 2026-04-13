@@ -173,6 +173,31 @@
             <button type="submit" class="submit-btn">Subscribe</button>
         </form>
     </div>
+<script>
+    const form = document.querySelector('.form-group');
+    const btn = document.querySelector('.submit-btn');
 
+    form.onsubmit = async (e) => {
+        e.preventDefault(); // Impedisce il caricamento della pagina brutta
+        btn.innerText = "SENDING...";
+        btn.disabled = true;
+
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            btn.innerText = "THANK YOU";
+            form.reset(); // Pulisce i campi
+            setTimeout(() => { btn.innerText = "SUBSCRIBE"; btn.disabled = false; }, 3000);
+        } else {
+            btn.innerText = "ERROR";
+            btn.disabled = false;
+        }
+    };
+</script>
 </body>
 </html>
