@@ -28,19 +28,19 @@
             overflow: hidden;
         }
 
-        /* IL TITOLO: BLINDATO CONTRO IL CORSIVO */
-        .title-monumental {
+        /* TITOLO: Più grande su Desktop, Proporzionato su Mobile */
+        .main-title {
             font-family: "Times New Roman", Times, serif !important;
             font-style: normal !important;
             font-weight: normal !important;
-            font-size: clamp(2.2rem, 9vw, 6rem); 
+            /* clamp(minimo, preferito, massimo) */
+            font-size: clamp(2.2rem, 12vw, 8.5rem); 
             margin: 0;
-            text-transform: uppercase; /* PRINCIPIUM */
-            letter-spacing: clamp(4px, 1.5vw, 10px);
+            text-transform: uppercase;
+            letter-spacing: clamp(4px, 1.2vw, 12px);
             line-height: 1;
             display: block;
-            /* Forza il browser a non inclinare il font */
-            -webkit-font-style: normal !important;
+            width: 90%; /* Evita che tocchi i bordi su mobile */
         }
 
         .subtitle {
@@ -48,37 +48,38 @@
             text-transform: uppercase;
             font-size: clamp(0.6rem, 2vw, 0.75rem);
             opacity: 0.5;
-            margin: 20px 0 70px 0;
+            margin: 20px 0 60px 0;
         }
 
-        /* COUNTDOWN MOBILE-READY */
+        /* COUNTDOWN ADATTIVO */
         #countdown {
             display: flex;
             justify-content: center;
-            gap: clamp(15px, 5vw, 45px);
+            gap: clamp(10px, 4vw, 40px);
+            width: 100%;
         }
 
         .time-segment {
             display: flex;
             flex-direction: column;
-            min-width: clamp(50px, 15vw, 85px);
+            min-width: clamp(50px, 15vw, 90px);
         }
 
         .time-value {
-            font-size: clamp(1.4rem, 6vw, 2.2rem);
+            font-size: clamp(1.4rem, 6vw, 2.5rem);
             letter-spacing: 2px;
         }
 
         .label {
             font-size: clamp(0.45rem, 1.5vw, 0.55rem);
             opacity: 0.4;
-            margin-top: 10px;
+            margin-top: 8px;
             letter-spacing: 2px;
         }
 
         .back-home {
             position: absolute;
-            top: 30px;
+            top: 25px;
             left: 20px;
             text-decoration: none;
             color: #fff;
@@ -86,6 +87,16 @@
             font-size: 0.6rem;
             letter-spacing: 2px;
             opacity: 0.4;
+            transition: 0.3s;
+        }
+
+        .back-home:hover { opacity: 1; }
+
+        /* Fix extra per telefoni molto piccoli */
+        @media (max-width: 380px) {
+            .main-title { font-size: 1.8rem; letter-spacing: 3px; }
+            #countdown { gap: 8px; }
+            .time-segment { min-width: 45px; }
         }
     </style>
 </head>
@@ -93,7 +104,7 @@
 
     <a href="index.html" class="back-home">← Home</a>
 
-    <div class="title-monumental">PRINCIPIUM</div>
+    <div class="main-title">PRINCIPIUM</div>
     
     <p class="subtitle">May 16, 2026 — Barcelona</p>
 
