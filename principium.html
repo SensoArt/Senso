@@ -18,7 +18,7 @@
             color: #fff;
             margin: 0;
             padding: 0;
-            height: 100dvh; /* dvh serve per il mobile, evita i problemi con la barra di Safari */
+            height: 100dvh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -28,17 +28,21 @@
             overflow: hidden;
         }
 
-        /* TITOLO: Times New Roman, dritto, adattivo */
+        /* SOLUZIONE ATOMICA: 
+           Usiamo "serif" generico per evitare che il browser cerchi file di font corrotti.
+           Aggiungiamo una trasformazione che raddrizza il testo forzatamente.
+        */
         .main-title {
-            font-family: "Times New Roman", Times, serif !important;
+            font-family: serif !important; /* Forza il font di sistema (Times) */
             font-style: normal !important;
-            font-weight: normal !important;
-            /* Si adatta perfettamente tra mobile e desktop */
-            font-size: clamp(2.8rem, 10vw, 7rem); 
+            font-weight: 400 !important;
+            font-size: clamp(2.5rem, 12vw, 7rem); 
             margin: 0;
             text-transform: lowercase;
             letter-spacing: -1px;
             line-height: 1;
+            /* Questo comando annulla qualsiasi inclinazione residua */
+            transform: skewX(0deg) !important;
         }
 
         .subtitle {
@@ -46,24 +50,29 @@
             text-transform: uppercase;
             font-size: clamp(0.6rem, 2vw, 0.75rem);
             opacity: 0.5;
-            margin-top: 10px;
-            margin-bottom: 8vh; /* Spazio fluido basato sull'altezza dello schermo */
+            margin: 15px 0 60px 0;
         }
 
-        /* COUNTDOWN ADATTIVO */
+        /* COUNTDOWN MOBILE-READY */
         #countdown {
             display: flex;
-            gap: clamp(15px, 5vw, 45px);
+            justify-content: center;
+            width: 100%;
+            gap: clamp(10px, 4vw, 40px);
+            padding: 0 10px;
+            box-sizing: border-box;
         }
 
         .time-segment {
             display: flex;
             flex-direction: column;
-            min-width: clamp(45px, 12vw, 80px);
+            align-items: center;
+            flex: 1;
+            max-width: 80px;
         }
 
         .time-value {
-            font-size: clamp(1.2rem, 5vw, 2.2rem);
+            font-size: clamp(1.3rem, 6vw, 2.2rem);
             letter-spacing: 1px;
         }
 
@@ -76,7 +85,7 @@
 
         .back-home {
             position: absolute;
-            top: 20px;
+            top: 25px;
             left: 20px;
             text-decoration: none;
             color: #fff;
@@ -85,12 +94,6 @@
             letter-spacing: 2px;
             opacity: 0.4;
         }
-
-        /* FIX SPECIFICO PER SCHERMI MOLTO PICCOLI */
-        @media (max-height: 500px) {
-            .subtitle { margin-bottom: 20px; }
-            .main-title { font-size: 2.2rem; }
-        }
     </style>
 </head>
 <body>
@@ -98,6 +101,7 @@
     <a href="index.html" class="back-home">← Home</a>
 
     <div class="main-title">principium</div>
+    
     <p class="subtitle">May 16, 2026 — Barcelona</p>
 
     <div id="countdown">
