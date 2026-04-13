@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Senso — Principium</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#000000">
+
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+        }
+
+        /* ANIMAZIONE FADE-IN */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.3s; }
+        .delay-2 { animation-delay: 0.9s; }
+        .delay-3 { animation-delay: 1.4s; }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        .back-home {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'FuturaLight', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            z-index: 1000;
+            transition: opacity 0.3s;
+        }
+
+        .back-home:hover { opacity: 1; }
+
+        .lang-switch {
+            position: fixed;
+            top: 25px;
+            right: 20px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.65rem;
+            z-index: 1000;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            padding: 0 5px;
+            opacity: 0.3;
+            text-transform: uppercase;
+        }
+
+        .lang-btn.active { opacity: 1; }
+
+        header { 
+            padding: 160px 20px 60px; 
+            max-width: 100%; 
+            margin: 0 auto; 
+        }
+
+        h1 {
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: clamp(3rem, 10vw, 8rem);
+            text-transform: uppercase;
+            letter-spacing: 12px;
+            margin: 0;
+            font-weight: 300;
+            line-height: 0.9;
+            display: inline-block;
+        }
+
+        .tagline {
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            opacity: 0.7;
+            margin-top: 25px;
+            text-transform: lowercase;
+        }
+
+        .content-container {
+            max-width: 850px; 
+            margin: 0 auto;
+            padding: 40px 25px;
+        }
+
+        .lang-content p {
+            font-family: 'FuturaLight', sans-serif;
+            line-height: 2;
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 35px;
+        }
+
+        .highlight-text {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.8rem;
+            margin-top: 50px;
+            text-transform: lowercase;
+        }
+
+        .hidden { display: none; }
+
+        .logo-section { 
+            padding: 80px 20px; 
+            border-top: 1px solid #1a1a1a;
+        }
+        .logo-img { width: 220px; max-width: 80%; opacity: 0.9; mix-blend-mode: screen; }
+
+        footer {
+            padding: 60px 25px 120px;
+            border-top: 1px solid #1a1a1a;
+            font-family: 'FuturaLight', sans-serif;
+            max-width: 850px;
+            margin: 0 auto;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        .event-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-row { text-align: left; }
+        .date-text { font-size: 1.4rem; letter-spacing: 3px; }
+        .location-text { text-align: right; opacity: 0.8; }
+
+        @media (max-width: 600px) {
+            header { padding-top: 140px; padding-bottom: 30px; }
+            h1 { font-size: 3.2rem; letter-spacing: 2px; line-height: 1; width: 100%; }
+            .tagline { font-size: 1.3rem; margin-top: 15px; }
+            .content-container { padding: 10px 25px; }
+            .lang-content p { font-size: 1.2rem; line-height: 1.7; margin-bottom: 25px; }
+            .highlight-text { font-size: 1.6rem; line-height: 1.4; }
+            .event-details { flex-direction: column; gap: 40px; text-align: center; }
+            .date-row, .location-text { text-align: center; }
+            .date-text { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home">← Home</a>
+
+    <div class="lang-switch">
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
+        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+    </div>
+
+    <header class="fade-in delay-1">
+        <h1>PRINCIPIUM</h1>
+        <p class="tagline">in the beginning there was chaos</p>
+    </header>
+
+    <main class="content-container fade-in delay-2">
+        <div id="lang-en" class="lang-content">
+            <p>Before form, before order, before beauty, there was chaos.</p>
+            <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
+            <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
+            <p>Analog sound and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
+            <p class="highlight-text">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
+        </div>
+
+        <div id="lang-es" class="lang-content hidden">
+            <p>Antes de la forma, antes del orden, antes de la bellezza, existía el caos.</p>
+            <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
+            <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y affinities.</p>
+            <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando il espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
+            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
+        </div>
+    </main>
+
+    <div class="logo-section fade-in delay-3">
+        <img src="senso_logo_blanco.png" alt="Senso Art Logo" class="logo-img">
+    </div>
+
+    <footer class="fade-in delay-3">
+        <div class="event-details">
+            <div class="date-row">
+                <span class="date-text">16.05.2026</span><br>
+                <span class="time-text">Start at 17:00 — 21:00</span>
+            </div>
+            <div class="location-text">
+                <span>Carrer de Pallars 317,<br>Barcelona</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function setLang(lang) {
+            document.getElementById('lang-en').classList.add('hidden');
+            document.getElementById('lang-es').classList.add('hidden');
+            document.getElementById('lang-' + lang).classList.remove('hidden');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-es').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
