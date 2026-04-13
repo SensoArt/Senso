@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Senso — Principium</title>
+    <title>Senso — PRINCIPIUM</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -28,64 +28,57 @@
             overflow: hidden;
         }
 
-        /* SOLUZIONE ATOMICA: 
-           Usiamo "serif" generico per evitare che il browser cerchi file di font corrotti.
-           Aggiungiamo una trasformazione che raddrizza il testo forzatamente.
-        */
-        .main-title {
-            font-family: serif !important; /* Forza il font di sistema (Times) */
+        /* IL TITOLO: BLINDATO CONTRO IL CORSIVO */
+        .title-monumental {
+            font-family: "Times New Roman", Times, serif !important;
             font-style: normal !important;
-            font-weight: 400 !important;
-            font-size: clamp(2.5rem, 12vw, 7rem); 
+            font-weight: normal !important;
+            font-size: clamp(2.2rem, 9vw, 6rem); 
             margin: 0;
-            text-transform: lowercase;
-            letter-spacing: -1px;
+            text-transform: uppercase; /* PRINCIPIUM */
+            letter-spacing: clamp(4px, 1.5vw, 10px);
             line-height: 1;
-            /* Questo comando annulla qualsiasi inclinazione residua */
-            transform: skewX(0deg) !important;
+            display: block;
+            /* Forza il browser a non inclinare il font */
+            -webkit-font-style: normal !important;
         }
 
         .subtitle {
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
             font-size: clamp(0.6rem, 2vw, 0.75rem);
             opacity: 0.5;
-            margin: 15px 0 60px 0;
+            margin: 20px 0 70px 0;
         }
 
         /* COUNTDOWN MOBILE-READY */
         #countdown {
             display: flex;
             justify-content: center;
-            width: 100%;
-            gap: clamp(10px, 4vw, 40px);
-            padding: 0 10px;
-            box-sizing: border-box;
+            gap: clamp(15px, 5vw, 45px);
         }
 
         .time-segment {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            flex: 1;
-            max-width: 80px;
+            min-width: clamp(50px, 15vw, 85px);
         }
 
         .time-value {
-            font-size: clamp(1.3rem, 6vw, 2.2rem);
-            letter-spacing: 1px;
+            font-size: clamp(1.4rem, 6vw, 2.2rem);
+            letter-spacing: 2px;
         }
 
         .label {
             font-size: clamp(0.45rem, 1.5vw, 0.55rem);
             opacity: 0.4;
-            margin-top: 8px;
+            margin-top: 10px;
             letter-spacing: 2px;
         }
 
         .back-home {
             position: absolute;
-            top: 25px;
+            top: 30px;
             left: 20px;
             text-decoration: none;
             color: #fff;
@@ -100,7 +93,7 @@
 
     <a href="index.html" class="back-home">← Home</a>
 
-    <div class="main-title">principium</div>
+    <div class="title-monumental">PRINCIPIUM</div>
     
     <p class="subtitle">May 16, 2026 — Barcelona</p>
 
