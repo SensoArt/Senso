@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
 
     <style>
-        /* CARICHIAMO SOLO IL FUTURA PER IL TIMER */
         @font-face { 
             font-family: 'FuturaLight'; 
             src: url('Fonts/futura light bt.ttf') format('truetype'); 
@@ -27,15 +26,17 @@
             text-align: center;
         }
 
-        /* TITOLO: SOLO TIMES NEW ROMAN, DRITTO */
+        /* SOLUZIONE DEFINITIVA PER IL CORSIVO */
         h1 {
-            font-family: "Times New Roman", Times, serif;
-            font-style: normal;
-            font-weight: normal;
+            font-family: "Times New Roman", Times, serif !important;
+            font-style: normal !important; /* Forza il testo dritto */
+            font-weight: 400 !important; /* Forza lo spessore regolare, non grassetto */
             font-size: clamp(3.5rem, 12vw, 7rem);
             margin: 0;
             text-transform: lowercase;
             letter-spacing: -2px;
+            display: block;
+            -webkit-font-style: normal !important; /* Specifica per browser Safari/Chrome */
         }
 
         .subtitle {
