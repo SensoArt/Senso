@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Contacts</title>
     
-    <link rel="icon" type="image/png" href="senso_isotipo_negro.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#000000">
 
     <style>
         @font-face {
@@ -59,14 +62,16 @@
             letter-spacing: 2px;
             opacity: 0.5;
             z-index: 1000;
+            transition: opacity 0.3s;
         }
 
-        /* TITOLO AGGIORNATO: Più piccolo e con spazio sopra */
+        .back-home:hover { opacity: 1; }
+
         h1 {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(2rem, 6vw, 3.2rem); /* Ridotto da 4rem a 3.2rem */
+            font-size: clamp(2rem, 6vw, 3.2rem); 
             text-transform: lowercase;
-            margin-top: 60px; /* Sposta il titolo più in basso */
+            margin-top: 60px; 
             margin-bottom: 40px;
             font-weight: normal;
         }
@@ -83,14 +88,17 @@
             letter-spacing: 2px;
             margin: 15px 0;
             opacity: 0.8;
+            transition: opacity 0.3s;
         }
+
+        .contact-links a:hover { opacity: 1; }
 
         .newsletter-box {
             max-width: 500px;
             width: 85%;
             border-top: 1px solid #1a1a1a;
             padding-top: 50px;
-            margin-bottom: 40px; /* Spazio per non toccare il fondo */
+            margin-bottom: 40px; 
         }
 
         .newsletter-box p {
@@ -141,8 +149,8 @@
 
         @media (max-width: 600px) {
             h1 { 
-                font-size: 2.2rem; /* Titolo ancora più discreto su mobile */
-                margin-top: 80px;  /* Più spazio dal bordo superiore su mobile */
+                font-size: 2.2rem; 
+                margin-top: 80px;  
             }
             .newsletter-box p { font-size: 0.95rem; }
         }
