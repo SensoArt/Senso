@@ -10,8 +10,10 @@
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
     <style>
-        @font-face { font-family: 'FuturaLight'; src: url('Fonts/futura light bt.ttf') format('truetype'); }
-        @font-face { font-family: 'BehindNineties'; src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); }
+        @font-face { 
+            font-family: 'FuturaLight'; 
+            src: url('Fonts/futura light bt.ttf') format('truetype'); 
+        }
 
         body {
             background-color: #000;
@@ -30,37 +32,57 @@
         .bg-fade {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('sillas.jpg'); /* O l'immagine che preferisci */
+            background-image: url('sillas.jpg');
             background-size: cover;
             background-position: center;
-            opacity: 0.2; /* Molto soffusa */
+            opacity: 0.15; /* Molto scura per dare mistero */
             z-index: -1;
         }
 
+        /* TITOLO COME DA TUA RICHIESTA: Times New Roman, grande, lowercase */
         h1 {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(2rem, 7vw, 4rem);
-            margin-bottom: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(3.5rem, 12vw, 7rem);
+            margin: 0;
             text-transform: lowercase;
+            font-weight: normal;
+            letter-spacing: -2px;
         }
 
         .subtitle {
-            letter-spacing: 5px;
+            font-family: 'FuturaLight', sans-serif;
+            letter-spacing: 6px;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin-bottom: 50px;
+            font-size: 0.75rem;
+            opacity: 0.5;
+            margin-top: -10px;
+            margin-bottom: 60px;
         }
 
         #countdown {
             display: flex;
-            gap: 30px;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
+            gap: 40px;
+            font-family: 'FuturaLight', sans-serif;
         }
 
-        .time-segment { display: flex; flex-direction: column; }
-        .label { font-size: 0.6rem; opacity: 0.5; margin-top: 10px; letter-spacing: 2px; }
+        .time-segment {
+            display: flex;
+            flex-direction: column;
+            min-width: 60px;
+        }
+
+        .time-value {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            font-weight: lighter;
+        }
+
+        .label {
+            font-size: 0.55rem;
+            opacity: 0.4;
+            margin-top: 8px;
+            letter-spacing: 3px;
+        }
 
         .back-home {
             position: fixed;
@@ -72,36 +94,66 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+
+        .back-home:hover { opacity: 1; }
+
+        @media (max-width: 600px) {
+            #countdown { gap: 20px; }
+            .time-value { font-size: 1.4rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="bg-fade"></div>
+    
     <a href="index.html" class="back-home">← Home</a>
 
-    <h1>principium</h1>
-    <p class="subtitle">May 16, 2026 — Barcelona</p>
+    <header>
+        <h1>principium</h1>
+        <p class="subtitle">May 16, 2026 — Barcelona</p>
+    </header>
 
     <div id="countdown">
-        <div class="time-segment"><span id="days">00</span><span class="label">DAYS</span></div>
-        <div class="time-segment"><span id="hours">00</span><span class="label">HOURS</span></div>
-        <div class="time-segment"><span id="minutes">00</span><span class="label">MINS</span></div>
-        <div class="time-segment"><span id="seconds">00</span><span class="label">SECS</span></div>
+        <div class="time-segment">
+            <span class="time-value" id="days">00</span>
+            <span class="label">DAYS</span>
+        </div>
+        <div class="time-segment">
+            <span class="time-value" id="hours">00</span>
+            <span class="label">HOURS</span>
+        </div>
+        <div class="time-segment">
+            <span class="time-value" id="minutes">00</span>
+            <span class="label">MINS</span>
+        </div>
+        <div class="time-segment">
+            <span class="time-value" id="seconds">00</span>
+            <span class="label">SECS</span>
+        </div>
     </div>
 
     <script>
+        // Imposta la data della mostra
         const targetDate = new Date("May 16, 2026 19:00:00").getTime();
 
-        setInterval(function() {
+        function updateCountdown() {
             const now = new Date().getTime();
             const diff = targetDate - now;
 
-            document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
-        }, 1000);
+            if (diff > 0) {
+                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
+        }
+
+        // Aggiorna ogni secondo
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Esecuzione immediata
     </script>
 </body>
 </html>
