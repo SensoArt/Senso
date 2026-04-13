@@ -19,6 +19,7 @@
             background-color: #000;
             color: #fff;
             margin: 0;
+            padding: 0;
             height: 100vh;
             display: flex;
             flex-direction: column;
@@ -27,26 +28,19 @@
             font-family: 'FuturaLight', sans-serif;
             text-align: center;
             overflow: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .bg-fade {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: url('sillas.jpg');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15; /* Molto scura per dare mistero */
-            z-index: -1;
-        }
-
-        /* TITOLO COME DA TUA RICHIESTA: Times New Roman, grande, lowercase */
+        /* TITOLO: Estetica iniziale, Times New Roman, No corsivo */
         h1 {
             font-family: 'Times New Roman', Times, serif;
             font-size: clamp(3.5rem, 12vw, 7rem);
             margin: 0;
             text-transform: lowercase;
-            font-weight: normal;
+            font-weight: normal; /* Assicura che non sia né grassetto né corsivo */
+            font-style: normal;  /* Rimuove categoricamente il corsivo */
             letter-spacing: -2px;
+            line-height: 1.1;
         }
 
         .subtitle {
@@ -55,32 +49,32 @@
             text-transform: uppercase;
             font-size: 0.75rem;
             opacity: 0.5;
-            margin-top: -10px;
-            margin-bottom: 60px;
+            margin-top: 5px;
+            margin-bottom: 80px;
         }
 
         #countdown {
             display: flex;
-            gap: 40px;
+            gap: 45px;
             font-family: 'FuturaLight', sans-serif;
         }
 
         .time-segment {
             display: flex;
             flex-direction: column;
-            min-width: 60px;
+            min-width: 70px;
         }
 
         .time-value {
-            font-size: 1.8rem;
+            font-size: 2rem;
             letter-spacing: 2px;
-            font-weight: lighter;
+            font-weight: normal;
         }
 
         .label {
             font-size: 0.55rem;
             opacity: 0.4;
-            margin-top: 8px;
+            margin-top: 10px;
             letter-spacing: 3px;
         }
 
@@ -94,21 +88,21 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             opacity: 0.5;
-            transition: opacity 0.3s;
+            transition: 0.3s;
         }
 
         .back-home:hover { opacity: 1; }
 
         @media (max-width: 600px) {
-            #countdown { gap: 20px; }
-            .time-value { font-size: 1.4rem; }
+            h1 { font-size: 3.2rem; }
+            #countdown { gap: 15px; }
+            .time-segment { min-width: 55px; }
+            .time-value { font-size: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="bg-fade"></div>
-    
     <a href="index.html" class="back-home">← Home</a>
 
     <header>
@@ -136,7 +130,6 @@
     </div>
 
     <script>
-        // Imposta la data della mostra
         const targetDate = new Date("May 16, 2026 19:00:00").getTime();
 
         function updateCountdown() {
@@ -144,16 +137,22 @@
             const diff = targetDate - now;
 
             if (diff > 0) {
-                document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = d.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = h.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+            } else {
+                document.getElementById("countdown").innerText = "OPENING";
             }
         }
 
-        // Aggiorna ogni secondo
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Esecuzione immediata
+        updateCountdown();
     </script>
 </body>
 </html>
