@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Senso — Archive</title>
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#000000">
+
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+        }
+
+        /* ANIMAZIONI */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Uno zoom lentissimo che dà vita alle ombre */
+        @keyframes gentleDrift {
+            from { transform: scale(1) translate(0, 0); }
+            to { transform: scale(1.08) translate(-10px, -5px); }
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'FuturaLight', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        /* Sfondo con la nuova immagine di ombre */
+        .archive-bg {
+            position: fixed;
+            top: -10%; /* Leggermente fuori per lo zoom */
+            left: -10%;
+            width: 120%; /* Più grande per lo zoom */
+            height: 120%;
+            background-image: url('archive_bg.jpg'); /* Il nome del file che salverai */
+            background-size: cover;
+            background-position: center;
+            opacity: 0.35; /* Molto scura per eleganza e leggibilità */
+            z-index: -1;
+            animation: gentleDrift 30s infinite alternate ease-in-out;
+            filter: grayscale(100%); /* Assicuriamoci che sia puro bianco e nero */
+        }
+        
+        /* Overlay per scurire ulteriormente gli angoli */
+        .bg-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: -1;
+        }
+
+        /* Tasto Back Home */
+        .back-home {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .back-home:hover { opacity: 1; }
+
+        /* Contenuto centrale */
+        .archive-content {
+            padding: 20px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* La frase in Futura */
+        .status-text {
+            font-size: 0.95rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Leggera ombra per il testo */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="archive-bg"></div>
+    <div class="bg-overlay"></div>
+
+    <a href="index.html" class="back-home">← Home</a>
+
+    <div class="archive-content">
+        <p class="status-text">Archive opening soon.</p>
+    </div>
+
+</body>
+</html>
