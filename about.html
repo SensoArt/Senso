@@ -1,435 +1,220 @@
 <!DOCTYPE html>
-
 <html lang="it">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Senso — About</title>
-
     
+    <link rel="icon" type="image/png" href="senso_isotipo_blanco.png">
 
     <link rel="preload" as="image" href="sillas.jpg?v=1.2">
 
-
-
     <style>
-
         @font-face {
-
             font-family: 'FuturaLight';
-
             src: url('Fonts/futura light bt.ttf') format('truetype');
-
         }
-
-
 
         @font-face {
-
             font-family: 'BehindNineties';
-
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
-
         }
-
-
 
         /* ANIMAZIONE FADE IN */
-
         @keyframes fadeIn {
-
             from { opacity: 0; transform: translateY(20px); }
-
             to { opacity: 1; transform: translateY(0); }
-
         }
-
-
 
         .fade-in {
-
             opacity: 0;
-
             animation: fadeIn 1.5s ease-out forwards;
-
         }
-
-
 
         .delay-1 { animation-delay: 0.4s; }
-
         .delay-2 { animation-delay: 0.9s; }
 
-
-
         body {
-
             background-color: #000;
-
             color: #fff;
-
             margin: 0;
-
             padding: 0;
-
             -webkit-font-smoothing: antialiased;
-
             overflow-x: hidden;
-
         }
-
-
 
         /* SFONDO CON IMMAGINE E CACHE BUSTER */
-
         .bg-container {
-
             position: fixed;
-
             top: 0;
-
             left: 0;
-
             width: 100vw;
-
             height: 100vh;
-
             z-index: -2;
-
             background-image: url('sillas.jpg?v=1.2'); 
-
             background-size: cover;
-
             background-position: center;
-
             background-repeat: no-repeat;
-
             background-color: #000;
-
         }
-
-
 
         /* OVERLAY PER LEGGIBILITÀ */
-
         .bg-overlay {
-
             position: fixed;
-
             top: 0;
-
             left: 0;
-
             width: 100%;
-
             height: 100%;
-
             background-color: rgba(0, 0, 0, 0.65); /* 65% oscuramento */
-
             z-index: -1;
-
         }
-
-
 
         .back-home {
-
             position: fixed;
-
             top: 25px;
-
             left: 20px;
-
             text-decoration: none;
-
             color: #fff;
-
             font-family: 'FuturaLight', sans-serif;
-
             text-transform: uppercase;
-
             font-size: 0.65rem;
-
             letter-spacing: 2px;
-
             opacity: 0.7;
-
             z-index: 1000;
-
         }
-
-
 
         .lang-switch {
-
             position: fixed;
-
             top: 25px;
-
             right: 20px;
-
             font-family: 'FuturaLight', sans-serif;
-
             font-size: 0.65rem;
-
             letter-spacing: 2px;
-
             z-index: 1000;
-
         }
-
-
 
         .lang-btn {
-
             background: none;
-
             border: none;
-
             color: #fff;
-
             cursor: pointer;
-
             padding: 0 5px;
-
             opacity: 0.3;
-
             text-transform: uppercase;
-
             transition: opacity 0.3s;
-
         }
-
-
 
         .lang-btn.active { opacity: 1; }
 
-
-
         header { 
-
             padding: 150px 20px 40px; 
-
             max-width: 850px; 
-
             margin: 0 auto; 
-
             text-align: left; 
-
         }
-
-
 
         h1 {
-
             font-family: 'BehindNineties', serif;
-
             font-size: clamp(2.5rem, 8vw, 4.5rem); 
-
             text-transform: lowercase;
-
             margin: 0;
-
             font-weight: normal;
-
         }
-
-
 
         .content-container {
-
             max-width: 850px; 
-
             margin: 0 auto;
-
             padding: 20px 25px 100px;
-
             text-align: left;
-
         }
-
-
 
         .lang-content p {
-
             font-family: 'FuturaLight', sans-serif;
-
             line-height: 2.1;
-
             font-size: 1.25rem;
-
             margin-bottom: 30px;
-
             letter-spacing: 0.5px;
-
             text-shadow: 0 2px 15px rgba(0,0,0,1); /* Massima leggibilità sulla foto */
-
         }
-
-
 
         .hidden { display: none; }
 
-
-
         .isotipo-section { 
-
             padding: 80px 20px; 
-
             display: flex; 
-
             justify-content: center; 
-
             border-top: 1px solid rgba(255,255,255,0.1);
-
         }
-
         
-
         .isotipo-img { width: 80px; opacity: 0.9; }
 
-
-
         @media (max-width: 600px) {
-
             header { padding-top: 120px; }
-
             h1 { font-size: 3rem; }
-
             .lang-content p { font-size: 1.15rem; }
-
         }
-
     </style>
-
 </head>
-
 <body>
 
-
-
     <div class="bg-container"></div>
-
     <div class="bg-overlay"></div>
-
-
 
     <a href="index.html" class="back-home">← Home</a>
 
-
-
     <div class="lang-switch">
-
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
-
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
-
     </div>
 
-
-
     <header class="fade-in delay-1">
-
         <h1>about</h1>
-
     </header>
 
-
-
     <main class="content-container fade-in delay-2">
-
         
-
         <div id="lang-en" class="lang-content">
-
             <p>SENSO was born in 2025 from an idea by Claudia Alizieri and Adrian Villanueva, a vision shaped by intuition, passion, and the desire to create something meaningful.</p>
-
             <p>At the beginning of 2026, this vision starts to take form, preparing to reveal itself through its inaugural event, <span style="font-family: 'BehindNineties', serif; font-size: 1.4rem;">Principium: In the beginning there was chaos</span>.</p>
-
             <p>Not simply an opening, but a moment of origin. A threshold. A quiet anticipation before creation.</p>
-
             <p>SENSO emerges from the belief that art is not only to be seen, but to be felt. That every encounter with art can awaken perception, stir emotion, and guide direction. It is a space imagined as a journey, where senses become language and experiences leave a lasting trace.</p>
-
             <p>Rooted in Barcelona and open to the world, SENSO grows from connection: between artists and audience, between vision and expression.</p>
-
             <p style="font-family: 'BehindNineties', serif; font-size: 1.6rem; margin-top: 60px; text-align: center; text-transform: lowercase;">
-
                 Because every creation begins in silence.<br>
-
                 Every vision begins with a feeling.<br>
-
                 And every beginning carries the promise of what is yet to come.
-
             </p>
-
         </div>
-
-
 
         <div id="lang-es" class="lang-content hidden">
-
             <p>SENSO nació en 2025 a partir de una idea de Claudia Alizieri y Adrian Villanueva, una visión guiada por la intuición, la pasión y el deseo de crear algo con significado profundo.</p>
-
             <p>A principios de 2026, esta visión empieza a tomar forma y se prepara para revelarse a través de su evento inaugural, <span style="font-family: 'BehindNineties', serif; font-size: 1.4rem;">Principium: In the beginning there was chaos</span>.</p>
-
             <p>No será simplemente una apertura, sino un momento de origen. Un umbral. Una espera silenciosa antes de la creación.</p>
-
             <p>SENSO nace de la convicción de que el arte no es solo algo que se observa, sino algo que se siente. Que cada encuentro con el arte puede despertar la percepción, mover la emoción y dar dirección. Es un espacio imaginado como un viaje, donde los sentidos se convierten en lenguaje y las experiencias dejan una huella duradera.</p>
-
             <p>Enraizado en Barcelona y abierto al mundo, SENSO crece a partir de la conexión: entre artistas y público, entre visión e expresión.</p>
-
             <p style="font-family: 'BehindNineties', serif; font-size: 1.6rem; margin-top: 60px; text-align: center; text-transform: lowercase;">
-
                 Porque toda creación comienza en silencio.<br>
-
                 Toda visión nace de una emoción.<br>
-
                 Y todo comienzo lleva consigo la promesa de lo que está por venir.
-
             </p>
-
         </div>
-
-
 
     </main>
 
-
-
     <div class="isotipo-section fade-in delay-2">
-
         <img src="senso_isotipo_blanco.png" alt="Senso Isotipo" class="isotipo-img">
-
     </div>
 
-
-
     <script>
-
         function setLang(lang) {
-
             document.getElementById('lang-en').classList.add('hidden');
-
             document.getElementById('lang-es').classList.add('hidden');
-
             document.getElementById('lang-' + lang).classList.remove('hidden');
-
             document.getElementById('btn-en').classList.remove('active');
-
             document.getElementById('btn-es').classList.remove('active');
-
             document.getElementById('btn-' + lang).classList.add('active');
-
         }
-
     </script>
 
-
-
 </body>
-
 </html>
