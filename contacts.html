@@ -61,13 +61,13 @@
 
         .back-home:hover { opacity: 1; }
 
-        /* Stile per l'isotipo al posto del titolo */
+        /* ISOTIPO: Leggermente più grande ed elegante */
         .isotipo-header {
-            width: 60px; /* Dimensione elegante e non eccessiva */
+            width: 90px; /* Portato a 90px per maggiore visibilità */
             height: auto;
-            margin-top: 80px;
-            margin-bottom: 50px;
-            filter: brightness(0) invert(1); /* Assicura che sia bianco se l'originale è nero */
+            margin-top: 100px;
+            margin-bottom: 60px;
+            filter: brightness(0) invert(1);
         }
 
         .contact-links {
@@ -143,10 +143,9 @@
 
         @media (max-width: 600px) {
             .isotipo-header { 
-                width: 50px; 
-                margin-top: 100px; 
+                width: 75px; /* Adattato per mobile, leggermente più piccolo del desktop */
+                margin-top: 120px; 
             }
-            .newsletter-box p { font-size: 0.95rem; }
         }
     </style>
 </head>
