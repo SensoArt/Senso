@@ -8,7 +8,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
-    <meta name="theme-color" content="#000000">
 
     <style>
         @font-face {
@@ -21,11 +20,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s ease-out forwards;
-        }
-
+        .fade-in { opacity: 0; animation: fadeIn 1.5s ease-out forwards; }
         .delay-1 { animation-delay: 0.3s; }
         .delay-2 { animation-delay: 0.8s; }
         .delay-3 { animation-delay: 1.3s; }
@@ -43,109 +38,89 @@
             font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
             text-align: center;
+            overflow-x: hidden;
         }
 
         .back-home {
-            position: fixed;
-            top: 25px;
-            left: 20px;
-            text-decoration: none;
-            color: #fff;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            opacity: 0.5;
-            z-index: 1000;
-            transition: opacity 0.3s;
+            position: fixed; top: 25px; left: 20px;
+            text-decoration: none; color: #fff;
+            text-transform: uppercase; font-size: 0.65rem;
+            letter-spacing: 2px; opacity: 0.5; z-index: 1000;
+            transition: 0.3s;
         }
-
         .back-home:hover { opacity: 1; }
 
-        /* ISOTIPO: Leggermente più grande ed elegante */
         .isotipo-header {
-            width: 90px; /* Portato a 90px per maggiore visibilità */
-            height: auto;
-            margin-top: 100px;
-            margin-bottom: 60px;
+            width: 90px; height: auto;
+            margin-top: 100px; margin-bottom: 60px;
             filter: brightness(0) invert(1);
         }
 
-        .contact-links {
-            margin-bottom: 60px;
-        }
-
+        .contact-links { margin-bottom: 60px; }
         .contact-links a {
-            display: block;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            margin: 15px 0;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            display: block; color: #fff; text-decoration: none;
+            font-size: 1.1rem; letter-spacing: 2px;
+            margin: 15px 0; opacity: 0.8; transition: 0.3s;
         }
-
         .contact-links a:hover { opacity: 1; }
 
         .newsletter-box {
-            max-width: 500px;
-            width: 85%;
+            max-width: 500px; width: 85%;
             border-top: 1px solid #1a1a1a;
-            padding-top: 50px;
-            margin-bottom: 60px; 
+            padding-top: 50px; margin-bottom: 60px;
+            position: relative;
+            min-height: 250px; /* Evita salti di altezza */
         }
 
         .newsletter-box p {
-            font-size: 1rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 35px;
-            opacity: 0.9;
-            line-height: 1.8;
+            font-size: 1rem; letter-spacing: 1.5px;
+            margin-bottom: 35px; opacity: 0.9; line-height: 1.8;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        input {
-            background: transparent;
-            border: none;
-            border-bottom: 1px solid #333;
-            color: #fff;
-            padding: 10px 5px;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            outline: none;
+        /* Gestione stati Form e Successo */
+        #form-content { transition: opacity 0.8s ease; }
+        
+        #success-message {
+            display: none;
+            opacity: 0;
+            transition: opacity 1.2s ease;
             text-transform: uppercase;
-            text-align: center;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            padding: 40px 0;
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 15px; }
+        
+        input {
+            background: transparent; border: none;
+            border-bottom: 1px solid #333; color: #fff;
+            padding: 10px 5px; font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem; letter-spacing: 2px;
+            outline: none; text-transform: uppercase; text-align: center;
         }
 
         .submit-btn {
-            background: none;
-            border: 1px solid #333;
-            color: #fff;
-            padding: 14px;
-            margin-top: 20px;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.65rem;
-            transition: 0.3s;
+            background: none; border: 1px solid #333;
+            color: #fff; padding: 14px; margin-top: 20px;
+            cursor: pointer; text-transform: uppercase;
+            letter-spacing: 3px; font-size: 0.65rem; transition: 0.4s;
         }
+        .submit-btn:hover:not(:disabled) { background: #fff; color: #000; }
+        .submit-btn:disabled { opacity: 0.3; cursor: default; }
 
-        .submit-btn:hover {
-            background: #fff;
-            color: #000;
+        .back-btn {
+            background: none; border: none; color: #fff;
+            font-family: 'FuturaLight', sans-serif;
+            text-transform: uppercase; font-size: 0.55rem;
+            letter-spacing: 3px; opacity: 0.4; cursor: pointer;
+            transition: 0.3s; margin-top: 30px; padding: 10px;
         }
+        .back-btn:hover { opacity: 1; }
 
         @media (max-width: 600px) {
-            .isotipo-header { 
-                width: 75px; /* Adattato per mobile, leggermente più piccolo del desktop */
-                margin-top: 120px; 
-            }
+            .isotipo-header { width: 75px; margin-top: 120px; }
+            .newsletter-box p { font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -162,42 +137,80 @@
         <a href="https://www.instagram.com/senso_art_/" target="_blank">@senso_art_</a>
     </div>
 
-    <div class="newsletter-box fade-in delay-3">
-        <p>Get updates on artists, exhibitions, and events.</p>
-        
-        <form action="https://formspree.io/f/mgorwree" method="POST" class="form-group">
-            <input type="text" name="first_name" placeholder="First Name" required>
-            <input type="text" name="last_name" placeholder="Last Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            
-            <button type="submit" class="submit-btn">Subscribe</button>
-        </form>
+    <div id="newsletter-container" class="newsletter-box fade-in delay-3">
+        <div id="form-content">
+            <p>Get updates on artists, exhibitions, and events.</p>
+            <form action="https://formspree.io/f/mgorwree" method="POST" class="form-group" id="contact-form">
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <button type="submit" class="submit-btn" id="submit-btn">Subscribe</button>
+            </form>
+        </div>
+
+        <div id="success-message">
+            <p>Your request has been received.<br>Thank you.</p>
+            <button type="button" class="back-btn" onclick="resetForm()">BACK</button>
+        </div>
     </div>
-<script>
-    const form = document.querySelector('.form-group');
-    const btn = document.querySelector('.submit-btn');
 
-    form.onsubmit = async (e) => {
-        e.preventDefault(); // Impedisce il caricamento della pagina brutta
-        btn.innerText = "SENDING...";
-        btn.disabled = true;
+    <script>
+        const form = document.getElementById('contact-form');
+        const formContent = document.getElementById('form-content');
+        const successMessage = document.getElementById('success-message');
+        const btn = document.getElementById('submit-btn');
 
-        const formData = new FormData(form);
-        const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        });
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            btn.innerText = "SENDING...";
+            btn.disabled = true;
 
-        if (response.ok) {
-            btn.innerText = "THANK YOU";
-            form.reset(); // Pulisce i campi
-            setTimeout(() => { btn.innerText = "SUBSCRIBE"; btn.disabled = false; }, 3000);
-        } else {
-            btn.innerText = "ERROR";
-            btn.disabled = false;
+            const formData = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    // Sparizione fluida del form
+                    formContent.style.opacity = "0";
+                    setTimeout(() => {
+                        formContent.style.display = "none";
+                        successMessage.style.display = "block";
+                        setTimeout(() => {
+                            successMessage.style.opacity = "1";
+                        }, 50);
+                    }, 800);
+                } else {
+                    btn.innerText = "ERROR. TRY AGAIN.";
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                btn.innerText = "CONNECTION ERROR.";
+                btn.disabled = false;
+            }
+        };
+
+        function resetForm() {
+            // Sparizione fluida del messaggio di successo
+            successMessage.style.opacity = "0";
+            setTimeout(() => {
+                successMessage.style.display = "none";
+                formContent.style.display = "block";
+                
+                // Reset dati
+                form.reset();
+                btn.innerText = "SUBSCRIBE";
+                btn.disabled = false;
+
+                setTimeout(() => {
+                    formContent.style.opacity = "1";
+                }, 50);
+            }, 800);
         }
-    };
-</script>
+    </script>
+
 </body>
 </html>
