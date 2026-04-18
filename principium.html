@@ -28,19 +28,17 @@
             overflow: hidden;
         }
 
-        /* TITOLO: Più grande su Desktop, Proporzionato su Mobile */
         .main-title {
             font-family: "Times New Roman", Times, serif !important;
             font-style: normal !important;
             font-weight: normal !important;
-            /* clamp(minimo, preferito, massimo) */
             font-size: clamp(2.2rem, 12vw, 8.5rem); 
             margin: 0;
             text-transform: uppercase;
             letter-spacing: clamp(4px, 1.2vw, 12px);
             line-height: 1;
             display: block;
-            width: 90%; /* Evita che tocchi i bordi su mobile */
+            width: 90%;
         }
 
         .subtitle {
@@ -51,7 +49,6 @@
             margin: 20px 0 60px 0;
         }
 
-        /* COUNTDOWN ADATTIVO */
         #countdown {
             display: flex;
             justify-content: center;
@@ -92,7 +89,6 @@
 
         .back-home:hover { opacity: 1; }
 
-        /* Fix extra per telefoni molto piccoli */
         @media (max-width: 380px) {
             .main-title { font-size: 1.8rem; letter-spacing: 3px; }
             #countdown { gap: 8px; }
@@ -116,19 +112,7 @@
     </div>
 
     <script>
-        const targetDate = new Date("May 16, 2026 19:00:00").getTime();
+        // AGGIORNATO: Orario impostato alle 17:30
+        const targetDate = new Date("May 16, 2026 17:30:00").getTime();
+        
         function update() {
-            const now = new Date().getTime();
-            const d = targetDate - now;
-            if (d > 0) {
-                document.getElementById("days").innerText = Math.floor(d/(1000*60*60*24)).toString().padStart(2,'0');
-                document.getElementById("hours").innerText = Math.floor((d%(1000*60*60*24))/(1000*60*60)).toString().padStart(2,'0');
-                document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
-                document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000).toString().padStart(2,'0');
-            }
-        }
-        setInterval(update, 1000);
-        update();
-    </script>
-</body>
-</html>
