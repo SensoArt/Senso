@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — PRINCIPIUM</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
     <style>
         @font-face { 
@@ -112,7 +114,6 @@
     </div>
 
     <script>
-        // AGGIORNATO: Orario impostato alle 17:30
         const targetDate = new Date("May 16, 2026 17:30:00").getTime();
         
         function update() {
@@ -124,7 +125,6 @@
                 document.getElementById("minutes").innerText = Math.floor((d%(1000*60*60))/(1000*60)).toString().padStart(2,'0');
                 document.getElementById("seconds").innerText = Math.floor((d%(1000*60))/1000).toString().padStart(2,'0');
             } else {
-                // Opzionale: cosa mostrare quando il countdown scade
                 document.getElementById("countdown").innerHTML = "<p style='letter-spacing:5px; opacity:0.5;'>EVENT STARTED</p>";
             }
         }
