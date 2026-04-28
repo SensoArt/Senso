@@ -110,7 +110,6 @@
             opacity: 1;
         }
         
-        /* Correzione P maiuscola per l'inizio frase nel font speciale */
         .highlight-text::first-letter {
             text-transform: uppercase;
         }
@@ -171,7 +170,7 @@
             <p>Before form, before order, before beauty, there was chaos.</p>
             <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
             <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
-            <p>Analog sound and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
+            <p>The music and wine tasting accompany the exhibition experience, transforming the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
             <p class="highlight-text">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
         </div>
 
@@ -179,7 +178,7 @@
             <p>Antes de la forma, antes del orden, antes de la bellezza, existía el caos.</p>
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y affinities.</p>
-            <p>El sonido analógico y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
+            <p>La música y la degustación de vinos acompañan la experiencia expositiva, transformando el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
             <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
     </main>
@@ -201,7 +200,6 @@
     </footer>
 
     <script>
-        // Countdown Logic
         const targetDate = new Date("May 16, 2026 17:30:00").getTime();
         function updateCountdown() {
             const now = new Date().getTime();
@@ -218,7 +216,6 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // Language Switch Logic
         function setLang(lang) {
             document.getElementById('lang-en').classList.add('hidden');
             document.getElementById('lang-es').classList.add('hidden');
