@@ -29,7 +29,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigazione COPIATA DA ABOUT */
+        /* Navigazione Fissa Identica a About */
         .back-home {
             position: fixed;
             top: 25px;
@@ -67,7 +67,7 @@
             text-transform: uppercase;
             transition: opacity 0.3s;
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.65rem; /* Identico a About */
+            font-size: 0.65rem;
             letter-spacing: 2px;
         }
 
@@ -80,7 +80,7 @@
             text-align: left;
         }
 
-        /* Titolo IDENTICO A ABOUT */
+        /* Titolo Artists: Grande come About */
         .section-title {
             font-family: 'BehindNineties', serif;
             font-size: clamp(2.5rem, 8vw, 4.5rem); 
@@ -92,7 +92,7 @@
 
         .artist-block { margin-bottom: 120px; }
 
-        /* Nomi Artisti in Futura Bold */
+        /* Nomi Artisti: Futura Negrita */
         .artist-name {
             font-family: 'FuturaLight', sans-serif;
             font-weight: bold;
@@ -123,6 +123,7 @@
             transform: scale(1.03);
         }
 
+        /* Bio: Rispetto assoluto delle maiuscole */
         .artist-bio { 
             line-height: 1.8; 
             font-size: 0.95rem;
@@ -138,6 +139,7 @@
 
         .hidden { display: none; }
 
+        /* Footer con Isotipo Negro */
         .isotipo-footer {
             padding: 60px 20px 100px;
             display: flex;
@@ -154,6 +156,7 @@
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
             .container { padding: 120px 25px 40px; }
+            .section-title { font-size: 3rem; }
         }
     </style>
 </head>
@@ -186,7 +189,40 @@
             </div>
         </article>
 
-        </main>
+        <article class="artist-block">
+            <h2 class="artist-name">Carlotta Valentinis Queraltó</h2>
+            <div class="artist-content">
+                <div class="img-container">
+                    <img src="carlotta_valentinis.jpg" alt="Carlotta Valentinis Queraltó" class="artist-img">
+                </div>
+                <div class="bio-wrapper">
+                    <div class="lang-en artist-bio">
+                        Emerging artist whose work is defined as an act of deep listening and reconnection with the organic. Her practice is rooted in sustainable painting, where she personally harvests stones and minerals in a slow, ritualistic process. Recently a resident artist at <span class="important">GlogauAIR Berlin</span>, she was selected for the <span class="important">Creative Europe</span> program in collaboration with <span class="important">Ars Electronica</span>. Her research has been exhibited at the <span class="important">Bethanien Kunstquartier</span> in <span class="important">Berlin</span>, the <span class="important">Ars Electronica Festival</span> in <span class="important">Linz</span>, and the <span class="important">Stripart</span> collective in <span class="important">Barcelona</span>. Having trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span>, Carlotta invites the viewer to experience a slower, mineral-based rhythm of existence.
+                    </div>
+                    <div class="lang-es artist-bio hidden">
+                        Artista emergente cuyo trabajo se define como un acto de escucha profunda y reconexión con lo orgánico. Su práctica se basa en una pintura sostenible, recolectando personalmente piedras y minerales en un proceso ritual y pausado. Recientemente artista residente en <span class="important">GlogauAIR Berlín</span>, fue seleccionada para el programa <span class="important">Creative Europe</span> junto a <span class="important">Ars Electronica</span>. Su investigación ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span> de <span class="important">Berlín</span>, el <span class="important">Festival Ars Electronica</span> en <span class="important">Linz</span> y el colectivo <span class="important">Stripart Barcelona</span>. Formada entre la <span class="important">Escola Massana</span> y la <span class="important">UdK Berlín</span>, invita al espectador a reconectar con los ritmos minerales y los ciclos de la naturaleza.
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="artist-block">
+            <h2 class="artist-name">Davide Ciaramella</h2>
+            <div class="artist-content">
+                <div class="img-container">
+                    <img src="davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img">
+                </div>
+                <div class="bio-wrapper">
+                    <div class="lang-en artist-bio">
+                        Contemporary artist born in <span class="important">Naples</span> and currently based in <span class="important">Milan</span>. His research focuses on reinterpreting the human condition through a highly personal and visceral pictorial language. Key exhibitions include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Galería Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio Naples</span>. He anche partecipato al progetto <span class="important">Imago Mundi</span> presso il <span class="important">Museo MADRE Naples</span> e ha mostrato il suo lavoro a livello internazionale presso la <span class="important">Dadun Gallery Taiwan</span> e <span class="important">Zona Blu Milan</span>.
+                    </div>
+                    <div class="lang-es artist-bio hidden">
+                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Su investigación se centra en reinterpretar la condición humana a través de un lenguaje pictórico muy personal y visceral. Entre sus exposiciones destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio de Nápoles</span>. Ha participado en el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> y en espacios como <span class="important">Dadun Gallery Taiwán</span> y <span class="important">Zona Blu Milán</span>.
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
 
     <div class="isotipo-footer">
         <img src="senso_isotipo_negro.png" alt="Senso Isotipo" class="isotipo-img">
