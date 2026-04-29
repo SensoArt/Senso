@@ -11,13 +11,8 @@
 
     <style>
         @font-face {
-            font-family: 'Gilroy-Light';
-            src: url('Fonts/Gilroy-Light.otf') format('opentype');
-        }
-
-        @font-face {
-            font-family: 'Gilroy-ExtraBold';
-            src: url('Fonts/Gilroy-ExtraBold.otf') format('opentype');
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
         }
 
         @font-face {
@@ -30,7 +25,7 @@
             color: #000;
             margin: 0;
             padding: 0;
-            font-family: 'Gilroy-Light', sans-serif;
+            font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -50,7 +45,7 @@
         .lang-btn {
             background: none; border: none; color: #000;
             cursor: pointer; padding: 0 5px; opacity: 0.3;
-            text-transform: uppercase; font-family: 'Gilroy-Light';
+            text-transform: uppercase; transition: 0.3s; font-family: 'FuturaLight';
         }
         .lang-btn.active { opacity: 1; }
 
@@ -65,14 +60,16 @@
             font-family: 'BehindNineties', serif;
             font-size: 2.2rem;
             margin-bottom: 80px;
+            text-transform: lowercase;
         }
 
         .artist-block { margin-bottom: 120px; }
 
-        /* Nomi Artisti in Gilroy ExtraBold */
+        /* Nomi Artisti: Futura in Grassetto */
         .artist-name {
-            font-family: 'Gilroy-ExtraBold', sans-serif;
-            font-size: 1.2rem;
+            font-family: 'FuturaLight', sans-serif;
+            font-weight: bold;
+            font-size: 1.1rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 30px;
@@ -101,13 +98,14 @@
 
         .artist-bio { 
             line-height: 1.8; 
-            font-size: 0.95rem;
-            opacity: 0.9;
+            font-size: 0.9rem;
+            opacity: 0.85;
         }
 
         .important {
             font-family: 'BehindNineties', serif;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
+            text-transform: lowercase;
         }
 
         .hidden { display: none; }
@@ -141,7 +139,7 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>, where his pieces address the relationship between territory and form.
+                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
                         Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e recentemente in <span class="important">Brussels Collectible 2026</span>, de la mano de <span class="important">Szymon Keller</span>, abordando cuestiones de identidad y tacto.
