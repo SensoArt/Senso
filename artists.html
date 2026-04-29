@@ -44,6 +44,7 @@
             text-transform: uppercase; font-size: 0.6rem;
             letter-spacing: 2px; opacity: 0.5; transition: 0.3s;
         }
+        .back-home:hover { opacity: 1; }
 
         .lang-switch { font-size: 0.6rem; letter-spacing: 1px; }
         .lang-btn {
@@ -60,29 +61,27 @@
             text-align: left;
         }
 
-        /* Titolo sezione: Unico elemento volutamente minuscolo */
         .section-title {
             font-family: 'BehindNineties', serif;
             font-size: 2.2rem;
             margin-bottom: 80px;
-            font-weight: normal;
         }
 
         .artist-block { margin-bottom: 120px; }
 
-        /* Nome Artista: ExtraBold e Maiuscolo */
+        /* Nomi Artisti in Gilroy ExtraBold */
         .artist-name {
             font-family: 'Gilroy-ExtraBold', sans-serif;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .artist-content {
             display: grid;
             grid-template-columns: 320px 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: start;
         }
 
@@ -92,33 +91,32 @@
             width: 100%;
             display: block;
             filter: grayscale(100%);
-            transition: 0.6s ease;
+            transition: 0.7s ease;
         }
 
         .img-container:hover .artist-img {
             filter: grayscale(0%);
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
-        /* Testo Bio: Light con maiuscole rispettate */
         .artist-bio { 
             line-height: 1.8; 
             font-size: 0.95rem;
             opacity: 0.9;
         }
 
-        /* Evidenziazione: Minuscola per stile font */
         .important {
             font-family: 'BehindNineties', serif;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         .hidden { display: none; }
 
-        footer { padding: 60px 40px; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; }
+        footer { padding: 80px 40px; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.3; }
 
-        @media (max-width: 800px) {
-            .artist-content { grid-template-columns: 1fr; gap: 30px; }
+        @media (max-width: 850px) {
+            .artist-content { grid-template-columns: 1fr; gap: 35px; }
+            .container { padding: 120px 25px; }
         }
     </style>
 </head>
@@ -143,10 +141,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and based in <span class="important">Olba (Teruel)</span>. His work reinterprets traditional basketry through a contemporary lens. After 17 years as head of image at <span class="important">Massimo Dutti</span>, he returned to craftsmanship, showcasing in <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, <span class="important">Domus Nova</span> at <span class="important">Museo de San Isidro Madrid</span>, and <span class="important">Brussels Collectible 2026</span>.
+                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>, where his pieces address the relationship between territory and form.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea. Tras 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, regresa a la artesanía destacando en <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e <span class="important">Brussels Collectible 2026</span>.
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e recentemente in <span class="important">Brussels Collectible 2026</span>, de la mano de <span class="important">Szymon Keller</span>, abordando cuestiones de identidad y tacto.
                     </div>
                 </div>
             </div>
@@ -160,10 +158,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Emerging artist whose work is an act of deep listening. Resident artist at <span class="important">GlogauAIR Berlin</span>, she participated in <span class="important">Creative Europe</span> with <span class="important">Ars Electronica</span>. Her work has been shown at <span class="important">Bethanien Kunstquartier</span>, <span class="important">Ars Electronica Festival Linz</span>, and <span class="important">Stripart Barcelona</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span>.
+                        Emerging artist whose work is defined as an act of deep listening and reconnection with the organic. Her practice is rooted in sustainable painting, where she personally harvests stones and minerals in a slow, ritualistic process. Recently a resident artist at <span class="important">GlogauAIR Berlin</span>, she was selected for the <span class="important">Creative Europe</span> program in collaboration with <span class="important">Ars Electronica</span>. Her research has been exhibited at the <span class="important">Bethanien Kunstquartier</span> in <span class="important">Berlin</span>, the <span class="important">Ars Electronica Festival</span> in <span class="important">Linz</span>, and the <span class="important">Stripart</span> collective in <span class="important">Barcelona</span>. Having trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span>, Carlotta invites the viewer to experience a slower, mineral-based rhythm of existence.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista emergente cuyo trabajo es un acto de escucha profunda. Artista residente en <span class="important">GlogauAIR Berlín</span>, participó en el programa <span class="important">Creative Europe</span> con <span class="important">Ars Electronica</span>. Su obra ha sido expuesta en il <span class="important">Bethanien Kunstquartier</span>, el <span class="important">Festival Ars Electronica Linz</span> y <span class="important">Stripart Barcelona</span>. Formada en <span class="important">Escola Massana</span> y <span class="important">UdK Berlín</span>.
+                        Artista emergente cuyo trabajo se define como un acto de escucha profunda y reconexión con lo orgánico. Su práctica se basa en una pintura sostenible, recolectando personalmente piedras y minerales en un proceso ritual y pausado. Recientemente artista residente en <span class="important">GlogauAIR Berlín</span>, fue seleccionada para el programa <span class="important">Creative Europe</span> junto a <span class="important">Ars Electronica</span>. Su investigación ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span> de <span class="important">Berlín</span>, el <span class="important">Festival Ars Electronica</span> en <span class="important">Linz</span> y el colectivo <span class="important">Stripart Barcelona</span>. Formada entre la <span class="important">Escola Massana</span> y la <span class="important">UdK Berlín</span>, invita al espectador a reconectar con los ritmos minerales y los ciclos de la naturaleza.
                     </div>
                 </div>
             </div>
@@ -177,10 +175,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary artist born in <span class="important">Naples</span> and based in <span class="important">Milan</span>. Highlights include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio</span>. He participated in <span class="important">Imago Mundi</span> at <span class="important">Museo MADRE Naples</span> and <span class="important">Dadun Gallery Taiwan</span>.
+                        Contemporary artist born in <span class="important">Naples</span> and currently based in <span class="important">Milan</span>. His research focuses on reinterpreting the human condition through a highly personal and visceral pictorial language. Key exhibitions include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Galería Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio Naples</span>. He also participated in the <span class="important">Imago Mundi</span> project at the <span class="important">Museo MADRE Naples</span> and has showcased his work internationally at <span class="important">Dadun Gallery Taiwan</span> and <span class="important">Zona Blu Milan</span>, exploring the boundary between the internal self and external perception.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span>. Participó en <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> e <span class="important">Dadun Gallery Taiwán</span>.
+                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Su investigación se centra en reinterpretar la condición humana a través de un lenguaje pictórico muy personal y visceral. Entre sus exposiciones destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio de Nápoles</span>. Ha participado en el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> y en espacios como <span class="important">Dadun Gallery Taiwán</span> y <span class="important">Zona Blu Milán</span>, explorando los límites entre la identidad y la materia.
                     </div>
                 </div>
             </div>
