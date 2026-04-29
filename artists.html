@@ -27,9 +27,9 @@
             padding: 0;
             font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
+            /* Rimosso qualsiasi text-transform globale */
         }
 
-        /* Navigazione e Switcher identici a About */
         .nav-header {
             position: fixed; top: 30px; width: 100%; display: flex; 
             justify-content: space-between; padding: 0 40px; box-sizing: border-box; z-index: 1000;
@@ -56,18 +56,18 @@
             text-align: left;
         }
 
-        /* Titolo Artists/Artistas: BehindNineties minuscolo come 'about' */
+        /* Titolo: BehindNineties - Minuscolo come richiesto per coerenza con 'about' */
         .section-title {
             font-family: 'BehindNineties', serif;
             font-size: 2.2rem;
             margin-bottom: 80px;
-            text-transform: lowercase;
+            text-transform: lowercase; 
             font-weight: normal;
         }
 
         .artist-block { margin-bottom: 120px; }
 
-        /* Nomi Artisti: Futura Grassetto, maiuscole rispettate */
+        /* Nomi Artisti: Futura Grassetto (Negrita) */
         .artist-name {
             font-family: 'FuturaLight', sans-serif;
             font-weight: bold;
@@ -98,18 +98,18 @@
             transform: scale(1.03);
         }
 
-        /* Bio: Nessun transform per preservare le maiuscole manuali */
+        /* Testo Bio: Maiuscole preservate forzatamente */
         .artist-bio { 
             line-height: 1.8; 
             font-size: 0.9rem;
             opacity: 0.85;
+            text-transform: none !important; /* Forza il rispetto delle maiuscole scritte nel testo */
         }
 
-        /* Evidenziazioni: BehindNineties */
         .important {
             font-family: 'BehindNineties', serif;
             font-size: 1.1rem;
-            text-transform: lowercase;
+            text-transform: none !important;
         }
 
         .hidden { display: none; }
