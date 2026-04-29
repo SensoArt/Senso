@@ -1,1 +1,148 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SENSO — Artisti</title>
 
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            font-family: 'FuturaLight', sans-serif;
+        }
+
+        /* Navigazione */
+        .back-home {
+            position: fixed; top: 25px; left: 20px;
+            text-decoration: none; color: #fff;
+            text-transform: uppercase; font-size: 0.65rem;
+            letter-spacing: 2px; opacity: 0.5; z-index: 1000;
+            transition: 0.3s;
+        }
+        .back-home:hover { opacity: 1; }
+
+        /* Layout */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 120px 25px;
+        }
+
+        .section-title {
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 100px;
+            text-transform: lowercase;
+            font-weight: normal;
+        }
+
+        .artist-block {
+            margin-bottom: 180px;
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        .artist-name {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .artist-bio {
+            line-height: 2.2;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+        }
+
+        /* Stile per le evidenziazioni richieste */
+        .important {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.3rem;
+            text-transform: lowercase;
+            opacity: 1;
+            display: inline;
+        }
+
+        .artist-img {
+            width: 100%;
+            max-width: 650px;
+            margin-bottom: 50px;
+            filter: grayscale(100%);
+            opacity: 0.8;
+            transition: 0.5s;
+        }
+        .artist-img:hover { opacity: 1; filter: grayscale(0%); }
+
+        footer {
+            padding: 100px 0;
+            opacity: 0.3;
+            font-size: 0.7rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 1.5s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home">← Home</a>
+
+    <div class="container fade-in">
+        <h1 class="section-title">artisti</h1>
+
+        <article class="artist-block">
+            <h2 class="artist-name">Raúl del Chano</h2>
+            <img src="raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img">
+            <div class="artist-bio">
+                Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">barcelona</span> y afincado en <span class="important">olba (teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea, explorando el diálogo entre artesanía, diseño y escultura. Tras 17 años como responsable de imagen en <span class="important">massimo dutti</span>, regresa a la artesanía destacando en espacios como <span class="important">object space space object</span> en la <span class="important">galería taula de barcelona</span>, la muestra <span class="important">domus nova</span> en el <span class="important">museo de san isidro de madrid</span> e recentemente in <span class="important">brussels collectible 2026</span> de la mano de <span class="important">szymon keller</span>. Su trabajo aborda cuestiones de identidad, memoria y territorio.
+            </div>
+        </article>
+
+        <article class="artist-block">
+            <h2 class="artist-name">Carlotta Valentinis Queraltó</h2>
+            <img src="carlotta_valentinis.jpg" alt="Carlotta Valentinis Queraltó" class="artist-img">
+            <div class="artist-bio">
+                Emerging artist whose work is an act of deep listening. Her practice is rooted in sustainable painting, harvesting stones and minerals in a slow ritual. Recently a resident artist at <span class="important">glogauair</span> in <span class="important">berlin</span>, she participated in the <span class="important">creative europe</span> program with <span class="important">ars electronica</span>. Her work has been showcased at the <span class="important">bethanien kunstquartier</span> in <span class="important">berlin</span>, the <span class="important">ars electronica festival</span> in <span class="important">linz</span>, and the <span class="important">stripart</span> collective in <span class="important">barcelona</span>. Trained between <span class="important">escola massana</span> and the <span class="important">udk berlin</span>, she invites the viewer to reconnect with organic rhythms.
+            </div>
+        </article>
+
+        <article class="artist-block">
+            <h2 class="artist-name">Davide Ciaramella</h2>
+            <img src="davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img">
+            <div class="artist-bio">
+                Artista contemporáneo nacido en <span class="important">nápoles</span> y afincado en <span class="important">milán</span>. Su investigación reinterpreta la condición humana a través de un lenguaje pictórico personal. Entre sus exposiciones más destacadas se encuentran <span class="important">org/animo</span> en <span class="important">iperspazio (milán)</span>, <span class="important">denial is a privilege</span> en la <span class="important">galería perimetro fluido</span> e <span class="important">unknown figures</span> en la <span class="important">galería salvatore serio (nápoles)</span>. Ha participado en el proyecto <span class="important">imago mundi</span> en el <span class="important">museo madre de nápoles</span> y en espacios como <span class="important">dadun gallery (taiwán)</span> y <span class="important">zona blu (milán)</span>.
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        Senso — Principium 2026
+    </footer>
+
+</body>
+</html>
