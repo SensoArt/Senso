@@ -11,8 +11,6 @@
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
     <meta name="theme-color" content="#000000">
     
-    <meta name="description" content="Independent art organization based in Barcelona. Exploring contemporary art expression through curated exhibitions and sensory experiences.">
-
     <style>
         @font-face {
             font-family: 'FuturaLight';
@@ -27,7 +25,7 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: center; /* Centra verticalmente tutto il blocco */
             align-items: center;
             text-align: center;
             font-family: 'FuturaLight', sans-serif;
@@ -38,7 +36,7 @@
         .logo-home {
             width: 350px; 
             max-width: 80%;
-            margin-bottom: 50px;
+            margin-bottom: 30px; /* Ridotto per avvicinare il menu al logo */
             mix-blend-mode: screen; 
             filter: brightness(1.1);
         }
@@ -65,10 +63,11 @@
         @media (max-width: 600px) {
             nav { 
                 flex-direction: column; 
-                gap: 20px; 
+                gap: 15px; /* Più stretto su mobile */
             }
             .logo-home { 
-                width: 280px; 
+                width: 280px;
+                margin-bottom: 25px; 
             }
         }
     </style>
