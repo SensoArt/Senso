@@ -10,7 +10,6 @@
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
     <style>
-        /* Caricamento Font Gilroy dai file .otf */
         @font-face {
             font-family: 'Gilroy-Light';
             src: url('Fonts/Gilroy-Light.otf') format('opentype');
@@ -39,18 +38,18 @@
             position: fixed; top: 30px; width: 100%; display: flex; 
             justify-content: space-between; padding: 0 40px; box-sizing: border-box; z-index: 1000;
         }
+        
         .back-home {
             text-decoration: none; color: #000;
             text-transform: uppercase; font-size: 0.6rem;
             letter-spacing: 2px; opacity: 0.5; transition: 0.3s;
         }
-        .back-home:hover { opacity: 1; }
 
         .lang-switch { font-size: 0.6rem; letter-spacing: 1px; }
         .lang-btn {
             background: none; border: none; color: #000;
             cursor: pointer; padding: 0 5px; opacity: 0.3;
-            text-transform: uppercase; transition: 0.3s; font-family: 'Gilroy-Light';
+            text-transform: uppercase; font-family: 'Gilroy-Light';
         }
         .lang-btn.active { opacity: 1; }
 
@@ -61,17 +60,17 @@
             text-align: left;
         }
 
+        /* Titolo sezione: Unico elemento volutamente minuscolo */
         .section-title {
             font-family: 'BehindNineties', serif;
             font-size: 2.2rem;
             margin-bottom: 80px;
-            text-transform: lowercase;
             font-weight: normal;
         }
 
         .artist-block { margin-bottom: 120px; }
 
-        /* NOME ARTISTA: Gilroy-ExtraBold */
+        /* Nome Artista: ExtraBold e Maiuscolo */
         .artist-name {
             font-family: 'Gilroy-ExtraBold', sans-serif;
             font-size: 1.1rem;
@@ -93,7 +92,7 @@
             width: 100%;
             display: block;
             filter: grayscale(100%);
-            transition: filter 0.6s ease, transform 0.8s ease;
+            transition: 0.6s ease;
         }
 
         .img-container:hover .artist-img {
@@ -101,16 +100,17 @@
             transform: scale(1.02);
         }
 
+        /* Testo Bio: Light con maiuscole rispettate */
         .artist-bio { 
             line-height: 1.8; 
             font-size: 0.95rem;
             opacity: 0.9;
         }
 
+        /* Evidenziazione: Minuscola per stile font */
         .important {
             font-family: 'BehindNineties', serif;
             font-size: 1.1rem;
-            text-transform: lowercase;
         }
 
         .hidden { display: none; }
@@ -119,7 +119,6 @@
 
         @media (max-width: 800px) {
             .artist-content { grid-template-columns: 1fr; gap: 30px; }
-            .container { padding: 100px 20px; }
         }
     </style>
 </head>
@@ -164,7 +163,7 @@
                         Emerging artist whose work is an act of deep listening. Resident artist at <span class="important">GlogauAIR Berlin</span>, she participated in <span class="important">Creative Europe</span> with <span class="important">Ars Electronica</span>. Her work has been shown at <span class="important">Bethanien Kunstquartier</span>, <span class="important">Ars Electronica Festival Linz</span>, and <span class="important">Stripart Barcelona</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista emergente cuyo trabajo es un acto de escucha profunda. Artista residente en <span class="important">GlogauAIR Berlín</span>, participó en el programa <span class="important">Creative Europe</span> con <span class="important">Ars Electronica</span>. Su obra ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span>, el <span class="important">Festival Ars Electronica Linz</span> y <span class="important">Stripart Barcelona</span>. Formada en <span class="important">Escola Massana</span> y <span class="important">UdK Berlín</span>.
+                        Artista emergente cuyo trabajo es un acto de escucha profunda. Artista residente en <span class="important">GlogauAIR Berlín</span>, participó en el programa <span class="important">Creative Europe</span> con <span class="important">Ars Electronica</span>. Su obra ha sido expuesta en il <span class="important">Bethanien Kunstquartier</span>, el <span class="important">Festival Ars Electronica Linz</span> y <span class="important">Stripart Barcelona</span>. Formada en <span class="important">Escola Massana</span> y <span class="important">UdK Berlín</span>.
                     </div>
                 </div>
             </div>
