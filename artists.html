@@ -12,7 +12,6 @@
 
         body { background-color: #fff; color: #000; margin: 0; padding: 0; font-family: 'FuturaLight', sans-serif; -webkit-font-smoothing: antialiased; }
 
-        /* NAVIGATION */
         .back-home { position: fixed; top: 25px; left: 20px; text-decoration: none; color: #000; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 2px; opacity: 0.7; z-index: 1000; transition: opacity 0.3s; }
         .back-home:hover { opacity: 1; }
         
@@ -20,7 +19,6 @@
         .lang-btn { background: none; border: none; color: #000; cursor: pointer; padding: 0 5px; opacity: 0.3; text-transform: uppercase; font-family: inherit; letter-spacing: inherit; transition: opacity 0.3s; }
         .lang-btn.active { opacity: 1; }
 
-        /* LAYOUT */
         .container { max-width: 1000px; margin: 0 auto; padding: 150px 40px 50px; }
         .section-title { font-family: 'BehindNineties', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 80px; text-transform: lowercase; font-weight: normal; }
 
@@ -29,40 +27,33 @@
         
         .artist-content { display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
         
-        /* BOX FOTO STANDARD (ORIZZONTALE) */
         .img-container { width: 100%; overflow: hidden; background-color: #f0f0f0; }
 
         .artist-img { 
             width: 100%; 
             display: block; 
-            aspect-ratio: 3 / 2; /* Formato orizzontale fisso per Raul, Lucia, Carlotta */
+            aspect-ratio: 3 / 2; /* Formato orizzontale fisso */
             object-fit: cover; 
             filter: grayscale(100%); 
             transition: 0.7s ease; 
         }
 
-        .img-container:hover .artist-img { filter: grayscale(0%); transform: scale(1.03); }
-
-        /* --- CORREZIONE SPECIFICA PER DAVIDE --- */
-        /* Non ritagliamo la foto in orizzontale, ma la mostriamo intera centrandola */
-        .davide-block .artist-img {
-            aspect-ratio: auto;    /* Rimuove il formato fisso */
-            width: 100%;
-            height: auto;
-            max-height: 450px;     /* Imposta un'altezza massima per non farla gigante */
-            object-fit: contain;   /* Mostra tutta la foto, aggiungendo bordi */
-            background-color: #fff; /* Colore dei bordi laterali (uguale allo sfondo) */
-            object-position: center center; /* Centra la foto */
+        /* CORREZIONE PER DAVIDE: 
+           Per mostrare FACCIA e MANI senza ritagliare, dobbiamo mostrare TUTTA la foto
+           all'interno del box orizzontale. Questo creerà fasce bianche ai lati.
+        */
+        .img-davide { 
+            object-fit: contain; /* Mostra tutta la foto, non ritaglia */
+            background-color: #fff; /* Fasce bianche laterali */
+            object-position: center center; /* Centrata */
         }
-        /* Rimuoviamo l'effetto zoom al hover per Davide perché contain creerebbe artefatti */
-        .davide-block .img-container:hover .artist-img { transform: scale(1); }
-        /* --- FINE CORREZIONE DAVIDE --- */
+
+        .img-container:hover .artist-img { filter: grayscale(0%); transform: scale(1.03); }
 
         .artist-bio { line-height: 1.8; font-size: 0.95rem; opacity: 0.85; text-align: justify; }
         .important { font-family: 'BehindNineties', serif; font-size: 1.1rem; }
         .hidden { display: none; }
 
-        /* FOOTER */
         .isotipo-footer { padding: 100px 20px; display: flex; justify-content: center; align-items: center; }
         .isotipo-img { width: 50px; height: auto; opacity: 0.9; }
 
@@ -92,10 +83,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary basket maker and sculptor born in <span class="important">Barcelona</span> and based in <span class="important">Olba</span>. His practice reinterprets traditional basketry through a contemporary lens, exploring the dialogue between craftsmanship and pure sculpture. After 17 years at <span class="important">Massimo Dutti</span>, he returned to craftsmanship to focus on material identity and memory.
+                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Banastero contemporáneo y escultor nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea, explorando el diálogo entre artesanía y escultura pura. Tras 17 años en <span class="important">Massimo Dutti</span>, regresó a la artesanía para centrarse en la identidad de los materiales y la memoria.
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> e afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio.
                     </div>
                 </div>
             </div>
@@ -105,14 +96,14 @@
             <h2 class="artist-name">Lucía Cheves Dauber</h2>
             <div class="artist-content">
                 <div class="img-container">
-                    <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves" class="artist-img">
+                    <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Guatemalan artist who views art as a form of living memory. Her work explores ancestral knowledge through mixed media, oil, and collage. Painting from the feminine and her <span class="important">Mayan</span> roots, her art is a conversation between heritage and the act of letting go.
+                        Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence. Her work is born from the intersection of the inherited and the chosen, between what was given and what she decided to sustain. She paints to preserve and translate, ensuring that what inhabits her is not forgotten even if it is no longer in sight. Working with mixed media — oil, acrylic, collage — she explores layers that transmit ancestral knowledge through time, care, and silence. Her work does not illustrate or explain, but opens space for what still deserves to be seen. Painting from the feminine and her <span class="important">Mayan</span> roots as a living gesture, her art is a conversation between heritage and learning to let go.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista guatemalteca que entiende el arte como memoria viva. Su trabajo explora el conocimiento ancestral a través de técnica mixta, óleo y collage. Pintando desde lo femenino y sus raíces <span class="important">mayas</span>, su obra es una conversación entre la herencia y el acto de soltar.
+                        Artista guatemalteca que cree en el arte como una forma de memoria, no como recuerdo sino como presencia viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. Trabaja con técnicas mixtas (óleo, acrílico, collage) explorando capas che transmiten lo ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, cada obra es una conversación entre lo que trae e lo que está aprendiendo a dejar.
                     </div>
                 </div>
             </div>
@@ -126,27 +117,27 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Carlotta is an emerging artist whose work is an act of deep listening where material and territory converge. Her practice is rooted in sustainable painting: she personally harvests stones and minerals, transforming them into unique pigments. For Carlotta, <span class="important">"making the paint is already beginning to paint"</span>. Recently a resident at <span class="important">GlogauAIR Berlin</span>, she collaborated with <span class="important">Ars Electronica</span> and led research for the <span class="important">CSIC</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span> under Robert Lucander, she integrates body movement into her dialogue with the organic rhythms of the world.
+                        Carlotta is an emerging artist whose work is an act of deep listening where material and territory converge. Her practice is rooted in sustainable painting: she personally harvests stones, earth, and minerals, transforming them through artisanal processes into unique pigments. For Carlotta, <span class="important">"making the paint is already beginning to paint"</span>. Recently a resident at <span class="important">GlogauAIR Berlin (2026)</span>, she has collaborated with <span class="important">Ars Electronica</span> and led research for the <span class="important">CSIC</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span> under <span class="important">Robert Lucander</span>, she integrates body movement and writing into her visual practice.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Carlotta è un'artista emergente il cui lavoro è un atto di ascolto profondo dove convergono materia e territorio. La sua pratica si basa sulla pittura sostenibile: raccoglie personalmente pietre e minerali, trasformandoli in pigmenti unici. Per Carlotta, <span class="important">"fabbricare il colore è già iniziare a dipingere"</span>. Recentemente residente presso <span class="important">GlogauAIR Berlino</span>, ha collaborato con <span class="important">Ars Electronica</span> e coordinato ricerche per il <span class="important">CSIC</span>. Formata alla <span class="important">Escola Massana</span> e alla <span class="important">UdK Berlino</span> con Robert Lucander, integra il movimento del corpo nel suo dialogo con i ritmi organici del mondo.
+                        Carlotta es una artista emergente cuyo trabajo es un acto de escucha profunda donde convergen material y territorio. Su práctica se basa en la pittura sostenible: recolecta personalmente piedras, tierra y minerales, transformándolos mediante procesos artesanales en pigmentos únicos. Para Carlotta, <span class="important">"fabricar la pintura ya es empezar a pintar"</span>. Recientemente residente en <span class="important">GlogauAIR Berlín (2026)</span>, ha colaborado con <span class="important">Ars Electronica</span> e investigado para el <span class="important">CSIC</span>. Formada en la <span class="important">Escola Massana</span> y la <span class="important">UdK Berlín</span> con <span class="important">Robert Lucander</span>, integra el movimiento corporal y la escritura en su práctica visual.
                     </div>
                 </div>
             </div>
         </article>
 
-        <article class="artist-block davide-block">
+        <article class="artist-block">
             <h2 class="artist-name">Davide Ciaramella</h2>
             <div class="artist-content">
                 <div class="img-container">
-                    <img src="fotos_artistas/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img">
+                    <img src="fotos_artistas/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img img-davide">
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        <span class="important">Davide Ciaramella</span> (Naples, 1991) is a contemporary artist based in <span class="important">Milan</span>. His research explores reality through a personal pictorial language, combining observation and memory to reinterpreting the human condition. A multidisciplinary practitioner, he has worked as a concept designer and photographer. His work has been featured in exhibitions including <span class="important">ORG/ANIMO</span> (Milan) and the <span class="important">Imago Mundi</span> project at the <span class="important">MADRE Museum</span>.
+                        <span class="important">Davide Ciaramella</span> (Naples, 1991) is a contemporary artist based in <span class="important">Milan</span>. His research explores reality through a personal pictorial language, combining observation, memory, and intuition to reinterpret the human condition and organic concepts. Throughout his career, he has developed international collaborations as a concept designer and photographer. His work has been featured in exhibitions including <span class="important">ORG/ANIMO</span> (Milan), <span class="important">Denial is a Privilege</span>, and the <span class="important">Imago Mundi</span> project at the <span class="important">MADRE Museum</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        <span class="important">Davide Ciaramella</span> (Nápoles, 1991) es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pictórico personal, combinando observación y memoria para reinterpretar la condición humana. Ha desarrollado una práctica multidisciplinar como diseñador y fotógrafo. Su trabajo ha destacado en exposiciones como <span class="important">ORG/ANIMO</span> (Milán) y el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE</span>.
+                        <span class="important">Davide Ciaramella</span> (Nápoles, 1991) es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pictórico personal, donde se combinan observación, memoria e intuición para reinterpretar la condición humana. Ha desarrollado colaboraciones internacionales como diseñador conceptual y fotógrafo. Su trabajo ha destacado en exposiciones como <span class="important">ORG/ANIMO</span> (Milán), <span class="important">Denial is a Privilege</span> y el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE</span>.
                     </div>
                 </div>
             </div>
