@@ -4,153 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>SENSO — Artists</title>
-
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
-    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
-        @font-face {
-            font-family: 'FuturaLight';
-            src: url('Fonts/futura light bt.ttf') format('truetype');
-        }
+        @font-face { font-family: 'FuturaLight'; src: url('Fonts/futura light bt.ttf') format('truetype'); }
+        @font-face { font-family: 'BehindNineties'; src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); }
 
-        @font-face {
-            font-family: 'BehindNineties';
-            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
-        }
+        body { background-color: #fff; color: #000; margin: 0; padding: 0; font-family: 'FuturaLight', sans-serif; -webkit-font-smoothing: antialiased; }
 
-        body {
-            background-color: #fff;
-            color: #000;
-            margin: 0;
-            padding: 0;
-            font-family: 'FuturaLight', sans-serif;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        .back-home {
-            position: fixed;
-            top: 25px;
-            left: 20px;
-            text-decoration: none;
-            color: #000;
-            font-family: 'FuturaLight', sans-serif;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            opacity: 0.7;
-            z-index: 1000;
-            transition: opacity 0.3s;
-        }
+        .back-home { position: fixed; top: 25px; left: 20px; text-decoration: none; color: #000; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 2px; opacity: 0.7; z-index: 1000; transition: opacity 0.3s; }
         .back-home:hover { opacity: 1; }
-
-        .lang-switch {
-            position: fixed;
-            top: 25px;
-            right: 20px;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            z-index: 1000;
-            color: #000;
-        }
-
-        .lang-btn {
-            background: none;
-            border: none;
-            color: #000;
-            cursor: pointer;
-            padding: 0 5px;
-            opacity: 0.3;
-            text-transform: uppercase;
-            transition: opacity 0.3s;
-            font-family: inherit; 
-            letter-spacing: inherit;
-        }
-
+        
+        .lang-switch { position: fixed; top: 25px; right: 20px; font-size: 0.65rem; letter-spacing: 2px; z-index: 1000; }
+        .lang-btn { background: none; border: none; color: #000; cursor: pointer; padding: 0 5px; opacity: 0.3; text-transform: uppercase; font-family: inherit; letter-spacing: inherit; transition: opacity 0.3s; }
         .lang-btn.active { opacity: 1; }
 
-        .container { 
-            max-width: 1000px; 
-            margin: 0 auto; 
-            padding: 150px 40px 50px; 
-            text-align: left;
-        }
-
-        .section-title {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem); 
-            margin: 0 0 80px 0;
-            text-transform: lowercase;
-            font-weight: normal;
-            line-height: 1;
-        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 150px 40px 50px; }
+        .section-title { font-family: 'BehindNineties', serif; font-size: clamp(2.5rem, 8vw, 4.5rem); margin-bottom: 80px; text-transform: lowercase; font-weight: normal; }
 
         .artist-block { margin-bottom: 120px; }
-
-        .artist-name {
-            font-family: 'FuturaLight', sans-serif;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 30px;
+        .artist-name { font-weight: bold; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 30px; }
+        
+        .artist-content { display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
+        
+        /* BOX FOTO: IL FORMATO DI LUCIA (ORIZZONTALE) */
+        .img-container { 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: #f0f0f0; 
         }
 
-        .artist-content {
-            display: grid;
-            grid-template-columns: 320px 1fr;
-            gap: 60px;
-            align-items: start;
+        .artist-img { 
+            width: 100%; 
+            display: block; 
+            /* 3/2 è il formato standard orizzontale. Lucia non verrà tagliata, le altre sì */
+            aspect-ratio: 3 / 2; 
+            object-fit: cover; 
+            filter: grayscale(100%); 
+            transition: 0.7s ease; 
         }
 
-        .img-container { width: 100%; overflow: hidden; }
+        .img-container:hover .artist-img { filter: grayscale(0%); transform: scale(1.03); }
 
-        .artist-img {
-            width: 100%;
-            display: block;
-            filter: grayscale(100%);
-            transition: 0.7s ease;
-        }
-
-        .img-container:hover .artist-img {
-            filter: grayscale(0%);
-            transform: scale(1.03);
-        }
-
-        .artist-bio { 
-            line-height: 1.8; 
-            font-size: 0.95rem;
-            opacity: 0.85;
-            text-transform: none !important;
-        }
-
-        .important {
-            font-family: 'BehindNineties', serif;
-            font-size: 1.1rem;
-            text-transform: none !important;
-        }
-
+        .artist-bio { line-height: 1.8; font-size: 0.95rem; opacity: 0.85; }
+        .important { font-family: 'BehindNineties', serif; font-size: 1.1rem; }
         .hidden { display: none; }
 
-        .isotipo-footer {
-            padding: 60px 20px 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .isotipo-img {
-            width: 60px;
-            opacity: 0.8;
-            height: auto;
-        }
+        .isotipo-footer { padding: 60px 20px 100px; display: flex; justify-content: center; }
+        .isotipo-img { width: 60px; opacity: 0.8; }
 
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .container { padding: 120px 25px 40px; }
-            .section-title { font-size: 3rem; }
+            .container { padding-top: 120px; }
         }
     </style>
 </head>
@@ -173,11 +78,11 @@
                     <img src="fotos_artistas/raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
-                    <div id="lang-en-raul" class="lang-content-en artist-bio">
+                    <div class="lang-en artist-bio">
                         Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                     </div>
-                    <div id="lang-es-raul" class="lang-content-es artist-bio hidden">
-                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e recentemente in <span class="important">Brussels Collectible 2026</span>.
+                    <div class="lang-es artist-bio hidden">
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> e afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e recentemente in <span class="important">Brussels Collectible 2026</span>.
                     </div>
                 </div>
             </div>
@@ -190,11 +95,11 @@
                     <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
-                    <div id="lang-en-lucia" class="lang-content-en artist-bio">
+                    <div class="lang-en artist-bio">
                         Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence. Her work is born from the intersection of the inherited and the chosen, between what was given and what she decided to sustain. She paints to preserve and translate, ensuring that what inhabits her is not forgotten even if it is no longer in sight. Working with mixed media — oil, acrylic, collage — she explores layers that transmit ancestral knowledge through time, care, and silence. Her work does not illustrate or explain, but opens space for what still deserves to be seen. Painting from the feminine and her <span class="important">Mayan</span> roots as a living gesture, her art is a conversation between heritage and learning to let go. Key exhibitions include <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, <span class="important">Woman’s Museum Bonn</span>, and most recently <span class="important">Tiembla el suelo</span> in <span class="important">Barcelona 2026</span>.
                     </div>
-                    <div id="lang-es-lucia" class="lang-content-es artist-bio hidden">
-                        Artista guatemalteca que cree en el arte como una forma de memoria, no como recuerdo sino como presencia viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. Trabaja con técnicas mixtas (óleo, acrílico, collage) explorando capas que transmiten lo ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, cada obra es una conversación entre lo que trae y lo que está aprendiendo a dejar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> e recentemente in <span class="important">Barcelona 2026</span> con il suo solo show <span class="important">Tiembla el suelo</span>.
+                    <div class="lang-es artist-bio hidden">
+                        Artista guatemalteca que cree en el arte como una forma de memoria, no como recuerdo sino como presencia viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo che le habita aunque ya no esté a la vista. Trabaja con técnicas mixtas (óleo, acrílico, collage) explorando capas che transmiten lo ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo che aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, cada obra es una conversación entre lo che trae y lo che está aprendiendo a dejar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> e recentemente in <span class="important">Barcelona 2026</span> con il suo solo show <span class="important">Tiembla el suelo</span>.
                     </div>
                 </div>
             </div>
@@ -204,14 +109,14 @@
             <h2 class="artist-name">Carlotta Valentinis Queraltó</h2>
             <div class="artist-content">
                 <div class="img-container">
-                    <img src="fotos_artistas/carlotta_valentinis.jpg" alt="Carlotta Valentinis Queraltó" class="artist-img">
+                    <img src="fotos_artistas/carlotta_valentinis.jpg" alt="Carlotta Valentinis" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
-                    <div id="lang-en-carlotta" class="lang-content-en artist-bio">
-                        Emerging artist whose work is defined as an act of deep listening and reconnection with the organic. Her practice is rooted in sustainable painting, where she personally harvests stones and minerals in a slow, ritualistic process. Recently a resident artist at <span class="important">GlogauAIR Berlin</span>, she was selected for the <span class="important">Creative Europe</span> program in collaboration with <span class="important">Ars Electronica</span>. Her research has been exhibited at the <span class="important">Bethanien Kunstquartier</span> in <span class="important">Berlin</span>, the <span class="important">Ars Electronica Festival</span> in <span class="important">Linz</span>, and the <span class="important">Stripart</span> collective in <span class="important">Barcelona</span>. Having trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span>, Carlotta invites the viewer to experience a slower, mineral-based rhythm of existence.
+                    <div class="lang-en artist-bio">
+                        Emerging artist whose work is defined as an act of deep listening and reconnection with the organic. Her practice is rooted in sustainable painting, where she personally harvests stones and minerals in a slow, ritualistic process. Recently a resident artist at <span class="important">GlogauAIR Berlin</span>, she was selected for the <span class="important">Creative Europe</span> program in collaboration with <span class="important">Ars Electronica</span>. Her research has been exhibited at the <span class="important">Bethanien Kunstquartier</span> in <span class="important">Berlin</span>, the <span class="important">Ars Electronica Festival</span> in <span class="important">Linz</span>, and the <span class="important">Stripart</span> collective in <span class="important">Barcelona</span>.
                     </div>
-                    <div id="lang-es-carlotta" class="lang-content-es artist-bio hidden">
-                        Artista emergente cuyo trabajo se define como un acto de escucha profunda y reconexión con lo orgánico. Su práctica se basa en una pintura sostenible, recolectando personalmente piedras y minerales en un proceso ritual y pausado. Recientemente artista residente en <span class="important">GlogauAIR Berlín</span>, fue seleccionada para el programa <span class="important">Creative Europe</span> junto a <span class="important">Ars Electronica</span>. Su investigación ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span> de <span class="important">Berlín</span>, el <span class="important">Festival Ars Electronica</span> en <span class="important">Linz</span> y el colectivo <span class="important">Stripart Barcelona</span>. Formada entre la <span class="important">Escola Massana</span> y la <span class="important">UdK Berlín</span>, invita al espectador a reconectar con los ritmos minerales y los ciclos de la naturaleza.
+                    <div class="lang-es artist-bio hidden">
+                        Artista emergente cuyo trabajo se define como un acto de escucha profunda y reconexión con lo orgánico. Su práctica se basa en una pintura sostenible, recolectando personalmente piedras y minerales en un proceso ritual y pausado. Recientemente artista residente en <span class="important">GlogauAIR Berlín</span>, fue seleccionada para el programa <span class="important">Creative Europe</span> junto a <span class="important">Ars Electronica</span>. Su investigación ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span> de <span class="important">Berlín</span>, el <span class="important">Festival Ars Electronica</span> en <span class="important">Linz</span> y il collettivo <span class="important">Stripart Barcelona</span>.
                     </div>
                 </div>
             </div>
@@ -224,11 +129,11 @@
                     <img src="fotos_artistas/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
-                    <div id="lang-en-davide" class="lang-content-en artist-bio">
-                        Contemporary artist born in <span class="important">Naples</span> and currently based in <span class="important">Milan</span>. His research focuses on reinterpreting the human condition through a highly personal and visceral pictorial language. Key exhibitions include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Galería Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio Naples</span>. He also participated in the <span class="important">Imago Mundi</span> project at the <span class="important">Museo MADRE Naples</span> and has showcased his work internationally at <span class="important">Dadun Gallery Taiwan</span> and <span class="important">Zona Blu Milan</span>.
+                    <div class="lang-en artist-bio">
+                        Contemporary artist born in <span class="important">Naples</span> and currently based in <span class="important">Milan</span>. His research focuses on reinterpreting the human condition through a highly personal and visceral pictorial language. Key exhibitions include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Galería Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio Naples</span>.
                     </div>
-                    <div id="lang-es-davide" class="lang-content-es artist-bio hidden">
-                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Su investigación se centra en reinterpretar la condición humana a través de un lenguaje pictórico muy personal y visceral. Entre sus exposiciones destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio de Nápoles</span>. Ha participado en el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> y en espacios como <span class="important">Dadun Gallery Taiwán</span> y <span class="important">Zona Blu Milán</span>.
+                    <div class="lang-es artist-bio hidden">
+                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Su investigación se centra en reinterpretar la condición humana a través de un lenguaje pictórico muy personal y visceral. Entre sus exposiciones destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio de Nápoles</span>.
                     </div>
                 </div>
             </div>
@@ -236,29 +141,27 @@
     </main>
 
     <div class="isotipo-footer">
-        <img src="fotos_artistas/senso_isotipo_negro.png" alt="Senso Isotipo" class="isotipo-img">
+        <img src="fotos_artistas/senso_isotipo_negro.png" alt="Senso" class="isotipo-img">
     </div>
 
     <script>
         function setLang(lang) {
-            const enTexts = document.querySelectorAll('.lang-content-en');
-            const esTexts = document.querySelectorAll('.lang-content-es');
+            const en = document.querySelectorAll('.lang-en');
+            const es = document.querySelectorAll('.lang-es');
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
-            const mainTitle = document.getElementById('main-title');
+            const title = document.getElementById('main-title');
 
             if (lang === 'es') {
-                enTexts.forEach(el => el.classList.add('hidden'));
-                esTexts.forEach(el => el.classList.remove('hidden'));
-                btnEs.classList.add('active');
-                btnEn.classList.remove('active');
-                mainTitle.innerText = 'artistas';
+                en.forEach(el => el.classList.add('hidden'));
+                es.forEach(el => el.classList.remove('hidden'));
+                btnEs.classList.add('active'); btnEn.classList.remove('active');
+                title.innerText = 'artistas';
             } else {
-                esTexts.forEach(el => el.classList.add('hidden'));
-                enTexts.forEach(el => el.classList.remove('hidden'));
-                btnEn.classList.add('active');
-                btnEs.classList.remove('active');
-                mainTitle.innerText = 'artists';
+                es.forEach(el => el.classList.add('hidden'));
+                en.forEach(el => el.classList.remove('hidden'));
+                btnEn.classList.add('active'); btnEs.classList.remove('active');
+                title.innerText = 'artists';
             }
         }
     </script>
