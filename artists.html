@@ -29,7 +29,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigazione */
         .nav-header {
             position: fixed; top: 30px; width: 100%; display: flex; 
             justify-content: space-between; padding: 0 40px; box-sizing: border-box; z-index: 1000;
@@ -49,12 +48,11 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* Main Container */
         .container { 
             max-width: 1000px; 
             margin: 0 auto; 
             padding: 150px 40px; 
-            text-align: left; /* Tutto incolonnato a sinistra */
+            text-align: left;
         }
 
         .section-title {
@@ -65,33 +63,26 @@
             font-weight: normal;
         }
 
-        /* Blocco Artista */
-        .artist-block { 
-            margin-bottom: 120px; 
-        }
+        .artist-block { margin-bottom: 120px; }
 
+        /* NOME ARTISTA: Futura, Grassetto, Allineato a sinistra */
         .artist-name {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 1.6rem; /* Più piccolo */
+            font-family: 'FuturaLight', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem; /* Leggermente ridotto per eleganza */
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             margin-bottom: 25px;
-            font-weight: 300;
         }
 
-        /* Grid Layout: Foto a sinistra, Testo a destra */
         .artist-content {
             display: grid;
-            grid-template-columns: 350px 1fr; /* Larghezza foto fissa, testo flessibile */
+            grid-template-columns: 320px 1fr;
             gap: 50px;
             align-items: start;
         }
 
-        .img-container {
-            width: 100%;
-            overflow: hidden;
-            background-color: #f9f9f9;
-        }
+        .img-container { width: 100%; overflow: hidden; }
 
         .artist-img {
             width: 100%;
@@ -107,31 +98,22 @@
 
         .artist-bio { 
             line-height: 1.8; 
-            font-size: 0.95rem; /* Testo più piccolo */
+            font-size: 0.95rem;
             opacity: 0.8;
-            text-align: left;
         }
 
         .important {
             font-family: 'BehindNineties', serif;
             font-size: 1.1rem;
             text-transform: lowercase;
-            color: #000;
         }
 
         .hidden { display: none; }
 
-        footer {
-            padding: 60px 40px;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            opacity: 0.4;
-        }
+        footer { padding: 60px 40px; font-size: 0.6rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.4; }
 
         @media (max-width: 800px) {
-            .artist-content { grid-template-columns: 1fr; gap: 20px; }
-            .img-container { max-width: 100%; }
+            .artist-content { grid-template-columns: 1fr; gap: 30px; }
             .container { padding: 100px 20px; }
         }
     </style>
@@ -147,7 +129,7 @@
     </div>
 
     <main class="container">
-        <h1 class="section-title">artisti</h1>
+        <h1 class="section-title" id="main-title">artists</h1>
 
         <article class="artist-block">
             <h2 class="artist-name">Raúl del Chano</h2>
@@ -157,10 +139,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">barcelona</span> and based in <span class="important">olba (teruel)</span>. His work reinterprets traditional basketry through a contemporary lens. After 17 years at <span class="important">massimo dutti</span>, he returned to craftsmanship, showcasing in <span class="important">object space space object</span> at <span class="important">galería taula barcelona</span>, <span class="important">domus nova</span> at <span class="important">museo de san isidro madrid</span>, and <span class="important">brussels collectible 2026</span>.
+                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and based in <span class="important">Olba (Teruel)</span>. His work reinterprets traditional basketry through a contemporary lens. After 17 years as head of image at <span class="important">Massimo Dutti</span>, he returned to craftsmanship, showcasing in <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, <span class="important">Domus Nova</span> at <span class="important">Museo de San Isidro Madrid</span>, and <span class="important">Brussels Collectible 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">barcelona</span> y afincado en <span class="important">olba (teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea. Tras 17 años como responsable de imagen en <span class="important">massimo dutti</span>, regresa a la artesanía destacando en <span class="important">object space space object</span> en la <span class="important">galería taula de barcelona</span>, <span class="important">domus nova</span> en el <span class="important">museo de san isidro</span> y <span class="important">brussels collectible 2026</span>.
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea. Tras 17 years como responsable de imagen en <span class="important">Massimo Dutti</span>, regresa a la artesanía destacando en <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> y <span class="important">Brussels Collectible 2026</span>.
                     </div>
                 </div>
             </div>
@@ -174,10 +156,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Emerging artist whose work is an act of deep listening. Resident artist at <span class="important">glogauair berlin</span>, she participated in <span class="important">creative europe</span> with <span class="important">ars electronica</span>. Her work has been shown at <span class="important">bethanien kunstquartier</span>, <span class="important">ars electronica festival linz</span>, and <span class="important">stripart barcelona</span>. Trained at <span class="important">escola massana</span> and <span class="important">udk berlin</span>.
+                        Emerging artist whose work is an act of deep listening. Resident artist at <span class="important">GlogauAIR Berlin</span>, she participated in <span class="important">Creative Europe</span> with <span class="important">Ars Electronica</span>. Her work has been shown at <span class="important">Bethanien Kunstquartier</span>, <span class="important">Ars Electronica Festival Linz</span>, and <span class="important">Stripart Barcelona</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista emergente cuyo trabajo es un acto de escucha profunda. Artista residente en <span class="important">glogauair berlín</span>, participó en <span class="important">creative europe</span> con <span class="important">ars electronica</span>. Su obra ha sido expuesta en <span class="important">bethanien kunstquartier</span>, <span class="important">ars electronica festival linz</span>, y <span class="important">stripart barcelona</span>. Formada en <span class="important">escola massana</span> y <span class="important">udk berlín</span>.
+                        Artista emergente cuyo trabajo es un acto de escucha profunda. Residente en <span class="important">GlogauAIR Berlín</span>, participó en el programa <span class="important">Creative Europe</span> con <span class="important">Ars Electronica</span>. Su obra ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span>, el <span class="important">Festival Ars Electronica Linz</span> y <span class="important">Stripart Barcelona</span>. Formada en <span class="important">Escola Massana</span> y <span class="important">UdK Berlín</span>.
                     </div>
                 </div>
             </div>
@@ -191,10 +173,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary artist born in <span class="important">naples</span> and based in <span class="important">milan</span>. Highlights include <span class="important">org/animo</span> at <span class="important">iperspazio milan</span>, <span class="important">denial is a privilege</span> at <span class="important">perimetro fluido</span>, and <span class="important">unknown figures</span> at <span class="important">galería salvatore serio</span>. He participated in <span class="important">imago mundi</span> at <span class="important">museo madre naples</span> and <span class="important">dadun gallery taiwan</span>.
+                        Contemporary artist born in <span class="important">Naples</span> and based in <span class="important">Milan</span>. Highlights include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio</span>. He participated in <span class="important">Imago Mundi</span> at <span class="important">Museo MADRE Naples</span> and <span class="important">Dadun Gallery Taiwan</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista contemporáneo nacido en <span class="important">nápoles</span> y afincado en <span class="important">milán</span>. Destacan <span class="important">org/animo</span> en <span class="important">iperspazio milán</span>, <span class="important">denial is a privilege</span> en <span class="important">perimetro fluido</span>, y <span class="important">unknown figures</span> en <span class="important">galería salvatore serio</span>. Participó en <span class="important">imago mundi</span> en el <span class="important">museo madre</span> y <span class="important">dadun gallery taiwán</span>.
+                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span>. Participó en <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> e <span class="important">Dadun Gallery Taiwán</span>.
                     </div>
                 </div>
             </div>
@@ -209,16 +191,20 @@
             const esTexts = document.querySelectorAll('.lang-es');
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
+            const mainTitle = document.getElementById('main-title');
+
             if (lang === 'es') {
                 enTexts.forEach(el => el.classList.add('hidden'));
                 esTexts.forEach(el => el.classList.remove('hidden'));
                 btnEs.classList.add('active');
                 btnEn.classList.remove('active');
+                mainTitle.innerText = 'artisti';
             } else {
                 esTexts.forEach(el => el.classList.add('hidden'));
                 enTexts.forEach(el => el.classList.remove('hidden'));
                 btnEn.classList.add('active');
                 btnEs.classList.remove('active');
+                mainTitle.innerText = 'artists';
             }
         }
     </script>
