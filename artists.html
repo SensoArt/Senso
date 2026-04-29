@@ -29,7 +29,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigazione identica a About */
+        /* Navigazione e Switcher come About */
         .nav-header {
             position: fixed; top: 30px; width: 100%; display: flex; 
             justify-content: space-between; padding: 0 40px; box-sizing: border-box; z-index: 1000;
@@ -40,13 +40,12 @@
             text-transform: uppercase; font-size: 0.6rem;
             letter-spacing: 2px; opacity: 0.5; transition: 0.3s;
         }
-        .back-home:hover { opacity: 1; }
 
         .lang-switch { font-size: 0.6rem; letter-spacing: 1px; }
         .lang-btn {
             background: none; border: none; color: #000;
             cursor: pointer; padding: 0 5px; opacity: 0.3;
-            text-transform: uppercase; transition: 0.3s; font-family: 'FuturaLight';
+            text-transform: uppercase; font-family: 'FuturaLight';
         }
         .lang-btn.active { opacity: 1; font-weight: bold; }
 
@@ -57,24 +56,24 @@
             text-align: left;
         }
 
-        /* Titolo identico a About */
+        /* Titolo Artists/Artistas: BehindNineties e minuscolo come 'about' */
         .section-title {
             font-family: 'BehindNineties', serif;
             font-size: 2.2rem;
             margin-bottom: 80px;
-            text-transform: lowercase;
+            text-transform: lowercase; /* Solo qui per stile */
             font-weight: normal;
         }
 
         .artist-block { margin-bottom: 120px; }
 
-        /* Nomi Artisti: Futura Grassetto, senza spazio strano tra lettere */
+        /* Nomi Artisti: Futura Grassetto, All-Caps con maiuscole rispettate */
         .artist-name {
             font-family: 'FuturaLight', sans-serif;
             font-weight: bold;
             font-size: 1.1rem;
             text-transform: uppercase;
-            letter-spacing: 1px; /* Ridotto per evitare l'effetto strano */
+            letter-spacing: 1px;
             margin-bottom: 30px;
         }
 
@@ -99,13 +98,15 @@
             transform: scale(1.03);
         }
 
+        /* Bio: NESSUN text-transform qui per preservare le maiuscole */
         .artist-bio { 
             line-height: 1.8; 
             font-size: 0.9rem;
             opacity: 0.85;
+            text-transform: none; 
         }
 
-        /* Evidenziazioni identiche a About */
+        /* Evidenziazioni */
         .important {
             font-family: 'BehindNineties', serif;
             font-size: 1.1rem;
@@ -119,7 +120,6 @@
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
             .container { padding: 120px 25px; }
-            .nav-header { padding: 0 20px; }
         }
     </style>
 </head>
