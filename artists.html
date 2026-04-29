@@ -27,27 +27,29 @@
             padding: 0;
             font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
-            /* Rimosso qualsiasi text-transform globale */
         }
 
+        /* Navigazione identica a About */
         .nav-header {
-            position: fixed; top: 30px; width: 100%; display: flex; 
-            justify-content: space-between; padding: 0 40px; box-sizing: border-box; z-index: 1000;
+            position: fixed; top: 25px; width: 100%; display: flex; 
+            justify-content: space-between; padding: 0 20px; box-sizing: border-box; z-index: 1000;
         }
         
         .back-home {
             text-decoration: none; color: #000;
-            text-transform: uppercase; font-size: 0.6rem;
-            letter-spacing: 2px; opacity: 0.5; transition: 0.3s;
+            text-transform: uppercase; font-size: 0.65rem;
+            letter-spacing: 2px; opacity: 0.7; transition: 0.3s;
         }
+        .back-home:hover { opacity: 1; }
 
-        .lang-switch { font-size: 0.6rem; letter-spacing: 1px; }
+        .lang-switch { font-size: 0.65rem; letter-spacing: 2px; color: #000; }
         .lang-btn {
             background: none; border: none; color: #000;
             cursor: pointer; padding: 0 5px; opacity: 0.3;
             text-transform: uppercase; font-family: 'FuturaLight';
+            transition: opacity 0.3s;
         }
-        .lang-btn.active { opacity: 1; font-weight: bold; }
+        .lang-btn.active { opacity: 1; }
 
         .container { 
             max-width: 1000px; 
@@ -56,18 +58,19 @@
             text-align: left;
         }
 
-        /* Titolo: BehindNineties - Minuscolo come richiesto per coerenza con 'about' */
+        /* Titolo Artists: Grande come in About */
         .section-title {
             font-family: 'BehindNineties', serif;
-            font-size: 2.2rem;
+            font-size: clamp(2.5rem, 8vw, 4.5rem); 
             margin-bottom: 80px;
-            text-transform: lowercase; 
+            text-transform: lowercase;
             font-weight: normal;
+            line-height: 1;
         }
 
         .artist-block { margin-bottom: 120px; }
 
-        /* Nomi Artisti: Futura Grassetto (Negrita) */
+        /* Nomi Artisti: Futura Negrita */
         .artist-name {
             font-family: 'FuturaLight', sans-serif;
             font-weight: bold;
@@ -98,12 +101,12 @@
             transform: scale(1.03);
         }
 
-        /* Testo Bio: Maiuscole preservate forzatamente */
+        /* Testo Bio: Maiuscole protette */
         .artist-bio { 
             line-height: 1.8; 
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             opacity: 0.85;
-            text-transform: none !important; /* Forza il rispetto delle maiuscole scritte nel testo */
+            text-transform: none !important;
         }
 
         .important {
@@ -114,11 +117,12 @@
 
         .hidden { display: none; }
 
-        footer { padding: 80px 40px; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.3; }
+        footer { padding: 80px 40px; font-size: 0.6rem; letter-spacing: 4px; text-transform: uppercase; opacity: 0.3; text-align: center; }
 
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
             .container { padding: 120px 25px; }
+            .section-title { font-size: 3rem; }
         }
     </style>
 </head>
@@ -127,7 +131,7 @@
     <div class="nav-header">
         <a href="index.html" class="back-home">← Home</a>
         <div class="lang-switch">
-            <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> / 
+            <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
             <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
         </div>
     </div>
@@ -146,7 +150,7 @@
                         Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e recentemente in <span class="important">Brussels Collectible 2026</span>, de la mano de <span class="important">Szymon Keller</span>, abordando cuestiones de identidad y tacto.
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años come responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> e recentemente in <span class="important">Brussels Collectible 2026</span>.
                     </div>
                 </div>
             </div>
@@ -177,10 +181,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary artist born in <span class="important">Naples</span> and currently based in <span class="important">Milan</span>. His research focuses on reinterpreting the human condition through a highly personal and visceral pictorial language. Key exhibitions include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Galería Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio Naples</span>. He also participated in the <span class="important">Imago Mundi</span> project at the <span class="important">Museo MADRE Naples</span> and has showcased his work internationally at <span class="important">Dadun Gallery Taiwan</span> and <span class="important">Zona Blu Milan</span>, exploring the boundary between the internal self and external perception.
+                        Contemporary artist born in <span class="important">Naples</span> and currently based in <span class="important">Milan</span>. His research focuses on reinterpreting the human condition through a highly personal and visceral pictorial language. Key exhibitions include <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio Milan</span>, <span class="important">Denial is a Privilege</span> at <span class="important">Galería Perimetro Fluido</span>, and <span class="important">Unknown Figures</span> at <span class="important">Galería Salvatore Serio Naples</span>. He also participated in the <span class="important">Imago Mundi</span> project at the <span class="important">Museo MADRE Naples</span> and has showcased his work internationally at <span class="important">Dadun Gallery Taiwan</span> and <span class="important">Zona Blu Milan</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Su investigación se centra en reinterpretar la condición humana a través de un lenguaje pictórico muy personal y visceral. Entre sus exposiciones destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio de Nápoles</span>. Ha participado en el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> y en espacios como <span class="important">Dadun Gallery Taiwán</span> y <span class="important">Zona Blu Milán</span>, explorando los límites entre la identidad y la materia.
+                        Artista contemporáneo nacido en <span class="important">Nápoles</span> y afincado en <span class="important">Milán</span>. Su investigación se centra en reinterpretar la condición humana a través de un lenguaje pictórico muy personal y visceral. Entre sus exposiciones destacan <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio Milán</span>, <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> e <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio de Nápoles</span>. Ha participado en el proyecto <span class="important">Imago Mundi</span> en el <span class="important">Museo MADRE de Nápoles</span> y en espacios como <span class="important">Dadun Gallery Taiwán</span> y <span class="important">Zona Blu Milán</span>.
                     </div>
                 </div>
             </div>
