@@ -27,7 +27,15 @@
         
         .artist-content { display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
         
-        .img-container { width: 100%; overflow: hidden; background-color: #f0f0f0; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+        /* Contenitore Immagine */
+        .img-container { 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: #f0f0f0; 
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent; 
+            touch-action: manipulation;
+        }
 
         .artist-img { 
             width: 100%; 
@@ -38,7 +46,7 @@
             transition: 0.7s ease; 
         }
 
-        /* Colore su Desktop (Hover) e Mobile (Active) */
+        /* Effetto Colore (Desktop e Mobile) */
         .img-container:hover .artist-img,
         .img-container.active .artist-img { 
             filter: grayscale(0%); 
@@ -76,7 +84,7 @@
         <article class="artist-block">
             <h2 class="artist-name">Raúl del Chano</h2>
             <div class="artist-content">
-                <div class="img-container" onclick="this.classList.toggle('active')">
+                <div class="img-container" onclick="toggleImage(this)">
                     <img src="fotos_artistas/raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img img-raul">
                 </div>
                 <div class="bio-wrapper">
@@ -84,7 +92,7 @@
                         Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando il diálogo profondo tra artigianato, design e scultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> y recientemente en <span class="important">Brussels Collectible 2026</span>.
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> y recientemente en <span class="important">Brussels Collectible 2026</span>.
                     </div>
                 </div>
             </div>
@@ -93,7 +101,7 @@
         <article class="artist-block">
             <h2 class="artist-name">Lucía Cheves Dauber</h2>
             <div class="artist-content">
-                <div class="img-container" onclick="this.classList.toggle('active')">
+                <div class="img-container" onclick="toggleImage(this)">
                     <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
@@ -101,7 +109,7 @@
                         Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence. Her work is born from the intersection of the inherited and the chosen, between what was given and what she decided to sustain. She paints to preserve and translate, ensuring that what inhabits her is not forgotten even if it is no longer in sight. Working with mixed media — oil, acrylic, collage — she explores layers that transmit ancestral knowledge through time, care, and silence. Her work does not illustrate or explain, but opens space for what still deserves to be seen. Painting from the feminine and her <span class="important">Mayan</span> roots as a living gesture, her art is a conversation between heritage and learning to let go. Key exhibitions include <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, <span class="important">Woman’s Museum Bonn</span>, and most recently <span class="important">Tiembla el suelo</span> in <span class="important">Barcelona 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista guatemalteca que entiende el arte como una forma de memoria viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. A través de técnicas mixtas como el óleo, acrílico y collage, explora capas que transmiten el conocimiento ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, su arte es una conversation entre la herencia y el aprendizaje de soltar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> y recientemente en <span class="important">Barcelona 2026</span> con su solo show <span class="important">Tiembla el suelo</span>.
+                        Artista guatemalteca que entiende el arte como una forma de memoria viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. A través de técnicas mixtas como el óleo, acrílico y collage, explora capas que transmiten el conocimiento ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, su arte es una conversación entre la herencia y el aprendizaje de soltar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> y recientemente en <span class="important">Barcelona 2026</span> con su solo show <span class="important">Tiembla el suelo</span>.
                     </div>
                 </div>
             </div>
@@ -110,7 +118,7 @@
         <article class="artist-block">
             <h2 class="artist-name">Carlotta Valentinis Queraltó</h2>
             <div class="artist-content">
-                <div class="img-container" onclick="this.classList.toggle('active')">
+                <div class="img-container" id="img-carlotta" onclick="toggleImage(this)">
                     <img src="fotos_artistas/carlotta_valentinis.jpg" alt="Carlotta Valentinis" class="artist-img">
                 </div>
                 <div class="bio-wrapper">
@@ -127,7 +135,7 @@
         <article class="artist-block">
             <h2 class="artist-name">Davide Ciaramella</h2>
             <div class="artist-content">
-                <div class="img-container" onclick="this.classList.toggle('active')">
+                <div class="img-container" onclick="toggleImage(this)">
                     <img src="fotos_artistas/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img img-davide">
                 </div>
                 <div class="bio-wrapper">
@@ -147,6 +155,7 @@
     </div>
 
     <script>
+        // Funzione per il cambio lingua
         function setLang(lang) {
             const en = document.querySelectorAll('.lang-en');
             const es = document.querySelectorAll('.lang-es');
@@ -167,7 +176,19 @@
             }
         }
 
-        // Toglie il colore se si clicca fuori dalle foto
+        // Funzione dedicata per attivare il colore al tocco
+        function toggleImage(element) {
+            // Se l'elemento ha già la classe active, la toglie
+            if (element.classList.contains('active')) {
+                element.classList.remove('active');
+            } else {
+                // Rimuove active da tutti gli altri prima di aggiungerlo a questo
+                document.querySelectorAll('.img-container').forEach(c => c.classList.remove('active'));
+                element.classList.add('active');
+            }
+        }
+
+        // Se si tocca lo sfondo (fuori dalle foto), rimuove l'effetto active
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.img-container')) {
                 document.querySelectorAll('.img-container').forEach(c => c.classList.remove('active'));
