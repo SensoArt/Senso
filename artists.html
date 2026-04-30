@@ -27,7 +27,7 @@
         
         .artist-content { display: grid; grid-template-columns: 350px 1fr; gap: 60px; align-items: start; }
         
-        .img-container { width: 100%; overflow: hidden; background-color: #f0f0f0; }
+        .img-container { width: 100%; overflow: hidden; background-color: #f0f0f0; cursor: pointer; }
 
         .artist-img { 
             width: 100%; 
@@ -36,13 +36,17 @@
             object-fit: cover; 
             filter: grayscale(100%); 
             transition: 0.7s ease; 
-            cursor: pointer;
         }
 
-        /* L'UNICO MODO CHE FUNZIONA OVUNQUE: HOVER */
+        /* Effetto per PC */
         .img-container:hover .artist-img { 
             filter: grayscale(0%); 
             transform: scale(1.03); 
+        }
+
+        /* Effetto forzato per Mobile quando viene toccato */
+        .img-container:active .artist-img {
+            filter: grayscale(0%);
         }
 
         .img-raul { object-position: center 20%; }
@@ -53,6 +57,8 @@
         .hidden { display: none; }
 
         .isotipo-footer { padding: 100px 20px; display: flex; justify-content: center; align-items: center; }
+        
+        /* ISOTIPO GRANDE 75px */
         .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
 
         @media (max-width: 850px) {
@@ -61,7 +67,9 @@
         }
     </style>
 </head>
-<body onclick="void(0)"> <a href="index.html" class="back-home">← Home</a>
+<body onclick="void(0)">
+
+    <a href="index.html" class="back-home">← Home</a>
 
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
@@ -79,10 +87,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens...
+                        Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>...
+                        Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> y recientemente en <span class="important">Brussels Collectible 2026</span>.
                     </div>
                 </div>
             </div>
@@ -96,10 +104,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence...
+                        Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence. Her work is born from the intersection of the inherited and the chosen, between what was given and what she decided to sustain. She paints to preserve and translate, ensuring that what inhabits her is not forgotten even if it is no longer in sight. Working with mixed media — oil, acrylic, collage — she explores layers that transmit ancestral knowledge through time, care, and silence. Her work does not illustrate or explain, but opens space for what still deserves to be seen. Painting from the feminine and her <span class="important">Mayan</span> roots as a living gesture, her art is a conversation between heritage and learning to let go. Key exhibitions include <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, <span class="important">Woman’s Museum Bonn</span>, and most recently <span class="important">Tiembla el suelo</span> in <span class="important">Barcelona 2026</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Artista guatemalteca que entiende el arte como una forma de memoria viva...
+                        Artista guatemalteca que entiende el arte como una forma de memoria viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. A través de técnicas mixtas como el óleo, acrílico y collage, explora capas que transmiten el conocimiento ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, su arte es una conversación entre la herencia y el aprendizaje de soltar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> y recientemente en <span class="important">Barcelona 2026</span> con su solo show <span class="important">Tiembla el suelo</span>.
                     </div>
                 </div>
             </div>
@@ -113,10 +121,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        Carlotta is an emerging artist whose work is an act of deep listening where material and territory converge...
+                        Carlotta is an emerging artist whose work is an act of deep listening where material and territory converge. Her practice is rooted in sustainable painting: she personally harvests stones, earth, and minerals, transforming them through artisanal processes into unique pigments. For Carlotta, <span class="important">"making the paint is already beginning to paint"</span>. Recently a resident at <span class="important">GlogauAIR Berlin (2026)</span>, she has collaborated with <span class="important">Ars Electronica</span> and led research for the <span class="important">CSIC</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span> under <span class="important">Robert Lucander</span>, she integrates body movement and writing into her visual practice. Her research has been exhibited at the <span class="important">Bethanien Kunstquartier</span> in <span class="important">Berlin</span>, the <span class="important">Ars Electronica Festival</span> in <span class="important">Linz</span>, and the <span class="important">Stripart</span> collective in <span class="important">Barcelona</span>.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Carlotta es una artista emergente cuyo trabajo es un acto de escucha profunda donde convergen material y territorio...
+                        Carlotta es una artista emergente cuyo trabajo es un acto de escucha profunda donde convergen material y territorio. Su práctica se basa en la pintura sostenible: recolecta personalmente piedras, tierra y minerales, transformándolos mediante procesos artesanales en pigmentos únicos. Para Carlotta, <span class="important">"fabricar la pintura ya es empezar a pintar"</span>. Recientemente residente en <span class="important">GlogauAIR Berlín (2026)</span>, ha colaborado con <span class="important">Ars Electronica</span> e investigado para el <span class="important">CSIC</span>. Formada en la <span class="important">Escola Massana</span> y la <span class="important">UdK Berlín</span> con <span class="important">Robert Lucander</span>, integra el movimiento corporal y la escritura en su práctica visual. Su investigación ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span> de Berlín, el <span class="important">Festival Ars Electronica</span> en Linz y el colectivo <span class="important">Stripart</span> en Barcelona.
                     </div>
                 </div>
             </div>
@@ -130,10 +138,10 @@
                 </div>
                 <div class="bio-wrapper">
                     <div class="lang-en artist-bio">
-                        <span class="important">Davide Ciaramella</span> is a contemporary artist based in <span class="important">Milan</span>...
+                        <span class="important">Davide Ciaramella</span> is a contemporary artist based in <span class="important">Milan</span>. His research explores reality through a personal pictorial language, combining observation, memory, and intuition to reinterpret the human condition and organic concepts. Throughout his career, he has developed international collaborations as a concept designer and photographer. His work has been featured in exhibitions including <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio</span> (Milan, 2023), <span class="important">Denial is a Privilege</span> at <span class="important">Perimetro Fluido Gallery</span> (Milan), and <span class="important">Unknown Figures</span> at <span class="important">Salvatore Serio Gallery</span> (Naples). He also participated in the international project <span class="important">Imago Mundi</span> for Luciano Benetton at the <span class="important">MADRE Museum</span> in Naples, and in exhibitions at spaces such as <span class="important">Dadun Gallery</span> (Taichung, Taiwan) and <span class="important">Zona Blu</span> (Milan).
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        <span class="important">Davide Ciaramella</span> es un artista contemporáneo afincado en <span class="important">Milán</span>...
+                        <span class="important">Davide Ciaramella</span> es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pictórico personal, combinando observación, memoria e intuición para reinterpretar la condición humana y conceptos orgánicos. A lo largo de su trayectoria, ha desarrollado colaboraciones internacionales como diseñador conceptual y fotógrafo. Su trabajo ha sido destacado en exposiciones como <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio</span> (Milán, 2023), <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> (Milán), y <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span> (Nápoles). También participó en el proyecto internacional <span class="important">Imago Mundi</span> para Luciano Benetton en el <span class="important">Museo MADRE</span> de Nápoles, y en exposiciones en espacios con <span class="important">Dadun Gallery</span> (Taichung, Taiwán) y <span class="important">Zona Blu</span> (Milán).
                     </div>
                 </div>
             </div>
