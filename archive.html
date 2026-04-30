@@ -16,61 +16,62 @@
             src: url('Fonts/futura light bt.ttf') format('truetype');
         }
 
-        /* ANIMAZIONI */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        /* Uno zoom lentissimo che dà vita alle ombre */
+        /* Drift ricalibrato per non uscire mai dai bordi */
         @keyframes gentleDrift {
-            from { transform: scale(1) translate(0, 0); }
-            to { transform: scale(1.08) translate(-10px, -5px); }
+            from { transform: scale(1.05); }
+            to { transform: scale(1.15); }
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Taglia categoricamente qualsiasi pezzo in più */
+            background-color: #000;
         }
 
         body {
-            background-color: #000;
-            color: #fff;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
-            overflow: hidden;
+            color: #fff;
             text-align: center;
         }
 
-        /* Sfondo con la nuova immagine di ombre */
+        /* Lo sfondo ora è ancorato perfettamente ai bordi */
         .archive-bg {
-            position: fixed;
-            top: -10%; /* Leggermente fuori per lo zoom */
-            left: -10%;
-            width: 120%; /* Più grande per lo zoom */
-            height: 120%;
-            background-image: url('archive_bg.jpg'); /* Il nome del file che salverai */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('archive_bg.jpg'); 
             background-size: cover;
             background-position: center;
-            opacity: 0.35; /* Molto scura per eleganza e leggibilità */
-            z-index: -1;
-            animation: gentleDrift 30s infinite alternate ease-in-out;
-            filter: grayscale(100%); /* Assicuriamoci che sia puro bianco e nero */
+            opacity: 0.35; 
+            z-index: -2;
+            animation: gentleDrift 20s infinite alternate ease-in-out;
+            filter: grayscale(100%);
         }
         
-        /* Overlay per scurire ulteriormente gli angoli */
+        /* Overlay per profondità */
         .bg-overlay {
-            position: fixed;
+            position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
+            background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9) 100%);
             z-index: -1;
         }
 
-        /* Tasto Back Home */
         .back-home {
-            position: fixed;
+            position: absolute;
             top: 25px;
             left: 20px;
             text-decoration: none;
@@ -79,28 +80,37 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             opacity: 0.5;
-            z-index: 1000;
+            z-index: 10;
             transition: 0.3s;
         }
 
         .back-home:hover { opacity: 1; }
 
-        /* Contenuto centrale */
         .archive-content {
+            z-index: 1;
             padding: 20px;
             animation: fadeIn 3s ease-in-out;
         }
 
-        /* La frase in Futura */
         .status-text {
             font-size: 0.95rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             opacity: 0.7;
             margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Leggera ombra per il testo */
         }
 
+        /* FIX MOBILE: Rimuove ogni possibile spazio aggiunto */
+        @media (max-width: 768px) {
+            .status-text {
+                font-size: 0.8rem;
+                letter-spacing: 3px;
+            }
+            .back-home {
+                top: 20px;
+                left: 15px;
+            }
+        }
     </style>
 </head>
 <body>
