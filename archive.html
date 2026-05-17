@@ -2,40 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Archive</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @font-face { font-family: 'FuturaLight'; src: url('Fonts/futura light bt.ttf') format('truetype'); }
-        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; font-family: 'FuturaLight', sans-serif; color: #fff; overflow: hidden; }
+        @font-face { font-family: 'Futura'; src: url('Fonts/futura light bt.ttf'); }
+        body { margin: 0; background-color: #000; color: #fff; font-family: 'Futura', sans-serif; overflow: hidden; }
         
-        .archive-bg { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; 
-        }
-        .archive-bg img { 
-            width: 100%; height: 100%; object-fit: cover; opacity: 0.45; 
-        }
-        .bg-overlay { 
+        /* SFONDO */
+        .bg { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%); z-index: -1; 
+            z-index: -1;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.8)), url('archive_bg.jpg');
+            background-size: cover; background-position: center;
         }
-        .back-home { position: absolute; top: 25px; left: 20px; text-decoration: none; color: #fff; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 2px; opacity: 0.5; z-index: 10; }
-        .archive-content { position: absolute; top: 110px; left: 20px; text-align: left; z-index: 5; }
-        .project-link { text-decoration: none; color: #fff; display: inline-block; }
-        .project-title { font-size: 0.95rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
-        .project-date { font-size: 0.55rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; margin-top: 6px; }
+
+        .nav { position: absolute; top: 25px; left: 20px; text-decoration: none; color: #fff; font-size: 11px; letter-spacing: 2px; opacity: 0.5; }
+        .content { position: absolute; top: 120px; left: 20px; }
+        .title { font-size: 15px; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
+        .date { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; margin-top: 5px; }
+        a { text-decoration: none; color: #fff; }
     </style>
 </head>
 <body>
-    <div class="archive-bg">
-        <img src="archive_bg.jpg" alt="Background">
-    </div>
-    <div class="bg-overlay"></div>
-    <a href="index.html" class="back-home">← Home</a>
-    <div class="archive-content">
-        <a href="principium.html" class="project-link">
-            <h2 class="project-title">Principium</h2>
-            <p class="project-date">Chapter I — Barcelona, 2024</p>
+    <div class="bg"></div>
+    <a href="index.html" class="nav">← HOME</a>
+    <div class="content">
+        <a href="principium.html">
+            <h2 class="title">Principium</h2>
+            <p class="date">Chapter I — Barcelona, 2024</p>
         </a>
     </div>
 </body>
