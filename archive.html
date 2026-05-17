@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Archive</title>
-    <link rel="icon" type="image/png" href="favicon.png?v=101">
+    <link rel="icon" type="image/png" href="favicon.png">
     <style>
         @font-face {
             font-family: 'FuturaLight';
@@ -19,18 +19,20 @@
             overflow: hidden;
         }
 
-        /* SFONDO - OPACITÀ 100% (NESSUN NERO SOPRA) */
+        /* SFONDO - OPACITÀ 100% - NESSUN FILTRO NERO */
         .archive-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: url('archive_background_final.jpg') no-repeat center center;
+            background-image: url('archive_background_final.jpg');
             background-size: cover;
-            opacity: 1; /* Massima luminosità */
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 1 !important; /* Forza opacità massima */
         }
 
         .back-home {
-            position: absolute; top: 35px; left: 30px;
+            position: absolute; top: 35px; left: 50px;
             text-decoration: none; color: #fff;
             text-transform: uppercase; font-size: 0.65rem;
             letter-spacing: 2px; z-index: 10;
@@ -39,32 +41,30 @@
         .archive-content {
             position: absolute;
             top: 140px;
-            left: 30px;
-            right: 30px;
+            left: 50px;
             z-index: 5;
-            display: flex;
         }
 
+        /* CONTENITORE PROGETTO - DIMENSIONI RIDOTTE PER ELEGANZA */
         .project-link {
             text-decoration: none;
             color: #fff;
             position: relative;
-            width: 100%;
-            max-width: 450px;
-            height: 250px;
+            width: 340px; 
+            height: 190px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* IMMAGINE CAOS - OPACITÀ 100% (NESSUN NERO SOPRA) */
+        /* IMMAGINE CAOS - OPACITÀ 100% */
         .caos-image {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 1; /* Massima luminosità */
             z-index: 1;
-            /* Sfuma solo i bordi esterni per pulizia artistica */
+            opacity: 1 !important; /* Forza opacità massima */
+            /* Sfuma solo i bordi esterni per non farla sembrare un adesivo */
             -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
             mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
         }
@@ -76,7 +76,7 @@
         }
 
         .project-title { 
-            font-size: 1.3rem; 
+            font-size: 1.1rem; 
             letter-spacing: 5px; 
             text-transform: uppercase; 
             margin: 0;
@@ -87,13 +87,19 @@
             font-size: 0.55rem; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
-        /* RESPONSIVE PER CELLULARE */
+        /* MOBILE FIX PER CENTRATURA */
         @media (max-width: 600px) {
-            .archive-content { top: 120px; left: 0; right: 0; justify-content: center; padding: 0 20px; }
-            .project-link { height: 220px; max-width: 100%; }
+            .back-home { left: 30px; }
+            .archive-content { 
+                left: 0; right: 0; 
+                display: flex; 
+                justify-content: center; 
+                top: 120px; 
+            }
+            .project-link { width: 80%; }
         }
     </style>
 </head>
@@ -105,7 +111,7 @@
 
     <div class="archive-content">
         <a href="principium.html" class="project-link">
-            <img src="caos.jpg" class="caos-image">
+            <img src="caos.jpg" class="caos-image" alt="Principium">
             <div class="project-info">
                 <h2 class="project-title">Principium</h2>
                 <p class="project-date">Chapter I — Barcelona, 2024</p>
