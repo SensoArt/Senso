@@ -13,7 +13,7 @@
             src: url('Fonts/futura light bt.ttf') format('truetype');
         }
 
-        /* Reset totale per bloccare lo scroll */
+        /* Reset totale */
         html, body {
             margin: 0; padding: 0; width: 100%; height: 100%;
             overflow: hidden; background-color: #000;
@@ -21,7 +21,7 @@
             color: #fff;
         }
 
-        /* Sfondo con la tua immagine */
+        /* SFONDO CON TUA FOTO */
         .archive-bg {
             position: absolute;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -40,7 +40,7 @@
             z-index: -1;
         }
 
-        /* Link per tornare Home */
+        /* Back home in alto a sinistra */
         .back-home {
             position: absolute; top: 25px; left: 20px;
             text-decoration: none; color: #fff;
@@ -49,11 +49,11 @@
         }
         .back-home:hover { opacity: 1; }
 
-        /* Posizionamento a sinistra del progetto */
+        /* CONTENUTO IN ALTO A SINISTRA */
         .archive-content {
             position: absolute;
-            bottom: 100px; /* Alzo un po' dal fondo */
-            left: 40px;    /* Allineato a sinistra */
+            top: 120px; /* Posizionato sotto il tasto home */
+            left: 20px;
             text-align: left;
         }
 
@@ -67,8 +67,8 @@
         .project-link:hover { opacity: 0.6; }
 
         .project-title {
-            font-size: 1.1rem; /* Piccolino ed elegante */
-            letter-spacing: 5px;
+            font-size: 0.95rem; /* Dimensioni ridotte per eleganza */
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin: 0;
             font-weight: 300;
@@ -79,12 +79,12 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             opacity: 0.4;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         @media (max-width: 768px) {
-            .archive-content { left: 25px; bottom: 60px; }
-            .project-title { font-size: 0.9rem; }
+            .archive-content { top: 100px; left: 20px; }
+            .project-title { font-size: 0.85rem; }
         }
     </style>
 </head>
