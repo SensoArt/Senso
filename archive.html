@@ -45,14 +45,14 @@
         .archive-content {
             position: absolute; 
             top: 140px; 
-            left: 50px; 
-            text-align: left; /* Allineamento a sinistra */
+            left: 75px; /* Spostato leggermente a destra (da 50px a 75px) */
+            text-align: left;
             z-index: 5;
         }
 
         .project-link { 
             text-decoration: none; 
-            display: block; /* Cambiato da flex a block per allineare i testi a sinistra */
+            display: block;
             position: relative;
         }
 
@@ -60,7 +60,7 @@
             position: relative;
             z-index: 2;
             padding-top: 50px;
-            text-align: left; /* Testo allineato a sinistra */
+            text-align: left;
             opacity: 0;
             animation: fadeInText 1.2s ease-out forwards;
             animation-delay: 0.4s;
@@ -91,7 +91,7 @@
 
         @media (max-width: 600px) {
             .back-home { left: 20px; }
-            .archive-content { left: 20px; }
+            .archive-content { left: 30px; } /* Leggero tocco a destra anche su mobile */
         }
     </style>
 </head>
