@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Archive</title>
-    <link rel="icon" type="image/png" href="favicon.png?v=99">
+    <link rel="icon" type="image/png" href="favicon.png?v=101">
     <style>
         @font-face {
             font-family: 'FuturaLight';
@@ -19,16 +19,14 @@
             overflow: hidden;
         }
 
-        /* SFONDO PAGINA - Caricato come immagine fissa per massima compatibilità */
+        /* SFONDO - OPACITÀ 100% (NESSUN NERO SOPRA) */
         .archive-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-        }
-        .archive-bg img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            display: block;
+            background: url('archive_background_final.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 1; /* Massima luminosità */
         }
 
         .back-home {
@@ -38,74 +36,70 @@
             letter-spacing: 2px; z-index: 10;
         }
 
-        /* CONTENITORE ADATTIVO PER MOBILE */
         .archive-content {
             position: absolute;
-            top: 150px;
-            left: 30px; /* Ridotto per stare meglio su mobile */
+            top: 140px;
+            left: 30px;
             right: 30px;
             z-index: 5;
+            display: flex;
         }
 
         .project-link {
             text-decoration: none;
             color: #fff;
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            height: 250px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            width: 100%;
-            max-width: 500px; /* Limite massimo su computer */
-            height: 280px;
         }
 
-        /* IMMAGINE CAOS SFUMATA */
+        /* IMMAGINE CAOS - OPACITÀ 100% (NESSUN NERO SOPRA) */
         .caos-image {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
+            opacity: 1; /* Massima luminosità */
             z-index: 1;
-            /* Sfuma i bordi su tutti i lati */
-            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 85%);
-            mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 85%);
+            /* Sfuma solo i bordi esterni per pulizia artistica */
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
+            mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%);
         }
 
         .project-info {
             position: relative;
             z-index: 2;
             text-align: center;
-            padding: 0 10px;
         }
 
         .project-title { 
-            font-size: 1.25rem; 
-            letter-spacing: 4px; 
+            font-size: 1.3rem; 
+            letter-spacing: 5px; 
             text-transform: uppercase; 
-            margin: 0; 
+            margin: 0;
+            font-weight: normal;
         }
 
         .project-date { 
             font-size: 0.55rem; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
-            margin-top: 8px; 
-            opacity: 0.8;
+            margin-top: 8px;
         }
 
-        /* FIX PER SCHERMI PICCOLI (CELLULARE) */
+        /* RESPONSIVE PER CELLULARE */
         @media (max-width: 600px) {
-            .back-home { left: 20px; top: 30px; }
-            .archive-content { left: 0; right: 0; padding: 0 20px; top: 120px; }
-            .project-link { height: 220px; }
-            .project-title { font-size: 1.1rem; letter-spacing: 3px; }
+            .archive-content { top: 120px; left: 0; right: 0; justify-content: center; padding: 0 20px; }
+            .project-link { height: 220px; max-width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="archive-bg">
-        <img src="archive_background_final.jpg" alt="">
-    </div>
+    <div class="archive-bg"></div>
 
     <a href="index.html" class="back-home">← Home</a>
 
