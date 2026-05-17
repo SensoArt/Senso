@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Archive</title>
-    <link rel="icon" type="image/png" href="favicon.png?v=2000">
+    <link rel="icon" type="image/png" href="favicon.png?v=5000">
     <style>
         @font-face {
             font-family: 'FuturaLight';
@@ -19,12 +19,10 @@
             overflow: hidden;
         }
 
-        /* SFONDO */
         .archive-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
-            background-color: #000;
         }
 
         .archive-bg img {
@@ -37,7 +35,7 @@
         .bg-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.9) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%);
             z-index: -1;
         }
 
@@ -61,7 +59,7 @@
 <body>
 
     <div class="archive-bg">
-        <img src="back_archive.jpg" alt="Background" onerror="this.src='archive_bg.jpg'">
+        <img src="back_archive.jpg?t=123" alt="Background">
     </div>
     
     <div class="bg-overlay"></div>
