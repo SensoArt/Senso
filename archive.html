@@ -2,71 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Senso — Archive</title>
-    <link rel="icon" type="image/png" href="favicon.png">
     <style>
-        @font-face {
-            font-family: 'FuturaLight';
-            src: url('Fonts/futura light bt.ttf') format('truetype');
-        }
-
-        html, body {
-            margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #000;
-            font-family: 'FuturaLight', sans-serif;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        .archive-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2;
-            background-color: #000;
-        }
-
-        .archive-bg img {
-            width: 100%; height: 100%; 
-            object-fit: cover;
-            opacity: 0.45;
-            display: block;
-        }
+        @font-face { font-family: 'FuturaLight'; src: url('Fonts/futura light bt.ttf') format('truetype'); }
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; background-color: #000; font-family: 'FuturaLight', sans-serif; color: #fff; overflow: hidden; }
         
-        .bg-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%);
-            z-index: -1;
-        }
-
-        .back-home {
-            position: absolute; top: 35px; left: 50px;
-            text-decoration: none; color: #fff;
-            text-transform: uppercase; font-size: 0.65rem;
-            letter-spacing: 2px; opacity: 0.5; z-index: 10;
-        }
-
-        .archive-content {
-            position: absolute; top: 140px; left: 50px; 
-            text-align: left; z-index: 5;
-        }
-
+        .archive-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background-color: #000; }
+        .archive-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.45; display: block; }
+        .bg-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.9) 100%); z-index: -1; }
+        .back-home { position: absolute; top: 35px; left: 50px; text-decoration: none; color: #fff; text-transform: uppercase; font-size: 0.65rem; letter-spacing: 2px; opacity: 0.5; }
+        .archive-content { position: absolute; top: 140px; left: 50px; text-align: left; z-index: 5; }
         .project-link { text-decoration: none; color: #fff; display: inline-block; }
-        .project-title { font-size: 1.35rem; letter-spacing: 5px; text-transform: uppercase; margin: 0; font-weight: normal; }
+        .project-title { font-size: 1.35rem; letter-spacing: 5px; text-transform: uppercase; margin: 0; }
         .project-date { font-size: 0.6rem; letter-spacing: 2px; text-transform: uppercase; opacity: 0.4; margin-top: 8px; }
     </style>
 </head>
 <body>
 
     <div class="archive-bg">
-        <img src="archive_background_final.jpg" alt="Background">
+        <img src="archive_background_final.jpg" 
+             onerror="this.src='archive_background_final.JPG'; this.onerror=function(){this.src='archive_background_final.jpeg'; this.onerror=function(){this.src='archive_background_final.JPEG';}}">
     </div>
     
     <div class="bg-overlay"></div>
-
     <a href="index.html" class="back-home">← Home</a>
-
     <div class="archive-content">
         <a href="principium.html" class="project-link">
             <h2 class="project-title">Principium</h2>
