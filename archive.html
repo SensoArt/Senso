@@ -19,7 +19,7 @@
             overflow: hidden;
         }
 
-        /* SFONDO - NESSUN OVERLAY SOPRA */
+        /* SFONDO DELLA PAGINA (Il tuo file di background) */
         .archive-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -37,31 +37,44 @@
             letter-spacing: 2px; opacity: 0.5; z-index: 10;
         }
 
+        /* CONTENITORE PRINCIPALE (SPOSTATO A SINISTRA) */
         .archive-content {
             position: absolute;
             top: 150px;
             left: 50px;
             z-index: 5;
-            text-align: left;
         }
 
+        /* IL LINK CHE CONTIENE TUTTO */
         .project-link {
             text-decoration: none;
             color: #fff;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 500px; /* Dimensione dell'immagine caos */
+            height: 300px;
         }
 
-        /* IMMAGINE CAOS CON SFUMATURA MORBIDA */
-        .project-image {
-            width: 450px; /* Più grande per vederla bene */
-            height: auto;
-            display: block;
-            margin-bottom: 25px;
-            opacity: 0.85; /* Più visibile */
-            
-            /* Questo comando sfuma i bordi in modo che non sembri una macchia tagliata */
-            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+        /* IMMAGINE CAOS (DENTRO IL LINK) */
+        .caos-image {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.8;
+            /* Sfuma i bordi per non sembrare una macchia tagliata */
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
+        }
+
+        /* TESTO SOPRA L'IMMAGINE CAOS */
+        .project-info {
+            position: relative;
+            z-index: 2; /* Sta sopra l'immagine caos */
+            text-align: center;
         }
 
         .project-title { 
@@ -69,14 +82,13 @@
             letter-spacing: 5px; 
             text-transform: uppercase; 
             margin: 0; 
-            font-weight: normal;
         }
 
         .project-date { 
             font-size: 0.6rem; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
-            opacity: 0.4; 
+            opacity: 0.7; 
             margin-top: 8px; 
         }
 
@@ -90,9 +102,12 @@
 
     <div class="archive-content">
         <a href="principium.html" class="project-link">
-            <img src="caos.jpg" class="project-image" alt="Principium">
-            <h2 class="project-title">Principium</h2>
-            <p class="project-date">Chapter I — Barcelona, 2024</p>
+            <img src="caos.jpg" class="caos-image" alt="Caos">
+            
+            <div class="project-info">
+                <h2 class="project-title">Principium</h2>
+                <p class="project-date">Chapter I — Barcelona, 2024</p>
+            </div>
         </a>
     </div>
 
