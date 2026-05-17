@@ -29,11 +29,11 @@
             display: block;
         }
         
-        /* TASTO HOME ALLINEATO ALLA FOTO 2 */
+        /* TASTO HOME - Altezza corretta 25px */
         .back-home {
             position: absolute; 
-            top: 25px; /* Modificato da 35px a 25px per pareggiare About */
-            left: 20px; /* Modificato da 50px a 20px per pareggiare About */
+            top: 25px; 
+            left: 50px; 
             text-decoration: none; 
             color: #000; 
             text-transform: uppercase;
@@ -43,13 +43,12 @@
             z-index: 10;
         }
 
+        /* RIPRISTINATO A SINISTRA */
         .archive-content {
             position: absolute; 
             top: 140px; 
-            left: 0; 
-            right: 0; 
-            display: flex; 
-            justify-content: center; 
+            left: 50px; 
+            text-align: left;
             z-index: 5;
         }
 
@@ -94,10 +93,10 @@
             color: #333; 
         }
 
-        /* Responsive Mobile */
+        /* SOLO PER CELLULARE CAMBIA L'ALLINEAMENTO */
         @media (max-width: 600px) {
-            .back-home { top: 25px; left: 20px; }
-            .archive-content { top: 120px; }
+            .back-home { left: 20px; }
+            .archive-content { left: 20px; }
         }
     </style>
 </head>
