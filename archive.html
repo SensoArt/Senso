@@ -29,17 +29,28 @@
             display: block;
         }
         
-        /* TASTO HOME - ORA NERO */
+        /* TASTO HOME ALLINEATO ALLA FOTO 2 */
         .back-home {
-            position: absolute; top: 35px; left: 50px;
-            text-decoration: none; color: #000; text-transform: uppercase;
-            font-size: 0.65rem; letter-spacing: 2px; opacity: 0.8;
+            position: absolute; 
+            top: 25px; /* Modificato da 35px a 25px per pareggiare About */
+            left: 20px; /* Modificato da 50px a 20px per pareggiare About */
+            text-decoration: none; 
+            color: #000; 
+            text-transform: uppercase;
+            font-size: 0.65rem; 
+            letter-spacing: 2px; 
+            opacity: 0.8;
             z-index: 10;
         }
 
         .archive-content {
-            position: absolute; top: 140px; left: 50px; 
-            text-align: left; z-index: 5;
+            position: absolute; 
+            top: 140px; 
+            left: 0; 
+            right: 0; 
+            display: flex; 
+            justify-content: center; 
+            z-index: 5;
         }
 
         .project-link { 
@@ -63,14 +74,8 @@
         }
 
         @keyframes fadeInText {
-            from {
-                opacity: 0;
-                transform: translateY(8px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .project-title { 
@@ -87,6 +92,12 @@
             text-transform: uppercase; 
             margin-top: 10px; 
             color: #333; 
+        }
+
+        /* Responsive Mobile */
+        @media (max-width: 600px) {
+            .back-home { top: 25px; left: 20px; }
+            .archive-content { top: 120px; }
         }
     </style>
 </head>
