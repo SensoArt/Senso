@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Senso — Next Chapter</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#000000">
+
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            font-family: 'FuturaLight', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        .back-home {
+            position: fixed; top: 25px; left: 20px;
+            text-decoration: none; color: #fff;
+            text-transform: uppercase; font-size: 0.65rem;
+            letter-spacing: 2px; opacity: 0.5; transition: 0.3s;
+        }
+        .back-home:hover { opacity: 1; }
+
+        .container {
+            max-width: 700px;
+            padding: 40px;
+            animation: fadeIn 2s ease-out forwards;
+        }
+
+        h1 {
+            font-size: clamp(1.2rem, 4vw, 2rem);
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            font-weight: 300;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .breathing-text {
+            font-size: 0.9rem;
+            opacity: 0.5;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 60px;
+        }
+
+        .cta-link {
+            text-decoration: none;
+            color: #fff;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-link:hover {
+            opacity: 1;
+            border-bottom: 1px solid #fff;
+        }
+
+        .logo-bottom {
+            width: 100px;
+            opacity: 0.3;
+            position: absolute;
+            bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home">← Home</a>
+
+    <div class="container">
+        <h1>Evolution is a sensory process.</h1>
+        <p class="breathing-text">The next space is already breathing</p>
+        
+        <br><br>
+        
+        <a href="contacts.html" class="cta-link">Click here for early updates</a>
+    </div>
+
+    <img src="senso_logo_blanco.png" alt="Senso Logo" class="logo-bottom">
+
+</body>
+</html>
