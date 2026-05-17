@@ -13,31 +13,29 @@
 
         html, body {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #000;
+            background-color: #000; /* Il fondo resta nero, ma le foto saranno chiare */
             font-family: 'FuturaLight', sans-serif;
             color: #fff;
             overflow: hidden;
         }
 
-        /* SFONDO DELLA PAGINA (Il tuo file di background) */
+        /* SFONDO PAGINA - OPACITÀ AL MASSIMO (1) */
         .archive-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2;
-            background-image: url('archive_background_final.jpg');
+            z-index: -1;
+            background: url('archive_background_final.jpg') no-repeat center center;
             background-size: cover;
-            background-position: center;
-            opacity: 0.35;
+            opacity: 1; /* Rimosso il grigio/nero, ora è l'immagine pura */
         }
 
         .back-home {
             position: absolute; top: 35px; left: 50px;
             text-decoration: none; color: #fff;
             text-transform: uppercase; font-size: 0.65rem;
-            letter-spacing: 2px; opacity: 0.5; z-index: 10;
+            letter-spacing: 2px; opacity: 0.8; z-index: 10;
         }
 
-        /* CONTENITORE PRINCIPALE (SPOSTATO A SINISTRA) */
         .archive-content {
             position: absolute;
             top: 150px;
@@ -45,7 +43,6 @@
             z-index: 5;
         }
 
-        /* IL LINK CHE CONTIENE TUTTO */
         .project-link {
             text-decoration: none;
             color: #fff;
@@ -53,32 +50,32 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            width: 500px; /* Dimensione dell'immagine caos */
-            height: 300px;
+            width: 450px; 
+            height: 250px;
         }
 
-        /* IMMAGINE CAOS (DENTRO IL LINK) */
+        /* IMMAGINE CAOS - OPACITÀ AL MASSIMO (1) */
         .caos-image {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
+            opacity: 1; /* Via il nero, ora è vivida */
             z-index: 1;
-            opacity: 0.8;
-            /* Sfuma i bordi per non sembrare una macchia tagliata */
-            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
+            /* Resta solo la sfumatura ai bordi per pulizia */
+            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 85%);
+            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 85%);
         }
 
-        /* TESTO SOPRA L'IMMAGINE CAOS */
         .project-info {
             position: relative;
-            z-index: 2; /* Sta sopra l'immagine caos */
+            z-index: 2; 
             text-align: center;
+            text-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Leggera ombra per leggere il testo se la foto è chiara */
         }
 
         .project-title { 
-            font-size: 1.35rem; 
+            font-size: 1.3rem; 
             letter-spacing: 5px; 
             text-transform: uppercase; 
             margin: 0; 
@@ -88,7 +85,7 @@
             font-size: 0.6rem; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
-            opacity: 0.7; 
+            opacity: 0.9; 
             margin-top: 8px; 
         }
 
@@ -102,8 +99,7 @@
 
     <div class="archive-content">
         <a href="principium.html" class="project-link">
-            <img src="caos.jpg" class="caos-image" alt="Caos">
-            
+            <img src="caos.jpg" class="caos-image">
             <div class="project-info">
                 <h2 class="project-title">Principium</h2>
                 <p class="project-date">Chapter I — Barcelona, 2024</p>
