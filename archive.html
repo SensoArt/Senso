@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Archive</title>
     
-    <link rel="icon" type="image/png" href="favicon.png?v=2">
-    <link rel="apple-touch-icon" href="favicon.png?v=2">
+    <link rel="icon" type="image/png" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
     <style>
         @font-face {
@@ -22,18 +22,15 @@
             overflow: hidden;
         }
 
-        /* SFONDO */
+        /* SFONDO - Usiamo un div con background-image invece del tag img */
         .archive-bg {
             position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -2;
-            background-color: #000;
-        }
-
-        .archive-bg img {
-            width: 100%; height: 100%; 
-            object-fit: cover;
-            display: block !important;
+            background-image: url('archive_bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             opacity: 0.45;
         }
         
@@ -64,9 +61,7 @@
 </head>
 <body>
 
-    <div class="archive-bg">
-        <img src="archive_bg.jpg?v=1" alt="Background">
-    </div>
+    <div class="archive-bg"></div>
     
     <div class="bg-overlay"></div>
 
