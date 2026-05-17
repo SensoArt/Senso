@@ -13,33 +13,37 @@
 
         html, body {
             margin: 0; padding: 0; width: 100%; height: 100%;
-            background-color: #000; /* Il fondo resta nero, ma le foto saranno chiare */
+            background-color: #000;
             font-family: 'FuturaLight', sans-serif;
             color: #fff;
             overflow: hidden;
         }
 
-        /* SFONDO PAGINA - OPACITÀ AL MASSIMO (1) */
+        /* SFONDO PAGINA - Caricato come immagine fissa per massima compatibilità */
         .archive-bg {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
-            background: url('archive_background_final.jpg') no-repeat center center;
-            background-size: cover;
-            opacity: 1; /* Rimosso il grigio/nero, ora è l'immagine pura */
+        }
+        .archive-bg img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .back-home {
-            position: absolute; top: 35px; left: 50px;
+            position: absolute; top: 35px; left: 30px;
             text-decoration: none; color: #fff;
             text-transform: uppercase; font-size: 0.65rem;
-            letter-spacing: 2px; opacity: 0.8; z-index: 10;
+            letter-spacing: 2px; z-index: 10;
         }
 
+        /* CONTENITORE ADATTIVO PER MOBILE */
         .archive-content {
             position: absolute;
             top: 150px;
-            left: 50px;
+            left: 30px; /* Ridotto per stare meglio su mobile */
+            right: 30px;
             z-index: 5;
         }
 
@@ -50,50 +54,58 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            width: 450px; 
-            height: 250px;
+            width: 100%;
+            max-width: 500px; /* Limite massimo su computer */
+            height: 280px;
         }
 
-        /* IMMAGINE CAOS - OPACITÀ AL MASSIMO (1) */
+        /* IMMAGINE CAOS SFUMATA */
         .caos-image {
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover;
-            opacity: 1; /* Via il nero, ora è vivida */
             z-index: 1;
-            /* Resta solo la sfumatura ai bordi per pulizia */
-            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 85%);
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 85%);
+            /* Sfuma i bordi su tutti i lati */
+            -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 85%);
+            mask-image: radial-gradient(circle, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 85%);
         }
 
         .project-info {
             position: relative;
-            z-index: 2; 
+            z-index: 2;
             text-align: center;
-            text-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Leggera ombra per leggere il testo se la foto è chiara */
+            padding: 0 10px;
         }
 
         .project-title { 
-            font-size: 1.3rem; 
-            letter-spacing: 5px; 
+            font-size: 1.25rem; 
+            letter-spacing: 4px; 
             text-transform: uppercase; 
             margin: 0; 
         }
 
         .project-date { 
-            font-size: 0.6rem; 
+            font-size: 0.55rem; 
             letter-spacing: 2px; 
             text-transform: uppercase; 
-            opacity: 0.9; 
             margin-top: 8px; 
+            opacity: 0.8;
         }
 
+        /* FIX PER SCHERMI PICCOLI (CELLULARE) */
+        @media (max-width: 600px) {
+            .back-home { left: 20px; top: 30px; }
+            .archive-content { left: 0; right: 0; padding: 0 20px; top: 120px; }
+            .project-link { height: 220px; }
+            .project-title { font-size: 1.1rem; letter-spacing: 3px; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="archive-bg"></div>
+    <div class="archive-bg">
+        <img src="archive_background_final.jpg" alt="">
+    </div>
 
     <a href="index.html" class="back-home">← Home</a>
 
