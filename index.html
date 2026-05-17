@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senso — Archive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <link rel="icon" type="image/png" href="favicon.png?v=99">
+    <title>SENSO — Contemporary Art Expression</title>
     
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#000000">
+    
+    <meta name="description" content="Independent art organization based in Barcelona. Exploring contemporary art expression through curated exhibitions and sensory experiences.">
+
     <style>
         @font-face {
             font-family: 'FuturaLight';
@@ -14,107 +20,70 @@
         }
 
         body {
-            margin: 0; background-color: #000; color: #fff;
-            font-family: 'FuturaLight', sans-serif; overflow: hidden;
-        }
-
-        .archive-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -2;
-        }
-
-        .archive-bg img {
-            width: 100%; height: 100%; object-fit: cover;
-            opacity: 1; 
-            display: block;
-        }
-        
-        .back-home {
-            position: absolute; 
-            top: 25px; 
-            left: 50px; 
-            text-decoration: none; 
-            color: #000; 
-            text-transform: uppercase;
-            font-size: 0.65rem; 
-            letter-spacing: 2px; 
-            opacity: 0.8;
-            z-index: 10;
-        }
-
-        .archive-content {
-            position: absolute; 
-            top: 140px; 
-            left: 75px; 
-            text-align: left;
-            z-index: 5;
-        }
-
-        .menu-list {
-            list-style: none;
-            padding: 0;
+            background-color: #000;
+            color: #fff;
             margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: 'FuturaLight', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
         }
 
-        .menu-item {
-            margin-bottom: 25px;
-            opacity: 0;
-            animation: fadeInText 1.2s ease-out forwards;
+        .logo-home {
+            width: 350px; 
+            max-width: 80%;
+            margin-bottom: 50px;
+            mix-blend-mode: screen; 
+            filter: brightness(1.1);
         }
 
-        /* Ritardi incrementali per ogni voce */
-        .menu-item:nth-child(1) { animation-delay: 0.4s; }
-        .menu-item:nth-child(2) { animation-delay: 0.5s; }
-        .menu-item:nth-child(3) { animation-delay: 0.6s; }
-        .menu-item:nth-child(4) { animation-delay: 0.7s; }
-        .menu-item:nth-child(5) { animation-delay: 0.8s; }
-
-        @keyframes fadeInText {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+        nav {
+            display: flex;
+            gap: 30px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
-        .menu-link { 
-            text-decoration: none; 
-            font-size: 1.5rem; 
-            letter-spacing: 6px; 
-            text-transform: uppercase; 
-            color: #1a1a1a; /* Testo scuro richiesto */
-            display: inline-block;
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.6;
             transition: opacity 0.3s;
         }
 
-        .menu-link:hover {
-            opacity: 0.6;
+        nav a:hover {
+            opacity: 1;
         }
 
         @media (max-width: 600px) {
-            .back-home { left: 20px; }
-            .archive-content { left: 30px; top: 120px; }
-            .menu-link { font-size: 1.2rem; letter-spacing: 4px; }
-            .menu-item { margin-bottom: 15px; }
+            nav { 
+                flex-direction: column; 
+                gap: 20px; 
+            }
+            .logo-home { 
+                width: 280px; 
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="archive-bg">
-        <img src="archive_background_final.jpg" alt="">
-    </div>
+    <img src="senso_logo_blanco.png" alt="SENSO Logo" class="logo-home">
 
-    <a href="index.html" class="back-home">← Home</a>
-
-    <div class="archive-content">
-        <nav>
-            <ul class="menu-list">
-                <li class="menu-item"><a href="about.html" class="menu-link">About</a></li>
-                <li class="menu-item"><a href="archive_list.html" class="menu-link">Archive</a></li>
-                <li class="menu-item"><a href="next_chapter.html" class="menu-link">Next Chapter</a></li>
-                <li class="menu-item"><a href="artists.html" class="menu-link">Artists</a></li>
-                <li class="menu-item"><a href="contacts.html" class="menu-link">Contacts</a></li>
-            </ul>
-        </nav>
-    </div>
+    <nav>
+        <a href="about.html">About</a>
+        <a href="archive.html">Archive</a>
+        <a href="next_chapter.html">Next Chapter</a>
+        <a href="artists.html">Artists</a>
+        <a href="contacts.html">Contacts</a>
+    </nav>
 
 </body>
 </html>
