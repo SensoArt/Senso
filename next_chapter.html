@@ -20,19 +20,29 @@
         }
 
         body {
-            background-color: #000;
-            color: #fff;
             margin: 0;
             padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'FuturaLight', sans-serif;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
             text-align: center;
-            font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
-            overflow: hidden;
+        }
+
+        /* SFONDO CON IMMAGINE PEXELS */
+        .bg-image {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('pexels-mathilde-11843706.jpg') no-repeat center center;
+            background-size: cover;
         }
 
         .back-home {
@@ -40,13 +50,26 @@
             text-decoration: none; color: #fff;
             text-transform: uppercase; font-size: 0.65rem;
             letter-spacing: 2px; opacity: 0.5; transition: 0.3s;
+            z-index: 1000;
         }
         .back-home:hover { opacity: 1; }
+
+        .lang-switch {
+            position: fixed; top: 25px; right: 20px;
+            font-size: 0.65rem; z-index: 1000;
+        }
+        .lang-btn {
+            background: none; border: none; color: #fff;
+            cursor: pointer; padding: 0 5px; opacity: 0.3;
+            text-transform: uppercase; transition: 0.3s;
+        }
+        .lang-btn.active { opacity: 1; }
 
         .container {
             max-width: 700px;
             padding: 40px;
             animation: fadeIn 2s ease-out forwards;
+            z-index: 5;
         }
 
         h1 {
@@ -60,7 +83,7 @@
 
         .breathing-text {
             font-size: 0.9rem;
-            opacity: 0.5;
+            opacity: 0.7;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 60px;
@@ -82,9 +105,11 @@
             border-bottom: 1px solid #fff;
         }
 
+        .hidden { display: none; }
+
         .logo-bottom {
             width: 100px;
-            opacity: 0.3;
+            opacity: 0.4;
             position: absolute;
             bottom: 50px;
         }
@@ -92,18 +117,38 @@
 </head>
 <body>
 
+    <div class="bg-image"></div>
+
     <a href="index.html" class="back-home">← Home</a>
 
+    <div class="lang-switch">
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
+        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+    </div>
+
     <div class="container">
-        <h1>Evolution is a sensory process.</h1>
-        <p class="breathing-text">The next space is already breathing</p>
-        
-        <br><br>
-        
-        <a href="contacts.html" class="cta-link">Click here for early updates</a>
+        <div id="lang-en">
+            <h1>Evolution is a sensory process.</h1>
+            <p class="breathing-text">The next space is already breathing</p>
+            <a href="contacts.html" class="cta-link">Click here for early updates</a>
+        </div>
+
+        <div id="lang-es" class="hidden">
+            <h1>La evolución es un proceso sensorial.</h1>
+            <p class="breathing-text">El próximo espacio ya está respirando</p>
+            <a href="contacts.html" class="cta-link">Clic aquí para recibir primicias</a>
+        </div>
     </div>
 
     <img src="senso_logo_blanco.png" alt="Senso Logo" class="logo-bottom">
 
+    <script>
+        function setLang(lang) {
+            document.getElementById('lang-en').classList.toggle('hidden', lang !== 'en');
+            document.getElementById('lang-es').classList.toggle('hidden', lang !== 'es');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+        }
+    </script>
 </body>
 </html>
