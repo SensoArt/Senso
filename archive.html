@@ -29,7 +29,6 @@
             display: block;
         }
         
-        /* TASTO HOME - Altezza corretta 25px */
         .back-home {
             position: absolute; 
             top: 25px; 
@@ -43,30 +42,25 @@
             z-index: 10;
         }
 
-        /* RIPRISTINATO A SINISTRA */
         .archive-content {
             position: absolute; 
             top: 140px; 
             left: 50px; 
-            text-align: left;
+            text-align: left; /* Allineamento a sinistra */
             z-index: 5;
         }
 
         .project-link { 
             text-decoration: none; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block; /* Cambiato da flex a block per allineare i testi a sinistra */
             position: relative;
-            width: 320px; 
-            height: 180px;
         }
 
         .project-text-wrapper {
             position: relative;
             z-index: 2;
             padding-top: 50px;
-            text-align: center;
+            text-align: left; /* Testo allineato a sinistra */
             opacity: 0;
             animation: fadeInText 1.2s ease-out forwards;
             animation-delay: 0.4s;
@@ -83,6 +77,7 @@
             text-transform: uppercase; 
             margin: 0; 
             color: #1a1a1a; 
+            display: block;
         }
 
         .project-date { 
@@ -91,9 +86,9 @@
             text-transform: uppercase; 
             margin-top: 10px; 
             color: #333; 
+            display: block;
         }
 
-        /* SOLO PER CELLULARE CAMBIA L'ALLINEAMENTO */
         @media (max-width: 600px) {
             .back-home { left: 20px; }
             .archive-content { left: 20px; }
@@ -112,7 +107,7 @@
         <a href="principium.html" class="project-link">
             <div class="project-text-wrapper">
                 <h2 class="project-title">Principium</h2>
-                <p class="project-date">Chapter I — Barcelona, May 2026</p>
+                <p class="project-date">Chapter I - Barcelona, May 2026</p>
             </div>
         </a>
     </div>
