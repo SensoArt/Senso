@@ -14,8 +14,13 @@
             src: url('Fonts/futura light bt.ttf') format('truetype');
         }
 
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+        }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -34,13 +39,13 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* SFONDO CON IMMAGINE PEXELS */
+        /* SFONDO CON IMMAGINE */
         .bg-image {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
             z-index: -1;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
                         url('pexels-mathilde-11843706.jpg') no-repeat center center;
             background-size: cover;
         }
@@ -66,37 +71,40 @@
         .lang-btn.active { opacity: 1; }
 
         .container {
-            max-width: 700px;
+            max-width: 800px;
             padding: 40px;
-            animation: fadeIn 2s ease-out forwards;
+            animation: fadeIn 2.5s ease-out forwards;
             z-index: 5;
         }
 
+        /* FONT CURATORIALE PER LA FRASE PRINCIPALE */
         h1 {
-            font-size: clamp(1.2rem, 4vw, 2rem);
-            letter-spacing: 6px;
-            text-transform: uppercase;
-            font-weight: 300;
-            margin-bottom: 20px;
-            line-height: 1.4;
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(1.8rem, 6vw, 3.2rem);
+            font-weight: normal;
+            text-transform: none;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            opacity: 0.9;
         }
 
         .breathing-text {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            letter-spacing: 4px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .cta-link {
             text-decoration: none;
             color: #fff;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            padding-bottom: 5px;
+            padding-bottom: 8px;
             transition: all 0.3s ease;
         }
 
@@ -108,10 +116,15 @@
         .hidden { display: none; }
 
         .logo-bottom {
-            width: 100px;
-            opacity: 0.4;
+            width: 120px;
+            opacity: 0.3;
             position: absolute;
             bottom: 50px;
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2rem; }
+            .breathing-text { letter-spacing: 3px; font-size: 0.7rem; }
         }
     </style>
 </head>
