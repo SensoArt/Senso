@@ -29,10 +29,11 @@
             display: block;
         }
         
+        /* TASTO HOME ALLINEATO A 20PX */
         .back-home {
             position: absolute; 
             top: 25px; 
-            left: 50px; 
+            left: 20px; /* Modificato da 50px a 20px per allinearsi alla Foto 2 */
             text-decoration: none; 
             color: #000; 
             text-transform: uppercase;
@@ -45,7 +46,7 @@
         .archive-content {
             position: absolute; 
             top: 140px; 
-            left: 75px; /* Spostato leggermente a destra (da 50px a 75px) */
+            left: 75px; 
             text-align: left;
             z-index: 5;
         }
@@ -91,7 +92,7 @@
 
         @media (max-width: 600px) {
             .back-home { left: 20px; }
-            .archive-content { left: 30px; } /* Leggero tocco a destra anche su mobile */
+            .archive-content { left: 30px; }
         }
     </style>
 </head>
