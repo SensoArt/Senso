@@ -15,25 +15,38 @@
 
         body {
             margin: 0; background-color: #000; color: #fff;
-            font-family: 'FuturaLight', sans-serif; overflow: hidden;
+            font-family: 'FuturaLight', sans-serif; 
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
         }
 
         .archive-bg {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%;
             z-index: -2;
+            overflow: hidden; /* Fondamentale per nascondere ciò che esce dai bordi */
         }
 
         .archive-bg img {
-            width: 100%; height: 100%; object-fit: cover;
-            opacity: 1; 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover;
             display: block;
+            /* SOLUZIONE PER LA STELLA: */
+            /* Ingrandiamo l'immagine del 10% e la spostiamo leggermente verso l'alto/sinistra */
+            transform: scale(1.1); 
+            transform-origin: top left; 
+            filter: brightness(1);
         }
         
-        /* TASTO HOME ALLINEATO A 20PX */
         .back-home {
             position: absolute; 
             top: 25px; 
-            left: 20px; /* Modificato da 50px a 20px per allinearsi alla Foto 2 */
+            left: 20px; 
             text-decoration: none; 
             color: #000; 
             text-transform: uppercase;
@@ -49,12 +62,6 @@
             left: 75px; 
             text-align: left;
             z-index: 5;
-        }
-
-        .project-link { 
-            text-decoration: none; 
-            display: block;
-            position: relative;
         }
 
         .project-text-wrapper {
@@ -93,6 +100,9 @@
         @media (max-width: 600px) {
             .back-home { left: 20px; }
             .archive-content { left: 30px; }
+            .archive-bg img {
+                transform: scale(1.2); /* Su mobile zoomiamo un po' di più per sicurezza */
+            }
         }
     </style>
 </head>
@@ -105,7 +115,7 @@
     <a href="index.html" class="back-home">← Home</a>
 
     <div class="archive-content">
-        <a href="principium.html" class="project-link">
+        <a href="principium.html" style="text-decoration: none;">
             <div class="project-text-wrapper">
                 <h2 class="project-title">Principium</h2>
                 <p class="project-date">Chapter I - Barcelona, May 2026</p>
