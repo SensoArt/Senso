@@ -60,7 +60,7 @@
         }
 
         .work-item {
-            margin-bottom: 160px; /* Spaziatura tra le opere */
+            margin-bottom: 160px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -70,7 +70,7 @@
 
         .image-box {
             width: 100%;
-            max-width: 800px; /* Leggermente più larga */
+            max-width: 800px;
             margin-bottom: 30px;
             display: flex;
             justify-content: center;
@@ -79,7 +79,6 @@
         .image-box img {
             width: auto;
             max-width: 100%;
-            /* Limita l'altezza per vederla intera su PC, ma leggermente più grande */
             max-height: 85vh; 
             height: auto;
             display: block;
@@ -91,12 +90,13 @@
             max-width: 600px;
         }
 
+        /* ARTISTA: Aggiunto margine per dare respiro */
         .artist-name {
             display: block;
             font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin: 0 0 4px 0;
+            margin: 0 0 12px 0; /* Aumentato da 4px a 12px */
             font-weight: 600; 
         }
 
@@ -137,7 +137,7 @@
         }
 
         @media (max-width: 600px) {
-            .image-box img { max-height: none; } /* Torna normale su mobile */
+            .image-box img { max-height: none; }
             .work-item { margin-bottom: 120px; }
         }
     </style>
