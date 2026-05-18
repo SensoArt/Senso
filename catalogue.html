@@ -60,7 +60,7 @@
         }
 
         .work-item {
-            margin-bottom: 150px; /* Ridotto leggermente per compattezza */
+            margin-bottom: 160px; /* Spaziatura tra le opere */
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -70,7 +70,7 @@
 
         .image-box {
             width: 100%;
-            max-width: 750px;
+            max-width: 800px; /* Leggermente più larga */
             margin-bottom: 30px;
             display: flex;
             justify-content: center;
@@ -79,8 +79,8 @@
         .image-box img {
             width: auto;
             max-width: 100%;
-            /* Limita l'altezza per vederla intera su PC */
-            max-height: 75vh; 
+            /* Limita l'altezza per vederla intera su PC, ma leggermente più grande */
+            max-height: 85vh; 
             height: auto;
             display: block;
             object-fit: contain;
@@ -138,7 +138,7 @@
 
         @media (max-width: 600px) {
             .image-box img { max-height: none; } /* Torna normale su mobile */
-            .work-item { margin-bottom: 100px; }
+            .work-item { margin-bottom: 120px; }
         }
     </style>
 </head>
