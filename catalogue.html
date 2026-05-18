@@ -21,6 +21,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Navigazione */
         .back-home {
             position: fixed; 
             top: 25px; 
@@ -37,61 +38,71 @@
         .back-home:hover { opacity: 1; }
 
         .catalogue-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 150px 20px 100px 20px;
+            padding: 120px 20px 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Forza il centramento di tutti i figli */
         }
 
         .header-section {
             text-align: center;
-            margin-bottom: 120px;
+            margin-bottom: 100px;
+            width: 100%;
         }
 
         .header-section h1 {
-            font-size: 0.7rem;
-            letter-spacing: 5px;
+            font-size: 0.75rem;
+            letter-spacing: 6px;
             text-transform: uppercase;
             font-weight: 300;
-            opacity: 0.4;
+            opacity: 0.5;
         }
 
+        /* Work Section */
         .work-item {
-            margin-bottom: 220px;
+            margin-bottom: 180px;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Centra immagine e info */
             text-align: center;
         }
 
         .image-box {
             width: 100%;
+            max-width: 700px; /* Ridotto per non farle sembrare giganti */
             margin-bottom: 40px;
         }
 
         .image-box img {
             width: 100%;
-            max-width: 900px;
             height: auto;
             display: block;
             margin: 0 auto;
+            /* Leggera ombra morbida per profondità su bianco */
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
         }
 
         .info-box {
+            width: 100%;
             max-width: 600px;
         }
 
         .work-title {
             font-size: 1.1rem;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             margin: 0 0 10px 0;
+            font-weight: 400;
         }
 
         .work-series {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             opacity: 0.6;
         }
 
@@ -99,8 +110,8 @@
             font-size: 0.65rem;
             letter-spacing: 1px;
             line-height: 1.8;
-            margin-bottom: 30px;
-            opacity: 0.5;
+            margin-bottom: 35px;
+            opacity: 0.4;
             text-transform: uppercase;
         }
 
@@ -108,22 +119,25 @@
             display: inline-block;
             text-decoration: none;
             color: #000;
-            border: 0.5px solid #000;
-            padding: 12px 35px;
+            border: 0.5px solid rgba(0,0,0,0.3);
+            padding: 14px 40px;
             font-size: 0.6rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
         }
 
         .btn-inquire:hover {
             background-color: #000;
             color: #fff;
+            border-color: #000;
         }
 
         @media (max-width: 600px) {
             .catalogue-container { padding-top: 100px; }
             .work-item { margin-bottom: 120px; }
+            .image-box { max-width: 100%; }
+            .work-title { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -134,7 +148,7 @@
     <div class="catalogue-container">
         
         <header class="header-section">
-            <h1>Principium — Catalogue</h1>
+            <h1>Catalogue</h1>
         </header>
 
         <div class="work-item">
