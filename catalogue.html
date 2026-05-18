@@ -60,7 +60,7 @@
         }
 
         .work-item {
-            margin-bottom: 200px;
+            margin-bottom: 180px;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -68,18 +68,10 @@
             text-align: center;
         }
 
-        .artist-name {
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            opacity: 0.8;
-        }
-
         .image-box {
             width: 100%;
-            max-width: 700px;
-            margin-bottom: 35px;
+            max-width: 750px;
+            margin-bottom: 30px;
         }
 
         .image-box img {
@@ -87,37 +79,36 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
         }
 
+        /* Blocco Info Unificato */
         .info-box {
             width: 100%;
             max-width: 600px;
+        }
+
+        .artist-name {
+            display: block;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
         }
 
         .work-title {
             font-size: 1.1rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            margin: 0 0 8px 0;
+            margin: 0 0 10px 0;
             font-weight: 400;
         }
 
-        .work-series {
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            opacity: 0.6;
-            font-style: italic;
-        }
-
-        .work-details {
-            font-size: 0.6rem;
-            letter-spacing: 1px;
-            line-height: 1.8;
-            margin-bottom: 35px;
-            opacity: 0.4;
+        .work-meta {
+            font-size: 0.65rem;
+            letter-spacing: 1.5px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            opacity: 0.5;
             text-transform: uppercase;
         }
 
@@ -125,9 +116,9 @@
             display: inline-block;
             text-decoration: none;
             color: #000;
-            border: 0.5px solid rgba(0,0,0,0.3);
-            padding: 14px 40px;
-            font-size: 0.6rem;
+            border: 0.5px solid rgba(0,0,0,0.2);
+            padding: 12px 35px;
+            font-size: 0.55rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             transition: all 0.4s ease;
@@ -141,6 +132,7 @@
 
         @media (max-width: 600px) {
             .image-box { max-width: 100%; }
+            .work-title { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -155,14 +147,14 @@
         </header>
 
         <div class="work-item">
-            <span class="artist-name">Carlotta Valentinis Queraltó</span>
             <div class="image-box">
                 <img src="Assets/Catalogue/obracarlotta_2.jpeg" alt="Guifal">
             </div>
             <div class="info-box">
+                <span class="artist-name">Carlotta Valentinis Queraltó</span>
                 <h2 class="work-title">Guifal</h2>
-                <p class="work-series">"After the Gallop" (Series)</p>
-                <p class="work-details">
+                <p class="work-meta">
+                    "After the Gallop" (Series)<br>
                     200 x 150 cm<br>
                     Custom rye-based binder & egg tempera on canvas
                 </p>
@@ -171,34 +163,32 @@
         </div>
 
         <div class="work-item">
-            <span class="artist-name">Carlotta Valentinis Queraltó</span>
             <div class="image-box">
                 <img src="Assets/Catalogue/obracarlotta_3.jpeg" alt="Kintu">
             </div>
             <div class="info-box">
+                <span class="artist-name">Carlotta Valentinis Queraltó</span>
                 <h2 class="work-title">Kintu</h2>
-                <p class="work-series">Triptych I - "After the Gallop" (Series)</p>
-                <p class="work-details">
+                <p class="work-meta">
+                    Triptych I - "After the Gallop" (Series) — 2026<br>
                     200 x 150 cm<br>
-                    Custom rye-based binder & egg tempera on canvas<br>
-                    2026
+                    Custom rye-based binder & egg tempera on canvas
                 </p>
                 <a href="mailto:info@senso.com?subject=Inquiry: Kintu - Carlotta Valentinis Queraltó" class="btn-inquire">Inquire</a>
             </div>
         </div>
 
         <div class="work-item">
-            <span class="artist-name">Carlotta Valentinis Queraltó</span>
             <div class="image-box">
                 <img src="Assets/Catalogue/obracarlotta.jpeg" alt="Keylan">
             </div>
             <div class="info-box">
+                <span class="artist-name">Carlotta Valentinis Queraltó</span>
                 <h2 class="work-title">Keylan</h2>
-                <p class="work-series">Triptych II - "After the Gallop" (Series)</p>
-                <p class="work-details">
+                <p class="work-meta">
+                    Triptych II - "After the Gallop" (Series) — 2026<br>
                     200 x 150 cm<br>
-                    Custom rye-based binder & egg tempera on canvas<br>
-                    2026
+                    Custom rye-based binder & egg tempera on canvas
                 </p>
                 <a href="mailto:info@senso.com?subject=Inquiry: Keylan - Carlotta Valentinis Queraltó" class="btn-inquire">Inquire</a>
             </div>
