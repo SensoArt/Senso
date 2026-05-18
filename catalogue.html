@@ -21,7 +21,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Navigazione */
         .back-home {
             position: fixed; 
             top: 25px; 
@@ -43,7 +42,7 @@
             padding: 120px 20px 100px 20px;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Forza il centramento di tutti i figli */
+            align-items: center;
         }
 
         .header-section {
@@ -60,20 +59,27 @@
             opacity: 0.5;
         }
 
-        /* Work Section */
         .work-item {
-            margin-bottom: 180px;
+            margin-bottom: 200px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centra immagine e info */
+            align-items: center;
             text-align: center;
+        }
+
+        .artist-name {
+            font-size: 0.6rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.8;
         }
 
         .image-box {
             width: 100%;
-            max-width: 700px; /* Ridotto per non farle sembrare giganti */
-            margin-bottom: 40px;
+            max-width: 700px;
+            margin-bottom: 35px;
         }
 
         .image-box img {
@@ -81,7 +87,6 @@
             height: auto;
             display: block;
             margin: 0 auto;
-            /* Leggera ombra morbida per profondità su bianco */
             box-shadow: 0 10px 40px rgba(0,0,0,0.03); 
         }
 
@@ -94,7 +99,7 @@
             font-size: 1.1rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             font-weight: 400;
         }
 
@@ -104,10 +109,11 @@
             text-transform: uppercase;
             margin-bottom: 20px;
             opacity: 0.6;
+            font-style: italic;
         }
 
         .work-details {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             letter-spacing: 1px;
             line-height: 1.8;
             margin-bottom: 35px;
@@ -134,10 +140,7 @@
         }
 
         @media (max-width: 600px) {
-            .catalogue-container { padding-top: 100px; }
-            .work-item { margin-bottom: 120px; }
             .image-box { max-width: 100%; }
-            .work-title { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -152,6 +155,7 @@
         </header>
 
         <div class="work-item">
+            <span class="artist-name">Carlotta Valentinis Queraltó</span>
             <div class="image-box">
                 <img src="Assets/Catalogue/obracarlotta_2.jpeg" alt="Guifal">
             </div>
@@ -162,11 +166,12 @@
                     200 x 150 cm<br>
                     Custom rye-based binder & egg tempera on canvas
                 </p>
-                <a href="mailto:info@senso.com?subject=Inquiry: Guifal" class="btn-inquire">Inquire</a>
+                <a href="mailto:info@senso.com?subject=Inquiry: Guifal - Carlotta Valentinis Queraltó" class="btn-inquire">Inquire</a>
             </div>
         </div>
 
         <div class="work-item">
+            <span class="artist-name">Carlotta Valentinis Queraltó</span>
             <div class="image-box">
                 <img src="Assets/Catalogue/obracarlotta_3.jpeg" alt="Kintu">
             </div>
@@ -178,11 +183,12 @@
                     Custom rye-based binder & egg tempera on canvas<br>
                     2026
                 </p>
-                <a href="mailto:info@senso.com?subject=Inquiry: Kintu" class="btn-inquire">Inquire</a>
+                <a href="mailto:info@senso.com?subject=Inquiry: Kintu - Carlotta Valentinis Queraltó" class="btn-inquire">Inquire</a>
             </div>
         </div>
 
         <div class="work-item">
+            <span class="artist-name">Carlotta Valentinis Queraltó</span>
             <div class="image-box">
                 <img src="Assets/Catalogue/obracarlotta.jpeg" alt="Keylan">
             </div>
@@ -194,7 +200,7 @@
                     Custom rye-based binder & egg tempera on canvas<br>
                     2026
                 </p>
-                <a href="mailto:info@senso.com?subject=Inquiry: Keylan" class="btn-inquire">Inquire</a>
+                <a href="mailto:info@senso.com?subject=Inquiry: Keylan - Carlotta Valentinis Queraltó" class="btn-inquire">Inquire</a>
             </div>
         </div>
 
