@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Senso — Catalogue</title>
+    <title>SENSO — Catalogue</title>
     
     <link rel="icon" type="image/png" href="favicon.png?v=1000">
     
@@ -15,8 +15,8 @@
 
         body {
             margin: 0;
-            background-color: #fff; /* Fondo bianco come richiesto */
-            color: #000; /* Testo nero per contrasto */
+            background-color: #ffffff;
+            color: #000000;
             font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
@@ -31,104 +31,101 @@
             text-transform: uppercase;
             font-size: 0.65rem; 
             letter-spacing: 2px; 
-            z-index: 100;
-            opacity: 0.6;
+            z-index: 1000;
+            opacity: 0.5;
             transition: 0.3s;
         }
         .back-home:hover { opacity: 1; }
 
-        /* Contenitore Catalogo */
         .catalogue-container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 150px 20px 100px 20px;
         }
 
-        .catalogue-header {
+        .header-section {
             text-align: center;
-            margin-bottom: 100px;
+            margin-bottom: 120px;
         }
 
-        .catalogue-header h1 {
-            font-size: 0.8rem;
+        .header-section h1 {
+            font-size: 0.7rem;
             letter-spacing: 5px;
             text-transform: uppercase;
             font-weight: 300;
-            opacity: 0.5;
+            opacity: 0.4;
         }
 
-        /* Singola Opera */
+        /* Work Section */
         .work-item {
-            margin-bottom: 180px; /* Grande spazio tra le opere */
+            margin-bottom: 220px;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
-        .work-image-wrapper {
+        .image-box {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .image-box img {
             width: 100%;
             max-width: 900px;
-            margin-bottom: 30px;
-            transition: transform 0.8s ease;
-        }
-
-        .work-image-wrapper img {
-            width: 100%;
             height: auto;
             display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombra leggerissima per dare profondità */
+            margin: 0 auto;
         }
 
-        .work-info {
+        .info-box {
             max-width: 600px;
         }
 
         .work-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: 3px;
             text-transform: uppercase;
             margin: 0 0 10px 0;
         }
 
-        .work-artist {
+        .work-series {
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 15px;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
-        .work-specs {
-            font-size: 0.7rem;
+        .work-details {
+            font-size: 0.65rem;
             letter-spacing: 1px;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            line-height: 1.8;
+            margin-bottom: 30px;
             opacity: 0.5;
+            text-transform: uppercase;
         }
 
-        .inquire-btn {
+        .btn-inquire {
             display: inline-block;
             text-decoration: none;
             color: #000;
-            border: 1px solid #000;
-            padding: 12px 30px;
-            font-size: 0.65rem;
+            border: 0.5px solid #000;
+            padding: 12px 35px;
+            font-size: 0.6rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             transition: all 0.3s ease;
         }
 
-        .inquire-btn:hover {
+        .btn-inquire:hover {
             background-color: #000;
             color: #fff;
         }
 
-        /* Mobile */
         @media (max-width: 600px) {
             .catalogue-container { padding-top: 100px; }
-            .work-item { margin-bottom: 100px; }
-            .work-title { font-size: 1rem; }
+            .work-item { margin-bottom: 120px; }
         }
     </style>
 </head>
@@ -138,39 +135,54 @@
 
     <div class="catalogue-container">
         
-        <header class="catalogue-header">
-            <h1>Available Works</h1>
+        <header class="header-section">
+            <h1>Principium — Catalogue</h1>
         </header>
 
         <div class="work-item">
-            <div class="work-image-wrapper">
-                <img src="Assets/Catalogue/opera1.jpg" alt="Title Of Work">
+            <div class="image-box">
+                <img src="assets/Catalogue/obracarlotta_2.jpg" alt="Guifal">
             </div>
-            <div class="work-info">
-                <h2 class="work-title">Title Of Work</h2>
-                <p class="work-artist">Artist Name</p>
-                <p class="work-specs">
-                    Mixed media on canvas<br>
-                    120 x 150 cm<br>
-                    2026
+            <div class="info-box">
+                <h2 class="work-title">Guifal</h2>
+                <p class="work-series">"After the Gallop" (Series)</p>
+                <p class="work-details">
+                    200 x 150 cm<br>
+                    Custom rye-based binder & egg tempera on canvas
                 </p>
-                <a href="mailto:info@senso.com?subject=Inquiry: Title Of Work" class="inquire-btn">Inquire</a>
+                <a href="mailto:info@senso.com?subject=Inquiry: Guifal" class="btn-inquire">Inquire</a>
             </div>
         </div>
 
         <div class="work-item">
-            <div class="work-image-wrapper">
-                <img src="Assets/Catalogue/opera2.jpg" alt="Title Of Work">
+            <div class="image-box">
+                <img src="assets/Catalogue/obracarlotta_3.jpg" alt="Kintu">
             </div>
-            <div class="work-info">
-                <h2 class="work-title">Title Of Work</h2>
-                <p class="work-artist">Artist Name</p>
-                <p class="work-specs">
-                    Sculpture, Marble and Steel<br>
-                    40 x 40 x 60 cm<br>
+            <div class="info-box">
+                <h2 class="work-title">Kintu</h2>
+                <p class="work-series">Triptych I - "After the Gallop" (Series)</p>
+                <p class="work-details">
+                    200 x 150 cm<br>
+                    Custom rye-based binder & egg tempera on canvas<br>
                     2026
                 </p>
-                <a href="mailto:info@senso.com?subject=Inquiry: Title Of Work" class="inquire-btn">Inquire</a>
+                <a href="mailto:info@senso.com?subject=Inquiry: Kintu" class="btn-inquire">Inquire</a>
+            </div>
+        </div>
+
+        <div class="work-item">
+            <div class="image-box">
+                <img src="assets/Catalogue/obracarlotta.jpg" alt="Keylan">
+            </div>
+            <div class="info-box">
+                <h2 class="work-title">Keylan</h2>
+                <p class="work-series">Triptych II - "After the Gallop" (Series)</p>
+                <p class="work-details">
+                    200 x 150 cm<br>
+                    Custom rye-based binder & egg tempera on canvas<br>
+                    2026
+                </p>
+                <a href="mailto:info@senso.com?subject=Inquiry: Keylan" class="btn-inquire">Inquire</a>
             </div>
         </div>
 
