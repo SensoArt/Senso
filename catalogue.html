@@ -16,7 +16,7 @@
         body {
             margin: 0;
             background-color: #ffffff;
-            color: #000000;
+            color: #222222;
             font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
@@ -26,7 +26,7 @@
             top: 25px; 
             left: 20px; 
             text-decoration: none; 
-            color: #000; 
+            color: #222; 
             text-transform: uppercase;
             font-size: 0.65rem; 
             letter-spacing: 2px; 
@@ -90,22 +90,25 @@
             max-width: 600px;
         }
 
-        /* ARTISTA: Aggiunto margine per dare respiro */
+        /* ARTISTA: Peso 500 (via di mezzo) e colore meno aggressivo */
         .artist-name {
             display: block;
             font-size: 0.85rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin: 0 0 12px 0; /* Aumentato da 4px a 12px */
-            font-weight: 600; 
+            margin: 0 0 12px 0;
+            font-weight: 500; 
+            color: #222222; 
         }
 
+        /* OPERA: Leggera e raffinata */
         .work-title {
             font-size: 0.7rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             margin: 0 0 10px 0;
             font-weight: 400;
+            color: #333333;
             opacity: 0.8;
         }
 
@@ -121,7 +124,7 @@
         .btn-inquire {
             display: inline-block;
             text-decoration: none;
-            color: #000;
+            color: #222;
             border: 0.5px solid rgba(0,0,0,0.2);
             padding: 12px 35px;
             font-size: 0.55rem;
@@ -131,9 +134,9 @@
         }
 
         .btn-inquire:hover {
-            background-color: #000;
+            background-color: #222;
             color: #fff;
-            border-color: #000;
+            border-color: #222;
         }
 
         @media (max-width: 600px) {
