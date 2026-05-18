@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senso — Catalogue</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png?v=1000">
+    
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            background-color: #fff; /* Fondo bianco come richiesto */
+            color: #000; /* Testo nero per contrasto */
+            font-family: 'FuturaLight', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigazione */
+        .back-home {
+            position: fixed; 
+            top: 25px; 
+            left: 20px; 
+            text-decoration: none; 
+            color: #000; 
+            text-transform: uppercase;
+            font-size: 0.65rem; 
+            letter-spacing: 2px; 
+            z-index: 100;
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+        .back-home:hover { opacity: 1; }
+
+        /* Contenitore Catalogo */
+        .catalogue-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 150px 20px 100px 20px;
+        }
+
+        .catalogue-header {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .catalogue-header h1 {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 300;
+            opacity: 0.5;
+        }
+
+        /* Singola Opera */
+        .work-item {
+            margin-bottom: 180px; /* Grande spazio tra le opere */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .work-image-wrapper {
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 30px;
+            transition: transform 0.8s ease;
+        }
+
+        .work-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Ombra leggerissima per dare profondità */
+        }
+
+        .work-info {
+            max-width: 600px;
+        }
+
+        .work-title {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin: 0 0 10px 0;
+        }
+
+        .work-artist {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            opacity: 0.7;
+        }
+
+        .work-specs {
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            opacity: 0.5;
+        }
+
+        .inquire-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            border: 1px solid #000;
+            padding: 12px 30px;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .inquire-btn:hover {
+            background-color: #000;
+            color: #fff;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .catalogue-container { padding-top: 100px; }
+            .work-item { margin-bottom: 100px; }
+            .work-title { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-home">← Home</a>
+
+    <div class="catalogue-container">
+        
+        <header class="catalogue-header">
+            <h1>Available Works</h1>
+        </header>
+
+        <div class="work-item">
+            <div class="work-image-wrapper">
+                <img src="Assets/Catalogue/opera1.jpg" alt="Title Of Work">
+            </div>
+            <div class="work-info">
+                <h2 class="work-title">Title Of Work</h2>
+                <p class="work-artist">Artist Name</p>
+                <p class="work-specs">
+                    Mixed media on canvas<br>
+                    120 x 150 cm<br>
+                    2026
+                </p>
+                <a href="mailto:info@senso.com?subject=Inquiry: Title Of Work" class="inquire-btn">Inquire</a>
+            </div>
+        </div>
+
+        <div class="work-item">
+            <div class="work-image-wrapper">
+                <img src="Assets/Catalogue/opera2.jpg" alt="Title Of Work">
+            </div>
+            <div class="work-info">
+                <h2 class="work-title">Title Of Work</h2>
+                <p class="work-artist">Artist Name</p>
+                <p class="work-specs">
+                    Sculpture, Marble and Steel<br>
+                    40 x 40 x 60 cm<br>
+                    2026
+                </p>
+                <a href="mailto:info@senso.com?subject=Inquiry: Title Of Work" class="inquire-btn">Inquire</a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
