@@ -60,7 +60,7 @@
         }
 
         .work-item {
-            margin-bottom: 180px;
+            margin-bottom: 150px; /* Ridotto leggermente per compattezza */
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -72,13 +72,18 @@
             width: 100%;
             max-width: 750px;
             margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
         }
 
         .image-box img {
-            width: 100%;
+            width: auto;
+            max-width: 100%;
+            /* Limita l'altezza per vederla intera su PC */
+            max-height: 75vh; 
             height: auto;
             display: block;
-            margin: 0 auto;
+            object-fit: contain;
         }
 
         .info-box {
@@ -86,7 +91,6 @@
             max-width: 600px;
         }
 
-        /* ARTISTA: Bilanciato a 0.85rem */
         .artist-name {
             display: block;
             font-size: 0.85rem;
@@ -96,7 +100,6 @@
             font-weight: 600; 
         }
 
-        /* OPERA: Rimpicciolita a 0.7rem */
         .work-title {
             font-size: 0.7rem;
             letter-spacing: 2px;
@@ -134,7 +137,8 @@
         }
 
         @media (max-width: 600px) {
-            .image-box { max-width: 100%; }
+            .image-box img { max-height: none; } /* Torna normale su mobile */
+            .work-item { margin-bottom: 100px; }
         }
     </style>
 </head>
