@@ -68,9 +68,10 @@
             text-align: center;
         }
 
+        /* --- STILE DESKTOP (NON TOCCARE) --- */
         .image-box {
             width: 100%;
-            max-width: 1200px; 
+            max-width: 1200px; /* Grande su PC */
             margin-bottom: 40px;
             display: flex;
             justify-content: center;
@@ -79,7 +80,7 @@
         .image-box img {
             width: auto;
             max-width: 100%;
-            max-height: 90vh; 
+            max-height: 95vh; 
             height: auto;
             display: block;
             object-fit: contain;
@@ -137,26 +138,22 @@
             border-color: #222;
         }
 
-        /* MOBILE: GRANDE MA CON RESPIRO */
+        /* --- SOLO PER CELLULARE --- */
         @media (max-width: 600px) {
             .catalogue-container {
-                padding: 100px 5% 60px 5%; /* 5% di spazio ai lati per far respirare l'opera */
+                padding: 100px 15px 60px 15px; /* Spazio controllato ai lati */
             }
             .image-box {
                 max-width: 100%;
                 margin-bottom: 30px;
             }
             .image-box img { 
-                max-height: 75vh; /* Evita che l'opera diventi troppo lunga verticalmente su mobile */
-                width: 100%;
+                max-height: none; /* Permette all'immagine di crescere in altezza se necessario */
+                width: 100%;      /* Occupa tutta la larghezza del contenitore (con respiro dei 15px) */
                 height: auto;
-                object-fit: contain;
             }
             .work-item { 
                 margin-bottom: 140px; 
-            }
-            .info-box {
-                padding: 0 10px;
             }
         }
     </style>
