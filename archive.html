@@ -19,90 +19,116 @@
             overflow: hidden;
             width: 100vw;
             height: 100vh;
+            cursor: crosshair; /* Un cursore a croce suggerisce precisione e "esplorazione" */
         }
 
+        /* SFONDO DINAMICO */
         .archive-bg {
             position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 100%; 
-            height: 100%;
-            z-index: -2;
-            overflow: hidden; /* Fondamentale per nascondere ciò che esce dai bordi */
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
+            z-index: -1;
+            transition: transform 1.2s cubic-bezier(0.2, 1, 0.3, 1), filter 1.2s ease;
+            filter: grayscale(0.2) brightness(0.8) blur(3px); /* Leggero blur iniziale */
         }
 
         .archive-bg img {
-            width: 100%; 
-            height: 100%; 
+            width: 100%; height: 100%; 
             object-fit: cover;
-            display: block;
-            /* SOLUZIONE PER LA STELLA: */
-            /* Ingrandiamo l'immagine del 10% e la spostiamo leggermente verso l'alto/sinistra */
-            transform: scale(1.1); 
-            transform-origin: top left; 
-            filter: brightness(1);
+            transform: scale(1.1);
         }
-        
+
+        /* Quando l'utente passa sopra il link, lo sfondo diventa nitido e si sposta */
+        body:has(.project-link:hover) .archive-bg {
+            filter: grayscale(0) brightness(1) blur(0px);
+            transform: scale(1.05);
+        }
+
         .back-home {
             position: absolute; 
-            top: 25px; 
-            left: 20px; 
+            top: 25px; left: 20px; 
             text-decoration: none; 
             color: #000; 
             text-transform: uppercase;
             font-size: 0.65rem; 
             letter-spacing: 2px; 
-            opacity: 0.8;
+            opacity: 0.5;
             z-index: 10;
+            transition: opacity 0.3s;
         }
+        .back-home:hover { opacity: 1; }
 
         .archive-content {
-            position: absolute; 
-            top: 140px; 
-            left: 75px; 
-            text-align: left;
+            height: 100vh;
+            display: flex;
+            align-items: center; /* Centrato verticalmente per dare più importanza */
+            padding-left: 10%;
             z-index: 5;
+        }
+
+        .project-link {
+            text-decoration: none;
+            display: inline-block;
         }
 
         .project-text-wrapper {
             position: relative;
-            z-index: 2;
-            padding-top: 50px;
-            text-align: left;
-            opacity: 0;
-            animation: fadeInText 1.2s ease-out forwards;
-            animation-delay: 0.4s;
+            transition: transform 0.4s ease;
         }
 
-        @keyframes fadeInText {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        /* EFFETTO HOVER SUL TESTO */
         .project-title { 
-            font-size: 1.5rem; 
-            letter-spacing: 6px; 
+            font-size: clamp(2rem, 8vw, 4rem); /* Titolo molto più grande e impattante */
+            letter-spacing: 12px; 
             text-transform: uppercase; 
             margin: 0; 
             color: #1a1a1a; 
-            display: block;
+            transition: all 0.5s ease;
+            position: relative;
+            -webkit-text-stroke: 0.5px rgba(255,255,255,0.2); /* Leggero contorno per leggibilità */
+        }
+
+        .project-link:hover .project-title {
+            color: #fff; /* Diventa bianco puro */
+            letter-spacing: 18px; /* Si espande "respirando" */
+            transform: translateX(20px);
         }
 
         .project-date { 
-            font-size: 0.65rem; 
-            letter-spacing: 2px; 
+            font-size: 0.7rem; 
+            letter-spacing: 4px; 
             text-transform: uppercase; 
-            margin-top: 10px; 
+            margin-top: 15px; 
             color: #333; 
+            opacity: 0.6;
+            transition: all 0.5s ease;
+        }
+
+        .project-link:hover .project-date {
+            color: #fff;
+            opacity: 1;
+            transform: translateX(20px);
+        }
+
+        /* LINEA DECORATIVA CHE APPARE */
+        .project-link::after {
+            content: '';
             display: block;
+            width: 0;
+            height: 1px;
+            background: #fff;
+            margin-top: 10px;
+            transition: width 0.5s ease;
+        }
+
+        .project-link:hover::after {
+            width: 100%;
         }
 
         @media (max-width: 600px) {
-            .back-home { left: 20px; }
-            .archive-content { left: 30px; }
-            .archive-bg img {
-                transform: scale(1.2); /* Su mobile zoomiamo un po' di più per sicurezza */
-            }
+            .archive-content { padding-left: 30px; }
+            .project-title { font-size: 2rem; letter-spacing: 6px; }
+            .project-link:hover .project-title { letter-spacing: 8px; }
         }
     </style>
 </head>
@@ -115,10 +141,10 @@
     <a href="index.html" class="back-home">← Home</a>
 
     <div class="archive-content">
-        <a href="principium.html" style="text-decoration: none;">
+        <a href="principium.html" class="project-link">
             <div class="project-text-wrapper">
                 <h2 class="project-title">Principium</h2>
-                <p class="project-date">Chapter I - Barcelona, May 2026</p>
+                <p class="project-date">Chapter I — Barcelona, 2026</p>
             </div>
         </a>
     </div>
