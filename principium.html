@@ -21,6 +21,7 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
         }
 
+        /* Animazioni */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
@@ -79,7 +80,7 @@
         }
 
         /* Testo Curatoriale */
-        .content-container { max-width: 800px; margin: 0 auto; padding: 0 25px 100px; }
+        .content-container { max-width: 800px; margin: 0 auto; padding: 0 25px 50px; }
         
         .tagline {
             font-family: 'BehindNineties', serif;
@@ -102,13 +103,61 @@
             opacity: 1;
         }
 
+        /* Galleria Immagini */
+        .photo-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 120px; /* Spazio elegante tra le foto */
+        }
+
+        .photo-item {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.5s cubic-bezier(0.15, 1, 0.3, 1);
+        }
+
+        .photo-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%); /* Leggero tocco editoriale */
+            transition: filter 0.8s ease;
+        }
+        
+        .photo-item:hover img { filter: grayscale(0%); }
+
+        /* Varianti di Layout Immagini */
+        .photo-full { max-width: 100%; }
+        .photo-center { max-width: 750px; margin: 0 auto; }
+        .photo-left { max-width: 850px; margin-right: auto; }
+        .photo-right { max-width: 850px; margin-left: auto; }
+
         .hidden { display: none; }
 
-        .logo-bottom { width: 140px; opacity: 0.6; margin-top: 50px; margin-bottom: 80px; }
+        .logo-bottom { 
+            width: 140px; 
+            opacity: 0.4; 
+            margin: 100px 0 80px; 
+            transition: opacity 0.5s;
+        }
+        .logo-bottom:hover { opacity: 0.8; }
 
         @media (max-width: 600px) {
             header { padding-top: 140px; }
             h1 { letter-spacing: 6px; }
+            .photo-gallery { gap: 60px; }
+            .photo-left, .photo-right { margin: 0 auto; }
         }
     </style>
 </head>
@@ -144,13 +193,36 @@
             <p>La experiencia transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
             <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
-
-        <div style="text-align: center;">
-            <img src="senso_logo_blanco.png" alt="Senso Art Logo" class="logo-bottom">
-        </div>
     </main>
 
+    <section class="photo-gallery">
+        <div class="photo-item photo-full">
+            <img src="photo_principium/1.jpg" alt="Principium 1">
+        </div>
+        
+        <div class="photo-item photo-left">
+            <img src="photo_principium/2.jpg" alt="Principium 2">
+        </div>
+
+        <div class="photo-item photo-center">
+            <img src="photo_principium/3.jpg" alt="Principium 3">
+        </div>
+
+        <div class="photo-item photo-right">
+            <img src="photo_principium/4.jpg" alt="Principium 4">
+        </div>
+
+        <div class="photo-item photo-full">
+            <img src="photo_principium/5.jpg" alt="Principium 5">
+        </div>
+    </section>
+
+    <div style="text-align: center;">
+        <img src="senso_logo_blanco.png" alt="Senso Art Logo" class="logo-bottom">
+    </div>
+
     <script>
+        // Gestione Lingua
         function setLang(lang) {
             document.getElementById('lang-en').classList.add('hidden');
             document.getElementById('lang-es').classList.add('hidden');
@@ -159,6 +231,23 @@
             document.getElementById('btn-es').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
         }
+
+        // Effetto Fade allo Scroll per le Foto
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.photo-item').forEach(item => {
+            observer.observe(item);
+        });
     </script>
 </body>
 </html>
