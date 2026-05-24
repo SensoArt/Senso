@@ -25,8 +25,8 @@
             top: 0; left: 0; 
             width: 100%; height: 100%;
             z-index: -1;
-            filter: brightness(0.6) blur(2px);
-            transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            filter: brightness(0.6);
+            transition: all 1.5s cubic-bezier(0.2, 1, 0.3, 1);
         }
 
         .archive-bg img {
@@ -35,10 +35,10 @@
             transform: scale(1.1);
         }
 
-        /* SFONDO REATTIVO */
+        /* REAZIONE DELLO SFONDO */
         body:has(.project-link:hover) .archive-bg {
-            filter: brightness(0.8) blur(0px);
-            transform: scale(1.03);
+            filter: brightness(0.8);
+            transform: scale(1.05);
         }
 
         .back-home {
@@ -57,44 +57,50 @@
             height: 100vh;
             display: flex;
             align-items: flex-start;
-            padding-top: 160px; 
+            padding-top: 15vh; 
             padding-left: 10%;
         }
 
-        /* LA CORNICE CON PROFONDITÀ */
+        /* CORNICE APERTA (ANGOLI) */
         .project-link {
             text-decoration: none;
             display: inline-block;
-            padding: 45px 60px;
+            padding: 50px 70px;
             position: relative;
-            background: rgba(255, 255, 255, 0.02); /* Velo quasi invisibile */
-            backdrop-filter: blur(5px); /* Sfoca leggermente l'immagine dietro la cornice */
-            box-shadow: 
-                0 10px 30px rgba(0, 0, 0, 0.5), /* Ombra esterna per staccare dal fondo */
-                inset 0 0 15px rgba(255, 255, 255, 0.05); /* Luce interna per volume */
-            border-left: 1px solid rgba(255, 255, 255, 0.3); /* Bordo sinistro più acceso */
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            border-right: 1px solid rgba(255, 255, 255, 0.1);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.6s ease;
         }
 
-        .project-link:hover {
-            transform: translateY(-5px); /* Si alza leggermente */
-            background: rgba(255, 255, 255, 0.07);
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.7), 
-                inset 0 0 20px rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.6);
+        /* Angoli superiori */
+        .project-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 30px; height: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-left: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.6s ease;
         }
 
-        /* Effetto "vetro" o riflesso sulla cornice */
+        /* Angoli inferiori */
         .project-link::after {
             content: '';
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
-            pointer-events: none;
+            bottom: 0; right: 0;
+            width: 30px; height: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.6s ease;
+        }
+
+        /* Animazione al passaggio del mouse: gli angoli si espandono e avvolgono il testo */
+        .project-link:hover::before {
+            width: 100%; height: 100%;
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .project-link:hover::after {
+            width: 100%; height: 100%;
+            border-color: rgba(255, 255, 255, 0.8);
         }
 
         .project-text-wrapper {
@@ -103,41 +109,41 @@
         }
 
         .project-title { 
-            font-size: 1.7rem; 
-            letter-spacing: 8px; 
+            font-size: 1.8rem; 
+            letter-spacing: 10px; 
             text-transform: uppercase; 
             margin: 0; 
-            color: #111; /* Quasi nero per sembrare scavato */
+            color: #111; 
             transition: all 0.6s ease;
-            text-shadow: 0 1px 1px rgba(255,255,255,0.1);
+            mix-blend-mode: overlay; /* Fa sì che il testo interagisca con la luce dello sfondo */
         }
 
         .project-date { 
             font-size: 0.65rem; 
-            letter-spacing: 3px; 
+            letter-spacing: 4px; 
             text-transform: uppercase; 
-            margin-top: 12px; 
-            color: #222; 
-            opacity: 0.8;
+            margin-top: 15px; 
+            color: #fff; 
+            opacity: 0.3;
             transition: all 0.6s ease;
         }
 
-        /* Reazione al passaggio del mouse */
+        /* Hover sul testo */
         .project-link:hover .project-title {
             color: #fff;
-            letter-spacing: 11px;
-            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+            letter-spacing: 14px;
+            mix-blend-mode: normal;
         }
 
         .project-link:hover .project-date {
-            color: #ccc;
             opacity: 1;
+            transform: translateY(5px);
         }
 
         @media (max-width: 600px) {
-            .archive-content { padding-top: 140px; padding-left: 0; justify-content: center; }
-            .project-link { padding: 35px 40px; width: 80%; text-align: center; }
-            .project-title { font-size: 1.4rem; letter-spacing: 5px; }
+            .archive-content { padding-top: 20vh; padding-left: 0; justify-content: center; }
+            .project-link { padding: 40px; }
+            .project-title { font-size: 1.4rem; letter-spacing: 6px; }
         }
     </style>
 </head>
