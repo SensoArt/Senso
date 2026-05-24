@@ -95,7 +95,7 @@
             opacity: 1;
         }
 
-        /* GALLERIA IN FILA (GRID/FLEX) - Uniformata */
+        /* GALLERIA UNIFORMATA */
         .photo-gallery {
             max-width: 1200px;
             margin: 0 auto;
@@ -103,22 +103,29 @@
             display: flex;
             flex-wrap: wrap; 
             justify-content: center; 
-            gap: 20px; 
+            gap: 25px; 
         }
 
         .photo-item {
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            overflow: hidden; /* Mantiene lo zoom dentro i bordi */
         }
 
         .photo-item.visible { opacity: 1; }
 
         .photo-item img {
             display: block;
-            /* DIMENSIONI UNIFORMATE A 280px */
-            width: 280px; 
-            height: 187px; /* Esempio di proporzione 3:2, regola secondo le tue foto se necessario per non distorcere */
+            width: 280px; /* Larghezza uniforme */
+            height: auto; 
             object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Zoom fluido */
+            cursor: pointer;
+        }
+
+        /* EFFETTO ZOOM AL PASSAGGIO DEL CURSORE */
+        .photo-item:hover img {
+            transform: scale(1.1); /* Ingrandisce del 10% */
         }
 
         .hidden { display: none; }
@@ -127,7 +134,8 @@
 
         @media (max-width: 600px) {
             header { padding-top: 140px; }
-            .photo-item img { width: 100%; max-width: 320px; height: auto; }
+            .photo-item img { width: 100%; max-width: 320px; }
+            .photo-item:hover img { transform: none; } /* Disabilita zoom su mobile per evitare bug */
         }
     </style>
 </head>
@@ -161,7 +169,7 @@
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
             <p>La experiencia transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
-            <p class="highlight-text">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
+            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nasce.</p>
         </div>
     </main>
 
