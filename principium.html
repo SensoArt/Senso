@@ -95,15 +95,15 @@
             opacity: 1;
         }
 
-        /* GALLERIA IN FILA (GRID/FLEX) */
+        /* GALLERIA IN FILA (GRID/FLEX) - Uniformata */
         .photo-gallery {
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 20px;
             display: flex;
-            flex-wrap: wrap; /* Permette di andare a capo se sono troppe */
-            justify-content: center; /* Centra la fila */
-            gap: 20px; /* Spazio tra le foto */
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
         }
 
         .photo-item {
@@ -114,10 +114,10 @@
         .photo-item.visible { opacity: 1; }
 
         .photo-item img {
-            height: auto;
             display: block;
-            /* DIMENSIONE PICCOLA IN FILA */
+            /* DIMENSIONI UNIFORMATE A 280px */
             width: 280px; 
+            height: 187px; /* Esempio di proporzione 3:2, regola secondo le tue foto se necessario per non distorcere */
             object-fit: cover;
         }
 
@@ -127,7 +127,7 @@
 
         @media (max-width: 600px) {
             header { padding-top: 140px; }
-            .photo-item img { width: 100%; max-width: 320px; }
+            .photo-item img { width: 100%; max-width: 320px; height: auto; }
         }
     </style>
 </head>
@@ -161,7 +161,7 @@
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
             <p>La experiencia transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
-            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
+            <p class="highlight-text">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
         </div>
     </main>
 
@@ -176,10 +176,13 @@
             <img src="photo_principium/photo3.jpeg" alt="">
         </div>
         <div class="photo-item">
+            <img src="photo_principium/photo5.jpeg" alt="">
+        </div>
+        <div class="photo-item">
             <img src="photo_principium/photo4.jpeg" alt="">
         </div>
         <div class="photo-item">
-            <img src="photo_principium/photo5.jpeg" alt="">
+            <img src="photo_principium/photo6.jpeg" alt="">
         </div>
     </section>
 
