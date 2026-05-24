@@ -13,6 +13,12 @@
             src: url('Fonts/futura light bt.ttf') format('truetype');
         }
 
+        /* FADE SOLO PER IL CONTENUTO ALL'APERTURA */
+        @keyframes contentFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         body {
             margin: 0; 
             background-color: #000; 
@@ -23,18 +29,18 @@
             height: 100vh;
         }
 
+        /* SFONDO STATICO - NESSUNA ANIMAZIONE */
         .archive-bg {
             position: fixed; 
             top: 0; left: 0; 
             width: 100%; height: 100%;
             z-index: -1;
-            filter: brightness(0.8);
-            transition: opacity 1.2s ease;
         }
 
         .archive-bg img {
             width: 100%; height: 100%; 
             object-fit: cover;
+            display: block;
         }
 
         .back-home {
@@ -59,22 +65,24 @@
             align-items: flex-start;
             padding-top: 18vh; 
             padding-left: 10%;
+            /* Il fade avviene solo qui */
+            animation: contentFadeIn 2s ease-in-out forwards;
         }
 
-        /* CORNICE SOTTILE E PULITA */
+        /* CORNICE SOTTILE */
         .project-link {
             text-decoration: none !important;
             display: inline-block;
             padding: 40px 50px;
             z-index: 100;
-            border: 0.5px solid rgba(0, 0, 0, 0.2); /* Cornice quasi invisibile */
+            border: 0.5px solid rgba(0, 0, 0, 0.2);
             background: transparent;
-            transition: all 0.8s ease-in-out; /* Effetto Fade */
+            transition: all 0.8s ease-in-out;
         }
 
         .project-link:hover {
-            border-color: rgba(255, 255, 255, 1); /* Diventa bianca nitida */
-            background: rgba(255, 255, 255, 0.05); /* Leggerissimo velo */
+            border-color: rgba(255, 255, 255, 1);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .project-title { 
@@ -83,7 +91,7 @@
             text-transform: uppercase; 
             margin: 0; 
             color: #000 !important; 
-            transition: color 0.8s ease-in-out, letter-spacing 0.8s ease-in-out;
+            transition: all 0.8s ease-in-out;
         }
 
         .project-date { 
@@ -92,12 +100,12 @@
             text-transform: uppercase; 
             margin-top: 15px; 
             color: #000 !important;
-            opacity: 0.5;
+            opacity: 0.6;
             transition: all 0.8s ease-in-out;
             display: block;
         }
 
-        /* EFFETTO FADE SUL CONTENUTO */
+        /* EFFETTO FADE HOVER SUL TESTO */
         .project-link:hover .project-title {
             color: #fff !important;
             letter-spacing: 13px;
@@ -106,11 +114,6 @@
         .project-link:hover .project-date {
             color: #fff !important;
             opacity: 1;
-        }
-
-        /* Lo sfondo si scurisce leggermente al passaggio */
-        body:has(.project-link:hover) .archive-bg {
-            filter: brightness(0.5);
         }
 
         @media (max-width: 600px) {
