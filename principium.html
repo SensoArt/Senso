@@ -90,12 +90,12 @@
 
         .highlight-text {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(1.6rem, 4vw, 2rem);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             margin-top: 60px; 
             opacity: 1;
         }
 
-        /* GALLERIA UNIFORMATA */
+        /* GALLERIA RETTANGOLARE UNIFORME */
         .photo-gallery {
             max-width: 1200px;
             margin: 0 auto;
@@ -103,7 +103,7 @@
             display: flex;
             flex-wrap: wrap; 
             justify-content: center; 
-            gap: 25px; 
+            gap: 20px; 
         }
 
         .photo-item {
@@ -115,15 +115,16 @@
 
         .photo-item img {
             display: block;
+            /* FORMATO RETTANGOLARE FISSO */
             width: 280px; 
-            height: 280px; 
+            height: 180px; 
             object-fit: cover;
             cursor: pointer;
             transition: opacity 0.3s;
         }
-        .photo-item img:hover { opacity: 0.8; }
+        .photo-item img:hover { opacity: 0.7; }
 
-        /* LIGHTBOX (IMMAGINE GRANDE) */
+        /* LIGHTBOX */
         #lightbox {
             display: none;
             position: fixed;
@@ -139,12 +140,11 @@
         #lightbox img {
             max-width: 90%;
             max-height: 90%;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5);
             animation: zoomIn 0.3s ease-out;
         }
 
         @keyframes zoomIn {
-            from { transform: scale(0.9); opacity: 0; }
+            from { transform: scale(0.95); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
@@ -154,7 +154,7 @@
 
         @media (max-width: 600px) {
             header { padding-top: 140px; }
-            .photo-item img { width: 280px; height: 280px; }
+            .photo-item img { width: 280px; height: 180px; }
         }
     </style>
 </head>
@@ -185,10 +185,10 @@
 
         <div id="lang-es" class="lang-content hidden">
             <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
-            <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
+            <p>Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
-            <p>La esperienza transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
-            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nasce.</p>
+            <p>La experiencia transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
+            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
         </div>
     </main>
 
@@ -219,7 +219,6 @@
             document.getElementById('btn-' + lang).classList.add('active');
         }
 
-        // Funzione Lightbox
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const img = document.getElementById('lightbox-img');
