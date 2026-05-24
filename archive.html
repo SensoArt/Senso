@@ -23,132 +23,121 @@
             height: 100vh;
         }
 
-        /* SFONDO CON PROFONDITÀ INIZIALE */
         .archive-bg {
             position: fixed; 
             top: 0; left: 0; 
             width: 100%; height: 100%;
             z-index: -1;
-            /* Leggero blur e scurimento per separare il piano */
-            filter: brightness(0.6) blur(1px);
+            filter: brightness(0.7);
             transition: all 1.5s cubic-bezier(0.15, 1, 0.3, 1);
         }
 
         .archive-bg img {
             width: 100%; height: 100%; 
             object-fit: cover;
-            transform: scale(1.1); /* Zoom per parallasse */
+            transform: scale(1.1);
         }
 
-        /* FIX TASTO HOME */
         .back-home {
             position: fixed;
             top: 25px; 
             left: 20px; 
             text-decoration: none; 
-            color: #fff !important;
+            color: #000 !important; /* Nero per eleganza su sfondo chiaro */
             text-transform: uppercase;
-            font-size: 0.65rem; 
+            font-size: 0.6rem; 
             letter-spacing: 2px; 
-            opacity: 0.6;
+            opacity: 0.5;
             z-index: 9999;
             transition: opacity 0.3s;
-            display: block;
         }
-        .back-home:visited { color: #fff !important; }
+        .back-home:visited { color: #000 !important; }
         .back-home:hover { opacity: 1; }
 
-        /* CONTENUTO */
         .archive-content {
             height: 100vh;
             display: flex;
             align-items: flex-start;
-            padding-top: 18vh; 
+            padding-top: 15vh; 
             padding-left: 10%;
         }
 
+        /* EFFETTO GOCCIA / LENTE */
         .project-link {
             text-decoration: none !important;
             display: inline-block;
             position: relative;
-            padding: 40px;
+            padding: 50px 60px;
             z-index: 100;
+            transition: transform 0.8s cubic-bezier(0.15, 1, 0.3, 1);
         }
 
-        /* 1. PROFONDITÀ PRIMA DELL'HOVER: ALONE DI LUCE SOFFUSO */
+        /* La "Goccia" di vetro dietro il testo */
         .project-link::before {
             content: '';
             position: absolute;
             top: 50%; left: 50%;
-            width: 140%; height: 140%;
-            /* Radial gradient per un alone morbido e profondo */
-            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 40%, rgba(255,255,255,0) 70%);
-            transform: translate(-50%, -50%) scale(1);
-            opacity: 1; /* Sempre visibile per dare profondità */
-            transition: all 1s ease;
+            width: 110%; height: 110%;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(8px) saturate(1.2); /* Effetto lente */
+            -webkit-backdrop-filter: blur(8px) saturate(1.2);
+            border-radius: 50%; /* Forma a goccia/lente soffusa */
+            transform: translate(-50%, -50%) scale(0.9);
+            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 10px 30px rgba(0,0,0,0.2);
+            opacity: 0.6;
+            transition: all 0.8s ease;
             pointer-events: none;
             z-index: -1;
         }
 
-        /* 2. PROFONDITÀ PRIMA DELL'HOVER: TEXT-SHADOW MASSICCIO */
+        .project-link:hover::before {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+            border-radius: 40%; /* Si espande dolcemente */
+        }
+
         .project-title { 
-            font-size: 2.2rem; 
-            letter-spacing: 12px; 
+            font-size: 1.8rem; 
+            letter-spacing: 10px; 
             text-transform: uppercase; 
             margin: 0; 
-            /* COLORE INIZIALE: Grigio Scuro / Effetto "Scavato" */
-            color: #1a1a1a !important; 
-            /* Ombra scura e molto staccata per simulare levitazione */
-            text-shadow: 0 15px 40px rgba(0, 0, 0, 0.9); 
-            transition: all 0.8s cubic-bezier(0.15, 1, 0.3, 1);
-            opacity: 1;
-            position: relative;
+            color: #000 !important; /* Nero profondo */
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); 
+            transition: all 0.8s ease;
         }
 
         .project-date { 
-            font-size: 0.65rem; 
+            font-size: 0.55rem; /* Più piccolo e fine */
             letter-spacing: 4px; 
             text-transform: uppercase; 
-            margin-top: 15px; 
-            color: #666; /* Grigio medio iniziale */
-            opacity: 1;
+            margin-top: 8px; 
+            color: #000 !important; /* Nero */
+            opacity: 0.4;
             transition: all 0.6s ease;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
         }
 
-        /* --- EFFETTI AL PASSAGGIO DEL CURSORE --- */
-        
-        /* Lo sfondo diventa nitido */
-        body:has(.project-link:hover) .archive-bg {
-            filter: brightness(0.8) blur(0px);
-            transform: scale(1.05);
-        }
-
-        /* L'alone si espande */
-        .project-link:hover::before {
-            opacity: 0.8;
-            transform: translate(-50%, -50%) scale(1.15);
-            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 70%);
-        }
-
-        /* Il testo si "accende" e si alza */
+        /* REAZIONI AL PASSAGGIO DEL CURSORE */
         .project-link:hover .project-title {
-            color: #fff !important; /* CAMBIO COLORE: Bianco Puro */
-            letter-spacing: 16px;
-            transform: translateY(-8px);
-            /* L'ombra si stacca ancora di più */
-            text-shadow: 0 30px 60px rgba(0, 0, 0, 1);
+            color: #fff !important; /* Passa al bianco */
+            letter-spacing: 14px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .project-link:hover .project-date {
-            color: #fff; /* Data diventa bianca */
-            transform: translateY(2px);
+            color: #fff !important;
+            opacity: 0.8;
+            transform: translateY(3px);
+        }
+
+        body:has(.project-link:hover) .archive-bg {
+            filter: brightness(0.8);
+            transform: scale(1.05);
         }
 
         @media (max-width: 600px) {
-            .archive-content { padding-top: 25vh; padding-left: 0; justify-content: center; }
-            .project-title { font-size: 1.6rem; letter-spacing: 8px; }
-            .project-link:hover .project-title { letter-spacing: 11px; }
+            .archive-content { padding-top: 20vh; padding-left: 0; justify-content: center; }
+            .project-title { font-size: 1.4rem; letter-spacing: 6px; }
+            .project-link { padding: 40px; }
         }
     </style>
 </head>
