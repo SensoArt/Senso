@@ -19,7 +19,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -42,15 +42,15 @@
         .back-archive {
             position: fixed; top: 25px; left: 20px;
             text-decoration: none; color: #fff;
-            text-transform: uppercase; font-size: 0.6rem;
-            letter-spacing: 2px; opacity: 0.4; z-index: 1000;
+            text-transform: uppercase; font-size: 0.65rem;
+            letter-spacing: 2px; opacity: 0.5; z-index: 1000;
             transition: 0.3s;
         }
         .back-archive:hover { opacity: 1; }
 
         .lang-switch {
             position: fixed; top: 25px; right: 20px;
-            font-size: 0.6rem; z-index: 1000;
+            font-size: 0.65rem; z-index: 1000;
         }
         .lang-btn {
             background: none; border: none; color: #fff;
@@ -59,59 +59,56 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* Header */
-        header { padding: 140px 20px 60px; }
+        header { padding: 160px 20px 80px; }
 
         h1 {
             font-family: 'Times New Roman', Times, serif; 
-            font-size: clamp(2.5rem, 8vw, 6rem);
-            text-transform: uppercase; letter-spacing: 15px;
-            margin: 0; font-weight: 300; line-height: 1;
+            font-size: clamp(3rem, 10vw, 8rem);
+            text-transform: uppercase; letter-spacing: 12px;
+            margin: 0; font-weight: 300; line-height: 0.9;
         }
 
         .subtitle-event {
-            letter-spacing: 4px; text-transform: uppercase;
-            font-size: 0.6rem;
-            opacity: 0.4; margin: 25px 0 0 0;
+            letter-spacing: 5px; text-transform: uppercase;
+            font-size: clamp(0.6rem, 2vw, 0.75rem);
+            opacity: 0.5; margin: 30px 0 0 0;
         }
 
-        /* Testo Curatoriale */
-        .content-container { max-width: 700px; margin: 0 auto; padding: 0 25px 80px; }
+        .content-container { max-width: 800px; margin: 0 auto; padding: 0 25px 50px; }
         
         .tagline {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            opacity: 0.7; margin-bottom: 40px;
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            opacity: 0.8; margin-bottom: 50px;
         }
 
         .lang-content p {
-            line-height: 1.8; font-size: 0.95rem;
-            opacity: 0.7; margin-bottom: 25px;
+            line-height: 2; font-size: 1.1rem;
+            opacity: 0.8; margin-bottom: 30px;
             text-align: justify; text-align-last: center;
         }
 
         .highlight-text {
             font-family: 'BehindNineties', serif;
-            font-size: 1.5rem;
-            margin-top: 50px; 
-            opacity: 0.9;
+            font-size: clamp(1.6rem, 4vw, 2rem);
+            margin-top: 60px; 
+            opacity: 1;
         }
 
-        /* GALLERIA PICCOLA ED ELEGANTE */
+        /* GALLERIA IN FILA (GRID/FLEX) */
         .photo-gallery {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 20px 100px;
+            padding: 80px 20px;
             display: flex;
-            flex-direction: column;
-            gap: 120px; /* Molto spazio tra le foto piccole */
+            flex-wrap: wrap; /* Permette di andare a capo se sono troppe */
+            justify-content: center; /* Centra la fila */
+            gap: 20px; /* Spazio tra le foto */
         }
 
         .photo-item {
-            width: 100%;
-            display: flex;
             opacity: 0;
-            transition: opacity 2s ease;
+            transition: opacity 1.5s ease-in-out;
         }
 
         .photo-item.visible { opacity: 1; }
@@ -119,28 +116,18 @@
         .photo-item img {
             height: auto;
             display: block;
-            /* DIMENSIONI RIDOTTE */
-            width: 350px; 
-            max-width: 60%;
+            /* DIMENSIONE PICCOLA IN FILA */
+            width: 280px; 
+            object-fit: cover;
         }
-
-        /* Allineamenti asimmetrici per un look da rivista d'arte */
-        .align-left { justify-content: flex-start; }
-        .align-right { justify-content: flex-end; }
-        .align-center { justify-content: center; }
 
         .hidden { display: none; }
 
-        .logo-bottom { 
-            width: 100px; 
-            opacity: 0.3; 
-            margin: 80px 0 60px; 
-        }
+        .logo-bottom { width: 140px; opacity: 0.6; margin: 80px 0; }
 
         @media (max-width: 600px) {
-            header { padding-top: 120px; }
-            .photo-item img { width: 80%; max-width: 250px; }
-            .photo-gallery { gap: 80px; }
+            header { padding-top: 140px; }
+            .photo-item img { width: 100%; max-width: 320px; }
         }
     </style>
 </head>
@@ -179,23 +166,19 @@
     </main>
 
     <section class="photo-gallery">
-        <div class="photo-item align-left">
+        <div class="photo-item">
             <img src="photo_principium/photo1.jpeg" alt="">
         </div>
-        
-        <div class="photo-item align-right">
+        <div class="photo-item">
             <img src="photo_principium/photo2.jpeg" alt="">
         </div>
-
-        <div class="photo-item align-center">
+        <div class="photo-item">
             <img src="photo_principium/photo3.jpeg" alt="">
         </div>
-
-        <div class="photo-item align-left">
+        <div class="photo-item">
             <img src="photo_principium/photo4.jpeg" alt="">
         </div>
-
-        <div class="photo-item align-right">
+        <div class="photo-item">
             <img src="photo_principium/photo5.jpeg" alt="">
         </div>
     </section>
@@ -224,12 +207,6 @@
 
         document.querySelectorAll('.photo-item').forEach(item => {
             observer.observe(item);
-            const img = item.querySelector('img');
-            if (img.complete) {
-                item.classList.add('visible');
-            } else {
-                img.addEventListener('load', () => item.classList.add('visible'));
-            }
         });
     </script>
 </body>
