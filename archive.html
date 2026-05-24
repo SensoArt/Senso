@@ -25,7 +25,7 @@
             top: 0; left: 0; 
             width: 100%; height: 100%;
             z-index: -1;
-            filter: brightness(0.7) blur(2px);
+            filter: brightness(0.7) blur(1px);
             transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -35,10 +35,10 @@
             transform: scale(1.1);
         }
 
-        /* SFONDO REATTIVO ALL'HOVER */
+        /* SFONDO CHE REAGISCE */
         body:has(.project-link:hover) .archive-bg {
-            filter: brightness(1) blur(0px);
-            transform: scale(1.02);
+            filter: brightness(0.9) blur(0px);
+            transform: scale(1.05);
         }
 
         .back-home {
@@ -56,33 +56,35 @@
         .archive-content {
             height: 100vh;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Spostato in alto */
             justify-content: flex-start;
+            padding-top: 180px; /* Altezza precisa dal bordo superiore */
             padding-left: 8%;
         }
 
-        /* LA CORNICE */
+        /* LA CORNICE SEMPRE VISIBILE */
         .project-link {
             text-decoration: none;
             display: inline-block;
-            padding: 40px 60px; /* Spazio interno alla cornice */
-            border: 0.5px solid rgba(0, 0, 0, 0.1); /* Quasi invisibile all'inizio */
+            padding: 35px 50px;
             position: relative;
-            transition: all 0.6s ease;
+            transition: all 0.5s ease;
         }
 
-        /* Angoli della cornice (opzionali, per un tocco più tecnico) */
+        /* Bordo fisso sottile */
         .project-link::before {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            border: 0.5px solid rgba(255, 255, 255, 0.1); /* Cornice sottilissima bianca */
-            transition: all 0.6s ease;
+            border: 0.8px solid rgba(255, 255, 255, 0.25); /* Visibile ma discreto */
+            transition: all 0.5s ease;
         }
 
+        /* Effetto quando ci passi sopra */
         .project-link:hover::before {
-            border-color: rgba(255, 255, 255, 0.8);
-            transform: scale(1.05); /* La cornice si espande leggermente */
+            border-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.03);
+            background-color: rgba(255, 255, 255, 0.03); /* Un velo di luce interno */
         }
 
         .project-text-wrapper {
@@ -91,28 +93,28 @@
         }
 
         .project-title { 
-            font-size: 1.8rem; /* Dimensione ridotta per eleganza */
-            letter-spacing: 8px; 
+            font-size: 1.6rem; 
+            letter-spacing: 7px; 
             text-transform: uppercase; 
             margin: 0; 
-            color: #1a1a1a; 
-            transition: all 0.6s ease;
+            color: #1a1a1a; /* Grigio scuro per contrasto con lo sfondo */
+            transition: all 0.5s ease;
         }
 
         .project-date { 
             font-size: 0.6rem; 
             letter-spacing: 3px; 
             text-transform: uppercase; 
-            margin-top: 12px; 
+            margin-top: 10px; 
             color: #333; 
             opacity: 0.7;
-            transition: all 0.6s ease;
+            transition: all 0.5s ease;
         }
 
-        /* Effetti all'hover */
+        /* Hover sul testo */
         .project-link:hover .project-title {
             color: #fff;
-            letter-spacing: 12px;
+            letter-spacing: 10px;
         }
 
         .project-link:hover .project-date {
@@ -121,9 +123,9 @@
         }
 
         @media (max-width: 600px) {
-            .archive-content { padding-left: 20px; justify-content: center; padding-right: 20px; }
-            .project-link { padding: 30px; width: 80%; text-align: center; }
-            .project-title { font-size: 1.4rem; letter-spacing: 4px; }
+            .archive-content { padding-top: 150px; padding-left: 20px; justify-content: center; padding-right: 20px; }
+            .project-link { padding: 25px 35px; width: 85%; text-align: center; }
+            .project-title { font-size: 1.3rem; letter-spacing: 4px; }
         }
     </style>
 </head>
