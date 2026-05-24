@@ -23,39 +23,38 @@
             height: 100vh;
         }
 
-        /* SFONDO */
+        /* SFONDO CON PROFONDITÀ INIZIALE */
         .archive-bg {
             position: fixed; 
             top: 0; left: 0; 
             width: 100%; height: 100%;
             z-index: -1;
-            filter: brightness(0.5);
-            transition: transform 2s cubic-bezier(0.15, 1, 0.3, 1);
+            /* Leggero blur e scurimento per separare il piano */
+            filter: brightness(0.6) blur(1px);
+            transition: all 1.5s cubic-bezier(0.15, 1, 0.3, 1);
         }
 
         .archive-bg img {
             width: 100%; height: 100%; 
             object-fit: cover;
-            transform: scale(1.1);
+            transform: scale(1.1); /* Zoom per parallasse */
         }
 
-        /* --- FIX TASTO HOME (NO VIOLA, NO BLOCCO) --- */
+        /* FIX TASTO HOME */
         .back-home {
-            position: fixed; /* Fixed per essere sempre sopra tutto */
+            position: fixed;
             top: 25px; 
             left: 20px; 
             text-decoration: none; 
-            color: #fff !important; /* Forza il bianco */
+            color: #fff !important;
             text-transform: uppercase;
             font-size: 0.65rem; 
             letter-spacing: 2px; 
             opacity: 0.6;
-            z-index: 9999; /* Sopra ogni altra cosa */
+            z-index: 9999;
             transition: opacity 0.3s;
             display: block;
         }
-        
-        /* Impedisce il colore viola dei link visitati */
         .back-home:visited { color: #fff !important; }
         .back-home:hover { opacity: 1; }
 
@@ -76,69 +75,80 @@
             z-index: 100;
         }
 
-        /* ALONE DI LUCE PROFONDA */
+        /* 1. PROFONDITÀ PRIMA DELL'HOVER: ALONE DI LUCE SOFFUSO */
         .project-link::before {
             content: '';
             position: absolute;
             top: 50%; left: 50%;
             width: 140%; height: 140%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-            transform: translate(-50%, -50%) scale(0.8);
-            opacity: 0.3;
+            /* Radial gradient per un alone morbido e profondo */
+            background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 40%, rgba(255,255,255,0) 70%);
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1; /* Sempre visibile per dare profondità */
             transition: all 1s ease;
             pointer-events: none;
+            z-index: -1;
         }
 
-        .project-link:hover::before {
-            opacity: 0.8;
-            transform: translate(-50%, -50%) scale(1.2);
-        }
-
+        /* 2. PROFONDITÀ PRIMA DELL'HOVER: TEXT-SHADOW MASSICCIO */
         .project-title { 
-            font-size: 2rem; 
+            font-size: 2.2rem; 
             letter-spacing: 12px; 
             text-transform: uppercase; 
             margin: 0; 
-            color: #fff !important; /* No viola */
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); 
+            /* COLORE INIZIALE: Grigio Scuro / Effetto "Scavato" */
+            color: #1a1a1a !important; 
+            /* Ombra scura e molto staccata per simulare levitazione */
+            text-shadow: 0 15px 40px rgba(0, 0, 0, 0.9); 
             transition: all 0.8s cubic-bezier(0.15, 1, 0.3, 1);
-            opacity: 0.8;
+            opacity: 1;
+            position: relative;
         }
-
-        .project-link:visited .project-title { color: #fff !important; }
 
         .project-date { 
             font-size: 0.65rem; 
             letter-spacing: 4px; 
             text-transform: uppercase; 
             margin-top: 15px; 
-            color: #fff; 
-            opacity: 0.4;
+            color: #666; /* Grigio medio iniziale */
+            opacity: 1;
             transition: all 0.6s ease;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
         }
 
-        /* EFFETTO PROFONDITÀ ALL'HOVER */
+        /* --- EFFETTI AL PASSAGGIO DEL CURSORE --- */
+        
+        /* Lo sfondo diventa nitido */
+        body:has(.project-link:hover) .archive-bg {
+            filter: brightness(0.8) blur(0px);
+            transform: scale(1.05);
+        }
+
+        /* L'alone si espande */
+        .project-link:hover::before {
+            opacity: 0.8;
+            transform: translate(-50%, -50%) scale(1.15);
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 70%);
+        }
+
+        /* Il testo si "accende" e si alza */
         .project-link:hover .project-title {
-            opacity: 1;
+            color: #fff !important; /* CAMBIO COLORE: Bianco Puro */
             letter-spacing: 16px;
-            transform: translateY(-5px);
-            text-shadow: 0 20px 40px rgba(0, 0, 0, 1);
+            transform: translateY(-8px);
+            /* L'ombra si stacca ancora di più */
+            text-shadow: 0 30px 60px rgba(0, 0, 0, 1);
         }
 
         .project-link:hover .project-date {
-            opacity: 0.8;
-            transform: translateY(5px);
-        }
-
-        /* REAZIONE SFONDO */
-        body:has(.project-link:hover) .archive-bg {
-            transform: scale(1.05);
-            filter: brightness(0.7);
+            color: #fff; /* Data diventa bianca */
+            transform: translateY(2px);
         }
 
         @media (max-width: 600px) {
             .archive-content { padding-top: 25vh; padding-left: 0; justify-content: center; }
-            .project-title { font-size: 1.5rem; letter-spacing: 8px; }
+            .project-title { font-size: 1.6rem; letter-spacing: 8px; }
+            .project-link:hover .project-title { letter-spacing: 11px; }
         }
     </style>
 </head>
