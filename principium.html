@@ -109,23 +109,43 @@
         .photo-item {
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            overflow: hidden; /* Mantiene lo zoom dentro i bordi */
         }
 
         .photo-item.visible { opacity: 1; }
 
         .photo-item img {
             display: block;
-            width: 280px; /* Larghezza uniforme */
-            height: auto; 
+            width: 280px; 
+            height: 280px; 
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); /* Zoom fluido */
             cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .photo-item img:hover { opacity: 0.8; }
+
+        /* LIGHTBOX (IMMAGINE GRANDE) */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
         }
 
-        /* EFFETTO ZOOM AL PASSAGGIO DEL CURSORE */
-        .photo-item:hover img {
-            transform: scale(1.1); /* Ingrandisce del 10% */
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .hidden { display: none; }
@@ -134,8 +154,7 @@
 
         @media (max-width: 600px) {
             header { padding-top: 140px; }
-            .photo-item img { width: 100%; max-width: 320px; }
-            .photo-item:hover img { transform: none; } /* Disabilita zoom su mobile per evitare bug */
+            .photo-item img { width: 280px; height: 280px; }
         }
     </style>
 </head>
@@ -150,7 +169,7 @@
 
     <header class="fade-in delay-1">
         <h1>PRINCIPIUM</h1>
-        <p class="subtitle-event">Chapter I - May 2026 - Barcelona</p>
+        <p class="subtitle-event">Chapter I — May 2026 — Barcelona</p>
     </header>
 
     <main class="content-container fade-in delay-2">
@@ -168,31 +187,23 @@
             <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
             <p>Un espacio indistinto, primordial, cargado de energía y posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones y afinidades.</p>
-            <p>La experiencia transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
+            <p>La esperienza transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
             <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nasce.</p>
         </div>
     </main>
 
     <section class="photo-gallery">
-        <div class="photo-item">
-            <img src="photo_principium/photo1.jpeg" alt="">
-        </div>
-        <div class="photo-item">
-            <img src="photo_principium/photo2.jpeg" alt="">
-        </div>
-        <div class="photo-item">
-            <img src="photo_principium/photo3.jpeg" alt="">
-        </div>
-        <div class="photo-item">
-            <img src="photo_principium/photo5.jpeg" alt="">
-        </div>
-        <div class="photo-item">
-            <img src="photo_principium/photo4.jpeg" alt="">
-        </div>
-        <div class="photo-item">
-            <img src="photo_principium/photo6.jpeg" alt="">
-        </div>
+        <div class="photo-item"><img src="photo_principium/photo1.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo2.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo3.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo5.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo4.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo6.jpeg" onclick="openLightbox(this.src)"></div>
     </section>
+
+    <div id="lightbox" onclick="this.style.display='none'">
+        <img id="lightbox-img" src="" alt="">
+    </div>
 
     <div style="text-align: center;">
         <img src="senso_logo_blanco.png" alt="Senso Art Logo" class="logo-bottom">
@@ -206,6 +217,14 @@
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-es').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
+        }
+
+        // Funzione Lightbox
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightbox-img');
+            img.src = src;
+            lightbox.style.display = 'flex';
         }
 
         const observer = new IntersectionObserver((entries) => {
