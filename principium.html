@@ -89,19 +89,15 @@
         }
 
         .lang-content p {
-            line-height: 2; 
-            font-size: 1.1rem;
-            opacity: 0.8; 
-            margin-bottom: 30px;
-            text-align: justify; 
-            text-align-last: center;
+            line-height: 2; font-size: 1.1rem;
+            opacity: 0.8; margin-bottom: 30px;
+            text-align: justify; text-align-last: center;
         }
 
         .highlight-text {
             font-family: 'BehindNineties', serif;
             font-size: clamp(1.5rem, 4vw, 2.2rem);
-            margin-top: 60px; 
-            opacity: 1;
+            margin-top: 60px; opacity: 1;
         }
 
         /* GALLERIA */
@@ -124,14 +120,16 @@
         }
         .photo-item.visible { opacity: 1; }
 
-        /* FIX TESTE TAGLIATE: object-position: top sposta l'inquadratura in alto */
         .photo-item img { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            object-position: top; 
             cursor: pointer; 
         }
+
+        /* FIX INQUADRATURE PERSONALIZZATE */
+        .photo-center { object-position: center !important; } /* Per foto 1, 3, 4 (corpo intero) */
+        .photo-top { object-position: top !important; }      /* Per foto 2 (primo piano) */
 
         /* LIGHTBOX */
         #lightbox {
@@ -150,23 +148,9 @@
             .back-archive, .lang-switch { position: absolute; top: 25px; }
             header { padding: 120px 15px 40px; }
             h1 { letter-spacing: 5px; padding-left: 5px; }
-            .content-container { padding: 0 15px 40px; }
-            .lang-content p { 
-                font-size: 1rem; 
-                line-height: 1.6; 
-                text-align: center; 
-                text-align-last: center;
-                margin-bottom: 20px;
-            }
-            .photo-gallery {
-                grid-template-columns: 1fr;
-                justify-items: center;
-                padding: 30px 10px;
-            }
-            .photo-item {
-                width: 90vw;
-                height: 220px;
-            }
+            .lang-content p { font-size: 1rem; text-align: center; text-align-last: center; }
+            .photo-gallery { grid-template-columns: 1fr; justify-items: center; }
+            .photo-item { width: 90vw; height: 220px; }
         }
 
         .hidden { display: none; }
@@ -192,23 +176,21 @@
 
         <div id="lang-en" class="lang-content">
             <p>Before form, before order, before beauty, there was chaos. An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
-            <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
             <p class="highlight-text">Principium is an invitation to return to the beginning.</p>
         </div>
 
         <div id="lang-es" class="lang-content hidden">
-            <p>Antes de la forma, antes del orden, antes de la bellezza, esisteva il caos. Un spazio indistinto, primordiale, carico di energia e possibilità. Principium nasce dall'idea di esplorare l'origine di ogni cosa, il momento in cui materia ed emozione iniziano a prendere forma.</p>
-            <p>La mostra riunisce artisti contemporanei, ciascuno con una poetica autonoma e riconoscibile, che convivono nello spazio espositivo generando un equilibrio instabile di tensioni e affinità.</p>
-            <p class="highlight-text">Principium è un invito a tornare all'inizio.</p>
+            <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos. Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas.</p>
+            <p class="highlight-text">Principium es una invitación a volver al inicio.</p>
         </div>
     </main>
 
     <section class="photo-gallery">
-        <div class="photo-item"><img src="photo_principium/photo1.jpeg" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo2.jpeg" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo3.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo1.jpeg" class="photo-center" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo2.jpeg" class="photo-top" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo3.jpeg" class="photo-center" onclick="openLightbox(this.src)"></div>
         <div class="photo-item"><img src="photo_principium/photo5.jpeg" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo4.jpeg" onclick="openLightbox(this.src)"></div>
+        <div class="photo-item"><img src="photo_principium/photo4.jpeg" class="photo-center" onclick="openLightbox(this.src)"></div>
         <div class="photo-item"><img src="photo_principium/photo6.jpeg" onclick="openLightbox(this.src)"></div>
     </section>
 
