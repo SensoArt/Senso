@@ -44,9 +44,7 @@
             text-decoration: none; color: #fff;
             text-transform: uppercase; font-size: 0.65rem;
             letter-spacing: 2px; opacity: 0.5; z-index: 1000;
-            transition: 0.3s;
         }
-        .back-archive:hover { opacity: 1; }
 
         .lang-switch {
             position: fixed; top: 25px; right: 20px;
@@ -55,17 +53,20 @@
         .lang-btn {
             background: none; border: none; color: #fff;
             cursor: pointer; padding: 0 5px; opacity: 0.3;
-            text-transform: uppercase; transition: 0.3s;
+            text-transform: uppercase;
         }
         .lang-btn.active { opacity: 1; }
 
-        header { padding: 160px 20px 80px; }
+        header { padding: 160px 20px 60px; }
 
         h1 {
             font-family: 'Times New Roman', Times, serif; 
             font-size: clamp(3rem, 10vw, 8rem);
-            text-transform: uppercase; letter-spacing: 12px;
+            text-transform: uppercase; 
+            letter-spacing: 12px;
             margin: 0; font-weight: 300; line-height: 0.9;
+            /* Compensazione spaziatura per centratura ottica */
+            padding-left: 12px; 
         }
 
         .subtitle-event {
@@ -74,55 +75,56 @@
             opacity: 0.5; margin: 30px 0 0 0;
         }
 
-        .content-container { max-width: 800px; margin: 0 auto; padding: 0 25px 50px; }
+        .content-container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0 25px 40px; 
+            box-sizing: border-box;
+        }
         
         .tagline {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            opacity: 0.8; margin-bottom: 50px;
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            opacity: 0.8; margin-bottom: 40px;
+            padding: 0 10px;
         }
 
+        /* Testo Desktop */
         .lang-content p {
-            line-height: 2; font-size: 1.1rem;
-            opacity: 0.8; margin-bottom: 30px;
-            text-align: justify; text-align-last: center;
+            line-height: 2; 
+            font-size: 1.1rem;
+            opacity: 0.8; 
+            margin-bottom: 30px;
+            text-align: justify; 
+            text-align-last: center;
         }
 
         .highlight-text {
             font-family: 'BehindNineties', serif;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
             margin-top: 60px; 
             opacity: 1;
         }
 
-        /* GALLERIA AGGIORNATA: PIÙ LARGHE */
+        /* GALLERIA */
         .photo-gallery {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 80px 20px;
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 30px; 
+            padding: 60px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, 320px);
+            justify-content: center;
+            gap: 25px;
         }
 
         .photo-item {
             opacity: 0;
-            transition: opacity 1.5s ease-in-out;
+            transition: opacity 1.2s ease-in-out;
+            width: 320px;
+            height: 220px;
         }
-
         .photo-item.visible { opacity: 1; }
-
-        .photo-item img {
-            display: block;
-            /* DIMENSIONI RETTANGOLARI AGGIORNATE */
-            width: 320px; 
-            height: 220px; 
-            object-fit: cover;
-            cursor: pointer;
-            transition: opacity 0.3s;
-        }
-        .photo-item img:hover { opacity: 0.7; }
+        .photo-item img { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
 
         /* LIGHTBOX */
         #lightbox {
@@ -131,32 +133,52 @@
             z-index: 2000;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95);
+            background-color: rgba(0,0,0,0.98);
             justify-content: center;
             align-items: center;
-            cursor: zoom-out;
         }
+        #lightbox img { max-width: 90%; max-height: 85%; }
 
-        #lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-            animation: zoomIn 0.3s ease-out;
-        }
+        /* --- FIX TESTO MOBILE --- */
+        @media (max-width: 600px) {
+            .back-archive, .lang-switch { position: absolute; top: 25px; }
+            
+            header { padding: 120px 15px 40px; }
+            
+            h1 { 
+                letter-spacing: 5px; /* Riduco per schermi piccoli */
+                padding-left: 5px;   /* Mantengo bilanciamento */
+            }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
+            .content-container { 
+                padding: 0 15px 40px; 
+            }
+
+            .lang-content p { 
+                font-size: 1rem; 
+                line-height: 1.6; 
+                /* Rimuovo il justify che crea spazi brutti su mobile */
+                text-align: center; 
+                text-align-last: center;
+                margin-bottom: 20px;
+            }
+
+            .tagline { margin-bottom: 30px; }
+            .highlight-text { margin-top: 40px; }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                padding: 30px 10px;
+            }
+            .photo-item {
+                width: 90vw;
+                height: 220px;
+            }
         }
 
         .hidden { display: none; }
-
-        .logo-bottom { width: 140px; opacity: 0.6; margin: 80px 0; }
-
-        @media (max-width: 600px) {
-            header { padding-top: 140px; }
-            /* Su mobile le manteniamo un po' più piccole per evitare che escano dallo schermo */
-            .photo-item img { width: 300px; height: 210px; }
-        }
+        .logo-bottom { width: 120px; opacity: 0.5; margin: 60px 0; }
     </style>
 </head>
 <body>
@@ -177,19 +199,15 @@
         <p class="tagline">In the beginning there was chaos</p>
 
         <div id="lang-en" class="lang-content">
-            <p>Before form, before order, before beauty, there was chaos.</p>
-            <p>An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
+            <p>Before form, before order, before beauty, there was chaos. An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
             <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
-            <p>The experience transforms the space into a shared sensory environment where the audience is invited not only to observe, but to perceive, listen, and feel.</p>
-            <p class="highlight-text">Principium is an invitation to return to the beginning. To the point where everything begins.</p>
+            <p class="highlight-text">Principium is an invitation to return to the beginning.</p>
         </div>
 
         <div id="lang-es" class="lang-content hidden">
-            <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos.</p>
-            <p>Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
+            <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos. Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
             <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones e afinidades.</p>
-            <p>La experiencia transforma el espacio en un entorno sensorial y compartido, donde el público es invitado no solo a observar, sino a percibir, escuchar y sentir.</p>
-            <p class="highlight-text">Principium es una invitación a volver al inicio. Al punto en el que todo nace.</p>
+            <p class="highlight-text">Principium es una invitación a volver al inicio.</p>
         </div>
     </main>
 
@@ -203,12 +221,12 @@
     </section>
 
     <div id="lightbox" onclick="this.style.display='none'">
-        <img id="lightbox-img" src="" alt="">
+        <img id="lightbox-img" src="">
     </div>
 
-    <div style="text-align: center;">
+    <footer>
         <img src="senso_logo_blanco.png" alt="Senso Art Logo" class="logo-bottom">
-    </div>
+    </footer>
 
     <script>
         function setLang(lang) {
@@ -221,23 +239,18 @@
         }
 
         function openLightbox(src) {
-            const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightbox-img');
-            img.src = src;
-            lightbox.style.display = 'flex';
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            lb.style.display = 'flex';
         }
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('.photo-item').forEach(item => {
-            observer.observe(item);
-        });
+        document.querySelectorAll('.photo-item').forEach(item => observer.observe(item));
     </script>
 </body>
 </html>
