@@ -77,7 +77,16 @@
             justify-content: center;
         }
 
-        .image-box img {
+        /* Classe specifica creata per ridurre le foto di Davide */
+        .image-box-reduced {
+            width: 100%;
+            max-width: 700px; /* Dimensione ridotta e bilanciata */
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-box img, .image-box-reduced img {
             width: auto;
             max-width: 100%;
             max-height: 95vh; 
@@ -143,11 +152,11 @@
             .catalogue-container {
                 padding: 100px 15px 60px 15px; /* Spazio controllato ai lati */
             }
-            .image-box {
+            .image-box, .image-box-reduced {
                 max-width: 100%;
                 margin-bottom: 30px;
             }
-            .image-box img { 
+            .image-box img, .image-box-reduced img { 
                 max-height: none; /* Permette all'immagine di crescere in altezza se necessario */
                 width: 100%;      /* Occupa tutta la larghezza del contenitore (con respiro dei 15px) */
                 height: auto;
@@ -273,7 +282,7 @@
         </div>
 
         <div class="work-item">
-            <div class="image-box"><img src="Assets/Catalogue/davidedisena1.jpg"></div>
+            <div class="image-box-reduced"><img src="Assets/Catalogue/davidedisena1.jpg"></div>
             <div class="info-box">
                 <h2 class="artist-name">Davide Di Sena</h2>
                 <h3 class="work-title">Frammenti Urbani, Opera I</h3>
@@ -283,7 +292,7 @@
         </div>
 
         <div class="work-item">
-            <div class="image-box"><img src="Assets/Catalogue/davidedisena2.jpg"></div>
+            <div class="image-box-reduced"><img src="Assets/Catalogue/davidedisena2.jpg"></div>
             <div class="info-box">
                 <h2 class="artist-name">Davide Di Sena</h2>
                 <h3 class="work-title">Arco felice, Opera IV</h3>
@@ -293,7 +302,7 @@
         </div>
 
         <div class="work-item">
-            <div class="image-box"><img src="Assets/Catalogue/davidedisena3.jpg"></div>
+            <div class="image-box-reduced"><img src="Assets/Catalogue/davidedisena3.jpg"></div>
             <div class="info-box">
                 <h2 class="artist-name">Davide Di Sena</h2>
                 <h3 class="work-title">Area Industriale, Opera I</h3>
@@ -303,7 +312,7 @@
         </div>
 
         <div class="work-item">
-            <div class="image-box"><img src="Assets/Catalogue/davidedisena4.jpg"></div>
+            <div class="image-box-reduced"><img src="Assets/Catalogue/davidedisena4.jpg"></div>
             <div class="info-box">
                 <h2 class="artist-name">Davide Di Sena</h2>
                 <h3 class="work-title">Frammenti Urbani, Opera I</h3>
