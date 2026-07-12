@@ -124,13 +124,12 @@
             display: block;
             aspect-ratio: 3 / 2; 
             object-fit: cover;
-            filter: grayscale(100%); 
-            transition: filter 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+            /* Rimosso filter grayscale per lasciare la foto a colori fissi */
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Effetto hover sulla foto (torna a colori) */
+        /* Effetto hover sulla foto (solo zoom leggero) */
         .project-block:hover .project-img {
-            filter: grayscale(0%);
             transform: scale(1.015);
         }
 
@@ -183,7 +182,6 @@
 </head>
 <body>
 
-    <!-- Contenitore Sfondo Bianco -->
     <div class="bg-container"></div>
 
     <a href="index.html" class="back-home">← Home</a>
@@ -194,10 +192,8 @@
             <h1 class="section-title">archive</h1>
         </header>
 
-        <!-- Griglia dei contenuti -->
         <div class="archive-grid fade-in delay-2">
 
-            <!-- MOSTRA 1: PRINCIPIUM -->
             <a href="principium.html" class="project-block">
                 <div class="img-container">
                     <img src="atg_principium.jpeg" alt="Principium" class="project-img">
@@ -208,7 +204,6 @@
                 </div>
             </a>
 
-            <!-- MOSTRA 2: SEGNAPOSTO PROGETTO FUTURO -->
             <a href="#" class="project-block" onclick="return false;" style="cursor: default; opacity: 0.4;">
                 <div class="img-container">
                     <div style="width:100%; aspect-ratio: 3/2; background:rgba(0,0,0,0.05); display:flex; align-items:center; justify-content:center; font-size:0.75rem; letter-spacing:2px; color:#666; font-family:'FuturaLight', sans-serif;">Upcoming Exhibition</div>
