@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Carlotta Valentinis</title>
     
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link class="fade-in delay-1" rel="icon" type="image/png" href="favicon.png">
 
     <style>
         @font-face { 
@@ -132,6 +132,12 @@
             height: auto; 
             display: block; 
             object-fit: contain; 
+            cursor: pointer; /* Rende l'opera cliccabile */
+            transition: opacity 0.4s ease;
+        }
+
+        .artist-img:hover {
+            opacity: 0.8;
         }
 
         /* Stile dei testi bio */
@@ -149,6 +155,70 @@
         }
         
         .hidden { display: none; }
+
+        /* STILI LIGHTBOX PER INGRANDIMENTO OPERE */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.98); /* Sfondo chiaro ed etereo */
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-wrapper {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            transform: scale(0.97);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox-overlay.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            z-index: 2010;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+        }
 
         /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
         .inquiry-section {
@@ -237,6 +307,7 @@
             .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene le immagini contenute su schermi piccoli */
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
+            .lightbox-close { top: 25px; right: 20px; }
         }
     </style>
 </head>
@@ -252,6 +323,14 @@
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+    </div>
+
+    <!-- Contenitore Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">close</button>
+        <div class="lightbox-wrapper">
+            <img src="" alt="Opera Ingrandita" class="lightbox-img" id="lightbox-img">
+        </div>
     </div>
 
     <main class="container">
@@ -309,6 +388,47 @@
     </main>
 
     <script>
+        // --- FUNZIONALITÀ LIGHTBOX ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const artistImages = document.querySelectorAll('.artist-img');
+
+        // Apre il Lightbox sull'immagine cliccata
+        artistImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sottostante
+            });
+        });
+
+        // Chiude il Lightbox cliccando lo sfondo o il tasto di chiusura
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = ''; // Ripristina lo scroll
+            setTimeout(() => {
+                lightboxImg.src = ''; // Svuota la sorgente al termine della transizione
+            }, 400);
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            // Chiude se si clicca sullo sfondo o sul tasto "close"
+            if (e.target === lightbox || e.target === lightboxClose || e.target.classList.contains('lightbox-wrapper')) {
+                closeLightbox();
+            }
+        });
+
+        // Chiude con il tasto ESC della tastiera
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+
+
+        // --- CAMBIO LINGUA ---
         function setLang(lang) {
             const en = document.querySelectorAll('.lang-en');
             const es = document.querySelectorAll('.lang-es');
@@ -332,8 +452,9 @@
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Su mensaje o consulta...";
+                inputMessage.placeholder = "Su messaggio o consulta...";
                 submitBtn.innerText = "Enviar consulta →";
+                lightboxClose.innerText = "cerrar";
             } else {
                 es.forEach(el => el.classList.add('hidden'));
                 en.forEach(el => el.classList.remove('hidden'));
@@ -346,6 +467,7 @@
                 inputEmail.placeholder = "Your email";
                 inputMessage.placeholder = "Your message or inquiry...";
                 submitBtn.innerText = "Send Inquiry →";
+                lightboxClose.innerText = "close";
             }
         }
     </script>
