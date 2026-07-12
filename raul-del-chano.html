@@ -54,7 +54,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Indietro elegante diretto ad Artists */
+        /* Pulsante Indietro elegante */
         .back-artists { 
             position: fixed; 
             top: 25px; 
@@ -99,14 +99,14 @@
             padding: 150px 25px 50px; 
         }
 
-        /* Nome dell'artista sobrio e sussurrato */
+        /* Nome dell'artista in grassetto elegante */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            font-weight: normal; 
+            font-weight: bold; /* Grassetto richiesto */
         }
 
         /* Layout a due colonne (Foto a sinistra, Bio a destra) */
@@ -130,7 +130,7 @@
             object-fit: cover; 
         }
 
-        /* Regolazione inquadratura specifica per Raul */
+        /* Regolazione inquadratura specifica per la prima opera */
         .img-raul { object-position: center 20%; }
 
         /* Stile dei testi bio */
@@ -139,6 +139,7 @@
             font-size: 1rem; 
             opacity: 0.85; 
             text-align: justify; 
+            margin-bottom: 40px;
         }
         
         .important { 
@@ -147,6 +148,87 @@
         }
         
         .hidden { display: none; }
+
+        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        .inquiry-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 35px;
+            margin-top: 20px;
+        }
+
+        .inquiry-title {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+            font-weight: bold;
+        }
+
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            background: transparent;
+            outline: none;
+            color: #000;
+            transition: border-color 0.4s;
+            border-radius: 0;
+        }
+
+        .form-input::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .form-input:focus {
+            border-bottom-color: #000;
+        }
+
+        textarea.form-input {
+            resize: none;
+            height: 60px;
+        }
+
+        .form-submit-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 10px 0;
+            align-self: flex-start;
+            transition: opacity 0.3s;
+            font-weight: bold;
+        }
+
+        .form-submit-btn:hover {
+            opacity: 0.5;
+        }
 
         .isotipo-footer { 
             padding: 80px 20px; 
@@ -160,6 +242,7 @@
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
             .container { padding-top: 120px; }
+            .form-row { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
 </head>
@@ -171,7 +254,7 @@
     <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
-    <!-- Switcher della lingua interna alla bio -->
+    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
@@ -184,19 +267,48 @@
         </header>
 
         <div class="artist-content fade-in delay-2">
-            <!-- Foto dell'artista -->
+            <!-- Nuova Foto dell'opera caricata su fotos_obras -->
             <div class="img-container">
-                <img src="fotos_artistas/raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img img-raul">
+                <img src="fotos_obras/raul1.jpg" alt="Raúl del Chano — Opera" class="artist-img img-raul">
             </div>
 
-            <!-- Area Bio con traduzione dinamica -->
+            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
+                
+                <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
                     Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
                     Banastero contemporáneo, escultor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> y recientemente en <span class="important">Brussels Collectible 2026</span>.
                 </div>
+
+                <!-- Sezione Richiesta d'opera (Inquire) -->
+                <section class="inquiry-section">
+                    <h2 class="inquiry-title" id="form-title">Inquire about works</h2>
+                    
+                    <!-- L'action del modulo può essere collegata a Formspree o configurata come preferisci -->
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="inquiry-form">
+                        <!-- Campo nascosto per capire a quale artista si riferisce la richiesta nel backend della mail -->
+                        <input type="hidden" name="artist" value="Raúl del Chano">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
+                    </form>
+                </section>
+
             </div>
         </div>
 
@@ -213,16 +325,37 @@
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
 
+            // Elementi del Form da tradurre dinamicamente
+            const formTitle = document.getElementById('form-title');
+            const inputName = document.getElementById('input-name');
+            const inputEmail = document.getElementById('input-email');
+            const inputMessage = document.getElementById('input-message');
+            const submitBtn = document.getElementById('submit-btn');
+
             if (lang === 'es') {
                 en.forEach(el => el.classList.add('hidden'));
                 es.forEach(el => el.classList.remove('hidden'));
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
+
+                // Traduzioni Form Spagnolo
+                formTitle.innerText = "Consultar sobre obras";
+                inputName.placeholder = "Su nombre";
+                inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Su mensaje o consulta...";
+                submitBtn.innerText = "Enviar consulta →";
             } else {
                 es.forEach(el => el.classList.add('hidden'));
                 en.forEach(el => el.classList.remove('hidden'));
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
+
+                // Traduzioni Form Inglese
+                formTitle.innerText = "Inquire about works";
+                inputName.placeholder = "Your name";
+                inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Your message or inquiry...";
+                submitBtn.innerText = "Send Inquiry →";
             }
         }
     </script>
