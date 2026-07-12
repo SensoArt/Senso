@@ -9,6 +9,13 @@
     
     <style>
         @font-face {
+            font-family: 'BehindTheNineties';
+            src: url('Fonts/BehindTheNineties.ttf') format('truetype'),
+                 url('Fonts/BehindTheNineties.woff') format('woff');
+            font-display: swap;
+        }
+
+        @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
             font-display: swap;
@@ -48,26 +55,26 @@
         /* Contenitore principale asimmetrico e allineato a sinistra */
         .archive-container {
             max-width: 1400px;
-            margin: 0; /* Allineato completamente a sinistra */
+            margin: 0; 
             padding: 140px 25px 80px 25px;
             animation: pageFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        /* Header asimmetrico e rigorosamente a sinistra */
+        /* Header asimmetrico e a sinistra */
         .header-section {
             text-align: left;
             margin-bottom: 70px;
             width: 100%;
         }
 
-        /* Titolo 'archive' ispirato agli anni '90: minuscolo, piccolo, distaccato */
+        /* Titolo impostato con il font Behind The Nineties */
         .header-section h1 {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 3px;
-            text-transform: lowercase; /* Ritorno al minuscolo stile indie-catalogue */
+            font-family: 'BehindTheNineties', sans-serif;
+            font-size: 2rem; /* Regolato per compensare le proporzioni del font display rispetto a Futura */
+            text-transform: lowercase; 
             font-weight: normal;
-            opacity: 0.6;
+            letter-spacing: 1px;
+            opacity: 0.8;
             margin: 0;
             color: #222222;
         }
@@ -120,6 +127,7 @@
         }
 
         .project-title {
+            font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
             font-weight: bold;
             text-transform: uppercase;
@@ -128,6 +136,7 @@
         }
 
         .project-date {
+            font-family: 'FuturaLight', sans-serif;
             font-size: 0.75rem;
             opacity: 0.5;
             margin: 0;
@@ -181,7 +190,7 @@
             <!-- MOSTRA 2: SEGNAPOSTO PROGETTO FUTURO -->
             <a href="#" class="project-block" onclick="return false;" style="cursor: default; opacity: 0.4;">
                 <div class="img-container">
-                    <div style="width:100%; aspect-ratio: 3/2; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; letter-spacing:2px; color:#aaa;">Upcoming Exhibition</div>
+                    <div style="width:100%; aspect-ratio: 3/2; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; letter-spacing:2px; color:#aaa; font-family:'FuturaLight', sans-serif;">Upcoming Exhibition</div>
                 </div>
                 <div class="project-meta">
                     <h2 class="project-title" style="text-transform: none; font-weight: normal;">To Be Announced</h2>
