@@ -83,7 +83,7 @@
             align-items: flex-start; 
         }
 
-        /* Titolo Principale ridimensionato (più piccolo e sussurrato) */
+        /* Titolo Principale ridimensionato */
         .section-title { 
             font-family: 'BehindNineties', serif;
             font-size: clamp(2rem, 5vw, 3rem); 
@@ -124,6 +124,7 @@
             display: block;
             aspect-ratio: 3 / 2; 
             object-fit: cover;
+            object-position: top; /* Mostra la parte superiore della foto (muro) e taglia sotto */
             transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
