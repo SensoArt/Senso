@@ -83,11 +83,11 @@
             align-items: flex-start; 
         }
 
-        /* Titolo Principale coordinato */
+        /* Titolo Principale ridimensionato (più piccolo e sussurrato) */
         .section-title { 
             font-family: 'BehindNineties', serif;
-            font-size: clamp(2.5rem, 8vw, 4.5rem); 
-            margin: 0 0 60px 0;
+            font-size: clamp(2rem, 5vw, 3rem); 
+            margin: 0 0 50px 0;
             text-transform: lowercase; 
             font-weight: normal; 
             color: #000;
@@ -124,7 +124,6 @@
             display: block;
             aspect-ratio: 3 / 2; 
             object-fit: cover;
-            /* Rimosso filter grayscale per lasciare la foto a colori fissi */
             transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -167,7 +166,7 @@
 
         @media (max-width: 600px) {
             .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
-            .section-title { font-size: 3rem; } 
+            .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
             .archive-grid {
                 grid-template-columns: 1fr; 
                 row-gap: 50px;
