@@ -9,84 +9,114 @@
     
     <style>
         @font-face {
-            font-family: 'BehindTheNineties';
-            src: url('Fonts/BehindTheNineties.ttf') format('truetype'),
-                 url('Fonts/BehindTheNineties.woff') format('woff');
-            font-display: swap;
-        }
-
-        @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
             font-display: swap;
         }
 
-        /* Fade in elegante all'apertura della pagina */
-        @keyframes pageFadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+            font-display: swap;
+        }
+
+        /* ANIMAZIONE FADE IN (da about) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.4s; }
+        .delay-2 { animation-delay: 0.9s; }
 
         body {
             margin: 0; 
             padding: 0;
-            background-color: #ffffff; 
-            color: #222222;            
+            background-color: #000; /* Nero (da about) */
+            color: #fff; /* Bianco (da about) */
             font-family: 'FuturaLight', sans-serif; 
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            width: 100vw;
+            height: 100vh;
         }
 
-        /* Pulsante Home minimale allineato a sinistra */
+        /* SFONDO CON IMMAGINE (da about, adattato per archive) */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background-image: url('archive_background_final.jpg'); /* Immagine specifica per archive */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #000;
+        }
+
+        /* OVERLAY PER LEGGIBILITÀ (da about) */
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.65); /* 65% oscuramento */
+            z-index: -1;
+        }
+
+        /* Pulsante Home minimale (da about) */
         .back-home {
             position: fixed;
             top: 25px; 
             left: 20px; 
             text-decoration: none; 
-            color: #222;
+            color: #fff; /* Bianco su nero */
             text-transform: uppercase;
             font-size: 0.65rem; 
             letter-spacing: 2px; 
-            opacity: 0.5;
+            opacity: 0.7;
             z-index: 1000;
-            transition: 0.3s;
+            transition: opacity 0.3s ease;
         }
         .back-home:hover { opacity: 1; }
 
-        /* Contenitore principale asimmetrico e allineato a sinistra */
-        .archive-container {
-            max-width: 1400px;
-            margin: 0; 
-            padding: 140px 25px 80px 25px;
-            animation: pageFadeIn 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        /* Contenitore principale (adattato da about) */
+        .container {
+            max-width: 850px; /* Stessa larghezza di about per coerenza del testo */
+            margin: 0 auto;
+            padding: 150px 25px 80px; /* Padding di about */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Testo a sinistra (come about) */
         }
 
-        /* Header asimmetrico e a sinistra */
-        .header-section {
-            text-align: left;
-            margin-bottom: 70px;
-            width: 100%;
-        }
-
-        /* Titolo impostato con il font Behind The Nineties */
-        .header-section h1 {
-            font-family: 'BehindTheNineties', sans-serif;
-            font-size: 2rem; /* Regolato per compensare le proporzioni del font display rispetto a Futura */
+        /* Titolo Principale coordinato (adattato da about) */
+        .section-title { 
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(2.5rem, 8vw, 4.5rem); /* Dimensione grande (da about) */
+            margin: 0 0 60px 0;
             text-transform: lowercase; 
-            font-weight: normal;
-            letter-spacing: 1px;
-            opacity: 0.8;
-            margin: 0;
-            color: #222222;
+            font-weight: normal; 
+            color: #fff;
+            opacity: 1; /* Pieno colore (da about) */
+            text-shadow: 0 2px 15px rgba(0,0,0,1); /* Leggibilità */
         }
 
-        /* Griglia espositiva a 2 colonne, ordinata a sinistra */
+        /* Griglia espositiva (layout specifico per archive, stile adattato a nero) */
         .archive-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             column-gap: 50px;
             row-gap: 80px;
             width: 100%;
-            max-width: 1200px; 
         }
 
         /* Il blocco della singola mostra/progetto */
@@ -94,33 +124,33 @@
             text-decoration: none !important;
             display: flex;
             flex-direction: column;
-            color: #222222 !important;
+            color: #fff !important; /* Testo bianco */
         }
 
         /* Contenitore immagine con taglio orizzontale pulito */
         .img-container {
             width: 100%;
             overflow: hidden;
-            background-color: #f7f7f7;
+            background-color: rgba(255,255,255,0.05); /* Sfondo scuro per caricamento */
             margin-bottom: 20px;
         }
 
         .project-img {
             width: 100%;
             display: block;
-            aspect-ratio: 3 / 2; 
+            aspect-ratio: 3 / 2; /* Taglio fotografico geometrico */
             object-fit: cover;
-            filter: grayscale(100%); 
+            filter: grayscale(100%); /* B/N per coerenza brand */
             transition: filter 0.7s cubic-bezier(0.25, 1, 0.5, 1), transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        /* Effetto hover morbido sulla foto */
+        /* Effetto hover sulla foto (torna a colori) */
         .project-block:hover .project-img {
             filter: grayscale(0%);
             transform: scale(1.015);
         }
 
-        /* Dettagli testuali sotto la foto */
+        /* Dettagli testuali sotto la foto (stile adattato a about) */
         .project-meta {
             padding: 0 2px;
             text-align: left;
@@ -128,23 +158,35 @@
 
         .project-title {
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.85rem;
-            font-weight: bold;
+            font-size: 1.1rem; /* Un po' più grande del meta, come in about */
+            font-weight: normal; /* FuturaLight */
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 0 0 6px 0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .project-date {
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            opacity: 0.5;
+            font-size: 0.8rem;
+            opacity: 0.6; /* Semi-trasparente (come in about meta) */
             margin: 0;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
-        /* Responsive per Tablet e Smartphone */
+        /* Isotipo Footer (da about) */
+        .isotipo-section { 
+            padding: 80px 20px; 
+            display: flex; 
+            justify-content: center; 
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .isotipo-img { width: 80px; opacity: 0.9; }
+
+        /* Responsive (adattato da about e archive) */
         @media (max-width: 850px) {
             .archive-grid {
                 column-gap: 30px;
@@ -153,28 +195,37 @@
         }
 
         @media (max-width: 600px) {
-            .archive-container { padding: 100px 20px 60px 20px; }
+            .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
+            .section-title { font-size: 3rem; } /* Mobile size da about */
             .archive-grid {
-                grid-template-columns: 1fr; 
+                grid-template-columns: 1fr; /* Una sola colonna su smartphone */
                 row-gap: 50px;
             }
             .project-img {
                 aspect-ratio: 4 / 3;
             }
+            .project-title { font-size: 1rem; }
+            .project-date { font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sfondo e Overlay da about -->
+    <div class="bg-container"></div>
+    <div class="bg-overlay"></div>
+
     <a href="index.html" class="back-home">← Home</a>
 
-    <div class="archive-container">
+    <main class="container">
         
-        <header class="header-section">
-            <h1>archive</h1>
+        <header class="header-section fade-in delay-1">
+            <!-- Titolo in BehindNineties, minuscolo e grande come in about -->
+            <h1 class="section-title">archive</h1>
         </header>
 
-        <div class="archive-grid">
+        <!-- Griglia dei contenuti animata come delay-2 di about -->
+        <div class="archive-grid fade-in delay-2">
 
             <!-- MOSTRA 1: PRINCIPIUM -->
             <a href="principium.html" class="project-block">
@@ -190,7 +241,7 @@
             <!-- MOSTRA 2: SEGNAPOSTO PROGETTO FUTURO -->
             <a href="#" class="project-block" onclick="return false;" style="cursor: default; opacity: 0.4;">
                 <div class="img-container">
-                    <div style="width:100%; aspect-ratio: 3/2; background:#f0f0f0; display:flex; align-items:center; justify-content:center; font-size:0.75rem; letter-spacing:2px; color:#aaa; font-family:'FuturaLight', sans-serif;">Upcoming Exhibition</div>
+                    <div style="width:100%; aspect-ratio: 3/2; background:rgba(255,255,255,0.1); display:flex; align-items:center; justify-content:center; font-size:0.75rem; letter-spacing:2px; color:#aaa; font-family:'FuturaLight', sans-serif;">Upcoming Exhibition</div>
                 </div>
                 <div class="project-meta">
                     <h2 class="project-title" style="text-transform: none; font-weight: normal;">To Be Announced</h2>
@@ -199,6 +250,11 @@
             </a>
 
         </div>
+    </main>
+
+    <!-- Isotipo Footer da about -->
+    <div class="isotipo-section fade-in delay-2">
+        <img src="senso_isotipo_blanco.png" alt="Senso Isotipo" class="isotipo-img">
     </div>
 
 </body>
