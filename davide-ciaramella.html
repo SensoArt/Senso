@@ -96,7 +96,7 @@
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; /* Spaziatura inferiore generosa */
+            padding: 150px 25px 150px; /* Spaziatura generosa a fondo pagina */
         }
 
         /* Nome dell'artista in grassetto elegante */
@@ -117,13 +117,13 @@
             align-items: start; 
         }
         
-        /* Contenitore per impilare entrambe le immagini verticalmente */
+        /* Contenitore per impilare le tre immagini verticalmente */
         .img-container { 
             width: 100%; 
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 30px; /* Spazio elegante tra le due opere */
+            gap: 30px; /* Spazio elegante tra le opere */
         }
 
         /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni originali */
@@ -261,10 +261,11 @@
         </header>
 
         <div class="artist-content fade-in delay-2">
-            <!-- Entrambe le opere caricate su fotos_obras (proporzioni naturali, senza ritagli) -->
+            <!-- Tutte e tre le opere caricate su fotos_obras (proporzioni naturali, senza ritagli) -->
             <div class="img-container">
                 <img src="fotos_obras/obradavide_3.jpeg" alt="Davide Ciaramella — Opera 1" class="artist-img">
                 <img src="fotos_obras/obradavide_2.jpeg" alt="Davide Ciaramella — Opera 2" class="artist-img">
+                <img src="fotos_obras/obradavidei.jpeg" alt="Davide Ciaramella — Opera 3" class="artist-img">
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
