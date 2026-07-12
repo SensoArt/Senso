@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Senso — Catherine Parra</title>
+    
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        @font-face { 
+            font-family: 'FuturaLight'; 
+            src: url('Fonts/futura light bt.ttf') format('truetype'); 
+            font-display: swap; 
+        }
+        @font-face { 
+            font-family: 'BehindNineties'; 
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); 
+            font-display: swap; 
+        }
+
+        /* ANIMAZIONE FADE IN */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .delay-1 { animation-delay: 0.4s; }
+        .delay-2 { animation-delay: 0.9s; }
+
+        body { 
+            background-color: #fff; 
+            color: #000; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'FuturaLight', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            overflow-x: hidden;
+        }
+
+        /* SFONDO BIANCO FISSO */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background-color: #fff;
+        }
+
+        /* Pulsante Indietro elegante diretto ad Artists */
+        .back-artists { 
+            position: fixed; 
+            top: 25px; 
+            left: 20px; 
+            text-decoration: none; 
+            color: #000; 
+            text-transform: uppercase; 
+            font-size: 0.65rem; 
+            letter-spacing: 2px; 
+            opacity: 0.7; 
+            z-index: 1000; 
+            transition: opacity 0.3s; 
+        }
+        .back-artists:hover { opacity: 1; }
+        
+        /* Switcher di lingua */
+        .lang-switch { 
+            position: fixed; 
+            top: 25px; 
+            right: 20px; 
+            font-size: 0.65rem; 
+            letter-spacing: 2px; 
+            z-index: 1000; 
+        }
+        .lang-btn { 
+            background: none; 
+            border: none; 
+            color: #000; 
+            cursor: pointer; 
+            padding: 0 5px; 
+            opacity: 0.3; 
+            text-transform: uppercase; 
+            font-family: inherit; 
+            letter-spacing: inherit; 
+            transition: opacity 0.3s; 
+        }
+        .lang-btn.active { opacity: 1; }
+
+        .container { 
+            max-width: 850px; 
+            margin: 0 auto; 
+            padding: 150px 25px 50px; 
+        }
+
+        /* Nome dell'artista sobrio e sussurrato */
+        .artist-title { 
+            font-family: 'FuturaLight', sans-serif; 
+            font-size: 1.3rem; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 50px 0; 
+            font-weight: normal; 
+        }
+
+        /* Layout a due colonne (Foto a sinistra, Bio a destra) */
+        .artist-content { 
+            display: grid; 
+            grid-template-columns: 350px 1fr; 
+            gap: 60px; 
+            align-items: start; 
+        }
+        
+        .img-container { 
+            width: 100%; 
+            overflow: hidden; 
+            background-color: rgba(0,0,0,0.03); 
+        }
+
+        .artist-img { 
+            width: 100%; 
+            display: block; 
+            aspect-ratio: 3 / 2; 
+            object-fit: cover; 
+        }
+
+        /* Regolazione inquadratura specifica */
+        .img-catherine { object-position: center 75%; }
+
+        /* Stile dei testi bio */
+        .artist-bio { 
+            line-height: 1.9; 
+            font-size: 1rem; 
+            opacity: 0.85; 
+            text-align: justify; 
+        }
+        
+        .important { 
+            font-family: 'BehindNineties', serif; 
+            font-size: 1.15rem; 
+        }
+        
+        .hidden { display: none; }
+
+        .isotipo-footer { 
+            padding: 80px 20px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+        .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
+
+        /* Responsive per Tablet e Mobile */
+        @media (max-width: 850px) {
+            .artist-content { grid-template-columns: 1fr; gap: 35px; }
+            .container { padding-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-container"></div>
+
+    <a href="artists.html" class="back-artists">← Artists</a>
+
+    <div class="lang-switch">
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
+        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+    </div>
+
+    <main class="container">
+        <header class="fade-in delay-1">
+            <h1 class="artist-title">Catherine Parra</h1>
+        </header>
+
+        <div class="artist-content fade-in delay-2">
+            <div class="img-container">
+                <img src="fotos_artistas/catherine_parra.jpg" alt="Catherine Parra" class="artist-img img-catherine">
+            </div>
+
+            <div class="bio-wrapper">
+                <div class="lang-en artist-bio">
+                    Catherine Parra is a French artist based in <span class="important">Barcelona</span>. Born in <span class="important">Lyon</span> in the 1960s and raised in <span class="important">Paris</span>, she began her creative journey exploring textiles, clothing, and found materials, developing a distinctive visual language through experimentation with color, form, and texture. After founding her eponymous brand in 2000, she created unique shoes, bags, and accessories, hand-painted with abstract compositions that became her signature. Over the years, her practice evolved beyond fashion into a multidisciplinary artistic research, embracing painting, sculpture, collage, and design. Today, Catherine is fully dedicated to painting, and her works are part of numerous private collections. Her work has been presented in galleries and international art fairs across Europe, including <span class="important">Gallery Lab Art</span> and <span class="important">Gallery Matiz (Barcelona)</span>, <span class="important">Galerie Isabelle Laverny (Paris)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span>, and <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
+                </div>
+                <div class="lang-es artist-bio hidden">
+                    Catherine Parra es una artista francesa afincada en <span class="important">Barcelona</span>. Nacida en <span class="important">Lyon</span> en la década de 1960 y criada en <span class="important">París</span>, comenzó su viaje creativo explorando textiles, ropa y materiales encontrados, desarrollando un lenguaje visual distintivo a través de la experimentación con el color, la forma y la textura. Tras fundar su marca homónima en el año 2000, creó zapatos, bolsos y accesorios únicos, pintados a mano con composiciones abstractas que se convirtieron en su sello de identidad. A lo largo de los años, su práctica evolucionó más allá de la moda hacia una investigación artística multidisciplinar que abarca la pintura, la escultura, el collage y el diseño. Hoy en día, Catherine se dedica plenamente a la pintura y sus obras forman parte de numerosas colecciones privadas. Su trabajo ha sido presentado en galerías y ferias de arte internacionales de toda Europa, incluidas la <span class="important">Gallery Lab Art</span> y la <span class="important">Gallery Matiz (Barcelona)</span>, la <span class="important">Galerie Isabelle Laverny (París)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span> y la <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="isotipo-footer fade-in delay-2">
+        <img src="senso_isotipo_negro.png" alt="Senso Isotipo" class="isotipo-img">
+    </div>
+
+    <script>
+        function setLang(lang) {
+            const en = document.querySelectorAll('.lang-en');
+            const es = document.querySelectorAll('.lang-es');
+            const btnEn = document.getElementById('btn-en');
+            const btnEs = document.getElementById('btn-es');
+
+            if (lang === 'es') {
+                en.forEach(el => el.classList.add('hidden'));
+                es.forEach(el => el.classList.remove('hidden'));
+                btnEs.classList.add('active'); 
+                btnEn.classList.remove('active');
+            } else {
+                es.forEach(el => el.classList.add('hidden'));
+                en.forEach(el => el.classList.remove('hidden'));
+                btnEn.classList.add('active'); 
+                btnEs.classList.remove('active');
+            }
+        }
+    </script>
+</body>
+</html>
