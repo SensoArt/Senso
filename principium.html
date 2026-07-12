@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Senso — Principium</title>
+    <title>Senso - Principium</title>
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
     
@@ -18,8 +18,9 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
         }
 
+        /* ANIMAZIONE FADE IN */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -28,11 +29,10 @@
         .delay-2 { animation-delay: 0.8s; }
 
         body {
-            background-color: #000;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
             margin: 0;
             padding: 0;
-            text-align: center;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
             font-family: 'FuturaLight', sans-serif;
@@ -40,122 +40,204 @@
 
         /* Navigazione */
         .back-archive {
-            position: fixed; top: 25px; left: 20px;
-            text-decoration: none; color: #fff;
-            text-transform: uppercase; font-size: 0.65rem;
-            letter-spacing: 2px; opacity: 0.5; z-index: 1000;
+            position: fixed; 
+            top: 25px; 
+            left: 20px;
+            text-decoration: none; 
+            color: #000;
+            text-transform: uppercase; 
+            font-size: 0.65rem;
+            letter-spacing: 2px; 
+            opacity: 0.6; 
+            z-index: 1000;
+            transition: opacity 0.3s;
         }
+        .back-archive:hover { opacity: 1; }
 
         .lang-switch {
-            position: fixed; top: 25px; right: 20px;
-            font-size: 0.65rem; z-index: 1000;
+            position: fixed; 
+            top: 25px; 
+            right: 20px;
+            font-size: 0.65rem; 
+            z-index: 1000;
+            letter-spacing: 2px;
         }
         .lang-btn {
-            background: none; border: none; color: #fff;
-            cursor: pointer; padding: 0 5px; opacity: 0.3;
+            background: none; 
+            border: none; 
+            color: #000;
+            cursor: pointer; 
+            padding: 0 5px; 
+            opacity: 0.3;
             text-transform: uppercase;
+            font-family: inherit;
+            letter-spacing: inherit;
+            transition: opacity 0.3s;
         }
         .lang-btn.active { opacity: 1; }
 
-        header { padding: 160px 20px 80px; }
-
-        h1 {
-            font-family: 'Times New Roman', Times, serif; 
-            font-size: clamp(3rem, 10vw, 8rem);
-            text-transform: uppercase; letter-spacing: 12px;
-            margin: 0; font-weight: 300; line-height: 0.9;
-            padding-left: 12px; 
-        }
-
-        .subtitle-event {
-            letter-spacing: 5px; text-transform: uppercase;
-            font-size: clamp(0.6rem, 2vw, 0.75rem);
-            opacity: 0.5; margin: 30px 0 0 0;
-        }
-
-        .content-container { max-width: 800px; margin: 0 auto; padding: 0 25px 50px; }
-        
-        .tagline {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            opacity: 0.8; margin-bottom: 50px;
-        }
-
-        .lang-content p {
-            line-height: 2; font-size: 1.1rem;
-            opacity: 0.8; margin-bottom: 30px;
-            text-align: justify; text-align-last: center;
-        }
-
-        .highlight-text {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            margin-top: 60px; opacity: 1;
-        }
-
-        /* GALLERIA FLEXBOX (Desktop ok) */
-        .photo-gallery {
-            max-width: 1200px;
+        /* CONTENITORE GENERALE */
+        .container {
+            max-width: 950px;
             margin: 0 auto;
-            padding: 80px 20px;
-            display: flex;
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 30px; 
+            padding: 120px 25px 150px;
+        }
+
+        /* GALLERIA IN ALTO */
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 80px;
         }
 
         .photo-item {
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
             overflow: hidden;
+            background-color: rgba(0,0,0,0.02);
         }
         .photo-item.visible { opacity: 1; }
 
         .photo-item img {
             display: block;
-            width: 320px; 
-            height: 220px; 
+            width: 100%;
+            height: 200px;
             object-fit: cover;
             cursor: pointer;
+            transition: opacity 0.4s ease;
+        }
+        .photo-item img:hover {
+            opacity: 0.8;
         }
 
-        /* FIX INQUADRATURE MODIFICATO */
+        /* Regolazione inquadrature */
         .photo-top { object-position: top !important; }
-        /* Inquadratura ottimizzata per 1, 3, 4: meno soffitto, più gambe */
         .photo-center { object-position: center 80% !important; }
 
-        /* LIGHTBOX */
+        /* TESTI SOTTO ALLINEATI A SINISTRA */
+        .text-section {
+            max-width: 750px;
+            text-align: left;
+        }
+
+        /* Titolo Principium sussurrato ed elegante */
+        h1 {
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            text-transform: lowercase;
+            margin: 0 0 10px 0;
+            font-weight: normal;
+        }
+
+        .subtitle-event {
+            font-family: 'FuturaLight', sans-serif;
+            letter-spacing: 3px; 
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            opacity: 0.5; 
+            margin: 0 0 50px 0;
+        }
+
+        .tagline {
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            opacity: 0.8; 
+            margin: 0 0 40px 0;
+        }
+
+        .lang-content p {
+            line-height: 2; 
+            font-size: 1.05rem;
+            opacity: 0.85; 
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .highlight-text {
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+            margin-top: 50px; 
+            opacity: 1;
+        }
+
+        /* LIGHTBOX CON OVERLAY CHIARO ELEGANTE */
         #lightbox {
             display: none;
             position: fixed;
             z-index: 2000;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.95);
-            justify-content: center; align-items: center;
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.98);
+            justify-content: center; 
+            align-items: center;
         }
-        #lightbox img { max-width: 90%; max-height: 90%; }
+        #lightbox img { 
+            max-width: 90%; 
+            max-height: 85vh; 
+            object-fit: contain;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            z-index: 2010;
+        }
+        .lightbox-close:hover {
+            opacity: 1;
+        }
 
         .hidden { display: none; }
-        .logo-bottom { width: 140px; opacity: 0.6; margin: 80px 0; }
+        
+        .logo-footer {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 80px;
+        }
+        .logo-bottom { 
+            width: 110px; 
+            opacity: 0.8; 
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 850px) {
+            .container { padding-top: 100px; padding-bottom: 100px; }
+            .photo-gallery { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px;
+                margin-bottom: 50px;
+            }
+            .photo-item img { height: 160px; }
+        }
 
         @media (max-width: 600px) {
-            header { padding-top: 140px; }
-            .back-archive, .lang-switch { position: absolute; top: 25px; }
-            h1 { letter-spacing: 6px; padding-left: 6px; }
-            .lang-content p { 
-                text-align: center; 
-                text-align-last: center; 
-                font-size: 1rem;
-                line-height: 1.7;
+            .photo-gallery { 
+                grid-template-columns: 1fr; 
+                gap: 15px; 
             }
-            .photo-gallery { padding: 40px 10px; gap: 20px; }
-            .photo-item img { width: 90vw; height: 220px; }
+            .photo-item img { height: 210px; }
+            .back-archive, .lang-switch { position: absolute; top: 25px; }
+            .logo-footer { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Pulsanti di navigazione esterni -->
     <a href="archive.html" class="back-archive">← Archive</a>
 
     <div class="lang-switch">
@@ -163,45 +245,57 @@
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <header class="fade-in delay-1">
-        <h1>PRINCIPIUM</h1>
-        <p class="subtitle-event">Chapter I - May 2026 - Barcelona</p>
-    </header>
-
-    <main class="content-container fade-in delay-2">
-        <p class="tagline">In the beginning there was chaos</p>
-
-        <div id="lang-en" class="lang-content">
-            <p>Before form, before order, before beauty, there was chaos. An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
-            <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
-            <p class="highlight-text">Principium is an invitation to return to the beginning.</p>
-        </div>
-
-        <div id="lang-es" class="lang-content hidden">
-            <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos. Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
-            <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones e afinidades.</p>
-            <p class="highlight-text">Principium es una invitación a volver al inicio.</p>
-        </div>
-    </main>
-
-    <section class="photo-gallery">
-        <div class="photo-item"><img src="photo_principium/photo1.jpeg" class="photo-center" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo2.jpeg" class="photo-top" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo3.jpeg" class="photo-center" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo5.jpeg" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo4.jpeg" class="photo-center" onclick="openLightbox(this.src)"></div>
-        <div class="photo-item"><img src="photo_principium/photo6.jpeg" onclick="openLightbox(this.src)"></div>
-    </section>
-
-    <div id="lightbox" onclick="this.style.display='none'">
-        <img id="lightbox-img" src="">
+    <!-- Contenitore Lightbox -->
+    <div id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">close</button>
+        <img id="lightbox-img" src="" alt="Principium Event">
     </div>
 
-    <div style="text-align: center;">
-        <img src="senso_logo_blanco.png" alt="Senso Art Logo" class="logo-bottom">
+    <div class="container">
+        
+        <!-- GALLERIA FOTO IN ALTO -->
+        <section class="photo-gallery fade-in delay-1">
+            <div class="photo-item"><img src="photo_principium/photo1.jpeg" class="photo-center" alt="Principium Photo 1" onclick="openLightbox(this.src)"></div>
+            <div class="photo-item"><img src="photo_principium/photo2.jpeg" class="photo-top" alt="Principium Photo 2" onclick="openLightbox(this.src)"></div>
+            <div class="photo-item"><img src="photo_principium/photo3.jpeg" class="photo-center" alt="Principium Photo 3" onclick="openLightbox(this.src)"></div>
+            <div class="photo-item"><img src="photo_principium/photo5.jpeg" alt="Principium Photo 4" onclick="openLightbox(this.src)"></div>
+            <div class="photo-item"><img src="photo_principium/photo4.jpeg" class="photo-center" alt="Principium Photo 5" onclick="openLightbox(this.src)"></div>
+            <div class="photo-item"><img src="photo_principium/photo6.jpeg" alt="Principium Photo 6" onclick="openLightbox(this.src)"></div>
+        </section>
+
+        <!-- TESTI SOTTO ALLINEATI A SINISTRA -->
+        <main class="text-section fade-in delay-2">
+            
+            <header>
+                <h1>principium</h1>
+                <p class="subtitle-event">Chapter I - May 2026 - Barcelona</p>
+            </header>
+
+            <p class="tagline">In the beginning there was chaos</p>
+
+            <div id="lang-en" class="lang-content">
+                <p>Before form, before order, before beauty, there was chaos. An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
+                <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
+                <p class="highlight-text">Principium is an invitation to return to the beginning.</p>
+            </div>
+
+            <div id="lang-es" class="lang-content hidden">
+                <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos. Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
+                <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones e afinidades.</p>
+                <p class="highlight-text">Principium es una invitación a volver al inicio.</p>
+            </div>
+
+            <div class="logo-footer">
+                <img src="senso_logo_negro.png" alt="Senso Logo" class="logo-bottom">
+            </div>
+
+        </main>
     </div>
 
     <script>
+        // --- GESTIONE LINGUA ---
+        const lightboxClose = document.getElementById('lightbox-close');
+
         function setLang(lang) {
             document.getElementById('lang-en').classList.add('hidden');
             document.getElementById('lang-es').classList.add('hidden');
@@ -209,17 +303,49 @@
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-es').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
+
+            // Traduzione del tasto close nel lightbox
+            if (lang === 'es') {
+                lightboxClose.innerText = "cerrar";
+            } else {
+                lightboxClose.innerText = "close";
+            }
         }
+
+        // --- GESTIONE LIGHTBOX ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
 
         function openLightbox(src) {
-            const lb = document.getElementById('lightbox');
-            document.getElementById('lightbox-img').src = src;
-            lb.style.display = 'flex';
+            lightboxImg.src = src;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Impedisce lo scroll
         }
 
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = ''; // Ripristina lo scroll
+            lightboxImg.src = '';
+        }
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox || e.target === lightboxClose) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
+                closeLightbox();
+            }
+        });
+
+        // --- INTERSECTION OBSERVER PER FADE IN DELLE FOTO ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
         }, { threshold: 0.1 });
 
