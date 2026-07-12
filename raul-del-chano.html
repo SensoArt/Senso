@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Senso — Davide Di Sena</title>
+    <title>Senso — Raúl del Chano</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -93,10 +93,11 @@
         }
         .lang-btn.active { opacity: 1; }
 
+        /* Contenitore con padding inferiore generoso per lasciare massimo respiro */
         .container { 
-            max-width: 950px; /* Bilanciamento griglia 2x2 */
+            max-width: 850px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; /* Spaziatura generosa a fondo pagina */
+            padding: 150px 25px 150px; 
         }
 
         /* Nome dell'artista in grassetto elegante */
@@ -106,33 +107,28 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            font-weight: bold; /* Grassetto richiesto */
+            font-weight: bold; 
         }
 
-        /* Layout a due colonne (Griglia foto a sinistra, Bio a destra) */
+        /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 380px 1fr; /* Colonna sinistra ottimizzata per la griglia 2x2 */
+            grid-template-columns: 280px 1fr; 
             gap: 60px; 
             align-items: start; 
         }
         
-        /* Griglia ordinata e geometrica 2x2 */
         .img-container { 
             width: 100%; 
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 Colonne perfettamente uguali */
-            gap: 15px; /* Spazio minimal e ordinato tra i quadri */
             background-color: transparent; 
         }
 
-        /* Le immagini non vengono ritagliate e si adattano in modo naturale */
+        /* L'immagine non viene ritagliata, è interattiva e si adatta in modo naturale */
         .artist-img { 
             width: 100%; 
             height: auto; 
             display: block; 
-            object-fit: contain; 
-            cursor: pointer; /* Indica la cliccabilità dell'immagine */
+            cursor: pointer;
             transition: opacity 0.4s ease;
         }
 
@@ -163,7 +159,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 255, 255, 0.98); /* Sfondo galleria chiaro ed etereo */
+            background-color: rgba(255, 255, 255, 0.98); 
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -338,7 +334,7 @@
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .img-container { max-width: 420px; margin: 0 auto; gap: 12px; } /* Dimensioni controllate su schermi piccoli */
+            .img-container { max-width: 300px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
@@ -370,17 +366,13 @@
     <main class="container">
         
         <header class="fade-in delay-1">
-            <h1 class="artist-title">Davide Di Sena</h1>
+            <h1 class="artist-title">Raúl del Chano</h1>
         </header>
 
         <div class="artist-content fade-in delay-2">
-            
-            <!-- Composizione geometrica 2x2 ordinata (proporzioni naturali, senza tagli) -->
+            <!-- Foto dell'opera nativa e intera (senza alcun ritaglio) -->
             <div class="img-container">
-                <img src="fotos_obras/davidedisena1.jpg" alt="Davide Di Sena — Opera 1" class="artist-img">
-                <img src="fotos_obras/davidedisena2.jpg" alt="Davide Di Sena — Opera 2" class="artist-img">
-                <img src="fotos_obras/davidedisena3.jpg" alt="Davide Di Sena — Opera 3" class="artist-img">
-                <img src="fotos_obras/davidedisena4.jpg" alt="Davide Di Sena — Opera 4" class="artist-img">
+                <img src="fotos_obras/raul1.jpg" alt="Raúl del Chano — Opera" class="artist-img">
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -388,10 +380,10 @@
                 
                 <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
-                    Born in 2004 and currently studying at the <span class="important">Academy of Fine Arts in Naples</span>, Davide analyzes the interferences between natural spaces and human traces. His research moves between industrial archaeology and urban landscapes, interpreting the environment as a body that bears the scars of human passage. He works primarily with analog photography, a conscious choice that transforms each frame into an act of slow, tactile observation. He has exhibited at the <span class="important">Area Contesa Arte</span> gallery in <span class="important">Rome (Via Margutta)</span>, advancing a poetic vision that documents the tension between concrete and nature. He currently lives and works in <span class="important">Caserta</span>.
+                    Contemporary basket maker, sculptor, and multidisciplinary creator born in <span class="important">Barcelona</span> and currently based in <span class="important">Olba (Teruel)</span>. His artistic practice reinterprets traditional basketry through a contemporary and experimental lens, exploring the profound dialogue between craftsmanship, design, and pure sculpture. After a successful 17-year career as head of image at <span class="important">Massimo Dutti</span>, he decided to return to his roots in craftsmanship, where he now focuses on the identity of materials and memory. His work has been featured in significant spaces such as <span class="important">Object Space Space Object</span> at <span class="important">Galería Taula Barcelona</span>, the <span class="important">Domus Nova</span> exhibition at <span class="important">Museo de San Isidro Madrid</span>, and most recently at <span class="important">Brussels Collectible 2026</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    Nacido in 2004 y estudiante de la <span class="important">Academia de Bellas Artes de Nápoles</span>, Davide analiza las interferencias entre el espacio natural y las huellas humanas. Su investigación se mueve entre la arqueología industrial y los paisajes urbanos, interpretando el entorno como un cuerpo que porta los signos del paso del hombre. Trabaja principalmente con fotografía analógica, una elección consciente que transforma el disparo en un acto de observación lenta y matérica. Ha expuesto en la galería <span class="important">Area Contesa Arte</span> en <span class="important">Roma (Via Margutta)</span>, desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza. Actualmente vive y trabaja in <span class="important">Caserta</span>.
+                    Banastero contemporáneo, escritor y creador multidisciplinar nacido en <span class="important">Barcelona</span> y afincado en <span class="important">Olba (Teruel)</span>. Su obra reinterpreta la cestería tradicional desde una mirada contemporánea y experimental, explorando el diálogo profundo entre artesanía, diseño y escultura pura. Tras una exitosa trayectoria de 17 años como responsable de imagen en <span class="important">Massimo Dutti</span>, decidió regresar a las raíces de la artesanía, centrándose en la identidad de los materiales y la memoria del territorio. Su trabajo ha destacado en espacios como <span class="important">Object Space Space Object</span> en la <span class="important">Galería Taula Barcelona</span>, la muestra <span class="important">Domus Nova</span> en el <span class="important">Museo de San Isidro de Madrid</span> y recientemente en <span class="important">Brussels Collectible 2026</span>.
                 </div>
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
@@ -401,7 +393,7 @@
                     <!-- Form con endpoint Formspree reale dell'utente -->
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <!-- Campo nascosto per capire a quale artista si riferisce la richiesta -->
-                        <input type="hidden" name="artist" value="Davide Di Sena">
+                        <input type="hidden" name="artist" value="Raúl del Chano">
                         
                         <div class="form-row">
                             <div class="form-group">
@@ -465,7 +457,6 @@
         }
 
         lightbox.addEventListener('click', (e) => {
-            // Chiude se si clicca sullo sfondo o sul tasto "close"
             if (e.target === lightbox || e.target === lightboxClose || e.target.classList.contains('lightbox-wrapper')) {
                 closeLightbox();
             }
@@ -560,7 +551,7 @@
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Su mensaje o consulta...";
+                inputMessage.placeholder = "Su messaggio o consulta...";
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
                 } else {
