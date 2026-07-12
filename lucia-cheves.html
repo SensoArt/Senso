@@ -1,3 +1,4 @@
+<!-- STREAMING_CHUNK: Setting up HTML document and metadata for Lucia Cheves -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     
     <link rel="icon" type="image/png" href="favicon.png">
 
+    <!-- STREAMING_CHUNK: Declaring typography and global transitions -->
     <style>
         @font-face { 
             font-family: 'FuturaLight'; 
@@ -43,6 +45,7 @@
             overflow-x: hidden;
         }
 
+        /* STREAMING_CHUNK: Styling layout containers and utility classes with generous padding-bottom */
         /* SFONDO BIANCO FISSO */
         .bg-container {
             position: fixed;
@@ -54,7 +57,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Indietro elegante diretto ad Artists */
+        /* Pulsante Indietro elegante */
         .back-artists { 
             position: fixed; 
             top: 25px; 
@@ -96,38 +99,39 @@
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
-            padding: 150px 25px 50px; 
+            padding: 150px 25px 150px; /* Aumentato il fondo pagina a 150px per massimo respiro */
         }
 
-        /* Nome dell'artista sobrio e sussurrato */
+        /* Nome dell'artista in grassetto elegante */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            font-weight: normal; 
+            font-weight: bold; /* Grassetto richiesto */
         }
 
-        /* Layout a due colonne (Foto a sinistra, Bio a destra) */
+        /* STREAMING_CHUNK: Building the responsive content grid for Lucia */
+        /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 350px 1fr; 
+            grid-template-columns: 280px 1fr; /* Colonna sinistra di dimensioni controllate ed eleganti */
             gap: 60px; 
             align-items: start; 
         }
         
         .img-container { 
             width: 100%; 
-            overflow: hidden; 
-            background-color: rgba(0,0,0,0.03); 
+            background-color: transparent; 
         }
 
+        /* L'immagine non viene ritagliata e si adatta in modo naturale alle sue proporzioni originali */
         .artist-img { 
             width: 100%; 
+            height: auto; 
             display: block; 
-            aspect-ratio: 3 / 2; 
-            object-fit: cover; 
+            object-fit: contain; 
         }
 
         /* Stile dei testi bio */
@@ -136,6 +140,7 @@
             font-size: 1rem; 
             opacity: 0.85; 
             text-align: justify; 
+            margin-bottom: 40px;
         }
         
         .important { 
@@ -145,57 +150,168 @@
         
         .hidden { display: none; }
 
-        .isotipo-footer { 
-            padding: 80px 20px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
+        /* STREAMING_CHUNK: Styling the inquire form for Lucia */
+        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        .inquiry-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 35px;
+            margin-top: 20px;
         }
-        .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
 
+        .inquiry-title {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+            font-weight: bold;
+        }
+
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            background: transparent;
+            outline: none;
+            color: #000;
+            transition: border-color 0.4s;
+            border-radius: 0;
+        }
+
+        .form-input::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .form-input:focus {
+            border-bottom-color: #000;
+        }
+
+        textarea.form-input {
+            resize: none;
+            height: 60px;
+        }
+
+        .form-submit-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 10px 0;
+            align-self: flex-start;
+            transition: opacity 0.3s;
+            font-weight: bold;
+        }
+
+        .form-submit-btn:hover {
+            opacity: 0.5;
+        }
+
+        /* STREAMING_CHUNK: Responsive breakpoints styling for Lucia */
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .container { padding-top: 120px; }
+            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene l'immagine contenuta e centrata su schermi piccoli */
+            .container { padding-top: 120px; padding-bottom: 100px; }
+            .form-row { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
+    <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
+    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
+    <!-- STREAMING_CHUNK: Rendering the page main container for Lucia -->
     <main class="container">
+        
         <header class="fade-in delay-1">
             <h1 class="artist-title">Lucía Cheves Dauber</h1>
         </header>
 
         <div class="artist-content fade-in delay-2">
+            <!-- Foto dell'opera nativa e intera (senza alcun ritaglio) -->
             <div class="img-container">
-                <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
+                <img src="fotos_obras/lucia5.jpg" alt="Lucía Cheves Dauber — Opera" class="artist-img">
             </div>
 
+            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
+                
+                <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
                     Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence. Her work is born from the intersection of the inherited and the chosen, between what was given and what she decided to sustain. She paints to preserve and translate, ensuring that what inhabits her is not forgotten even if it is no longer in sight. Working with mixed media, oil, acrylic, collage, she explores layers that transmit ancestral knowledge through time, care, and silence. Her work does not illustrate or explain, but opens space for what still deserves to be seen. Painting from the feminine and her <span class="important">Mayan</span> roots as a living gesture, her art is a conversation between heritage and learning to let go. Key exhibitions include <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, <span class="important">Woman’s Museum Bonn</span>, and most recently <span class="important">Tiembla el suelo</span> in <span class="important">Barcelona 2026</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
                     Artista guatemalteca que entiende el arte como una forma de memoria viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. A través de técnicas mixtas como el óleo, acrílico y collage, explora capas que transmiten el conocimiento ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo flamenco y sus raíces <span class="important">mayas</span> como gesto vivo, su arte es una conversación entre la herencia y el aprendizaje de soltar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> y recientemente en <span class="important">Barcelona 2026</span> con su solo show <span class="important">Tiembla el suelo</span>.
                 </div>
+
+                <!-- STREAMING_CHUNK: Rendering the bilingual inquiry form for Lucia -->
+                <!-- Sezione Richiesta d'opera (Inquire) -->
+                <section class="inquiry-section">
+                    <h2 class="inquiry-title" id="form-title">inquire</h2>
+                    
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="inquiry-form">
+                        <!-- Campo nascosto per capire a quale artista si riferisce la richiesta nel backend della mail -->
+                        <input type="hidden" name="artist" value="Lucía Cheves Dauber">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
+                    </form>
+                </section>
+
             </div>
         </div>
+
     </main>
 
-    <div class="isotipo-footer fade-in delay-2">
-        <img src="senso_isotipo_negro.png" alt="Senso Isotipo" class="isotipo-img">
-    </div>
-
+    <!-- STREAMING_CHUNK: Injecting multi-language switcher scripts for Lucia -->
     <script>
         function setLang(lang) {
             const en = document.querySelectorAll('.lang-en');
@@ -203,18 +319,40 @@
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
 
+            // Elementi del Form da tradurre dinamicamente
+            const formTitle = document.getElementById('form-title');
+            const inputName = document.getElementById('input-name');
+            const inputEmail = document.getElementById('input-email');
+            const inputMessage = document.getElementById('input-message');
+            const submitBtn = document.getElementById('submit-btn');
+
             if (lang === 'es') {
                 en.forEach(el => el.classList.add('hidden'));
                 es.forEach(el => el.classList.remove('hidden'));
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
+
+                // Traduzioni Form Spagnolo (Inquire minimale)
+                formTitle.innerText = "consultar";
+                inputName.placeholder = "Su nombre";
+                inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Su messaggio o consulta...";
+                submitBtn.innerText = "Enviar consulta →";
             } else {
                 es.forEach(el => el.classList.add('hidden'));
                 en.forEach(el => el.classList.remove('hidden'));
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
+
+                // Traduzioni Form Inglese (Inquire minimale)
+                formTitle.innerText = "inquire";
+                inputName.placeholder = "Your name";
+                inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Your message or inquiry...";
+                submitBtn.innerText = "Send Inquiry →";
             }
         }
     </script>
 </body>
 </html>
+```eof
