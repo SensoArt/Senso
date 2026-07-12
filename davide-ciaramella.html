@@ -225,6 +225,7 @@
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             padding-top: 35px;
             margin-top: 20px;
+            position: relative;
         }
 
         .inquiry-title {
@@ -240,6 +241,7 @@
             display: flex;
             flex-direction: column;
             gap: 25px;
+            transition: opacity 0.4s ease;
         }
 
         .form-row {
@@ -301,6 +303,38 @@
             opacity: 0.5;
         }
 
+        /* Messaggio di successo minimalista */
+        .thank-you-container {
+            display: none;
+            animation: fadeIn 0.8s ease-out forwards;
+            padding: 20px 0;
+        }
+
+        .thank-you-title {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+
+        .thank-you-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .error-message {
+            color: #8b0000;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
@@ -356,15 +390,15 @@
                     <span class="important">Davide Ciaramella</span> is a contemporary artist based in <span class="important">Milan</span>. His research explores reality through a personal pictorial language, combining observation, memory, and intuition to reinterpret the human condition and organic concepts. Throughout his career, he has developed international collaborations as a concept designer and photographer. His work has been featured in exhibitions including <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio</span> (Milan, 2023), <span class="important">Denial is a Privilege</span> at <span class="important">Perimetro Fluido Gallery</span> (Milan), and <span class="important">Unknown Figures</span> at <span class="important">Salvatore Serio Gallery</span> (Naples). He also participated in the international project <span class="important">Imago Mundi</span> for Luciano Benetton at the <span class="important">MADRE Museum</span> in Naples, and in exhibitions at spaces such as <span class="important">Dadun Gallery</span> (Taichung, Taiwan) and <span class="important">Zona Blu</span> (Milan).
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    <span class="important">Davide Ciaramella</span> es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pict ignorando el tiempo, combinando observación, memoria e intuición para reinterpretar la condición humana y conceptos orgánicos. A lo largo de su trayectoria, ha desarrollado colaboraciones internacionales como diseñador conceptual y fotógrafo. Su trabajo ha sido destacado en exposiciones como <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio</span> (Milán, 2023), <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> (Milán), y <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span> (Nápoles). También participó en el proyecto internacional <span class="important">Imago Mundi</span> para Luciano Benetton en el <span class="important">Museo MADRE</span> de Nápoles, y en exposiciones en espacios con <span class="important">Dadun Gallery</span> (Taichung, Taiwán) y <span class="important">Zona Blu</span> (Milán).
+                    <span class="important">Davide Ciaramella</span> es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pictórico personal, combinando observación, memoria e intuición para reinterpretar la condición humana y conceptos orgánicos. A lo largo de su trayectoria, ha desarrollado colaboraciones internacionales como diseñador conceptual y fotógrafo. Su trabajo ha sido destacado en exposiciones como <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio</span> (Milán, 2023), <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> (Milán), y <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span> (Nápoles). También participó en el proyecto internacional <span class="important">Imago Mundi</span> para Luciano Benetton en el <span class="important">Museo MADRE</span> de Nápoles, y en exposiciones en espacios con <span class="important">Dadun Gallery</span> (Taichung, Taiwán) y <span class="important">Zona Blu</span> (Milán).
                 </div>
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
-                    <form action="https://formspree.io/f/your-form-id" method="POST" class="inquiry-form">
-                        <!-- Campo nascosto per capire a quale artista si riferisce la richiesta nel backend della mail -->
+                    <!-- Form con endpoint Formspree reale dell'utente -->
+                    <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Davide Ciaramella">
                         
                         <div class="form-row">
@@ -381,7 +415,20 @@
                         </div>
                         
                         <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
+                        <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
                     </form>
+
+                    <!-- Stato di ringraziamento (Thanks) visualizzato dinamicamente -->
+                    <div class="thank-you-container" id="thank-you-block">
+                        <div class="lang-en">
+                            <h3 class="thank-you-title">thank you</h3>
+                            <p class="thank-you-text">Your inquiry has been successfully sent. We will get back to you shortly.</p>
+                        </div>
+                        <div class="lang-es hidden">
+                            <h3 class="thank-you-title">gracias</h3>
+                            <p class="thank-you-text">Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.</p>
+                        </div>
+                    </div>
                 </section>
 
             </div>
@@ -430,6 +477,63 @@
         });
 
 
+        // --- INVIO FORM AJAX (FORMSPREE) ---
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const thankYouBlock = document.getElementById('thank-you-block');
+        const errorMsg = document.getElementById('error-msg');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Determina la lingua attuale al momento dell'invio
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+            
+            // Cambia stato del bottone a "Inviando..." per dare feedback visivo immediato
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.4";
+            submitBtn.innerText = isEs ? "Enviando..." : "Sending...";
+            errorMsg.style.display = "none";
+
+            const data = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Successo: nascondi il form e mostra il blocco di ringraziamento
+                    contactForm.style.display = 'none';
+                    thankYouBlock.style.display = 'block';
+                    
+                    // Forza l'aggiornamento della lingua anche sul blocco Thank You
+                    if (isEs) {
+                        thankYouBlock.querySelector('.lang-en').classList.add('hidden');
+                        thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
+                    } else {
+                        thankYouBlock.querySelector('.lang-es').classList.add('hidden');
+                        thankYouBlock.querySelector('.lang-en').classList.remove('hidden');
+                    }
+                } else {
+                    throw new Error('Server response was not ok');
+                }
+            } catch (error) {
+                // Errore: ripristina il bottone e mostra il messaggio di errore
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
+                submitBtn.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
+                
+                errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
+                errorMsg.style.display = "block";
+            }
+        });
+
+
         // --- CAMBIO LINGUA ---
         function setLang(lang) {
             const en = document.querySelectorAll('.lang-en');
@@ -442,7 +546,7 @@
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
             const inputMessage = document.getElementById('input-message');
-            const submitBtn = document.getElementById('submit-btn');
+            const submitBtnElement = document.getElementById('submit-btn');
 
             if (lang === 'es') {
                 en.forEach(el => el.classList.add('hidden'));
@@ -454,8 +558,12 @@
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Su messaggio o consulta...";
-                submitBtn.innerText = "Enviar consulta →";
+                inputMessage.placeholder = "Su mensaje o consulta...";
+                if (!submitBtnElement.disabled) {
+                    submitBtnElement.innerText = "Enviar consulta →";
+                } else {
+                    submitBtnElement.innerText = "Enviando...";
+                }
                 lightboxClose.innerText = "cerrar";
             } else {
                 es.forEach(el => el.classList.add('hidden'));
@@ -468,7 +576,11 @@
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
                 inputMessage.placeholder = "Your message or inquiry...";
-                submitBtn.innerText = "Send Inquiry →";
+                if (!submitBtnElement.disabled) {
+                    submitBtnElement.innerText = "Send Inquiry →";
+                } else {
+                    submitBtnElement.innerText = "Sending...";
+                }
                 lightboxClose.innerText = "close";
             }
         }
