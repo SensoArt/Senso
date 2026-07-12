@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso — Davide Ciaramella</title>
     
-    <link class="fade-in" rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         @font-face { 
@@ -112,21 +112,21 @@
         /* Layout a due colonne (Griglia foto a sinistra ottimizzata, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 380px 1fr; /* Colonna sinistra allargata per la griglia geometrica */
+            grid-template-columns: 380px 1fr; /* Colonna sinistra ottimizzata per la griglia geometrica, uguale a Di Sena */
             gap: 60px; 
             align-items: start; 
         }
         
-        /* Griglia ordinata e geometrica per le 3 opere */
+        /* Griglia ordinata e geometrica per le opere (Tutte uguali) */
         .img-container { 
             width: 100%; 
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Griglia a 2 colonne */
+            grid-template-columns: repeat(2, 1fr); /* 2 Colonne perfettamente uguali */
             gap: 15px; /* Spazio minimal e ordinato tra i quadri */
             background-color: transparent; 
         }
 
-        /* Le immagini non vengono ritagliate e si adattano in modo naturale */
+        /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni */
         .artist-img { 
             width: 100%; 
             height: auto; 
@@ -138,11 +138,6 @@
 
         .artist-img:hover {
             opacity: 0.8;
-        }
-
-        /* La prima opera fa da copertina estendendosi su entrambe le colonne */
-        .featured-img {
-            grid-column: span 2;
         }
 
         /* Stile dei testi bio */
@@ -346,11 +341,9 @@
 
         <div class="artist-content fade-in delay-2">
             
-            <!-- Composizione geometrica per Davide Ciaramella (proporzioni naturali, senza tagli) -->
+            <!-- Composizione geometrica uniforme (Tutte le opere hanno lo stesso peso visivo) -->
             <div class="img-container">
-                <!-- La prima opera fa da copertina occupando tutta la larghezza -->
-                <img src="fotos_obras/obradavide_3.jpeg" alt="Davide Ciaramella — Opera 1" class="artist-img featured-img">
-                <!-- Le altre due si affiancano sotto perfettamente -->
+                <img src="fotos_obras/obradavide_3.jpeg" alt="Davide Ciaramella — Opera 1" class="artist-img">
                 <img src="fotos_obras/obradavide_2.jpeg" alt="Davide Ciaramella — Opera 2" class="artist-img">
                 <img src="fotos_obras/obradavidei.jpeg" alt="Davide Ciaramella — Opera 3" class="artist-img">
             </div>
@@ -363,7 +356,7 @@
                     <span class="important">Davide Ciaramella</span> is a contemporary artist based in <span class="important">Milan</span>. His research explores reality through a personal pictorial language, combining observation, memory, and intuition to reinterpret the human condition and organic concepts. Throughout his career, he has developed international collaborations as a concept designer and photographer. His work has been featured in exhibitions including <span class="important">ORG/ANIMO</span> at <span class="important">Iperspazio</span> (Milan, 2023), <span class="important">Denial is a Privilege</span> at <span class="important">Perimetro Fluido Gallery</span> (Milan), and <span class="important">Unknown Figures</span> at <span class="important">Salvatore Serio Gallery</span> (Naples). He also participated in the international project <span class="important">Imago Mundi</span> for Luciano Benetton at the <span class="important">MADRE Museum</span> in Naples, and in exhibitions at spaces such as <span class="important">Dadun Gallery</span> (Taichung, Taiwan) and <span class="important">Zona Blu</span> (Milan).
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    <span class="important">Davide Ciaramella</span> es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pictórico personal, combinando observación, memoria e intuición para reinterpretar la condición humana y conceptos orgánicos. A lo largo de su trayectoria, ha desarrollado colaboraciones internacionales como diseñador conceptual y fotógrafo. Su trabajo ha sido destacado en exposiciones como <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio</span> (Milán, 2023), <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> (Milán), y <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span> (Nápoles). También participó en el proyecto internacional <span class="important">Imago Mundi</span> para Luciano Benetton en el <span class="important">Museo MADRE</span> de Nápoles, y en exposiciones en espacios con <span class="important">Dadun Gallery</span> (Taichung, Taiwán) y <span class="important">Zona Blu</span> (Milán).
+                    <span class="important">Davide Ciaramella</span> es un artista contemporáneo afincado en <span class="important">Milán</span>. Su investigación explora la realidad a través de un lenguaje pict ignorando el tiempo, combinando observación, memoria e intuición para reinterpretar la condición humana y conceptos orgánicos. A lo largo de su trayectoria, ha desarrollado colaboraciones internacionales como diseñador conceptual y fotógrafo. Su trabajo ha sido destacado en exposiciones como <span class="important">ORG/ANIMO</span> en <span class="important">Iperspazio</span> (Milán, 2023), <span class="important">Denial is a Privilege</span> en la <span class="important">Galería Perimetro Fluido</span> (Milán), y <span class="important">Unknown Figures</span> en la <span class="important">Galería Salvatore Serio</span> (Nápoles). También participó en el proyecto internacional <span class="important">Imago Mundi</span> para Luciano Benetton en el <span class="important">Museo MADRE</span> de Nápoles, y en exposiciones en espacios con <span class="important">Dadun Gallery</span> (Taichung, Taiwán) y <span class="important">Zona Blu</span> (Milán).
                 </div>
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
