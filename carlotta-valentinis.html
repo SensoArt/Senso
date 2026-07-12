@@ -54,7 +54,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Indietro elegante diretto ad Artists */
+        /* Pulsante Indietro elegante */
         .back-artists { 
             position: fixed; 
             top: 25px; 
@@ -96,38 +96,42 @@
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
-            padding: 150px 25px 50px; 
+            padding: 150px 25px 150px; /* Spaziatura generosa a fondo pagina */
         }
 
-        /* Nome dell'artista sobrio e sussurrato */
+        /* Nome dell'artista in grassetto elegante */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            font-weight: normal; 
+            font-weight: bold; /* Grassetto richiesto */
         }
 
-        /* Layout a due colonne (Foto a sinistra, Bio a destra) */
+        /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 350px 1fr; 
+            grid-template-columns: 280px 1fr; /* Colonna sinistra rimpicciolita ed elegante */
             gap: 60px; 
             align-items: start; 
         }
         
+        /* Contenitore per impilare entrambe le immagini verticalmente */
         .img-container { 
             width: 100%; 
-            overflow: hidden; 
-            background-color: rgba(0,0,0,0.03); 
+            background-color: transparent; 
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Spazio elegante tra le due opere */
         }
 
+        /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni originali */
         .artist-img { 
             width: 100%; 
+            height: auto; 
             display: block; 
-            aspect-ratio: 3 / 2; 
-            object-fit: cover; 
+            object-fit: contain; 
         }
 
         /* Stile dei testi bio */
@@ -136,6 +140,7 @@
             font-size: 1rem; 
             opacity: 0.85; 
             text-align: justify; 
+            margin-bottom: 40px;
         }
         
         .important { 
@@ -145,56 +150,163 @@
         
         .hidden { display: none; }
 
-        .isotipo-footer { 
-            padding: 80px 20px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
+        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        .inquiry-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 35px;
+            margin-top: 20px;
         }
-        .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
+
+        .inquiry-title {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+            font-weight: bold;
+        }
+
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            background: transparent;
+            outline: none;
+            color: #000;
+            transition: border-color 0.4s;
+            border-radius: 0;
+        }
+
+        .form-input::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .form-input:focus {
+            border-bottom-color: #000;
+        }
+
+        textarea.form-input {
+            resize: none;
+            height: 60px;
+        }
+
+        .form-submit-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 10px 0;
+            align-self: flex-start;
+            transition: opacity 0.3s;
+            font-weight: bold;
+        }
+
+        .form-submit-btn:hover {
+            opacity: 0.5;
+        }
 
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .container { padding-top: 120px; }
+            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene le immagini contenute su schermi piccoli */
+            .container { padding-top: 120px; padding-bottom: 100px; }
+            .form-row { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
+    <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
+    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
     <main class="container">
+        
         <header class="fade-in delay-1">
             <h1 class="artist-title">Carlotta Valentinis</h1>
         </header>
 
         <div class="artist-content fade-in delay-2">
+            <!-- Entrambe le opere caricate su fotos_obras (proporzioni naturali, senza ritagli) -->
             <div class="img-container">
-                <img src="fotos_artistas/carlotta_valentinis.jpg" alt="Carlotta Valentinis" class="artist-img">
+                <img src="fotos_obras/obracarlotta_2.jpeg" alt="Carlotta Valentinis — Opera 1" class="artist-img">
+                <img src="fotos_obras/obracarlotta_3.jpeg" alt="Carlotta Valentinis — Opera 2" class="artist-img">
             </div>
 
+            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
+                
+                <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
                     Carlotta is an emerging artist whose work is an act of deep listening where material and territory converge. Her practice is rooted in sustainable painting: she personally harvests stones, earth, and minerals, transforming them through artisanal processes into unique pigments. For Carlotta, <span class="important">"making the paint is already beginning to paint"</span>. Recently a resident at <span class="important">GlogauAIR Berlin (2026)</span>, she has collaborated with <span class="important">Ars Electronica</span> and led research for the <span class="important">CSIC</span>. Trained at <span class="important">Escola Massana</span> and <span class="important">UdK Berlin</span> under <span class="important">Robert Lucander</span>, she integrates body movement and writing into her visual practice. Her research has been exhibited at the <span class="important">Bethanien Kunstquartier</span> in <span class="important">Berlin</span>, the <span class="important">Ars Electronica Festival</span> in <span class="important">Linz</span>, and the <span class="important">Stripart</span> collective in <span class="important">Barcelona</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
                     Carlotta es una artista emergente cuyo trabajo es un acto de escucha profunda donde convergen material y territorio. Su práctica se basa en la pintura sostenible: recolecta personalmente piedras, tierra y minerales, transformándolos mediante procesos artesanales en pigmentos únicos. Para Carlotta, <span class="important">"fabricar la pintura ya es empezar a pintar"</span>. Recientemente residente en <span class="important">GlogauAIR Berlín (2026)</span>, ha colaborado con <span class="important">Ars Electronica</span> e investigado para el <span class="important">CSIC</span>. Formada en la <span class="important">Escola Massana</span> y la <span class="important">UdK Berlín</span> con <span class="important">Robert Lucander</span>, integra el movimento corporal y la escritura en su práctica visual. Su investigación ha sido expuesta en el <span class="important">Bethanien Kunstquartier</span> de Berlín, el <span class="important">Festival Ars Electronica</span> en Linz y el colectivo <span class="important">Stripart</span> en Barcelona.
                 </div>
+
+                <!-- Sezione Richiesta d'opera (Inquire) -->
+                <section class="inquiry-section">
+                    <h2 class="inquiry-title" id="form-title">inquire</h2>
+                    
+                    <form action="https://formspree.io/f/your-form-id" method="POST" class="inquiry-form">
+                        <!-- Campo nascosto per capire a quale artista si riferisce la richiesta nel backend della mail -->
+                        <input type="hidden" name="artist" value="Carlotta Valentinis">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
+                    </form>
+                </section>
+
             </div>
         </div>
-    </main>
 
-    <div class="isotipo-footer fade-in delay-2">
-        <img src="senso_isotipo_negro.png" alt="Senso Isotipo" class="isotipo-img">
-    </div>
+    </main>
 
     <script>
         function setLang(lang) {
@@ -203,16 +315,37 @@
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
 
+            // Elementi del Form da tradurre dinamicamente
+            const formTitle = document.getElementById('form-title');
+            const inputName = document.getElementById('input-name');
+            const inputEmail = document.getElementById('input-email');
+            const inputMessage = document.getElementById('input-message');
+            const submitBtn = document.getElementById('submit-btn');
+
             if (lang === 'es') {
                 en.forEach(el => el.classList.add('hidden'));
                 es.forEach(el => el.classList.remove('hidden'));
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
+
+                // Traduzioni Form Spagnolo (Inquire minimale)
+                formTitle.innerText = "consultar";
+                inputName.placeholder = "Su nombre";
+                inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Su mensaje o consulta...";
+                submitBtn.innerText = "Enviar consulta →";
             } else {
                 es.forEach(el => el.classList.add('hidden'));
                 en.forEach(el => el.classList.remove('hidden'));
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
+
+                // Traduzioni Form Inglese (Inquire minimale)
+                formTitle.innerText = "inquire";
+                inputName.placeholder = "Your name";
+                inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Your message or inquiry...";
+                submitBtn.innerText = "Send Inquiry →";
             }
         }
     </script>
