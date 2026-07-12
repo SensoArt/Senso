@@ -37,8 +37,8 @@
         body {
             margin: 0; 
             padding: 0;
-            background-color: #fff; /* Sfondo cambiato a Bianco */
-            color: #000; /* Testo cambiato a Nero per contrasto */
+            background-color: #fff; 
+            color: #000; 
             font-family: 'FuturaLight', sans-serif; 
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
@@ -46,7 +46,7 @@
             height: 100vh;
         }
 
-        /* SFONDO BIANCO FISSO (Rimosse immagini e overlay scuri) */
+        /* SFONDO BIANCO FISSO */
         .bg-container {
             position: fixed;
             top: 0;
@@ -57,7 +57,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Home minimale (Nero su bianco) */
+        /* Pulsante Home minimale */
         .back-home {
             position: fixed;
             top: 25px; 
@@ -77,7 +77,7 @@
         .container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 150px 25px 80px; 
+            padding: 150px 25px 100px; /* Aumentato leggermente il padding inferiore visto che non c'è il footer */
             display: flex;
             flex-direction: column;
             align-items: flex-start; 
@@ -115,7 +115,7 @@
         .img-container {
             width: 100%;
             overflow: hidden;
-            background-color: rgba(0,0,0,0.05); /* Sfondo chiaro per caricamento */
+            background-color: rgba(0,0,0,0.05); 
             margin-bottom: 20px;
         }
 
@@ -146,8 +146,7 @@
             font-weight: normal; 
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin: 0 0 60px 0; /* Margine inferiore aumentato per separare dal sottotitolo come richiesto dal design originario */
-            margin-bottom: 6px;
+            margin: 0 0 6px 0;
         }
 
         .project-date {
@@ -158,16 +157,6 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
-
-        /* Isotipo Footer (Linee adattate al bianco) */
-        .isotipo-section { 
-            padding: 80px 20px; 
-            display: flex; 
-            justify-content: center; 
-            border-top: 1px solid rgba(0,0,0,0.1);
-        }
-        
-        .isotipo-img { width: 80px; opacity: 0.9; filter: invert(1); } /* Invertito l'isotipo bianco in nero per lo sfondo chiaro */
 
         /* Responsive */
         @media (max-width: 850px) {
@@ -232,11 +221,6 @@
 
         </div>
     </main>
-
-    <!-- Isotipo Footer -->
-    <div class="isotipo-section fade-in delay-2">
-        <img src="senso_isotipo_blanco.png" alt="Senso Isotipo" class="isotipo-img">
-    </div>
 
 </body>
 </html>
