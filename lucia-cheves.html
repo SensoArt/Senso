@@ -1,4 +1,3 @@
-<!-- STREAMING_CHUNK: Setting up HTML document and metadata for Lucia Cheves -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +7,6 @@
     
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- STREAMING_CHUNK: Declaring typography and global transitions -->
     <style>
         @font-face { 
             font-family: 'FuturaLight'; 
@@ -45,7 +43,6 @@
             overflow-x: hidden;
         }
 
-        /* STREAMING_CHUNK: Styling layout containers and utility classes with generous padding-bottom */
         /* SFONDO BIANCO FISSO */
         .bg-container {
             position: fixed;
@@ -99,7 +96,7 @@
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; /* Aumentato il fondo pagina a 150px per massimo respiro */
+            padding: 150px 25px 150px; /* Spaziatura generosa a fondo pagina */
         }
 
         /* Nome dell'artista in grassetto elegante */
@@ -112,21 +109,24 @@
             font-weight: bold; /* Grassetto richiesto */
         }
 
-        /* STREAMING_CHUNK: Building the responsive content grid for Lucia */
         /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 280px 1fr; /* Colonna sinistra di dimensioni controllate ed eleganti */
+            grid-template-columns: 280px 1fr; /* Colonna sinistra rimpicciolita ed elegante */
             gap: 60px; 
             align-items: start; 
         }
         
+        /* Contenitore per impilare entrambe le immagini verticalmente */
         .img-container { 
             width: 100%; 
             background-color: transparent; 
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Spazio elegante tra le due opere */
         }
 
-        /* L'immagine non viene ritagliata e si adatta in modo naturale alle sue proporzioni originali */
+        /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni originali */
         .artist-img { 
             width: 100%; 
             height: auto; 
@@ -150,7 +150,6 @@
         
         .hidden { display: none; }
 
-        /* STREAMING_CHUNK: Styling the inquire form for Lucia */
         /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
         .inquiry-section {
             border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -232,11 +231,10 @@
             opacity: 0.5;
         }
 
-        /* STREAMING_CHUNK: Responsive breakpoints styling for Lucia */
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene l'immagine contenuta e centrata su schermi piccoli */
+            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene le immagini contenute su schermi piccoli */
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
         }
@@ -256,7 +254,6 @@
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <!-- STREAMING_CHUNK: Rendering the page main container for Lucia -->
     <main class="container">
         
         <header class="fade-in delay-1">
@@ -264,9 +261,10 @@
         </header>
 
         <div class="artist-content fade-in delay-2">
-            <!-- Foto dell'opera nativa e intera (senza alcun ritaglio) -->
+            <!-- Entrambe le opere caricate su fotos_obras (proporzioni naturali, senza ritagli) -->
             <div class="img-container">
-                <img src="fotos_obras/lucia5.jpg" alt="Lucía Cheves Dauber — Opera" class="artist-img">
+                <img src="fotos_obras/obralucia_2.jpeg" alt="Lucía Cheves Dauber — Opera 1" class="artist-img">
+                <img src="fotos_obras/lucia5.jpg" alt="Lucía Cheves Dauber — Opera 2" class="artist-img">
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -280,7 +278,6 @@
                     Artista guatemalteca que entiende el arte como una forma de memoria viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. A través de técnicas mixtas como el óleo, acrílico y collage, explora capas que transmiten el conocimiento ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo flamenco y sus raíces <span class="important">mayas</span> como gesto vivo, su arte es una conversación entre la herencia y el aprendizaje de soltar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> y recientemente en <span class="important">Barcelona 2026</span> con su solo show <span class="important">Tiembla el suelo</span>.
                 </div>
 
-                <!-- STREAMING_CHUNK: Rendering the bilingual inquiry form for Lucia -->
                 <!-- Sezione Richiesta d'opera (Inquire) -->
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
@@ -311,7 +308,6 @@
 
     </main>
 
-    <!-- STREAMING_CHUNK: Injecting multi-language switcher scripts for Lucia -->
     <script>
         function setLang(lang) {
             const en = document.querySelectorAll('.lang-en');
@@ -355,4 +351,3 @@
     </script>
 </body>
 </html>
-```eof
