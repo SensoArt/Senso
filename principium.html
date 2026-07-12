@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Senso - Principium</title>
-
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <title>Senso - Catalogue</title>
     
-    <style>
-        @font-face {
-            font-family: 'FuturaLight';
-            src: url('Fonts/futura light bt.ttf') format('truetype');
-        }
+    <link rel="icon" type="image/png" href="favicon.png">
 
-        @font-face {
-            font-family: 'BehindNineties';
-            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+    <style>
+        @font-face { 
+            font-family: 'FuturaLight'; 
+            src: url('Fonts/futura light bt.ttf') format('truetype'); 
+            font-display: swap; 
+        }
+        @font-face { 
+            font-family: 'BehindNineties'; 
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); 
+            font-display: swap; 
         }
 
         /* ANIMAZIONE FADE IN */
@@ -24,164 +25,453 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in { opacity: 0; animation: fadeIn 1.5s ease-out forwards; }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
         .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.8s; }
+        .delay-2 { animation-delay: 0.6s; }
 
-        body {
-            background-color: #fff;
-            color: #000;
-            margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
+        body { 
+            background-color: #fff; 
+            color: #000; 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'FuturaLight', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
-            font-family: 'FuturaLight', sans-serif;
         }
 
-        /* Navigazione */
-        .back-archive {
+        /* SFONDO BIANCO FISSO */
+        .bg-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background-color: #fff;
+        }
+
+        /* Pulsante Indietro elegante diretto alla Home */
+        .back-home { 
             position: fixed; 
             top: 25px; 
-            left: 20px;
+            left: 20px; 
             text-decoration: none; 
-            color: #000;
+            color: #000; 
             text-transform: uppercase; 
-            font-size: 0.65rem;
+            font-size: 0.65rem; 
             letter-spacing: 2px; 
-            opacity: 0.6; 
-            z-index: 1000;
-            transition: opacity 0.3s;
+            opacity: 0.7; 
+            z-index: 1000; 
+            transition: opacity 0.3s; 
         }
-        .back-archive:hover { opacity: 1; }
-
-        .lang-switch {
+        .back-home:hover { opacity: 1; }
+        
+        /* Switcher di lingua */
+        .lang-switch { 
             position: fixed; 
             top: 25px; 
-            right: 20px;
+            right: 20px; 
             font-size: 0.65rem; 
-            z-index: 1000;
-            letter-spacing: 2px;
+            letter-spacing: 2px; 
+            z-index: 1000; 
         }
-        .lang-btn {
+        .lang-btn { 
             background: none; 
             border: none; 
-            color: #000;
+            color: #000; 
             cursor: pointer; 
             padding: 0 5px; 
-            opacity: 0.3;
-            text-transform: uppercase;
-            font-family: inherit;
-            letter-spacing: inherit;
-            transition: opacity 0.3s;
+            opacity: 0.3; 
+            text-transform: uppercase; 
+            font-family: inherit; 
+            letter-spacing: inherit; 
+            transition: opacity 0.3s; 
         }
         .lang-btn.active { opacity: 1; }
 
-        /* CONTENITORE GENERALE */
-        .container {
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 120px 25px 150px;
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 140px 25px 120px; 
         }
 
-        /* GALLERIA IN ALTO */
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-bottom: 80px;
-        }
-
-        .photo-item {
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-            overflow: hidden;
-            background-color: rgba(0,0,0,0.02);
-        }
-        .photo-item.visible { opacity: 1; }
-
-        .photo-item img {
-            display: block;
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            cursor: pointer;
-            transition: opacity 0.4s ease;
-        }
-        .photo-item img:hover {
-            opacity: 0.8;
-        }
-
-        /* Regolazione inquadrature */
-        .photo-top { object-position: top !important; }
-        .photo-center { object-position: center 80% !important; }
-
-        /* TESTI SOTTO ALLINEATI A SINISTRA */
-        .text-section {
-            max-width: 750px;
+        /* TITOLO SEZIONE */
+        .catalogue-header {
+            max-width: 850px;
+            margin: 0 auto 50px auto;
             text-align: left;
         }
 
-        /* Titolo PRINCIPIUM con font Times New Roman */
-        h1 {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+        .catalogue-title { 
+            font-family: 'BehindNineties', serif; 
+            font-size: clamp(2rem, 5vw, 3.2rem); 
+            text-transform: lowercase;
+            margin: 0 0 10px 0; 
+            font-weight: normal; 
+        }
+
+        .catalogue-subtitle {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 6px;
-            margin: 0 0 10px 0;
-            font-weight: normal;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            margin: 0;
         }
 
-        .subtitle-event {
-            font-family: 'FuturaLight', sans-serif;
-            letter-spacing: 3px; 
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            opacity: 0.5; 
-            margin: 0 0 50px 0;
+        /* BARRA FILTRI ARTISTI ELEGANTE */
+        .filter-bar {
+            display: flex;
+            gap: 25px;
+            margin: 0 auto 60px auto;
+            max-width: 1200px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
-
-        .tagline {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(1.4rem, 3.5vw, 2rem);
-            opacity: 0.8; 
-            margin: 0 0 40px 0;
-        }
-
-        .lang-content p {
-            line-height: 2; 
-            font-size: 1.05rem;
-            opacity: 0.85; 
-            margin-bottom: 30px;
-            text-align: justify;
-        }
-
-        /* Ultima frase in nero puro senza opacità di trasparenza */
-        .highlight-text {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
-            margin-top: 50px; 
-            opacity: 1 !important;
-            color: #000000 !important;
-        }
-
-        /* LIGHTBOX CON OVERLAY CHIARO ELEGANTE */
-        #lightbox {
+        
+        /* Nasconde la scrollbar dei filtri */
+        .filter-bar::-webkit-scrollbar {
             display: none;
-            position: fixed;
-            z-index: 2000;
-            top: 0; 
-            left: 0;
-            width: 100%; 
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            justify-content: center; 
-            align-items: center;
         }
-        #lightbox img { 
-            max-width: 90%; 
-            max-height: 85vh; 
+
+        .filter-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 5px 0;
+            opacity: 0.4;
+            transition: opacity 0.3s, border-color 0.3s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            opacity: 1;
+            border-bottom-color: #000;
+        }
+
+        /* GRIGLIA OPERE */
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px 40px;
+        }
+
+        /* CARD OPERA SINGOLA */
+        .artwork-card {
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.5s ease, transform 0.5s ease, display 0.5s ease allow-discrete;
+        }
+
+        .artwork-card.hidden {
+            display: none;
+            opacity: 0;
+            transform: scale(0.98);
+        }
+
+        .artwork-img-wrapper {
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.01);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .artwork-img {
+            width: 100%;
+            height: auto;
+            display: block;
             object-fit: contain;
-            animation: fadeIn 0.4s ease-out forwards;
+            cursor: pointer;
+            transition: opacity 0.4s ease;
+        }
+
+        .artwork-img:hover {
+            opacity: 0.82;
+        }
+
+        /* DETTAGLI METADATI OPERA */
+        .artwork-info {
+            text-align: left;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        .artwork-artist {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 4px 0;
+            font-weight: bold;
+        }
+
+        .artwork-title-text {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.15rem;
+            margin: 0 0 6px 0;
+        }
+
+        .artwork-meta {
+            opacity: 0.6;
+            margin: 0 0 10px 0;
+            font-size: 0.8rem;
+        }
+
+        .artwork-price {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.8;
+            margin-bottom: 12px;
+        }
+
+        /* Bottone Inquire minimale */
+        .inquire-link {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            transition: opacity 0.3s, border-color 0.3s;
+            align-self: flex-start;
+            font-weight: bold;
+        }
+
+        .inquire-link:hover {
+            opacity: 0.5;
+            border-bottom-color: #000;
+        }
+
+        /* MODAL RICHIESTA D'OPERA */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 3000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-container {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 25px;
+            text-align: left;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.4s ease;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover {
+            opacity: 1;
+        }
+
+        .modal-title {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.6rem;
+            margin: 0 0 8px 0;
+            text-transform: lowercase;
+        }
+
+        .modal-artwork-selected {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.5;
+            margin: 0 0 35px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 15px;
+        }
+
+        /* Form di richiesta interno al modal */
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            background: transparent;
+            outline: none;
+            color: #000;
+            transition: border-color 0.4s;
+            border-radius: 0;
+        }
+
+        .form-input::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .form-input:focus {
+            border-bottom-color: #000;
+        }
+
+        textarea.form-input {
+            resize: none;
+            height: 60px;
+        }
+
+        .form-submit-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 10px 0;
+            align-self: flex-start;
+            transition: opacity 0.3s;
+            font-weight: bold;
+        }
+
+        .form-submit-btn:hover {
+            opacity: 0.5;
+        }
+
+        /* Messaggio di successo minimalista */
+        .thank-you-container {
+            display: none;
+            animation: fadeIn 0.8s ease-out forwards;
+            padding: 20px 0;
+        }
+
+        .thank-you-title {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.4rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            text-transform: lowercase;
+        }
+
+        .thank-you-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .error-message {
+            color: #8b0000;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        /* LIGHTBOX PER VISUALIZZAZIONE GRANDE */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.98);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-wrapper {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            transform: scale(0.97);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox-overlay.active .lightbox-img {
+            transform: scale(1);
         }
 
         .lightbox-close {
@@ -200,6 +490,7 @@
             transition: opacity 0.3s;
             z-index: 2010;
         }
+
         .lightbox-close:hover {
             opacity: 1;
         }
@@ -207,30 +498,29 @@
         .hidden { display: none; }
 
         /* RESPONSIVE */
-        @media (max-width: 850px) {
-            .container { padding-top: 100px; padding-bottom: 100px; }
-            .photo-gallery { 
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 12px;
-                margin-bottom: 50px;
-            }
-            .photo-item img { height: 160px; }
+        @media (max-width: 950px) {
+            .catalogue-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 30px; }
+            .container { padding-top: 120px; }
         }
 
         @media (max-width: 600px) {
-            .photo-gallery { 
-                grid-template-columns: 1fr; 
-                gap: 15px; 
-            }
-            .photo-item img { height: 210px; }
-            .back-archive, .lang-switch { position: absolute; top: 25px; }
+            .catalogue-grid { grid-template-columns: 1fr; gap: 45px; }
+            .container { padding-top: 110px; }
+            .filter-bar { margin-bottom: 40px; }
+            .back-home, .lang-switch { position: absolute; top: 25px; }
+            .form-row { grid-template-columns: 1fr; gap: 25px; }
+            .lightbox-close { top: 25px; right: 20px; }
+            .modal-close { top: -20px; right: 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sfondo Bianco -->
+    <div class="bg-container"></div>
+
     <!-- Pulsanti di navigazione esterni -->
-    <a href="archive.html" class="back-archive">← Archive</a>
+    <a href="index.html" class="back-home">← Home</a>
 
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
@@ -238,106 +528,584 @@
     </div>
 
     <!-- Contenitore Lightbox -->
-    <div id="lightbox">
+    <div class="lightbox-overlay" id="lightbox">
         <button class="lightbox-close" id="lightbox-close">close</button>
-        <img id="lightbox-img" src="" alt="Principium Event">
+        <div class="lightbox-wrapper">
+            <img src="" alt="Opera Ingrandita" class="lightbox-img" id="lightbox-img">
+        </div>
+    </div>
+
+    <!-- MODAL PER INQUIRE -->
+    <div class="modal-overlay" id="inquiry-modal">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close">close</button>
+            
+            <div id="modal-form-wrapper">
+                <h3 class="modal-title" id="modal-title-text">inquire about artwork</h3>
+                <div class="modal-artwork-selected" id="modal-artwork-selected-desc">Artwork details</div>
+                
+                <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
+                    <!-- Campi nascosti per passare le info dell'opera desiderata a Formspree -->
+                    <input type="hidden" name="artist" id="hidden-artist" value="">
+                    <input type="hidden" name="artwork" id="hidden-artwork" value="">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
+                    <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
+                </form>
+            </div>
+
+            <!-- Stato di ringraziamento (Thanks) -->
+            <div class="thank-you-container" id="thank-you-block">
+                <div class="lang-en">
+                    <h3 class="thank-you-title">thank you</h3>
+                    <p class="thank-you-text">Your inquiry has been successfully sent. We will get back to you shortly.</p>
+                </div>
+                <div class="lang-es hidden">
+                    <h3 class="thank-you-title">gracias</h3>
+                    <p class="thank-you-text">Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <div class="container">
         
-        <!-- GALLERIA FOTO IN ALTO -->
-        <section class="photo-gallery fade-in delay-1">
-            <div class="photo-item"><img src="photo_principium/photo1.jpeg" class="photo-center" alt="Principium Photo 1" onclick="openLightbox(this.src)"></div>
-            <div class="photo-item"><img src="photo_principium/photo2.jpeg" class="photo-top" alt="Principium Photo 2" onclick="openLightbox(this.src)"></div>
-            <div class="photo-item"><img src="photo_principium/photo3.jpeg" class="photo-center" alt="Principium Photo 3" onclick="openLightbox(this.src)"></div>
-            <div class="photo-item"><img src="photo_principium/photo5.jpeg" alt="Principium Photo 4" onclick="openLightbox(this.src)"></div>
-            <div class="photo-item"><img src="photo_principium/photo4.jpeg" class="photo-center" alt="Principium Photo 5" onclick="openLightbox(this.src)"></div>
-            <div class="photo-item"><img src="photo_principium/photo6.jpeg" alt="Principium Photo 6" onclick="openLightbox(this.src)"></div>
-        </section>
+        <header class="catalogue-header fade-in delay-1">
+            <h1 class="catalogue-title">inventory</h1>
+            <p class="catalogue-subtitle" id="catalogue-subtitle">Available Works</p>
+        </header>
 
-        <!-- TESTI SOTTO ALLINEATI A SINISTRA -->
-        <main class="text-section fade-in delay-2">
+        <!-- BARRA FILTRI ARTISTI -->
+        <nav class="filter-bar fade-in delay-1">
+            <button class="filter-btn active" onclick="filterCatalogue('all')" data-artist="all">All</button>
+            <button class="filter-btn" onclick="filterCatalogue('Carlotta Valentinis')" data-artist="Carlotta Valentinis">Carlotta Valentinis</button>
+            <button class="filter-btn" onclick="filterCatalogue('Catherine Parra')" data-artist="Catherine Parra">Catherine Parra</button>
+            <button class="filter-btn" onclick="filterCatalogue('Davide Ciaramella')" data-artist="Davide Ciaramella">Davide Ciaramella</button>
+            <button class="filter-btn" onclick="filterCatalogue('Davide Di Sena')" data-artist="Davide Di Sena">Davide Di Sena</button>
+            <button class="filter-btn" onclick="filterCatalogue('Lucía Cheves Dauber')" data-artist="Lucía Cheves Dauber">Lucía Cheves Dauber</button>
+            <button class="filter-btn" onclick="filterCatalogue('Raúl del Chano')" data-artist="Raúl del Chano">Raúl del Chano</button>
+        </nav>
+
+        <!-- GRIGLIA OPERE DISPONIBILI -->
+        <main class="catalogue-grid fade-in delay-2">
             
-            <header>
-                <h1>PRINCIPIUM</h1>
-                <p class="subtitle-event">Chapter I - May 2026 - Barcelona</p>
-            </header>
+            <!-- CARLOTTA VALENTINIS -->
+            <article class="artwork-card" data-artist="Carlotta Valentinis">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/obracarlotta_2.jpeg" alt="Carlotta Valentinis - Senza Titolo II" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Carlotta Valentinis</h4>
+                    <h3 class="artwork-title-text">Senza Titolo II</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Mixed media with harvested natural pigments</span>
+                        <span class="lang-es hidden">Técnica mixta con pigmentos naturales recolectados</span><br>
+                        120 x 100 cm — 2026
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Carlotta Valentinis', 'Senza Titolo II')">Inquire</button>
+                </div>
+            </article>
 
-            <p class="tagline">In the beginning there was chaos</p>
+            <article class="artwork-card" data-artist="Carlotta Valentinis">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/obracarlotta_3.jpeg" alt="Carlotta Valentinis - Senza Titolo III" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Carlotta Valentinis</h4>
+                    <h3 class="artwork-title-text">Senza Titolo III</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Mixed media with harvested natural pigments</span>
+                        <span class="lang-es hidden">Técnica mixta con pigmentos naturales recolectados</span><br>
+                        80 x 80 cm — 2026
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Carlotta Valentinis', 'Senza Titolo III')">Inquire</button>
+                </div>
+            </article>
 
-            <div id="lang-en" class="lang-content">
-                <p>Before form, before order, before beauty, there was chaos. An indistinct, primordial space, charged with energy and possibility. Principium emerges from the idea of exploring the origin of everything, the moment when matter and emotion begin to take shape.</p>
-                <p>The exhibition brings together contemporary artists, each with a distinct and recognizable practice, whose works coexist within the space, creating an unstable balance of tensions and affinities.</p>
-                <p class="highlight-text">Principium is an invitation to return to the beginning.</p>
-            </div>
+            <!-- CATHERINE PARRA -->
+            <article class="artwork-card" data-artist="Catherine Parra">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/catherine1.jpg" alt="Catherine Parra - Composition Bleue" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Catherine Parra</h4>
+                    <h3 class="artwork-title-text">Composition Bleue</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Acrylic and collage on canvas</span>
+                        <span class="lang-es hidden">Acrílico y collage sobre lienzo</span><br>
+                        100 x 100 cm — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Catherine Parra', 'Composition Bleue')">Inquire</button>
+                </div>
+            </article>
 
-            <div id="lang-es" class="lang-content hidden">
-                <p>Antes de la forma, antes del orden, antes de la belleza, existía el caos. Un espacio indistinto, primordial, cargado de energía e posibilidad. Principium nace de la idea de explorar el origen de todas las cosas, el momento en el que la materia y la emoción comienzan a tomar forma.</p>
-                <p>La exposición reúne a artistas contemporáneos, cada uno con una poética autónoma y reconocible, que conviven en el espacio expositivo generando un equilibrio inestable de tensiones e afinidades.</p>
-                <p class="highlight-text">Principium is an invitation to return to the beginning.</p>
-            </div>
+            <article class="artwork-card" data-artist="Catherine Parra">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/catherine2.jpg" alt="Catherine Parra - L'Équilibre" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Catherine Parra</h4>
+                    <h3 class="artwork-title-text">L'Équilibre</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Mixed media and textiles on canvas</span>
+                        <span class="lang-es hidden">Técnica mixta y textiles sobre lienzo</span><br>
+                        140 x 120 cm — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Catherine Parra', 'L\'Équilibre')">Inquire</button>
+                </div>
+            </article>
+
+            <!-- DAVIDE CIARAMELLA -->
+            <article class="artwork-card" data-artist="Davide Ciaramella">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/obradavide_3.jpeg" alt="Davide Ciaramella - Anima Organica" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Ciaramella</h4>
+                    <h3 class="artwork-title-text">Anima Organica</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Acrylic and graphic ink on canvas</span>
+                        <span class="lang-es hidden">Acrílico y tinta gráfica sobre lienzo</span><br>
+                        90 x 90 cm — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Ciaramella', 'Anima Organica')">Inquire</button>
+                </div>
+            </article>
+
+            <article class="artwork-card" data-artist="Davide Ciaramella">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/obradavide_2.jpeg" alt="Davide Ciaramella - Memoria Primordiale" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Ciaramella</h4>
+                    <h3 class="artwork-title-text">Memoria Primordiale</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Mixed media on wood</span>
+                        <span class="lang-es hidden">Técnica mixta sobre madera</span><br>
+                        70 x 70 cm — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Ciaramella', 'Memoria Primordiale')">Inquire</button>
+                </div>
+            </article>
+
+            <article class="artwork-card" data-artist="Davide Ciaramella">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/obradavidei.jpeg" alt="Davide Ciaramella - Iperspazio" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Ciaramella</h4>
+                    <h3 class="artwork-title-text">Iperspazio</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Graphic engraving and acrylic on raw board</span>
+                        <span class="lang-es hidden">Grabado gráfico y acrílico sobre tabla cruda</span><br>
+                        100 x 80 cm — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Ciaramella', 'Iperspazio')">Inquire</button>
+                </div>
+            </article>
+
+            <!-- DAVIDE DI SENA -->
+            <article class="artwork-card" data-artist="Davide Di Sena">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/davidedisena1.jpg" alt="Davide Di Sena - Trace I" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Di Sena</h4>
+                    <h3 class="artwork-title-text">Trace I</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Analog photography (Silver gelatin print)</span>
+                        <span class="lang-es hidden">Fotografía analógica (Gelatina de plata)</span><br>
+                        40 x 50 cm — Edition of 5 — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Di Sena', 'Trace I')">Inquire</button>
+                </div>
+            </article>
+
+            <article class="artwork-card" data-artist="Davide Di Sena">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/davidedisena2.jpg" alt="Davide Di Sena - Trace II" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Di Sena</h4>
+                    <h3 class="artwork-title-text">Trace II</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Analog photography (Silver gelatin print)</span>
+                        <span class="lang-es hidden">Fotografía analógica (Gelatina de plata)</span><br>
+                        40 x 50 cm — Edition of 5 — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Di Sena', 'Trace II')">Inquire</button>
+                </div>
+            </article>
+
+            <article class="artwork-card" data-artist="Davide Di Sena">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/davidedisena3.jpg" alt="Davide Di Sena - Trace III" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Di Sena</h4>
+                    <h3 class="artwork-title-text">Trace III</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Analog photography (Silver gelatin print)</span>
+                        <span class="lang-es hidden">Fotografía analógica (Gelatina de plata)</span><br>
+                        40 x 50 cm — Edition of 5 — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Di Sena', 'Trace III')">Inquire</button>
+                </div>
+            </article>
+
+            <article class="artwork-card" data-artist="Davide Di Sena">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/davidedisena4.jpg" alt="Davide Di Sena - Trace IV" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Davide Di Sena</h4>
+                    <h3 class="artwork-title-text">Trace IV</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Analog photography (Silver gelatin print)</span>
+                        <span class="lang-es hidden">Fotografía analógica (Gelatina de plata)</span><br>
+                        40 x 50 cm — Edition of 5 — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Davide Di Sena', 'Trace IV')">Inquire</button>
+                </div>
+            </article>
+
+            <!-- LUCÍA CHEVES DAUBER -->
+            <article class="artwork-card" data-artist="Lucía Cheves Dauber">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/obralucia_2.jpeg" alt="Lucía Cheves Dauber - Tiembla el Suelo II" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Lucía Cheves Dauber</h4>
+                    <h3 class="artwork-title-text">Tiembla el Suelo II</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Oil and collage on canvas</span>
+                        <span class="lang-es hidden">Óleo y collage sobre lienzo</span><br>
+                        150 x 120 cm — 2026
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Lucía Cheves Dauber', 'Tiembla el Suelo II')">Inquire</button>
+                </div>
+            </article>
+
+            <article class="artwork-card" data-artist="Lucía Cheves Dauber">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/lucia5.jpg" alt="Lucía Cheves Dauber - Ancestral Thread" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Lucía Cheves Dauber</h4>
+                    <h3 class="artwork-title-text">Ancestral Thread</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Mixed media and textile layers</span>
+                        <span class="lang-es hidden">Técnica mixta y capas de textil</span><br>
+                        110 x 90 cm — 2025
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Lucía Cheves Dauber', 'Ancestral Thread')">Inquire</button>
+                </div>
+            </article>
+
+            <!-- RAÚL DEL CHANO -->
+            <article class="artwork-card" data-artist="Raúl del Chano">
+                <div class="artwork-img-wrapper">
+                    <img src="fotos_obras/raul1.jpg" alt="Raúl del Chano - Principium Wicker" class="artwork-img" onclick="openLightbox(this.src, this.alt)">
+                </div>
+                <div class="artwork-info">
+                    <h4 class="artwork-artist">Raúl del Chano</h4>
+                    <h3 class="artwork-title-text">Principium Wicker</h3>
+                    <p class="artwork-meta">
+                        <span class="lang-en">Contemporary wicker and rattan sculpture</span>
+                        <span class="lang-es hidden">Escultura contemporánea de mimbre y caña</span><br>
+                        60 x 50 x 50 cm — 2026
+                    </p>
+                    <p class="artwork-price">
+                        <span class="lang-en">Price on request</span>
+                        <span class="lang-es hidden">Precio bajo petición</span>
+                    </p>
+                    <button class="inquire-link" onclick="openInquiryModal('Raúl del Chano', 'Principium Wicker')">Inquire</button>
+                </div>
+            </article>
 
         </main>
     </div>
 
     <script>
-        // --- GESTIONE LINGUA ---
-        const lightboxClose = document.getElementById('lightbox-close');
-
-        function setLang(lang) {
-            document.getElementById('lang-en').classList.add('hidden');
-            document.getElementById('lang-es').classList.add('hidden');
-            document.getElementById('lang-' + lang).classList.remove('hidden');
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById('btn-es').classList.remove('active');
-            document.getElementById('btn-' + lang).classList.add('active');
-
-            // Traduzione del tasto close nel lightbox
-            if (lang === 'es') {
-                lightboxClose.innerText = "cerrar";
-            } else {
-                lightboxClose.innerText = "close";
-            }
-        }
-
-        // --- GESTIONE LIGHTBOX ---
+        // --- FUNZIONALITÀ LIGHTBOX ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
 
-        function openLightbox(src) {
+        function openLightbox(src, alt) {
             lightboxImg.src = src;
-            lightbox.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Impedisce lo scroll
+            lightboxImg.alt = alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Blocca lo scroll sotto
         }
 
         function closeLightbox() {
-            lightbox.style.display = 'none';
+            lightbox.classList.remove('active');
             document.body.style.overflow = ''; // Ripristina lo scroll
-            lightboxImg.src = '';
+            setTimeout(() => {
+                lightboxImg.src = ''; 
+            }, 400);
         }
 
         lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox || e.target === lightboxClose) {
+            if (e.target === lightbox || e.target === lightboxClose || e.target.classList.contains('lightbox-wrapper')) {
                 closeLightbox();
             }
         });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.style.display === 'flex') {
-                closeLightbox();
-            }
-        });
+        // --- FILTRI INVENTARIO ARTISTI ---
+        function filterCatalogue(artist) {
+            const cards = document.querySelectorAll('.artwork-card');
+            const filterBtns = document.querySelectorAll('.filter-btn');
 
-        // --- INTERSECTION OBSERVER PER FADE IN DELLE FOTO ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+            // Aggiorna stato attivo dei bottoni filtro
+            filterBtns.forEach(btn => {
+                if (btn.getAttribute('data-artist') === artist) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
                 }
             });
-        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.photo-item').forEach(item => observer.observe(item));
+            // Filtra le card
+            cards.forEach(card => {
+                const cardArtist = card.getAttribute('data-artist');
+                if (artist === 'all' || cardArtist === artist) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // --- MODAL DI RICHIESTA (INQUIRE MODAL) ---
+        const inquiryModal = document.getElementById('inquiry-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalArtworkSelectedDesc = document.getElementById('modal-artwork-selected-desc');
+        const hiddenArtist = document.getElementById('hidden-artist');
+        const hiddenArtwork = document.getElementById('hidden-artwork');
+        const modalFormWrapper = document.getElementById('modal-form-wrapper');
+        const thankYouBlock = document.getElementById('thank-you-block');
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const errorMsg = document.getElementById('error-msg');
+
+        function openInquiryModal(artist, artworkTitle) {
+            // Configura i dettagli dell'opera nel modal
+            hiddenArtist.value = artist;
+            hiddenArtwork.value = artworkTitle;
+            
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+            if (isEs) {
+                modalArtworkSelectedDesc.innerHTML = `Obra seleccionada: <strong>${artworkTitle}</strong> de ${artist}`;
+            } else {
+                modalArtworkSelectedDesc.innerHTML = `Selected Artwork: <strong>${artworkTitle}</strong> by ${artist}`;
+            }
+
+            // Mostra il modal e blocca lo scroll della pagina
+            modalFormWrapper.style.display = 'block';
+            thankYouBlock.style.display = 'none';
+            contactForm.reset();
+            inquiryModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInquiryModal() {
+            inquiryModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeInquiryModal);
+        inquiryModal.addEventListener('click', (e) => {
+            if (e.target === inquiryModal) {
+                closeInquiryModal();
+            }
+        });
+
+        // Chiudi con ESC tastiera
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (lightbox.classList.contains('active')) closeLightbox();
+                if (inquiryModal.classList.contains('active')) closeInquiryModal();
+            }
+        });
+
+        // --- INVIO FORM AJAX (FORMSPREE) ---
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+            
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = "0.4";
+            submitBtn.innerText = isEs ? "Enviando..." : "Sending...";
+            errorMsg.style.display = "none";
+
+            const data = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    modalFormWrapper.style.display = 'none';
+                    thankYouBlock.style.display = 'block';
+                    
+                    if (isEs) {
+                        thankYouBlock.querySelector('.lang-en').classList.add('hidden');
+                        thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
+                    } else {
+                        thankYouBlock.querySelector('.lang-es').classList.add('hidden');
+                        thankYouBlock.querySelector('.lang-en').classList.remove('hidden');
+                    }
+                } else {
+                    throw new Error('Server response not ok');
+                }
+            } catch (error) {
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = "1";
+                submitBtn.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
+                errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
+                errorMsg.style.display = "block";
+            }
+        });
+
+        // --- CAMBIO LINGUA ---
+        function setLang(lang) {
+            const en = document.querySelectorAll('.lang-en');
+            const es = document.querySelectorAll('.lang-es');
+            const btnEn = document.getElementById('btn-en');
+            const btnEs = document.getElementById('btn-es');
+
+            // Elementi UI da tradurre
+            const catalogueSubtitle = document.getElementById('catalogue-subtitle');
+            const modalTitleText = document.getElementById('modal-title-text');
+            const inputName = document.getElementById('input-name');
+            const inputEmail = document.getElementById('input-email');
+            const inputMessage = document.getElementById('input-message');
+            const submitBtnElement = document.getElementById('submit-btn');
+
+            if (lang === 'es') {
+                en.forEach(el => el.classList.add('hidden'));
+                es.forEach(el => el.classList.remove('hidden'));
+                btnEs.classList.add('active'); 
+                btnEn.classList.remove('active');
+
+                catalogueSubtitle.innerText = "Obras Disponibles";
+                modalTitleText.innerText = "solicitar información";
+                inputName.placeholder = "Su nombre";
+                inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Su consulta o mensaje sobre la obra...";
+                
+                if (!submitBtnElement.disabled) {
+                    submitBtnElement.innerText = "Enviar consulta →";
+                } else {
+                    submitBtnElement.innerText = "Enviando...";
+                }
+                
+                lightboxClose.innerText = "cerrar";
+                modalClose.innerText = "cerrar";
+
+                // Aggiorna il testo descrittivo del modal se aperto
+                if (inquiryModal.classList.contains('active')) {
+                    modalArtworkSelectedDesc.innerHTML = `Obra seleccionada: <strong>${hiddenArtwork.value}</strong> de ${hiddenArtist.value}`;
+                }
+            } else {
+                es.forEach(el => el.classList.add('hidden'));
+                en.forEach(el => el.classList.remove('hidden'));
+                btnEn.classList.add('active'); 
+                btnEs.classList.remove('active');
+
+                catalogueSubtitle.innerText = "Available Works";
+                modalTitleText.innerText = "inquire about artwork";
+                inputName.placeholder = "Your name";
+                inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Your message or inquiry...";
+                
+                if (!submitBtnElement.disabled) {
+                    submitBtnElement.innerText = "Send Inquiry →";
+                } else {
+                    submitBtnElement.innerText = "Sending...";
+                }
+                
+                lightboxClose.innerText = "close";
+                modalClose.innerText = "close";
+
+                if (inquiryModal.classList.contains('active')) {
+                    modalArtworkSelectedDesc.innerHTML = `Selected Artwork: <strong>${hiddenArtwork.value}</strong> by ${hiddenArtist.value}`;
+                }
+            }
+        }
     </script>
 </body>
 </html>
