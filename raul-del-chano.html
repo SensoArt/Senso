@@ -109,29 +109,25 @@
             font-weight: bold; /* Grassetto richiesto */
         }
 
-        /* Layout a due colonne (Foto a sinistra, Bio a destra) */
+        /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 350px 1fr; 
+            grid-template-columns: 280px 1fr; /* Colonna sinistra di dimensioni controllate ed eleganti */
             gap: 60px; 
             align-items: start; 
         }
         
         .img-container { 
             width: 100%; 
-            overflow: hidden; 
-            background-color: rgba(0,0,0,0.03); 
+            background-color: transparent; 
         }
 
+        /* L'immagine non viene ritagliata e si adatta in modo naturale alle sue proporzioni originali */
         .artist-img { 
             width: 100%; 
+            height: auto; 
             display: block; 
-            aspect-ratio: 3 / 2; 
-            object-fit: cover; 
         }
-
-        /* Regolazione inquadratura specifica per la prima opera */
-        .img-raul { object-position: center 20%; }
 
         /* Stile dei testi bio */
         .artist-bio { 
@@ -241,6 +237,7 @@
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
+            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene l'immagine contenuta e centrata su schermi piccoli */
             .container { padding-top: 120px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
         }
@@ -267,9 +264,9 @@
         </header>
 
         <div class="artist-content fade-in delay-2">
-            <!-- Nuova Foto dell'opera caricata su fotos_obras -->
+            <!-- Foto dell'opera nativa e intera (senza alcun ritaglio) -->
             <div class="img-container">
-                <img src="fotos_obras/raul1.jpg" alt="Raúl del Chano — Opera" class="artist-img img-raul">
+                <img src="fotos_obras/raul1.jpg" alt="Raúl del Chano — Opera" class="artist-img">
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -287,7 +284,6 @@
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
-                    <!-- L'action del modulo può essere collegata a Formspree o configurata come preferisci -->
                     <form action="https://formspree.io/f/your-form-id" method="POST" class="inquiry-form">
                         <!-- Campo nascosto per capire a quale artista si riferisce la richiesta nel backend della mail -->
                         <input type="hidden" name="artist" value="Raúl del Chano">
@@ -338,7 +334,7 @@
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
 
-                // Traduzioni Form Spagnolo
+                // Traduzioni Form Spagnolo (Inquire minimale)
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
@@ -350,7 +346,7 @@
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
 
-                // Traduzioni Form Inglese
+                // Traduzioni Form Inglese (Inquire minimale)
                 formTitle.innerText = "inquire";
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
