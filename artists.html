@@ -132,16 +132,19 @@
             margin-bottom: 20px;
         }
 
+        /* Immagine di base in bianco e nero */
         .artist-img { 
             width: 100%; 
             display: block; 
             aspect-ratio: 3 / 2; 
             object-fit: cover; 
-            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1); 
+            filter: grayscale(1);
+            transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
         }
 
-        /* Zoom leggero ed elegante all'hover */
+        /* Transizione a colori e zoom leggero al passaggio del mouse */
         .artist-block:hover .artist-img { 
+            filter: grayscale(0);
             transform: scale(1.015); 
         }
 
@@ -156,9 +159,10 @@
             text-align: left;
         }
 
+        /* Dimensione del nome ridotta per non urlare, minimale e sussurrata */
         .artist-name { 
             font-family: 'FuturaLight', sans-serif;
-            font-size: 1.1rem; 
+            font-size: 0.8rem; 
             font-weight: normal; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
@@ -187,13 +191,12 @@
                 grid-template-columns: 1fr; 
                 row-gap: 50px;
             }
-            .artist-name { font-size: 1rem; }
+            .artist-name { font-size: 0.75rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
     <a href="index.html" class="back-home">← Home</a>
@@ -209,10 +212,8 @@
             <h1 class="section-title" id="main-title">artists</h1>
         </header>
 
-        <!-- Griglia degli artisti -->
         <div class="artists-grid fade-in delay-2">
 
-            <!-- ARTISTA 1: Raúl del Chano -->
             <a href="raul-del-chano.html" class="artist-block">
                 <div class="img-container">
                     <img src="fotos_artistas/raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img img-raul">
@@ -222,7 +223,6 @@
                 </div>
             </a>
 
-            <!-- ARTISTA 2: Lucía Cheves Dauber -->
             <a href="lucia-cheves.html" class="artist-block">
                 <div class="img-container">
                     <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
@@ -232,7 +232,6 @@
                 </div>
             </a>
 
-            <!-- ARTISTA 3: Carlotta Valentinis Queraltó -->
             <a href="carlotta-valentinis.html" class="artist-block">
                 <div class="img-container">
                     <img src="fotos_artistas/carlotta_valentinis.jpg" alt="Carlotta Valentinis" class="artist-img">
@@ -242,7 +241,6 @@
                 </div>
             </a>
 
-            <!-- ARTISTA 4: Davide Ciaramella -->
             <a href="davide-ciaramella.html" class="artist-block">
                 <div class="img-container">
                     <img src="fotos_artistas/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img img-davide">
@@ -252,7 +250,6 @@
                 </div>
             </a>
 
-            <!-- ARTISTA 5: Davide Di Sena -->
             <a href="davide-disena.html" class="artist-block">
                 <div class="img-container">
                     <img src="fotos_artistas/davide_disena.jpg" alt="Davide Di Sena" class="artist-img">
@@ -262,7 +259,6 @@
                 </div>
             </a>
 
-            <!-- ARTISTA 6: Catherine Parra -->
             <a href="catherine-parra.html" class="artist-block">
                 <div class="img-container">
                     <img src="fotos_artistas/catherine_parra.jpg" alt="Catherine Parra" class="artist-img img-catherine">
