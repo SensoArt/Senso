@@ -93,10 +93,11 @@
         }
         .lang-btn.active { opacity: 1; }
 
+        /* Contenitore con padding inferiore generoso per lasciare massimo respiro */
         .container { 
             max-width: 850px; 
             margin: 0 auto; 
-            padding: 150px 25px 50px; 
+            padding: 150px 25px 150px; /* Aumentato il fondo pagina a 150px */
         }
 
         /* Nome dell'artista in grassetto elegante */
@@ -226,19 +227,11 @@
             opacity: 0.5;
         }
 
-        .isotipo-footer { 
-            padding: 80px 20px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-        }
-        .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
-
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 35px; }
             .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene l'immagine contenuta e centrata su schermi piccoli */
-            .container { padding-top: 120px; }
+            .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
         }
     </style>
@@ -309,7 +302,6 @@
         </div>
 
     </main>
-
 
     <script>
         function setLang(lang) {
