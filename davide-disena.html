@@ -161,7 +161,7 @@
         /* Frecce di Navigazione Minimali e Visibili su qualsiasi opera */
         .nav-arrow {
             position: absolute;
-            top: 50%;
+            /* top viene calcolato dinamicamente tramite JS per centrarsi sull'opera */
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -178,7 +178,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -464,7 +464,7 @@
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Davide Di Sena — Active Artwork" class="artist-img">
+                        <img id="active-artwork" src="" alt="Davide Di Sena — Active Artwork" class="artist-img" onload="alignArrows()">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
@@ -546,6 +546,30 @@
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
         const inputMessage = document.getElementById('input-message');
 
+        // Funzione per allineare le frecce esattamente al centro verticale dell'opera visibile
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            
+            if (img && prevArrow && nextArrow) {
+                // Se l'immagine è già caricata e ha un'altezza definita
+                if (img.complete && img.clientHeight > 0) {
+                    const centerOffset = img.clientHeight / 2;
+                    prevArrow.style.top = `${centerOffset}px`;
+                    nextArrow.style.top = `${centerOffset}px`;
+                } else {
+                    // Fallback di sicurezza nel caso in cui l'evento onload non sia ancora scattato
+                    img.addEventListener('load', function imgOnLoad() {
+                        const centerOffset = img.clientHeight / 2;
+                        prevArrow.style.top = `${centerOffset}px`;
+                        nextArrow.style.top = `${centerOffset}px`;
+                        img.removeEventListener('load', imgOnLoad);
+                    }, { once: true });
+                }
+            }
+        }
+
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
@@ -573,6 +597,8 @@
                 activeArtworkImg.src = activeArt.src;
                 activeArtworkImg.alt = isEs ? activeArt.labelEs : activeArt.labelEn;
                 activeArtworkImg.style.opacity = '1';
+                // Ricalcola l'allineamento dopo la transizione
+                setTimeout(alignArrows, 50);
             }, 180);
 
             // Aggiorna miniature attive
@@ -604,6 +630,9 @@
             currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
             updateSlide();
         }
+
+        // Ricalcola il posizionamento anche se si ridimensiona la finestra del browser
+        window.addEventListener('resize', alignArrows);
 
         // --- GESTIONE TOUCH SWIPE SU MOBILE ---
         let touchStartX = 0;
