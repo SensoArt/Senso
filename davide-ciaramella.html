@@ -109,7 +109,7 @@
             font-weight: bold; 
         }
 
-        /* Layout a due colonne (Griglia foto a sinistra ottimizzata, Bio a destra) */
+        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
         .artist-content { 
             display: grid; 
             grid-template-columns: 380px 1fr; 
@@ -117,27 +117,106 @@
             align-items: start; 
         }
         
-        /* Griglia ordinata e geometrica per le opere (Tutte uguali) */
         .img-container { 
             width: 100%; 
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 15px; 
             background-color: transparent; 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni */
+        /* Contenitore per l'immagine attiva principale */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.01);
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+
+        .main-image-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px; /* Altezza fissa del contenitore per evitare salti */
+        }
+
+        /* Immagine attiva interattiva e cliccabile per Lightbox */
         .artist-img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            object-fit: contain; 
-            cursor: pointer; 
-            transition: opacity 0.4s ease;
+            max-width: 100%; 
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
         }
 
-        .artist-img:hover {
-            opacity: 0.8;
+        /* Frecce di Navigazione Minimali e Visibili su qualsiasi opera */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.85); 
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #000;
+            cursor: pointer;
+            opacity: 0.6; 
+            z-index: 10;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
+
+        /* Miniature in griglia geometrica pulita a 3 colonne */
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .thumb-item {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.35;
+            border: 1px solid transparent;
+            transition: opacity 0.3s, border-color 0.3s;
+        }
+
+        .thumb-item:hover, .thumb-item.active {
+            opacity: 1;
+        }
+
+        .thumb-item.active {
+            border-color: #000;
         }
 
         /* Stile dei testi bio */
@@ -183,14 +262,13 @@
             max-width: 90vw;
             max-height: 85vh;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
         }
 
         .lightbox-img {
             max-width: 100%;
-            max-height: 65vh;
+            max-height: 85vh;
             object-fit: contain;
             transform: scale(0.97);
             transition: transform 0.4s ease;
@@ -198,53 +276,6 @@
 
         .lightbox-overlay.active .lightbox-img {
             transform: scale(1);
-        }
-
-        .lightbox-caption-wrapper {
-            margin-top: 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .lightbox-caption-title {
-            font-family: 'BehindNineties', serif;
-            font-size: 1.4rem;
-            color: #000;
-            margin: 0;
-        }
-
-        .lightbox-caption-meta {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            color: #000;
-            opacity: 0.6;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0;
-        }
-
-        .lightbox-inquire-btn {
-            background: none;
-            border: none;
-            border-bottom: 1px solid #000;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            margin-top: 15px;
-            padding: 4px 0;
-            font-weight: bold;
-            color: #000;
-            transition: opacity 0.3s, border-color 0.3s;
-        }
-
-        .lightbox-inquire-btn:hover {
-            opacity: 0.5;
-            border-bottom-color: transparent;
         }
 
         .lightbox-close {
@@ -351,7 +382,7 @@
             opacity: 0.5;
         }
 
-        /* Messaggio di successo minimalista */
+        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -385,11 +416,13 @@
 
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
-            .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .img-container { max-width: 420px; margin: 0 auto; gap: 12px; } 
+            .artist-content { grid-template-columns: 1fr; gap: 40px; }
+            .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
+            .main-image-frame { height: 300px; }
+            .artist-img { max-height: 300px; }
         }
     </style>
 </head>
@@ -412,11 +445,6 @@
         <button class="lightbox-close" id="lightbox-close">close</button>
         <div class="lightbox-wrapper">
             <img src="" alt="Opera Ingrandita" class="lightbox-img" id="lightbox-img">
-            <div class="lightbox-caption-wrapper">
-                <h3 class="lightbox-caption-title" id="lightbox-caption-title"></h3>
-                <p class="lightbox-caption-meta" id="lightbox-caption-meta"></p>
-                <button class="lightbox-inquire-btn" id="lightbox-inquire-btn" onclick="inquireFromLightbox()">Inquire about this work</button>
-            </div>
         </div>
     </div>
 
@@ -428,31 +456,21 @@
 
         <div class="artist-content fade-in delay-2">
             
-            <!-- Composizione geometrica uniforme con metadati precisi associati -->
+            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
-                <img src="fotos_obras/obradavide_3.jpeg" 
-                     alt="Davide Ciaramella — Anima Organica" 
-                     data-title-en="Anima Organica" 
-                     data-title-es="Anima Organica" 
-                     data-meta-en="Acrylic and graphic ink on canvas — 90 x 90 cm — 2025" 
-                     data-meta-es="Acrílico y tinta gráfica sobre lienzo — 90 x 90 cm — 2025" 
-                     class="artist-img">
-                     
-                <img src="fotos_obras/obradavide_2.jpeg" 
-                     alt="Davide Ciaramella — Memoria Primordiale" 
-                     data-title-en="Memoria Primordiale" 
-                     data-title-es="Memoria Primordiale" 
-                     data-meta-en="Mixed media on wood — 70 x 70 cm — 2025" 
-                     data-meta-es="Técnica mixta sobre madera — 70 x 70 cm — 2025" 
-                     class="artist-img">
-                     
-                <img src="fotos_obras/obradavidei.jpeg" 
-                     alt="Davide Ciaramella — Iperspazio" 
-                     data-title-en="Iperspazio" 
-                     data-title-es="Iperspazio" 
-                     data-meta-en="Graphic engraving and acrylic on raw board — 100 x 80 cm — 2025" 
-                     data-meta-es="Grabado gráfico y acrílico sobre tabla cruda — 100 x 80 cm — 2025" 
-                     class="artist-img">
+                
+                <!-- Spazio immagine principale con frecce -->
+                <div class="slider-wrapper" id="swipe-area">
+                    <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
+                    <div class="main-image-frame">
+                        <img id="active-artwork" src="" alt="Davide Ciaramella — Active Artwork" class="artist-img">
+                    </div>
+                    <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+                </div>
+
+                <!-- Griglia delle miniature -->
+                <div class="thumbnail-grid" id="thumbnails-container"></div>
+                
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -486,7 +504,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea>
                         </div>
                         
                         <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
@@ -512,93 +530,146 @@
     </main>
 
     <script>
+        // Array ordinato delle opere sincronizzato con il catalogo dell'inventario
+        const artworks = [
+            { 
+                src: "fotos_obras/obradavide_3.jpeg", 
+                labelEn: "Assopito (Oil on canvas, 24 x 30 cm, 2026)", 
+                labelEs: "Assopito (Óleo sobre lienzo, 24 x 30 cm, 2026)" 
+            },
+            { 
+                src: "fotos_obras/obradavide_2.jpeg", 
+                labelEn: "Sguardo su Fiore (Oil on canvas, 24 x 30 cm, 2026)", 
+                labelEs: "Sguardo su Fiore (Óleo sobre lienzo, 24 x 30 cm, 2026)" 
+            },
+            { 
+                src: "fotos_obras/obradavidei.jpeg", 
+                labelEn: "Distaccato (Oil on canvas, 24 x 30 cm, 2026)", 
+                labelEs: "Distaccato (Óleo sobre lienzo, 24 x 30 cm, 2026)" 
+            }
+        ];
+
+        let currentIndex = 0;
+
+        const thumbnailsContainer = document.getElementById('thumbnails-container');
+        const activeArtworkImg = document.getElementById('active-artwork');
+        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
+        const inputMessage = document.getElementById('input-message');
+
+        function initGallery() {
+            thumbnailsContainer.innerHTML = '';
+            artworks.forEach((art, index) => {
+                const img = document.createElement('img');
+                img.src = art.src;
+                img.alt = art.labelEn;
+                img.className = 'thumb-item';
+                if (index === currentIndex) img.classList.add('active');
+                
+                img.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                thumbnailsContainer.appendChild(img);
+            });
+            updateSlide();
+        }
+
+        function updateSlide() {
+            const activeArt = artworks[currentIndex];
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+
+            // Aggiorna immagine principale
+            activeArtworkImg.style.opacity = '0.3';
+            setTimeout(() => {
+                activeArtworkImg.src = activeArt.src;
+                activeArtworkImg.alt = isEs ? activeArt.labelEs : activeArt.labelEn;
+                activeArtworkImg.style.opacity = '1';
+            }, 180);
+
+            // Aggiorna miniature attive
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentIndex) {
+                    thumb.classList.add('active');
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+
+            // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
+            hiddenArtworkTitle.value = activeArt.labelEn;
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % artworks.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+            updateSlide();
+        }
+
+        // --- GESTIONE TOUCH SWIPE SU MOBILE ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                nextSlide(); 
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide(); 
+            }
+        }
+
         // --- FUNZIONALITÀ LIGHTBOX ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
-        const lightboxCaptionTitle = document.getElementById('lightbox-caption-title');
-        const lightboxCaptionMeta = document.getElementById('lightbox-caption-meta');
-        const lightboxInquireBtn = document.getElementById('lightbox-inquire-btn');
-        const artistImages = document.querySelectorAll('.artist-img');
-        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
-        const inputMessage = document.getElementById('input-message');
 
-        let selectedArtworkEn = '';
-        let selectedArtworkEs = '';
-        let selectedArtworkMetaEn = '';
-        let selectedArtworkMetaEs = '';
-
-        // Apre il Lightbox sull'immagine cliccata caricando i rispettivi metadati localizzati
-        artistImages.forEach(img => {
-            img.addEventListener('click', () => {
-                const isEs = document.getElementById('btn-es').classList.contains('active');
-                
-                selectedArtworkEn = img.getAttribute('data-title-en');
-                selectedArtworkEs = img.getAttribute('data-title-es');
-                selectedArtworkMetaEn = img.getAttribute('data-meta-en');
-                selectedArtworkMetaEs = img.getAttribute('data-meta-es');
-
-                lightboxImg.src = img.src;
-                lightboxImg.alt = isEs ? selectedArtworkEs : selectedArtworkEn;
-
-                // Popola i campi descrittivi del lightbox
-                lightboxCaptionTitle.innerText = isEs ? selectedArtworkEs : selectedArtworkEn;
-                lightboxCaptionMeta.innerText = isEs ? selectedArtworkMetaEs : selectedArtworkMetaEn;
-
-                // Aggiorna il valore nascosto del form per Formspree
-                hiddenArtworkTitle.value = selectedArtworkEn;
-
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sottostante
-            });
+        activeArtworkImg.addEventListener('click', () => {
+            lightboxImg.src = activeArtworkImg.src;
+            lightboxImg.alt = activeArtworkImg.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
 
-        // CTA dal Lightbox: chiude, scrolla al form ed imposta il template di richiesta
-        function inquireFromLightbox() {
-            const isEs = document.getElementById('btn-es').classList.contains('active');
-            closeLightbox();
-
-            // Costruisce la query personalizzata da inserire nell'input di testo
-            setTimeout(() => {
-                const section = document.querySelector('.inquiry-section');
-                section.scrollIntoView({ behavior: 'smooth' });
-                
-                if (isEs) {
-                    inputMessage.value = `Hola, estoy interesado en recibir información sobre la obra "${selectedArtworkEs}" (${selectedArtworkMetaEs}) de Davide Ciaramella.`;
-                } else {
-                    inputMessage.value = `Hello, I am interested in inquiring about the artwork "${selectedArtworkEn}" (${selectedArtworkMetaEn}) by Davide Ciaramella.`;
-                }
-                
-                // Focus sul campo Nome
-                document.getElementById('input-name').focus();
-            }, 450);
-        }
-
-        // Chiude il Lightbox ripristinando le impostazioni native
         function closeLightbox() {
             lightbox.classList.remove('active');
-            document.body.style.overflow = ''; // Ripristina lo scroll
+            document.body.style.overflow = '';
             setTimeout(() => {
-                lightboxImg.src = ''; 
-                lightboxCaptionTitle.innerText = '';
-                lightboxCaptionMeta.innerText = '';
+                lightboxImg.src = '';
             }, 400);
         }
 
         lightbox.addEventListener('click', (e) => {
-            // Chiude se si clicca sullo sfondo o sul tasto "close"
             if (e.target === lightbox || e.target === lightboxClose || e.target.classList.contains('lightbox-wrapper')) {
                 closeLightbox();
             }
         });
 
-        // Chiude con il tasto ESC della tastiera
+        // Chiudi con ESC tastiera
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
+            if (e.key === 'Escape') {
+                if (lightbox.classList.contains('active')) closeLightbox();
             }
         });
-
 
         // --- INVIO FORM AJAX (FORMSPREE) ---
         const contactForm = document.getElementById('contact-form');
@@ -608,11 +679,8 @@
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Determina la lingua attuale al momento dell'invio
             const isEs = document.getElementById('btn-es').classList.contains('active');
             
-            // Cambia stato del bottone a "Inviando..." per dare feedback visivo immediato
             submitBtn.disabled = true;
             submitBtn.style.opacity = "0.4";
             submitBtn.innerText = isEs ? "Enviando..." : "Sending...";
@@ -630,11 +698,9 @@
                 });
 
                 if (response.ok) {
-                    // Successo: nascondi il form e mostra il blocco di ringraziamento
                     contactForm.style.display = 'none';
                     thankYouBlock.style.display = 'block';
                     
-                    // Forza l'aggiornamento della lingua anche sul blocco Thank You
                     if (isEs) {
                         thankYouBlock.querySelector('.lang-en').classList.add('hidden');
                         thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
@@ -646,16 +712,13 @@
                     throw new Error('Server response was not ok');
                 }
             } catch (error) {
-                // Errore: ripristina il bottone e mostra il messaggio di errore
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = "1";
                 submitBtn.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
-                
                 errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
                 errorMsg.style.display = "block";
             }
         });
-
 
         // --- CAMBIO LINGUA ---
         function setLang(lang) {
@@ -664,11 +727,9 @@
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
 
-            // Elementi del Form da tradurre dinamicamente
             const formTitle = document.getElementById('form-title');
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
-            const inputMessage = document.getElementById('input-message');
             const submitBtnElement = document.getElementById('submit-btn');
 
             if (lang === 'es') {
@@ -677,53 +738,43 @@
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
 
-                // Traduzioni Form Spagnolo (Inquire minimale)
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Su mensaje o consulta...";
+                inputMessage.placeholder = "Comentarios";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
                 } else {
                     submitBtnElement.innerText = "Enviando...";
                 }
-                
                 lightboxClose.innerText = "cerrar";
-                lightboxInquireBtn.innerText = "Consultar sobre esta obra";
-                
-                // Se il lightbox è aperto, aggiorna al volo le didascalie
-                if (lightbox.classList.contains('active')) {
-                    lightboxCaptionTitle.innerText = selectedArtworkEs;
-                    lightboxCaptionMeta.innerText = selectedArtworkMetaEs;
-                }
             } else {
                 es.forEach(el => el.classList.add('hidden'));
                 en.forEach(el => el.classList.remove('hidden'));
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
 
-                // Traduzioni Form Inglese (Inquire minimale)
                 formTitle.innerText = "inquire";
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
-                inputMessage.placeholder = "Your message or inquiry...";
+                inputMessage.placeholder = "Comments";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
                 } else {
                     submitBtnElement.innerText = "Sending...";
                 }
-                
                 lightboxClose.innerText = "close";
-                lightboxInquireBtn.innerText = "Inquire about this work";
-                
-                // Se il lightbox è aperto, aggiorna al volo le didascalie
-                if (lightbox.classList.contains('active')) {
-                    lightboxCaptionTitle.innerText = selectedArtworkEn;
-                    lightboxCaptionMeta.innerText = selectedArtworkMetaEn;
-                }
             }
+
+            // Forza l'aggiornamento didascalie dell'opera corrente
+            updateSlide();
+        }
+
+        // Avvio automatico al caricamento
+        window.onload = function() {
+            initGallery();
         }
     </script>
 </body>
