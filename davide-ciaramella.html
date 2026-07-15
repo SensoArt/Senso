@@ -125,24 +125,24 @@
             gap: 15px;
         }
 
-        /* Contenitore per l'immagine attiva principale */
+        /* Contenitore per l'immagine attiva principale - Margini azzerati */
         .slider-wrapper {
             position: relative;
             width: 100%;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.01);
+            background-color: transparent;
             overflow: hidden;
-            margin-bottom: 10px; /* Spazio ridotto per tenere la didascalia attaccata */
+            margin-bottom: 0px !important; 
         }
 
         .main-image-frame {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 400px; /* Altezza fissa del contenitore per evitare salti */
+            align-items: flex-start;
+            height: auto; /* Rimosso l'altezza fissa di 400px per evitare spazi vuoti sotto */
         }
 
         /* Immagine attiva interattiva e cliccabile per Lightbox */
@@ -157,10 +157,9 @@
             transition: opacity 0.2s ease;
         }
 
-        /* Frecce di Navigazione Minimali e Visibili su qualsiasi opera */
+        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
         .nav-arrow {
             position: absolute;
-            top: 50%;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -177,7 +176,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -219,17 +218,16 @@
             border-color: #000;
         }
 
-        /* */
         /* Didascalie ATTACCATE alla foto */
         .artwork-caption {
             text-align: center;
-            margin: 0 auto 20px auto; 
-            padding-top: 5px; 
+            margin: 0 auto 30px auto; 
+            padding-top: 8px; /* Spazio minimo controllato per l'aderenza */
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             font-family: 'FuturaLight', sans-serif;
         }
 
@@ -238,7 +236,7 @@
             font-size: 0.85rem;
             letter-spacing: 1.5px;
             margin: 0;
-            font-weight: normal;
+            font-weight: normal !important; /* Rimosso rigorosamente il grassetto predefinito degli h3 */
             color: #000;
         }
 
@@ -504,7 +502,7 @@
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Davide Ciaramella — Active Artwork" class="artist-img">
+                        <img id="active-artwork" src="" alt="Davide Ciaramella — Active Artwork" class="artist-img" onload="alignArrows()">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
@@ -617,6 +615,17 @@
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
 
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
+            }
+        }
+
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
@@ -650,6 +659,7 @@
                 artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
                 artworkSizeEl.innerText = activeArt.size;
                 artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+                setTimeout(alignArrows, 50); // Ricalcola la posizione delle frecce
             }, 180);
 
             // Aggiorna miniature attive
@@ -843,6 +853,8 @@
         window.onload = function() {
             initGallery();
         }
+
+        window.addEventListener('resize', alignArrows);
     </script>
 </body>
 </html>
