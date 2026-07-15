@@ -13,9 +13,9 @@
             src: url('Fonts/futura light bt.ttf') format('truetype'); 
             font-display: swap; 
         }
-       @font-face { 
-            font-family: 'FuturaLight'; 
-            src: url('Fonts/futura light bt.ttf') format('truetype'); 
+        @font-face { 
+            font-family: 'BehindNineties'; 
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); 
             font-display: swap; 
         }
 
@@ -99,14 +99,14 @@
             padding: 150px 25px 150px; 
         }
 
-        /* Titolo raffinato sussurrato stile Catalogue */
+        /* Nome dell'artista originale in grassetto elegante */
         .artist-title { 
-            font-family: 'BehindNineties', serif; 
-            font-size: clamp(2rem, 5vw, 3.2rem); 
-            text-transform: lowercase;
-            letter-spacing: 1px;
-            margin: 0 0 40px 0; 
-            font-weight: normal; 
+            font-family: 'FuturaLight', sans-serif; 
+            font-size: 1.3rem; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 50px 0; 
+            font-weight: bold; 
         }
 
         /* Layout a due colonne */
@@ -141,7 +141,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: auto; /* Modificato in auto per evitare spazi vuoti verticali */
+            height: auto; 
         }
 
         /* Immagine attiva */
@@ -195,38 +195,39 @@
         .artwork-caption {
             text-align: center;
             margin: 0 auto 30px auto; 
-            padding-top: 10px; /* Spazio millimetrico ma aderenza visiva totale */
+            padding-top: 8px; 
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
             font-family: 'FuturaLight', sans-serif;
-            text-transform: uppercase;
         }
 
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
             margin: 0;
             font-weight: normal;
             color: #000;
         }
 
         .artwork-size-text {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
             color: #000;
-            opacity: 0.65;
+            opacity: 0.6;
             margin: 0;
         }
 
         .artwork-tech-text {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
             color: #000;
-            opacity: 0.65;
+            opacity: 0.6;
             margin: 0;
         }
 
@@ -462,6 +463,7 @@
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
+    <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightbox">
         <button class="lightbox-close" id="lightbox-close">close</button>
         <div class="lightbox-wrapper">
@@ -471,7 +473,7 @@
 
     <main class="container">
         <header class="fade-in delay-1">
-            <h1 class="artist-title">davide di sena</h1>
+            <h1 class="artist-title">Davide Di Sena</h1>
         </header>
 
         <div class="artist-content fade-in delay-2">
@@ -525,10 +527,10 @@
 
     <script>
         const artworks = [
-            { src: "fotos_obras/davidedisena1.jpg", titleEn: "FRAMMENTI URBANI, OPERA I", titleEs: "FRAMMENTI URBANI, OPERA I", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2026", techEs: "FOTOGRAFÍA ANALÓGICA, 2026" },
-            { src: "fotos_obras/davidedisena2.jpg", titleEn: "ARCO FELICE, OPERA IV", titleEs: "ARCO FELICE, OPERA IV", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2025", techEs: "FOTOGRAFÍA ANALÓGICA, 2025" },
-            { src: "fotos_obras/davidedisena3.jpg", titleEn: "AREA INDUSTRIALE, OPERA I", titleEs: "AREA INDUSTRIALE, OPERA I", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2024", techEs: "FOTOGRAFÍA ANALÓGICA, 2024" },
-            { src: "fotos_obras/davidedisena4.jpg", titleEn: "TERREMOTO", titleEs: "TERREMOTO", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2025", techEs: "FOTOGRAFÍA ANALÓGICA, 2025" }
+            { src: "fotos_obras/davidedisena1.jpg", titleEn: "Frammenti Urbani, Opera I", titleEs: "Frammenti Urbani, Opera I", size: "60x40 cm", techEn: "Analog Photography, 2026", techEs: "Fotografía Analógica, 2026" },
+            { src: "fotos_obras/davidedisena2.jpg", titleEn: "Arco felice, Opera IV", titleEs: "Arco felice, Opera IV", size: "60x40 cm", techEn: "Analog Photography, 2025", techEs: "Fotografía Analógica, 2025" },
+            { src: "fotos_obras/davidedisena3.jpg", titleEn: "Area Industriale, Opera I", titleEs: "Area Industriale, Opera I", size: "60x40 cm", techEn: "Analog Photography, 2024", techEs: "Fotografía Analógica, 2024" },
+            { src: "fotos_obras/davidedisena4.jpg", titleEn: "Terremoto", titleEs: "Terremoto", size: "60x40 cm", techEn: "Analog Photography, 2025", techEs: "Fotografía Analógica, 2025" }
         ];
 
         let currentIndex = 0;
@@ -620,6 +622,7 @@
             document.getElementById('form-title').innerText = isEs ? "consultar" : "inquire";
             document.getElementById('input-name').placeholder = isEs ? "Su nombre" : "Your name";
             document.getElementById('input-email').placeholder = isEs ? "Su correo electrónico" : "Your email";
+            document.getElementById('input-message').placeholder = isEs ? "Comentarios" : "Comments";
             document.getElementById('submit-btn').innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
             updateSlide();
         }
