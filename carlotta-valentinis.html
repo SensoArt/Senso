@@ -122,27 +122,30 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 0px; 
         }
 
-        /* Contenitore per l'immagine attiva principale */
+        /* Contenitore per l'immagine attiva principale - Zero distanze */
         .slider-wrapper {
             position: relative;
             width: 100%;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.01);
+            background-color: transparent;
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 0px !important; 
+            padding-bottom: 0px !important;
         }
 
         .main-image-frame {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 400px; /* Altezza fissa per evitare balzi visivi */
+            align-items: flex-start;
+            height: auto; 
+            margin: 0;
+            padding: 0;
         }
 
         /* Immagine attiva interattiva e cliccabile per Lightbox */
@@ -155,12 +158,13 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.2s ease;
+            margin: 0 auto;
+            padding: 0;
         }
 
-        /* Frecce di Navigazione Minimali e Visibili */
+        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
         .nav-arrow {
             position: absolute;
-            top: 50%;
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -177,7 +181,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -191,6 +195,51 @@
 
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
+
+        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa per evitare salti della griglia */
+        .artwork-caption {
+            text-align: center;
+            margin: 8px auto 25px auto; 
+            padding-top: 0px; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-family: 'FuturaLight', sans-serif;
+            min-height: 80px; /* Blocca l'altezza impedendo qualsiasi sbalzo strutturale */
+        }
+
+        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
+        .artwork-title-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: normal !important; 
+            color: #000;
+        }
+
+        .artwork-size-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
 
         /* Miniature in griglia geometrica pulita */
         .thumbnail-grid {
@@ -421,7 +470,7 @@
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .main-image-frame { height: 300px; }
+            .main-image-frame { height: auto; }
             .artist-img { max-height: 300px; }
         }
     </style>
@@ -463,9 +512,16 @@
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Carlotta Valentinis — Active Artwork" class="artist-img">
+                        <img id="active-artwork" src="" alt="Carlotta Valentinis — Active Artwork" class="artist-img" onload="alignArrows()">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+                </div>
+
+                <!-- Didascalie posizionate subito sotto l'immagine con altezza minima fissa per evitare salti della griglia -->
+                <div class="artwork-caption">
+                    <h3 id="artwork-title" class="artwork-title-text"></h3>
+                    <div id="artwork-size" class="artwork-size-text"></div>
+                    <div id="artwork-tech" class="artwork-tech-text"></div>
                 </div>
 
                 <!-- Griglia delle miniature -->
@@ -530,22 +586,31 @@
     </main>
 
     <script>
-        // Array ordinato delle opere con metadati strutturati per la compilazione della richiesta e l'alt tag
+        // Array ordinato delle opere con metadati strutturati e traduzioni complete
         const artworks = [
             { 
-                src: "fotos_obras/obracarlotta.jpg", 
-                labelEn: "Kintu (Triptych II - 'After the Gallop' Series, 2026)", 
-                labelEs: "Kintu (Tríptico II - Serie 'After the Gallop', 2026)" 
+                src: "fotos_obras/obracarlotta_2.jpeg", 
+                titleEn: "Guifal", 
+                titleEs: "Guifal", 
+                size: "200 x 150 cm", 
+                techEn: "Custom rye-based binder & egg tempera on canvas, \"After the Gallop\" Series", 
+                techEs: "Aglutinante a base de centeno y temple de huevo sobre lienzo, Serie \"After the Gallop\"" 
             },
             { 
-                src: "fotos_obras/obracarlotta_2.jpeg", 
-                labelEn: "Guifal ('After the Gallop' Series)", 
-                labelEs: "Guifal (Serie 'After the Gallop')" 
+                src: "fotos_obras/obracarlotta.jpg", 
+                titleEn: "Kintu", 
+                titleEs: "Kintu", 
+                size: "200 x 150 cm", 
+                techEn: "Custom rye-based binder & egg tempera on canvas, Triptych II - \"After the Gallop\" Series, 2026", 
+                techEs: "Aglutinante a base de centeno y temple de huevo sobre lienzo, Tríptico II - Serie \"After the Gallop\", 2026" 
             },
             { 
                 src: "fotos_obras/obracarlotta_3.jpeg", 
-                labelEn: "Keylan (Triptych I - 'After the Gallop' Series, 2026)", 
-                labelEs: "Keylan (Tríptico I - Serie 'After the Gallop', 2026)" 
+                titleEn: "Keylan", 
+                titleEs: "Keylan", 
+                size: "200 x 150 cm", 
+                techEn: "Custom rye-based binder & egg tempera on canvas, Triptych I - \"After the Gallop\" Series, 2026", 
+                techEs: "Aglutinante a base de centeno y temple de huevo sobre lienzo, Tríptico I - Serie \"After the Gallop\", 2026" 
             }
         ];
 
@@ -555,13 +620,28 @@
         const activeArtworkImg = document.getElementById('active-artwork');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
         const inputMessage = document.getElementById('input-message');
+        const artworkTitleEl = document.getElementById('artwork-title');
+        const artworkSizeEl = document.getElementById('artwork-size');
+        const artworkTechEl = document.getElementById('artwork-tech');
+
+        // Allinea perfettamente le frecce di navigazione a metà altezza della foto attiva
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
+            }
+        }
 
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.labelEn;
+                img.alt = art.titleEn;
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
@@ -581,8 +661,15 @@
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
                 activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? activeArt.labelEs : activeArt.labelEn;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
+
+                // Aggiorna didascalie testuali
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+
+                setTimeout(alignArrows, 50); // Ricalcola frecce appena la foto si posiziona
             }, 180);
 
             // Aggiorna miniature attive
@@ -597,7 +684,7 @@
             });
 
             // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
-            hiddenArtworkTitle.value = activeArt.labelEn;
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
         }
 
         function goToSlide(index) {
@@ -777,6 +864,8 @@
         window.onload = function() {
             initGallery();
         }
+
+        window.addEventListener('resize', alignArrows);
     </script>
 </body>
 </html>
