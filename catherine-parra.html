@@ -134,6 +134,7 @@
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.01);
             overflow: hidden;
+            margin-bottom: 25px;
         }
 
         .main-image-frame {
@@ -141,19 +142,27 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 400px; /* Altezza fissa del contenitore per evitare salti */
         }
 
         /* Immagine attiva interattiva e cliccabile per Lightbox */
         .artist-img { 
-            width: 100%; 
-            height: auto; 
+            max-width: 100%; 
             max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+
         /* Frecce di Navigazione Minimali e Visibili su qualsiasi opera */
         .nav-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.85); /* Cerchio bianco semi-trasparente */
+            background: rgba(255, 255, 255, 0.85); /* Cerchio bianco semi-transparente */
             -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px); /* Sfocatura elegante dello sfondo */
             border: 1px solid rgba(0, 0, 0, 0.05);
@@ -182,11 +191,6 @@
 
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
-
-        /* Margine inferiore per distanziare il cursore dalle miniature */
-        .slider-wrapper {
-            margin-bottom: 25px;
-        }
 
         /* Miniature in griglia geometrica pulita */
         .thumbnail-grid {
@@ -417,6 +421,8 @@
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
+            .main-image-frame { height: 300px; }
+            .artist-img { max-height: 300px; }
         }
     </style>
 </head>
@@ -450,7 +456,7 @@
 
         <div class="artist-content fade-in delay-2">
             
-            <!-- Nuovo contenitore d'opera interattivo a slideshow con miniature -->
+            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
                 
                 <!-- Spazio immagine principale con frecce -->
@@ -462,7 +468,7 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Griglia delle miniature -->
+                <!-- Griglia delle miniature (thumbnails ripristinate al formato piccolo corretto) -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
             </div>
@@ -524,6 +530,7 @@
     </main>
 
     <script>
+        // Array ordinato delle opere senza dettagli visibili (solo placeholder silenziosi per le mail)
         const artworks = [
             { src: "fotos_obras/parra1.JPG", labelEn: "Artwork 1", labelEs: "Obra 1" },
             { src: "fotos_obras/parra10.JPG", labelEn: "Artwork 2", labelEs: "Obra 2" },
