@@ -94,9 +94,9 @@
         .lang-btn.active { opacity: 1; }
 
         .container { 
-            max-width: 850px; 
+            max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; /* Spaziatura generosa a fondo pagina */
+            padding: 150px 25px 150px; 
         }
 
         /* Nome dell'artista in grassetto elegante */
@@ -106,38 +106,130 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            font-weight: bold; /* Grassetto richiesto */
+            font-weight: bold; 
         }
 
-        /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
+        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 280px 1fr; /* Colonna sinistra rimpicciolita ed elegante */
+            grid-template-columns: 380px 1fr; 
             gap: 60px; 
             align-items: start; 
         }
         
-        /* Contenitore per impilare entrambe le immagini verticalmente */
         .img-container { 
             width: 100%; 
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 30px; /* Spazio elegante tra le due opere */
+            gap: 15px;
         }
 
-        /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni originali */
+        /* Contenitore per l'immagine attiva principale */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.01);
+            overflow: hidden;
+        }
+
+        .main-image-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Immagine attiva interattiva e cliccabile per Lightbox */
         .artist-img { 
             width: 100%; 
             height: auto; 
+            max-height: 400px;
             display: block; 
             object-fit: contain; 
-            cursor: pointer; /* Rende l'opera cliccabile */
-            transition: opacity 0.4s ease;
+            cursor: pointer; 
+            transition: opacity 0.3s ease;
         }
 
         .artist-img:hover {
+            opacity: 0.9;
+        }
+
+        /* Frecce di Navigazione Minimali */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            color: #000;
+            cursor: pointer;
+            opacity: 0.25;
+            padding: 15px 10px;
+            z-index: 10;
+            transition: opacity 0.3s, transform 0.2s;
+            outline: none;
+        }
+
+        .nav-arrow:hover {
             opacity: 0.8;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-arrow { left: 0px; }
+        .next-arrow { right: 0px; }
+
+        /* Didascalia descrittiva dell'opera attiva */
+        .artwork-caption {
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            padding-bottom: 15px;
+            margin-top: 5px;
+        }
+
+        .artwork-caption-title {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.15rem;
+            margin: 0 0 4px 0;
+            font-weight: normal;
+        }
+
+        .artwork-caption-meta {
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Miniature in griglia geometrica pulita */
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .thumb-item {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.35;
+            border: 1px solid transparent;
+            transition: opacity 0.3s, border-color 0.3s;
+        }
+
+        .thumb-item:hover, .thumb-item.active {
+            opacity: 1;
+        }
+
+        .thumb-item.active {
+            border-color: #000;
         }
 
         /* Stile dei testi bio */
@@ -163,7 +255,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 255, 255, 0.98); /* Sfondo chiaro ed etereo */
+            background-color: rgba(255, 255, 255, 0.98); 
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -303,7 +395,7 @@
             opacity: 0.5;
         }
 
-        /* Messaggio di successo minimalista */
+        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -337,8 +429,8 @@
 
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
-            .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene le immagini contenute su schermi piccoli */
+            .artist-content { grid-template-columns: 1fr; gap: 40px; }
+            .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
@@ -374,10 +466,28 @@
         </header>
 
         <div class="artist-content fade-in delay-2">
-            <!-- Entrambe le opere caricate su fotos_obras (proporzioni naturali, senza ritagli) -->
+            
+            <!-- Nuovo contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
-                <img src="fotos_obras/catherine1.jpg" alt="Catherine Parra — Opera 1" class="artist-img">
-                <img src="fotos_obras/catherine2.jpg" alt="Catherine Parra — Opera 2" class="artist-img">
+                
+                <!-- Spazio immagine principale con frecce -->
+                <div class="slider-wrapper" id="swipe-area">
+                    <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
+                    <div class="main-image-frame">
+                        <img id="active-artwork" src="" alt="Catherine Parra — Active Artwork" class="artist-img">
+                    </div>
+                    <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+                </div>
+
+                <!-- Didascalia dinamica dell'opera attiva -->
+                <div class="artwork-caption">
+                    <h3 class="artwork-caption-title" id="caption-title">Loading...</h3>
+                    <p class="artwork-caption-meta" id="caption-meta"></p>
+                </div>
+
+                <!-- Griglia delle miniature -->
+                <div class="thumbnail-grid" id="thumbnails-container"></div>
+                
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -388,7 +498,7 @@
                     Catherine Parra is a French artist based in <span class="important">Barcelona</span>. Born in <span class="important">Lyon</span> in the 1960s and raised in <span class="important">Paris</span>, she began her creative journey exploring textiles, clothing, and found materials, developing a distinctive visual language through experimentation with color, form, and texture. After founding her eponymous brand in 2000, she created unique shoes, bags, and accessories, hand-painted with abstract compositions that became her signature. Over the years, her practice evolved beyond fashion into a multidisciplinary artistic research, embracing painting, sculpture, collage, and design. Today, Catherine is fully dedicated to painting, and her works are part of numerous private collections. Her work has been presented in galleries and international art fairs across Europe, including <span class="important">Gallery Lab Art</span> and <span class="important">Gallery Matiz (Barcelona)</span>, <span class="important">Galerie Isabelle Laverny (Paris)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span>, and <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    Catherine Parra es una artista francesa afincada en <span class="important">Barcelona</span>. Nacida en <span class="important">Lyon</span> en la década de 1960 y criada en <span class="important">París</span>, comenzó su viaje creativo explorando textiles, ropa y materiales encontrados, desarrollando un lenguaje visual distintivo a través de la experimentación con el color, la forma y la textura. Tras fundar su marca homónima en el año 2000, creó zapatos, bolsos y accesorios únicos, pintados a mano con composiciones abstractas que se convirtieron en su sello de identidad. A lo largo de los años, su práctica evolved más allá de la moda hacia una investigación artística multidisciplinar que abarca la pintura, la escultura, el collage y el diseño. Hoy en día, Catherine se dedica plenamente a la pintura y sus obras forman parte de numerosas colecciones privadas. Su trabajo ha sido presentado en galerías y ferias de arte internacionales de toda Europa, incluidas la <span class="important">Gallery Lab Art</span> y la <span class="important">Gallery Matiz (Barcelona)</span>, la <span class="important">Galerie Isabelle Laverny (París)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span> y la <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
+                    Catherine Parra es una artista francesa afincada en <span class="important">Barcelona</span>. Nacida en <span class="important">Lyon</span> en la década de 1960 y criada en <span class="important">París</span>, comenzó su viaje creativo explorando textiles, ropa y materiales encontrados, desarrollando un lenguaje visual distintivo a través de la experimentación con el color, la forma y la textura. Tras fundar su marca homónima en el año 2000, creó zapatos, bolsos y accesorios únicos, pintados a mano con composiciones abstractas que se convirtieron en su sello de identidad. A lo largo de los años, su práctica evolucionó más allá de la moda hacia una investigación artística multidisciplinar que abarca la pintura, la escultura, el collage y el diseño. Hoy en día, Catherine se dedica plenamente a la pintura y sus obras forman parte de numerosas colecciones privadas. Su trabajo ha sido presentado en galerías y ferias de arte internacionales de toda Europa, incluidas la <span class="important">Gallery Lab Art</span> y la <span class="important">Gallery Matiz (Barcelona)</span>, la <span class="important">Galerie Isabelle Laverny (París)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span> y la <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
                 </div>
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
@@ -398,6 +508,8 @@
                     <!-- Form con endpoint Formspree reale dell'utente -->
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Catherine Parra">
+                        <!-- Campo nascosto per passare il titolo dell'opera attiva via mail -->
+                        <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
                         
                         <div class="form-row">
                             <div class="form-group">
@@ -435,28 +547,198 @@
     </main>
 
     <script>
+        // --- DATASET DELLE 10 OPERE DI CATHERINE PARRA ---
+        // Puoi facilmente cambiare i titoli, le tecniche o le misure qui sotto
+        const artworks = [
+            {
+                src: "fotos_obras/parra1.JPG",
+                titleEn: "Composition Bleue I",
+                titleEs: "Composición Azul I",
+                metaEn: "Acrylic and collage on canvas<br>100 x 100 cm — 2025",
+                metaEs: "Acrílico y collage sobre lienzo<br>100 x 100 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra2.JPG",
+                titleEn: "L'Équilibre",
+                titleEs: "L'Équilibre",
+                metaEn: "Mixed media and textiles on canvas<br>140 x 120 cm — 2025",
+                metaEs: "Técnica mixta y textiles sobre lienzo<br>140 x 120 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra3.JPG",
+                titleEn: "Composition Orange",
+                titleEs: "Composición Naranja",
+                metaEn: "Acrylic on canvas<br>80 x 80 cm — 2025",
+                metaEs: "Acrílico sobre lienzo<br>80 x 80 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra4.JPG",
+                titleEn: "Passage Primordial",
+                titleEs: "Pasaje Primordial",
+                metaEn: "Mixed media on canvas<br>120 x 100 cm — 2026",
+                metaEs: "Técnica mixta sobre lienzo<br>120 x 100 cm — 2026"
+            },
+            {
+                src: "fotos_obras/parra5.JPG",
+                titleEn: "Sensations Éphémères",
+                titleEs: "Sensaciones Efímeras",
+                metaEn: "Acrylic and collage on canvas<br>90 x 90 cm — 2025",
+                metaEs: "Acrílico y collage sobre lienzo<br>90 x 90 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra6.JPG",
+                titleEn: "Écho de la Matière",
+                titleEs: "Eco de la Materia",
+                metaEn: "Mixed media and collage on board<br>70 x 70 cm — 2025",
+                metaEs: "Técnica mixta y collage sobre tabla<br>70 x 70 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra7.JPG",
+                titleEn: "Fragments de Mémoire",
+                titleEs: "Fragmentos de Memoria",
+                metaEn: "Acrylic on canvas<br>100 x 80 cm — 2025",
+                metaEs: "Acrílico sobre lienzo<br>100 x 80 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra8.JPG",
+                titleEn: "Rhythm and Silence",
+                titleEs: "Ritmo y Silencio",
+                metaEn: "Mixed media on canvas<br>110 x 90 cm — 2026",
+                metaEs: "Técnica mixta sobre lienzo<br>110 x 90 cm — 2026"
+            },
+            {
+                src: "fotos_obras/parra9.JPG",
+                titleEn: "Structure Organique",
+                titleEs: "Estructura Orgánica",
+                metaEn: "Acrylic and textiles on linen<br>120 x 100 cm — 2025",
+                metaEs: "Acrílico y textiles sobre lino<br>120 x 100 cm — 2025"
+            },
+            {
+                src: "fotos_obras/parra10.JPG",
+                titleEn: "Chaos Armonioso",
+                titleEs: "Caos Armonioso",
+                metaEn: "Mixed media with natural pigments<br>150 x 120 cm — 2026",
+                metaEs: "Técnica mixta con pigmentos naturales<br>150 x 120 cm — 2026"
+            }
+        ];
+
+        let currentIndex = 0;
+
+        // --- RENDERIZZAZIONE MINIATURE ---
+        const thumbnailsContainer = document.getElementById('thumbnails-container');
+        const activeArtworkImg = document.getElementById('active-artwork');
+        const captionTitle = document.getElementById('caption-title');
+        const captionMeta = document.getElementById('caption-meta');
+        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
+        const inputMessage = document.getElementById('input-message');
+
+        function initGallery() {
+            thumbnailsContainer.innerHTML = '';
+            artworks.forEach((art, index) => {
+                const img = document.createElement('img');
+                img.src = art.src;
+                img.alt = art.titleEn;
+                img.className = 'thumb-item';
+                if (index === currentIndex) img.classList.add('active');
+                
+                img.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                thumbnailsContainer.appendChild(img);
+            });
+            updateSlide();
+        }
+
+        function updateSlide() {
+            const activeArt = artworks[currentIndex];
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+
+            // Aggiorna immagine principale
+            activeArtworkImg.style.opacity = '0.3';
+            setTimeout(() => {
+                activeArtworkImg.src = activeArt.src;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.style.opacity = '1';
+            }, 180);
+
+            // Aggiorna didascalie basate sulla lingua attiva
+            captionTitle.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+            captionMeta.innerHTML = isEs ? activeArt.metaEs : activeArt.metaEn;
+
+            // Aggiorna miniature attive
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentIndex) {
+                    thumb.classList.add('active');
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+
+            // Aggiorna il form con l'opera d'arte selezionata
+            hiddenArtworkTitle.value = activeArt.titleEn;
+            const artworkStr = isEs ? `"${activeArt.titleEs}"` : `"${activeArt.titleEn}"`;
+            inputMessage.placeholder = isEs ? 
+                `Hola, estoy interesado en recibir información sobre la obra ${artworkStr} de Catherine Parra...` : 
+                `Hello, I would like to inquire about ${artworkStr} by Catherine Parra...`;
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % artworks.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+            updateSlide();
+        }
+
+        // --- GESTIONE TOUCH SWIPE SU MOBILE ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                nextSlide(); // swipe sinistra -> prossima opera
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide(); // swipe destra -> opera precedente
+            }
+        }
+
         // --- FUNZIONALITÀ LIGHTBOX ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
-        const artistImages = document.querySelectorAll('.artist-img');
 
-        // Apre il Lightbox sull'immagine cliccata
-        artistImages.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sottostante
-            });
+        activeArtworkImg.addEventListener('click', () => {
+            lightboxImg.src = activeArtworkImg.src;
+            lightboxImg.alt = activeArtworkImg.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
 
-        // Chiude il Lightbox cliccando lo sfondo o il tasto di chiusura
         function closeLightbox() {
             lightbox.classList.remove('active');
-            document.body.style.overflow = ''; // Ripristina lo scroll
+            document.body.style.overflow = '';
             setTimeout(() => {
-                lightboxImg.src = ''; // Svuota la sorgente al termine della transizione
+                lightboxImg.src = '';
             }, 400);
         }
 
@@ -466,12 +748,12 @@
             }
         });
 
+        // Chiudi con ESC tastiera
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
+            if (e.key === 'Escape') {
+                if (lightbox.classList.contains('active')) closeLightbox();
             }
         });
-
 
         // --- INVIO FORM AJAX (FORMSPREE) ---
         const contactForm = document.getElementById('contact-form');
@@ -481,11 +763,8 @@
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Determina la lingua attuale al momento dell'invio
             const isEs = document.getElementById('btn-es').classList.contains('active');
             
-            // Cambia stato del bottone a "Inviando..." per dare feedback visivo immediato
             submitBtn.disabled = true;
             submitBtn.style.opacity = "0.4";
             submitBtn.innerText = isEs ? "Enviando..." : "Sending...";
@@ -503,11 +782,9 @@
                 });
 
                 if (response.ok) {
-                    // Successo: nascondi il form e mostra il blocco di ringraziamento
                     contactForm.style.display = 'none';
                     thankYouBlock.style.display = 'block';
                     
-                    // Forza l'aggiornamento della lingua anche sul blocco Thank You
                     if (isEs) {
                         thankYouBlock.querySelector('.lang-en').classList.add('hidden');
                         thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
@@ -519,16 +796,13 @@
                     throw new Error('Server response was not ok');
                 }
             } catch (error) {
-                // Errore: ripristina il bottone e mostra il messaggio di errore
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = "1";
                 submitBtn.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
-                
                 errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
                 errorMsg.style.display = "block";
             }
         });
-
 
         // --- CAMBIO LINGUA ---
         function setLang(lang) {
@@ -537,11 +811,9 @@
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
 
-            // Elementi del Form da tradurre dinamicamente
             const formTitle = document.getElementById('form-title');
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
-            const inputMessage = document.getElementById('input-message');
             const submitBtnElement = document.getElementById('submit-btn');
 
             if (lang === 'es') {
@@ -550,11 +822,10 @@
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
 
-                // Traduzioni Form Spagnolo
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Su mensaje o consulta...";
+                
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
                 } else {
@@ -567,11 +838,10 @@
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
 
-                // Traduzioni Form Inglese
                 formTitle.innerText = "inquire";
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
-                inputMessage.placeholder = "Your message or inquiry...";
+                
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
                 } else {
@@ -579,6 +849,14 @@
                 }
                 lightboxClose.innerText = "close";
             }
+
+            // Forza l'aggiornamento didascalie dell'opera corrente
+            updateSlide();
+        }
+
+        // Avvio automatico al caricamento
+        window.onload = function() {
+            initGallery();
         }
     </script>
 </body>
