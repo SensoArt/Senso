@@ -93,20 +93,21 @@
         }
         .lang-btn.active { opacity: 1; }
 
+        /* Alzato notevolmente riducendo il padding superiore da 150px a 70px */
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; 
+            padding: 70px 25px 120px; 
         }
 
-        /* Nome dell'artista in grassetto elegante */
+        /* Titolo raffinato sussurrato stile Catalogue (lowercase graziato, non bold, molto elegante) */
         .artist-title { 
-            font-family: 'FuturaLight', sans-serif; 
-            font-size: 1.3rem; 
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 0 0 50px 0; 
-            font-weight: bold; 
+            font-family: 'BehindNineties', serif; 
+            font-size: clamp(2rem, 5vw, 3.2rem); 
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            margin: 0 0 40px 0; 
+            font-weight: normal; 
         }
 
         /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
@@ -130,9 +131,9 @@
             position: relative;
             width: 100%;
             display: flex;
-            align-items: flex-start; /* Allinea il contenitore dello slider all'estremo superiore */
+            align-items: flex-start;
             justify-content: center;
-            background-color: transparent; /* Pulito da qualsiasi alone o rettangolo invisibile */
+            background-color: transparent;
             overflow: hidden;
             margin-bottom: 10px;
         }
@@ -141,7 +142,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Allinea l'opera d'arte in alto per un perfetto allineamento con la bio Y */
+            align-items: flex-start;
             height: 400px; 
         }
 
@@ -160,7 +161,6 @@
         /* Frecce di Navigazione Minimali e Centrate sull'opera */
         .nav-arrow {
             position: absolute;
-            /* top viene calcolato dinamicamente tramite JS per centrarsi sull'opera */
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -192,26 +192,73 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* Didascalie dell'opera d'arte attiva */
+        /* Didascalie dell'opera d'arte attiva - Centrate, separate riga per riga e senza doppi trattini */
         .artwork-caption {
-            text-align: left;
-            margin-bottom: 20px;
-            min-height: 60px;
+            text-align: center;
+            margin: 25px auto;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .artwork-artist-tag {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #000;
+            opacity: 0.9;
         }
 
         .artwork-title-text {
             font-family: 'BehindNineties', serif;
-            font-size: 1.15rem;
-            margin: 0 0 4px 0;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
             font-weight: normal;
+            color: #000;
         }
 
-        .artwork-meta-text {
+        .artwork-size-text {
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin: 0;
-            line-height: 1.4;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000;
+            opacity: 0.65;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #000;
+            opacity: 0.65;
+        }
+
+        /* Pulsante rettangolare elegante sotto la didascalia */
+        .caption-inquire-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 11px 45px;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background: transparent;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
+        }
+
+        .caption-inquire-btn:hover {
+            border-color: #000;
+            background-color: rgba(0, 0, 0, 0.02);
         }
 
         /* Miniature in griglia geometrica pulita */
@@ -440,7 +487,7 @@
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
-            .container { padding-top: 120px; padding-bottom: 100px; }
+            .container { padding-top: 50px; padding-bottom: 80px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
             .main-image-frame { height: 300px; }
@@ -473,7 +520,7 @@
     <main class="container">
         
         <header class="fade-in delay-1">
-            <h1 class="artist-title">Davide Di Sena</h1>
+            <h1 class="artist-title">davide di sena</h1>
         </header>
 
         <div class="artist-content fade-in delay-2">
@@ -490,10 +537,13 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalie dell'opera corrente -->
+                <!-- Didascalie dell'opera corrente - Centrato riga per riga in accordo con IMG_0902.jpg -->
                 <div class="artwork-caption">
+                    <div class="artwork-artist-tag">DAVIDE DI SENA</div>
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
-                    <p id="artwork-meta" class="artwork-meta-text"></p>
+                    <div id="artwork-size" class="artwork-size-text"></div>
+                    <div id="artwork-tech" class="artwork-tech-text"></div>
+                    <button class="caption-inquire-btn" id="caption-inquire-btn" onclick="scrollToInquiry()">Inquire</button>
                 </div>
 
                 <!-- Griglia delle miniature (formato 4 colonne per le sue 4 opere) -->
@@ -558,35 +608,39 @@
     </main>
 
     <script>
-        // Array ordinato delle opere con metadati completi (Titoli, Dimensioni, Tecnica e Anno)
+        // Array ordinato delle opere con metadati strutturati e separati (niente trattini doppi)
         const artworks = [
             { 
                 src: "fotos_obras/davidedisena1.jpg", 
                 titleEn: "Frammenti Urbani, Opera I", 
                 titleEs: "Frammenti Urbani, Opera I",
-                metaEn: "60x40 cm — Analog Photography, 2026",
-                metaEs: "60x40 cm — Fotografía Analógica, 2026"
+                size: "60x40 cm",
+                techEn: "Analog Photography, 2026",
+                techEs: "Fotografía Analógica, 2026"
             },
             { 
                 src: "fotos_obras/davidedisena2.jpg", 
                 titleEn: "Arco felice, Opera IV", 
                 titleEs: "Arco felice, Opera IV",
-                metaEn: "60x40 cm — Analog Photography, 2025",
-                metaEs: "60x40 cm — Fotografía Analógica, 2025"
+                size: "60x40 cm",
+                techEn: "Analog Photography, 2025",
+                techEs: "Fotografía Analógica, 2025"
             },
             { 
                 src: "fotos_obras/davidedisena3.jpg", 
                 titleEn: "Area Industriale, Opera I", 
                 titleEs: "Area Industriale, Opera I",
-                metaEn: "60x40 cm — Analog Photography, 2024",
-                metaEs: "60x40 cm — Fotografía Analógica, 2024"
+                size: "60x40 cm",
+                techEn: "Analog Photography, 2024",
+                techEs: "Fotografía Analógica, 2024"
             },
             { 
                 src: "fotos_obras/davidedisena4.jpg", 
                 titleEn: "Terremoto", 
                 titleEs: "Terremoto",
-                metaEn: "60x40 cm — Analog Photography, 2025",
-                metaEs: "60x40 cm — Fotografía Analógica, 2025"
+                size: "60x40 cm",
+                techEn: "Analog Photography, 2025",
+                techEs: "Fotografía Analógica, 2025"
             }
         ];
 
@@ -597,7 +651,8 @@
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
         const inputMessage = document.getElementById('input-message');
         const artworkTitleEl = document.getElementById('artwork-title');
-        const artworkMetaEl = document.getElementById('artwork-meta');
+        const artworkSizeEl = document.getElementById('artwork-size');
+        const artworkTechEl = document.getElementById('artwork-tech');
 
         // Funzione per allineare le frecce esattamente al centro verticale dell'opera visibile
         function alignArrows() {
@@ -606,13 +661,11 @@
             const nextArrow = document.querySelector('.next-arrow');
             
             if (img && prevArrow && nextArrow) {
-                // Se l'immagine è già caricata e ha un'altezza definita
                 if (img.complete && img.clientHeight > 0) {
                     const centerOffset = img.clientHeight / 2;
                     prevArrow.style.top = `${centerOffset}px`;
                     nextArrow.style.top = `${centerOffset}px`;
                 } else {
-                    // Fallback di sicurezza nel caso in cui l'evento onload non sia ancora scattato
                     img.addEventListener('load', function imgOnLoad() {
                         const centerOffset = img.clientHeight / 2;
                         prevArrow.style.top = `${centerOffset}px`;
@@ -651,9 +704,10 @@
                 activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
                 
-                // Aggiorna i testi descrittivi
+                // Aggiorna i testi descrittivi in maniera strutturata
                 artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
-                artworkMetaEl.innerText = isEs ? activeArt.metaEs : activeArt.metaEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
 
                 // Ricalcola l'allineamento dopo la transizione
                 setTimeout(alignArrows, 50);
@@ -671,7 +725,7 @@
             });
 
             // Aggiorna il form con l'opera d'arte selezionata usando il titolo
-            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.metaEn + ")";
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ", " + activeArt.techEn + ")";
         }
 
         function goToSlide(index) {
@@ -687,6 +741,18 @@
         function prevSlide() {
             currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
             updateSlide();
+        }
+
+        // Scroll liscio verso la sezione Inquiry per il tasto "Inquire"
+        function scrollToInquiry() {
+            const inquirySection = document.querySelector('.inquiry-section');
+            if (inquirySection) {
+                inquirySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => {
+                    const inputName = document.getElementById('input-name');
+                    if (inputName) inputName.focus();
+                }, 800);
+            }
         }
 
         // Ricalcola il posizionamento anche se si ridimensiona la finestra del browser
@@ -808,6 +874,7 @@
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
             const submitBtnElement = document.getElementById('submit-btn');
+            const captionInquireBtn = document.getElementById('caption-inquire-btn');
 
             if (lang === 'es') {
                 en.forEach(el => el.classList.add('hidden'));
@@ -819,6 +886,7 @@
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
                 inputMessage.placeholder = "Comentarios";
+                captionInquireBtn.innerText = "consultar";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
@@ -836,6 +904,7 @@
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
                 inputMessage.placeholder = "Comments";
+                captionInquireBtn.innerText = "inquire";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
