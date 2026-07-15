@@ -504,7 +504,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea>
                         </div>
                         
                         <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
@@ -598,10 +598,6 @@
 
             // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
             hiddenArtworkTitle.value = activeArt.labelEn;
-            const artworkStr = isEs ? `"${activeArt.labelEs}"` : `"${activeArt.labelEn}"`;
-            inputMessage.placeholder = isEs ? 
-                `Hola, estoy interesado en recibir información sobre la obra ${artworkStr} de Carlotta Valentinis...` : 
-                `Hello, I would like to inquire about ${artworkStr} by Carlotta Valentinis...`;
         }
 
         function goToSlide(index) {
@@ -734,6 +730,7 @@
             const formTitle = document.getElementById('form-title');
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
+            const inputMessage = document.getElementById('input-message');
             const submitBtnElement = document.getElementById('submit-btn');
 
             if (lang === 'es') {
@@ -745,6 +742,7 @@
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Comentarios";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
@@ -761,6 +759,7 @@
                 formTitle.innerText = "inquire";
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Comments";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
