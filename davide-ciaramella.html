@@ -134,7 +134,7 @@
             justify-content: center;
             background-color: rgba(0, 0, 0, 0.01);
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 10px; /* Spazio ridotto per tenere la didascalia attaccata */
         }
 
         .main-image-frame {
@@ -219,16 +219,17 @@
             border-color: #000;
         }
 
+        /* */
         /* Didascalie ATTACCATE alla foto */
         .artwork-caption {
             text-align: center;
-            margin: 0 auto 30px auto; 
-            padding-top: 8px; 
+            margin: 0 auto 20px auto; 
+            padding-top: 5px; 
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 4px;
             font-family: 'FuturaLight', sans-serif;
         }
 
@@ -508,6 +509,7 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
+                <!-- -->
                 <div class="artwork-caption">
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
@@ -576,6 +578,7 @@
     </main>
 
     <script>
+        /* */
         // Array ordinato delle opere sincronizzato con il catalogo dell'inventario
         const artworks = [
             { 
@@ -631,6 +634,7 @@
             updateSlide();
         }
 
+        /* */
         function updateSlide() {
             const activeArt = artworks[currentIndex];
             const isEs = document.getElementById('btn-es').classList.contains('active');
