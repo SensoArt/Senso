@@ -125,14 +125,15 @@
             gap: 15px;
         }
 
+
         /* Contenitore per l'immagine attiva principale */
         .slider-wrapper {
             position: relative;
             width: 100%;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Allinea il contenitore dello slider all'estremo superiore */
             justify-content: center;
-            background-color: transparent;
+            background-color: transparent; /* Pulito da qualsiasi alone o rettangolo invisibile */
             overflow: hidden;
             margin-bottom: 25px;
         }
@@ -141,7 +142,7 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Allinea l'opera d'arte in alto per un perfetto allineamento con la bio */
             height: 400px; 
         }
 
