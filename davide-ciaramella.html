@@ -219,6 +219,46 @@
             border-color: #000;
         }
 
+        /* Didascalie ATTACCATE alla foto */
+        .artwork-caption {
+            text-align: center;
+            margin: 0 auto 30px auto; 
+            padding-top: 8px; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            font-family: 'FuturaLight', sans-serif;
+        }
+
+        .artwork-title-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: normal;
+            color: #000;
+        }
+
+        .artwork-size-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+        }
+
         /* Stile dei testi bio */
         .artist-bio { 
             line-height: 1.9; 
@@ -468,6 +508,12 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
+                <div class="artwork-caption">
+                    <h3 id="artwork-title" class="artwork-title-text"></h3>
+                    <div id="artwork-size" class="artwork-size-text"></div>
+                    <div id="artwork-tech" class="artwork-tech-text"></div>
+                </div>
+
                 <!-- Griglia delle miniature -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
@@ -534,18 +580,27 @@
         const artworks = [
             { 
                 src: "fotos_obras/obradavide_3.jpeg", 
-                labelEn: "Assopito (Oil on canvas, 24 x 30 cm, 2026)", 
-                labelEs: "Assopito (Óleo sobre lienzo, 24 x 30 cm, 2026)" 
+                titleEn: "Assopito", 
+                titleEs: "Assopito", 
+                size: "24 x 30 cm", 
+                techEn: "Oil on canvas, 2026", 
+                techEs: "Óleo sobre lienzo, 2026" 
             },
             { 
                 src: "fotos_obras/obradavide_2.jpeg", 
-                labelEn: "Sguardo su Fiore (Oil on canvas, 24 x 30 cm, 2026)", 
-                labelEs: "Sguardo su Fiore (Óleo sobre lienzo, 24 x 30 cm, 2026)" 
+                titleEn: "Sguardo su Fiore", 
+                titleEs: "Sguardo su Fiore", 
+                size: "24 x 30 cm", 
+                techEn: "Oil on canvas, 2026", 
+                techEs: "Óleo sobre lienzo, 2026" 
             },
             { 
                 src: "fotos_obras/obradavidei.jpeg", 
-                labelEn: "Distaccato (Oil on canvas, 24 x 30 cm, 2026)", 
-                labelEs: "Distaccato (Óleo sobre lienzo, 24 x 30 cm, 2026)" 
+                titleEn: "Distaccato", 
+                titleEs: "Distaccato", 
+                size: "24 x 30 cm", 
+                techEn: "Oil on canvas, 2026", 
+                techEs: "Óleo sobre lienzo, 2026" 
             }
         ];
 
@@ -555,13 +610,16 @@
         const activeArtworkImg = document.getElementById('active-artwork');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
         const inputMessage = document.getElementById('input-message');
+        const artworkTitleEl = document.getElementById('artwork-title');
+        const artworkSizeEl = document.getElementById('artwork-size');
+        const artworkTechEl = document.getElementById('artwork-tech');
 
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.labelEn;
+                img.alt = art.titleEn;
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
@@ -581,8 +639,13 @@
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
                 activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? activeArt.labelEs : activeArt.labelEn;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
+                
+                // Aggiorna didascalie visibili sul layout
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
             }, 180);
 
             // Aggiorna miniature attive
@@ -597,7 +660,7 @@
             });
 
             // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
-            hiddenArtworkTitle.value = activeArt.labelEn;
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
         }
 
         function goToSlide(index) {
