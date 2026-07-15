@@ -481,7 +481,7 @@
                     Catherine Parra is a French artist based in <span class="important">Barcelona</span>. Born in <span class="important">Lyon</span> in the 1960s and raised in <span class="important">Paris</span>, she began her creative journey exploring textiles, clothing, and found materials, developing a distinctive visual language through experimentation with color, form, and texture. After founding her eponymous brand in 2000, she created unique shoes, bags, and accessories, hand-painted with abstract compositions that became her signature. Over the years, her practice evolved beyond fashion into a multidisciplinary artistic research, embracing painting, sculpture, collage, and design. Today, Catherine is fully dedicated to painting, and her works are part of numerous private collections. Her work has been presented in galleries and international art fairs across Europe, including <span class="important">Gallery Lab Art</span> and <span class="important">Gallery Matiz (Barcelona)</span>, <span class="important">Galerie Isabelle Laverny (Paris)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span>, and <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    Catherine Parra es una artista francesa afincada en <span class="important">Barcelona</span>. Nacida en <span class="important">Lyon</span> en la década de 1960 y criada en <span class="important">París</span>, comenzó su viaje creativo explorando textiles, ropa y materiales encontrados, desarrollando un lenguaje visual distintivo a través de la experimentación con el color, la forma y la textura. Tras fundar su marca homónima en el año 2000, creó zapatos, bolsos y accesorios únicos, pintados a mano con composiciones abstractas que se convirtieron en su sello de identidad. A lo largo de los años, su práctica evolucionó más allá de la moda hacia una investigación artística multidisciplinar que abarca la pintura, la escultura, el collage y el diseño. Hoy en día, Catherine se dedica plenamente a la pintura y sus obras forman parte de numerosas colecciones privadas. Su trabajo ha sido presentado en galerías y ferias de arte internacionales de toda Europa, incluidas la <span class="important">Gallery Lab Art</span> y la <span class="important">Gallery Matiz (Barcelona)</span>, la <span class="important">Galerie Isabelle Laverny (París)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span> y la <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
+                    Catherine Parra es una artista francesa afincada en <span class="important">Barcelona</span>. Nacida en <span class="important">Lyon</span> en la década de 1960 y criada en <span class="important">París</span>, comenzó su viaje creativo explorando textiles, ropa y materiales encontrados, desarrollando un lenguaje visual distintivo a través de la experimentación con el color, la forma y la textura. Tras fundar su marca homónima en el año 2000, creó zapatos, bolsos y accesorios únicos, pintados a mano con composiciones abstractas que se convirtieron en su sello de identidad. A lo largo de los años, su práctica evolucionó más allá de la moda hacia una investigación artística multidisciplinar que abarca la pintura, la escultura, el collage y el diseño. Hoy en día, Catherine se dedica plenamente a la pintura y sus obras forman parte de numerosas colecciones privadas. Su lavoro ha sido presentado en galerías y ferias de arte internacionales de toda Europa, incluidas la <span class="important">Gallery Lab Art</span> y la <span class="important">Gallery Matiz (Barcelona)</span>, la <span class="important">Galerie Isabelle Laverny (París)</span>, <span class="important">AAF Brussels</span>, <span class="important">AAF Battersea</span>, <span class="important">AAF Hampstead</span>, <span class="important">AAF Vienna</span>, <span class="important">AAF Berlin</span>, <span class="important">ST-ART Strasbourg</span>, <span class="important">Art3F Brussels</span>, <span class="important">Smart Art Aix-en-Provence</span>, <span class="important">Art Up Lille</span> y la <span class="important">Sophie Leiser Gallery (Biarritz)</span>.
                 </div>
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
@@ -504,7 +504,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea>
                         </div>
                         
                         <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
@@ -593,10 +593,6 @@
 
             // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
             hiddenArtworkTitle.value = activeArt.labelEn;
-            const artworkStr = isEs ? `"${activeArt.labelEs}"` : `"${activeArt.labelEn}"`;
-            inputMessage.placeholder = isEs ? 
-                `Hola, estoy interesado en recibir información sobre la ${artworkStr} de Catherine Parra...` : 
-                `Hello, I would like to inquire about ${artworkStr} by Catherine Parra...`;
         }
 
         function goToSlide(index) {
@@ -740,6 +736,7 @@
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Comentarios";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
@@ -756,6 +753,7 @@
                 formTitle.innerText = "inquire";
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Comments";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
