@@ -96,20 +96,20 @@
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; 
+            padding: 70px 25px 150px; 
         }
 
-        /* Nome dell'artista in grassetto elegante */
+        /* Titolo raffinato sussurrato stile Catalogue */
         .artist-title { 
-            font-family: 'FuturaLight', sans-serif; 
-            font-size: 1.3rem; 
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin: 0 0 50px 0; 
-            font-weight: bold; 
+            font-family: 'BehindNineties', serif; 
+            font-size: clamp(2rem, 5vw, 3.2rem); 
+            text-transform: lowercase;
+            letter-spacing: 1px;
+            margin: 0 0 40px 0; 
+            font-weight: normal; 
         }
 
-        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
+        /* Layout a due colonne */
         .artist-content { 
             display: grid; 
             grid-template-columns: 380px 1fr; 
@@ -122,10 +122,10 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 0px; /* Rimosso gap tra i blocchi interni */
         }
 
-        /* Contenitore per l'immagine attiva principale */
+        /* Contenitore slider - Zero margini per aderenza */
         .slider-wrapper {
             position: relative;
             width: 100%;
@@ -134,7 +134,7 @@
             justify-content: center;
             background-color: transparent;
             overflow: hidden;
-            margin-bottom: 10px;
+            margin-bottom: 0px !important; /* Forza l'eliminazione dello spazio */
         }
 
         .main-image-frame {
@@ -145,19 +145,19 @@
             height: 400px; 
         }
 
-        /* Immagine attiva interattiva e cliccabile per Lightbox */
+        /* Immagine attiva */
         .artist-img { 
             max-width: 100%; 
             max-height: 400px;
             width: auto;
             height: auto;
             object-fit: contain;
-            display: block;
+            display: block; /* Evita gap di default degli inline-elements */
             cursor: pointer;
             transition: opacity 0.2s ease;
         }
 
-        /* Frecce di Navigazione Minimali e Centrate sull'opera */
+        /* Frecce di Navigazione Centrate */
         .nav-arrow {
             position: absolute;
             transform: translateY(-50%);
@@ -191,10 +191,11 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* Didascalie dell'opera d'arte attiva - Esattamente in FuturaLight, maiuscolo, coerenti con IMG_0902_2.jpg */
+        /* Didascalie ATTACCATE alla foto - margin-top: 0 */
         .artwork-caption {
             text-align: center;
-            margin: 10px auto 25px auto; /* Avvicinato significativamente alla base della foto */
+            margin: 0 auto 30px auto; /* Margin top rigorosamente a zero */
+            padding-top: 5px; /* Un piccolo respiro per non toccare i pixel dell'immagine, ma aderenza visiva */
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -227,13 +228,13 @@
             opacity: 0.65;
         }
 
-        /* Miniature in griglia geometrica orizzontale a 4 colonne */
+        /* Miniature in basso */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
             width: 100%;
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
         .thumb-item {
@@ -254,7 +255,7 @@
             border-color: #000;
         }
 
-        /* Stile dei testi bio */
+        /* Stile Bio */
         .artist-bio { 
             line-height: 1.9; 
             font-size: 1rem; 
@@ -270,7 +271,7 @@
         
         .hidden { display: none; }
 
-        /* STILI LIGHTBOX PER INGRANDIMENTO OPERE */
+        /* LIGHTBOX */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -330,11 +331,9 @@
             z-index: 2010;
         }
 
-        .lightbox-close:hover {
-            opacity: 1;
-        }
+        .lightbox-close:hover { opacity: 1; }
 
-        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        /* FORM */
         .inquiry-section {
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             padding-top: 35px;
@@ -389,14 +388,9 @@
             letter-spacing: 1.5px;
         }
 
-        .form-input:focus {
-            border-bottom-color: #000;
-        }
+        .form-input:focus { border-bottom-color: #000; }
 
-        textarea.form-input {
-            resize: none;
-            height: 60px;
-        }
+        textarea.form-input { resize: none; height: 60px; }
 
         .form-submit-btn {
             background: none;
@@ -413,11 +407,8 @@
             font-weight: bold;
         }
 
-        .form-submit-btn:hover {
-            opacity: 0.5;
-        }
+        .form-submit-btn:hover { opacity: 0.5; }
 
-        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -449,13 +440,11 @@
             animation: fadeIn 0.4s ease forwards;
         }
 
-        /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 50px; padding-bottom: 80px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .lightbox-close { top: 25px; right: 20px; }
             .main-image-frame { height: 300px; }
             .artist-img { max-height: 300px; }
         }
@@ -463,19 +452,14 @@
 </head>
 <body>
 
-    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
-
-    <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
-    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <!-- Contenitore Lightbox -->
     <div class="lightbox-overlay" id="lightbox">
         <button class="lightbox-close" id="lightbox-close">close</button>
         <div class="lightbox-wrapper">
@@ -484,159 +468,83 @@
     </div>
 
     <main class="container">
-        
         <header class="fade-in delay-1">
             <h1 class="artist-title">davide di sena</h1>
         </header>
 
         <div class="artist-content fade-in delay-2">
-            
-            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
-                
-                <!-- Spazio immagine principale con frecce -->
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Davide Di Sena — Active Artwork" class="artist-img" onload="alignArrows()">
+                        <img id="active-artwork" src="" alt="Active Artwork" class="artist-img" onload="alignArrows()">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalie dell'opera corrente - Nome e tasto Inquire rimossi come richiesto, testo avvicinato -->
                 <div class="artwork-caption">
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
                     <div id="artwork-tech" class="artwork-tech-text"></div>
                 </div>
 
-                <!-- Griglia delle miniature (formato 4 colonne per le sue 4 opere, come Catherine e Carlotta) -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
-                
             </div>
 
-            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
-                
-                <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
                     Born in 2004 and currently studying at the <span class="important">Academy of Fine Arts in Naples</span>, Davide analyzes the interferences between natural spaces and human traces. His research moves between industrial archaeology and urban landscapes, interpreting the environment as a body that bears the scars of human passage. He works primarily with analog photography, a conscious choice that transforms each frame into an act of slow, tactile observation. He has exhibited at the <span class="important">Area Contesa Arte</span> gallery in <span class="important">Rome (Via Margutta)</span>, advancing a poetic vision that documents the tension between concrete and nature. He currently lives and works in <span class="important">Caserta</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    Nacido en 2004 y estudiante de la <span class="important">Academia de Bellas Artes de Nápoles</span>, Davide analiza las interferencias entre el espacio natural y las huellas humanas. Su investigación se mueve entre la arqueología industrial y los paisajes urbanos, interpretando el entorno como un cuerpo que porta los signos del paso del hombre. Trabaja principalmente con fotografía analógica, una elección consciente que transforma el disparo en un acto de observación lenta y matérica. Ha expuesto en la galería <span class="important">Area Contesa Arte</span> en <span class="important">Roma (Via Margutta)</span>, desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza. Actualmente vive y trabaja en <span class="important">Caserta</span>.
+                    Nacido en 2004 y estudiante de la <span class="important">Academia de Bellas Artes de Nápoles</span>, Davide analiza las interferencias tra el espacio natural y las huellas humanas. Su investigación se mueve entre la arqueología industrial y los paisajes urbanos, interpretando el entorno como un cuerpo que porta los signos del paso del hombre. Trabaja principalmente con fotografía analógica, una elección consciente que transforma el disparo en un acto de observación lenta y matérica. Ha expuesto en la galería <span class="important">Area Contesa Arte</span> en <span class="important">Roma (Via Margutta)</span>, desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza. Actualmente vive y trabaja en <span class="important">Caserta</span>.
                 </div>
 
-                <!-- Sezione Richiesta d'opera (Inquire) -->
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
-                    
-                    <!-- Form con endpoint Formspree reale dell'utente -->
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Davide Di Sena">
-                        <!-- Campo nascosto per passare il titolo dell'opera attiva via mail -->
                         <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
-                        
                         <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required>
-                            </div>
+                            <div class="form-group"><input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required></div>
+                            <div class="form-group"><input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required></div>
                         </div>
-                        
-                        <div class="form-group">
-                            <textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea>
-                        </div>
-                        
+                        <div class="form-group"><textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea></div>
                         <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
                         <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
                     </form>
-
-                    <!-- Stato di ringraziamento (Thanks) visualizzato dinamicamente -->
                     <div class="thank-you-container" id="thank-you-block">
-                        <div class="lang-en">
-                            <h3 class="thank-you-title">thank you</h3>
-                            <p class="thank-you-text">Your inquiry has been successfully sent. We will get back to you shortly.</p>
-                        </div>
-                        <div class="lang-es hidden">
-                            <h3 class="thank-you-title">gracias</h3>
-                            <p class="thank-you-text">Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.</p>
-                        </div>
+                        <div class="lang-en"><h3 class="thank-you-title">thank you</h3><p class="thank-you-text">Your inquiry has been successfully sent. We will get back to you shortly.</p></div>
+                        <div class="lang-es hidden"><h3 class="thank-you-title">gracias</h3><p class="thank-you-text">Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.</p></div>
                     </div>
                 </section>
-
             </div>
         </div>
-
     </main>
 
     <script>
-        // Array ordinato delle opere con metadati strutturati e formattati rigorosamente in MAIUSCOLO
         const artworks = [
-            { 
-                src: "fotos_obras/davidedisena1.jpg", 
-                titleEn: "FRAMMENTI URBANI, OPERA I", 
-                titleEs: "FRAMMENTI URBANI, OPERA I",
-                size: "60X40 CM",
-                techEn: "ANALOG PHOTOGRAPHY, 2026",
-                techEs: "FOTOGRAFÍA ANALÓGICA, 2026"
-            },
-            { 
-                src: "fotos_obras/davidedisena2.jpg", 
-                titleEn: "ARCO FELICE, OPERA IV", 
-                titleEs: "ARCO FELICE, OPERA IV",
-                size: "60X40 CM",
-                techEn: "ANALOG PHOTOGRAPHY, 2025",
-                techEs: "FOTOGRAFÍA ANALÓGICA, 2025"
-            },
-            { 
-                src: "fotos_obras/davidedisena3.jpg", 
-                titleEn: "AREA INDUSTRIALE, OPERA I", 
-                titleEs: "AREA INDUSTRIALE, OPERA I",
-                size: "60X40 CM",
-                techEn: "ANALOG PHOTOGRAPHY, 2024",
-                techEs: "FOTOGRAFÍA ANALÓGICA, 2024"
-            },
-            { 
-                src: "fotos_obras/davidedisena4.jpg", 
-                titleEn: "TERREMOTO", 
-                titleEs: "TERREMOTO",
-                size: "60X40 CM",
-                techEn: "ANALOG PHOTOGRAPHY, 2025",
-                techEs: "FOTOGRAFÍA ANALÓGICA, 2025"
-            }
+            { src: "fotos_obras/davidedisena1.jpg", titleEn: "FRAMMENTI URBANI, OPERA I", titleEs: "FRAMMENTI URBANI, OPERA I", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2026", techEs: "FOTOGRAFÍA ANALÓGICA, 2026" },
+            { src: "fotos_obras/davidedisena2.jpg", titleEn: "ARCO FELICE, OPERA IV", titleEs: "ARCO FELICE, OPERA IV", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2025", techEs: "FOTOGRAFÍA ANALÓGICA, 2025" },
+            { src: "fotos_obras/davidedisena3.jpg", titleEn: "AREA INDUSTRIALE, OPERA I", titleEs: "AREA INDUSTRIALE, OPERA I", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2024", techEs: "FOTOGRAFÍA ANALÓGICA, 2024" },
+            { src: "fotos_obras/davidedisena4.jpg", titleEn: "TERREMOTO", titleEs: "TERREMOTO", size: "60X40 CM", techEn: "ANALOG PHOTOGRAPHY, 2025", techEs: "FOTOGRAFÍA ANALÓGICA, 2025" }
         ];
 
         let currentIndex = 0;
-
         const thumbnailsContainer = document.getElementById('thumbnails-container');
         const activeArtworkImg = document.getElementById('active-artwork');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
-        const inputMessage = document.getElementById('input-message');
         const artworkTitleEl = document.getElementById('artwork-title');
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
 
-        // Funzione per allineare le frecce esattamente al centro verticale dell'opera visibile
         function alignArrows() {
             const img = document.getElementById('active-artwork');
             const prevArrow = document.querySelector('.prev-arrow');
             const nextArrow = document.querySelector('.next-arrow');
-            
-            if (img && prevArrow && nextArrow) {
-                if (img.complete && img.clientHeight > 0) {
-                    const centerOffset = img.clientHeight / 2;
-                    prevArrow.style.top = `${centerOffset}px`;
-                    nextArrow.style.top = `${centerOffset}px`;
-                } else {
-                    img.addEventListener('load', function imgOnLoad() {
-                        const centerOffset = img.clientHeight / 2;
-                        prevArrow.style.top = `${centerOffset}px`;
-                        nextArrow.style.top = `${centerOffset}px`;
-                        img.removeEventListener('load', imgOnLoad);
-                    }, { once: true });
-                }
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
             }
         }
 
@@ -645,244 +553,76 @@
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.titleEn;
-                img.className = 'thumb-item';
-                if (index === currentIndex) img.classList.add('active');
-                
-                img.addEventListener('click', () => {
-                    goToSlide(index);
-                });
+                img.className = 'thumb-item' + (index === currentIndex ? ' active' : '');
+                img.onclick = () => goToSlide(index);
                 thumbnailsContainer.appendChild(img);
             });
             updateSlide();
         }
 
         function updateSlide() {
-            const activeArt = artworks[currentIndex];
+            const art = artworks[currentIndex];
             const isEs = document.getElementById('btn-es').classList.contains('active');
-
-            // Aggiorna immagine principale
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
-                activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.src = art.src;
                 activeArtworkImg.style.opacity = '1';
-                
-                // Aggiorna i testi descrittivi in maniera strutturata
-                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
-                artworkSizeEl.innerText = activeArt.size;
-                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
-
-                // Ricalcola l'allineamento dopo la transizione
+                artworkTitleEl.innerText = isEs ? art.titleEs : art.titleEn;
+                artworkSizeEl.innerText = art.size;
+                artworkTechEl.innerText = isEs ? art.techEs : art.techEn;
                 setTimeout(alignArrows, 50);
             }, 180);
-
-            // Aggiorna miniature attive
-            const thumbs = document.querySelectorAll('.thumb-item');
-            thumbs.forEach((thumb, idx) => {
-                if (idx === currentIndex) {
-                    thumb.classList.add('active');
-                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                } else {
-                    thumb.classList.remove('active');
-                }
+            document.querySelectorAll('.thumb-item').forEach((t, i) => {
+                t.className = 'thumb-item' + (i === currentIndex ? ' active' : '');
+                if (i === currentIndex) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
             });
-
-            // Aggiorna il form con l'opera d'arte selezionata usando il titolo
-            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ", " + activeArt.techEn + ")";
+            hiddenArtworkTitle.value = art.titleEn + " (" + art.size + ")";
         }
 
-        function goToSlide(index) {
-            currentIndex = index;
-            updateSlide();
-        }
+        function goToSlide(i) { currentIndex = i; updateSlide(); }
+        function nextSlide() { currentIndex = (currentIndex + 1) % artworks.length; updateSlide(); }
+        function prevSlide() { currentIndex = (currentIndex - 1 + artworks.length) % artworks.length; updateSlide(); }
 
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % artworks.length;
-            updateSlide();
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
-            updateSlide();
-        }
-
-        // Scroll liscio verso la sezione Inquiry per il tasto "Inquire"
-        function scrollToInquiry() {
-            const inquirySection = document.querySelector('.inquiry-section');
-            if (inquirySection) {
-                inquirySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                setTimeout(() => {
-                    const inputName = document.getElementById('input-name');
-                    if (inputName) inputName.focus();
-                }, 800);
-            }
-        }
-
-        // Ricalcola il posizionamento anche se si ridimensiona la finestra del browser
         window.addEventListener('resize', alignArrows);
 
-        // --- GESTIONE TOUCH SWIPE SU MOBILE ---
-        let touchStartX = 0;
-        let touchEndX = 0;
-        const swipeArea = document.getElementById('swipe-area');
-
-        swipeArea.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        swipeArea.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
-
-        function handleSwipe() {
-            if (touchStartX - touchEndX > 50) {
-                nextSlide(); 
-            }
-            if (touchEndX - touchStartX > 50) {
-                prevSlide(); 
-            }
-        }
-
-        // --- FUNZIONALITÀ LIGHTBOX ---
+        // LIGHTBOX
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxClose = document.getElementById('lightbox-close');
-
-        activeArtworkImg.addEventListener('click', () => {
+        activeArtworkImg.onclick = () => {
             lightboxImg.src = activeArtworkImg.src;
-            lightboxImg.alt = activeArtworkImg.alt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-        });
+        };
+        function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
+        lightbox.onclick = (e) => { if (e.target !== lightboxImg) closeLightbox(); };
+        document.onkeydown = (e) => { if (e.key === 'Escape') closeLightbox(); };
 
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-            setTimeout(() => {
-                lightboxImg.src = '';
-            }, 400);
-        }
-
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox || e.target === lightboxClose || e.target.classList.contains('lightbox-wrapper')) {
-                closeLightbox();
-            }
-        });
-
-        // Chiudi con ESC tastiera
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (lightbox.classList.contains('active')) closeLightbox();
-            }
-        });
-
-        // --- INVIO FORM AJAX (FORMSPREE) ---
+        // FORM
         const contactForm = document.getElementById('contact-form');
-        const submitBtn = document.getElementById('submit-btn');
-        const thankYouBlock = document.getElementById('thank-you-block');
-        const errorMsg = document.getElementById('error-msg');
-
-        contactForm.addEventListener('submit', async function(e) {
+        contactForm.onsubmit = async (e) => {
             e.preventDefault();
-            const isEs = document.getElementById('btn-es').classList.contains('active');
-            
-            submitBtn.disabled = true;
-            submitBtn.style.opacity = "0.4";
-            submitBtn.innerText = isEs ? "Enviando..." : "Sending...";
-            errorMsg.style.display = "none";
-
-            const data = new FormData(contactForm);
-
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true; btn.style.opacity = "0.4";
             try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
+                const res = await fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' } });
+                if (res.ok) { contactForm.style.display = 'none'; document.getElementById('thank-you-block').style.display = 'block'; }
+            } catch (err) { btn.disabled = false; btn.style.opacity = "1"; }
+        };
 
-                if (response.ok) {
-                    contactForm.style.display = 'none';
-                    thankYouBlock.style.display = 'block';
-                    
-                    if (isEs) {
-                        thankYouBlock.querySelector('.lang-en').classList.add('hidden');
-                        thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
-                    } else {
-                        thankYouBlock.querySelector('.lang-es').classList.add('hidden');
-                        thankYouBlock.querySelector('.lang-en').classList.remove('hidden');
-                    }
-                } else {
-                    throw new Error('Server response was not ok');
-                }
-            } catch (error) {
-                submitBtn.disabled = false;
-                submitBtn.style.opacity = "1";
-                submitBtn.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
-                errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
-                errorMsg.style.display = "block";
-            }
-        });
-
-        // --- CAMBIO LINGUA ---
         function setLang(lang) {
-            const en = document.querySelectorAll('.lang-en');
-            const es = document.querySelectorAll('.lang-es');
-            const btnEn = document.getElementById('btn-en');
-            const btnEs = document.getElementById('btn-es');
-
-            const formTitle = document.getElementById('form-title');
-            const inputName = document.getElementById('input-name');
-            const inputEmail = document.getElementById('input-email');
-            const submitBtnElement = document.getElementById('submit-btn');
-
-            if (lang === 'es') {
-                en.forEach(el => el.classList.add('hidden'));
-                es.forEach(el => el.classList.remove('hidden'));
-                btnEs.classList.add('active'); 
-                btnEn.classList.remove('active');
-
-                formTitle.innerText = "consultar";
-                inputName.placeholder = "Su nombre";
-                inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Comentarios";
-                
-                if (!submitBtnElement.disabled) {
-                    submitBtnElement.innerText = "Enviar consulta →";
-                } else {
-                    submitBtnElement.innerText = "Enviando...";
-                }
-                lightboxClose.innerText = "cerrar";
-            } else {
-                es.forEach(el => el.classList.add('hidden'));
-                en.forEach(el => el.classList.remove('hidden'));
-                btnEn.classList.add('active'); 
-                btnEs.classList.remove('active');
-
-                formTitle.innerText = "inquire";
-                inputName.placeholder = "Your name";
-                inputEmail.placeholder = "Your email";
-                inputMessage.placeholder = "Comments";
-                
-                if (!submitBtnElement.disabled) {
-                    submitBtnElement.innerText = "Send Inquiry →";
-                } else {
-                    submitBtnElement.innerText = "Sending...";
-                }
-                lightboxClose.innerText = "close";
-            }
-
-            // Forza l'aggiornamento didascalie dell'opera corrente
+            const isEs = lang === 'es';
+            document.getElementById('btn-en').className = 'lang-btn' + (isEs ? '' : ' active');
+            document.getElementById('btn-es').className = 'lang-btn' + (isEs ? ' active' : '');
+            document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', isEs));
+            document.querySelectorAll('.lang-es').forEach(el => el.classList.toggle('hidden', !isEs));
+            document.getElementById('form-title').innerText = isEs ? "consultar" : "inquire";
+            document.getElementById('input-name').placeholder = isEs ? "Su nombre" : "Your name";
+            document.getElementById('input-email').placeholder = isEs ? "Su correo electrónico" : "Your email";
+            document.getElementById('submit-btn').innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
             updateSlide();
         }
 
-        // Avvio automatico al caricamento
-        window.onload = function() {
-            initGallery();
-        }
+        window.onload = initGallery;
     </script>
 </body>
 </html>
