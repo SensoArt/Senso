@@ -94,7 +94,7 @@
         .lang-btn.active { opacity: 1; }
 
         .container { 
-            max-width: 850px; 
+            max-width: 950px; 
             margin: 0 auto; 
             padding: 150px 25px 150px; 
         }
@@ -109,83 +109,161 @@
             font-weight: bold; 
         }
 
-        /* Layout a due colonne (Opere incollate a sinistra, Bio a destra) */
+        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 280px 1fr; 
+            grid-template-columns: 380px 1fr; 
             gap: 60px; 
             align-items: start; 
         }
         
-        /* Contenitore opere d'arte incollate verticalmente con spaziatura */
         .img-container { 
             width: 100%; 
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 40px; 
+            gap: 0px; 
         }
 
-        /* Ogni singola opera e la sua didascalia sono un'unica entità */
-        .artwork-item {
+        /* Contenitore per l'immagine attiva principale - Zero distanze */
+        .slider-wrapper {
+            position: relative;
             width: 100%;
             display: flex;
-            flex-direction: column;
-            gap: 0px !important; 
-            margin: 0 !important;
-            padding: 0 !important;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: transparent;
+            overflow: hidden;
+            margin-bottom: 0px !important; 
+            padding-bottom: 0px !important;
         }
 
-        /* Le immagini mantengono le loro proporzioni originali senza ritagli */
-        .artist-img { 
-            width: 100%; 
+        .main-image-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             height: auto; 
-            display: block; 
-            object-fit: contain; 
-            cursor: pointer; 
-            transition: opacity 0.4s ease;
-            margin: 0 auto 0 auto !important;
-            padding: 0 !important;
+            margin: 0;
+            padding: 0;
         }
 
-        .artist-img:hover {
-            opacity: 0.8;
+        /* Immagine attiva interattiva e cliccabile per Lightbox */
+        .artist-img { 
+            max-width: 100%; 
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            margin: 0 auto;
+            padding: 0;
         }
 
-        /* Didascalie perfettamente saldate e adiacenti alla foto - Spazio 0px */
+        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
+        .nav-arrow {
+            position: absolute;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.85); 
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #000;
+            cursor: pointer;
+            opacity: 0.6; 
+            z-index: 10;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
+
+        /* Didascalia posizionata subito sotto l'immagine, senza margini vuoti */
         .artwork-caption {
             text-align: center;
-            margin: 0 auto 0 auto !important; 
-            padding-top: 0px !important; 
-            padding-bottom: 0px !important;
+            margin: 8px auto 25px auto; 
+            padding-top: 0px; 
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2px !important; 
+            gap: 4px;
             font-family: 'FuturaLight', sans-serif;
         }
 
-        /* Titolo dell'opera rigorosamente non in grassetto, azzerati i margini h3 */
+        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
             letter-spacing: 1.5px;
-            margin: 0 !important; 
-            padding: 0 !important;
+            margin: 0;
             font-weight: normal !important; 
             color: #000;
         }
 
-        .artwork-size-text, .artwork-tech-text {
+        .artwork-size-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.8rem;
             letter-spacing: 1.5px;
             color: #000;
             opacity: 0.6;
-            margin: 0 !important;
-            padding: 0 !important;
+            margin: 0;
             font-weight: normal !important;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        /* Miniature in griglia geometrica pulita a 3 colonne */
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .thumb-item {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.35;
+            border: 1px solid transparent;
+            transition: opacity 0.3s, border-color 0.3s;
+        }
+
+        .thumb-item:hover, .thumb-item.active {
+            opacity: 1;
+        }
+
+        .thumb-item.active {
+            border-color: #000;
         }
 
         /* Stile dei testi bio */
@@ -385,11 +463,13 @@
 
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
-            .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .img-container { max-width: 300px; margin: 0 auto; } 
+            .artist-content { grid-template-columns: 1fr; gap: 40px; }
+            .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
+            .main-image-frame { height: auto; }
+            .artist-img { max-height: 300px; }
         }
     </style>
 </head>
@@ -423,9 +503,28 @@
 
         <div class="artist-content fade-in delay-2">
             
-            <!-- Contenitore opere d'arte incollate verticalmente -->
-            <div class="img-container" id="gallery-container">
-                <!-- Generato dinamicamente via JS per allineamento ed auto-recovery impeccabile -->
+            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
+            <div class="img-container">
+                
+                <!-- Spazio immagine principale con frecce -->
+                <div class="slider-wrapper" id="swipe-area">
+                    <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
+                    <div class="main-image-frame">
+                        <img id="active-artwork" src="" alt="Lucía Cheves Dauber — Active Artwork" class="artist-img" onload="alignArrows()">
+                    </div>
+                    <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+                </div>
+
+                <!-- Didascalie perfettamente attaccate e saldate alla foto -->
+                <div class="artwork-caption">
+                    <h3 id="artwork-title" class="artwork-title-text"></h3>
+                    <div id="artwork-size" class="artwork-size-text"></div>
+                    <div id="artwork-tech" class="artwork-tech-text"></div>
+                </div>
+
+                <!-- Griglia delle miniature -->
+                <div class="thumbnail-grid" id="thumbnails-container"></div>
+                
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -445,7 +544,7 @@
                     
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Lucía Cheves Dauber">
-                        <!-- Campo nascosto per passare il titolo dell'opera desiderata via mail -->
+                        <!-- Campo nascosto aggiornato dinamicamente con l'opera attiva -->
                         <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
                         
                         <div class="form-row">
@@ -484,10 +583,9 @@
     </main>
 
     <script>
-        // Array strutturato con tutte le informazioni delle opere
+        // --- IMMAGINI E METADATI DELLE OPERE SINCRO ---
         const artworks = [
             { 
-                id: 1,
                 src: "fotos_obras/obralucia_2.jpeg", 
                 altSrc: "fotos_obras/obralucia_2.jpg",
                 titleEn: "Lieber Leser*innen", 
@@ -497,7 +595,6 @@
                 techEs: "Técnica mixta sobre lienzo, 2021" 
             },
             { 
-                id: 2,
                 src: "fotos_obras/obralucia.jpeg", 
                 altSrc: "fotos_obras/obralucia.jpg",
                 titleEn: "Entity", 
@@ -507,9 +604,8 @@
                 techEs: "Acrílico y óleo sobre lienzo, 2021" 
             },
             { 
-                id: 3,
-                src: "fotos_obras/obra lucia_3.jpg", // Nome primario con spazio richiesto dall'utente
-                altSrc: "fotos_obras/obralucia_3.jpg", // Alternativa robusta
+                src: "fotos_obras/obra lucia_3.jpg", 
+                altSrc: "fotos_obras/obralucia_3.jpeg",
                 titleEn: "Tokoyol Boogie", 
                 titleEs: "Tokoyol Boogie", 
                 size: "110 x 150 cm", 
@@ -518,97 +614,133 @@
             }
         ];
 
-        // --- INIZIALIZZAZIONE DELLA GALLERIA IMPILATA ---
+        let currentIndex = 0;
+
+        const thumbnailsContainer = document.getElementById('thumbnails-container');
+        const activeArtworkImg = document.getElementById('active-artwork');
+        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
+        const artworkTitleEl = document.getElementById('artwork-title');
+        const artworkSizeEl = document.getElementById('artwork-size');
+        const artworkTechEl = document.getElementById('artwork-tech');
+
+        // Allinea perfettamente le frecce di navigazione a metà altezza della foto attiva
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
+            }
+        }
+
+        // Inizializza la griglia delle miniature
         function initGallery() {
-            const container = document.getElementById('gallery-container');
-            container.innerHTML = '';
-
-            artworks.forEach((art) => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'artwork-item';
-
+            thumbnailsContainer.innerHTML = '';
+            artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
                 img.alt = art.titleEn;
-                img.className = 'artist-img';
-
-                // Robustissimo meccanismo di auto-recovery per le estensioni e i nomi dei file
+                img.className = 'thumb-item';
+                if (index === currentIndex) img.classList.add('active');
+                
+                // Fallback integrato per estensioni file asincrone
                 img.onerror = function() {
                     if (!this.dataset.retry) {
                         this.dataset.retry = "1";
                         if (art.altSrc) {
                             this.src = art.altSrc;
-                        } else if (this.src.endsWith('.jpg')) {
-                            this.src = this.src.replace('.jpg', '.jpeg');
-                        } else if (this.src.endsWith('.jpeg')) {
-                            this.src = this.src.replace('.jpeg', '.jpg');
                         }
                     }
                 };
 
-                // Cliccando sulla foto si apre il Lightbox ed auto-seleziona l'opera per l'Inquire
                 img.addEventListener('click', () => {
-                    openLightbox(img.src, img.alt);
-                    selectArtwork(art);
+                    goToSlide(index);
                 });
-
-                // Didascalia saldata
-                const captionDiv = document.createElement('div');
-                captionDiv.className = 'artwork-caption';
-
-                const titleEl = document.createElement('h3');
-                titleEl.className = 'artwork-title-text';
-                titleEl.id = `title-${art.id}`;
-
-                const sizeEl = document.createElement('div');
-                sizeEl.className = 'artwork-size-text';
-                sizeEl.innerText = art.size;
-
-                const techEl = document.createElement('div');
-                techEl.className = 'artwork-tech-text';
-                techEl.id = `tech-${art.id}`;
-
-                captionDiv.appendChild(titleEl);
-                captionDiv.appendChild(sizeEl);
-                captionDiv.appendChild(techEl);
-
-                itemDiv.appendChild(img);
-                itemDiv.appendChild(captionDiv);
-                container.appendChild(itemDiv);
+                thumbnailsContainer.appendChild(img);
             });
-
-            updateTranslations();
+            updateSlide();
         }
 
-        // --- GESTIONE TRADUZIONE DINAMICA DELLE OPERE ---
-        function updateTranslations() {
+        // Aggiorna lo stato visivo dell'opera attiva, i testi e i campi nascosti del form
+        function updateSlide() {
+            const activeArt = artworks[currentIndex];
             const isEs = document.getElementById('btn-es').classList.contains('active');
 
-            artworks.forEach(art => {
-                const titleEl = document.getElementById(`title-${art.id}`);
-                const techEl = document.getElementById(`tech-${art.id}`);
+            activeArtworkImg.style.opacity = '0.3';
+            setTimeout(() => {
+                activeArtworkImg.src = activeArt.src;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.style.opacity = '1';
+                
+                // Meccanismo auto-recovery per l'immagine principale
+                activeArtworkImg.onerror = function() {
+                    if (!this.dataset.retry) {
+                        this.dataset.retry = "1";
+                        if (activeArt.altSrc) {
+                            this.src = activeArt.altSrc;
+                        }
+                    }
+                };
 
-                if (titleEl) {
-                    titleEl.innerText = isEs ? art.titleEs : art.titleEn;
-                }
-                if (techEl) {
-                    techEl.innerText = isEs ? art.techEs : art.techEn;
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+                
+                setTimeout(alignArrows, 50); // Ricalcola frecce appena la foto si posiziona
+            }, 180);
+
+            // Evidenzia la miniatura attiva
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentIndex) {
+                    thumb.classList.add('active');
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
                 }
             });
+
+            // Sincronizza il form di richiesta (Inquire)
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
         }
 
-        // --- SELEZIONE OPERA PER INVIARE LA RICHIESTA (INQUIRE) ---
-        function selectArtwork(art) {
-            const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
-            const formTitle = document.getElementById('form-title');
-            const isEs = document.getElementById('btn-es').classList.contains('active');
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlide();
+        }
 
-            hiddenArtworkTitle.value = art.titleEn + " (" + art.size + ")";
-            
-            if (isEs) {
-                formTitle.innerText = "consultar: " + art.titleEs;
-            } else {
-                formTitle.innerText = "inquire: " + art.titleEn;
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % artworks.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+            updateSlide();
+        }
+
+        // --- GESTIONE TOUCH SWIPE PER SMARTPHONE ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                nextSlide(); 
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide(); 
             }
         }
 
@@ -617,12 +749,12 @@
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
 
-        function openLightbox(src, alt) {
-            lightboxImg.src = src;
-            lightboxImg.alt = alt;
+        activeArtworkImg.addEventListener('click', () => {
+            lightboxImg.src = activeArtworkImg.src;
+            lightboxImg.alt = activeArtworkImg.alt;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
-        }
+        });
 
         function closeLightbox() {
             lightbox.classList.remove('active');
@@ -693,7 +825,7 @@
             }
         });
 
-        // --- CAMBIO LINGUA ---
+        // --- GESTIONE CAMBIO LINGUA DINAMICA ---
         function setLang(lang) {
             const en = document.querySelectorAll('.lang-en');
             const es = document.querySelectorAll('.lang-es');
@@ -742,14 +874,15 @@
                 lightboxClose.innerText = "close";
             }
 
-            // Aggiorna le didascalie correnti
-            updateTranslations();
+            updateSlide();
         }
 
-        // Avvio automatico al caricamento
+        // Avvio iniziale al caricamento
         window.onload = function() {
             initGallery();
         }
+
+        window.addEventListener('resize', alignArrows);
     </script>
 </body>
 </html>
