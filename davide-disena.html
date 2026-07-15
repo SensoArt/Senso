@@ -194,7 +194,7 @@
         /* Didascalie dell'opera d'arte attiva - Esattamente in FuturaLight, maiuscolo, coerenti con IMG_0902_2.jpg */
         .artwork-caption {
             text-align: center;
-            margin: 25px auto;
+            margin: 10px auto 25px auto; /* Avvicinato significativamente alla base della foto */
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -202,13 +202,6 @@
             gap: 7px;
             font-family: 'FuturaLight', sans-serif;
             text-transform: uppercase;
-        }
-
-        .artwork-artist-tag {
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            color: #000;
-            opacity: 0.9;
         }
 
         .artwork-title-text {
@@ -232,27 +225,6 @@
             letter-spacing: 3px;
             color: #000;
             opacity: 0.65;
-        }
-
-        /* Pulsante rettangolare sottile ed elegante identico a IMG_0902_2.jpg */
-        .caption-inquire-btn {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 42px;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            background: transparent;
-            color: #000;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s, opacity 0.3s;
-        }
-
-        .caption-inquire-btn:hover {
-            border-color: #000;
-            background-color: rgba(0, 0, 0, 0.02);
         }
 
         /* Miniature in griglia geometrica orizzontale a 4 colonne */
@@ -531,13 +503,11 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalie dell'opera corrente - Esattamente come mostrato in IMG_0902_2.jpg -->
+                <!-- Didascalie dell'opera corrente - Nome e tasto Inquire rimossi come richiesto, testo avvicinato -->
                 <div class="artwork-caption">
-                    <div class="artwork-artist-tag">DAVIDE DI SENA</div>
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
                     <div id="artwork-tech" class="artwork-tech-text"></div>
-                    <button class="caption-inquire-btn" id="caption-inquire-btn" onclick="scrollToInquiry()">Inquire</button>
                 </div>
 
                 <!-- Griglia delle miniature (formato 4 colonne per le sue 4 opere, come Catherine e Carlotta) -->
@@ -868,7 +838,6 @@
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
             const submitBtnElement = document.getElementById('submit-btn');
-            const captionInquireBtn = document.getElementById('caption-inquire-btn');
 
             if (lang === 'es') {
                 en.forEach(el => el.classList.add('hidden'));
@@ -880,7 +849,6 @@
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
                 inputMessage.placeholder = "Comentarios";
-                captionInquireBtn.innerText = "consultar";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
@@ -898,7 +866,6 @@
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
                 inputMessage.placeholder = "Comments";
-                captionInquireBtn.innerText = "inquire";
                 
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
