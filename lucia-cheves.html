@@ -132,6 +132,8 @@
             display: flex;
             flex-direction: column;
             gap: 0px !important; 
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         /* Le immagini mantengono le loro proporzioni originali senza ritagli */
@@ -143,32 +145,34 @@
             cursor: pointer; 
             transition: opacity 0.4s ease;
             margin: 0 auto 0 auto !important;
-            padding-bottom: 0px !important;
+            padding: 0 !important;
         }
 
         .artist-img:hover {
             opacity: 0.8;
         }
 
-        /* Didascalie perfettamente saldate e adiacenti alla foto */
+        /* Didascalie perfettamente saldate e adiacenti alla foto - Spazio 0px */
         .artwork-caption {
             text-align: center;
             margin: 0 auto 0 auto !important; 
-            padding-top: 8px !important; 
+            padding-top: 0px !important; 
+            padding-bottom: 0px !important;
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 4px;
+            gap: 2px !important; 
             font-family: 'FuturaLight', sans-serif;
         }
 
-        /* Titolo dell'opera rigorosamente non in grassetto */
+        /* Titolo dell'opera rigorosamente non in grassetto, azzerati i margini h3 */
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
             letter-spacing: 1.5px;
-            margin: 0;
+            margin: 0 !important; 
+            padding: 0 !important;
             font-weight: normal !important; 
             color: #000;
         }
@@ -179,7 +183,8 @@
             letter-spacing: 1.5px;
             color: #000;
             opacity: 0.6;
-            margin: 0;
+            margin: 0 !important;
+            padding: 0 !important;
             font-weight: normal !important;
         }
 
@@ -503,8 +508,8 @@
             },
             { 
                 id: 3,
-                src: "fotos_obras/obralucia_3.jpg", 
-                altSrc: "fotos_obras/obra lucia_3.jpg", // Gestione robusta per il nome del file con spazio o estensione diversa
+                src: "fotos_obras/obra lucia_3.jpg", // Nome primario con spazio richiesto dall'utente
+                altSrc: "fotos_obras/obralucia_3.jpg", // Alternativa robusta
                 titleEn: "Tokoyol Boogie", 
                 titleEs: "Tokoyol Boogie", 
                 size: "110 x 150 cm", 
