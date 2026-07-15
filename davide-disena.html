@@ -96,7 +96,7 @@
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 70px 25px 150px; 
+            padding: 150px 25px 150px; 
         }
 
         /* Titolo raffinato sussurrato stile Catalogue */
@@ -122,10 +122,10 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 0px; /* Rimosso gap tra i blocchi interni */
+            gap: 0px; 
         }
 
-        /* Contenitore slider - Zero margini per aderenza */
+        /* Contenitore slider - Zero margini e altezza auto per totale aderenza */
         .slider-wrapper {
             position: relative;
             width: 100%;
@@ -133,8 +133,7 @@
             align-items: flex-start;
             justify-content: center;
             background-color: transparent;
-            overflow: hidden;
-            margin-bottom: 0px !important; /* Forza l'eliminazione dello spazio */
+            margin-bottom: 0px !important; 
         }
 
         .main-image-frame {
@@ -142,7 +141,7 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: 400px; 
+            height: auto; /* Modificato in auto per evitare spazi vuoti verticali */
         }
 
         /* Immagine attiva */
@@ -152,9 +151,10 @@
             width: auto;
             height: auto;
             object-fit: contain;
-            display: block; /* Evita gap di default degli inline-elements */
+            display: block; 
             cursor: pointer;
             transition: opacity 0.2s ease;
+            margin: 0;
         }
 
         /* Frecce di Navigazione Centrate */
@@ -191,16 +191,16 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* Didascalie ATTACCATE alla foto - margin-top: 0 */
+        /* Didascalie ATTACCATE alla foto */
         .artwork-caption {
             text-align: center;
-            margin: 0 auto 30px auto; /* Margin top rigorosamente a zero */
-            padding-top: 5px; /* Un piccolo respiro per non toccare i pixel dell'immagine, ma aderenza visiva */
+            margin: 0 auto 30px auto; 
+            padding-top: 10px; /* Spazio millimetrico ma aderenza visiva totale */
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 7px;
+            gap: 6px;
             font-family: 'FuturaLight', sans-serif;
             text-transform: uppercase;
         }
@@ -219,6 +219,7 @@
             letter-spacing: 3px;
             color: #000;
             opacity: 0.65;
+            margin: 0;
         }
 
         .artwork-tech-text {
@@ -226,6 +227,7 @@
             letter-spacing: 3px;
             color: #000;
             opacity: 0.65;
+            margin: 0;
         }
 
         /* Miniature in basso */
@@ -443,9 +445,9 @@
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
-            .container { padding-top: 50px; padding-bottom: 80px; }
+            .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .main-image-frame { height: 300px; }
+            .main-image-frame { height: auto; }
             .artist-img { max-height: 300px; }
         }
     </style>
@@ -496,7 +498,7 @@
                     Born in 2004 and currently studying at the <span class="important">Academy of Fine Arts in Naples</span>, Davide analyzes the interferences between natural spaces and human traces. His research moves between industrial archaeology and urban landscapes, interpreting the environment as a body that bears the scars of human passage. He works primarily with analog photography, a conscious choice that transforms each frame into an act of slow, tactile observation. He has exhibited at the <span class="important">Area Contesa Arte</span> gallery in <span class="important">Rome (Via Margutta)</span>, advancing a poetic vision that documents the tension between concrete and nature. He currently lives and works in <span class="important">Caserta</span>.
                 </div>
                 <div class="lang-es artist-bio hidden">
-                    Nacido en 2004 y estudiante de la <span class="important">Academia de Bellas Artes de Nápoles</span>, Davide analiza las interferencias tra el espacio natural y las huellas humanas. Su investigación se mueve entre la arqueología industrial y los paisajes urbanos, interpretando el entorno como un cuerpo que porta los signos del paso del hombre. Trabaja principalmente con fotografía analógica, una elección consciente que transforma el disparo en un acto de observación lenta y matérica. Ha expuesto en la galería <span class="important">Area Contesa Arte</span> en <span class="important">Roma (Via Margutta)</span>, desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza. Actualmente vive y trabaja en <span class="important">Caserta</span>.
+                    Nacido en 2004 y estudiante de la <span class="important">Academia de Bellas Artes de Nápoles</span>, Davide analiza las interferencias entre el espacio natural y las huellas humanas. Su investigación se mueve entre la arqueología industrial y los paisajes urbanos, interpretando el entorno como un cuerpo que porta los signos del paso del hombre. Trabaja principalmente con fotografía analógica, una elección consciente que transforma el disparo en un acto de observación lenta y matérica. Ha expuesto en la galería <span class="important">Area Contesa Arte</span> en <span class="important">Roma (Via Margutta)</span>, desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza. Actualmente vive y trabaja en <span class="important">Caserta</span>.
                 </div>
 
                 <section class="inquiry-section">
