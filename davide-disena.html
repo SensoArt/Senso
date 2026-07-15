@@ -93,21 +93,20 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* Alzato notevolmente riducendo il padding superiore da 150px a 70px */
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 70px 25px 120px; 
+            padding: 150px 25px 150px; 
         }
 
-        /* Titolo raffinato sussurrato stile Catalogue (lowercase graziato, non bold, molto elegante) */
+        /* Nome dell'artista in grassetto elegante */
         .artist-title { 
-            font-family: 'BehindNineties', serif; 
-            font-size: clamp(2rem, 5vw, 3.2rem); 
-            text-transform: lowercase;
-            letter-spacing: 1px;
-            margin: 0 0 40px 0; 
-            font-weight: normal; 
+            font-family: 'FuturaLight', sans-serif; 
+            font-size: 1.3rem; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0 0 50px 0; 
+            font-weight: bold; 
         }
 
         /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
@@ -192,7 +191,7 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* Didascalie dell'opera d'arte attiva - Centrate, separate riga per riga e senza doppi trattini */
+        /* Didascalie dell'opera d'arte attiva - Esattamente in FuturaLight, maiuscolo, coerenti con IMG_0902_2.jpg */
         .artwork-caption {
             text-align: center;
             margin: 25px auto;
@@ -201,51 +200,46 @@
             flex-direction: column;
             align-items: center;
             gap: 7px;
+            font-family: 'FuturaLight', sans-serif;
+            text-transform: uppercase;
         }
 
         .artwork-artist-tag {
-            font-family: 'FuturaLight', sans-serif;
             font-size: 0.75rem;
             letter-spacing: 3px;
-            text-transform: uppercase;
             color: #000;
             opacity: 0.9;
         }
 
         .artwork-title-text {
-            font-family: 'BehindNineties', serif;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 3px;
             margin: 0;
             font-weight: normal;
             color: #000;
         }
 
         .artwork-size-text {
-            font-family: 'FuturaLight', sans-serif;
             font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 3px;
             color: #000;
             opacity: 0.65;
         }
 
         .artwork-tech-text {
-            font-family: 'FuturaLight', sans-serif;
             font-size: 0.75rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 3px;
             color: #000;
             opacity: 0.65;
         }
 
-        /* Pulsante rettangolare elegante sotto la didascalia */
+        /* Pulsante rettangolare sottile ed elegante identico a IMG_0902_2.jpg */
         .caption-inquire-btn {
             display: inline-block;
             margin-top: 15px;
-            padding: 11px 45px;
-            border: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 10px 42px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
             background: transparent;
             color: #000;
             font-family: 'FuturaLight', sans-serif;
@@ -261,7 +255,7 @@
             background-color: rgba(0, 0, 0, 0.02);
         }
 
-        /* Miniature in griglia geometrica pulita */
+        /* Miniature in griglia geometrica orizzontale a 4 colonne */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -537,7 +531,7 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalie dell'opera corrente - Centrato riga per riga in accordo con IMG_0902.jpg -->
+                <!-- Didascalie dell'opera corrente - Esattamente come mostrato in IMG_0902_2.jpg -->
                 <div class="artwork-caption">
                     <div class="artwork-artist-tag">DAVIDE DI SENA</div>
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
@@ -546,7 +540,7 @@
                     <button class="caption-inquire-btn" id="caption-inquire-btn" onclick="scrollToInquiry()">Inquire</button>
                 </div>
 
-                <!-- Griglia delle miniature (formato 4 colonne per le sue 4 opere) -->
+                <!-- Griglia delle miniature (formato 4 colonne per le sue 4 opere, come Catherine e Carlotta) -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
             </div>
@@ -608,39 +602,39 @@
     </main>
 
     <script>
-        // Array ordinato delle opere con metadati strutturati e separati (niente trattini doppi)
+        // Array ordinato delle opere con metadati strutturati e formattati rigorosamente in MAIUSCOLO
         const artworks = [
             { 
                 src: "fotos_obras/davidedisena1.jpg", 
-                titleEn: "Frammenti Urbani, Opera I", 
-                titleEs: "Frammenti Urbani, Opera I",
-                size: "60x40 cm",
-                techEn: "Analog Photography, 2026",
-                techEs: "Fotografía Analógica, 2026"
+                titleEn: "FRAMMENTI URBANI, OPERA I", 
+                titleEs: "FRAMMENTI URBANI, OPERA I",
+                size: "60X40 CM",
+                techEn: "ANALOG PHOTOGRAPHY, 2026",
+                techEs: "FOTOGRAFÍA ANALÓGICA, 2026"
             },
             { 
                 src: "fotos_obras/davidedisena2.jpg", 
-                titleEn: "Arco felice, Opera IV", 
-                titleEs: "Arco felice, Opera IV",
-                size: "60x40 cm",
-                techEn: "Analog Photography, 2025",
-                techEs: "Fotografía Analógica, 2025"
+                titleEn: "ARCO FELICE, OPERA IV", 
+                titleEs: "ARCO FELICE, OPERA IV",
+                size: "60X40 CM",
+                techEn: "ANALOG PHOTOGRAPHY, 2025",
+                techEs: "FOTOGRAFÍA ANALÓGICA, 2025"
             },
             { 
                 src: "fotos_obras/davidedisena3.jpg", 
-                titleEn: "Area Industriale, Opera I", 
-                titleEs: "Area Industriale, Opera I",
-                size: "60x40 cm",
-                techEn: "Analog Photography, 2024",
-                techEs: "Fotografía Analógica, 2024"
+                titleEn: "AREA INDUSTRIALE, OPERA I", 
+                titleEs: "AREA INDUSTRIALE, OPERA I",
+                size: "60X40 CM",
+                techEn: "ANALOG PHOTOGRAPHY, 2024",
+                techEs: "FOTOGRAFÍA ANALÓGICA, 2024"
             },
             { 
                 src: "fotos_obras/davidedisena4.jpg", 
-                titleEn: "Terremoto", 
-                titleEs: "Terremoto",
-                size: "60x40 cm",
-                techEn: "Analog Photography, 2025",
-                techEs: "Fotografía Analógica, 2025"
+                titleEn: "TERREMOTO", 
+                titleEs: "TERREMOTO",
+                size: "60X40 CM",
+                techEn: "ANALOG PHOTOGRAPHY, 2025",
+                techEs: "FOTOGRAFÍA ANALÓGICA, 2025"
             }
         ];
 
