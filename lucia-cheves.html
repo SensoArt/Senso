@@ -94,9 +94,9 @@
         .lang-btn.active { opacity: 1; }
 
         .container { 
-            max-width: 850px; 
+            max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 150px; /* Spaziatura generosa a fondo pagina */
+            padding: 150px 25px 150px; 
         }
 
         /* Nome dell'artista in grassetto elegante */
@@ -106,38 +106,164 @@
             text-transform: uppercase;
             letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            font-weight: bold; /* Grassetto richiesto */
+            font-weight: bold; 
         }
 
-        /* Layout a due colonne (Foto a sinistra rimpicciolita, Bio a destra) */
+        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
         .artist-content { 
             display: grid; 
-            grid-template-columns: 280px 1fr; /* Colonna sinistra rimpicciolita ed elegante */
+            grid-template-columns: 380px 1fr; 
             gap: 60px; 
             align-items: start; 
         }
         
-        /* Contenitore per impilare entrambe le immagini verticalmente */
         .img-container { 
             width: 100%; 
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 30px; /* Spazio elegante tra le due opere */
+            gap: 0px; /* Azzerato completamente il gap interno della colonna */
         }
 
-        /* Le immagini non vengono ritagliate e si adattano in modo naturale alle loro proporzioni originali */
-        .artist-img { 
-            width: 100%; 
+        /* Contenitore per l'immagine attiva principale - Zero distanze */
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: transparent;
+            overflow: hidden;
+            margin-bottom: 0px !important; 
+            padding-bottom: 0px !important;
+        }
+
+        .main-image-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
             height: auto; 
-            display: block; 
-            object-fit: contain; 
-            cursor: pointer; /* Rende l'opera cliccabile */
-            transition: opacity 0.4s ease;
+            margin: 0;
+            padding: 0;
         }
 
-        .artist-img:hover {
-            opacity: 0.8;
+        /* Immagine attiva interattiva e cliccabile per Lightbox */
+        .artist-img { 
+            max-width: 100%; 
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
+        .nav-arrow {
+            position: absolute;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.85); 
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #000;
+            cursor: pointer;
+            opacity: 0.6; 
+            z-index: 10;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
+
+        /* Didascalia posizionata subito sotto l'immagine, senza margini vuoti */
+        .artwork-caption {
+            text-align: center;
+            margin: 8px auto 25px auto; /* Solo spazio sotto per spingere le miniature */
+            padding-top: 0px; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-family: 'FuturaLight', sans-serif;
+        }
+
+        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
+        .artwork-title-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: normal !important;
+            color: #000;
+        }
+
+        .artwork-size-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        /* Miniature in griglia geometrica pulita a 3 colonne */
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .thumb-item {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.35;
+            border: 1px solid transparent;
+            transition: opacity 0.3s, border-color 0.3s;
+        }
+
+        .thumb-item:hover, .thumb-item.active {
+            opacity: 1;
+        }
+
+        .thumb-item.active {
+            border-color: #000;
         }
 
         /* Stile dei testi bio */
@@ -163,7 +289,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background-color: rgba(255, 255, 255, 0.98); /* Sfondo chiaro ed etereo */
+            background-color: rgba(255, 255, 255, 0.98); 
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -303,7 +429,7 @@
             opacity: 0.5;
         }
 
-        /* Messaggio di successo minimalista */
+        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -337,11 +463,13 @@
 
         /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
-            .artist-content { grid-template-columns: 1fr; gap: 35px; }
-            .img-container { max-width: 300px; margin: 0 auto; } /* Mantiene le immagini contenute su schermi piccoli */
+            .artist-content { grid-template-columns: 1fr; gap: 40px; }
+            .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
+            .main-image-frame { height: auto; }
+            .artist-img { max-height: 300px; }
         }
     </style>
 </head>
@@ -374,10 +502,29 @@
         </header>
 
         <div class="artist-content fade-in delay-2">
-            <!-- Entrambe le opere caricate su fotos_obras (proporzioni naturali, senza ritagli) -->
+            
+            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
-                <img src="fotos_obras/obralucia_2.jpeg" alt="Lucía Cheves Dauber — Opera 1" class="artist-img">
-                <img src="fotos_obras/lucia5.jpg" alt="Lucía Cheves Dauber — Opera 2" class="artist-img">
+                
+                <!-- Spazio immagine principale con frecce -->
+                <div class="slider-wrapper" id="swipe-area">
+                    <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
+                    <div class="main-image-frame">
+                        <img id="active-artwork" src="" alt="Lucía Cheves Dauber — Active Artwork" class="artist-img" onload="alignArrows()">
+                    </div>
+                    <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+                </div>
+
+                <!-- Didascalie saldate alla foto -->
+                <div class="artwork-caption">
+                    <h3 id="artwork-title" class="artwork-title-text"></h3>
+                    <div id="artwork-size" class="artwork-size-text"></div>
+                    <div id="artwork-tech" class="artwork-tech-text"></div>
+                </div>
+
+                <!-- Griglia delle miniature -->
+                <div class="thumbnail-grid" id="thumbnails-container"></div>
+                
             </div>
 
             <!-- Area Bio ed Inquiry Form -->
@@ -397,8 +544,9 @@
                     
                     <!-- Form con endpoint Formspree reale dell'utente -->
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
-                        <!-- Campo nascosto per capire a quale artista si riferisce la richiesta nel backend della mail -->
                         <input type="hidden" name="artist" value="Lucía Cheves Dauber">
+                        <!-- Campo nascosto per passare il titolo dell'opera attiva via mail -->
+                        <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
                         
                         <div class="form-row">
                             <div class="form-group">
@@ -410,7 +558,7 @@
                         </div>
                         
                         <div class="form-group">
-                            <textarea name="message" id="input-message" class="form-input" placeholder="Your message or inquiry..." required></textarea>
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea>
                         </div>
                         
                         <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
@@ -436,28 +584,160 @@
     </main>
 
     <script>
+        // Array ordinato delle opere sincronizzato con il catalogo dell'inventario
+        const artworks = [
+            { 
+                src: "fotos_obras/obralucia_2.jpeg", 
+                titleEn: "Lieber Leser*innen", 
+                titleEs: "Lieber Leser*innen", 
+                size: "120 x 100 cm", 
+                techEn: "Mixed media on canvas, 2021", 
+                techEs: "Técnica mixta sobre lienzo, 2021" 
+            },
+            { 
+                src: "fotos_obras/obralucia.jpeg", 
+                titleEn: "Entity", 
+                titleEs: "Entity", 
+                size: "114,5 x 146 cm", 
+                techEn: "Acrylic and oil on canvas, 2021", 
+                techEs: "Acrílico y óleo sobre lienzo, 2021" 
+            },
+            { 
+                src: "fotos_obras/obralucia_3.jpg", 
+                titleEn: "Tokoyol Boogie", 
+                titleEs: "Tokoyol Boogie", 
+                size: "110 x 150 cm", 
+                techEn: "Acrylic and oil on canvas, 2025", 
+                techEs: "Acrílico y óleo sobre lienzo, 2025" 
+            }
+        ];
+
+        let currentIndex = 0;
+
+        const thumbnailsContainer = document.getElementById('thumbnails-container');
+        const activeArtworkImg = document.getElementById('active-artwork');
+        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
+        const inputMessage = document.getElementById('input-message');
+        const artworkTitleEl = document.getElementById('artwork-title');
+        const artworkSizeEl = document.getElementById('artwork-size');
+        const artworkTechEl = document.getElementById('artwork-tech');
+
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
+            }
+        }
+
+        function initGallery() {
+            thumbnailsContainer.innerHTML = '';
+            artworks.forEach((art, index) => {
+                const img = document.createElement('img');
+                img.src = art.src;
+                img.alt = art.titleEn;
+                img.className = 'thumb-item';
+                if (index === currentIndex) img.classList.add('active');
+                
+                img.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                thumbnailsContainer.appendChild(img);
+            });
+            updateSlide();
+        }
+
+        function updateSlide() {
+            const activeArt = artworks[currentIndex];
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+
+            // Aggiorna immagine principale
+            activeArtworkImg.style.opacity = '0.3';
+            setTimeout(() => {
+                activeArtworkImg.src = activeArt.src;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.style.opacity = '1';
+                
+                // Aggiorna didascalie visibili sul layout
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+                setTimeout(alignArrows, 50); // Ricalcola la posizione delle frecce
+            }, 180);
+
+            // Aggiorna miniature attive
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentIndex) {
+                    thumb.classList.add('active');
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+
+            // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % artworks.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+            updateSlide();
+        }
+
+        // --- GESTIONE TOUCH SWIPE SU MOBILE ---
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                nextSlide(); 
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide(); 
+            }
+        }
+
         // --- FUNZIONALITÀ LIGHTBOX ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
-        const artistImages = document.querySelectorAll('.artist-img');
 
-        // Apre il Lightbox sull'immagine cliccata
-        artistImages.forEach(img => {
-            img.addEventListener('click', () => {
-                lightboxImg.src = img.src;
-                lightboxImg.alt = img.alt;
-                lightbox.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Blocca lo scroll della pagina sottostante
-            });
+        activeArtworkImg.addEventListener('click', () => {
+            lightboxImg.src = activeArtworkImg.src;
+            lightboxImg.alt = activeArtworkImg.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
         });
 
-        // Chiude il Lightbox cliccando lo sfondo o il tasto di chiusura
         function closeLightbox() {
             lightbox.classList.remove('active');
-            document.body.style.overflow = ''; // Ripristina lo scroll
+            document.body.style.overflow = '';
             setTimeout(() => {
-                lightboxImg.src = ''; // Svuota la sorgente al termine della transizione
+                lightboxImg.src = '';
             }, 400);
         }
 
@@ -467,12 +747,12 @@
             }
         });
 
+        // Chiudi con ESC tastiera
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
+            if (e.key === 'Escape') {
+                if (lightbox.classList.contains('active')) closeLightbox();
             }
         });
-
 
         // --- INVIO FORM AJAX (FORMSPREE) ---
         const contactForm = document.getElementById('contact-form');
@@ -482,11 +762,8 @@
 
         contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Determina la lingua attuale al momento dell'invio
             const isEs = document.getElementById('btn-es').classList.contains('active');
             
-            // Cambia stato del bottone a "Inviando..." per dare feedback visivo immediato
             submitBtn.disabled = true;
             submitBtn.style.opacity = "0.4";
             submitBtn.innerText = isEs ? "Enviando..." : "Sending...";
@@ -504,11 +781,9 @@
                 });
 
                 if (response.ok) {
-                    // Successo: nascondi il form e mostra il blocco di ringraziamento
                     contactForm.style.display = 'none';
                     thankYouBlock.style.display = 'block';
                     
-                    // Forza l'aggiornamento della lingua anche sul blocco Thank You
                     if (isEs) {
                         thankYouBlock.querySelector('.lang-en').classList.add('hidden');
                         thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
@@ -520,16 +795,13 @@
                     throw new Error('Server response was not ok');
                 }
             } catch (error) {
-                // Errore: ripristina il bottone e mostra il messaggio di errore
                 submitBtn.disabled = false;
                 submitBtn.style.opacity = "1";
                 submitBtn.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
-                
                 errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
                 errorMsg.style.display = "block";
             }
         });
-
 
         // --- CAMBIO LINGUA ---
         function setLang(lang) {
@@ -538,11 +810,9 @@
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
 
-            // Elementi del Form da tradurre dinamicamente
             const formTitle = document.getElementById('form-title');
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
-            const inputMessage = document.getElementById('input-message');
             const submitBtnElement = document.getElementById('submit-btn');
 
             if (lang === 'es') {
@@ -551,11 +821,11 @@
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
 
-                // Traduzioni Form Spagnolo
                 formTitle.innerText = "consultar";
                 inputName.placeholder = "Su nombre";
                 inputEmail.placeholder = "Su correo electrónico";
-                inputMessage.placeholder = "Su messaggio o consulta...";
+                inputMessage.placeholder = "Comentarios";
+                
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Enviar consulta →";
                 } else {
@@ -568,11 +838,11 @@
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
 
-                // Traduzioni Form Inglese
                 formTitle.innerText = "inquire";
                 inputName.placeholder = "Your name";
                 inputEmail.placeholder = "Your email";
-                inputMessage.placeholder = "Your message or inquiry...";
+                inputMessage.placeholder = "Comments";
+                
                 if (!submitBtnElement.disabled) {
                     submitBtnElement.innerText = "Send Inquiry →";
                 } else {
@@ -580,7 +850,17 @@
                 }
                 lightboxClose.innerText = "close";
             }
+
+            // Forza l'aggiornamento didascalie dell'opera corrente
+            updateSlide();
         }
+
+        // Avvio automatico al caricamento
+        window.onload = function() {
+            initGallery();
+        }
+
+        window.addEventListener('resize', alignArrows);
     </script>
 </body>
 </html>
