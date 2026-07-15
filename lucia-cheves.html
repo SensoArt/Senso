@@ -239,10 +239,10 @@
             font-weight: normal !important;
         }
 
-        /* Miniature in griglia geometrica pulita a 3 colonne */
+        /* Miniature in griglia geometrica pulita a 4 colonne per 4 opere */
         .thumbnail-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 8px;
             width: 100%;
             margin-top: 10px;
@@ -611,6 +611,15 @@
                 size: "110 x 150 cm", 
                 techEn: "Acrylic and oil on canvas, 2025", 
                 techEs: "Acrílico y óleo sobre lienzo, 2025" 
+            },
+            { 
+                src: "fotos_obras/lucia5.jpg", 
+                altSrc: "fotos_obras/lucia5.jpeg",
+                titleEn: "", 
+                titleEs: "", 
+                size: "", 
+                techEn: "", 
+                techEs: "" 
             }
         ];
 
@@ -641,7 +650,7 @@
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.titleEn;
+                img.alt = art.titleEn || "Artwork " + (index + 1);
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
@@ -671,7 +680,7 @@
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
                 activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.alt = isEs ? (activeArt.titleEs || "Obra") : (activeArt.titleEn || "Artwork");
                 activeArtworkImg.style.opacity = '1';
                 
                 // Meccanismo auto-recovery per l'immagine principale
@@ -684,9 +693,21 @@
                     }
                 };
 
-                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
-                artworkSizeEl.innerText = activeArt.size;
-                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+                const titleText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                const sizeText = activeArt.size;
+                const techText = isEs ? activeArt.techEs : activeArt.techEn;
+
+                artworkTitleEl.innerText = titleText;
+                artworkSizeEl.innerText = sizeText;
+                artworkTechEl.innerText = techText;
+
+                // Nascondi dinamicamente la didascalia se tutti i campi sono vuoti (es. per lucia5.jpg)
+                const captionArea = document.querySelector('.artwork-caption');
+                if (!titleText && !sizeText && !techText) {
+                    captionArea.style.display = 'none';
+                } else {
+                    captionArea.style.display = 'flex';
+                }
                 
                 setTimeout(alignArrows, 50); // Ricalcola frecce appena la foto si posiziona
             }, 180);
@@ -703,7 +724,11 @@
             });
 
             // Sincronizza il form di richiesta (Inquire)
-            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
+            if (activeArt.titleEn) {
+                hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
+            } else {
+                hiddenArtworkTitle.value = "Artwork (" + activeArt.src.split('/').pop() + ")";
+            }
         }
 
         function goToSlide(index) {
