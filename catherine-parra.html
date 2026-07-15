@@ -148,61 +148,44 @@
             width: 100%; 
             height: auto; 
             max-height: 400px;
-            display: block; 
-            object-fit: contain; 
-            cursor: pointer; 
-            transition: opacity 0.3s ease;
-        }
-
-        .artist-img:hover {
-            opacity: 0.9;
-        }
-
-        /* Frecce di Navigazione Minimali */
+        /* Frecce di Navigazione Minimali e Visibili su qualsiasi opera */
         .nav-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: none;
-            border: none;
-            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.85); /* Cerchio bianco semi-trasparente */
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); /* Sfocatura elegante dello sfondo */
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%; /* Forma perfettamente circolare */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
             color: #000;
             cursor: pointer;
-            opacity: 0.25;
-            padding: 15px 10px;
+            opacity: 0.6; /* Opacità base aumentata per ottima visibilità */
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
             outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); /* Ombra leggerissima per dare profondità */
         }
 
         .nav-arrow:hover {
-            opacity: 0.8;
-            transform: translateY(-50%) scale(1.1);
+            opacity: 1;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-50%) scale(1.05);
         }
 
-        .prev-arrow { left: 0px; }
-        .next-arrow { right: 0px; }
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
 
-        /* Didascalia descrittiva dell'opera attiva */
-        .artwork-caption {
-            text-align: left;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-            padding-bottom: 15px;
-            margin-top: 5px;
-        }
-
-        .artwork-caption-title {
-            font-family: 'BehindNineties', serif;
-            font-size: 1.15rem;
-            margin: 0 0 4px 0;
-            font-weight: normal;
-        }
-
-        .artwork-caption-meta {
-            font-size: 0.8rem;
-            opacity: 0.6;
-            margin: 0;
-            line-height: 1.5;
+        /* Margine inferiore per distanziare il cursore dalle miniature */
+        .slider-wrapper {
+            margin-bottom: 25px;
         }
 
         /* Miniature in griglia geometrica pulita */
@@ -479,12 +462,6 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalia dinamica dell'opera attiva -->
-                <div class="artwork-caption">
-                    <h3 class="artwork-caption-title" id="caption-title">Loading...</h3>
-                    <p class="artwork-caption-meta" id="caption-meta"></p>
-                </div>
-
                 <!-- Griglia delle miniature -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
@@ -547,88 +524,23 @@
     </main>
 
     <script>
-        // --- DATASET DELLE 10 OPERE DI CATHERINE PARRA ---
-        // Puoi facilmente cambiare i titoli, le tecniche o le misure qui sotto
         const artworks = [
-            {
-                src: "fotos_obras/parra1.JPG",
-                titleEn: "Composition Bleue I",
-                titleEs: "Composición Azul I",
-                metaEn: "Acrylic and collage on canvas<br>100 x 100 cm — 2025",
-                metaEs: "Acrílico y collage sobre lienzo<br>100 x 100 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra2.JPG",
-                titleEn: "L'Équilibre",
-                titleEs: "L'Équilibre",
-                metaEn: "Mixed media and textiles on canvas<br>140 x 120 cm — 2025",
-                metaEs: "Técnica mixta y textiles sobre lienzo<br>140 x 120 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra3.JPG",
-                titleEn: "Composition Orange",
-                titleEs: "Composición Naranja",
-                metaEn: "Acrylic on canvas<br>80 x 80 cm — 2025",
-                metaEs: "Acrílico sobre lienzo<br>80 x 80 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra4.JPG",
-                titleEn: "Passage Primordial",
-                titleEs: "Pasaje Primordial",
-                metaEn: "Mixed media on canvas<br>120 x 100 cm — 2026",
-                metaEs: "Técnica mixta sobre lienzo<br>120 x 100 cm — 2026"
-            },
-            {
-                src: "fotos_obras/parra5.JPG",
-                titleEn: "Sensations Éphémères",
-                titleEs: "Sensaciones Efímeras",
-                metaEn: "Acrylic and collage on canvas<br>90 x 90 cm — 2025",
-                metaEs: "Acrílico y collage sobre lienzo<br>90 x 90 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra6.JPG",
-                titleEn: "Écho de la Matière",
-                titleEs: "Eco de la Materia",
-                metaEn: "Mixed media and collage on board<br>70 x 70 cm — 2025",
-                metaEs: "Técnica mixta y collage sobre tabla<br>70 x 70 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra7.JPG",
-                titleEn: "Fragments de Mémoire",
-                titleEs: "Fragmentos de Memoria",
-                metaEn: "Acrylic on canvas<br>100 x 80 cm — 2025",
-                metaEs: "Acrílico sobre lienzo<br>100 x 80 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra8.JPG",
-                titleEn: "Rhythm and Silence",
-                titleEs: "Ritmo y Silencio",
-                metaEn: "Mixed media on canvas<br>110 x 90 cm — 2026",
-                metaEs: "Técnica mixta sobre lienzo<br>110 x 90 cm — 2026"
-            },
-            {
-                src: "fotos_obras/parra9.JPG",
-                titleEn: "Structure Organique",
-                titleEs: "Estructura Orgánica",
-                metaEn: "Acrylic and textiles on linen<br>120 x 100 cm — 2025",
-                metaEs: "Acrílico y textiles sobre lino<br>120 x 100 cm — 2025"
-            },
-            {
-                src: "fotos_obras/parra10.JPG",
-                titleEn: "Chaos Armonioso",
-                titleEs: "Caos Armonioso",
-                metaEn: "Mixed media with natural pigments<br>150 x 120 cm — 2026",
-                metaEs: "Técnica mixta con pigmentos naturales<br>150 x 120 cm — 2026"
-            }
+            { src: "fotos_obras/parra1.JPG", labelEn: "Artwork 1", labelEs: "Obra 1" },
+            { src: "fotos_obras/parra10.JPG", labelEn: "Artwork 2", labelEs: "Obra 2" },
+            { src: "fotos_obras/parra2.JPG", labelEn: "Artwork 3", labelEs: "Obra 3" },
+            { src: "fotos_obras/parra3.JPG", labelEn: "Artwork 4", labelEs: "Obra 4" },
+            { src: "fotos_obras/parra4.JPG", labelEn: "Artwork 5", labelEs: "Obra 5" },
+            { src: "fotos_obras/parra5.JPG", labelEn: "Artwork 6", labelEs: "Obra 6" },
+            { src: "fotos_obras/parra6.JPG", labelEn: "Artwork 7", labelEs: "Obra 7" },
+            { src: "fotos_obras/parra7.JPG", labelEn: "Artwork 8", labelEs: "Obra 8" },
+            { src: "fotos_obras/parra8.JPG", labelEn: "Artwork 9", labelEs: "Obra 9" },
+            { src: "fotos_obras/parra9.JPG", labelEn: "Artwork 10", labelEs: "Obra 10" }
         ];
 
         let currentIndex = 0;
 
-        // --- RENDERIZZAZIONE MINIATURE ---
         const thumbnailsContainer = document.getElementById('thumbnails-container');
         const activeArtworkImg = document.getElementById('active-artwork');
-        const captionTitle = document.getElementById('caption-title');
-        const captionMeta = document.getElementById('caption-meta');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
         const inputMessage = document.getElementById('input-message');
 
@@ -637,7 +549,7 @@
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.titleEn;
+                img.alt = art.labelEn;
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
@@ -657,13 +569,9 @@
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
                 activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.alt = isEs ? activeArt.labelEs : activeArt.labelEn;
                 activeArtworkImg.style.opacity = '1';
             }, 180);
-
-            // Aggiorna didascalie basate sulla lingua attiva
-            captionTitle.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
-            captionMeta.innerHTML = isEs ? activeArt.metaEs : activeArt.metaEn;
 
             // Aggiorna miniature attive
             const thumbs = document.querySelectorAll('.thumb-item');
@@ -676,11 +584,11 @@
                 }
             });
 
-            // Aggiorna il form con l'opera d'arte selezionata
-            hiddenArtworkTitle.value = activeArt.titleEn;
-            const artworkStr = isEs ? `"${activeArt.titleEs}"` : `"${activeArt.titleEn}"`;
+            // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
+            hiddenArtworkTitle.value = activeArt.labelEn;
+            const artworkStr = isEs ? `"${activeArt.labelEs}"` : `"${activeArt.labelEn}"`;
             inputMessage.placeholder = isEs ? 
-                `Hola, estoy interesado en recibir información sobre la obra ${artworkStr} de Catherine Parra...` : 
+                `Hola, estoy interesado en recibir información sobre la ${artworkStr} de Catherine Parra...` : 
                 `Hello, I would like to inquire about ${artworkStr} by Catherine Parra...`;
         }
 
