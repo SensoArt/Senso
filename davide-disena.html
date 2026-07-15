@@ -125,7 +125,6 @@
             gap: 15px;
         }
 
-
         /* Contenitore per l'immagine attiva principale */
         .slider-wrapper {
             position: relative;
@@ -135,14 +134,14 @@
             justify-content: center;
             background-color: transparent; /* Pulito da qualsiasi alone o rettangolo invisibile */
             overflow: hidden;
-            margin-bottom: 25px;
+            margin-bottom: 10px;
         }
 
         .main-image-frame {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Allinea l'opera d'arte in alto per un perfetto allineamento con la bio */
+            align-items: flex-start; /* Allinea l'opera d'arte in alto per un perfetto allineamento con la bio Y */
             height: 400px; 
         }
 
@@ -158,7 +157,7 @@
             transition: opacity 0.2s ease;
         }
 
-        /* Frecce di Navigazione Minimali e Visibili su qualsiasi opera */
+        /* Frecce di Navigazione Minimali e Centrate sull'opera */
         .nav-arrow {
             position: absolute;
             /* top viene calcolato dinamicamente tramite JS per centrarsi sull'opera */
@@ -193,13 +192,35 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
+        /* Didascalie dell'opera d'arte attiva */
+        .artwork-caption {
+            text-align: left;
+            margin-bottom: 20px;
+            min-height: 60px;
+        }
+
+        .artwork-title-text {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.15rem;
+            margin: 0 0 4px 0;
+            font-weight: normal;
+        }
+
+        .artwork-meta-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin: 0;
+            line-height: 1.4;
+        }
+
         /* Miniature in griglia geometrica pulita */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 8px;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .thumb-item {
@@ -469,6 +490,12 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
+                <!-- Didascalie dell'opera corrente -->
+                <div class="artwork-caption">
+                    <h3 id="artwork-title" class="artwork-title-text"></h3>
+                    <p id="artwork-meta" class="artwork-meta-text"></p>
+                </div>
+
                 <!-- Griglia delle miniature (formato 4 colonne per le sue 4 opere) -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
@@ -531,12 +558,36 @@
     </main>
 
     <script>
-        // Array ordinato delle opere senza dettagli visibili (solo placeholders silenziosi per le mail)
+        // Array ordinato delle opere con metadati completi (Titoli, Dimensioni, Tecnica e Anno)
         const artworks = [
-            { src: "fotos_obras/davidedisena1.jpg", labelEn: "Trace I", labelEs: "Trace I" },
-            { src: "fotos_obras/davidedisena2.jpg", labelEn: "Trace II", labelEs: "Trace II" },
-            { src: "fotos_obras/davidedisena3.jpg", labelEn: "Trace III", labelEs: "Trace III" },
-            { src: "fotos_obras/davidedisena4.jpg", labelEn: "Trace IV", labelEs: "Trace IV" }
+            { 
+                src: "fotos_obras/davidedisena1.jpg", 
+                titleEn: "Frammenti Urbani, Opera I", 
+                titleEs: "Frammenti Urbani, Opera I",
+                metaEn: "60x40 cm — Analog Photography, 2026",
+                metaEs: "60x40 cm — Fotografía Analógica, 2026"
+            },
+            { 
+                src: "fotos_obras/davidedisena2.jpg", 
+                titleEn: "Arco felice, Opera IV", 
+                titleEs: "Arco felice, Opera IV",
+                metaEn: "60x40 cm — Analog Photography, 2025",
+                metaEs: "60x40 cm — Fotografía Analógica, 2025"
+            },
+            { 
+                src: "fotos_obras/davidedisena3.jpg", 
+                titleEn: "Area Industriale, Opera I", 
+                titleEs: "Area Industriale, Opera I",
+                metaEn: "60x40 cm — Analog Photography, 2024",
+                metaEs: "60x40 cm — Fotografía Analógica, 2024"
+            },
+            { 
+                src: "fotos_obras/davidedisena4.jpg", 
+                titleEn: "Terremoto", 
+                titleEs: "Terremoto",
+                metaEn: "60x40 cm — Analog Photography, 2025",
+                metaEs: "60x40 cm — Fotografía Analógica, 2025"
+            }
         ];
 
         let currentIndex = 0;
@@ -545,6 +596,8 @@
         const activeArtworkImg = document.getElementById('active-artwork');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
         const inputMessage = document.getElementById('input-message');
+        const artworkTitleEl = document.getElementById('artwork-title');
+        const artworkMetaEl = document.getElementById('artwork-meta');
 
         // Funzione per allineare le frecce esattamente al centro verticale dell'opera visibile
         function alignArrows() {
@@ -575,7 +628,7 @@
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.labelEn;
+                img.alt = art.titleEn;
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
@@ -595,8 +648,13 @@
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
                 activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? activeArt.labelEs : activeArt.labelEn;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
+                
+                // Aggiorna i testi descrittivi
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkMetaEl.innerText = isEs ? activeArt.metaEs : activeArt.metaEn;
+
                 // Ricalcola l'allineamento dopo la transizione
                 setTimeout(alignArrows, 50);
             }, 180);
@@ -612,8 +670,8 @@
                 }
             });
 
-            // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
-            hiddenArtworkTitle.value = activeArt.labelEn;
+            // Aggiorna il form con l'opera d'arte selezionata usando il titolo
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.metaEn + ")";
         }
 
         function goToSlide(index) {
