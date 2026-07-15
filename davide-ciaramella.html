@@ -122,10 +122,10 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 0px; /* Azzerato per saldare la didascalia all'immagine */
+            gap: 0px; /* Azzerato completamente il gap interno della colonna */
         }
 
-        /* Contenitore per l'immagine attiva principale - Margini azzerati */
+        /* Contenitore per l'immagine attiva principale - Zero distanze */
         .slider-wrapper {
             position: relative;
             width: 100%;
@@ -135,6 +135,7 @@
             background-color: transparent;
             overflow: hidden;
             margin-bottom: 0px !important; 
+            padding-bottom: 0px !important;
         }
 
         .main-image-frame {
@@ -142,7 +143,9 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: auto; /* Rimosso l'altezza fissa di 400px per evitare spazi vuoti sotto */
+            height: auto; 
+            margin: 0;
+            padding: 0;
         }
 
         /* Immagine attiva interattiva e cliccabile per Lightbox */
@@ -155,6 +158,8 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.2s ease;
+            margin: 0 auto;
+            padding: 0;
         }
 
         /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
@@ -191,6 +196,49 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
+        /* Didascalia posizionata subito sotto l'immagine, senza margini vuoti */
+        .artwork-caption {
+            text-align: center;
+            margin: 8px auto 25px auto; /* Solo spazio sotto per spingere le miniature */
+            padding-top: 0px; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-family: 'FuturaLight', sans-serif;
+        }
+
+        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
+        .artwork-title-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: normal !important; /* Rimosso categoricamente ogni tipo di grassetto */
+            color: #000;
+        }
+
+        .artwork-size-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
         /* Miniature in griglia geometrica pulita a 3 colonne */
         .thumbnail-grid {
             display: grid;
@@ -216,45 +264,6 @@
 
         .thumb-item.active {
             border-color: #000;
-        }
-
-        .artwork-caption {
-            text-align: center;
-            margin: 8px auto 25px auto; /* Margine superiore ridotto per massima aderenza */
-            padding-top: 0px; /* Rimosso ogni padding residuo */
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            font-family: 'FuturaLight', sans-serif;
-        }
-
-        .artwork-title-text {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            margin: 0;
-            font-weight: normal !important; /* Rimosso rigorosamente il grassetto predefinito degli h3 */
-            color: #000;
-        }
-
-        .artwork-size-text {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            color: #000;
-            opacity: 0.6;
-            margin: 0;
-        }
-
-        .artwork-tech-text {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            color: #000;
-            opacity: 0.6;
-            margin: 0;
         }
 
         /* Stile dei testi bio */
@@ -459,7 +468,7 @@
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .main-image-frame { height: 300px; }
+            .main-image-frame { height: auto; }
             .artist-img { max-height: 300px; }
         }
     </style>
@@ -506,7 +515,7 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- -->
+                <!-- Didascalie saldate alla foto -->
                 <div class="artwork-caption">
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
@@ -575,7 +584,6 @@
     </main>
 
     <script>
-        /* */
         // Array ordinato delle opere sincronizzato con il catalogo dell'inventario
         const artworks = [
             { 
