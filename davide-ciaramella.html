@@ -122,7 +122,7 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 0px; /* Azzerato per saldare la didascalia all'immagine */
         }
 
         /* Contenitore per l'immagine attiva principale - Margini azzerati */
@@ -218,11 +218,10 @@
             border-color: #000;
         }
 
-        /* Didascalie ATTACCATE alla foto */
         .artwork-caption {
             text-align: center;
-            margin: 0 auto 30px auto; 
-            padding-top: 8px; /* Spazio minimo controllato per l'aderenza */
+            margin: 8px auto 25px auto; /* Margine superiore ridotto per massima aderenza */
+            padding-top: 0px; /* Rimosso ogni padding residuo */
             width: 100%;
             display: flex;
             flex-direction: column;
