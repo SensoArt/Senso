@@ -104,17 +104,17 @@
             text-align: left;
         }
 
-        /* Titolo Journal in BehindNineties, grassetto, corsivo e minuscolo coerente */
+        /* Titolo Journal in BehindNineties, leggero e coerente con le altre pagine */
         .journal-title { 
             font-family: 'BehindNineties', serif; 
             font-size: clamp(2.5rem, 6vw, 3.8rem); 
-            font-weight: bold;
+            font-weight: normal;
             font-style: italic;
             text-transform: lowercase;
             margin: 0; 
         }
 
-        /* GRIGLIA DEGLI ARTICOLI (Puntatori a file statici) */
+        /* GRIGLIA DEGLI ARTICOLI (Puntatori a saggio statico) */
         .journal-feed {
             display: flex;
             flex-direction: column;
@@ -144,14 +144,14 @@
             color: #000;
         }
 
-        /* Titolo dell'opera in FuturaLight come richiesto */
+        /* Titolo dell'articolo in FuturaLight */
         .essay-title {
             font-family: 'FuturaLight', sans-serif;
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
             font-weight: normal;
             margin: 0 0 15px 0;
-            line-height: 1.35;
-            letter-spacing: 1px;
+            line-height: 1.25;
+            letter-spacing: 0.2px;
             color: #000;
         }
 
@@ -195,7 +195,7 @@
             <h1 class="journal-title">journal</h1>
         </header>
 
-        <!-- Il Feed degli articoli con solo il primo saggio che rimanda al file on-opening.html -->
+        <!-- Il Feed degli articoli con il saggio che rimanda a on-opening.html -->
         <main class="journal-feed fade-in delay-2">
             
             <a href="on-opening.html" class="essay-card">
@@ -210,7 +210,7 @@
     </div>
 
     <script>
-        // Lingua attiva di default o recuperata dalla sessione
+        // Recupera la lingua attiva memorizzata, altrimenti default a 'it'
         let currentLang = localStorage.getItem('senso_lang') || 'it';
 
         function setLang(lang) {
@@ -219,7 +219,8 @@
             
             // Aggiorna lo stato dei pulsanti dello switch
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`btn-${lang}`).classList.add('active');
+            const activeBtn = document.getElementById(`btn-${lang}`);
+            if (activeBtn) activeBtn.classList.add('active');
 
             // Mostra/Nasconde i sottotitoli in base alla lingua scelta
             document.querySelectorAll('.essay-subtype').forEach(el => el.classList.add('hidden'));
