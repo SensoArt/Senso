@@ -104,7 +104,7 @@
             text-align: left;
         }
 
-        /* Titolo Journal corretto per evitare il taglio della 'j' su mobile */
+        /* */
         .journal-title { 
             font-family: 'BehindNineties', serif; 
             font-size: clamp(2.5rem, 6vw, 3.8rem); 
@@ -113,9 +113,12 @@
             text-transform: lowercase;
             margin: 0; 
             display: inline-block;
-            overflow: visible; /* Assicura che le parti sporgenti non vengano tagliate */
-            padding-left: 0.15em; /* Spazio di sicurezza a sinistra per la "j" inclinata */
-            line-height: 1.1; /* Previene il taglio verticale del gambo della "j" */
+            overflow: visible; /* Forza il browser a non applicare clip visivi */
+            padding-left: 0.35em; /* Spazio di sicurezza a sinistra per l'occhiello della 'j' */
+            padding-right: 0.15em; /* Spazio di sicurezza a destra */
+            padding-bottom: 0.25em; /* Spazio di sicurezza inferiore per la coda discendente della 'j' */
+            margin-left: -0.32em; /* Margine negativo simmetrico per riallineare il testo perfettamente alla griglia */
+            line-height: 1.4; /* Altezza di riga generosa per evitare tagli verticali del font */
         }
 
         /* GRIGLIA DEGLI ARTICOLI */
