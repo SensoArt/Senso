@@ -104,10 +104,13 @@
             text-align: left;
         }
 
+        /* Titolo Journal in BehindNineties, grassetto, corsivo e minuscolo coerente */
         .journal-title { 
-            font-family: 'Times New Roman', Times, serif; 
+            font-family: 'BehindNineties', serif; 
             font-size: clamp(2.5rem, 6vw, 3.8rem); 
-            font-weight: normal;
+            font-weight: bold;
+            font-style: italic;
+            text-transform: lowercase;
             margin: 0; 
         }
 
@@ -141,13 +144,14 @@
             color: #000;
         }
 
+        /* Titolo dell'opera in FuturaLight come richiesto */
         .essay-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: clamp(1.5rem, 3.8vw, 2.2rem);
+            font-family: 'FuturaLight', sans-serif;
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
             font-weight: normal;
             margin: 0 0 15px 0;
-            line-height: 1.25;
-            letter-spacing: 0.2px;
+            line-height: 1.35;
+            letter-spacing: 1px;
             color: #000;
         }
 
@@ -188,7 +192,7 @@
     <div class="container">
         
         <header class="journal-header fade-in delay-1">
-            <h1 class="journal-title">Journal</h1>
+            <h1 class="journal-title">journal</h1>
         </header>
 
         <!-- Il Feed degli articoli con solo il primo saggio che rimanda al file on-opening.html -->
