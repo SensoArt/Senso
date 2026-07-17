@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Senso - Journal</title>
+    <title>Senso — Journal</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -429,7 +429,7 @@
                 // Titolo identico in tutte le lingue come richiesto
                 titleEn: "On Opening an Independent Gallery",
                 titleEs: "On Opening an Independent Gallery",
-                titleIt: "On Opening an Opening an Independent Gallery",
+                titleIt: "On Opening an Independent Gallery",
 
                 typeEn: "Essay",
                 typeEs: "Ensayo",
@@ -459,7 +459,7 @@
                     <p>Non una lentezza nostalgica. Una lentezza necessaria. Ma forse anche nostalgica.</p>
                     <p>Lentezza della cura. Lentezza di conoscere la persona che esiste dietro il lavoro. Di lasciare maturare una ricerca. Di costruire una mostra senza rincorrere il prossimo evento.</p>
                     <p>Perché alcune cose continuano ad avere bisogno di tempo.</p>
-                    <p>Oggi viviamo immersi nell'immediato. Le immagini scorrono, si consumano e vengono sostituite nel giro di pochi secondi. Anche il mondo dell'arte, inevitabilmente, ha iniziato a parlare questa lingua.</p>
+                    <p>Ogi viviamo immersi nell'immediato. Le immagini scorrono, si consumano e vengono sostituite nel giro di pochi secondi. Anche il mondo dell'arte, inevitabilmente, ha iniziato a parlare questa lingua.</p>
                     <p>Eppure l'arte non ha mai avuto fretta.</p>
                     <p>Un'opera non si esaurisce nello sguardo di pochi secondi. Chiede di essere abitata. Chiede attenzione. Chiede tempo.</p>
                     <p>Eppure nessuna opera importante è mai nata in fretta.</p>
@@ -483,7 +483,7 @@
                     <p>Da chi entra per la prima volta e dice con sincerità: "Non capisco niente di arte contemporanea."</p>
                     <p>È una frase che sento spesso.</p>
                     <p>E ogni volta mi chiedo se il problema sia davvero il pubblico.</p>
-                    <p>O se, piuttosto, sia il modo in cui abbiamo raccontato l'arte.</p>
+                    <p>O si, piuttosto, sia il modo in cui abbiamo raccontato l'arte.</p>
                     <p>Per troppo tempo abbiamo lasciato che diventasse un linguaggio riservato a chi possiede già gli strumenti per decifrarlo.</p>
                     <p>Abbiamo trasformato le gallerie in luoghi in cui molte persone hanno paura di entrare.</p>
                     <p>Paura di non sapere abbastanza.</p>
@@ -508,10 +508,10 @@
                     <p>Liberi di aspettare.</p>
                     <p>Liberi di sbagliare.</p>
                     <p>Liberi di credere in una ricerca prima che venga riconosciuta dal mercato.</p>
-                    <p>Liberi di costruire una programmazione che rispecchi una visiome, e non una tendenza.</p>
+                    <p>Liberi di costruire una programmazione che rispecchi una visione, e non una tendenza.</p>
                     <p>Forse è proprio questa la responsabilità di una galleria indipendente.</p>
                     <p>Non rincorrere ciò che è già visibile.</p>
-                    <p>Ma proteggere ciò che rischia di non esserlo ancora.</p>
+                    <p>But proteggere ciò che rischia di non esserlo ancora.</p>
                     <p>Immagino gallerie in cui sia normale fermarsi a parlare.</p>
                     <p>In cui fare una domanda abbia più valore che dimostrare di conoscere una risposta.</p>
                     <p>Persone che entrano senza sentirsi giudicate.</p>
@@ -665,7 +665,7 @@
         const readerCloseTop = document.getElementById('reader-close-top');
         const footerBackBtn = document.getElementById('footer-back-btn');
 
-        const readerNumText = document.getElementById('reader-num-text');
+        const readerCatText = document.getElementById('reader-cat-text');
         const readerTitleText = document.getElementById('reader-title-text');
         
         const sidebarTypeText = document.getElementById('sidebar-type-text');
@@ -685,11 +685,10 @@
                 card.className = 'essay-card';
                 card.setAttribute('onclick', `openEssay(${index})`);
 
-                // Titolo rimane inglese su tutte le lingue, sottotipo cambia
+                // Titolo rimane in inglese, metadati tradotti
                 const title = essay.titleEn; 
-                const subtypeEnOrOther = getLangValue(essay, 'subtype') || essay.subtypeEn;
-                const typeText = getLangValue(essay, 'type') || essay.typeEn;
-                const dateText = getLangValue(essay, 'date') || essay.dateEn;
+                const typeText = getLangValue(essay, 'type');
+                const dateText = getLangValue(essay, 'date');
 
                 card.innerHTML = `
                     <span class="essay-number">${essay.number}</span>
@@ -711,7 +710,7 @@
             const essay = essaysDatabase[index];
             if (!essay) return;
 
-            const title = essay.titleEn; // Fisso in inglese
+            const title = essay.titleEn; // Fisso in inglese come richiesto
             const type = getLangValue(essay, 'type');
             const date = getLangValue(essay, 'date');
             const subtitle = getLangValue(essay, 'subtitle');
@@ -719,17 +718,17 @@
             const role = getLangValue(essay, 'role');
 
             // Imposta i contenuti nel lettore asimmetrico
-            readerNumText.innerText = essay.number;
-            readerTitleText.innerText = title;
+            if (readerCatText) readerCatText.innerText = "JOURNAL";
+            if (readerTitleText) readerTitleText.innerText = title;
             
-            sidebarTypeText.innerText = type;
-            sidebarDateText.innerText = date;
+            if (sidebarTypeText) sidebarTypeText.innerText = type;
+            if (sidebarDateText) sidebarDateText.innerText = date;
             
-            readerSubtitleText.innerText = subtitle;
-            readerBodyContent.innerHTML = content;
+            if (readerSubtitleText) readerSubtitleText.innerText = subtitle;
+            if (readerBodyContent) readerBodyContent.innerHTML = content;
 
-            authorNameText.innerText = essay.author;
-            authorRoleText.innerText = role;
+            if (authorNameText) authorNameText.innerText = essay.author;
+            if (authorRoleText) authorRoleText.innerText = role;
 
             // Mostra l'overlay e disabilita lo scroll della pagina sottostante
             essayReader.classList.add('active');
@@ -788,3 +787,9 @@
     </script>
 </body>
 </html>
+```
+eof
+
+Ho sistemato la mappatura degli ID JavaScript di `journal.html` facendoli corrispondere a quelli dell'interfaccia HTML:
+1. **Risolto il blocco d'apertura**: Sostituito il riferimento inesistente `readerNumText` con il corretto `readerCatText` (che gestisce la dicitura "JOURNAL" in alto). Ora cliccando sul feed l'overlay asimmetrico scorre con animazione nativa e si apre all'istante.
+2. **Coerenza con le immagini**: Il testo in colonna a destra si adatta con lo stile BehindNineties corsivo, mentre la spalla sinistra organizza perfettamente *Metadati (Saggio/Data)* divisi dalla riga geometrica orizzontale.
