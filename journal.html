@@ -118,7 +118,7 @@
         }
 
         .essay-card {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             padding: 40px 0;
             display: flex;
             flex-direction: column;
@@ -296,7 +296,7 @@
             <h1 class="reader-essay-title" id="reader-title-text">Title</h1>
             <div class="reader-meta-line" id="reader-meta-text">By...</div>
             <article class="reader-body" id="reader-body-content">
-                <!-- Popolato via JS -->
+                <!-- Svuotato completamente, pronto per i tuoi testi -->
             </article>
         </div>
     </div>
@@ -316,6 +316,7 @@
 
     <script>
         // --- DATABASE SAGGI (EN / ES / IT) ---
+        // I campi "content" sono vuoti per essere popolati solo quando lo deciderai tu
         const essaysDatabase = [
             {
                 number: "Journal 001",
@@ -324,31 +325,19 @@
                 titleEn: "On Opening an Independent Gallery",
                 subtypeEn: "Essay · July 2026",
                 authorEn: "Claudia Alizieri & Adrian Villanueva",
-                contentEn: `
-                    <p>Opening an independent gallery is an act of defiance, a gesture of belief in the slow, tactile experience of art. In an era dominated by instantaneous digital circulation, we chose to anchor ourselves in the physical presence of matter, in the quiet gravity of spaces where thoughts can settle.</p>
-                    <div class="important-quote">“To open a space is not to build walls, but to offer a clear horizon where artists and observers can meet in silent dialogue.”</div>
-                    <p>SENSO was born from an intuitive urge to cultivate something raw and authentic. It is an exploration of the boundaries where raw material, conceptual design, and sensory experience converge. Through Chapter I: Principium, we trace back to the roots of creative impulse—embracing chaos as the primordial soil from which all form arises.</p>
-                `,
+                contentEn: "",
 
                 // SPANISH
-                titleEs: "Sobre la apertura de una galería independiente",
+                titleEs: "On Opening an Independent Gallery",
                 subtypeEs: "Ensayo · Julio 2026",
                 authorEs: "Claudia Alizieri y Adrian Villanueva",
-                contentEs: `
-                    <p>Abrir una galería independiente es un acto de desafío, un gesto de fe en la experiencia lenta y táctil del arte. En una era dominada por la circulación digital instantánea, elegimos anclarnos en la presencia física de la materia, en la gravedad silenciosa de espacios donde los pensamientos pueden asentarse.</p>
-                    <div class="important-quote">“Abrir un espacio no es construir muros, sino ofrecer un horizonte despejado donde artistas y observadores puedan encontrarse en un diálogo silencioso.”</div>
-                    <p>SENSO nació del deseo intuitivo de cultivar algo puro y auténtico. Es una exploración de los límites donde convergen la materia prima, el diseño conceptual y la experiencia sensorial. A través del Capítulo I: Principium, rastreamos las raíces del impulso creativo, abrazando el caos como el suelo primordial del que surge toda forma.</p>
-                `,
+                contentEs: "",
 
                 // ITALIANO
-                titleIt: "Sull'apertura di una galleria indipendente",
+                titleIt: "On Opening an Independent Gallery",
                 subtypeIt: "Saggio · Luglio 2026",
                 authorIt: "Claudia Alizieri e Adrian Villanueva",
-                contentIt: `
-                    <p>Aprire una galleria indipendente è un atto di sfida, un gesto di fiducia nell'esperienza lenta e tattile dell'arte. In un'era dominata dalla circolazione digitale istantanea, abbiamo scelto di ancorarci alla presenza fisica della materia, alla silenziosa gravità di spazi dove i pensieri possono posarsi.</p>
-                    <div class="important-quote">“Aprire uno spazio non significa costruire muri, ma offrire un orizzonte libero dove artisti e osservatori possano incontrarsi in un dialogo silenzioso.”</div>
-                    <p>SENSO nasce da un impulso intuitivo, dal desiderio di coltivare qualcosa di puro e autentico. È un'esplorazione dei confini in cui materia prima, design concettuale ed esperienza sensoriale convergono. Attraverso il Capitolo I: Principium, rintracciamo le radici dell'impulso creativo, abbracciando il caos come il terreno primordiale da cui sorge ogni forma.</p>
-                `
+                contentIt: ""
             }
         ];
 
@@ -377,7 +366,6 @@
         const readerClose = document.getElementById('reader-close');
         
         const readerNumText = document.getElementById('reader-num-text');
-        const readerCatText = document.getElementById('reader-cat-text');
         const readerTitleText = document.getElementById('reader-title-text');
         const readerMetaText = document.getElementById('reader-meta-text');
         const readerBodyContent = document.getElementById('reader-body-content');
@@ -422,7 +410,8 @@
             // Imposta i contenuti nel lettore overlay
             readerNumText.innerText = essay.number;
             readerTitleText.innerText = title;
-            readerMetaText.innerText = `${uiTranslations[currentLang].by} ${author} — ${subtype}`;
+            // Tratto singolo "-" al posto del tratto lungo "—"
+            readerMetaText.innerText = `${uiTranslations[currentLang].by} ${author} - ${subtype}`;
             readerBodyContent.innerHTML = content;
 
             // Mostra l'overlay e disabilita lo scroll della pagina sottostante
@@ -470,7 +459,7 @@
 
             // Se l'overlay del lettore è attualmente aperto, aggiornalo al volo
             if (essayReader.classList.contains('active')) {
-                openEssay(0); // Aggiorna l'unico articolo aperto
+                openEssay(0); // Aggiorna l'unico saggio aperto
             }
         }
 
