@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Senso — Journal</title>
+    <title>Senso - Journal</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -92,7 +92,7 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* CONTENITORE PRINCIPALE (Allineamento e proporzioni dall'immagine di riferimento) */
+        /* CONTENITORE PRINCIPALE */
         .container { 
             max-width: 800px; 
             margin: 0 auto; 
@@ -111,18 +111,19 @@
             margin: 0; 
         }
 
-        /* GRIGLIA DEGLI ARTICOLI */
+        /* GRIGLIA DEGLI ARTICOLI (Puntatori a file statici) */
         .journal-feed {
             display: flex;
             flex-direction: column;
         }
 
         .essay-card {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
             padding: 40px 0;
             display: flex;
             flex-direction: column;
             text-align: left;
+            text-decoration: none;
             cursor: pointer;
             transition: opacity 0.3s ease;
         }
@@ -158,198 +159,11 @@
             margin: 0;
         }
 
-        /* LETTORE IMMERSIVO DI ARTICOLI (OVERLAY) */
-        .reader-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #fff;
-            z-index: 2000;
-            display: flex;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.4s ease;
-            overflow-y: auto;
-        }
-
-        .reader-overlay.active {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        /* STRUTTURA EDITORIALE ASIMMETRICA */
-        .reader-container {
-            max-width: 900px;
-            width: 100%;
-            padding: 140px 25px 100px;
-            position: relative;
-            transform: translateY(20px);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .reader-overlay.active .reader-container {
-            transform: translateY(0);
-        }
-
-        .reader-close-top {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            background: none;
-            border: none;
-            color: #000;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-            z-index: 2010;
-        }
-
-        .reader-close-top:hover {
-            opacity: 1;
-        }
-
-        .reader-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.5;
-            margin-bottom: 25px;
-        }
-
-        .reader-essay-title {
-            font-family: 'Times New Roman', Times, serif;
-            font-size: clamp(2.2rem, 5.5vw, 3.5rem);
-            font-weight: normal;
-            line-height: 1.15;
-            margin: 0 0 60px 0;
-            max-width: 750px;
-        }
-
-        /* GRIGLIA ASIMMETRICA CORPO ARTICOLO */
-        .reader-grid {
-            display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 50px;
-            align-items: start;
-        }
-
-        /* Colonna di sinistra (Metadata) */
-        .reader-sidebar {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .sidebar-type {
-            font-weight: normal;
-            color: #000;
-            margin-bottom: 4px;
-        }
-
-        .sidebar-date {
-            opacity: 0.6;
-            color: #000;
-        }
-
-        .sidebar-line {
-            width: 35px;
-            height: 1px;
-            background-color: #000;
-            margin-top: 25px;
-            opacity: 0.25;
-        }
-
-        /* Colonna di destra (Sottotitolo + Saggio) */
-        .reader-content {
-            max-width: 620px;
-            text-align: left;
-        }
-
-        .reader-subtitle {
-            font-family: 'BehindNineties', serif;
-            font-size: clamp(1.2rem, 3.2vw, 1.45rem);
-            line-height: 1.6;
-            color: #000;
-            opacity: 0.9;
-            margin: 0 0 45px 0;
-        }
-
-        .reader-body p {
-            font-size: 1.05rem;
-            line-height: 2;
-            opacity: 0.85;
-            margin-bottom: 35px;
-            text-align: justify;
-        }
-
-        /* FOOTER ARTICOLO */
-        .reader-footer {
-            margin-top: 80px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            padding-top: 35px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-author {
-            text-align: left;
-        }
-
-        .author-name {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 0 0 3px 0;
-            letter-spacing: 1px;
-        }
-
-        .author-role {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            opacity: 0.6;
-            margin: 0;
-            letter-spacing: 0.5px;
-        }
-
-        .footer-back-btn {
-            background: none;
-            border: none;
-            color: #000;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            padding: 5px 0;
-        }
-
-        .footer-back-btn:hover {
-            opacity: 1;
-        }
-
-        .hidden { display: none; }
+        .hidden { display: none !important; }
 
         /* RESPONSIVE */
         @media (max-width: 800px) {
             .container { padding-top: 120px; }
-            .reader-container { padding-top: 110px; }
-            .reader-essay-title { margin-bottom: 40px; }
-            .reader-grid { grid-template-columns: 1fr; gap: 30px; }
-            .sidebar-line { display: none; }
-            .reader-close-top { top: 25px; left: 20px; }
             .back-home { top: 25px; left: 20px; }
             .lang-switch { top: 25px; right: 20px; }
         }
@@ -365,46 +179,9 @@
 
     <!-- Selettore di Lingua (EN | ES | IT) -->
     <div class="lang-switch">
-        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
         <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
-    </div>
-
-    <!-- LETTORE IMMERSIVO DI ARTICOLI (OVERLAY) -->
-    <div class="reader-overlay" id="essay-reader">
-        <!-- Tasto close in alto a sinistra coordinato -->
-        <button class="reader-close-top" id="reader-close-top">close</button>
-        
-        <div class="reader-container">
-            <div class="reader-category" id="reader-cat-text">JOURNAL</div>
-            <h1 class="reader-essay-title" id="reader-title-text">On Opening an Independent Gallery</h1>
-            
-            <div class="reader-grid">
-                <!-- Colonna Sinistra (Metadata) -->
-                <aside class="reader-sidebar">
-                    <span class="sidebar-type" id="sidebar-type-text">Essay</span>
-                    <span class="sidebar-date" id="sidebar-date-text">July 2026</span>
-                    <div class="sidebar-line"></div>
-                </aside>
-
-                <!-- Colonna Destra (Corpo Testo) -->
-                <div class="reader-content">
-                    <h2 class="reader-subtitle" id="reader-subtitle-text">What does it mean to open an independent gallery today?</h2>
-                    <article class="reader-body" id="reader-body-content">
-                        <!-- Popolato dinamicamente via JS -->
-                    </article>
-                    
-                    <!-- Footer Articolo -->
-                    <footer class="reader-footer">
-                        <div class="footer-author">
-                            <h4 class="author-name" id="author-name-text">Claudia Alizieri</h4>
-                            <p class="author-role" id="author-role-text">Founder & Curator, Senso</p>
-                        </div>
-                        <button class="footer-back-btn" id="footer-back-btn" onclick="closeEssay()">< back to journal</button>
-                    </footer>
-                </div>
-            </div>
-        </div>
     </div>
 
     <!-- CONTENUTORE PRINCIPALE FEED -->
@@ -414,382 +191,41 @@
             <h1 class="journal-title">Journal</h1>
         </header>
 
-        <!-- Il Feed degli articoli con solo il primo articolo attivo -->
-        <main class="journal-feed fade-in delay-2" id="feed-container">
-            <!-- Popolato dinamicamente via JS -->
+        <!-- Il Feed degli articoli con solo il primo saggio che rimanda al file on-opening.html -->
+        <main class="journal-feed fade-in delay-2">
+            
+            <a href="on-opening.html" class="essay-card">
+                <span class="essay-number">Journal 001</span>
+                <h2 class="essay-title">On Opening an Independent Gallery</h2>
+                <span class="essay-subtype lang-en">Essay - July 2026</span>
+                <span class="essay-subtype lang-es hidden">Ensayo - Julio 2026</span>
+                <span class="essay-subtype lang-it hidden">Saggio - Luglio 2026</span>
+            </a>
+
         </main>
     </div>
 
     <script>
-        // --- STREAMING_CHUNK: Definizione del Database Saggi in Tre Lingue... ---
-        const essaysDatabase = [
-            {
-                number: "Journal 001",
-                
-                // Titolo identico in tutte le lingue come richiesto
-                titleEn: "On Opening an Independent Gallery",
-                titleEs: "On Opening an Independent Gallery",
-                titleIt: "On Opening an Independent Gallery",
+        // Lingua attiva di default o recuperata dalla sessione
+        let currentLang = localStorage.getItem('senso_lang') || 'it';
 
-                typeEn: "Essay",
-                typeEs: "Ensayo",
-                typeIt: "Saggio",
-
-                dateEn: "July 2026",
-                dateEs: "Julio 2026",
-                dateIt: "Luglio 2026",
-
-                // Subtitle / Abstract
-                subtitleEn: "What does it mean to open an independent gallery today?",
-                subtitleEs: "¿Qué significa abrir una galería independiente hoy?",
-                subtitleIt: "C'è stato un momento in cui ho capito che ciò che cercavo non era semplicemente un progetto. Era un modo di stare al mondo.",
-
-                // Autore unico
-                author: "Claudia Alizieri",
-                roleEn: "Founder & Curator, Senso",
-                roleEs: "Fundadora y Curadora, Senso",
-                roleIt: "Fondatrice e Curatrice, Senso",
-
-                // --- TESTI DEI SAGGI COMPLETI (EN / ES / IT) ---
-                contentIt: `
-                    <p>Il desiderio di costruire una galleria indipendente non è nato dall'ambizione di entrare nel sistema dell'arte. È nato da un'inquietudine più profonda: quella del divenire. Dal bisogno di creare qualcosa che potesse cambiare insieme a me. Qualcosa che mi permettesse di evolvere senza sentirmi costretta a essere sempre la stessa, senza giudicare il cambiamento come un fallimento. Senza dover scegliere tra ciò che sono e ciò che potrei diventare. Un luogo in cui mutare fosse parte del processo e non qualcosa da correggere.</p>
-                    <p>Forse è anche per questo che continuo a credere nelle gallerie indipendenti.</p>
-                    <p>Perché, in un'epoca che misura tutto attraverso la velocità, aprire una galleria significa fare una scelta controcorrente.</p>
-                    <p>Significa scegliere la lentezza.</p>
-                    <p>Non una lentezza nostalgica. Una lentezza necessaria. Ma forse anche nostalgica.</p>
-                    <p>Lentezza della cura. Lentezza di conoscere la persona che esiste dietro il lavoro. Di lasciare maturare una ricerca. Di costruire una mostra senza rincorrere il prossimo evento.</p>
-                    <p>Perché alcune cose continuano ad avere bisogno di tempo.</p>
-                    <p>Ogi viviamo immersi nell'immediato. Le immagini scorrono, si consumano e vengono sostituite nel giro di pochi secondi. Anche il mondo dell'arte, inevitabilmente, ha iniziato a parlare questa lingua.</p>
-                    <p>Eppure l'arte non ha mai avuto fretta.</p>
-                    <p>Un'opera non si esaurisce nello sguardo di pochi secondi. Chiede di essere abitata. Chiede attenzione. Chiede tempo.</p>
-                    <p>Eppure nessuna opera importante è mai nata in fretta.</p>
-                    <p>Nessuna relazione significativa è mai stata costruita in un giorno.</p>
-                    <p>Forse una galleria indipendente dovrebbe ricordarci proprio questo: esistono ancora processi che non possono essere accelerati.</p>
-                    <p>Prima ancora delle opere, esistono le persone.</p>
-                    <p>Ogni artista porta con sé un universo invisibile fatto di dubbi, tentativi, fallimenti, intuizioni, ossessioni. Le opere che vediamo sono soltanto la parte emersa di un processo molto più lungo e fragile.</p>
-                    <p>Per questo credo che rappresentare un artista significhi, prima di tutto, interessarsi sinceramente al suo mondo.</p>
-                    <p>Ascoltare prima di interpretare.</p>
-                    <p>Comprendere prima di spiegare.</p>
-                    <p>Crescere insieme, senza pretendere di guidare ogni direzione.</p>
-                    <p>Le relazioni più importanti non nascono da un contratto.</p>
-                    <p>Nascono dalla fiducia.</p>
-                    <p>Da conversazioni che continuano anche quando non c'è una mostra da organizzare. Dalla disponibilità ad attraversare insieme momenti di entusiasmo e momenti di dubbio. Dal riconoscere che dietro ogni pratica artistica esiste una persona che, ogni giorno, sceglie di mettersi in discussione.</p>
-                    <p>In un tempo in cui possiamo costruire reti immense senza incontrare quasi nessuno, continuo a credere che una rete umana abbia un valore insostituibile.</p>
-                    <p>Ogni luogo, ogni incontro, ogni scoperta, mi ricorda che una galleria indipendente non è un luogo in cui si insegna.</p>
-                    <p>È un luogo in cui si impara.</p>
-                    <p>Si impara dagli artisti.</p>
-                    <p>Dai collezionisti.</p>
-                    <p>Dai curatori.</p>
-                    <p>Da chi entra per la prima volta e dice con sincerità: "Non capisco niente di arte contemporanea."</p>
-                    <p>È una frase che sento spesso.</p>
-                    <p>E ogni volta mi chiedo se il problema sia davvero il pubblico.</p>
-                    <p>O si, piuttosto, sia il modo in cui abbiamo raccontato l'arte.</p>
-                    <p>Per troppo tempo abbiamo lasciato che diventasse un linguaggio riservato a chi possiede già gli strumenti per decifrarlo.</p>
-                    <p>Abbiamo trasformato le gallerie in luoghi in cui molte persone hanno paura di entrare.</p>
-                    <p>Paura di non sapere abbastanza.</p>
-                    <p>Paura di fare una domanda sbagliata.</p>
-                    <p>Paura di non capire.</p>
-                    <p>Eppure nessuno nasce conoscendo la storia dell'arte.</p>
-                    <p>Nasciamo disegnando.</p>
-                    <p>Prima ancora di imparare a scrivere, impariamo a lasciare un segno.</p>
-                    <p>L'arte è una delle forme di espressione più antiche che possediamo. È un istinto, prima ancora che una disciplina.</p>
-                    <p>Forse non è il pubblico ad essersi allontanato dall'arte.</p>
-                    <p>Forse siamo stati noi, nel tempo, ad allontanare l'arte dalle persone.</p>
-                    <p>Spendiamo migliaia di euro per un viaggio, un tavolo di design, un capo d'abbigliamento o una cena memorabile senza sentirci impreparati. Ma davanti a un'opera d'arte, improvvisamente, sentiamo il bisogno di giustificare il nostro sguardo.</p>
-                    <p>Come se l'arte chiedesse competenza prima ancora di chiedere sensibilità.</p>
-                    <p>Io credo il contrario.</p>
-                    <p>Credo che l'arte non debba essere prima compresa.</p>
-                    <p>Debba essere incontrata.</p>
-                    <p>L'indipendenza, allora, non riguarda le dimensioni di una galleria.</p>
-                    <p>Non significa essere piccoli.</p>
-                    <p>Significa essere liberi.</p>
-                    <p>Liberi di scegliere un artista sconosciuto.</p>
-                    <p>Liberi di dire no quando sarebbe più conveniente dire sì.</p>
-                    <p>Liberi di aspettare.</p>
-                    <p>Liberi di sbagliare.</p>
-                    <p>Liberi di credere in una ricerca prima che venga riconosciuta dal mercato.</p>
-                    <p>Liberi di costruire una programmazione che rispecchi una visione, e non una tendenza.</p>
-                    <p>Forse è proprio questa la responsabilità di una galleria indipendente.</p>
-                    <p>Non rincorrere ciò che è già visibile.</p>
-                    <p>But proteggere ciò che rischia di non esserlo ancora.</p>
-                    <p>Immagino gallerie in cui sia normale fermarsi a parlare.</p>
-                    <p>In cui fare una domanda abbia più valore che dimostrare di conoscere una risposta.</p>
-                    <p>Persone che entrano senza sentirsi giudicate.</p>
-                    <p>Bambini che crescono pensando che visitare una mostra sia naturale quanto entrare in una biblioteca.</p>
-                    <p>Perché credo che chi sceglie questo mestiere oggi abbia una responsabilità che va oltre l'organizzazione di esposizioni.</p>
-                    <p>Abbiamo la responsabilità di costruire cultura.</p>
-                    <p>Di creare comunità.</p>
-                    <p>Di restituire all'arte la possibilità di essere vissuta come qualcosa che appartiene a tutti.</p>
-                    <p>Forse aprire una galleria indipendente oggi non significa soltanto vendere arte.</p>
-                    <p>Forse significa difendere la possibilità di prestare attenzione.</p>
-                `,
-
-                contentEn: `
-                    <p>The desire to build an independent gallery was not born out of the ambition to enter the art system. It was born from a deeper restlessness: that of becoming. From the need to create something that could change along with me. Something that would allow me to evolve without feeling forced to always be the same, without judging change as a failure. Without having to choose between who I am and who I could become. A place where changing was part of the process and not something to be corrected.</p>
-                    <p>Perhaps that is also why I continue to believe in independent galleries.</p>
-                    <p>Because, in an era that measures everything through speed, opening a gallery means making a countercurrent choice.</p>
-                    <p>It means choosing slowness.</p>
-                    <p>Not a nostalgic slowness. A necessary slowness. But perhaps a nostalgic one too.</p>
-                    <p>The slowness of care. The slowness of knowing the person behind the work. Of letting research mature. Of building an exhibition without chasing the next event.</p>
-                    <p>Because some things still need time.</p>
-                    <p>Today we live immersed in the immediate. Images flow, are consumed and replaced in a matter of seconds. Even the art world, inevitably, has started speaking this language.</p>
-                    <p>Yet art has never been in a hurry.</p>
-                    <p>A work is not exhausted in a gaze of a few seconds. It asks to be inhabited. It asks for attention. It asks for time.</p>
-                    <p>Yet no important work was ever born in a hurry.</p>
-                    <p>No significant relationship was ever built in a day.</p>
-                    <p>Perhaps an independent gallery should remind us of just that: there are still processes that cannot be accelerated.</p>
-                    <p>Before the works, there are the people.</p>
-                    <p>Every artist carries with them an invisible universe made of doubts, attempts, failures, intuitions, obsessions. The works we see are only the emerged part of a much longer and fragile process.</p>
-                    <p>This is why I believe that representing an artist means, first of all, being sincerely interested in their world.</p>
-                    <p>Listening before interpreting.</p>
-                    <p>Understanding before explaining.</p>
-                    <p>Growing together, without pretending to guide every direction.</p>
-                    <p>The most important relationships are not born from a contract.</p>
-                    <p>They are born from trust.</p>
-                    <p>From conversations that continue even when there is no exhibition to organize. From the willingness to cross moments of enthusiasm and moments of doubt together. From recognizing that behind every artistic practice there is a person who, every day, chooses to challenge themselves.</p>
-                    <p>In a time when we can build immense networks without meeting almost anyone, I continue to believe that a human network has an irreplaceable value.</p>
-                    <p>Every place, every encounter, every discovery, reminds me that an independent gallery is not a place where one teaches. It is a place where one learns.</p>
-                    <p>One learns from artists.</p>
-                    <p>From collectors.</p>
-                    <p>From curators.</p>
-                    <p>From those who enter for the first time and say with sincerity: "I don't understand anything about contemporary art."</p>
-                    <p>It is a phrase I hear often.</p>
-                    <p>And each time I wonder if the problem is really the audience.</p>
-                    <p>Or if, rather, it is the way we have narrated art.</p>
-                    <p>For too long we have allowed it to become a language reserved for those who already possess the tools to decipher it.</p>
-                    <p>We have turned galleries into places where many people are afraid to enter.</p>
-                    <p>Fear of not knowing enough. Fear of asking the wrong question. Fear of not understanding.</p>
-                    <p>Yet no one is born knowing art history.</p>
-                    <p>We are born drawing.</p>
-                    <p>Before we even learn to write, we learn to leave a mark.</p>
-                    <p>Art is one of the oldest forms of expression we possess. It is an instinct, before it is a discipline.</p>
-                    <p>Perhaps it is not the audience that has moved away from art. Perhaps it is we who, over time, have distanced art from people.</p>
-                    <p>We spend thousands of euros on a trip, a design table, a piece of clothing, or a memorable dinner without feeling unprepared. But in front of a work of art, suddenly, we feel the need to justify our gaze.</p>
-                    <p>As if art asked for competence before asking for sensitivity.</p>
-                    <p>I believe the opposite.</p>
-                    <p>I believe that art should not be understood first. It must be met.</p>
-                    <p>Independence, then, is not about the size of a gallery. It doesn't mean being small. It means being free.</p>
-                    <p>Free to choose an unknown artist. Free to say no when it would be more convenient to say yes. Free to wait. Free to make mistakes. Free to believe in research before it is recognized by the market. Free to build a program that reflects a vision, and not a trend.</p>
-                    <p>Perhaps this is precisely the responsibility of an independent gallery.</p>
-                    <p>Not to chase what is already visible. But to protect what risks not being so yet.</p>
-                    <p>I imagine galleries where it is normal to stop and talk. Where asking a question has more value than demonstrating knowing an answer.</p>
-                    <p>People who enter without feeling judged. Children who grow up thinking that visiting an exhibition is as natural as entering a library.</p>
-                    <p>Because I believe that those who choose this profession today have a responsibility that goes beyond organizing exhibitions.</p>
-                    <p>We have the responsibility to build culture. To create community. To restore to art the possibility of being lived as something that belongs to all.</p>
-                    <p>Perhaps opening an independent gallery today does not only mean selling art. Perhaps it means defending the possibility of paying attention.</p>
-                `,
-
-                contentEs: `
-                    <p>El deseo de construir una galería independiente no nació de la ambición de entrar en el sistema del arte. Nació de una inquietud más profunda: la del devenir. De la necesidad de crear algo que pudiera cambiar junto a mí. Algo que me permitiera evolucionar sin sentirme obligada a ser siempre la misma, sin juzgar el cambio como un fracaso. Sin tener que elegir entre lo que soy y lo que podría llegar a ser. Un lugar donde cambiar fuera parte del proceso y no algo que corregir.</p>
-                    <p>Quizás por eso también sigo creyendo en las galerías independientes.</p>
-                    <p>Porque, en una época que lo mide todo a través de la velocidad, abrir una galería significa tomar una decisión a contracorriente.</p>
-                    <p>Significa elegir la lentitud.</p>
-                    <p>No una lentitud nostálgica. Una lentitud necesaria. Pero quizás también nostálgica.</p>
-                    <p>Lentitud del cuidado. Lentitud de conocer a la persona que hay detrás de la obra. De dejar madurar una investigación. De construir una exposición sin perseguir el próximo evento.</p>
-                    <p>Porque algunas cosas siguen necesitando tiempo.</p>
-                    <p>Hoy vivimos inmersos en lo inmediato. Las imágenes fluyen, se consuman y se reemplazan en cuestión de segundos. Incluso el mundo del arte, inevitablemente, ha comenzado a hablar este idioma.</p>
-                    <p>Sin embargo, el arte nunca ha tenido prisa.</p>
-                    <p>Una obra no se agota en una mirada de pocos segundos. Pide ser habitada. Pide atención. Pide tiempo.</p>
-                    <p>Sin embargo, ninguna obra importante ha nacido nunca con prisa.</p>
-                    <p>Ninguna relación significativa se ha construido jamás en un día.</p>
-                    <p>Quizás una galería independiente debería recordarnos precisamente esto: todavía existen procesos que no se pueden acelerar.</p>
-                    <p>Antes de las obras, existen las personas.</p>
-                    <p>Cada artista lleva consigo un universo invisible hecho de dudas, intentos, fracasos, intuiciones, obsesiones. Las obras que vemos son solo la parte emergente de un proceso mucho más largo y frágil.</p>
-                    <p>Por eso creo que representar a un artista significa, antes que nada, interesarse sinceramente por su mundo.</p>
-                    <p>Escuchar antes de interpretar.</p>
-                    <p>Comprender antes de explicar.</p>
-                    <p>Crecer juntos, sin pretender guiar cada dirección.</p>
-                    <p>Las relaciones más importantes no nacen de un contrato.</p>
-                    <p>Nacen de la confianza.</p>
-                    <p>De conversaciones que continúan incluso cuando no hay una exposición que organizar. De la disposición a atravesar juntos momentos de entusiasmo y momentos de duda. De reconocer que detrás de cada práctica artística hay una persona que, cada día, elige cuestionarse a sí misma.</p>
-                    <p>En un tiempo en el que podemos construir redes inmensas sin encontrarnos casi con nadie, sigo creyendo que una red humana tiene un valor insustituible.</p>
-                    <p>Cada lugar, cada encuentro, cada descubrimiento, me recuerda que una galería independiente no es un lugar donde se enseña.</p>
-                    <p>Es un lugar donde se aprende.</p>
-                    <p>Se aprende de los artistas.</p>
-                    <p>De los coleccionistas.</p>
-                    <p>De los curadores.</p>
-                    <p>De quien entra por primera vez y dice con sinceridad: "No entiendo nada de arte contemporáneo."</p>
-                    <p>Es una frase que escucho a menudo.</p>
-                    <p>Y cada vez me pregunto si el problema es realmente el público.</p>
-                    <p>O si, más bien, es la forma en que hemos narrado el arte.</p>
-                    <p>Durante demasiado tiempo hemos permitido que se convierta en un lenguaje reservado para quienes ya poseen las herramientas para descifrarlo.</p>
-                    <p>Hemos transformado las galerías en lugares donde mucha gente tiene miedo de entrar.</p>
-                    <p>Miedo de no saber lo suficiente. Miedo de hacer una pregunta equivocada. Miedo de no entender.</p>
-                    <p>Sin embargo, nadie nace conociendo la historia del arte.</p>
-                    <p>Nacemos dibujando.</p>
-                    <p>Antes de aprender a escribir, aprendemos a dejar una huella.</p>
-                    <p>El arte es una de las formas de expresión más antiguas que poseemos. Es un instinto, antes que una disciplina.</p>
-                    <p>Quizás no es el público el que se ha alejado del arte. Quizás somos nosotros quienes, con el tiempo, hemos distanciado el arte de las personas.</p>
-                    <p>Gastamos miles de euros en un viaje, una mesa de diseño, una prenda de vestir o una cena memorable sin sentirnos despreparados. Pero ante una obra de arte, de repente, sentimos la necesidad de justificar nuestra mirada.</p>
-                    <p>Como si el arte pidiera competencia antes de pedir sensibilidad.</p>
-                    <p>Yo creo lo contrario.</p>
-                    <p>Creo que el arte no debe ser comprendido primero. Debe ser encontrado.</p>
-                    <p>La independencia, entonces, no tiene que ver con el tamaño de una galería.</p>
-                    <p>No significa ser pequeños.</p>
-                    <p>Significa ser libres.</p>
-                    <p>Libres de elegir a un artista desconocido. Libres de decir no cuando sería más conveniente decir sí. Libres de esperar. Libres de equivocarse. Libres de creer en una investigación antes de que sea reconocida por el mercado. Libres de construir una programación que refleje una visión, y no una tendencia.</p>
-                    <p>Quizás esta sea precisamente la responsabilidad de una galería independiente.</p>
-                    <p>No perseguir lo que ya es visible. Sino proteger lo que corre el riesgo de no serlo todavía.</p>
-                    <p>Imagino galerías en las que sea normal detenerse a hablar. En las que hacer una pregunta tenga más valor que demostrar conocer una respuesta.</p>
-                    <p>Personas que entran sin sentirse juzgadas. Niños que crecen pensando que visitar una exposición es tan natural como entrar en una biblioteca.</p>
-                    <p>Porque creo que quienes eligen este oficio hoy tienen una responsabilidad que va más allá de la organización de exposiciones.</p>
-                    <p>Tenemos la responsabilidad de construir cultura. De crear comunidad. De devolver al arte la posibilidad de ser vivido como algo que pertenece a todos.</p>
-                    <p>Quizás abrir una galería independiente hoy no signifique solo vender arte. Quizás signifique defender la posibilidad de prestar atención.</p>
-                `
-            }
-        ];
-
-        // --- TRADUZIONI DI INTERFACCIA ---
-        const uiTranslations = {
-            en: {
-                close: "close",
-                backToJournal: "< back to journal"
-            },
-            es: {
-                close: "cerrar",
-                backToJournal: "< volver a journal"
-            },
-            it: {
-                close: "chiudi",
-                backToJournal: "< torna a journal"
-            }
-        };
-
-        // Lingua attiva di default
-        let currentLang = 'en';
-
-        // --- GESTIONE COSTRUZIONE INTERFACCIA ---
-        const feedContainer = document.getElementById('feed-container');
-        const essayReader = document.getElementById('essay-reader');
-        
-        const readerCloseTop = document.getElementById('reader-close-top');
-        const footerBackBtn = document.getElementById('footer-back-btn');
-
-        const readerCatText = document.getElementById('reader-cat-text');
-        const readerTitleText = document.getElementById('reader-title-text');
-        
-        const sidebarTypeText = document.getElementById('sidebar-type-text');
-        const sidebarDateText = document.getElementById('sidebar-date-text');
-        const readerSubtitleText = document.getElementById('reader-subtitle-text');
-        const readerBodyContent = document.getElementById('reader-body-content');
-
-        const authorNameText = document.getElementById('author-name-text');
-        const authorRoleText = document.getElementById('author-role-text');
-
-        function renderFeed() {
-            feedContainer.innerHTML = '';
-
-            // Genera le card degli articoli presenti nel database
-            essaysDatabase.forEach((essay, index) => {
-                const card = document.createElement('div');
-                card.className = 'essay-card';
-                card.setAttribute('onclick', `openEssay(${index})`);
-
-                // Titolo rimane in inglese, metadati tradotti
-                const title = essay.titleEn; 
-                const typeText = getLangValue(essay, 'type');
-                const dateText = getLangValue(essay, 'date');
-
-                card.innerHTML = `
-                    <span class="essay-number">${essay.number}</span>
-                    <h2 class="essay-title">${title}</h2>
-                    <span class="essay-subtype">${typeText} - ${dateText}</span>
-                `;
-                feedContainer.appendChild(card);
-            });
-        }
-
-        // Helper per estrarre la proprietà corretta in base alla lingua
-        function getLangValue(obj, key) {
-            const capitalizedLang = currentLang.charAt(0).toUpperCase() + currentLang.slice(1);
-            return obj[key + capitalizedLang] || obj[key + 'En'] || '';
-        }
-
-        // --- LETTORE IMMERSIVO ASIMMETRICO ---
-        function openEssay(index) {
-            const essay = essaysDatabase[index];
-            if (!essay) return;
-
-            const title = essay.titleEn; // Fisso in inglese come richiesto
-            const type = getLangValue(essay, 'type');
-            const date = getLangValue(essay, 'date');
-            const subtitle = getLangValue(essay, 'subtitle');
-            const content = getLangValue(essay, 'content');
-            const role = getLangValue(essay, 'role');
-
-            // Imposta i contenuti nel lettore asimmetrico
-            if (readerCatText) readerCatText.innerText = "JOURNAL";
-            if (readerTitleText) readerTitleText.innerText = title;
-            
-            if (sidebarTypeText) sidebarTypeText.innerText = type;
-            if (sidebarDateText) sidebarDateText.innerText = date;
-            
-            if (readerSubtitleText) readerSubtitleText.innerText = subtitle;
-            if (readerBodyContent) readerBodyContent.innerHTML = content;
-
-            if (authorNameText) authorNameText.innerText = essay.author;
-            if (authorRoleText) authorRoleText.innerText = role;
-
-            // Mostra l'overlay e disabilita lo scroll della pagina sottostante
-            essayReader.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeEssay() {
-            essayReader.classList.remove('active');
-            document.body.style.overflow = '';
-            setTimeout(() => {
-                readerBodyContent.innerHTML = '';
-            }, 400);
-        }
-
-        readerCloseTop.addEventListener('click', closeEssay);
-        
-        essayReader.addEventListener('click', (e) => {
-            if (e.target === essayReader) {
-                closeEssay();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && essayReader.classList.contains('active')) {
-                closeEssay();
-            }
-        });
-
-        // --- SELEZIONE LINGUA ---
         function setLang(lang) {
             currentLang = lang;
+            localStorage.setItem('senso_lang', lang);
             
-            // Aggiorna lo stato visivo dei pulsanti switcher
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
+            // Aggiorna lo stato dei pulsanti dello switch
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             document.getElementById(`btn-${lang}`).classList.add('active');
 
-            // Traduce gli elementi strutturali dell'interfaccia
-            readerCloseTop.innerText = uiTranslations[lang].close;
-            footerBackBtn.innerText = uiTranslations[lang].backToJournal;
-
-            // Rigenera il feed con la nuova lingua selezionata
-            renderFeed();
-
-            // Se l'overlay del lettore è attualmente aperto, aggiornalo al volo
-            if (essayReader.classList.contains('active')) {
-                openEssay(0); // Aggiorna il saggio aperto
-            }
+            // Mostra/Nasconde i sottotitoli in base alla lingua scelta
+            document.querySelectorAll('.essay-subtype').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
         }
 
-        // Avvio automatico al caricamento della pagina
+        // Avvio automatico al caricamento
         window.onload = function() {
-            renderFeed();
+            setLang(currentLang);
         }
     </script>
 </body>
 </html>
-```
-eof
-
-Ho sistemato la mappatura degli ID JavaScript di `journal.html` facendoli corrispondere a quelli dell'interfaccia HTML:
-1. **Risolto il blocco d'apertura**: Sostituito il riferimento inesistente `readerNumText` con il corretto `readerCatText` (che gestisce la dicitura "JOURNAL" in alto). Ora cliccando sul feed l'overlay asimmetrico scorre con animazione nativa e si apre all'istante.
-2. **Coerenza con le immagini**: Il testo in colonna a destra si adatta con lo stile BehindNineties corsivo, mentre la spalla sinistra organizza perfettamente *Metadati (Saggio/Data)* divisi dalla riga geometrica orizzontale.
