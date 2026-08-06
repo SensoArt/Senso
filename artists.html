@@ -42,7 +42,7 @@
             -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         /* SFONDO BIANCO FISSO */
@@ -93,14 +93,14 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* Allargato leggermente il container per ospitare bene 3 colonne */
+        /* Container principale con padding in basso a 160px per dare respiro */
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 100px; 
+            padding: 150px 25px 160px; 
         }
 
-        /* Titolo elegante e ridotto, coerente con archive e about */
+        /* Titolo */
         .section-title { 
             font-family: 'BehindNineties', serif; 
             font-size: clamp(2rem, 5vw, 3rem); 
@@ -109,16 +109,15 @@
             font-weight: normal; 
         }
 
-        /* NUOVA GRIGLIA A 3 COLONNE */
+        /* GRIGLIA A 3 COLONNE */
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            column-gap: 30px; /* Spazio orizzontale ridotto per eleganza */
-            row-gap: 50px;    /* Spazio verticale ridotto */
+            column-gap: 30px;
+            row-gap: 50px;
             width: 100%;
         }
 
-        /* Singola scheda artista cliccabile */
         .artist-block { 
             text-decoration: none !important;
             display: flex;
@@ -133,36 +132,29 @@
             margin-bottom: 15px;
         }
 
-        /* Immagine di base in bianco e nero - STESSA DIMENSIONE FORZATA */
         .artist-img { 
             width: 100%; 
             display: block; 
-            /* PROPORZIONE UNIFORME PER TUTTE LE FOTO */
             aspect-ratio: 3 / 2; 
-            /* RIEMPIE IL RQUADRO SENZA DISTORCERE, MANTENENDO TUTTE LE FOTO UGUALI */
             object-fit: cover; 
             filter: grayscale(1);
             transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
         }
 
-        /* Transizione a colori e zoom leggero al passaggio del mouse */
         .artist-block:hover .artist-img { 
             filter: grayscale(0);
-            transform: scale(1.02); /* Zoom leggermente aumentato per 3 colonne */
+            transform: scale(1.02);
         }
 
-        /* Allineamenti personalizzati delle inquadrature (ancora validi con cover) */
         .img-raul { object-position: center 20%; }
         .img-davide { object-position: center center; }
         .img-catherine { object-position: center 75%; }
 
-        /* Meta dettagli sotto l'immagine */
         .artist-meta {
             padding: 0 2px;
             text-align: left;
         }
 
-        /* Dimensione del nome ridotta per griglia da 3 */
         .artist-name { 
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.75rem; 
@@ -172,18 +164,9 @@
             margin: 0; 
         }
 
-        .isotipo-footer { 
-            padding: 100px 20px; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-        }
-        .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
-
         /* RESPONSIVE */
         @media (max-width: 850px) {
             .artists-grid {
-                /* Passa a 2 colonne su tablet */
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 30px;
                 row-gap: 40px;
@@ -191,10 +174,9 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
+            .container { padding-top: 120px; padding-bottom: 120px; padding-left: 20px; padding-right: 20px; }
             .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
             .artists-grid {
-                /* Passa a 1 colonna su mobile */
                 grid-template-columns: 1fr; 
                 row-gap: 35px;
             }
@@ -277,8 +259,6 @@
 
         </div>
     </main>
-
-
 
     <script>
         function setLang(lang) {
