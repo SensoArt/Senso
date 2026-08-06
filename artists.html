@@ -93,9 +93,9 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* Ridotto il max-width principale per restringere leggermente l'intera griglia */
+        /* Allargato leggermente il container per ospitare bene 3 colonne */
         .container { 
-            max-width: 680px; 
+            max-width: 950px; 
             margin: 0 auto; 
             padding: 150px 25px 100px; 
         }
@@ -109,12 +109,12 @@
             font-weight: normal; 
         }
 
-        /* Griglia espositiva a 2 colonne originale */
+        /* NUOVA GRIGLIA A 3 COLONNE */
         .artists-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            column-gap: 40px;
-            row-gap: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 30px; /* Spazio orizzontale ridotto per eleganza */
+            row-gap: 50px;    /* Spazio verticale ridotto */
             width: 100%;
         }
 
@@ -130,14 +130,16 @@
             width: 100%; 
             overflow: hidden; 
             background-color: rgba(0,0,0,0.03); 
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
-        /* Immagine di base: esattamente identiche tra loro (3/2 e cover) */
+        /* Immagine di base in bianco e nero - STESSA DIMENSIONE FORZATA */
         .artist-img { 
             width: 100%; 
             display: block; 
+            /* PROPORZIONE UNIFORME PER TUTTE LE FOTO */
             aspect-ratio: 3 / 2; 
+            /* RIEMPIE IL RQUADRO SENZA DISTORCERE, MANTENENDO TUTTE LE FOTO UGUALI */
             object-fit: cover; 
             filter: grayscale(1);
             transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
@@ -146,10 +148,10 @@
         /* Transizione a colori e zoom leggero al passaggio del mouse */
         .artist-block:hover .artist-img { 
             filter: grayscale(0);
-            transform: scale(1.015); 
+            transform: scale(1.02); /* Zoom leggermente aumentato per 3 colonne */
         }
 
-        /* Allineamenti personalizzati delle inquadrature */
+        /* Allineamenti personalizzati delle inquadrature (ancora validi con cover) */
         .img-raul { object-position: center 20%; }
         .img-davide { object-position: center center; }
         .img-catherine { object-position: center 75%; }
@@ -160,10 +162,10 @@
             text-align: left;
         }
 
-        /* Dimensione del nome ridotta per non urlare, minimale e sussurrata */
+        /* Dimensione del nome ridotta per griglia da 3 */
         .artist-name { 
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             font-weight: normal; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
@@ -178,10 +180,13 @@
         }
         .isotipo-img { width: 75px; height: auto; opacity: 0.9; }
 
+        /* RESPONSIVE */
         @media (max-width: 850px) {
             .artists-grid {
+                /* Passa a 2 colonne su tablet */
+                grid-template-columns: repeat(2, 1fr);
                 column-gap: 30px;
-                row-gap: 50px;
+                row-gap: 40px;
             }
         }
 
@@ -189,8 +194,9 @@
             .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
             .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
             .artists-grid {
+                /* Passa a 1 colonna su mobile */
                 grid-template-columns: 1fr; 
-                row-gap: 40px;
+                row-gap: 35px;
             }
             .artist-name { font-size: 0.75rem; }
         }
