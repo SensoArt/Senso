@@ -41,7 +41,8 @@
             font-family: 'FuturaLight', sans-serif; 
             -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
-            width: 100vw;
+            overflow-y: auto;
+            width: 100%;
             min-height: 100vh;
         }
 
@@ -93,14 +94,13 @@
         }
         .lang-btn.active { opacity: 1; }
 
-        /* Container principale con padding in basso a 160px per dare respiro */
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 160px; 
+            padding: 150px 25px 0; 
         }
 
-        /* Titolo */
+        /* Titolo elegante e ridotto */
         .section-title { 
             font-family: 'BehindNineties', serif; 
             font-size: clamp(2rem, 5vw, 3rem); 
@@ -118,6 +118,7 @@
             width: 100%;
         }
 
+        /* Singola scheda artista cliccabile */
         .artist-block { 
             text-decoration: none !important;
             display: flex;
@@ -132,6 +133,7 @@
             margin-bottom: 15px;
         }
 
+        /* Immagine di base in bianco e nero */
         .artist-img { 
             width: 100%; 
             display: block; 
@@ -141,15 +143,18 @@
             transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
         }
 
+        /* Transizione a colori e zoom al passaggio del mouse */
         .artist-block:hover .artist-img { 
             filter: grayscale(0);
-            transform: scale(1.02);
+            transform: scale(1.02); 
         }
 
+        /* Allineamenti personalizzati delle inquadrature */
         .img-raul { object-position: center 20%; }
         .img-davide { object-position: center center; }
         .img-catherine { object-position: center 75%; }
 
+        /* Meta dettagli sotto l'immagine */
         .artist-meta {
             padding: 0 2px;
             text-align: left;
@@ -164,6 +169,13 @@
             margin: 0; 
         }
 
+        /* SPAZIATORE FINALE PER DARE RESPIRO ALLA PAGINA */
+        .footer-spacer {
+            height: 18vh;
+            min-height: 140px;
+            width: 100%;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 850px) {
             .artists-grid {
@@ -174,13 +186,16 @@
         }
 
         @media (max-width: 600px) {
-            .container { padding-top: 120px; padding-bottom: 120px; padding-left: 20px; padding-right: 20px; }
+            .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
             .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
             .artists-grid {
                 grid-template-columns: 1fr; 
                 row-gap: 35px;
             }
             .artist-name { font-size: 0.75rem; }
+            .footer-spacer {
+                min-height: 100px;
+            }
         }
     </style>
 </head>
@@ -258,6 +273,10 @@
             </a>
 
         </div>
+
+        <!-- Elemento spaziatore dedicato per garantire il respiro in fondo -->
+        <div class="footer-spacer"></div>
+
     </main>
 
     <script>
