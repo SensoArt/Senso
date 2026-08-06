@@ -94,7 +94,7 @@
         .lang-btn.active { opacity: 1; }
 
         .container { 
-            max-width: 850px; 
+            max-width: 900px; 
             margin: 0 auto; 
             padding: 150px 25px 100px; 
         }
@@ -108,12 +108,12 @@
             font-weight: normal; 
         }
 
-        /* Griglia espositiva a 2 colonne */
+        /* Griglia espositiva a 3 colonne per foto più compatte */
         .artists-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            column-gap: 50px;
-            row-gap: 80px;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 35px;
+            row-gap: 60px;
             width: 100%;
         }
 
@@ -129,7 +129,7 @@
             width: 100%; 
             overflow: hidden; 
             background-color: rgba(0,0,0,0.03); 
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         /* Immagine di base in bianco e nero */
@@ -137,7 +137,7 @@
             width: 100%; 
             display: block; 
             aspect-ratio: 3 / 2; 
-            object-fit: cover; 
+            object-fit: contain; 
             filter: grayscale(1);
             transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
         }
@@ -145,7 +145,7 @@
         /* Transizione a colori e zoom leggero al passaggio del mouse */
         .artist-block:hover .artist-img { 
             filter: grayscale(0);
-            transform: scale(1.015); 
+            transform: scale(1.02); 
         }
 
         /* Allineamenti personalizzati delle inquadrature */
@@ -162,7 +162,7 @@
         /* Dimensione del nome ridotta per non urlare, minimale e sussurrata */
         .artist-name { 
             font-family: 'FuturaLight', sans-serif;
-            font-size: 0.8rem; 
+            font-size: 0.75rem; 
             font-weight: normal; 
             text-transform: uppercase; 
             letter-spacing: 2px; 
@@ -179,8 +179,9 @@
 
         @media (max-width: 850px) {
             .artists-grid {
+                grid-template-columns: repeat(2, 1fr);
                 column-gap: 30px;
-                row-gap: 60px;
+                row-gap: 50px;
             }
         }
 
@@ -189,7 +190,7 @@
             .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
             .artists-grid {
                 grid-template-columns: 1fr; 
-                row-gap: 50px;
+                row-gap: 40px;
             }
             .artist-name { font-size: 0.75rem; }
         }
