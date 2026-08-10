@@ -60,6 +60,10 @@
         .delay-1 { animation-delay: 0.2s; }
         .delay-2 { animation-delay: 0.5s; }
 
+        html {
+            height: -webkit-fill-available;
+        }
+
         body {
             background-color: #000;
             color: #ffffff;
@@ -67,21 +71,24 @@
             padding: 0;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
+            min-height: 100vh;
+            min-height: -webkit-fill-available;
         }
 
-        /* FIX SFONDO - SEDIE SEMPRE VISIBILI E BLOCCATE */
+        /* FIX MOBILE: SFONDO A SCHERMO INTERO SENZA BANDE NERE NÉ ZOOM RISCALATI */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh; /* Copre dinamicamente l'area mobile inclusa la barra degli indirizzi */
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
-            background-position: center 65%; /* Punta esattamente al centro delle sedie */
+            background-position: center 65%;
             background-repeat: no-repeat;
             background-color: #000;
             
@@ -90,15 +97,16 @@
             will-change: transform;
         }
 
-        /* OVERLAY LEGGERO PER LEGGIBILITÀ TESTO */
+        /* OVERLAY PER AUMENTARE LA LEGGIBILITÀ DEL TESTO */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
             background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
             transform: translateZ(0);
@@ -164,7 +172,7 @@
         .content-container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 0 25px 160px; /* RESPIRO A PIÈ DI PAGINA */
+            padding: 0 25px 160px;
             text-align: left;
         }
 
@@ -186,15 +194,16 @@
             text-shadow: 0 2px 12px rgba(0,0,0,0.9); 
         }
 
-        /* REGOLAZIONE PER MOBILE */
+        /* REGOLAZIONI AD HOC PER MOBILE E TABLET */
         @media (max-width: 768px) {
             .bg-container {
-                background-position: center center;
+                /* Inquadratura naturale e proporzionata al formato verticale del telefono */
+                background-position: center 50%;
             }
             header { padding-top: 120px; }
             h1 { font-size: 2.2rem; }
             .lang-content p { font-size: 1.15rem; }
-            .content-container { padding-bottom: 120px; }
+            .content-container { padding-bottom: 140px; }
         }
     </style>
 </head>
@@ -268,7 +277,7 @@
                 esBox.classList.add('hidden');
                 enBox.classList.remove('hidden');
                 btnEs.classList.remove('active');
-                btnEn.classList.add('active');
+                btnEs.classList.add('active');
             }
 
             localStorage.setItem('senso_lang', lang);
