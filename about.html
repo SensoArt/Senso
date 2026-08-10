@@ -40,23 +40,29 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
         }
 
-        /* ANIMAZIONE FADE IN */
+        /* ANIMAZIONE FADE IN RIPRISTINATA */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .fade-in {
             opacity: 0;
-            animation: fadeIn 1.5s ease-out forwards;
+            animation: fadeIn 1.2s ease-out forwards;
         }
 
-        .delay-1 { animation-delay: 0.4s; }
-        .delay-2 { animation-delay: 0.9s; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
 
         body {
             background-color: #000;
-            color: #fff;
+            color: #ffffff;
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
@@ -85,7 +91,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.65); /* 65% oscuramento */
+            background-color: rgba(0, 0, 0, 0.65);
             z-index: -1;
         }
 
@@ -136,20 +142,28 @@
             text-align: left; 
         }
 
-        /* Titolo rimpicciolito per non urlare, coerente con archive */
         h1 {
             font-family: 'BehindNineties', serif;
             font-size: clamp(2rem, 5vw, 3rem); 
             text-transform: lowercase;
             margin: 0;
             font-weight: normal;
+            color: #fff;
         }
 
         .content-container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 20px 25px 100px;
+            padding: 0 25px 80px;
             text-align: left;
+        }
+
+        .lang-content {
+            display: block;
+        }
+
+        .lang-content.hidden { 
+            display: none !important; 
         }
 
         .lang-content p {
@@ -158,23 +172,25 @@
             font-size: 1.25rem;
             margin-bottom: 30px;
             letter-spacing: 0.5px;
-            text-shadow: 0 2px 15px rgba(0,0,0,1); 
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
         }
 
-        .hidden { display: none; }
-
         .isotipo-section { 
-            padding: 80px 20px; 
+            padding: 60px 20px; 
             display: flex; 
             justify-content: center; 
             border-top: 1px solid rgba(255,255,255,0.1);
         }
         
-        .isotipo-img { width: 80px; opacity: 0.9; }
+        .isotipo-img { 
+            width: 80px; 
+            opacity: 0.9; 
+        }
 
         @media (max-width: 600px) {
             header { padding-top: 120px; }
-            h1 { font-size: 2.2rem; } /* Dimensioni mobile ridotte in linea con archive */
+            h1 { font-size: 2.2rem; }
             .lang-content p { font-size: 1.15rem; }
         }
     </style>
@@ -239,12 +255,23 @@
 
     <script>
         function setLang(lang) {
-            document.getElementById('lang-en').classList.add('hidden');
-            document.getElementById('lang-es').classList.add('hidden');
-            document.getElementById('lang-' + lang).classList.remove('hidden');
-            document.getElementById('btn-en').classList.remove('active');
-            document.getElementById('btn-es').classList.remove('active');
-            document.getElementById('btn-' + lang).classList.add('active');
+            const enBox = document.getElementById('lang-en');
+            const esBox = document.getElementById('lang-es');
+            const btnEn = document.getElementById('btn-en');
+            const btnEs = document.getElementById('btn-es');
+
+            if (lang === 'es') {
+                enBox.classList.add('hidden');
+                esBox.classList.remove('hidden');
+                btnEn.classList.remove('active');
+                btnEs.classList.add('active');
+            } else {
+                esBox.classList.add('hidden');
+                enBox.classList.remove('hidden');
+                btnEs.classList.remove('active');
+                btnEn.classList.add('active');
+            }
+
             localStorage.setItem('senso_lang', lang);
         }
 
