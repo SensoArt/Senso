@@ -27,7 +27,7 @@
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
     <meta name="theme-color" content="#000000">
 
-    <link rel="preload" as="image" href="sillas.jpg?v=1.2">
+    <link rel="preload" as="image" href="01-Sillas.jpg?v=1.2">
 
     <style>
         @font-face {
@@ -71,7 +71,7 @@
             width: 100vw;
             height: 100vh;
             z-index: -2;
-            background-image: url('sillas.jpg?v=1.2'); 
+            background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -245,7 +245,13 @@
             document.getElementById('btn-en').classList.remove('active');
             document.getElementById('btn-es').classList.remove('active');
             document.getElementById('btn-' + lang).classList.add('active');
+            localStorage.setItem('senso_lang', lang);
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('senso_lang') || 'en';
+            setLang(savedLang);
+        });
     </script>
 
 </body>
