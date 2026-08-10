@@ -69,7 +69,7 @@
             overflow-x: hidden;
         }
 
-        /* SFONDO CON IMMAGINE */
+        /* SFONDO CON IMMAGINE - SEDIE VISIBILI A SCHERMO INTERO */
         .bg-container {
             position: fixed;
             top: 0;
@@ -79,24 +79,19 @@
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
-            background-position: center 30%; /* Inquadratura riposizionata senza barre */
+            background-position: center center;
             background-repeat: no-repeat;
             background-color: #000;
         }
 
-        /* OVERLAY GRADIENTE PER FONDERE E MASCHERARE LA SGRANATURA */
+        /* OVERLAY LEGGERO PER FAR VEDERE CHIARAMENTE L'IMMAGINE */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(
-                180deg, 
-                rgba(0, 0, 0, 0.85) 0%, 
-                rgba(0, 0, 0, 0.50) 50%, 
-                rgba(0, 0, 0, 0.90) 100%
-            );
+            background-color: rgba(0, 0, 0, 0.45); /* Oscuramento leggero (45%) per mantenere nitide le sedie */
             z-index: -1;
         }
 
@@ -110,7 +105,7 @@
             text-transform: uppercase;
             font-size: 0.65rem;
             letter-spacing: 2px;
-            opacity: 0.7;
+            opacity: 0.8;
             z-index: 1000;
             transition: opacity 0.3s;
         }
@@ -133,7 +128,7 @@
             color: #fff;
             cursor: pointer;
             padding: 0 5px;
-            opacity: 0.3;
+            opacity: 0.4;
             text-transform: uppercase;
             transition: opacity 0.3s;
         }
@@ -178,7 +173,7 @@
             margin-bottom: 30px;
             letter-spacing: 0.5px;
             color: #ffffff;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8); 
+            text-shadow: 0 2px 12px rgba(0,0,0,0.9); 
         }
 
         .isotipo-section { 
