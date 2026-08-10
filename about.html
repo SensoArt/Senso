@@ -40,7 +40,7 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
         }
 
-        /* ANIMAZIONE FADE IN */
+        /* ANIMAZIONE FADE IN RIPRISTINATA */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -69,13 +69,14 @@
             overflow-x: hidden;
         }
 
-        /* SFONDO CON IMMAGINE - SEDIE VISIBILI A SCHERMO INTERO */
+        /* SFONDO CON IMMAGINE - SENZA BANDE E A SCHERMO COMPLETO */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             width: 100vw;
             height: 100vh;
+            height: 100dvh; /* Adatta l'altezza esatta sui browser mobile */
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
@@ -84,14 +85,15 @@
             background-color: #000;
         }
 
-        /* OVERLAY LEGGERO PER FAR VEDERE CHIARAMENTE L'IMMAGINE */
+        /* OVERLAY LEGGERO PER LA LEGGIBILITÀ */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.45); /* Oscuramento leggero (45%) per mantenere nitide le sedie */
+            height: 100dvh;
+            background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
         }
 
@@ -188,7 +190,12 @@
             opacity: 0.9; 
         }
 
-        @media (max-width: 600px) {
+        /* REGOLAZIONI SPECIFICHE MOBILE */
+        @media (max-width: 768px) {
+            .bg-container {
+                background-size: cover !important;
+                background-position: center center !important;
+            }
             header { padding-top: 120px; }
             h1 { font-size: 2.2rem; }
             .lang-content p { font-size: 1.15rem; }
