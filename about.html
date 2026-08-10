@@ -40,7 +40,7 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
         }
 
-        /* ANIMAZIONE FADE IN RIPRISTINATA */
+        /* ANIMAZIONE FADE IN */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -69,32 +69,41 @@
             overflow-x: hidden;
         }
 
-        /* SFONDO CON IMMAGINE - SENZA BANDE E A SCHERMO COMPLETO */
+        /* FIX ANTI-ZOOM MOBILE: Sfondo bloccato tramite contenitore fisso e transform */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
-            height: 100dvh; /* Adatta l'altezza esatta sui browser mobile */
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
             background-position: center center;
             background-repeat: no-repeat;
             background-color: #000;
+            
+            /* Impedisce il ridimensionamento durante lo scorrimento su iOS e Android */
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: transform;
         }
 
-        /* OVERLAY LEGGERO PER LA LEGGIBILITÀ */
+        /* OVERLAY LEGGERO */
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
             height: 100%;
-            height: 100dvh;
             background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
         }
 
         .back-home {
@@ -178,24 +187,7 @@
             text-shadow: 0 2px 12px rgba(0,0,0,0.9); 
         }
 
-        .isotipo-section { 
-            padding: 60px 20px; 
-            display: flex; 
-            justify-content: center; 
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .isotipo-img { 
-            width: 80px; 
-            opacity: 0.9; 
-        }
-
-        /* REGOLAZIONI SPECIFICHE MOBILE */
         @media (max-width: 768px) {
-            .bg-container {
-                background-size: cover !important;
-                background-position: center center !important;
-            }
             header { padding-top: 120px; }
             h1 { font-size: 2.2rem; }
             .lang-content p { font-size: 1.15rem; }
@@ -255,10 +247,6 @@
         </div>
 
     </main>
-
-    <div class="isotipo-section fade-in delay-2">
-        <img src="senso_isotipo_blanco.png" alt="Senso Isotipo" class="isotipo-img">
-    </div>
 
     <script>
         function setLang(lang) {
