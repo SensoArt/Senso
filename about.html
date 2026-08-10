@@ -69,15 +69,15 @@
             overflow-x: hidden;
         }
 
-        /* FIX ANTI-ZOOM MOBILE: Sfondo bloccato tramite contenitore fisso e transform */
+        /* SFONDO BLOCCATO ANTI-ZOOM MOBILE E DESKTOP OPTIMIZED */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
@@ -85,7 +85,7 @@
             background-repeat: no-repeat;
             background-color: #000;
             
-            /* Impedisce il ridimensionamento durante lo scorrimento su iOS e Android */
+            /* Trasformazione GPU per evitare scatti al redraw */
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
             will-change: transform;
@@ -100,7 +100,7 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.45);
+            background-color: rgba(0, 0, 0, 0.50); /* Leggermente scurito per migliorare la leggibilità */
             z-index: -1;
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
@@ -165,7 +165,7 @@
         .content-container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 0 25px 80px;
+            padding: 0 25px 160px;
             text-align: left;
         }
 
@@ -187,10 +187,20 @@
             text-shadow: 0 2px 12px rgba(0,0,0,0.9); 
         }
 
+        /* REGOLAZIONI SPECIFICHE PER SCHERMI DESKTOP/PC */
+        @media (min-width: 1024px) {
+            .bg-container {
+                /* Riduce la sensazione di zoom focalizzando meglio la scena ed evitando che la foto sia tagliata eccessivamente in altezza */
+                background-size: 100% auto;
+                background-position: center top;
+            }
+        }
+
         @media (max-width: 768px) {
             header { padding-top: 120px; }
             h1 { font-size: 2.2rem; }
             .lang-content p { font-size: 1.15rem; }
+            .content-container { padding-bottom: 120px; }
         }
     </style>
 </head>
@@ -264,7 +274,7 @@
                 esBox.classList.add('hidden');
                 enBox.classList.remove('hidden');
                 btnEs.classList.remove('active');
-                btnEn.classList.add('active');
+                btnEs.classList.add('active');
             }
 
             localStorage.setItem('senso_lang', lang);
