@@ -69,29 +69,28 @@
             overflow-x: hidden;
         }
 
-        /* SFONDO BLOCCATO ANTI-ZOOM MOBILE E DESKTOP OPTIMIZED */
+        /* FIX SFONDO - SEDIE SEMPRE VISIBILI E BLOCCATE */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2'); 
             background-size: cover;
-            background-position: center center;
+            background-position: center 65%; /* Punta esattamente al centro delle sedie */
             background-repeat: no-repeat;
             background-color: #000;
             
-            /* Trasformazione GPU per evitare scatti al redraw */
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
             will-change: transform;
         }
 
-        /* OVERLAY LEGGERO */
+        /* OVERLAY LEGGERO PER LEGGIBILITÀ TESTO */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -100,7 +99,7 @@
             bottom: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.50); /* Leggermente scurito per migliorare la leggibilità */
+            background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
             transform: translateZ(0);
             -webkit-transform: translateZ(0);
@@ -165,7 +164,7 @@
         .content-container {
             max-width: 850px; 
             margin: 0 auto;
-            padding: 0 25px 160px;
+            padding: 0 25px 160px; /* RESPIRO A PIÈ DI PAGINA */
             text-align: left;
         }
 
@@ -187,16 +186,11 @@
             text-shadow: 0 2px 12px rgba(0,0,0,0.9); 
         }
 
-        /* REGOLAZIONI SPECIFICHE PER SCHERMI DESKTOP/PC */
-        @media (min-width: 1024px) {
-            .bg-container {
-                /* Riduce la sensazione di zoom focalizzando meglio la scena ed evitando che la foto sia tagliata eccessivamente in altezza */
-                background-size: 100% auto;
-                background-position: center top;
-            }
-        }
-
+        /* REGOLAZIONE PER MOBILE */
         @media (max-width: 768px) {
+            .bg-container {
+                background-position: center center;
+            }
             header { padding-top: 120px; }
             h1 { font-size: 2.2rem; }
             .lang-content p { font-size: 1.15rem; }
@@ -274,7 +268,7 @@
                 esBox.classList.add('hidden');
                 enBox.classList.remove('hidden');
                 btnEs.classList.remove('active');
-                btnEs.classList.add('active');
+                btnEn.classList.add('active');
             }
 
             localStorage.setItem('senso_lang', lang);
