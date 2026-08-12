@@ -213,7 +213,7 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa per evitare salti della griglia */
+        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa */
         .artwork-caption {
             text-align: center;
             margin: 8px auto 25px auto; 
@@ -228,7 +228,7 @@
             min-height: 80px;
         }
 
-        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
+        /* Titolo dell'opera in chiaro e leggero */
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
@@ -236,6 +236,16 @@
             margin: 0;
             font-weight: normal !important; 
             color: #000;
+        }
+
+        /* Badge o dicitura minimale per opere vendute */
+        .sold-badge {
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            font-weight: normal;
+            margin-left: 6px;
         }
 
         .artwork-size-text {
@@ -600,7 +610,7 @@
     </main>
 
     <script>
-        // Array ordinato delle opere con i percorsi aggiornati alla cartella fotos_obras/
+        // Array ordinato delle opere con proprietà sold aggiunta a ara12.JPG e ara9.JPG
         const artworks = [
             { 
                 src: "fotos_obras/ara12.JPG", 
@@ -608,7 +618,8 @@
                 titleEs: "The pain and beauty of be holding stories simultaneously", 
                 size: "72 x 82 in", 
                 techEn: "Acrylic, textile and oil pastels on canvas, 2026", 
-                techEs: "Acrílico, textil y pasteles al óleo sobre lienzo, 2026" 
+                techEs: "Acrílico, textil y pasteles al óleo sobre lienzo, 2026",
+                sold: true
             },
             { 
                 src: "fotos_obras/ara2.JPG", 
@@ -616,7 +627,8 @@
                 titleEs: "Resilient Reverie", 
                 size: "100 x 80 cm", 
                 techEn: "Acrylic, oil sticks, pastels, 2023", 
-                techEs: "Acrílico, barras de óleo, pasteles, 2023" 
+                techEs: "Acrílico, barras de óleo, pasteles, 2023",
+                sold: false
             },
             { 
                 src: "fotos_obras/ara15.JPG", 
@@ -624,7 +636,8 @@
                 titleEs: "Entre lineas", 
                 size: "60 x 80 cm", 
                 techEn: "Acrylic on wood panel, 2022", 
-                techEs: "Acrílico sobre panel de madera, 2022" 
+                techEs: "Acrílico sobre panel de madera, 2022",
+                sold: false
             },
             { 
                 src: "fotos_obras/ara10.JPG", 
@@ -632,7 +645,8 @@
                 titleEs: "Split Universe #2", 
                 size: "175 x 100 cm", 
                 techEn: "Acrylic, textile, oil pastels on canvas, 2026", 
-                techEs: "Acrílico, textil, pasteles al óleo sobre lienzo, 2026" 
+                techEs: "Acrílico, textil, pasteles al óleo sobre lienzo, 2026",
+                sold: false
             },
             { 
                 src: "fotos_obras/ara4.JPG", 
@@ -640,7 +654,8 @@
                 titleEs: "Aqui Estamos (Here We Are)", 
                 size: "50x60 / 60x70 / 50x60 cm", 
                 techEn: "Acrylic, soft pastels, oil pastels, 2021", 
-                techEs: "Acrílico, pasteles suaves, pasteles al óleo, 2021" 
+                techEs: "Acrílico, pasteles suaves, pasteles al óleo, 2021",
+                sold: false
             },
             { 
                 src: "fotos_obras/ara7.JPG", 
@@ -648,7 +663,8 @@
                 titleEs: "Aqui Estamos (Here We Are)", 
                 size: "50x60 cm / 60x70cm / 50x60 cm", 
                 techEn: "Acrylic, soft pastels, oil pastels, 2021", 
-                techEs: "Acrílico, pasteles suaves, pasteles al óleo, 2021" 
+                techEs: "Acrílico, pasteles suaves, pasteles al óleo, 2021",
+                sold: false
             },
             { 
                 src: "fotos_obras/ara1.jpg", 
@@ -656,7 +672,8 @@
                 titleEs: "Emptiness", 
                 size: "16 x 20 in", 
                 techEn: "Acrylic on canvas", 
-                techEs: "Acrílico sobre lienzo" 
+                techEs: "Acrílico sobre lienzo",
+                sold: false
             },
             { 
                 src: "fotos_obras/ara9.JPG", 
@@ -664,7 +681,8 @@
                 titleEs: "Sin título", 
                 size: "60 x 80 cm", 
                 techEn: "Mixed media on canvas, 2020", 
-                techEs: "Técnica mixta sobre lienzo, 2020" 
+                techEs: "Técnica mixta sobre lienzo, 2020",
+                sold: true
             },
             { 
                 src: "fotos_obras/ara13.JPG", 
@@ -672,7 +690,8 @@
                 titleEs: "Sin título", 
                 size: "", 
                 techEn: "Mixed media on canvas, 2021", 
-                techEs: "Técnica mixta sobre lienzo, 2021" 
+                techEs: "Técnica mixta sobre lienzo, 2021",
+                sold: false
             }
         ];
 
@@ -681,7 +700,6 @@
         const thumbnailsContainer = document.getElementById('thumbnails-container');
         const activeArtworkImg = document.getElementById('active-artwork');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
-        const inputMessage = document.getElementById('input-message');
         const artworkTitleEl = document.getElementById('artwork-title');
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
@@ -724,7 +742,10 @@
                 activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
 
-                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                const baseTitle = isEs ? activeArt.titleEs : activeArt.titleEn;
+                const soldTag = activeArt.sold ? `<span class="sold-badge">[ ${isEs ? 'Vendida' : 'Sold'} ]</span>` : '';
+                artworkTitleEl.innerHTML = baseTitle + soldTag;
+
                 artworkSizeEl.innerText = activeArt.size;
                 artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
 
@@ -741,7 +762,7 @@
                 }
             });
 
-            hiddenArtworkTitle.value = activeArt.titleEn + (activeArt.size ? " (" + activeArt.size + ")" : "");
+            hiddenArtworkTitle.value = (isEs ? activeArt.titleEs : activeArt.titleEn) + (activeArt.sold ? " [SOLD]" : "") + (activeArt.size ? " (" + activeArt.size + ")" : "");
         }
 
         function goToSlide(index) {
@@ -828,7 +849,7 @@
             } else {
                 btnEn.classList.add('active');
                 btnEs.classList.remove('active');
-                biosEs.forEach(el => el.classList.add('hidden'));
+                biosEs.forEach(el => el.classList.remove('hidden'));
                 biosEn.forEach(el => el.classList.remove('hidden'));
 
                 nameInput.placeholder = "Your name";
