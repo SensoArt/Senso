@@ -20,7 +20,7 @@
     <!-- End Meta Pixel Code -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>SENSO - Artists</title>
+    <title>Senso - Arantxa Martinez Dugas</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -58,9 +58,6 @@
             font-family: 'FuturaLight', sans-serif; 
             -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
-            overflow-y: auto;
-            width: 100%;
-            min-height: 100vh;
         }
 
         /* SFONDO BIANCO FISSO */
@@ -74,7 +71,8 @@
             background-color: #fff;
         }
 
-        .back-home { 
+        /* Pulsante Indietro elegante */
+        .back-artists { 
             position: fixed; 
             top: 25px; 
             left: 20px; 
@@ -87,8 +85,9 @@
             z-index: 1000; 
             transition: opacity 0.3s; 
         }
-        .back-home:hover { opacity: 1; }
+        .back-artists:hover { opacity: 1; }
         
+        /* Switcher di lingua */
         .lang-switch { 
             position: fixed; 
             top: 25px; 
@@ -114,223 +113,756 @@
         .container { 
             max-width: 950px; 
             margin: 0 auto; 
-            padding: 150px 25px 0; 
+            padding: 150px 25px 150px; 
         }
 
-        /* Titolo elegante e ridotto */
-        .section-title { 
-            font-family: 'BehindNineties', serif; 
-            font-size: clamp(2rem, 5vw, 3rem); 
+        /* Nome dell'artista in grassetto elegante */
+        .artist-title { 
+            font-family: 'FuturaLight', sans-serif; 
+            font-size: 1.3rem; 
+            text-transform: uppercase;
+            letter-spacing: 3px;
             margin: 0 0 50px 0; 
-            text-transform: lowercase; 
-            font-weight: normal; 
+            font-weight: bold; 
         }
 
-        /* GRIGLIA A 3 COLONNE */
-        .artists-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            column-gap: 30px;
-            row-gap: 50px;
-            width: 100%;
-        }
-
-        /* Singola scheda artista cliccabile */
-        .artist-block { 
-            text-decoration: none !important;
-            display: flex;
-            flex-direction: column;
-            color: #000 !important;
+        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
+        .artist-content { 
+            display: grid; 
+            grid-template-columns: 380px 1fr; 
+            gap: 60px; 
+            align-items: start; 
         }
         
         .img-container { 
             width: 100%; 
-            overflow: hidden; 
-            background-color: rgba(0,0,0,0.03); 
-            margin-bottom: 15px;
+            background-color: transparent; 
+            display: flex;
+            flex-direction: column;
+            gap: 0px; 
         }
 
-        /* Immagine di base in bianco e nero */
-        .artist-img { 
-            width: 100%; 
-            display: block; 
-            aspect-ratio: 3 / 2; 
-            object-fit: cover; 
-            filter: grayscale(1);
-            transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
-        }
-
-        /* Transizione a colori e zoom al passaggio del mouse */
-        .artist-block:hover .artist-img { 
-            filter: grayscale(0);
-            transform: scale(1.02); 
-        }
-
-        /* Allineamenti personalizzati delle inquadrature */
-        .img-raul { object-position: center 20%; }
-        .img-davide { object-position: center center; }
-        .img-catherine { object-position: center 75%; }
-        .img-rafael { object-position: center 48%; }
-        .img-arantxa { object-position: center 15%; }
-
-        /* Meta dettagli sotto l'immagine */
-        .artist-meta {
-            padding: 0 2px;
-            text-align: left;
-        }
-
-        .artist-name { 
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem; 
-            font-weight: normal; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin: 0; 
-        }
-
-        /* SPAZIATORE FINALE PER DARE RESPIRO ALLA PAGINA */
-        .footer-spacer {
-            height: 18vh;
-            min-height: 140px;
+        /* Contenitore per l'immagine attiva principale - Zero distanze */
+        .slider-wrapper {
+            position: relative;
             width: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            background-color: transparent;
+            overflow: hidden;
+            margin-bottom: 0px !important; 
+            padding-bottom: 0px !important;
         }
 
-        /* RESPONSIVE */
+        .main-image-frame {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: auto; 
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Immagine attiva interattiva e cliccabile per Lightbox */
+        .artist-img { 
+            max-width: 100%; 
+            max-height: 400px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            display: block;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
+        .nav-arrow {
+            position: absolute;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.85); 
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px); 
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: #000;
+            cursor: pointer;
+            opacity: 0.6; 
+            z-index: 10;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
+            outline: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
+        }
+
+        .nav-arrow:hover {
+            opacity: 1;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
+
+        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa per evitare salti della griglia */
+        .artwork-caption {
+            text-align: center;
+            margin: 8px auto 25px auto; 
+            padding-top: 0px; 
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-family: 'FuturaLight', sans-serif;
+            min-height: 80px;
+        }
+
+        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
+        .artwork-title-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin: 0;
+            font-weight: normal !important; 
+            color: #000;
+        }
+
+        .artwork-size-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        /* Miniature in griglia geometrica pulita */
+        .thumbnail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .thumb-item {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            cursor: pointer;
+            opacity: 0.35;
+            border: 1px solid transparent;
+            transition: opacity 0.3s, border-color 0.3s;
+        }
+
+        .thumb-item:hover, .thumb-item.active {
+            opacity: 1;
+        }
+
+        .thumb-item.active {
+            border-color: #000;
+        }
+
+        /* Stile dei testi bio */
+        .artist-bio { 
+            line-height: 1.9; 
+            font-size: 1rem; 
+            opacity: 0.85; 
+            text-align: justify; 
+            margin-bottom: 40px;
+        }
+        
+        .important { 
+            font-family: 'BehindNineties', serif; 
+            font-size: 1.15rem; 
+        }
+        
+        .hidden { display: none; }
+
+        /* STILI LIGHTBOX PER INGRANDIMENTO OPERE */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(255, 255, 255, 0.98); 
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-wrapper {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            transform: scale(0.97);
+            transition: transform 0.4s ease;
+        }
+
+        .lightbox-overlay.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-close {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            z-index: 2010;
+        }
+
+        .lightbox-close:hover {
+            opacity: 1;
+        }
+
+        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        .inquiry-section {
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            padding-top: 35px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .inquiry-title {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 25px 0;
+            font-weight: bold;
+        }
+
+        .inquiry-form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            transition: opacity 0.4s ease;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-input {
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+            padding: 8px 0;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            background: transparent;
+            outline: none;
+            color: #000;
+            transition: border-color 0.4s;
+            border-radius: 0;
+        }
+
+        .form-input::placeholder {
+            color: rgba(0, 0, 0, 0.35);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+        }
+
+        .form-input:focus {
+            border-bottom-color: #000;
+        }
+
+        textarea.form-input {
+            resize: none;
+            height: 60px;
+        }
+
+        .form-submit-btn {
+            background: none;
+            border: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            padding: 10px 0;
+            align-self: flex-start;
+            transition: opacity 0.3s;
+            font-weight: bold;
+        }
+
+        .form-submit-btn:hover {
+            opacity: 0.5;
+        }
+
+        /* Messaggio di successo */
+        .thank-you-container {
+            display: none;
+            animation: fadeIn 0.8s ease-out forwards;
+            padding: 20px 0;
+        }
+
+        .thank-you-title {
+            font-family: 'BehindNineties', serif;
+            font-size: 1.3rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+
+        .thank-you-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.7;
+            margin: 0;
+        }
+
+        .error-message {
+            color: #8b0000;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
-            .artists-grid {
-                grid-template-columns: repeat(2, 1fr);
-                column-gap: 30px;
-                row-gap: 40px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
-            .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
-            .artists-grid {
-                grid-template-columns: 1fr; 
-                row-gap: 35px;
-            }
-            .artist-name { font-size: 0.75rem; }
-            .footer-spacer {
-                min-height: 100px;
-            }
+            .artist-content { grid-template-columns: 1fr; gap: 40px; }
+            .img-container { max-width: 420px; margin: 0 auto; } 
+            .container { padding-top: 120px; padding-bottom: 100px; }
+            .form-row { grid-template-columns: 1fr; gap: 25px; }
+            .lightbox-close { top: 25px; right: 20px; }
+            .main-image-frame { height: auto; }
+            .artist-img { max-height: 300px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
-    <a href="index.html" class="back-home">← Home</a>
+    <!-- Ritorno alla griglia artisti -->
+    <a href="artists.html" class="back-artists">← Artists</a>
 
+    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
+    <!-- Contenitore Lightbox -->
+    <div class="lightbox-overlay" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close">close</button>
+        <div class="lightbox-wrapper">
+            <img src="" alt="Opera Ingrandita" class="lightbox-img" id="lightbox-img">
+        </div>
+    </div>
+
     <main class="container">
         
-        <header class="header-section fade-in delay-1">
-            <h1 class="section-title" id="main-title">artists</h1>
+        <header class="fade-in delay-1">
+            <h1 class="artist-title">Arantxa Martinez Dugas</h1>
         </header>
 
-        <div class="artists-grid fade-in delay-2">
+        <div class="artist-content fade-in delay-2">
+            
+            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
+            <div class="img-container">
+                
+                <!-- Spazio immagine principale con frecce -->
+                <div class="slider-wrapper" id="swipe-area">
+                    <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
+                    <div class="main-image-frame">
+                        <img id="active-artwork" src="" alt="Arantxa Martinez Dugas — Active Artwork" class="artist-img" onload="alignArrows()">
+                    </div>
+                    <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+                </div>
 
-            <a href="raul-del-chano.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img img-raul">
+                <!-- Didascalie posizionate subito sotto l'immagine -->
+                <div class="artwork-caption">
+                    <h3 id="artwork-title" class="artwork-title-text"></h3>
+                    <div id="artwork-size" class="artwork-size-text"></div>
+                    <div id="artwork-tech" class="artwork-tech-text"></div>
                 </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Raúl del Chano</h2>
-                </div>
-            </a>
 
-            <a href="lucia-cheves.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
-                </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Lucía Cheves Dauber</h2>
-                </div>
-            </a>
+                <!-- Griglia delle miniature -->
+                <div class="thumbnail-grid" id="thumbnails-container"></div>
+                
+            </div>
 
-            <a href="carlotta-valentinis.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/carlotta_valentinis.jpg" alt="Carlotta Valentinis Queraltó" class="artist-img">
+            <!-- Area Bio ed Inquiry Form -->
+            <div class="bio-wrapper">
+                
+                <!-- Testi Biografici -->
+                <div class="lang-en artist-bio">
+                    Arantxa Martinez Dugas is a multidisciplinary visual artist working across painting, fibers, drawing, sculpture, photography, video, and performance. Originally from <span class="important">Mexico</span> and based in <span class="important">Montreal</span>, her work explores themes such as the passage of time, space, perception, cultural identity, gender, and political art. She believes that as we live, we record and leave traces behind. Holding a BFA in Studio Arts from <span class="important">Concordia University</span> and a DEC from <span class="important">LaSalle College</span>, her research has been presented at <span class="important">ITSLIQUID Group / HUB ART Barcelona</span>, <span class="important">The Holy Art / Mriya Gallery NY</span>, <span class="important">BADA Mexico</span>, and <span class="important">Art Toronto</span>, along with an art residency at the <span class="important">Banff Centre for Arts and Creativity</span>.
                 </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Carlotta Valentinis Queraltó</h2>
+                <div class="lang-es artist-bio hidden">
+                    Arantxa Martinez Dugas es una artista visual multidisciplinaria que trabaja en pintura, fibras, dibujo, escultura, fotografía, video y performance. Originaria de <span class="important">México</span> y radicada en <span class="important">Montreal</span>, su obra explora temas como el paso del tiempo, el espacio, la percepción, la identidad cultural, el género y el arte político. Cree que a medida que vivimos, registramos y dejamos huellas. Licenciada en BFA Studio Arts por la <span class="important">Universidad Concordia</span> y egresada del <span class="important">Colegio LaSalle</span>, su investigación se ha presentado en <span class="important">ITSLIQUID Group / HUB ART Barcelona</span>, <span class="important">The Holy Art / Mriya Gallery NY</span>, <span class="important">BADA México</span> y <span class="important">Art Toronto</span>, además de una residencia artística en el <span class="important">Banff Centre for Arts and Creativity</span>.
                 </div>
-            </a>
 
-            <a href="davide-ciaramella.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img img-davide">
-                </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Davide Ciaramella</h2>
-                </div>
-            </a>
+                <!-- Sezione Richiesta d'opera (Inquire) -->
+                <section class="inquiry-section">
+                    <h2 class="inquiry-title" id="form-title">inquire</h2>
+                    
+                    <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
+                        <input type="hidden" name="artist" value="Arantxa Martinez Dugas">
+                        <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
+                        <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
+                    </form>
 
-            <a href="davide-disena.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/davide_disena.jpg" alt="Davide Di Sena" class="artist-img">
-                </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Davide Di Sena</h2>
-                </div>
-            </a>
+                    <div class="thank-you-container" id="thank-you-block">
+                        <div class="lang-en">
+                            <h3 class="thank-you-title">thank you</h3>
+                            <p class="thank-you-text">Your inquiry has been successfully sent. We will get back to you shortly.</p>
+                        </div>
+                        <div class="lang-es hidden">
+                            <h3 class="thank-you-title">gracias</h3>
+                            <p class="thank-you-text">Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.</p>
+                        </div>
+                    </div>
+                </section>
 
-            <a href="catherine-parra.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/catherine_parra.jpg" alt="Catherine Parra" class="artist-img img-catherine">
-                </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Catherine Parra</h2>
-                </div>
-            </a>
-
-            <a href="rafael-nuesi.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/rafael_nuesi.JPG" alt="Rafael Nuesi" class="artist-img img-rafael">
-                </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Rafael Nuesi</h2>
-                </div>
-            </a>
-
-            <a href="arantxa-martinez-dugas.html" class="artist-block">
-                <div class="img-container">
-                    <img src="fotos_obras/aratntxa.jpg" alt="Arantxa Martinez Dugas" class="artist-img img-arantxa">
-                </div>
-                <div class="artist-meta">
-                    <h2 class="artist-name">Arantxa Martinez Dugas</h2>
-                </div>
-            </a>
-
+            </div>
         </div>
-
-        <div class="footer-spacer"></div>
 
     </main>
 
     <script>
+        // Array ordinato delle opere con i percorsi aggiornati alla cartella fotos_obras/
+        const artworks = [
+            { 
+                src: "fotos_obras/ara12.JPG", 
+                titleEn: "The pain and beauty of be holding stories simultaneously", 
+                titleEs: "The pain and beauty of be holding stories simultaneously", 
+                size: "72 x 82 in", 
+                techEn: "Acrylic, textile and oil pastels on canvas, 2026", 
+                techEs: "Acrílico, textil y pasteles al óleo sobre lienzo, 2026" 
+            },
+            { 
+                src: "fotos_obras/ara10.JPG", 
+                titleEn: "Split Universe #2", 
+                titleEs: "Split Universe #2", 
+                size: "175 x 100 cm", 
+                techEn: "Acrylic, textile, oil pastels on canvas, 2026", 
+                techEs: "Acrílico, textil, pasteles al óleo sobre lienzo, 2026" 
+            },
+            { 
+                src: "fotos_obras/ara2.JPG", 
+                titleEn: "Resilient Reverie", 
+                titleEs: "Resilient Reverie", 
+                size: "100 x 80 cm", 
+                techEn: "Acrylic, oil sticks, pastels, 2023", 
+                techEs: "Acrílico, barras de óleo, pasteles, 2023" 
+            },
+            { 
+                src: "fotos_obras/ara15.JPG", 
+                titleEn: "Entre lineas", 
+                titleEs: "Entre lineas", 
+                size: "60 x 80 cm", 
+                techEn: "Acrylic on wood panel, 2022", 
+                techEs: "Acrílico sobre panel de madera, 2022" 
+            },
+            { 
+                src: "fotos_obras/ara4.JPG", 
+                titleEn: "Aqui Estamos (Here We Are)", 
+                titleEs: "Aqui Estamos (Here We Are)", 
+                size: "50x60 / 60x70 / 50x60 cm", 
+                techEn: "Acrylic, soft pastels, oil pastels, 2021", 
+                techEs: "Acrílico, pasteles suaves, pasteles al óleo, 2021" 
+            },
+            { 
+                src: "fotos_obras/ara1.jpg", 
+                titleEn: "Emptiness", 
+                titleEs: "Emptiness", 
+                size: "16 x 20 in", 
+                techEn: "Acrylic on canvas", 
+                techEs: "Acrílico sobre lienzo" 
+            },
+            { 
+                src: "fotos_obras/ara9.JPG", 
+                titleEn: "Untitled", 
+                titleEs: "Sin título", 
+                size: "60 x 80 cm", 
+                techEn: "Mixed media on canvas, 2020", 
+                techEs: "Técnica mixta sobre lienzo, 2020" 
+            },
+            { 
+                src: "fotos_obras/ara13.JPG", 
+                titleEn: "Untitled", 
+                titleEs: "Sin título", 
+                size: "", 
+                techEn: "Mixed media on canvas, 2021", 
+                techEs: "Técnica mixta sobre lienzo, 2021" 
+            }
+        ];
+
+        let currentIndex = 0;
+
+        const thumbnailsContainer = document.getElementById('thumbnails-container');
+        const activeArtworkImg = document.getElementById('active-artwork');
+        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
+        const inputMessage = document.getElementById('input-message');
+        const artworkTitleEl = document.getElementById('artwork-title');
+        const artworkSizeEl = document.getElementById('artwork-size');
+        const artworkTechEl = document.getElementById('artwork-tech');
+
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
+            }
+        }
+
+        function initGallery() {
+            thumbnailsContainer.innerHTML = '';
+            artworks.forEach((art, index) => {
+                const img = document.createElement('img');
+                img.src = art.src;
+                img.alt = art.titleEn;
+                img.className = 'thumb-item';
+                if (index === currentIndex) img.classList.add('active');
+                
+                img.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+                thumbnailsContainer.appendChild(img);
+            });
+            updateSlide();
+        }
+
+        function updateSlide() {
+            const activeArt = artworks[currentIndex];
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+
+            activeArtworkImg.style.opacity = '0.3';
+            setTimeout(() => {
+                activeArtworkImg.src = activeArt.src;
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
+                activeArtworkImg.style.opacity = '1';
+
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+
+                setTimeout(alignArrows, 50);
+            }, 180);
+
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((thumb, idx) => {
+                if (idx === currentIndex) {
+                    thumb.classList.add('active');
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                } else {
+                    thumb.classList.remove('active');
+                }
+            });
+
+            hiddenArtworkTitle.value = activeArt.titleEn + (activeArt.size ? " (" + activeArt.size + ")" : "");
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateSlide();
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % artworks.length;
+            updateSlide();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+            updateSlide();
+        }
+
+        // TOUCH SWIPE
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const swipeArea = document.getElementById('swipe-area');
+
+        swipeArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            if (touchStartX - touchEndX > 50) {
+                nextSlide();
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide();
+            }
+        }
+
+        // LIGHTBOX
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        activeArtworkImg.addEventListener('click', () => {
+            lightboxImg.src = activeArtworkImg.src;
+            lightboxImg.alt = activeArtworkImg.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // SWITCHER LINGUA
         function setLang(lang) {
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
-            const title = document.getElementById('main-title');
+            const biosEn = document.querySelectorAll('.lang-en');
+            const biosEs = document.querySelectorAll('.lang-es');
+            const nameInput = document.getElementById('input-name');
+            const emailInput = document.getElementById('input-email');
+            const msgInput = document.getElementById('input-message');
+            const submitBtn = document.getElementById('submit-btn');
 
             if (lang === 'es') {
-                btnEs.classList.add('active'); 
+                btnEs.classList.add('active');
                 btnEn.classList.remove('active');
-                title.innerText = 'artistas';
+                biosEn.forEach(el => el.classList.add('hidden'));
+                biosEs.forEach(el => el.classList.remove('hidden'));
+
+                nameInput.placeholder = "Su nombre";
+                emailInput.placeholder = "Su correo electrónico";
+                msgInput.placeholder = "Comentarios";
+                submitBtn.innerText = "Enviar consulta →";
             } else {
-                btnEn.classList.add('active'); 
+                btnEn.classList.add('active');
                 btnEs.classList.remove('active');
-                title.innerText = 'artists';
+                biosEs.forEach(el => el.classList.add('hidden'));
+                biosEn.forEach(el => el.classList.remove('hidden'));
+
+                nameInput.placeholder = "Your name";
+                emailInput.placeholder = "Your email";
+                msgInput.placeholder = "Comments";
+                submitBtn.innerText = "Send Inquiry →";
             }
+
+            updateSlide();
         }
+
+        // INVIO FORM AJAX (FORMSPREE)
+        const contactForm = document.getElementById('contact-form');
+        const thankYouBlock = document.getElementById('thank-you-block');
+        const errorMsg = document.getElementById('error-msg');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            errorMsg.style.display = 'none';
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    contactForm.style.display = 'none';
+                    thankYouBlock.style.display = 'block';
+                } else {
+                    errorMsg.style.display = 'block';
+                }
+            } catch (err) {
+                errorMsg.style.display = 'block';
+            }
+        });
+
+        // Inizializza la galleria all'avvio
+        document.addEventListener('DOMContentLoaded', initGallery);
     </script>
 </body>
 </html>
