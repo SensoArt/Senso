@@ -142,12 +142,13 @@
             gap: 0px; 
         }
 
-        /* Contenitore per l'immagine attiva principale - Zero distanze */
+        /* Contenitore per l'immagine attiva principale con altezza fissa */
         .slider-wrapper {
             position: relative;
             width: 100%;
+            height: 400px; /* ALTEZZA FISSA PER EVITARE I SALTI DEL LAYOUT */
             display: flex;
-            align-items: flex-start;
+            align-items: center; /* CENTRA L'IMMAGINE VERTICALMENTE */
             justify-content: center;
             background-color: transparent;
             overflow: hidden;
@@ -157,10 +158,10 @@
 
         .main-image-frame {
             width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            height: auto; 
+            align-items: center;
             margin: 0;
             padding: 0;
         }
@@ -179,9 +180,10 @@
             padding: 0;
         }
 
-        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
+        /* Frecce di Navigazione Minimali FISSE AL CENTRO */
         .nav-arrow {
             position: absolute;
+            top: 50% !important; /* POSIZIONE FISSA A METÀ ALTEZZA */
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -198,7 +200,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -497,7 +499,7 @@
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .main-image-frame { height: auto; }
+            .slider-wrapper { height: 300px; } /* Adattamento mobile dell'altezza wrapper */
             .artist-img { max-height: 300px; }
         }
     </style>
@@ -539,7 +541,7 @@
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Arantxa Martinez Dugas — Active Artwork" class="artist-img" onload="alignArrows()">
+                        <img id="active-artwork" src="" alt="Arantxa Martinez Dugas — Active Artwork" class="artist-img">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
@@ -610,7 +612,7 @@
     </main>
 
     <script>
-        // Array ordinato delle opere con proprietà sold aggiunta a ara12.JPG e ara9.JPG
+        // Array ordinato delle opere
         const artworks = [
             { 
                 src: "fotos_obras/ara12.JPG", 
@@ -704,16 +706,8 @@
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
 
-        function alignArrows() {
-            const img = document.getElementById('active-artwork');
-            const prevArrow = document.querySelector('.prev-arrow');
-            const nextArrow = document.querySelector('.next-arrow');
-            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
-                const centerOffset = img.clientHeight / 2;
-                prevArrow.style.top = `${centerOffset}px`;
-                nextArrow.style.top = `${centerOffset}px`;
-            }
-        }
+        // Funzione disattivata per mantenere le frecce a un'altezza fissa al centro
+        function alignArrows() {}
 
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
@@ -748,8 +742,6 @@
 
                 artworkSizeEl.innerText = activeArt.size;
                 artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
-
-                setTimeout(alignArrows, 50);
             }, 180);
 
             const thumbs = document.querySelectorAll('.thumb-item');
@@ -849,7 +841,7 @@
             } else {
                 btnEn.classList.add('active');
                 btnEs.classList.remove('active');
-                biosEs.forEach(el => el.classList.remove('hidden'));
+                biosEs.forEach(el => el.classList.add('hidden'));
                 biosEn.forEach(el => el.classList.remove('hidden'));
 
                 nameInput.placeholder = "Your name";
@@ -871,7 +863,6 @@
             errorMsg.style.display = 'none';
 
             const formData = new FormData(contactForm);
-
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
@@ -890,8 +881,8 @@
             }
         });
 
-        // Inizializza la galleria all'avvio
-        document.addEventListener('DOMContentLoaded', initGallery);
+        // Inizializza galleria al caricamento
+        document.addEventListener("DOMContentLoaded", initGallery);
     </script>
 </body>
 </html>
