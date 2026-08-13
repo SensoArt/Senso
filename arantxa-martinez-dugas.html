@@ -126,7 +126,7 @@
             font-weight: bold; 
         }
 
-        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
+        /* Layout a due colonne */
         .artist-content { 
             display: grid; 
             grid-template-columns: 380px 1fr; 
@@ -142,18 +142,20 @@
             gap: 0px; 
         }
 
-        /* Contenitore per l'immagine attiva principale con altezza fissa */
+        /* CONTENITORE SLIDER COMPLETA RIGIDEZZA */
         .slider-wrapper {
             position: relative;
             width: 100%;
-            height: 400px; /* ALTEZZA FISSA PER EVITARE I SALTI DEL LAYOUT */
+            height: 400px; 
+            min-height: 400px;
+            max-height: 400px;
             display: flex;
-            align-items: center; /* CENTRA L'IMMAGINE VERTICALMENTE */
+            align-items: center; 
             justify-content: center;
             background-color: transparent;
             overflow: hidden;
-            margin-bottom: 0px !important; 
-            padding-bottom: 0px !important;
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         .main-image-frame {
@@ -166,7 +168,6 @@
             padding: 0;
         }
 
-        /* Immagine attiva interattiva e cliccabile per Lightbox */
         .artist-img { 
             max-width: 100%; 
             max-height: 400px;
@@ -180,11 +181,11 @@
             padding: 0;
         }
 
-        /* Frecce di Navigazione Minimali FISSE AL CENTRO */
+        /* FRECCE ASSOLUTAMENTE FISSE */
         .nav-arrow {
-            position: absolute;
-            top: 50% !important; /* POSIZIONE FISSA A METÀ ALTEZZA */
-            transform: translateY(-50%);
+            position: absolute !important;
+            top: 200px !important; 
+            transform: translateY(-50%) !important;
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
             backdrop-filter: blur(5px); 
@@ -200,7 +201,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s;
+            transition: opacity 0.3s, background-color 0.3s, box-shadow 0.3s;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -209,28 +210,29 @@
             opacity: 1;
             background: #fff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transform: translateY(-50%) scale(1.05);
         }
 
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa */
+        /* DIDASCALIA CON ALTEZZA BLOCCATA */
         .artwork-caption {
             text-align: center;
-            margin: 8px auto 25px auto; 
-            padding-top: 0px; 
+            margin: 15px auto 15px auto; 
+            padding: 0; 
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 4px;
             font-family: 'FuturaLight', sans-serif;
-            min-height: 80px;
+            height: 90px;
+            min-height: 90px;
+            max-height: 90px;
+            overflow: hidden;
         }
 
-        /* Titolo dell'opera in chiaro e leggero */
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
@@ -240,7 +242,6 @@
             color: #000;
         }
 
-        /* Badge o dicitura minimale per opere vendute */
         .sold-badge {
             font-size: 0.7rem;
             letter-spacing: 2px;
@@ -270,13 +271,13 @@
             font-weight: normal !important;
         }
 
-        /* Miniature in griglia geometrica pulita */
+        /* Miniature */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 5px;
         }
 
         .thumb-item {
@@ -297,13 +298,18 @@
             border-color: #000;
         }
 
-        /* Stile dei testi bio */
+        /* CONTENITORE BIO FISSO PER IMPEDIRE LO SPOSTAMENTO DEL CURSORE CAMBIANDO LINGUA */
+        .bio-container-fixed {
+            min-height: 330px; /* ALTEZZA MINIMA FISSA RISERVATA PER IL TESTO */
+            margin-bottom: 40px;
+        }
+
         .artist-bio { 
             line-height: 1.9; 
             font-size: 1rem; 
             opacity: 0.85; 
             text-align: justify; 
-            margin-bottom: 40px;
+            margin: 0;
         }
         
         .important { 
@@ -313,7 +319,7 @@
         
         .hidden { display: none; }
 
-        /* STILI LIGHTBOX PER INGRANDIMENTO OPERE */
+        /* LIGHTBOX */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -377,7 +383,7 @@
             opacity: 1;
         }
 
-        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        /* FORM INQUIRE */
         .inquiry-section {
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             padding-top: 35px;
@@ -460,7 +466,6 @@
             opacity: 0.5;
         }
 
-        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -492,33 +497,31 @@
             animation: fadeIn 0.4s ease forwards;
         }
 
-        /* Responsive per Tablet e Mobile */
+        /* Responsive Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .slider-wrapper { height: 300px; } /* Adattamento mobile dell'altezza wrapper */
+            .slider-wrapper { height: 300px; min-height: 300px; max-height: 300px; } 
             .artist-img { max-height: 300px; }
+            .nav-arrow { top: 150px !important; }
+            .bio-container-fixed { min-height: auto; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
-    <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
-    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <!-- Contenitore Lightbox -->
     <div class="lightbox-overlay" id="lightbox">
         <button class="lightbox-close" id="lightbox-close">close</button>
         <div class="lightbox-wrapper">
@@ -534,10 +537,8 @@
 
         <div class="artist-content fade-in delay-2">
             
-            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
                 
-                <!-- Spazio immagine principale con frecce -->
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
@@ -546,30 +547,28 @@
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalie posizionate subito sotto l'immagine -->
                 <div class="artwork-caption">
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
                     <div id="artwork-tech" class="artwork-tech-text"></div>
                 </div>
 
-                <!-- Griglia delle miniature -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
             </div>
 
-            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
                 
-                <!-- Testi Biografici -->
-                <div class="lang-en artist-bio">
-                    Arantxa Martinez Dugas is a multidisciplinary visual artist working across painting, fibers, drawing, sculpture, photography, video, and performance. Originally from <span class="important">Mexico</span> and based in <span class="important">Montreal</span>, her work explores themes such as the passage of time, space, perception, cultural identity, gender, and political art. She believes that as we live, we record and leave traces behind. Holding a BFA in Studio Arts from <span class="important">Concordia University</span> and a DEC from <span class="important">LaSalle College</span>, her research has been presented at <span class="important">ITSLIQUID Group / HUB ART Barcelona</span>, <span class="important">The Holy Art / Mriya Gallery NY</span>, <span class="important">BADA Mexico</span>, and <span class="important">Art Toronto</span>, along with an art residency at the <span class="important">Banff Centre for Arts and Creativity</span>.
-                </div>
-                <div class="lang-es artist-bio hidden">
-                    Arantxa Martinez Dugas es una artista visual multidisciplinaria que trabaja en pintura, fibras, dibujo, escultura, fotografía, video y performance. Originaria de <span class="important">México</span> y radicada en <span class="important">Montreal</span>, su obra explora temas como el paso del tiempo, el espacio, la percepción, la identidad cultural, el género y el arte político. Cree que a medida que vivimos, registramos y dejamos huellas. Licenciada en BFA Studio Arts por la <span class="important">Universidad Concordia</span> y egresada del <span class="important">Colegio LaSalle</span>, su investigación se ha presentado en <span class="important">ITSLIQUID Group / HUB ART Barcelona</span>, <span class="important">The Holy Art / Mriya Gallery NY</span>, <span class="important">BADA México</span> y <span class="important">Art Toronto</span>, además de una residencia artística en el <span class="important">Banff Centre for Arts and Creativity</span>.
+                <!-- Contenitore ad altezza fissa per bloccare i salti di lingua -->
+                <div class="bio-container-fixed">
+                    <div class="lang-en artist-bio">
+                        Arantxa Martinez Dugas is a multidisciplinary visual artist working across painting, fibers, drawing, sculpture, photography, video, and performance. Originally from <span class="important">Mexico</span> and based in <span class="important">Montreal</span>, her work explores themes such as the passage of time, space, perception, cultural identity, gender, and political art. She believes that as we live, we record and leave traces behind. Holding a BFA in Studio Arts from <span class="important">Concordia University</span> and a DEC from <span class="important">LaSalle College</span>, her research has been presented at <span class="important">ITSLIQUID Group / HUB ART Barcelona</span>, <span class="important">The Holy Art / Mriya Gallery NY</span>, <span class="important">BADA Mexico</span>, and <span class="important">Art Toronto</span>, along with an art residency at the <span class="important">Banff Centre for Arts and Creativity</span>.
+                    </div>
+                    <div class="lang-es artist-bio hidden">
+                        Arantxa Martinez Dugas es una artista visual multidisciplinaria que trabaja en pintura, fibras, dibujo, escultura, fotografía, video y performance. Originaria de <span class="important">México</span> y radicada en <span class="important">Montreal</span>, su obra explora temas como el paso del tiempo, el espacio, la percepción, la identidad cultural, el género y el arte político. Cree que a medida que vivimos, registramos y dejamos huellas. Licenciada en BFA Studio Arts por la <span class="important">Universidad Concordia</span> y egresada del <span class="important">Colegio LaSalle</span>, su investigación se ha presentado en <span class="important">ITSLIQUID Group / HUB ART Barcelona</span>, <span class="important">The Holy Art / Mriya Gallery NY</span>, <span class="important">BADA México</span> y <span class="important">Art Toronto</span>, además de una residencia artística en el <span class="important">Banff Centre for Arts and Creativity</span>.
+                    </div>
                 </div>
 
-                <!-- Sezione Richiesta d'opera (Inquire) -->
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
@@ -612,7 +611,6 @@
     </main>
 
     <script>
-        // Array ordinato delle opere
         const artworks = [
             { 
                 src: "fotos_obras/ara12.JPG", 
@@ -706,9 +704,6 @@
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
 
-        // Funzione disattivata per mantenere le frecce a un'altezza fissa al centro
-        function alignArrows() {}
-
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
@@ -748,7 +743,6 @@
             thumbs.forEach((thumb, idx) => {
                 if (idx === currentIndex) {
                     thumb.classList.add('active');
-                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
                     thumb.classList.remove('active');
                 }
@@ -853,7 +847,7 @@
             updateSlide();
         }
 
-        // INVIO FORM AJAX (FORMSPREE)
+        // FORM FORMSPREE
         const contactForm = document.getElementById('contact-form');
         const thankYouBlock = document.getElementById('thank-you-block');
         const errorMsg = document.getElementById('error-msg');
@@ -881,7 +875,6 @@
             }
         });
 
-        // Inizializza galleria al caricamento
         document.addEventListener("DOMContentLoaded", initGallery);
     </script>
 </body>
