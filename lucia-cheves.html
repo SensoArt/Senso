@@ -71,7 +71,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Indietro elegante */
+        /* Pulsante Indietro */
         .back-artists { 
             position: fixed; 
             top: 25px; 
@@ -116,7 +116,7 @@
             padding: 150px 25px 150px; 
         }
 
-        /* Nome dell'artista in grassetto elegante */
+        /* Nome dell'artista */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
@@ -126,7 +126,7 @@
             font-weight: bold; 
         }
 
-        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
+        /* Layout a due colonne */
         .artist-content { 
             display: grid; 
             grid-template-columns: 380px 1fr; 
@@ -139,33 +139,32 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 0px; 
         }
 
-        /* Contenitore per l'immagine attiva principale - Zero distanze */
+        /* CONTENITORE IMMAGINE CON ALTEZZA FISSA: EVITA CHE LA STRUTTURA SALTI */
         .slider-wrapper {
             position: relative;
             width: 100%;
+            height: 400px; /* Altezza fissa per bloccare la posizione */
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             background-color: transparent;
             overflow: hidden;
-            margin-bottom: 0px !important; 
-            padding-bottom: 0px !important;
-        }
-
-        .main-image-frame {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: auto; 
             margin: 0;
             padding: 0;
         }
 
-        /* Immagine attiva interattiva e cliccabile per Lightbox */
+        .main-image-frame {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
         .artist-img { 
             max-width: 100%; 
             max-height: 400px;
@@ -175,13 +174,12 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.2s ease;
-            margin: 0 auto;
-            padding: 0;
         }
 
-        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
+        /* FRECCE BLOCCATE IN POSIZIONE PERFETTA CON CSS PURO (SENZA JS) */
         .nav-arrow {
             position: absolute;
+            top: 50%; /* Sempre a metà altezza del box di 400px */
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -198,7 +196,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
+            transition: opacity 0.3s, background-color 0.3s, box-shadow 0.3s;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -207,17 +205,15 @@
             opacity: 1;
             background: #fff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            transform: translateY(-50%) scale(1.05);
         }
 
-        .prev-arrow { left: 15px; }
-        .next-arrow { right: 15px; }
+        .prev-arrow { left: 10px; }
+        .next-arrow { right: 10px; }
 
-        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa per evitare salti della griglia */
+        /* Didascalia posizionata sotto */
         .artwork-caption {
             text-align: center;
-            margin: 8px auto 25px auto; 
-            padding-top: 0px; 
+            margin: 15px auto 25px auto; 
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -225,10 +221,9 @@
             justify-content: center;
             gap: 4px;
             font-family: 'FuturaLight', sans-serif;
-            min-height: 65px; /* Blocca l'altezza impedendo qualsiasi sbalzo strutturale */
+            min-height: 65px; 
         }
 
-        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
@@ -238,7 +233,7 @@
             color: #000;
         }
 
-        .artwork-size-text {
+        .artwork-size-text, .artwork-tech-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.8rem;
             letter-spacing: 1.5px;
@@ -248,17 +243,7 @@
             font-weight: normal !important;
         }
 
-        .artwork-tech-text {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            color: #000;
-            opacity: 0.6;
-            margin: 0;
-            font-weight: normal !important;
-        }
-
-        /* Miniature in griglia geometrica pulita a 4 colonne per 4 opere */
+        /* Miniature */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -301,7 +286,7 @@
         
         .hidden { display: none; }
 
-        /* STILI LIGHTBOX PER INGRANDIMENTO OPERE */
+        /* LIGHTBOX */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -361,11 +346,9 @@
             z-index: 2010;
         }
 
-        .lightbox-close:hover {
-            opacity: 1;
-        }
+        .lightbox-close:hover { opacity: 1; }
 
-        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
+        /* SEZIONE FORM DE CONSULTA */
         .inquiry-section {
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             padding-top: 35px;
@@ -420,9 +403,7 @@
             letter-spacing: 1.5px;
         }
 
-        .form-input:focus {
-            border-bottom-color: #000;
-        }
+        .form-input:focus { border-bottom-color: #000; }
 
         textarea.form-input {
             resize: none;
@@ -444,11 +425,8 @@
             font-weight: bold;
         }
 
-        .form-submit-btn:hover {
-            opacity: 0.5;
-        }
+        .form-submit-btn:hover { opacity: 0.5; }
 
-        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -477,36 +455,29 @@
             letter-spacing: 1px;
             margin-top: 10px;
             display: none;
-            animation: fadeIn 0.4s ease forwards;
         }
 
-        /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .lightbox-close { top: 25px; right: 20px; }
-            .main-image-frame { height: auto; }
-            .artist-img { max-height: 300px; }
+            .slider-wrapper { height: 320px; }
+            .artist-img { max-height: 320px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
-    <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
-    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
-    <!-- Contenitore Lightbox -->
     <div class="lightbox-overlay" id="lightbox">
         <button class="lightbox-close" id="lightbox-close">close</button>
         <div class="lightbox-wrapper">
@@ -522,34 +493,28 @@
 
         <div class="artist-content fade-in delay-2">
             
-            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
                 
-                <!-- Spazio immagine principale con frecce -->
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Lucía Cheves Dauber — Active Artwork" class="artist-img" onload="alignArrows()">
+                        <img id="active-artwork" src="" alt="Lucía Cheves Dauber — Active Artwork" class="artist-img">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
-                <!-- Didascalie perfettamente attaccate e saldate alla foto -->
                 <div class="artwork-caption">
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
                     <div id="artwork-tech" class="artwork-tech-text"></div>
                 </div>
 
-                <!-- Griglia delle miniature -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
             </div>
 
-            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
                 
-                <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
                     Guatemalan artist who believes in art as a form of memory, not as a souvenir but as a living presence. Her work is born from the intersection of the inherited and the chosen, between what was given and what she decided to sustain. She paints to preserve and translate, ensuring that what inhabits her is not forgotten even if it is no longer in sight. Working with mixed media, oil, acrylic, collage, she explores layers that transmit ancestral knowledge through time, care, and silence. Her work does not illustrate or explain, but opens space for what still deserves to be seen. Painting from the feminine and her <span class="important">Mayan</span> roots as a living gesture, her art is a conversation between heritage and learning to let go. Key exhibitions include <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, <span class="important">Woman’s Museum Bonn</span>, and most recently <span class="important">Tiembla el suelo</span> in <span class="important">Barcelona 2026</span>.
                 </div>
@@ -557,13 +522,11 @@
                     Artista guatemalteca que entiende el arte como una forma de memoria viva. Su trabajo nace del cruce entre lo heredado y lo elegido, entre lo que le fue dado y lo que decidió sostener. Pinta para preservar y traducir, para no olvidar lo que le habita aunque ya no esté a la vista. A través de técnicas mixtas como el óleo, acrílico y collage, explora capas que transmiten el conocimiento ancestral con tiempo, cuidado y silencio. Su obra no busca ilustrar ni explicar, sino abrir espacio para lo que aún merece ser visto. Pintando desde lo femenino y sus raíces <span class="important">mayas</span> como gesto vivo, su arte es una conversación entre la herencia y el aprendizaje de soltar. Ha expuesto en espacios como <span class="important">AEDES ARBORIBUS-UCM Madrid</span>, <span class="important">Wuppertal</span>, el <span class="important">Woman’s Museum de Bonn</span> y recientemente en <span class="important">Barcelona 2026</span> con su solo show <span class="important">Tiembla el suelo</span>.
                 </div>
 
-                <!-- Sezione Richiesta d'opera (Inquire) -->
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Lucía Cheves Dauber">
-                        <!-- Campo nascosto aggiornato dinamicamente con l'opera attiva -->
                         <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
                         
                         <div class="form-row">
@@ -583,7 +546,6 @@
                         <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
                     </form>
 
-                    <!-- Stato di ringraziamento (Thanks) visualizzato dinamicamente -->
                     <div class="thank-you-container" id="thank-you-block">
                         <div class="lang-en">
                             <h3 class="thank-you-title">thank you</h3>
@@ -602,7 +564,6 @@
     </main>
 
     <script>
-        // --- IMMAGINI E METADATI DELLE OPERE SINCRO ---
         const artworks = [
             { 
                 src: "fotos_obras/obralucia_2.jpeg", 
@@ -651,19 +612,6 @@
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
 
-        // Allinea perfettamente le frecce di navigazione a metà altezza della foto attiva
-        function alignArrows() {
-            const img = document.getElementById('active-artwork');
-            const prevArrow = document.querySelector('.prev-arrow');
-            const nextArrow = document.querySelector('.next-arrow');
-            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
-                const centerOffset = img.clientHeight / 2;
-                prevArrow.style.top = `${centerOffset}px`;
-                nextArrow.style.top = `${centerOffset}px`;
-            }
-        }
-
-        // Inizializza la griglia delle miniature
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
@@ -673,25 +621,19 @@
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
-                // Fallback integrato per estensioni file asincrone
                 img.onerror = function() {
                     if (!this.dataset.retry) {
                         this.dataset.retry = "1";
-                        if (art.altSrc) {
-                            this.src = art.altSrc;
-                        }
+                        if (art.altSrc) this.src = art.altSrc;
                     }
                 };
 
-                img.addEventListener('click', () => {
-                    goToSlide(index);
-                });
+                img.addEventListener('click', () => goToSlide(index));
                 thumbnailsContainer.appendChild(img);
             });
             updateSlide();
         }
 
-        // Aggiorna lo stato visivo dell'opera attiva, i testi e i campi nascosti del form
         function updateSlide() {
             const activeArt = artworks[currentIndex];
             const isEs = document.getElementById('btn-es').classList.contains('active');
@@ -702,39 +644,27 @@
                 activeArtworkImg.alt = isEs ? (activeArt.titleEs || "Obra") : (activeArt.titleEn || "Artwork");
                 activeArtworkImg.style.opacity = '1';
                 
-                // Meccanismo auto-recovery per l'immagine principale
                 activeArtworkImg.onerror = function() {
                     if (!this.dataset.retry) {
                         this.dataset.retry = "1";
-                        if (activeArt.altSrc) {
-                            this.src = activeArt.altSrc;
-                        }
+                        if (activeArt.altSrc) this.src = activeArt.altSrc;
                     }
                 };
 
-                const titleText = isEs ? activeArt.titleEs : activeArt.titleEn;
-                const sizeText = activeArt.size;
-                const techText = isEs ? activeArt.techEs : activeArt.techEn;
-
-                artworkTitleEl.innerText = titleText || "";
-                artworkSizeEl.innerText = sizeText || "";
-                artworkTechEl.innerText = techText || "";
-                
-                setTimeout(alignArrows, 50); // Ricalcola frecce appena la foto si posiziona
+                artworkTitleEl.innerText = (isEs ? activeArt.titleEs : activeArt.titleEn) || "";
+                artworkSizeEl.innerText = activeArt.size || "";
+                artworkTechEl.innerText = (isEs ? activeArt.techEs : activeArt.techEn) || "";
             }, 180);
 
-            // Evidenzia la miniatura attiva
             const thumbs = document.querySelectorAll('.thumb-item');
             thumbs.forEach((thumb, idx) => {
                 if (idx === currentIndex) {
                     thumb.classList.add('active');
-                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
                     thumb.classList.remove('active');
                 }
             });
 
-            // Sincronizza il form di richiesta (Inquire)
             if (activeArt.titleEn) {
                 hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
             } else {
@@ -757,30 +687,19 @@
             updateSlide();
         }
 
-        // --- GESTIONE TOUCH SWIPE PER SMARTPHONE ---
-        let touchStartX = 0;
-        let touchEndX = 0;
+        // SWIPE MOBILE
+        let touchStartX = 0, touchEndX = 0;
         const swipeArea = document.getElementById('swipe-area');
 
-        swipeArea.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        swipeArea.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
+        swipeArea.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        swipeArea.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, { passive: true });
 
         function handleSwipe() {
-            if (touchStartX - touchEndX > 50) {
-                nextSlide(); 
-            }
-            if (touchEndX - touchStartX > 50) {
-                prevSlide(); 
-            }
+            if (touchStartX - touchEndX > 50) nextSlide(); 
+            if (touchEndX - touchStartX > 50) prevSlide(); 
         }
 
-        // --- FUNZIONALITÀ LIGHTBOX ---
+        // LIGHTBOX
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
@@ -795,9 +714,7 @@
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
-            setTimeout(() => {
-                lightboxImg.src = '';
-            }, 400);
+            setTimeout(() => { lightboxImg.src = ''; }, 400);
         }
 
         lightbox.addEventListener('click', (e) => {
@@ -807,12 +724,10 @@
         });
 
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                closeLightbox();
-            }
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
         });
 
-        // --- INVIO FORM AJAX (FORMSPREE) ---
+        // FORM FORMSPREE
         const contactForm = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
         const thankYouBlock = document.getElementById('thank-you-block');
@@ -833,15 +748,12 @@
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
+                    headers: { 'Accept': 'application/json' }
                 });
 
                 if (response.ok) {
                     contactForm.style.display = 'none';
                     thankYouBlock.style.display = 'block';
-                    
                     if (isEs) {
                         thankYouBlock.querySelector('.lang-en').classList.add('hidden');
                         thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
@@ -850,7 +762,7 @@
                         thankYouBlock.querySelector('.lang-en').classList.remove('hidden');
                     }
                 } else {
-                    throw new Error('Server response was not ok');
+                    throw new Error('Server error');
                 }
             } catch (error) {
                 submitBtn.disabled = false;
@@ -861,7 +773,7 @@
             }
         });
 
-        // --- GESTIONE CAMBIO LINGUA DINAMICA ---
+        // LINGUA
         function setLang(lang) {
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
@@ -900,10 +812,8 @@
             updateSlide();
         }
 
-        // Inizializzazione al caricamento della pagina
         window.addEventListener('DOMContentLoaded', () => {
             initGallery();
-            window.addEventListener('resize', alignArrows);
         });
     </script>
 </body>
