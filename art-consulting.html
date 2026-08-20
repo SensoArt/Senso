@@ -345,13 +345,16 @@
 
 
         /*
-        The two house photographs have the
-        same original dimensions.
+        IMPORTANTE:
 
-        No artificial zoom.
-        No scaling.
-        No cropping through CSS.
+        Le fotografie vengono mantenute
+        nella loro proporzione originale.
+
+        Nessun object-fit.
+        Nessun aspect-ratio forzato.
+        Nessuna altezza artificiale.
         */
+
 
         .image-frame-large {
 
@@ -375,7 +378,24 @@
         }
 
 
-        .image-frame-large.before img,
+        /*
+        SOLO la prima fotografia viene
+        leggermente ingrandita per compensare
+        la differenza di scala apparente
+        del mobile.
+
+        La seconda fotografia NON viene modificata.
+        */
+
+        .image-frame-large.before img {
+
+            transform: scale(1.16);
+
+            transform-origin: center center;
+
+        }
+
+
         .image-frame-large.after img {
 
             transform: none;
@@ -462,7 +482,7 @@
 
 
         /* =========================
-           SECOND TEXT — RIGHT
+           SECOND TEXT
         ========================= */
 
         .restaurant-content {
@@ -789,7 +809,22 @@
             }
 
 
-            .image-frame-large.before img,
+            /*
+            Stessa regola del desktop.
+
+            La prima viene compensata.
+            La seconda rimane completamente invariata.
+            */
+
+            .image-frame-large.before img {
+
+                transform: scale(1.16);
+
+                transform-origin: center center;
+
+            }
+
+
             .image-frame-large.after img {
 
                 transform: none;
