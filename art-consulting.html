@@ -2,1548 +2,1049 @@
 <html lang="en">
 <head>
 
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    arguments.length?arguments.length:0:n.queue.push(f)},f._fbq=n,n.loaded=!0,n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '2442677362880993');
-    fbq('track', 'PageView');
-    </script>
-
-    <noscript>
-        <img
-            height="1"
-            width="1"
-            style="display:none"
-            src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
-        />
-    </noscript>
-    <!-- End Meta Pixel Code -->
-
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Senso - Art Consulting</title>
-
-    <meta
-        name="description"
-        content="Senso develops contemporary art projects for private homes, hospitality spaces, restaurants, architects and interior designers."
-    >
-
-    <link
-        rel="canonical"
-        href="https://senso-art.com/art-consulting.html"
-    >
-
-    <meta property="og:site_name" content="Senso">
-
-    <meta
-        property="og:title"
-        content="Senso - Art Consulting"
-    >
-
-    <meta
-        property="og:description"
-        content="Senso develops contemporary art projects for private homes, hospitality spaces, restaurants, architects and interior designers."
-    >
-
-    <meta
-        property="og:url"
-        content="https://senso-art.com/art-consulting.html"
-    >
-
-    <meta property="og:type" content="website">
-
-
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="favicon.png?v=1000"
-    >
-
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="192x192"
-        href="favicon.png?v=1000"
-    >
-
-    <link
-        rel="apple-touch-icon"
-        href="favicon.png?v=1000"
-    >
-
-    <meta name="theme-color" content="#ffffff">
-
-
-    <style>
-
-        /* =========================
-           FONTS
-        ========================= */
-
-        @font-face {
-            font-family: 'FuturaLight';
-            src: url('Fonts/futura light bt.ttf') format('truetype');
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'BehindNineties';
-            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
-            font-display: swap;
-        }
-
-
-        /* =========================
-           FADE IN
-        ========================= */
-
-        @keyframes fadeIn {
-
-            from {
-                opacity: 0;
-                transform: translateY(18px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-
-        .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.2s ease-out forwards;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.5s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.8s;
-        }
-
-        .delay-4 {
-            animation-delay: 1.1s;
-        }
-
-
-        /* =========================
-           BODY
-        ========================= */
-
-        html {
-            height: 100%;
-        }
-
-        body {
-
-            margin: 0;
-            padding: 0;
-
-            background-color: #fff;
-            color: #000;
-
-            font-family: 'FuturaLight', sans-serif;
-
-            -webkit-font-smoothing: antialiased;
-
-            overflow-x: hidden;
-
-            min-height: 100vh;
-
-        }
-
-
-        /* =========================
-           HOME
-        ========================= */
-
-        .back-home {
-
-            position: fixed;
-
-            top: 25px;
-            left: 20px;
-
-            color: #000;
-
-            text-decoration: none;
-
-            text-transform: uppercase;
-
-            font-size: 0.65rem;
-
-            letter-spacing: 2px;
-
-            opacity: 0.7;
-
-            z-index: 1000;
-
-            transition: opacity 0.3s ease;
-
-        }
-
-        .back-home:hover {
-            opacity: 1;
-        }
-
-
-        /* =========================
-           LANGUAGE SWITCH
-        ========================= */
-
-        .lang-switch {
-
-            position: fixed;
-
-            top: 25px;
-            right: 20px;
-
-            z-index: 1000;
-
-            font-size: 0.65rem;
-
-            letter-spacing: 2px;
-
-        }
-
-        .lang-btn {
-
-            background: none;
-
-            border: none;
-
-            padding: 0 5px;
-
-            color: #000;
-
-            cursor: pointer;
-
-            opacity: 0.35;
-
-            font-family: 'FuturaLight', sans-serif;
-
-            font-size: 0.65rem;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-
-            transition: opacity 0.3s ease;
-
-        }
-
-        .lang-btn.active {
-            opacity: 1;
-        }
-
-
-        /* =========================
-           MAIN CONTAINER
-        ========================= */
-
-        .container {
-
-            width: min(1400px, calc(100% - 80px));
-
-            margin: 0 auto;
-
-            padding: 150px 0 140px;
-
-        }
-
-
-        /* =========================
-           TITLE
-        ========================= */
-
-        .section-title {
-
-            font-family: 'BehindNineties', serif;
-
-            font-size: clamp(2rem, 5vw, 3rem);
-
-            font-weight: normal;
-
-            text-transform: lowercase;
-
-            margin: 0 0 110px 0;
-
-        }
-
-
-        /* =========================
-           LANGUAGE CONTENT
-        ========================= */
-
-        .lang-content {
-            display: block;
-        }
-
-        .lang-content.hidden {
-            display: none !important;
-        }
-
-
-        /* =========================
-           PROJECT
-        ========================= */
-
-        .consulting-project {
-
-            width: 100%;
-
-            margin-bottom: 180px;
-
-        }
-
-
-        /* =========================
-           HOUSE IMAGE PAIR
-        ========================= */
-
-        .image-pair-large {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 8px;
-
-            align-items: start;
-
-        }
-
-
-        /*
-        IMPORTANTISSIMO:
-
-        Le due fotografie vengono trattate
-        ESATTAMENTE allo stesso modo.
-
-        Nessun:
-        - transform
-        - scale
-        - object-fit
-        - crop
-        - aspect-ratio
-        - altezza forzata
-        */
-
-        .image-frame-large {
-
-            width: 100%;
-
-            margin: 0;
-            padding: 0;
-
-        }
-
-
-        .image-frame-large img {
-
-            display: block;
-
-            width: 100%;
-
-            height: auto;
-
-            margin: 0;
-            padding: 0;
-
-        }
-
-
-        /* =========================
-           RESTAURANT PROJECT
-        ========================= */
-
-        .restaurant-project {
-
-            width: 88%;
-
-            margin-left: auto;
-
-            margin-right: auto;
-
-        }
-
-
-        .image-pair-medium {
-
-            width: 100%;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 8px;
-
-            align-items: start;
-
-        }
-
-
-        .image-pair-medium img {
-
-            width: 100%;
-
-            height: auto;
-
-            display: block;
-
-        }
-
-
-        /* =========================
-           FIRST TEXT
-        ========================= */
-
-        .consulting-text-left {
-
-            width: 100%;
-
-            max-width: 780px;
-
-            margin-top: 42px;
-
-            font-family: 'FuturaLight', sans-serif;
-
-            font-size: 1.2rem;
-
-            line-height: 1.85;
-
-            letter-spacing: 0.2px;
-
-        }
-
-
-        .consulting-text-left p {
-
-            margin: 0 0 28px 0;
-
-        }
-
-
-        .consulting-text-left p:last-child {
-
-            margin-bottom: 0;
-
-        }
-
-
-        /* =========================
-           SECOND TEXT
-        ========================= */
-
-        .restaurant-content {
-
-            display: flex;
-
-            justify-content: flex-end;
-
-            margin-top: 42px;
-
-        }
-
-
-        .consulting-text-right {
-
-            width: 43%;
-
-            max-width: 560px;
-
-            font-family: 'FuturaLight', sans-serif;
-
-            font-size: 1.2rem;
-
-            line-height: 1.85;
-
-            letter-spacing: 0.2px;
-
-        }
-
-
-        .consulting-text-right p {
-
-            margin: 0 0 28px 0;
-
-        }
-
-
-        .consulting-text-right p:last-child {
-
-            margin-bottom: 0;
-
-        }
-
-
-        /* =========================
-           CTA
-        ========================= */
-
-        .cta {
-
-            text-align: center;
-
-            margin-top: 20px;
-
-        }
-
-
-        .cta button {
-
-            background: none;
-
-            border: none;
-
-            padding: 0;
-
-            color: #000;
-
-            cursor: pointer;
-
-            text-transform: uppercase;
-
-            font-family: 'FuturaLight', sans-serif;
-
-            font-size: 0.8rem;
-
-            letter-spacing: 2px;
-
-            opacity: 0.7;
-
-            transition: opacity 0.3s ease;
-
-        }
-
-
-        .cta button:hover {
-            opacity: 1;
-        }
-
-
-        /* =========================
-           FORM
-        ========================= */
-
-        .form-wrapper {
-
-            max-height: 0;
-
-            overflow: hidden;
-
-            opacity: 0;
-
-            transition:
-                max-height 0.8s ease,
-                opacity 0.5s ease,
-                margin-top 0.8s ease;
-
-            margin-top: 0;
-
-        }
-
-
-        .form-wrapper.open {
-
-            max-height: 900px;
-
-            opacity: 1;
-
-            margin-top: 70px;
-
-        }
-
-
-        .contact-form {
-
-            width: min(620px, 100%);
-
-            margin: 0 auto;
-
-            text-align: left;
-
-        }
-
-
-        .form-row {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 35px;
-
-        }
-
-
-        .form-field {
-
-            margin-bottom: 35px;
-
-        }
-
-
-        .form-field label {
-
-            display: block;
-
-            font-family: 'FuturaLight', sans-serif;
-
-            font-size: 0.65rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
-
-            margin-bottom: 10px;
-
-            opacity: 0.65;
-
-        }
-
-
-        .form-field input,
-        .form-field textarea {
-
-            width: 100%;
-
-            box-sizing: border-box;
-
-            border: none;
-
-            border-bottom:
-                1px solid rgba(0,0,0,0.35);
-
-            border-radius: 0;
-
-            background: transparent;
-
-            padding:
-                8px 0 12px;
-
-            font-family:
-                'FuturaLight',
-                sans-serif;
-
-            font-size: 1rem;
-
-            color: #000;
-
-            outline: none;
-
-        }
-
-
-        .form-field input:focus,
-        .form-field textarea:focus {
-
-            border-bottom-color: #000;
-
-        }
-
-
-        .form-field textarea {
-
-            min-height: 100px;
-
-            resize: vertical;
-
-        }
-
-
-        .form-submit {
-
-            text-align: left;
-
-            margin-top: 15px;
-
-        }
-
-
-        .form-submit button {
-
-            background: none;
-
-            border: none;
-
-            padding: 0;
-
-            cursor: pointer;
-
-            font-family:
-                'FuturaLight',
-                sans-serif;
-
-            font-size: 0.8rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 2px;
-
-            color: #000;
-
-            opacity: 0.7;
-
-            transition: opacity 0.3s ease;
-
-        }
-
-
-        .form-submit button:hover {
-            opacity: 1;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .container {
-
-                width: calc(100% - 40px);
-
-                padding-top: 120px;
-
-                padding-bottom: 100px;
-
-            }
-
-
-            .section-title {
-
-                font-size: 2.2rem;
-
-                margin-bottom: 65px;
-
-            }
-
-
-            .consulting-project {
-
-                margin-bottom: 110px;
-
-            }
-
-
-            /* =========================
-               HOUSE — ONE ABOVE THE OTHER
-            ========================= */
-
-            .image-pair-large {
-
-                display: flex;
-
-                flex-direction: column;
-
-                width: 100%;
-
-                gap: 8px;
-
-            }
-
-
-            .image-frame-large {
-
-                width: 100%;
-
-                margin: 0;
-                padding: 0;
-
-            }
-
-
-            /*
-            STESSA IDENTICA REGOLA
-            DEL DESKTOP.
-
-            Nessuno zoom.
-            Nessun crop.
-            Nessuna modifica.
-            */
-
-            .image-frame-large img {
-
-                width: 100%;
-
-                height: auto;
-
-                display: block;
-
-                margin: 0;
-                padding: 0;
-
-            }
-
-
-            /* =========================
-               RESTAURANT — STACKED
-            ========================= */
-
-            .image-pair-medium {
-
-                display: flex;
-
-                flex-direction: column;
-
-                width: 100%;
-
-                gap: 8px;
-
-            }
-
-
-            .image-pair-medium img {
-
-                width: 100%;
-
-                height: auto;
-
-                display: block;
-
-            }
-
-
-            .restaurant-project {
-
-                width: 100%;
-
-            }
-
-
-            /* =========================
-               TEXT
-            ========================= */
-
-            .consulting-text-left,
-            .consulting-text-right {
-
-                width: 100%;
-
-                max-width: 100%;
-
-                font-size: 1.05rem;
-
-                line-height: 1.75;
-
-            }
-
-
-            .consulting-text-left {
-
-                margin-top: 30px;
-
-            }
-
-
-            .restaurant-content {
-
-                display: block;
-
-                margin-top: 30px;
-
-            }
-
-
-            /* =========================
-               FORM
-            ========================= */
-
-            .form-row {
-
-                grid-template-columns: 1fr;
-
-                gap: 0;
-
-            }
-
-
-            .form-wrapper.open {
-
-                max-height: 1100px;
-
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Senso - Art Consulting</title>
+
+<meta name="description" content="Senso develops contemporary art projects for private homes, hospitality spaces, restaurants, architects and interior designers.">
+
+<link rel="canonical" href="https://senso-art.com/art-consulting.html">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+<link rel="apple-touch-icon" href="favicon.png?v=1000">
+
+<meta name="theme-color" content="#ffffff">
+
+<meta property="og:site_name" content="Senso">
+<meta property="og:title" content="Senso - Art Consulting">
+<meta property="og:description" content="Senso develops contemporary art projects for private homes, hospitality spaces, restaurants, architects and interior designers.">
+<meta property="og:url" content="https://senso-art.com/art-consulting.html">
+<meta property="og:type" content="website">
+
+
+<!-- Meta Pixel -->
+
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','2442677362880993');
+fbq('track','PageView');
+</script>
+
+<noscript>
+<img
+height="1"
+width="1"
+style="display:none"
+src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
+>
+</noscript>
+
+
+<style>
+
+@font-face {
+    font-family: 'FuturaLight';
+    src: url('Fonts/futura light bt.ttf') format('truetype');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'BehindNineties';
+    src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #fff;
+    color: #000;
+    font-family: 'FuturaLight', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+    font-family: 'FuturaLight', sans-serif;
+}
+
+.back-home {
+    position: fixed;
+    top: 25px;
+    left: 20px;
+    z-index: 1000;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.back-home:hover {
+    opacity: 1;
+}
+
+.lang-switch {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.lang-btn {
+    padding: 0 5px;
+    border: 0;
+    background: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    opacity: 0.35;
+}
+
+.lang-btn.active {
+    opacity: 1;
+}
+
+.container {
+    width: min(1400px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 150px 0 140px;
+}
+
+.section-title {
+    margin: 0 0 110px;
+    font-family: 'BehindNineties', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: normal;
+    text-transform: lowercase;
+}
+
+.lang-content.hidden {
+    display: none;
+}
+
+.consulting-project {
+    width: 100%;
+    margin-bottom: 180px;
+}
+
+.image-pair-large {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    align-items: start;
+}
+
+.image-frame-large {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.image-frame-large img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.consulting-text-left {
+    width: 100%;
+    max-width: 780px;
+    margin-top: 42px;
+    font-size: 1.2rem;
+    line-height: 1.85;
+    letter-spacing: 0.2px;
+}
+
+.consulting-text-left p {
+    margin: 0 0 28px;
+}
+
+.consulting-text-left p:last-child {
+    margin-bottom: 0;
+}
+
+.restaurant-project {
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-pair-medium {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+    width: 100%;
+    align-items: start;
+}
+
+.image-pair-medium img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.restaurant-content {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 42px;
+}
+
+.consulting-text-right {
+    width: 43%;
+    max-width: 560px;
+    font-size: 1.2rem;
+    line-height: 1.85;
+    letter-spacing: 0.2px;
+}
+
+.consulting-text-right p {
+    margin: 0 0 28px;
+}
+
+.consulting-text-right p:last-child {
+    margin-bottom: 0;
+}
+
+.cta {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.cta button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #000;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.cta button:hover {
+    opacity: 1;
+}
+
+.form-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 0;
+    transition:
+        max-height 0.8s ease,
+        opacity 0.5s ease,
+        margin-top 0.8s ease;
+}
+
+.form-wrapper.open {
+    max-height: 900px;
+    margin-top: 70px;
+    opacity: 1;
+}
+
+.contact-form {
+    width: min(620px, 100%);
+    margin: 0 auto;
+    text-align: left;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.form-field {
+    margin-bottom: 35px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.65;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 8px 0 12px;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.35);
+    border-radius: 0;
+    outline: none;
+    background: transparent;
+    color: #000;
+    font-size: 1rem;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-bottom-color: #000;
+}
+
+.form-field textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-submit {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.form-submit button {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+
+.form-submit button:hover {
+    opacity: 1;
+}
+
+.form-submit button:disabled {
+    cursor: default;
+    opacity: 0.35;
+}
+
+
+/* SUCCESS POPUP */
+
+.success-popup {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(255,255,255,0.88);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+.success-popup.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.success-popup-content {
+    width: min(520px, 100%);
+    text-align: center;
+    transform: translateY(15px);
+    transition: transform 0.4s ease;
+}
+
+.success-popup.show .success-popup-content {
+    transform: translateY(0);
+}
+
+.success-popup-message {
+    margin: 0 0 35px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+}
+
+.success-popup-close {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.65;
+}
+
+.success-popup-close:hover {
+    opacity: 1;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: calc(100% - 40px);
+        padding-top: 120px;
+        padding-bottom: 100px;
+    }
+
+    .section-title {
+        margin-bottom: 65px;
+        font-size: 2.2rem;
+    }
+
+    .consulting-project {
+        margin-bottom: 110px;
+    }
+
+    .image-pair-large,
+    .image-pair-medium {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
+    .image-frame-large,
+    .image-pair-medium img {
+        width: 100%;
+    }
+
+    .image-frame-large img {
+        width: 100%;
+        height: auto;
+    }
+
+    .restaurant-project {
+        width: 100%;
+    }
+
+    .consulting-text-left,
+    .consulting-text-right {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1.05rem;
+        line-height: 1.75;
+    }
+
+    .consulting-text-left {
+        margin-top: 30px;
+    }
+
+    .restaurant-content {
+        display: block;
+        margin-top: 30px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .form-wrapper.open {
+        max-height: 1100px;
+    }
+
+    .success-popup-message {
+        font-size: 1rem;
+    }
+}
+
+</style>
 
 </head>
 
 
 <body>
 
+<a href="index.html" class="back-home">← Home</a>
 
-    <!-- HOME -->
-
-    <a
-        href="index.html"
-        class="back-home"
-    >
-        ← Home
-    </a>
+<div class="lang-switch">
+    <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+    |
+    <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
+</div>
 
 
-    <!-- LANGUAGE SWITCH -->
+<main class="container">
 
-    <div class="lang-switch">
 
-        <button
-            onclick="setLang('en')"
-            id="btn-en"
-            class="lang-btn active"
-        >
-            EN
+<!-- ENGLISH -->
+
+<div id="lang-en" class="lang-content">
+
+    <h1 class="section-title">art consulting</h1>
+
+
+    <section class="consulting-project">
+
+        <div class="image-pair-large">
+
+            <div class="image-frame-large">
+                <img
+                    src="consulting_photos/interior1.png"
+                    alt="Private home interior"
+                >
+            </div>
+
+            <div class="image-frame-large">
+                <img
+                    src="consulting_photos/interior2.png"
+                    alt="Private home interior with artwork"
+                >
+            </div>
+
+        </div>
+
+        <div class="consulting-text-left">
+
+            <p>
+                From private homes to hospitality spaces, Senso develops art projects that respond to the identity, architecture and atmosphere of a place.
+            </p>
+
+            <p>
+                We approach each space through its particular character, working with artists and artworks to create a meaningful relationship between art and its surroundings.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="consulting-project restaurant-project">
+
+        <div class="image-pair-medium">
+
+            <img
+                src="consulting_photos/restaurante1.png"
+                alt="Restaurant interior"
+            >
+
+            <img
+                src="consulting_photos/restaurante2.png"
+                alt="Restaurant interior with artwork"
+            >
+
+        </div>
+
+        <div class="restaurant-content">
+
+            <div class="consulting-text-right">
+
+                <p>
+                    Senso collaborates with private collectors, hospitality spaces, restaurants, architects and interior designers to source, select and develop contemporary art projects.
+                </p>
+
+                <p>
+                    From the discovery of an artist to the selection and acquisition of a work, we bring together the right artistic language and the right context.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="cta">
+
+        <button type="button" onclick="toggleForm('en')">
+            Develop a project with us →
         </button>
 
-        |
+        <div id="form-en" class="form-wrapper">
+
+            <form
+                class="contact-form"
+                action="https://formspree.io/f/mgorwree"
+                method="POST"
+            >
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="en-first-name">First name</label>
+                        <input
+                            type="text"
+                            id="en-first-name"
+                            name="first_name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="en-last-name">Last name</label>
+                        <input
+                            type="text"
+                            id="en-last-name"
+                            name="last_name"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="en-email">Email</label>
+                        <input
+                            type="email"
+                            id="en-email"
+                            name="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="en-phone">Phone</label>
+                        <input
+                            type="tel"
+                            id="en-phone"
+                            name="phone"
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="en-comments">Comments</label>
+                    <textarea
+                        id="en-comments"
+                        name="comments"
+                        required
+                    ></textarea>
+                </div>
+
+                <input
+                    type="hidden"
+                    name="language"
+                    value="English"
+                >
+
+                <div class="form-submit">
+                    <button type="submit">Send →</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SPANISH -->
+
+<div id="lang-es" class="lang-content hidden">
+
+    <h1 class="section-title">art consulting</h1>
+
+
+    <section class="consulting-project">
+
+        <div class="image-pair-large">
+
+            <div class="image-frame-large">
+                <img
+                    src="consulting_photos/interior1.png"
+                    alt="Interior de una vivienda privada"
+                >
+            </div>
+
+            <div class="image-frame-large">
+                <img
+                    src="consulting_photos/interior2.png"
+                    alt="Interior de una vivienda privada con obra de arte"
+                >
+            </div>
+
+        </div>
+
+        <div class="consulting-text-left">
+
+            <p>
+                Desde hogares privados hasta espacios de hospitality, Senso desarrolla proyectos de arte que responden a la identidad, arquitectura y atmósfera de cada lugar.
+            </p>
+
+            <p>
+                Abordamos cada espacio desde su carácter particular, trabajando con artistas y obras para crear una relación significativa entre el arte y su entorno.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <section class="consulting-project restaurant-project">
+
+        <div class="image-pair-medium">
+
+            <img
+                src="consulting_photos/restaurante1.png"
+                alt="Interior de un restaurante"
+            >
+
+            <img
+                src="consulting_photos/restaurante2.png"
+                alt="Interior de un restaurante con obra de arte"
+            >
+
+        </div>
+
+        <div class="restaurant-content">
+
+            <div class="consulting-text-right">
+
+                <p>
+                    Senso colabora con coleccionistas privados, espacios de hospitality, restaurantes, arquitectos e interioristas para seleccionar, adquirir y desarrollar proyectos de arte contemporáneo.
+                </p>
+
+                <p>
+                    Desde el descubrimiento de un artista hasta la selección y adquisición de una obra, conectamos el lenguaje artístico adecuado con el contexto adecuado.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div class="cta">
+
+        <button type="button" onclick="toggleForm('es')">
+            Desarrolla un proyecto con nosotros →
+        </button>
+
+        <div id="form-es" class="form-wrapper">
+
+            <form
+                class="contact-form"
+                action="https://formspree.io/f/mgorwree"
+                method="POST"
+            >
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="es-first-name">Nombre</label>
+                        <input
+                            type="text"
+                            id="es-first-name"
+                            name="first_name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="es-last-name">Apellidos</label>
+                        <input
+                            type="text"
+                            id="es-last-name"
+                            name="last_name"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-field">
+                        <label for="es-email">Email</label>
+                        <input
+                            type="email"
+                            id="es-email"
+                            name="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-field">
+                        <label for="es-phone">Teléfono</label>
+                        <input
+                            type="tel"
+                            id="es-phone"
+                            name="phone"
+                        >
+                    </div>
+
+                </div>
+
+                <div class="form-field">
+                    <label for="es-comments">Comentarios</label>
+                    <textarea
+                        id="es-comments"
+                        name="comments"
+                        required
+                    ></textarea>
+                </div>
+
+                <input
+                    type="hidden"
+                    name="language"
+                    value="Spanish"
+                >
+
+                <div class="form-submit">
+                    <button type="submit">Enviar →</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+
+
+<!-- SUCCESS POPUP -->
+
+<div id="success-popup" class="success-popup">
+
+    <div class="success-popup-content">
+
+        <p id="success-message-en" class="success-popup-message">
+            Your request has been sent successfully.<br>
+            One of our team members will be in touch with you shortly.<br>
+            Thank you.
+        </p>
+
+        <p
+            id="success-message-es"
+            class="success-popup-message"
+            style="display:none;"
+        >
+            Tu solicitud se ha enviado correctamente.<br>
+            Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamente.<br>
+            Gracias.
+        </p>
 
         <button
-            onclick="setLang('es')"
-            id="btn-es"
-            class="lang-btn"
+            type="button"
+            class="success-popup-close"
+            onclick="closeSuccessPopup()"
         >
-            ES
+            Close →
         </button>
 
     </div>
 
+</div>
 
-    <main class="container">
 
+<script>
 
-        <!-- =====================================================
-             ENGLISH
-        ====================================================== -->
+function setLang(lang) {
 
-        <div
-            id="lang-en"
-            class="lang-content"
-        >
+    const en = document.getElementById('lang-en');
+    const es = document.getElementById('lang-es');
+    const btnEn = document.getElementById('btn-en');
+    const btnEs = document.getElementById('btn-es');
 
+    if (lang === 'es') {
+        en.classList.add('hidden');
+        es.classList.remove('hidden');
+        btnEn.classList.remove('active');
+        btnEs.classList.add('active');
+        document.documentElement.lang = 'es';
+    } else {
+        es.classList.add('hidden');
+        en.classList.remove('hidden');
+        btnEs.classList.remove('active');
+        btnEn.classList.add('active');
+        document.documentElement.lang = 'en';
+    }
 
-            <header class="fade-in delay-1">
+    localStorage.setItem('senso_lang', lang);
+}
 
-                <h1 class="section-title">
-                    art consulting
-                </h1>
 
-            </header>
+function toggleForm(lang) {
 
+    const form = document.getElementById('form-' + lang);
 
-            <!-- PRIVATE HOME -->
+    form.classList.toggle('open');
 
-            <section
-                class="consulting-project fade-in delay-2"
-            >
+    if (form.classList.contains('open')) {
 
-                <div class="image-pair-large">
+        setTimeout(() => {
 
+            form.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
 
-                    <!-- INTERIOR 1 -->
+        }, 150);
 
-                    <div class="image-frame-large">
+    }
+}
 
-                        <img
-                            src="consulting_photos/interior1.png"
-                            alt="Private home interior before artwork"
-                        >
 
-                    </div>
+function showSuccessPopup(lang) {
 
+    const popup = document.getElementById('success-popup');
+    const messageEn = document.getElementById('success-message-en');
+    const messageEs = document.getElementById('success-message-es');
 
-                    <!-- INTERIOR 2 -->
+    if (lang === 'es') {
+        messageEn.style.display = 'none';
+        messageEs.style.display = 'block';
+    } else {
+        messageEs.style.display = 'none';
+        messageEn.style.display = 'block';
+    }
 
-                    <div class="image-frame-large">
+    popup.classList.add('show');
+}
 
-                        <img
-                            src="consulting_photos/interior2.png"
-                            alt="Private home interior with artwork"
-                        >
 
-                    </div>
+function closeSuccessPopup() {
 
+    document
+        .getElementById('success-popup')
+        .classList.remove('show');
+}
 
-                </div>
 
+document.addEventListener('DOMContentLoaded', () => {
 
-                <div class="consulting-text-left">
+    const savedLang =
+        localStorage.getItem('senso_lang') || 'en';
 
-                    <p>
-                        From private homes to hospitality spaces, Senso develops art projects that respond to the identity, architecture and atmosphere of a place.
-                    </p>
+    setLang(savedLang);
 
-                    <p>
-                        We approach each space through its particular character, working with artists and artworks to create a meaningful relationship between art and its surroundings.
-                    </p>
 
-                </div>
+    document
+        .querySelectorAll('.contact-form')
+        .forEach(form => {
 
+            form.addEventListener('submit', async event => {
 
-            </section>
+                event.preventDefault();
 
+                const button =
+                    form.querySelector('button[type="submit"]');
 
-            <!-- RESTAURANT -->
+                const originalText =
+                    button.textContent;
 
-            <section
-                class="consulting-project restaurant-project fade-in delay-3"
-            >
+                button.disabled = true;
+                button.textContent =
+                    form.querySelector('input[name="language"]').value === 'Spanish'
+                        ? 'Enviando...'
+                        : 'Sending...';
 
-                <div class="image-pair-medium">
+                try {
 
-                    <img
-                        src="consulting_photos/restaurante1.png"
-                        alt="Restaurant interior"
-                    >
+                    const response = await fetch(
+                        form.action,
+                        {
+                            method: 'POST',
+                            body: new FormData(form),
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        }
+                    );
 
-                    <img
-                        src="consulting_photos/restaurante2.png"
-                        alt="Restaurant interior with artwork"
-                    >
+                    if (!response.ok) {
+                        throw new Error('Form submission failed');
+                    }
 
-                </div>
+                    const language =
+                        form.querySelector(
+                            'input[name="language"]'
+                        ).value === 'Spanish'
+                            ? 'es'
+                            : 'en';
 
+                    form.reset();
 
-                <div class="restaurant-content">
+                    const wrapper =
+                        form.closest('.form-wrapper');
 
-                    <div class="consulting-text-right">
+                    if (wrapper) {
+                        wrapper.classList.remove('open');
+                    }
 
-                        <p>
-                            Senso collaborates with private collectors, hospitality spaces, restaurants, architects and interior designers to source, select and develop contemporary art projects.
-                        </p>
+                    showSuccessPopup(language);
 
-                        <p>
-                            From the discovery of an artist to the selection and acquisition of a work, we bring together the right artistic language and the right context.
-                        </p>
+                } catch (error) {
 
-                    </div>
+                    alert(
+                        language === 'es'
+                            ? 'Ha ocurrido un problema. Por favor, inténtalo de nuevo.'
+                            : 'There was a problem sending your request. Please try again.'
+                    );
 
-                </div>
+                } finally {
 
+                    button.disabled = false;
+                    button.textContent = originalText;
 
-            </section>
+                }
 
+            });
 
-            <!-- CTA -->
+        });
 
-            <div class="cta fade-in delay-4">
+});
 
-                <button
-                    type="button"
-                    onclick="toggleForm('en')"
-                >
-                    Develop a project with us →
-                </button>
 
+document.addEventListener('keydown', event => {
 
-                <div
-                    id="form-en"
-                    class="form-wrapper"
-                >
+    if (event.key === 'Escape') {
+        closeSuccessPopup();
+    }
 
-                    <form
-                        class="contact-form"
-                        action="https://formspree.io/f/mgorwree"
-                        method="POST"
-                    >
+});
 
-                        <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label for="en-first-name">
-                                    First name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="en-first-name"
-                                    name="first_name"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label for="en-last-name">
-                                    Last name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="en-last-name"
-                                    name="last_name"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label for="en-email">
-                                    Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="en-email"
-                                    name="email"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label for="en-phone">
-                                    Phone
-                                </label>
-
-                                <input
-                                    type="tel"
-                                    id="en-phone"
-                                    name="phone"
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-field">
-
-                            <label for="en-comments">
-                                Comments
-                            </label>
-
-                            <textarea
-                                id="en-comments"
-                                name="comments"
-                                required
-                            ></textarea>
-
-                        </div>
-
-
-                        <input
-                            type="hidden"
-                            name="language"
-                            value="English"
-                        >
-
-
-                        <div class="form-submit">
-
-                            <button type="submit">
-                                Send →
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-        <!-- =====================================================
-             SPANISH
-        ====================================================== -->
-
-        <div
-            id="lang-es"
-            class="lang-content hidden"
-        >
-
-
-            <header>
-
-                <h1 class="section-title">
-                    art consulting
-                </h1>
-
-            </header>
-
-
-            <!-- PRIVATE HOME -->
-
-            <section class="consulting-project">
-
-                <div class="image-pair-large">
-
-
-                    <div class="image-frame-large">
-
-                        <img
-                            src="consulting_photos/interior1.png"
-                            alt="Interior de una vivienda privada"
-                        >
-
-                    </div>
-
-
-                    <div class="image-frame-large">
-
-                        <img
-                            src="consulting_photos/interior2.png"
-                            alt="Interior de una vivienda privada con obra de arte"
-                        >
-
-                    </div>
-
-
-                </div>
-
-
-                <div class="consulting-text-left">
-
-                    <p>
-                        Desde hogares privados hasta espacios de hospitality, Senso desarrolla proyectos de arte que responden a la identidad, arquitectura y atmósfera de cada lugar.
-                    </p>
-
-                    <p>
-                        Abordamos cada espacio desde su carácter particular, trabajando con artistas y obras para crear una relación significativa entre el arte y su entorno.
-                    </p>
-
-                </div>
-
-
-            </section>
-
-
-            <!-- RESTAURANT -->
-
-            <section
-                class="consulting-project restaurant-project"
-            >
-
-                <div class="image-pair-medium">
-
-                    <img
-                        src="consulting_photos/restaurante1.png"
-                        alt="Interior de un restaurante"
-                    >
-
-                    <img
-                        src="consulting_photos/restaurante2.png"
-                        alt="Interior de un restaurante con obra de arte"
-                    >
-
-                </div>
-
-
-                <div class="restaurant-content">
-
-                    <div class="consulting-text-right">
-
-                        <p>
-                            Senso colabora con coleccionistas privados, espacios de hospitality, restaurantes, arquitectos e interioristas para seleccionar, adquirir y desarrollar proyectos de arte contemporáneo.
-                        </p>
-
-                        <p>
-                            Desde el descubrimiento de un artista hasta la selección y adquisición de una obra, conectamos el lenguaje artístico adecuado con el contexto adecuado.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-            </section>
-
-
-            <!-- CTA -->
-
-            <div class="cta">
-
-                <button
-                    type="button"
-                    onclick="toggleForm('es')"
-                >
-                    Desarrolla un proyecto con nosotros →
-                </button>
-
-
-                <div
-                    id="form-es"
-                    class="form-wrapper"
-                >
-
-                    <form
-                        class="contact-form"
-                        action="https://formspree.io/f/mgorwree"
-                        method="POST"
-                    >
-
-                        <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label for="es-first-name">
-                                    Nombre
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="es-first-name"
-                                    name="first_name"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label for="es-last-name">
-                                    Apellidos
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="es-last-name"
-                                    name="last_name"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-row">
-
-                            <div class="form-field">
-
-                                <label for="es-email">
-                                    Email
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="es-email"
-                                    name="email"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="form-field">
-
-                                <label for="es-phone">
-                                    Teléfono
-                                </label>
-
-                                <input
-                                    type="tel"
-                                    id="es-phone"
-                                    name="phone"
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-field">
-
-                            <label for="es-comments">
-                                Comentarios
-                            </label>
-
-                            <textarea
-                                id="es-comments"
-                                name="comments"
-                                required
-                            ></textarea>
-
-                        </div>
-
-
-                        <input
-                            type="hidden"
-                            name="language"
-                            value="Spanish"
-                        >
-
-
-                        <div class="form-submit">
-
-                            <button type="submit">
-                                Enviar →
-                            </button>
-
-                        </div>
-
-                    </form>
-
-                </div>
-
-            </div>
-
-
-        </div>
-
-
-    </main>
-
-
-    <script>
-
-        /* =========================
-           LANGUAGE SWITCH
-        ========================= */
-
-        function setLang(lang) {
-
-            const enBox =
-                document.getElementById('lang-en');
-
-            const esBox =
-                document.getElementById('lang-es');
-
-            const btnEn =
-                document.getElementById('btn-en');
-
-            const btnEs =
-                document.getElementById('btn-es');
-
-
-            if (lang === 'es') {
-
-                enBox.classList.add('hidden');
-
-                esBox.classList.remove('hidden');
-
-                btnEn.classList.remove('active');
-
-                btnEs.classList.add('active');
-
-                document.documentElement.lang = 'es';
-
-            } else {
-
-                esBox.classList.add('hidden');
-
-                enBox.classList.remove('hidden');
-
-                btnEs.classList.remove('active');
-
-                btnEn.classList.add('active');
-
-                document.documentElement.lang = 'en';
-
-            }
-
-
-            localStorage.setItem(
-                'senso_lang',
-                lang
-            );
-
-        }
-
-
-        /* =========================
-           FORM TOGGLE
-        ========================= */
-
-        function toggleForm(lang) {
-
-            const form =
-                document.getElementById(
-                    'form-' + lang
-                );
-
-
-            if (
-                form.classList.contains('open')
-            ) {
-
-                form.classList.remove('open');
-
-            } else {
-
-                form.classList.add('open');
-
-                setTimeout(
-                    function() {
-
-                        form.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'nearest'
-                        });
-
-                    },
-                    150
-                );
-
-            }
-
-        }
-
-
-        /* =========================
-           INITIAL LANGUAGE
-        ========================= */
-
-        document.addEventListener(
-            'DOMContentLoaded',
-            function() {
-
-                const savedLang =
-                    localStorage.getItem(
-                        'senso_lang'
-                    ) || 'en';
-
-                setLang(savedLang);
-
-            }
-        );
-
-    </script>
-
+</script>
 
 </body>
 </html>
