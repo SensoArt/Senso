@@ -7,7 +7,7 @@
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     arguments.length?arguments.length:0
-    :n.queue.push(f)},f._fbq=n,n.push=n,n.loaded=!0,n.version='2.0';
+    :n.queue.push(f)},f._fbq=n,n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -31,7 +31,7 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        content="width=device-width, initial-scale=1.0"
     >
 
     <title>Senso - Art Consulting</title>
@@ -115,7 +115,7 @@
 
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(18px);
             }
 
             to {
@@ -128,7 +128,7 @@
 
         .fade-in {
             opacity: 0;
-            animation: fadeIn 1.3s ease-out forwards;
+            animation: fadeIn 1.2s ease-out forwards;
         }
 
 
@@ -147,12 +147,17 @@
         }
 
 
+        .delay-4 {
+            animation-delay: 1.1s;
+        }
+
+
         /* =========================
            BODY
         ========================= */
 
         html {
-            height: -webkit-fill-available;
+            height: 100%;
         }
 
 
@@ -171,7 +176,6 @@
             overflow-x: hidden;
 
             min-height: 100vh;
-            min-height: -webkit-fill-available;
 
         }
 
@@ -187,9 +191,9 @@
             top: 25px;
             left: 20px;
 
-            text-decoration: none;
-
             color: #000;
+
+            text-decoration: none;
 
             text-transform: uppercase;
 
@@ -222,11 +226,11 @@
             top: 25px;
             right: 20px;
 
+            z-index: 1000;
+
             font-size: 0.65rem;
 
             letter-spacing: 2px;
-
-            z-index: 1000;
 
         }
 
@@ -237,21 +241,21 @@
 
             border: none;
 
+            padding: 0 5px;
+
             color: #000;
 
             cursor: pointer;
 
-            padding: 0 5px;
-
             opacity: 0.35;
-
-            text-transform: uppercase;
 
             font-family: 'FuturaLight', sans-serif;
 
             font-size: 0.65rem;
 
             letter-spacing: 2px;
+
+            text-transform: uppercase;
 
             transition: opacity 0.3s ease;
 
@@ -269,11 +273,11 @@
 
         .container {
 
-            max-width: 1250px;
+            width: min(1400px, calc(100% - 80px));
 
             margin: 0 auto;
 
-            padding: 150px 35px 150px;
+            padding: 150px 0 140px;
 
         }
 
@@ -288,13 +292,11 @@
 
             font-size: clamp(2rem, 5vw, 3rem);
 
-            margin: 0 0 100px 0;
+            font-weight: normal;
 
             text-transform: lowercase;
 
-            font-weight: normal;
-
-            color: #000;
+            margin: 0 0 110px 0;
 
         }
 
@@ -314,38 +316,61 @@
 
 
         /* =========================
-           PROJECT ROWS
+           PROJECT
         ========================= */
 
-        .consulting-row {
+        .consulting-project {
 
-            display: grid;
+            width: 100%;
 
-            grid-template-columns: 0.7fr 1.7fr;
-
-            column-gap: 80px;
-
-            align-items: center;
-
-            margin-bottom: 170px;
-
-        }
-
-
-        .consulting-row.reverse {
-
-            grid-template-columns: 1.7fr 0.7fr;
+            margin-bottom: 180px;
 
         }
 
 
         /* =========================
-           TEXT
+           IMAGE PAIR
+        ========================= */
+
+        .image-pair {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 8px;
+
+            align-items: start;
+
+        }
+
+
+        .image-pair img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
+
+            object-fit: contain;
+
+        }
+
+
+        /* =========================
+           TEXT BELOW IMAGES
         ========================= */
 
         .consulting-text {
 
-            max-width: 390px;
+            width: 100%;
+
+            max-width: 760px;
+
+            margin-top: 42px;
 
             font-family: 'FuturaLight', sans-serif;
 
@@ -360,7 +385,7 @@
 
         .consulting-text p {
 
-            margin: 0 0 30px 0;
+            margin: 0 0 28px 0;
 
         }
 
@@ -373,56 +398,14 @@
 
 
         /* =========================
-           IMAGE PAIR
-        ========================= */
-
-        .image-pair {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 5px;
-
-            width: 100%;
-
-        }
-
-
-        .image-pair img {
-
-            width: 100%;
-
-            height: auto;
-
-            display: block;
-
-            aspect-ratio: 4 / 3;
-
-            object-fit: cover;
-
-            transition:
-                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-
-        }
-
-
-        .image-pair img:hover {
-
-            transform: scale(1.012);
-
-        }
-
-
-        /* =========================
            CTA
         ========================= */
 
         .cta {
 
-            margin-top: 20px;
-
             text-align: center;
+
+            margin-top: -10px;
 
         }
 
@@ -433,11 +416,11 @@
 
             text-decoration: none;
 
+            text-transform: uppercase;
+
             font-family: 'FuturaLight', sans-serif;
 
             font-size: 0.8rem;
-
-            text-transform: uppercase;
 
             letter-spacing: 2px;
 
@@ -449,9 +432,7 @@
 
 
         .cta a:hover {
-
             opacity: 1;
-
         }
 
 
@@ -459,11 +440,15 @@
            MOBILE
         ========================= */
 
-        @media (max-width: 800px) {
+        @media (max-width: 700px) {
 
             .container {
 
-                padding: 120px 20px 100px;
+                width: calc(100% - 40px);
+
+                padding-top: 120px;
+
+                padding-bottom: 100px;
 
             }
 
@@ -472,30 +457,30 @@
 
                 font-size: 2.2rem;
 
-                margin-bottom: 60px;
+                margin-bottom: 65px;
 
             }
 
 
-            .consulting-row,
-            .consulting-row.reverse {
-
-                display: flex;
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-                gap: 45px;
+            .consulting-project {
 
                 margin-bottom: 110px;
 
             }
 
 
+            .image-pair {
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 4px;
+
+            }
+
+
             .consulting-text {
 
-                max-width: 100%;
+                margin-top: 30px;
 
                 font-size: 1.05rem;
 
@@ -504,36 +489,9 @@
             }
 
 
-            .image-pair {
-
-                width: 100%;
-
-                gap: 3px;
-
-            }
-
-
-            .image-pair img {
-
-                aspect-ratio: 4 / 3;
-
-            }
-
-
             .cta {
 
-                margin-top: 10px;
-
-            }
-
-        }
-
-
-        @media (max-width: 500px) {
-
-            .image-pair {
-
-                grid-template-columns: 1fr 1fr;
+                margin-top: 0;
 
             }
 
@@ -549,7 +507,10 @@
 
     <!-- HOME -->
 
-    <a href="index.html" class="back-home">
+    <a
+        href="index.html"
+        class="back-home"
+    >
         ← Home
     </a>
 
@@ -582,9 +543,9 @@
     <main class="container">
 
 
-        <!-- =========================
+        <!-- =====================================================
              ENGLISH
-        ========================= -->
+        ====================================================== -->
 
         <div
             id="lang-en"
@@ -601,11 +562,26 @@
             </header>
 
 
-            <!-- =========================
-                 PRIVATE HOMES / INTERIORS
-            ========================= -->
+            <!-- =================================================
+                 PRIVATE HOMES
+            ================================================== -->
 
-            <section class="consulting-row fade-in delay-2">
+            <section class="consulting-project fade-in delay-2">
+
+
+                <div class="image-pair">
+
+                    <img
+                        src="consulting_photos/interior1.png"
+                        alt="Private home interior"
+                    >
+
+                    <img
+                        src="consulting_photos/interior2.png"
+                        alt="Private home interior with artwork"
+                    >
+
+                </div>
 
 
                 <div class="consulting-text">
@@ -621,41 +597,26 @@
                 </div>
 
 
-                <div class="image-pair">
-
-                    <img
-                        src="consulting_photos/interior1.png"
-                        alt="Interior space"
-                    >
-
-                    <img
-                        src="consulting_photos/interior2.png"
-                        alt="Interior space with artwork"
-                    >
-
-                </div>
-
-
             </section>
 
 
-            <!-- =========================
+            <!-- =================================================
                  RESTAURANTS / HOSPITALITY
-            ========================= -->
+            ================================================== -->
 
-            <section class="consulting-row reverse fade-in delay-3">
+            <section class="consulting-project fade-in delay-3">
 
 
                 <div class="image-pair">
 
                     <img
                         src="consulting_photos/restaurante1.png"
-                        alt="Restaurant space"
+                        alt="Restaurant interior"
                     >
 
                     <img
                         src="consulting_photos/restaurante2.png"
-                        alt="Restaurant space with artwork"
+                        alt="Restaurant interior with artwork"
                     >
 
                 </div>
@@ -677,11 +638,11 @@
             </section>
 
 
-            <!-- =========================
+            <!-- =================================================
                  CTA
-            ========================= -->
+            ================================================== -->
 
-            <div class="cta">
+            <div class="cta fade-in delay-4">
 
                 <a href="contacts.html">
                     Develop a project with us →
@@ -693,9 +654,9 @@
         </div>
 
 
-        <!-- =========================
+        <!-- =====================================================
              SPANISH
-        ========================= -->
+        ====================================================== -->
 
         <div
             id="lang-es"
@@ -712,11 +673,26 @@
             </header>
 
 
-            <!-- =========================
-                 PRIVATE HOMES / INTERIORS
-            ========================= -->
+            <!-- =================================================
+                 PRIVATE HOMES
+            ================================================== -->
 
-            <section class="consulting-row">
+            <section class="consulting-project">
+
+
+                <div class="image-pair">
+
+                    <img
+                        src="consulting_photos/interior1.png"
+                        alt="Interior de una vivienda privada"
+                    >
+
+                    <img
+                        src="consulting_photos/interior2.png"
+                        alt="Interior de una vivienda privada con obra de arte"
+                    >
+
+                </div>
 
 
                 <div class="consulting-text">
@@ -732,41 +708,26 @@
                 </div>
 
 
-                <div class="image-pair">
-
-                    <img
-                        src="consulting_photos/interior1.png"
-                        alt="Espacio interior"
-                    >
-
-                    <img
-                        src="consulting_photos/interior2.png"
-                        alt="Espacio interior con obra de arte"
-                    >
-
-                </div>
-
-
             </section>
 
 
-            <!-- =========================
+            <!-- =================================================
                  RESTAURANTS / HOSPITALITY
-            ========================= -->
+            ================================================== -->
 
-            <section class="consulting-row reverse">
+            <section class="consulting-project">
 
 
                 <div class="image-pair">
 
                     <img
                         src="consulting_photos/restaurante1.png"
-                        alt="Restaurante"
+                        alt="Interior de un restaurante"
                     >
 
                     <img
                         src="consulting_photos/restaurante2.png"
-                        alt="Restaurante con obra de arte"
+                        alt="Interior de un restaurante con obra de arte"
                     >
 
                 </div>
@@ -788,9 +749,9 @@
             </section>
 
 
-            <!-- =========================
+            <!-- =================================================
                  CTA
-            ========================= -->
+            ================================================== -->
 
             <div class="cta">
 
@@ -861,7 +822,7 @@
 
         document.addEventListener(
             'DOMContentLoaded',
-            () => {
+            function() {
 
                 const savedLang =
                     localStorage.getItem('senso_lang') || 'en';
