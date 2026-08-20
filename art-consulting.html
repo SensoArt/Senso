@@ -329,10 +329,10 @@
 
 
         /* =========================
-           IMAGE PAIR
+           FIRST IMAGE PAIR
         ========================= */
 
-        .image-pair {
+        .image-pair-large {
 
             width: 100%;
 
@@ -347,7 +347,7 @@
         }
 
 
-        .image-pair img {
+        .image-pair-large img {
 
             width: 100%;
 
@@ -355,20 +355,59 @@
 
             display: block;
 
-            object-fit: contain;
+        }
+
+
+        /* =========================
+           SECOND PROJECT
+        ========================= */
+
+        .restaurant-project {
+
+            width: 88%;
+
+            margin-left: auto;
+
+            margin-right: auto;
+
+        }
+
+
+        .image-pair-medium {
+
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+
+            gap: 8px;
+
+            align-items: start;
+
+        }
+
+
+        .image-pair-medium img {
+
+            width: 100%;
+
+            height: auto;
+
+            display: block;
 
         }
 
 
         /* =========================
-           TEXT BELOW IMAGES
+           TEXT BELOW FIRST PROJECT
         ========================= */
 
-        .consulting-text {
+        .consulting-text-left {
 
             width: 100%;
 
-            max-width: 760px;
+            max-width: 780px;
 
             margin-top: 42px;
 
@@ -383,14 +422,60 @@
         }
 
 
-        .consulting-text p {
+        .consulting-text-left p {
 
             margin: 0 0 28px 0;
 
         }
 
 
-        .consulting-text p:last-child {
+        .consulting-text-left p:last-child {
+
+            margin-bottom: 0;
+
+        }
+
+
+        /* =========================
+           SECOND TEXT
+        ========================= */
+
+        .restaurant-content {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            margin-top: 42px;
+
+        }
+
+
+        .consulting-text-right {
+
+            width: 43%;
+
+            max-width: 560px;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            font-size: 1.2rem;
+
+            line-height: 1.85;
+
+            letter-spacing: 0.2px;
+
+        }
+
+
+        .consulting-text-right p {
+
+            margin: 0 0 28px 0;
+
+        }
+
+
+        .consulting-text-right p:last-child {
 
             margin-bottom: 0;
 
@@ -405,16 +490,22 @@
 
             text-align: center;
 
-            margin-top: -10px;
+            margin-top: 20px;
 
         }
 
 
-        .cta a {
+        .cta button {
+
+            background: none;
+
+            border: none;
+
+            padding: 0;
 
             color: #000;
 
-            text-decoration: none;
+            cursor: pointer;
 
             text-transform: uppercase;
 
@@ -431,7 +522,174 @@
         }
 
 
-        .cta a:hover {
+        .cta button:hover {
+            opacity: 1;
+        }
+
+
+        /* =========================
+           FORM PANEL
+        ========================= */
+
+        .form-wrapper {
+
+            max-height: 0;
+
+            overflow: hidden;
+
+            opacity: 0;
+
+            transition:
+                max-height 0.8s ease,
+                opacity 0.5s ease,
+                margin-top 0.8s ease;
+
+            margin-top: 0;
+
+        }
+
+
+        .form-wrapper.open {
+
+            max-height: 900px;
+
+            opacity: 1;
+
+            margin-top: 70px;
+
+        }
+
+
+        .contact-form {
+
+            width: min(620px, 100%);
+
+            margin: 0 auto;
+
+            text-align: left;
+
+        }
+
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
+
+        }
+
+
+        .form-field {
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .form-field label {
+
+            display: block;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            font-size: 0.65rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 10px;
+
+            opacity: 0.65;
+
+        }
+
+
+        .form-field input,
+        .form-field textarea {
+
+            width: 100%;
+
+            box-sizing: border-box;
+
+            border: none;
+
+            border-bottom: 1px solid rgba(0,0,0,0.35);
+
+            border-radius: 0;
+
+            background: transparent;
+
+            padding: 8px 0 12px;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            font-size: 1rem;
+
+            color: #000;
+
+            outline: none;
+
+        }
+
+
+        .form-field input:focus,
+        .form-field textarea:focus {
+
+            border-bottom-color: #000;
+
+        }
+
+
+        .form-field textarea {
+
+            min-height: 100px;
+
+            resize: vertical;
+
+        }
+
+
+        .form-submit {
+
+            text-align: left;
+
+            margin-top: 15px;
+
+        }
+
+
+        .form-submit button {
+
+            background: none;
+
+            border: none;
+
+            padding: 0;
+
+            cursor: pointer;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            font-size: 0.8rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            color: #000;
+
+            opacity: 0.7;
+
+            transition: opacity 0.3s ease;
+
+        }
+
+
+        .form-submit button:hover {
             opacity: 1;
         }
 
@@ -469,7 +727,8 @@
             }
 
 
-            .image-pair {
+            .image-pair-large,
+            .image-pair-medium {
 
                 grid-template-columns: 1fr 1fr;
 
@@ -478,9 +737,19 @@
             }
 
 
-            .consulting-text {
+            .restaurant-project {
 
-                margin-top: 30px;
+                width: 100%;
+
+            }
+
+
+            .consulting-text-left,
+            .consulting-text-right {
+
+                width: 100%;
+
+                max-width: 100%;
 
                 font-size: 1.05rem;
 
@@ -489,9 +758,25 @@
             }
 
 
-            .cta {
+            .restaurant-content {
 
-                margin-top: 0;
+                display: block;
+
+            }
+
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+
+            .form-wrapper.open {
+
+                max-height: 1100px;
 
             }
 
@@ -569,7 +854,7 @@
             <section class="consulting-project fade-in delay-2">
 
 
-                <div class="image-pair">
+                <div class="image-pair-large">
 
                     <img
                         src="consulting_photos/interior1.png"
@@ -584,7 +869,7 @@
                 </div>
 
 
-                <div class="consulting-text">
+                <div class="consulting-text-left">
 
                     <p>
                         From private homes to hospitality spaces, Senso develops art projects that respond to the identity, architecture and atmosphere of a place.
@@ -604,10 +889,10 @@
                  RESTAURANTS / HOSPITALITY
             ================================================== -->
 
-            <section class="consulting-project fade-in delay-3">
+            <section class="consulting-project restaurant-project fade-in delay-3">
 
 
-                <div class="image-pair">
+                <div class="image-pair-medium">
 
                     <img
                         src="consulting_photos/restaurante1.png"
@@ -622,15 +907,19 @@
                 </div>
 
 
-                <div class="consulting-text">
+                <div class="restaurant-content">
 
-                    <p>
-                        Senso collaborates with private collectors, hospitality spaces, restaurants, architects and interior designers to source, select and develop contemporary art projects.
-                    </p>
+                    <div class="consulting-text-right">
 
-                    <p>
-                        From the discovery of an artist to the selection and acquisition of a work, we bring together the right artistic language and the right context.
-                    </p>
+                        <p>
+                            Senso collaborates with private collectors, hospitality spaces, restaurants, architects and interior designers to source, select and develop contemporary art projects.
+                        </p>
+
+                        <p>
+                            From the discovery of an artist to the selection and acquisition of a work, we bring together the right artistic language and the right context.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -644,9 +933,130 @@
 
             <div class="cta fade-in delay-4">
 
-                <a href="contacts.html">
+                <button
+                    type="button"
+                    onclick="toggleForm('en')"
+                    id="cta-en"
+                >
                     Develop a project with us →
-                </a>
+                </button>
+
+
+                <div
+                    id="form-en"
+                    class="form-wrapper"
+                >
+
+                    <form
+                        class="contact-form"
+                        action="https://formspree.io/f/mgorwree"
+                        method="POST"
+                    >
+
+                        <div class="form-row">
+
+                            <div class="form-field">
+
+                                <label for="en-first-name">
+                                    First name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="en-first-name"
+                                    name="first_name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="en-last-name">
+                                    Last name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="en-last-name"
+                                    name="last_name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-field">
+
+                                <label for="en-email">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="en-email"
+                                    name="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="en-phone">
+                                    Phone
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="en-phone"
+                                    name="phone"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="en-comments">
+                                Comments
+                            </label>
+
+                            <textarea
+                                id="en-comments"
+                                name="comments"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <input
+                            type="hidden"
+                            name="language"
+                            value="English"
+                        >
+
+
+                        <div class="form-submit">
+
+                            <button type="submit">
+                                Send →
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
 
             </div>
 
@@ -680,7 +1090,7 @@
             <section class="consulting-project">
 
 
-                <div class="image-pair">
+                <div class="image-pair-large">
 
                     <img
                         src="consulting_photos/interior1.png"
@@ -695,7 +1105,7 @@
                 </div>
 
 
-                <div class="consulting-text">
+                <div class="consulting-text-left">
 
                     <p>
                         Desde hogares privados hasta espacios de hospitality, Senso desarrolla proyectos de arte que responden a la identidad, arquitectura y atmósfera de cada lugar.
@@ -715,10 +1125,10 @@
                  RESTAURANTS / HOSPITALITY
             ================================================== -->
 
-            <section class="consulting-project">
+            <section class="consulting-project restaurant-project">
 
 
-                <div class="image-pair">
+                <div class="image-pair-medium">
 
                     <img
                         src="consulting_photos/restaurante1.png"
@@ -733,15 +1143,19 @@
                 </div>
 
 
-                <div class="consulting-text">
+                <div class="restaurant-content">
 
-                    <p>
-                        Senso colabora con coleccionistas privados, espacios de hospitality, restaurantes, arquitectos e interioristas para seleccionar, adquirir y desarrollar proyectos de arte contemporáneo.
-                    </p>
+                    <div class="consulting-text-right">
 
-                    <p>
-                        Desde el descubrimiento de un artista hasta la selección y adquisición de una obra, conectamos el lenguaje artístico adecuado con el contexto adecuado.
-                    </p>
+                        <p>
+                            Senso colabora con coleccionistas privados, espacios de hospitality, restaurantes, arquitectos e interioristas para seleccionar, adquirir y desarrollar proyectos de arte contemporáneo.
+                        </p>
+
+                        <p>
+                            Desde el descubrimiento de un artista hasta la selección y adquisición de una obra, conectamos el lenguaje artístico adecuado con el contexto adecuado.
+                        </p>
+
+                    </div>
 
                 </div>
 
@@ -755,9 +1169,130 @@
 
             <div class="cta">
 
-                <a href="contacts.html">
+                <button
+                    type="button"
+                    onclick="toggleForm('es')"
+                    id="cta-es"
+                >
                     Desarrolla un proyecto con nosotros →
-                </a>
+                </button>
+
+
+                <div
+                    id="form-es"
+                    class="form-wrapper"
+                >
+
+                    <form
+                        class="contact-form"
+                        action="https://formspree.io/f/mgorwree"
+                        method="POST"
+                    >
+
+                        <div class="form-row">
+
+                            <div class="form-field">
+
+                                <label for="es-first-name">
+                                    Nombre
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="es-first-name"
+                                    name="first_name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="es-last-name">
+                                    Apellidos
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="es-last-name"
+                                    name="last_name"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-field">
+
+                                <label for="es-email">
+                                    Email
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="es-email"
+                                    name="email"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label for="es-phone">
+                                    Teléfono
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="es-phone"
+                                    name="phone"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label for="es-comments">
+                                Comentarios
+                            </label>
+
+                            <textarea
+                                id="es-comments"
+                                name="comments"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <input
+                            type="hidden"
+                            name="language"
+                            value="Spanish"
+                        >
+
+
+                        <div class="form-submit">
+
+                            <button type="submit">
+                                Enviar →
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
 
             </div>
 
@@ -769,6 +1304,10 @@
 
 
     <script>
+
+        /* =========================
+           LANGUAGE
+        ========================= */
 
         function setLang(lang) {
 
@@ -819,6 +1358,43 @@
 
         }
 
+
+        /* =========================
+           FORM TOGGLE
+        ========================= */
+
+        function toggleForm(lang) {
+
+            const form =
+                document.getElementById(
+                    'form-' + lang
+                );
+
+            if (form.classList.contains('open')) {
+
+                form.classList.remove('open');
+
+            } else {
+
+                form.classList.add('open');
+
+                setTimeout(function() {
+
+                    form.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+
+                }, 150);
+
+            }
+
+        }
+
+
+        /* =========================
+           INITIAL LANGUAGE
+        ========================= */
 
         document.addEventListener(
             'DOMContentLoaded',
