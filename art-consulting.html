@@ -326,7 +326,7 @@
 
 
         /* =========================
-           FIRST IMAGE PAIR
+           HOUSE IMAGE PAIR
         ========================= */
 
         .image-pair-large {
@@ -344,11 +344,18 @@
         }
 
 
+        /*
+        The two house photographs have the
+        same original dimensions.
+
+        No artificial zoom.
+        No scaling.
+        No cropping through CSS.
+        */
+
         .image-frame-large {
 
             width: 100%;
-
-            aspect-ratio: 3 / 2;
 
             overflow: hidden;
 
@@ -361,37 +368,23 @@
 
             width: 100%;
 
-            height: 100%;
+            height: auto;
 
             display: block;
 
-            object-fit: cover;
-
         }
 
 
-        /* FIRST IMAGE — ZOOM CORRECTION */
-
-        .image-frame-large.before img {
-
-            transform: scale(1.16);
-
-            transform-origin: center center;
-
-        }
-
-
+        .image-frame-large.before img,
         .image-frame-large.after img {
 
-            transform: scale(1);
-
-            transform-origin: center center;
+            transform: none;
 
         }
 
 
         /* =========================
-           SECOND PROJECT
+           RESTAURANT PROJECT
         ========================= */
 
         .restaurant-project {
@@ -432,7 +425,7 @@
 
 
         /* =========================
-           TEXT BELOW FIRST PROJECT
+           FIRST TEXT
         ========================= */
 
         .consulting-text-left {
@@ -469,7 +462,7 @@
 
 
         /* =========================
-           SECOND TEXT
+           SECOND TEXT — RIGHT
         ========================= */
 
         .restaurant-content {
@@ -760,8 +753,7 @@
 
 
             /* =========================
-               HOUSE IMAGES
-               ONE ABOVE THE OTHER
+               HOUSE — STACKED
             ========================= */
 
             .image-pair-large {
@@ -781,41 +773,32 @@
 
                 width: 100%;
 
-                aspect-ratio: 3 / 2;
-
                 overflow: hidden;
 
-                position: relative;
+            }
+
+
+            .image-frame-large img {
+
+                width: 100%;
+
+                height: auto;
+
+                display: block;
 
             }
 
 
-            /*
-            Same zoom correction as desktop.
-            Slightly reduced on mobile because
-            the smaller viewport makes the crop
-            visually stronger.
-            */
-
-            .image-frame-large.before img {
-
-                transform: scale(1.16);
-
-                transform-origin: center center;
-
-            }
-
-
+            .image-frame-large.before img,
             .image-frame-large.after img {
 
-                transform: scale(1);
+                transform: none;
 
             }
 
 
             /* =========================
-               RESTAURANT IMAGES
-               ONE ABOVE THE OTHER
+               RESTAURANT — STACKED
             ========================= */
 
             .image-pair-medium {
@@ -979,8 +962,6 @@
                 <div class="image-pair-large">
 
 
-                    <!-- BEFORE -->
-
                     <div class="image-frame-large before">
 
                         <img
@@ -990,8 +971,6 @@
 
                     </div>
 
-
-                    <!-- AFTER -->
 
                     <div class="image-frame-large after">
 
@@ -1073,7 +1052,6 @@
                 <button
                     type="button"
                     onclick="toggleForm('en')"
-                    id="cta-en"
                 >
                     Develop a project with us →
                 </button>
@@ -1230,8 +1208,6 @@
                 <div class="image-pair-large">
 
 
-                    <!-- ANTES -->
-
                     <div class="image-frame-large before">
 
                         <img
@@ -1241,8 +1217,6 @@
 
                     </div>
 
-
-                    <!-- DESPUÉS -->
 
                     <div class="image-frame-large after">
 
@@ -1324,7 +1298,6 @@
                 <button
                     type="button"
                     onclick="toggleForm('es')"
-                    id="cta-es"
                 >
                     Desarrolla un proyecto con nosotros →
                 </button>
