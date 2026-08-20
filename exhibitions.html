@@ -23,6 +23,7 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
+
     <meta charset="UTF-8">
 
     <meta
@@ -61,6 +62,7 @@
 
     <meta property="og:type" content="website">
 
+
     <link
         rel="icon"
         type="image/png"
@@ -83,7 +85,9 @@
         }
 
 
-        /* ANIMAZIONE FADE IN */
+        /* =========================
+           ANIMAZIONE FADE IN
+        ========================= */
 
         @keyframes fadeIn {
 
@@ -99,19 +103,26 @@
 
         }
 
+
         .fade-in {
             opacity: 0;
             animation: fadeIn 1.5s ease-out forwards;
         }
 
+
         .delay-1 {
             animation-delay: 0.4s;
         }
+
 
         .delay-2 {
             animation-delay: 0.9s;
         }
 
+
+        /* =========================
+           BODY
+        ========================= */
 
         body {
 
@@ -133,7 +144,9 @@
         }
 
 
-        /* SFONDO BIANCO FISSO */
+        /* =========================
+           SFONDO BIANCO
+        ========================= */
 
         .bg-container {
 
@@ -152,7 +165,9 @@
         }
 
 
-        /* PULSANTE HOME */
+        /* =========================
+           HOME BUTTON
+        ========================= */
 
         .back-home {
 
@@ -179,12 +194,15 @@
 
         }
 
+
         .back-home:hover {
             opacity: 1;
         }
 
 
-        /* CONTENITORE PRINCIPALE */
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
 
         .container {
 
@@ -198,12 +216,14 @@
 
             flex-direction: column;
 
-            align-items: flex-start;
+            align-items: center;
 
         }
 
 
-        /* TITOLO PRINCIPALE */
+        /* =========================
+           PAGE TITLE
+        ========================= */
 
         .section-title {
 
@@ -224,23 +244,30 @@
         }
 
 
-        /* GRIGLIA EXHIBITIONS
-           Una exhibition per riga */
+        /* =========================
+           EXHIBITIONS GRID
+           Una exhibition per riga
+           Larghezza 600px
+        ========================= */
 
         .archive-grid {
 
             display: grid;
 
-            grid-template-columns: 1fr;
+            grid-template-columns: 600px;
 
             row-gap: 100px;
 
             width: 100%;
 
+            justify-content: center;
+
         }
 
 
-        /* BLOCCO DELLA SINGOLA EXHIBITION */
+        /* =========================
+           SINGLE EXHIBITION
+        ========================= */
 
         .project-block {
 
@@ -255,7 +282,9 @@
         }
 
 
-        /* CONTENITORE IMMAGINE */
+        /* =========================
+           IMAGE CONTAINER
+        ========================= */
 
         .img-container {
 
@@ -288,7 +317,9 @@
         }
 
 
-        /* EFFETTO HOVER */
+        /* =========================
+           HOVER
+        ========================= */
 
         .project-block:hover .project-img {
 
@@ -297,7 +328,9 @@
         }
 
 
-        /* DETTAGLI TESTUALI */
+        /* =========================
+           TEXT
+        ========================= */
 
         .project-meta {
 
@@ -342,7 +375,9 @@
         }
 
 
-        /* MOBILE */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 600px) {
 
@@ -371,6 +406,8 @@
                 grid-template-columns: 1fr;
 
                 row-gap: 60px;
+
+                width: 100%;
 
             }
 
@@ -428,7 +465,9 @@
         <div class="archive-grid fade-in delay-2">
 
 
-            <!-- PRINCIPIUM -->
+            <!-- =========================
+                 PRINCIPIUM
+            ========================= -->
 
             <a
                 href="principium.html"
@@ -461,7 +500,9 @@
             </a>
 
 
-            <!-- UPCOMING EXHIBITION -->
+            <!-- =========================
+                 UPCOMING EXHIBITION
+            ========================= -->
 
             <a
                 href="#"
