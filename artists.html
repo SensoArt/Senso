@@ -5,8 +5,8 @@
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    arguments.length?arguments.length:0
+    :n.queue.push(f)},f._fbq=n,n.push=n,n.loaded=!0,n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -14,32 +14,48 @@
     fbq('init', '2442677362880993');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
-    /></noscript>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
+        />
+    </noscript>
     <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>SENSO - Artists</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
+
         @font-face { 
             font-family: 'FuturaLight'; 
             src: url('Fonts/futura light bt.ttf') format('truetype'); 
             font-display: swap; 
         }
+
         @font-face { 
             font-family: 'BehindNineties'; 
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); 
             font-display: swap; 
         }
 
+
         /* ANIMAZIONE FADE IN */
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
 
         .fade-in {
@@ -47,8 +63,14 @@
             animation: fadeIn 1.5s ease-out forwards;
         }
 
-        .delay-1 { animation-delay: 0.4s; }
-        .delay-2 { animation-delay: 0.9s; }
+        .delay-1 { 
+            animation-delay: 0.4s; 
+        }
+
+        .delay-2 { 
+            animation-delay: 0.9s; 
+        }
+
 
         body { 
             background-color: #fff; 
@@ -63,7 +85,9 @@
             min-height: 100vh;
         }
 
+
         /* SFONDO BIANCO FISSO */
+
         .bg-container {
             position: fixed;
             top: 0;
@@ -73,6 +97,9 @@
             z-index: -2;
             background-color: #fff;
         }
+
+
+        /* HOME */
 
         .back-home { 
             position: fixed; 
@@ -87,8 +114,14 @@
             z-index: 1000; 
             transition: opacity 0.3s; 
         }
-        .back-home:hover { opacity: 1; }
-        
+
+        .back-home:hover { 
+            opacity: 1; 
+        }
+
+
+        /* LANGUAGE SWITCH */
+
         .lang-switch { 
             position: fixed; 
             top: 25px; 
@@ -97,6 +130,7 @@
             letter-spacing: 2px; 
             z-index: 1000; 
         }
+
         .lang-btn { 
             background: none; 
             border: none; 
@@ -109,7 +143,13 @@
             letter-spacing: inherit; 
             transition: opacity 0.3s; 
         }
-        .lang-btn.active { opacity: 1; }
+
+        .lang-btn.active { 
+            opacity: 1; 
+        }
+
+
+        /* CONTENITORE */
 
         .container { 
             max-width: 950px; 
@@ -117,16 +157,33 @@
             padding: 150px 25px 0; 
         }
 
-        /* Titolo elegante e ridotto */
+
+        /* TITOLO */
+
         .section-title { 
             font-family: 'BehindNineties', serif; 
             font-size: clamp(2rem, 5vw, 3rem); 
-            margin: 0 0 50px 0; 
+            margin: 0 0 25px 0; 
             text-transform: lowercase; 
             font-weight: normal; 
         }
 
+
+        /* ARTIST STATEMENT */
+
+        .artist-statement {
+            max-width: 720px;
+            margin: 0 0 55px 0;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+            text-align: left;
+        }
+
+
         /* GRIGLIA A 3 COLONNE */
+
         .artists-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -135,7 +192,9 @@
             width: 100%;
         }
 
-        /* Singola scheda artista cliccabile */
+
+        /* SINGOLA SCHEDA ARTISTA */
+
         .artist-block { 
             text-decoration: none !important;
             display: flex;
@@ -150,31 +209,58 @@
             margin-bottom: 15px;
         }
 
-        /* Immagine di base in bianco e nero */
+
+        /* IMMAGINE IN BIANCO E NERO */
+
         .artist-img { 
             width: 100%; 
             display: block; 
             aspect-ratio: 3 / 2; 
             object-fit: cover; 
             filter: grayscale(1);
-            transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
+            transition: 
+                filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
+                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
         }
 
-        /* Transizione a colori e zoom al passaggio del mouse */
+
+        /* HOVER */
+
         .artist-block:hover .artist-img { 
             filter: grayscale(0);
             transform: scale(1.02); 
         }
 
-        /* Allineamenti personalizzati delle inquadrature */
-        .img-raul { object-position: center 20%; }
-        .img-davide { object-position: center center; }
-        .img-catherine { object-position: center 75%; }
-        .img-rafael { object-position: center 48%; }
-        .img-arantxa { object-position: center 15%; }
-        .img-paolo { object-position: center 85%; }
 
-        /* Meta dettagli sotto l'immagine */
+        /* INQUADRATURE */
+
+        .img-raul { 
+            object-position: center 20%; 
+        }
+
+        .img-davide { 
+            object-position: center center; 
+        }
+
+        .img-catherine { 
+            object-position: center 75%; 
+        }
+
+        .img-rafael { 
+            object-position: center 48%; 
+        }
+
+        .img-arantxa { 
+            object-position: center 15%; 
+        }
+
+        .img-paolo { 
+            object-position: center 85%; 
+        }
+
+
+        /* META */
+
         .artist-meta {
             padding: 0 2px;
             text-align: left;
@@ -189,158 +275,436 @@
             margin: 0; 
         }
 
-        /* SPAZIATORE FINALE PER DARE RESPIRO ALLA PAGINA */
+
+        /* SPAZIATORE */
+
         .footer-spacer {
             height: 18vh;
             min-height: 140px;
             width: 100%;
         }
 
+
         /* RESPONSIVE */
+
         @media (max-width: 850px) {
+
             .artists-grid {
                 grid-template-columns: repeat(2, 1fr);
                 column-gap: 30px;
                 row-gap: 40px;
             }
+
         }
 
+
         @media (max-width: 600px) {
-            .container { padding-top: 120px; padding-left: 20px; padding-right: 20px; }
-            .section-title { font-size: 2.2rem; margin-bottom: 40px; } 
+
+            .container { 
+                padding-top: 120px; 
+                padding-left: 20px; 
+                padding-right: 20px; 
+            }
+
+            .section-title { 
+                font-size: 2.2rem; 
+                margin-bottom: 20px; 
+            }
+
+            .artist-statement {
+                font-size: 1.05rem;
+                line-height: 1.75;
+                margin-bottom: 40px;
+            }
+
             .artists-grid {
                 grid-template-columns: 1fr; 
                 row-gap: 35px;
             }
-            .artist-name { font-size: 0.75rem; }
+
+            .artist-name { 
+                font-size: 0.75rem; 
+            }
+
             .footer-spacer {
                 min-height: 100px;
             }
+
         }
+
     </style>
+
 </head>
+
+
 <body>
+
 
     <div class="bg-container"></div>
 
-    <a href="index.html" class="back-home">← Home</a>
+
+    <a href="index.html" class="back-home">
+        ← Home
+    </a>
+
 
     <div class="lang-switch">
-        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
-        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+
+        <button 
+            onclick="setLang('en')" 
+            id="btn-en" 
+            class="lang-btn active"
+        >
+            EN
+        </button> 
+
+        | 
+
+        <button 
+            onclick="setLang('es')" 
+            id="btn-es" 
+            class="lang-btn"
+        >
+            ES
+        </button>
+
     </div>
+
 
     <main class="container">
         
+
         <header class="header-section fade-in delay-1">
-            <h1 class="section-title" id="main-title">artists</h1>
+
+            <h1 
+                class="section-title" 
+                id="main-title"
+            >
+                artists
+            </h1>
+
+
+            <div 
+                id="artist-statement-en" 
+                class="artist-statement"
+            >
+                Senso represents a selected group of contemporary artists, supporting the development of their practices through exhibitions, collaborations and opportunities across different contexts.
+            </div>
+
+
+            <div 
+                id="artist-statement-es" 
+                class="artist-statement"
+                style="display: none;"
+            >
+                Senso representa a un grupo seleccionado de artistas contemporáneos, apoyando el desarrollo de sus prácticas a través de exposiciones, colaboraciones y oportunidades en diferentes contextos.
+            </div>
+
         </header>
+
 
         <div class="artists-grid fade-in delay-2">
 
-            <a href="raul-del-chano.html" class="artist-block">
+
+            <a 
+                href="raul-del-chano.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/raul_del_chano.jpg" alt="Raúl del Chano" class="artist-img img-raul">
+
+                    <img 
+                        src="fotos_artistas/raul_del_chano.jpg" 
+                        alt="Raúl del Chano" 
+                        class="artist-img img-raul"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Raúl del Chano</h2>
+
+                    <h2 class="artist-name">
+                        Raúl del Chano
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="lucia-cheves.html" class="artist-block">
+
+            <a 
+                href="lucia-cheves.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/lucia_cheves.jpg" alt="Lucía Cheves Dauber" class="artist-img">
+
+                    <img 
+                        src="fotos_artistas/lucia_cheves.jpg" 
+                        alt="Lucía Cheves Dauber" 
+                        class="artist-img"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Lucía Cheves Dauber</h2>
+
+                    <h2 class="artist-name">
+                        Lucía Cheves Dauber
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="carlotta-valentinis.html" class="artist-block">
+
+            <a 
+                href="carlotta-valentinis.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/carlotta_valentinis.jpg" alt="Carlotta Valentinis Queraltó" class="artist-img">
+
+                    <img 
+                        src="fotos_artistas/carlotta_valentinis.jpg" 
+                        alt="Carlotta Valentinis Queraltó" 
+                        class="artist-img"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Carlotta Valentinis Queraltó</h2>
+
+                    <h2 class="artist-name">
+                        Carlotta Valentinis Queraltó
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="davide-ciaramella.html" class="artist-block">
+
+            <a 
+                href="davide-ciaramella.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/davide_ciaramella.jpg" alt="Davide Ciaramella" class="artist-img img-davide">
+
+                    <img 
+                        src="fotos_artistas/davide_ciaramella.jpg" 
+                        alt="Davide Ciaramella" 
+                        class="artist-img img-davide"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Davide Ciaramella</h2>
+
+                    <h2 class="artist-name">
+                        Davide Ciaramella
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="davide-disena.html" class="artist-block">
+
+            <a 
+                href="davide-disena.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/davide_disena.jpg" alt="Davide Di Sena" class="artist-img">
+
+                    <img 
+                        src="fotos_artistas/davide_disena.jpg" 
+                        alt="Davide Di Sena" 
+                        class="artist-img"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Davide Di Sena</h2>
+
+                    <h2 class="artist-name">
+                        Davide Di Sena
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="catherine-parra.html" class="artist-block">
+
+            <a 
+                href="catherine-parra.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/catherine_parra.jpg" alt="Catherine Parra" class="artist-img img-catherine">
+
+                    <img 
+                        src="fotos_artistas/catherine_parra.jpg" 
+                        alt="Catherine Parra" 
+                        class="artist-img img-catherine"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Catherine Parra</h2>
+
+                    <h2 class="artist-name">
+                        Catherine Parra
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="rafael-nuesi.html" class="artist-block">
+
+            <a 
+                href="rafael-nuesi.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/rafael_nuesi.JPG" alt="Rafael Nuesi" class="artist-img img-rafael">
+
+                    <img 
+                        src="fotos_artistas/rafael_nuesi.JPG" 
+                        alt="Rafael Nuesi" 
+                        class="artist-img img-rafael"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Rafael Nuesi</h2>
+
+                    <h2 class="artist-name">
+                        Rafael Nuesi
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="arantxa-martinez-dugas.html" class="artist-block">
+
+            <a 
+                href="arantxa-martinez-dugas.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/arantxa.jpg" alt="Arantxa Martinez Dugas" class="artist-img img-arantxa">
+
+                    <img 
+                        src="fotos_artistas/arantxa.jpg" 
+                        alt="Arantxa Martinez Dugas" 
+                        class="artist-img img-arantxa"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Arantxa Martinez Dugas</h2>
+
+                    <h2 class="artist-name">
+                        Arantxa Martinez Dugas
+                    </h2>
+
                 </div>
+
             </a>
 
-            <a href="paolo-agostini.html" class="artist-block">
+
+            <a 
+                href="paolo-agostini.html" 
+                class="artist-block"
+            >
+
                 <div class="img-container">
-                    <img src="fotos_artistas/paolo_agostini.jpeg" alt="Paolo Agostini - Paul el Pulpo" class="artist-img img-paolo">
+
+                    <img 
+                        src="fotos_artistas/paolo_agostini.jpeg" 
+                        alt="Paolo Agostini - Paul el Pulpo" 
+                        class="artist-img img-paolo"
+                    >
+
                 </div>
+
                 <div class="artist-meta">
-                    <h2 class="artist-name">Paolo Agostini - Paul el Pulpo</h2>
+
+                    <h2 class="artist-name">
+                        Paolo Agostini - Paul el Pulpo
+                    </h2>
+
                 </div>
+
             </a>
+
 
         </div>
 
+
         <div class="footer-spacer"></div>
+
 
     </main>
 
+
     <script>
+
         function setLang(lang) {
+
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
+
             const title = document.getElementById('main-title');
 
+            const statementEn = document.getElementById('artist-statement-en');
+            const statementEs = document.getElementById('artist-statement-es');
+
+
             if (lang === 'es') {
+
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
+
                 title.innerText = 'artistas';
+
+                statementEn.style.display = 'none';
+                statementEs.style.display = 'block';
+
+                document.documentElement.lang = 'es';
+
             } else {
+
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
+
                 title.innerText = 'artists';
+
+                statementEs.style.display = 'none';
+                statementEn.style.display = 'block';
+
+                document.documentElement.lang = 'en';
+
             }
+
+
+            localStorage.setItem('senso_lang', lang);
+
         }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const savedLang =
+                localStorage.getItem('senso_lang') || 'en';
+
+            setLang(savedLang);
+
+        });
+
     </script>
+
+
 </body>
 </html>
