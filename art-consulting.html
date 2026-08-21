@@ -10,498 +10,386 @@
 <meta name="description" content="Senso develops contemporary art projects for private homes, hospitality spaces, restaurants, architects and interior designers.">
 
 <link rel="canonical" href="https://senso-art.com/art-consulting.html">
-
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
-<link rel="apple-touch-icon" href="favicon.png?v=1000">
-
-<meta name="theme-color" content="#ffffff">
-
-<meta property="og:site_name" content="Senso">
-<meta property="og:title" content="Senso - Art Consulting">
-<meta property="og:description" content="Senso develops contemporary art projects for private homes, hospitality spaces, restaurants, architects and interior designers.">
-<meta property="og:url" content="https://senso-art.com/art-consulting.html">
-<meta property="og:type" content="website">
-
-
-<!-- Meta Pixel -->
+<link rel="icon" type="image/png" href="favicon.png?v=1000">
 
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;
-n.push=n;
-n.loaded=!0;
-n.version='2.0';
-n.queue=[];
-t=b.createElement(e);
-t.async=!0;
-t.src=v;
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)
-}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init','2442677362880993');
-fbq('track','PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);
+t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','2442677362880993');fbq('track','PageView');
 </script>
 
 <noscript>
-<img
-height="1"
-width="1"
-style="display:none"
-src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
->
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1">
 </noscript>
-
 
 <style>
 
-@font-face {
-    font-family: 'FuturaLight';
-    src: url('Fonts/futura light bt.ttf') format('truetype');
-    font-display: swap;
+@font-face{
+font-family:FuturaLight;
+src:url('Fonts/futura light bt.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'BehindNineties';
-    src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
-    font-display: swap;
+@font-face{
+font-family:BehindNineties;
+src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
 }
 
-* {
-    box-sizing: border-box;
+*{box-sizing:border-box}
+
+body{
+margin:0;
+background:#fff;
+color:#000;
+font-family:FuturaLight,sans-serif;
+-webkit-font-smoothing:antialiased;
+overflow-x:hidden;
 }
 
-html {
-    min-height: 100%;
+.back-home{
+position:fixed;
+top:25px;
+left:20px;
+z-index:1000;
+color:#000;
+text-decoration:none;
+text-transform:uppercase;
+font-size:.65rem;
+letter-spacing:2px;
+opacity:.7;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    background: #fff;
-    color: #000;
-    font-family: 'FuturaLight', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+.lang-switch{
+position:fixed;
+top:25px;
+right:20px;
+z-index:1000;
+font-size:.65rem;
+letter-spacing:2px;
 }
 
-button,
-input,
-textarea {
-    font-family: 'FuturaLight', sans-serif;
+.lang-btn{
+border:0;
+background:none;
+padding:0 5px;
+color:#000;
+cursor:pointer;
+font:inherit;
+font-size:.65rem;
+letter-spacing:2px;
+opacity:.35;
 }
 
-.back-home {
-    position: fixed;
-    top: 25px;
-    left: 20px;
-    z-index: 1000;
-    color: #000;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
+.lang-btn.active{opacity:1}
+
+.container{
+width:min(1400px,calc(100% - 80px));
+margin:auto;
+padding:150px 0 140px;
 }
 
-.back-home:hover {
-    opacity: 1;
+.section-title{
+margin:0 0 110px;
+font-family:BehindNineties,serif;
+font-size:clamp(2rem,5vw,3rem);
+font-weight:normal;
+text-transform:lowercase;
 }
 
-.lang-switch {
-    position: fixed;
-    top: 25px;
-    right: 20px;
-    z-index: 1000;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
+.hidden{display:none!important}
+
+
+/* HOUSE */
+
+.house-before{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
 }
 
-.lang-btn {
-    padding: 0 5px;
-    border: 0;
-    background: none;
-    color: #000;
-    cursor: pointer;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    opacity: 0.35;
+.house-before img{
+display:block;
+width:100%;
+height:auto;
 }
 
-.lang-btn.active {
-    opacity: 1;
+.reveal{
+margin:35px 0 45px;
+text-align:center;
 }
 
-.container {
-    width: min(1400px, calc(100% - 80px));
-    margin: 0 auto;
-    padding: 150px 0 140px;
+.reveal button{
+border:0;
+background:none;
+padding:5px 15px;
+font:inherit;
+font-size:1.5rem;
+cursor:pointer;
+opacity:.55;
+transition:opacity .3s;
 }
 
-.section-title {
-    margin: 0 0 110px;
-    font-family: 'BehindNineties', serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: normal;
-    text-transform: lowercase;
+.reveal button:hover{opacity:1}
+
+.house-after{
+display:none;
 }
 
-.lang-content.hidden {
-    display: none;
+.house-after.show{
+display:block;
 }
 
-.consulting-project {
-    width: 100%;
-    margin-bottom: 180px;
+.house-after img{
+display:block;
+width:100%;
+height:auto;
 }
 
-.image-pair-large {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    width: 100%;
-    align-items: start;
+
+/* TEXT + CTA */
+
+.house-info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:80px;
+margin-top:45px;
+align-items:start;
 }
 
-.image-frame-large {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+.text{
+font-size:1.15rem;
+line-height:1.85;
+max-width:700px;
 }
 
-.image-frame-large img {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
+.text p{margin:0}
+
+.cta{
+text-align:right;
 }
 
-.consulting-text-left {
-    width: 100%;
-    max-width: 780px;
-    margin-top: 42px;
-    font-size: 1.2rem;
-    line-height: 1.85;
-    letter-spacing: 0.2px;
+.cta button{
+border:0;
+background:none;
+padding:0;
+font:inherit;
+font-size:.8rem;
+text-transform:uppercase;
+letter-spacing:2px;
+cursor:pointer;
+opacity:.7;
 }
 
-.consulting-text-left p {
-    margin: 0 0 28px;
+.cta button:hover{opacity:1}
+
+
+/* RESTAURANT */
+
+.restaurant{
+width:88%;
+margin:180px auto 0;
 }
 
-.consulting-text-left p:last-child {
-    margin-bottom: 0;
+.restaurant-images{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
 }
 
-.restaurant-project {
-    width: 88%;
-    margin-left: auto;
-    margin-right: auto;
+.restaurant-images img{
+display:block;
+width:100%;
+height:auto;
 }
 
-.image-pair-medium {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 8px;
-    width: 100%;
-    align-items: start;
+.restaurant-text{
+margin-top:45px;
+max-width:1000px;
+font-size:1.15rem;
+line-height:1.85;
 }
 
-.image-pair-medium img {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
+.restaurant-text p{margin:0}
+
+
+/* FORM */
+
+.form-wrapper{
+max-height:0;
+overflow:hidden;
+opacity:0;
+margin-top:0;
+transition:.7s ease;
 }
 
-.restaurant-content {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 42px;
+.form-wrapper.open{
+max-height:900px;
+opacity:1;
+margin-top:70px;
 }
 
-.consulting-text-right {
-    width: 43%;
-    max-width: 560px;
-    font-size: 1.2rem;
-    line-height: 1.85;
-    letter-spacing: 0.2px;
+.contact-form{
+width:min(620px,100%);
+margin:auto;
+text-align:left;
 }
 
-.consulting-text-right p {
-    margin: 0 0 28px;
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
 }
 
-.consulting-text-right p:last-child {
-    margin-bottom: 0;
+.form-field{
+margin-bottom:30px;
 }
 
-.cta {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.cta button {
-    padding: 0;
-    border: 0;
-    background: none;
-    color: #000;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-}
-
-.cta button:hover {
-    opacity: 1;
-}
-
-.form-wrapper {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    margin-top: 0;
-    transition:
-        max-height 0.8s ease,
-        opacity 0.5s ease,
-        margin-top 0.8s ease;
-}
-
-.form-wrapper.open {
-    max-height: 900px;
-    margin-top: 70px;
-    opacity: 1;
-}
-
-.contact-form {
-    width: min(620px, 100%);
-    margin: 0 auto;
-    text-align: left;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 35px;
-}
-
-.form-field {
-    margin-bottom: 35px;
-}
-
-.form-field label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 0.65rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.65;
+.form-field label{
+display:block;
+margin-bottom:10px;
+font-size:.65rem;
+text-transform:uppercase;
+letter-spacing:2px;
+opacity:.65;
 }
 
 .form-field input,
-.form-field textarea {
-    width: 100%;
-    padding: 8px 0 12px;
-    border: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.35);
-    border-radius: 0;
-    outline: none;
-    background: transparent;
-    color: #000;
-    font-size: 1rem;
+.form-field textarea{
+width:100%;
+border:0;
+border-bottom:1px solid rgba(0,0,0,.35);
+background:none;
+padding:8px 0 12px;
+outline:none;
+font:inherit;
+font-size:1rem;
 }
 
-.form-field input:focus,
-.form-field textarea:focus {
-    border-bottom-color: #000;
+.form-field textarea{
+min-height:100px;
+resize:vertical;
 }
 
-.form-field textarea {
-    min-height: 100px;
-    resize: vertical;
+.form-submit button{
+border:0;
+background:none;
+padding:0;
+font:inherit;
+font-size:.8rem;
+text-transform:uppercase;
+letter-spacing:2px;
+cursor:pointer;
+opacity:.7;
 }
 
-.form-submit {
-    margin-top: 15px;
-    text-align: left;
+.form-submit button:hover{opacity:1}
+
+
+/* POPUP */
+
+.success-popup{
+position:fixed;
+inset:0;
+z-index:9999;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:30px;
+background:rgba(255,255,255,.9);
+backdrop-filter:blur(8px);
+opacity:0;
+visibility:hidden;
+transition:.4s ease;
 }
 
-.form-submit button {
-    padding: 0;
-    border: 0;
-    background: none;
-    color: #000;
-    cursor: pointer;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.7;
+.success-popup.show{
+opacity:1;
+visibility:visible;
 }
 
-.form-submit button:hover {
-    opacity: 1;
+.success-content{
+width:min(520px,100%);
+text-align:center;
 }
 
-.form-submit button:disabled {
-    cursor: default;
-    opacity: 0.35;
+.success-content p{
+margin:0 0 30px;
+font-size:1.1rem;
+line-height:1.8;
 }
 
-
-/* SUCCESS POPUP */
-
-.success-popup {
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background: rgba(255,255,255,0.88);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    opacity: 0;
-    visibility: hidden;
-    transition:
-        opacity 0.4s ease,
-        visibility 0.4s ease;
-}
-
-.success-popup.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.success-popup-content {
-    width: min(520px, 100%);
-    text-align: center;
-    transform: translateY(15px);
-    transition: transform 0.4s ease;
-}
-
-.success-popup.show .success-popup-content {
-    transform: translateY(0);
-}
-
-.success-popup-message {
-    margin: 0 0 35px;
-    font-size: 1.15rem;
-    line-height: 1.8;
-    letter-spacing: 0.2px;
-}
-
-.success-popup-close {
-    padding: 0;
-    border: 0;
-    background: none;
-    color: #000;
-    cursor: pointer;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    opacity: 0.65;
-}
-
-.success-popup-close:hover {
-    opacity: 1;
+.success-content button{
+border:0;
+background:none;
+font:inherit;
+font-size:.7rem;
+text-transform:uppercase;
+letter-spacing:2px;
+cursor:pointer;
+opacity:.65;
 }
 
 
 /* MOBILE */
 
-@media (max-width: 700px) {
+@media(max-width:700px){
 
-    .container {
-        width: calc(100% - 40px);
-        padding-top: 120px;
-        padding-bottom: 100px;
-    }
+.container{
+width:calc(100% - 40px);
+padding-top:120px;
+}
 
-    .section-title {
-        margin-bottom: 65px;
-        font-size: 2.2rem;
-    }
+.section-title{
+font-size:2.2rem;
+margin-bottom:65px;
+}
 
-    .consulting-project {
-        margin-bottom: 110px;
-    }
+.house-before,
+.restaurant-images{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
 
-    .image-pair-large,
-    .image-pair-medium {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
-    }
+.house-info{
+grid-template-columns:1fr;
+gap:30px;
+}
 
-    .image-frame-large,
-    .image-pair-medium img {
-        width: 100%;
-    }
+.cta{text-align:left}
 
-    .image-frame-large img {
-        width: 100%;
-        height: auto;
-    }
+.restaurant{
+width:100%;
+margin-top:110px;
+}
 
-    .restaurant-project {
-        width: 100%;
-    }
+.restaurant-text{
+font-size:1.05rem;
+line-height:1.75;
+}
 
-    .consulting-text-left,
-    .consulting-text-right {
-        width: 100%;
-        max-width: 100%;
-        font-size: 1.05rem;
-        line-height: 1.75;
-    }
+.form-row{
+grid-template-columns:1fr;
+gap:0;
+}
 
-    .consulting-text-left {
-        margin-top: 30px;
-    }
-
-    .restaurant-content {
-        display: block;
-        margin-top: 30px;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-        gap: 0;
-    }
-
-    .form-wrapper.open {
-        max-height: 1100px;
-    }
-
-    .success-popup-message {
-        font-size: 1rem;
-    }
 }
 
 </style>
 
 </head>
 
-
 <body>
 
 <a href="index.html" class="back-home">← Home</a>
 
 <div class="lang-switch">
-    <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
-    |
-    <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
+<button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+|
+<button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
 
 
@@ -510,537 +398,383 @@ textarea {
 
 <!-- ENGLISH -->
 
-<div id="lang-en" class="lang-content">
+<div id="lang-en">
 
-    <h1 class="section-title">art consulting</h1>
-
-
-    <section class="consulting-project">
-
-        <div class="image-pair-large">
-
-            <div class="image-frame-large">
-                <img
-                    src="consulting_photos/interior1.png"
-                    alt="Private home interior"
-                >
-            </div>
-
-            <div class="image-frame-large">
-                <img
-                    src="consulting_photos/interior2.png"
-                    alt="Private home interior with artwork"
-                >
-            </div>
-
-        </div>
-
-        <div class="consulting-text-left">
-
-            <p>
-                From private homes to hospitality spaces, Senso develops art projects that respond to the identity, architecture and atmosphere of a place.
-            </p>
-
-            <p>
-                We approach each space through its particular character, working with artists and artworks to create a meaningful relationship between art and its surroundings.
-            </p>
-
-        </div>
-
-    </section>
+<h1 class="section-title">art consulting</h1>
 
 
-    <section class="consulting-project restaurant-project">
+<section>
 
-        <div class="image-pair-medium">
+<div class="house-before">
 
-            <img
-                src="consulting_photos/restaurante1.png"
-                alt="Restaurant interior"
-            >
+<img src="consulting_photos/interior1.png" alt="Private home interior">
+<img src="consulting_photos/interior1.png" alt="Private home interior">
 
-            <img
-                src="consulting_photos/restaurante2.png"
-                alt="Restaurant interior with artwork"
-            >
-
-        </div>
-
-        <div class="restaurant-content">
-
-            <div class="consulting-text-right">
-
-                <p>
-                    Senso collaborates with private collectors, hospitality spaces, restaurants, architects and interior designers to source, select and develop contemporary art projects.
-                </p>
-
-                <p>
-                    From the discovery of an artist to the selection and acquisition of a work, we bring together the right artistic language and the right context.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+</div>
 
 
-    <div class="cta">
+<div class="reveal">
 
-        <button type="button" onclick="toggleForm('en')">
-            Develop a project with us →
-        </button>
+<button onclick="revealHouse()" aria-label="Discover the project">
+↓
+</button>
 
-        <div id="form-en" class="form-wrapper">
+</div>
 
-            <form
-                class="contact-form"
-                action="https://formspree.io/f/mgorwree"
-                method="POST"
-            >
 
-                <div class="form-row">
+<div id="house-after-en" class="house-after">
 
-                    <div class="form-field">
-                        <label for="en-first-name">First name</label>
-                        <input
-                            type="text"
-                            id="en-first-name"
-                            name="first_name"
-                            required
-                        >
-                    </div>
+<img src="consulting_photos/interior2.png" alt="Private home interior with artwork">
 
-                    <div class="form-field">
-                        <label for="en-last-name">Last name</label>
-                        <input
-                            type="text"
-                            id="en-last-name"
-                            name="last_name"
-                            required
-                        >
-                    </div>
+<div class="house-info">
 
-                </div>
+<div class="text">
+<p>
+From private homes to hospitality spaces, Senso develops art projects that respond to the identity, architecture and atmosphere of a place.
+</p>
+</div>
 
-                <div class="form-row">
+<div class="cta">
 
-                    <div class="form-field">
-                        <label for="en-email">Email</label>
-                        <input
-                            type="email"
-                            id="en-email"
-                            name="email"
-                            required
-                        >
-                    </div>
+<button onclick="toggleForm('en')">
+Develop a project with us →
+</button>
 
-                    <div class="form-field">
-                        <label for="en-phone">Phone</label>
-                        <input
-                            type="tel"
-                            id="en-phone"
-                            name="phone"
-                        >
-                    </div>
+</div>
 
-                </div>
+</div>
 
-                <div class="form-field">
-                    <label for="en-comments">Comments</label>
-                    <textarea
-                        id="en-comments"
-                        name="comments"
-                        required
-                    ></textarea>
-                </div>
+</div>
 
-                <input
-                    type="hidden"
-                    name="language"
-                    value="English"
-                >
+</section>
 
-                <div class="form-submit">
-                    <button type="submit">Send →</button>
-                </div>
 
-            </form>
+<section class="restaurant">
 
-        </div>
+<div class="restaurant-images">
 
-    </div>
+<img src="consulting_photos/restaurante1.png" alt="Restaurant interior">
+<img src="consulting_photos/restaurante2.png" alt="Restaurant interior with artwork">
+
+</div>
+
+<div class="restaurant-text">
+
+<p>
+Senso collaborates with private collectors, hospitality spaces, restaurants, architects and interior designers to source, select and develop contemporary art projects.
+</p>
+
+</div>
+
+<div class="cta" style="margin-top:35px">
+
+<button onclick="toggleForm('en')">
+Develop a project with us →
+</button>
+
+</div>
+
+</section>
+
+
+<div id="form-en" class="form-wrapper">
+
+<form class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
+
+<div class="form-row">
+
+<div class="form-field">
+<label>First name</label>
+<input type="text" name="first_name" required>
+</div>
+
+<div class="form-field">
+<label>Last name</label>
+<input type="text" name="last_name" required>
+</div>
+
+</div>
+
+<div class="form-row">
+
+<div class="form-field">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-field">
+<label>Phone</label>
+<input type="tel" name="phone">
+</div>
+
+</div>
+
+<div class="form-field">
+<label>Comments</label>
+<textarea name="comments" required></textarea>
+</div>
+
+<input type="hidden" name="language" value="English">
+
+<div class="form-submit">
+<button type="submit">Send →</button>
+</div>
+
+</form>
+
+</div>
 
 </div>
 
 
 <!-- SPANISH -->
 
-<div id="lang-es" class="lang-content hidden">
+<div id="lang-es" class="hidden">
 
-    <h1 class="section-title">art consulting</h1>
+<h1 class="section-title">art consulting</h1>
 
+<section>
 
-    <section class="consulting-project">
+<div class="house-before">
 
-        <div class="image-pair-large">
+<img src="consulting_photos/interior1.png" alt="Interior de vivienda privada">
+<img src="consulting_photos/interior1.png" alt="Interior de vivienda privada">
 
-            <div class="image-frame-large">
-                <img
-                    src="consulting_photos/interior1.png"
-                    alt="Interior de una vivienda privada"
-                >
-            </div>
+</div>
 
-            <div class="image-frame-large">
-                <img
-                    src="consulting_photos/interior2.png"
-                    alt="Interior de una vivienda privada con obra de arte"
-                >
-            </div>
+<div class="reveal">
+<button onclick="revealHouse()" aria-label="Descubrir el proyecto">↓</button>
+</div>
 
-        </div>
+<div id="house-after-es" class="house-after">
 
-        <div class="consulting-text-left">
+<img src="consulting_photos/interior2.png" alt="Interior de vivienda privada con obra de arte">
 
-            <p>
-                Desde hogares privados hasta espacios de hospitality, Senso desarrolla proyectos de arte que responden a la identidad, arquitectura y atmósfera de cada lugar.
-            </p>
+<div class="house-info">
 
-            <p>
-                Abordamos cada espacio desde su carácter particular, trabajando con artistas y obras para crear una relación significativa entre el arte y su entorno.
-            </p>
+<div class="text">
+<p>
+Desde hogares privados hasta espacios de hospitality, Senso desarrolla proyectos de arte que responden a la identidad, arquitectura y atmósfera de cada lugar.
+</p>
+</div>
 
-        </div>
+<div class="cta">
+<button onclick="toggleForm('es')">
+Desarrolla un proyecto con nosotros →
+</button>
+</div>
 
-    </section>
+</div>
 
+</div>
 
-    <section class="consulting-project restaurant-project">
-
-        <div class="image-pair-medium">
-
-            <img
-                src="consulting_photos/restaurante1.png"
-                alt="Interior de un restaurante"
-            >
-
-            <img
-                src="consulting_photos/restaurante2.png"
-                alt="Interior de un restaurante con obra de arte"
-            >
-
-        </div>
-
-        <div class="restaurant-content">
-
-            <div class="consulting-text-right">
-
-                <p>
-                    Senso colabora con coleccionistas privados, espacios de hospitality, restaurantes, arquitectos e interioristas para seleccionar, adquirir y desarrollar proyectos de arte contemporáneo.
-                </p>
-
-                <p>
-                    Desde el descubrimiento de un artista hasta la selección y adquisición de una obra, conectamos el lenguaje artístico adecuado con el contexto adecuado.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <div class="cta">
+<section class="restaurant">
 
-        <button type="button" onclick="toggleForm('es')">
-            Desarrolla un proyecto con nosotros →
-        </button>
+<div class="restaurant-images">
 
-        <div id="form-es" class="form-wrapper">
+<img src="consulting_photos/restaurante1.png" alt="Interior de restaurante">
+<img src="consulting_photos/restaurante2.png" alt="Interior de restaurante con obra de arte">
 
-            <form
-                class="contact-form"
-                action="https://formspree.io/f/mgorwree"
-                method="POST"
-            >
+</div>
 
-                <div class="form-row">
+<div class="restaurant-text">
 
-                    <div class="form-field">
-                        <label for="es-first-name">Nombre</label>
-                        <input
-                            type="text"
-                            id="es-first-name"
-                            name="first_name"
-                            required
-                        >
-                    </div>
+<p>
+Senso colabora con coleccionistas privados, espacios de hospitality, restaurantes, arquitectos e interioristas para seleccionar, adquirir y desarrollar proyectos de arte contemporáneo.
+</p>
 
-                    <div class="form-field">
-                        <label for="es-last-name">Apellidos</label>
-                        <input
-                            type="text"
-                            id="es-last-name"
-                            name="last_name"
-                            required
-                        >
-                    </div>
+</div>
 
-                </div>
+<div class="cta" style="margin-top:35px">
 
-                <div class="form-row">
+<button onclick="toggleForm('es')">
+Desarrolla un proyecto con nosotros →
+</button>
 
-                    <div class="form-field">
-                        <label for="es-email">Email</label>
-                        <input
-                            type="email"
-                            id="es-email"
-                            name="email"
-                            required
-                        >
-                    </div>
+</div>
 
-                    <div class="form-field">
-                        <label for="es-phone">Teléfono</label>
-                        <input
-                            type="tel"
-                            id="es-phone"
-                            name="phone"
-                        >
-                    </div>
+</section>
 
-                </div>
 
-                <div class="form-field">
-                    <label for="es-comments">Comentarios</label>
-                    <textarea
-                        id="es-comments"
-                        name="comments"
-                        required
-                    ></textarea>
-                </div>
+<div id="form-es" class="form-wrapper">
 
-                <input
-                    type="hidden"
-                    name="language"
-                    value="Spanish"
-                >
+<form class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
 
-                <div class="form-submit">
-                    <button type="submit">Enviar →</button>
-                </div>
+<div class="form-row">
 
-            </form>
+<div class="form-field">
+<label>Nombre</label>
+<input type="text" name="first_name" required>
+</div>
 
-        </div>
+<div class="form-field">
+<label>Apellidos</label>
+<input type="text" name="last_name" required>
+</div>
 
-    </div>
+</div>
+
+<div class="form-row">
+
+<div class="form-field">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="form-field">
+<label>Teléfono</label>
+<input type="tel" name="phone">
+</div>
+
+</div>
+
+<div class="form-field">
+<label>Comentarios</label>
+<textarea name="comments" required></textarea>
+</div>
+
+<input type="hidden" name="language" value="Spanish">
+
+<div class="form-submit">
+<button type="submit">Enviar →</button>
+</div>
+
+</form>
+
+</div>
 
 </div>
 
 </main>
 
 
-<!-- SUCCESS POPUP -->
+<!-- POPUP -->
 
 <div id="success-popup" class="success-popup">
 
-    <div class="success-popup-content">
+<div class="success-content">
 
-        <p id="success-message-en" class="success-popup-message">
-            Your request has been sent successfully.<br>
-            One of our team members will be in touch with you shortly.<br>
-            Thank you.
-        </p>
+<p id="success-en">
+Your request has been sent successfully.<br>
+One of our team members will be in touch with you shortly.<br>
+Thank you.
+</p>
 
-        <p
-            id="success-message-es"
-            class="success-popup-message"
-            style="display:none;"
-        >
-            Tu solicitud se ha enviado correctamente.<br>
-            Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamente.<br>
-            Gracias.
-        </p>
+<p id="success-es" class="hidden">
+Tu solicitud se ha enviado correctamente.<br>
+Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamente.<br>
+Gracias.
+</p>
 
-        <button
-            type="button"
-            class="success-popup-close"
-            onclick="closeSuccessPopup()"
-        >
-            Close →
-        </button>
+<button onclick="closePopup()">Close →</button>
 
-    </div>
+</div>
 
 </div>
 
 
 <script>
 
-function setLang(lang) {
+function setLang(lang){
 
-    const en = document.getElementById('lang-en');
-    const es = document.getElementById('lang-es');
-    const btnEn = document.getElementById('btn-en');
-    const btnEs = document.getElementById('btn-es');
+document.getElementById('lang-en').classList.toggle('hidden',lang!=='en');
+document.getElementById('lang-es').classList.toggle('hidden',lang!=='es');
 
-    if (lang === 'es') {
-        en.classList.add('hidden');
-        es.classList.remove('hidden');
-        btnEn.classList.remove('active');
-        btnEs.classList.add('active');
-        document.documentElement.lang = 'es';
-    } else {
-        es.classList.add('hidden');
-        en.classList.remove('hidden');
-        btnEs.classList.remove('active');
-        btnEn.classList.add('active');
-        document.documentElement.lang = 'en';
-    }
+document.getElementById('btn-en').classList.toggle('active',lang==='en');
+document.getElementById('btn-es').classList.toggle('active',lang==='es');
 
-    localStorage.setItem('senso_lang', lang);
+document.documentElement.lang=lang;
+localStorage.setItem('senso_lang',lang);
+
 }
 
 
-function toggleForm(lang) {
+function revealHouse(){
 
-    const form = document.getElementById('form-' + lang);
+document.querySelectorAll('.house-after').forEach(el=>{
+el.classList.add('show');
+});
 
-    form.classList.toggle('open');
+document.querySelectorAll('.house-before,.reveal').forEach(el=>{
+el.classList.add('hidden');
+});
 
-    if (form.classList.contains('open')) {
-
-        setTimeout(() => {
-
-            form.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest'
-            });
-
-        }, 150);
-
-    }
 }
 
 
-function showSuccessPopup(lang) {
+function toggleForm(lang){
 
-    const popup = document.getElementById('success-popup');
-    const messageEn = document.getElementById('success-message-en');
-    const messageEs = document.getElementById('success-message-es');
+const form=document.getElementById('form-'+lang);
 
-    if (lang === 'es') {
-        messageEn.style.display = 'none';
-        messageEs.style.display = 'block';
-    } else {
-        messageEs.style.display = 'none';
-        messageEn.style.display = 'block';
-    }
+form.classList.toggle('open');
 
-    popup.classList.add('show');
+if(form.classList.contains('open')){
+setTimeout(()=>{
+form.scrollIntoView({behavior:'smooth',block:'nearest'});
+},150);
+}
+
 }
 
 
-function closeSuccessPopup() {
-
-    document
-        .getElementById('success-popup')
-        .classList.remove('show');
+function closePopup(){
+document.getElementById('success-popup').classList.remove('show');
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded',()=>{
 
-    const savedLang =
-        localStorage.getItem('senso_lang') || 'en';
+setLang(localStorage.getItem('senso_lang')||'en');
 
-    setLang(savedLang);
+document.querySelectorAll('.contact-form').forEach(form=>{
 
+form.addEventListener('submit',async e=>{
 
-    document
-        .querySelectorAll('.contact-form')
-        .forEach(form => {
+e.preventDefault();
 
-            form.addEventListener('submit', async event => {
+const button=form.querySelector('button[type="submit"]');
+const original=button.textContent;
 
-                event.preventDefault();
+button.disabled=true;
+button.textContent='Sending...';
 
-                const button =
-                    form.querySelector('button[type="submit"]');
+try{
 
-                const originalText =
-                    button.textContent;
+const response=await fetch(form.action,{
+method:'POST',
+body:new FormData(form),
+headers:{Accept:'application/json'}
+});
 
-                button.disabled = true;
-                button.textContent =
-                    form.querySelector('input[name="language"]').value === 'Spanish'
-                        ? 'Enviando...'
-                        : 'Sending...';
+if(!response.ok) throw new Error();
 
-                try {
+const lang=form.querySelector('[name="language"]').value==='Spanish'?'es':'en';
 
-                    const response = await fetch(
-                        form.action,
-                        {
-                            method: 'POST',
-                            body: new FormData(form),
-                            headers: {
-                                'Accept': 'application/json'
-                            }
-                        }
-                    );
+form.reset();
+form.closest('.form-wrapper').classList.remove('open');
 
-                    if (!response.ok) {
-                        throw new Error('Form submission failed');
-                    }
+document.getElementById('success-en').classList.toggle('hidden',lang!=='en');
+document.getElementById('success-es').classList.toggle('hidden',lang!=='es');
 
-                    const language =
-                        form.querySelector(
-                            'input[name="language"]'
-                        ).value === 'Spanish'
-                            ? 'es'
-                            : 'en';
+document.getElementById('success-popup').classList.add('show');
 
-                    form.reset();
+}catch{
 
-                    const wrapper =
-                        form.closest('.form-wrapper');
+alert('There was a problem sending your request. Please try again.');
 
-                    if (wrapper) {
-                        wrapper.classList.remove('open');
-                    }
+}finally{
 
-                    showSuccessPopup(language);
+button.disabled=false;
+button.textContent=original;
 
-                } catch (error) {
-
-                    alert(
-                        language === 'es'
-                            ? 'Ha ocurrido un problema. Por favor, inténtalo de nuevo.'
-                            : 'There was a problem sending your request. Please try again.'
-                    );
-
-                } finally {
-
-                    button.disabled = false;
-                    button.textContent = originalText;
-
-                }
-
-            });
-
-        });
+}
 
 });
 
-
-document.addEventListener('keydown', event => {
-
-    if (event.key === 'Escape') {
-        closeSuccessPopup();
-    }
+});
 
 });
 
