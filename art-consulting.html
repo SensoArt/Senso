@@ -166,11 +166,6 @@ margin-top:42px;
 text-align:right;
 }
 
-.restaurant-cta{
-text-align:center;
-margin-top:75px;
-}
-
 .cta button{
 padding:0;
 border:0;
@@ -186,16 +181,40 @@ transition:opacity .3s;
 
 .cta button:hover{opacity:1}
 
+
+/* RESTAURANT */
+
 .restaurant-project{
-width:60%;
-max-width:760px;
+width:65%;
+max-width:820px;
 margin:170px auto 150px;
 }
 
-.restaurant-project .image-stage{
+.restaurant-layout{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.restaurant-layout .image-stage{
 width:100%;
 max-width:none;
+margin:0;
 }
+
+.restaurant-layout .project-text{
+margin:0;
+max-width:none;
+}
+
+.restaurant-cta{
+text-align:center;
+margin-top:90px;
+}
+
+
+/* FORM */
 
 .form-wrapper{
 max-height:0;
@@ -261,6 +280,9 @@ letter-spacing:2px;
 opacity:.7;
 }
 
+
+/* POPUP */
+
 .success-popup{
 position:fixed;
 inset:0;
@@ -302,6 +324,9 @@ letter-spacing:2px;
 opacity:.65;
 }
 
+
+/* MOBILE */
+
 @media(max-width:700px){
 
 .container{
@@ -315,8 +340,7 @@ margin-bottom:65px;
 font-size:2.2rem;
 }
 
-.image-stage,
-.restaurant-project{
+.image-stage{
 width:100%;
 }
 
@@ -327,15 +351,25 @@ line-height:1.75;
 }
 
 .restaurant-project{
+width:100%;
 margin-top:100px;
 }
 
-.restaurant-cta{
-margin-top:55px;
+.restaurant-layout{
+grid-template-columns:1fr;
+gap:35px;
 }
 
-.house-cta,
+.restaurant-layout .project-text{
+margin-top:0;
+}
+
 .restaurant-cta{
+margin-top:65px;
+text-align:left;
+}
+
+.house-cta{
 text-align:left;
 }
 
@@ -372,6 +406,8 @@ gap:0;
 <div id="lang-en">
 
 <h1 class="section-title">art consulting</h1>
+
+<!-- HOUSE -->
 
 <section class="project">
 
@@ -411,7 +447,12 @@ Develop a project with us →
 
 </section>
 
+
+<!-- RESTAURANT -->
+
 <section class="project restaurant-project">
+
+<div class="restaurant-layout">
 
 <div id="restaurant-stage-en" class="image-stage">
 
@@ -441,6 +482,8 @@ From the discovery of an artist to the selection and acquisition of a work, we b
 
 </div>
 
+</div>
+
 <div class="cta restaurant-cta">
 <button onclick="toggleForm('en')">
 Develop a project with us →
@@ -448,6 +491,7 @@ Develop a project with us →
 </div>
 
 </section>
+
 
 <div id="form-en" class="form-wrapper">
 
@@ -501,9 +545,13 @@ method="POST">
 </div>
 
 
+<!-- SPANISH -->
+
 <div id="lang-es" class="hidden">
 
 <h1 class="section-title">art consulting</h1>
+
+<!-- HOUSE -->
 
 <section class="project">
 
@@ -543,7 +591,12 @@ Desarrolla un proyecto con nosotros →
 
 </section>
 
+
+<!-- RESTAURANT -->
+
 <section class="project restaurant-project">
+
+<div class="restaurant-layout">
 
 <div id="restaurant-stage-es" class="image-stage">
 
@@ -573,6 +626,8 @@ Desde el descubrimiento de un artista hasta la selección y adquisición de una 
 
 </div>
 
+</div>
+
 <div class="cta restaurant-cta">
 <button onclick="toggleForm('es')">
 Desarrolla un proyecto con nosotros →
@@ -580,6 +635,7 @@ Desarrolla un proyecto con nosotros →
 </div>
 
 </section>
+
 
 <div id="form-es" class="form-wrapper">
 
@@ -634,6 +690,9 @@ method="POST">
 
 </main>
 
+
+<!-- SUCCESS POPUP -->
+
 <div id="success-popup" class="success-popup">
 
 <div class="success-popup-content">
@@ -658,6 +717,7 @@ Close →
 </div>
 
 </div>
+
 
 <script>
 
