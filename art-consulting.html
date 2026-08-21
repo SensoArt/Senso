@@ -144,7 +144,7 @@ background:rgba(255,255,255,.95);
 .project-text{
 width:100%;
 max-width:780px;
-margin-top:42px;
+margin-top:58px;
 font-size:1.2rem;
 line-height:1.85;
 letter-spacing:.2px;
@@ -168,7 +168,7 @@ text-align:right;
 
 .restaurant-cta{
 text-align:center;
-margin-top:48px;
+margin-top:75px;
 }
 
 .cta button{
@@ -187,8 +187,8 @@ transition:opacity .3s;
 .cta button:hover{opacity:1}
 
 .restaurant-project{
-width:65%;
-max-width:820px;
+width:60%;
+max-width:760px;
 margin:170px auto 150px;
 }
 
@@ -321,7 +321,7 @@ width:100%;
 }
 
 .project-text{
-margin-top:30px;
+margin-top:35px;
 font-size:1.05rem;
 line-height:1.75;
 }
@@ -330,17 +330,21 @@ line-height:1.75;
 margin-top:100px;
 }
 
+.restaurant-cta{
+margin-top:55px;
+}
+
+.house-cta,
+.restaurant-cta{
+text-align:left;
+}
+
 .image-arrow{
 right:12px;
 width:36px;
 height:36px;
 font-size:21px;
 line-height:36px;
-}
-
-.house-cta,
-.restaurant-cta{
-text-align:left;
 }
 
 .form-row{
@@ -373,11 +377,17 @@ gap:0;
 
 <div id="house-stage-en" class="image-stage">
 
-<img class="before" src="consulting_photos/interior1.png" alt="Private home interior">
+<img class="before"
+src="consulting_photos/interior1.png"
+alt="Private home interior">
 
-<img class="after" src="consulting_photos/interior2.png" alt="Private home interior with artwork">
+<img class="after"
+src="consulting_photos/interior2.png"
+alt="Private home interior with artwork">
 
-<button class="image-arrow" onclick="changeImage('house-stage-en',this)" aria-label="View next image">→</button>
+<button class="image-arrow"
+onclick="changeImage('house-stage-en',this)"
+aria-label="View next image">→</button>
 
 </div>
 
@@ -405,11 +415,17 @@ Develop a project with us →
 
 <div id="restaurant-stage-en" class="image-stage">
 
-<img class="before" src="consulting_photos/restaurante1.png" alt="Restaurant interior">
+<img class="before"
+src="consulting_photos/restaurante1.png"
+alt="Restaurant interior">
 
-<img class="after" src="consulting_photos/restaurante2.png" alt="Restaurant interior with artwork">
+<img class="after"
+src="consulting_photos/restaurante2.png"
+alt="Restaurant interior with artwork">
 
-<button class="image-arrow" onclick="changeImage('restaurant-stage-en',this)" aria-label="View next image">→</button>
+<button class="image-arrow"
+onclick="changeImage('restaurant-stage-en',this)"
+aria-label="View next image">→</button>
 
 </div>
 
@@ -435,7 +451,9 @@ Develop a project with us →
 
 <div id="form-en" class="form-wrapper">
 
-<form class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
+<form class="contact-form"
+action="https://formspree.io/f/mgorwree"
+method="POST">
 
 <div class="form-row">
 
@@ -491,11 +509,17 @@ Develop a project with us →
 
 <div id="house-stage-es" class="image-stage">
 
-<img class="before" src="consulting_photos/interior1.png" alt="Interior de una vivienda privada">
+<img class="before"
+src="consulting_photos/interior1.png"
+alt="Interior de una vivienda privada">
 
-<img class="after" src="consulting_photos/interior2.png" alt="Interior de una vivienda privada con obra de arte">
+<img class="after"
+src="consulting_photos/interior2.png"
+alt="Interior de una vivienda privada con obra de arte">
 
-<button class="image-arrow" onclick="changeImage('house-stage-es',this)" aria-label="Ver siguiente imagen">→</button>
+<button class="image-arrow"
+onclick="changeImage('house-stage-es',this)"
+aria-label="Ver siguiente imagen">→</button>
 
 </div>
 
@@ -523,11 +547,17 @@ Desarrolla un proyecto con nosotros →
 
 <div id="restaurant-stage-es" class="image-stage">
 
-<img class="before" src="consulting_photos/restaurante1.png" alt="Interior de un restaurante">
+<img class="before"
+src="consulting_photos/restaurante1.png"
+alt="Interior de un restaurante">
 
-<img class="after" src="consulting_photos/restaurante2.png" alt="Interior de un restaurante con obra de arte">
+<img class="after"
+src="consulting_photos/restaurante2.png"
+alt="Interior de un restaurante con obra de arte">
 
-<button class="image-arrow" onclick="changeImage('restaurant-stage-es',this)" aria-label="Ver siguiente imagen">→</button>
+<button class="image-arrow"
+onclick="changeImage('restaurant-stage-es',this)"
+aria-label="Ver siguiente imagen">→</button>
 
 </div>
 
@@ -553,7 +583,9 @@ Desarrolla un proyecto con nosotros →
 
 <div id="form-es" class="form-wrapper">
 
-<form class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
+<form class="contact-form"
+action="https://formspree.io/f/mgorwree"
+method="POST">
 
 <div class="form-row">
 
@@ -618,7 +650,10 @@ Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamen
 Gracias.
 </p>
 
-<button class="success-popup-close" onclick="closeSuccessPopup()">Close →</button>
+<button class="success-popup-close"
+onclick="closeSuccessPopup()">
+Close →
+</button>
 
 </div>
 
@@ -630,6 +665,7 @@ function setLang(lang){
 
 document.getElementById('lang-en').classList.toggle('hidden',lang!=='en');
 document.getElementById('lang-es').classList.toggle('hidden',lang!=='es');
+
 document.getElementById('btn-en').classList.toggle('active',lang==='en');
 document.getElementById('btn-es').classList.toggle('active',lang==='es');
 
@@ -654,15 +690,24 @@ const form=document.getElementById('form-'+lang);
 form.classList.toggle('open');
 
 if(form.classList.contains('open')){
+
 setTimeout(()=>{
-form.scrollIntoView({behavior:'smooth',block:'nearest'});
+form.scrollIntoView({
+behavior:'smooth',
+block:'nearest'
+});
 },150);
+
 }
 
 }
 
 function closeSuccessPopup(){
-document.getElementById('success-popup').classList.remove('show');
+
+document
+.getElementById('success-popup')
+.classList.remove('show');
+
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
@@ -695,15 +740,22 @@ if(!response.ok)throw new Error();
 form.reset();
 form.closest('.form-wrapper').classList.remove('open');
 
-document.getElementById('success-en').classList.toggle('hidden',language==='Spanish');
-document.getElementById('success-es').classList.toggle('hidden',language!=='Spanish');
-document.getElementById('success-popup').classList.add('show');
+document.getElementById('success-en')
+.classList.toggle('hidden',language==='Spanish');
+
+document.getElementById('success-es')
+.classList.toggle('hidden',language!=='Spanish');
+
+document.getElementById('success-popup')
+.classList.add('show');
 
 }catch{
 
-alert(language==='Spanish'
+alert(
+language==='Spanish'
 ?'Ha ocurrido un problema. Por favor, inténtalo de nuevo.'
-:'There was a problem sending your request. Please try again.');
+:'There was a problem sending your request. Please try again.'
+);
 
 }finally{
 
