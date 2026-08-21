@@ -305,16 +305,20 @@ display:block;
 margin-top:20px;
 }
 
-.form-submit button{
+.submit-button{
 display:inline-block;
 padding:0;
 border:0;
 background:none;
+color:#000;
 cursor:pointer;
+font-family:inherit;
 font-size:.8rem;
 text-transform:uppercase;
 letter-spacing:2px;
 opacity:.7;
+-webkit-appearance:none;
+appearance:none;
 }
 
 .success-popup{
@@ -446,8 +450,6 @@ font-size:21px;
 line-height:36px;
 }
 
-/* MOBILE FORM */
-
 .form-wrapper{
 display:none;
 max-height:none;
@@ -469,10 +471,12 @@ margin-top:25px;
 padding-bottom:30px;
 }
 
-.form-submit button{
+.submit-button{
 display:inline-block;
 visibility:visible;
 opacity:.7;
+-webkit-appearance:none;
+appearance:none;
 }
 
 }
@@ -659,7 +663,7 @@ method="POST">
 <input type="hidden" name="language" value="English">
 
 <div class="form-submit">
-<button type="submit">Send →</button>
+<input class="submit-button" type="submit" value="Send →">
 </div>
 
 </form>
@@ -835,7 +839,7 @@ method="POST">
 <input type="hidden" name="language" value="Spanish">
 
 <div class="form-submit">
-<button type="submit">Enviar →</button>
+<input class="submit-button" type="submit" value="Enviar →">
 </div>
 
 </form>
@@ -932,12 +936,12 @@ form.addEventListener('submit',async event=>{
 
 event.preventDefault();
 
-const button=form.querySelector('button[type="submit"]');
-const original=button.textContent;
+const button=form.querySelector('.submit-button');
+const original=button.value;
 const language=form.querySelector('[name="language"]').value;
 
 button.disabled=true;
-button.textContent=language==='Spanish'?'Enviando...':'Sending...';
+button.value=language==='Spanish'?'Enviando...':'Sending...';
 
 try{
 
@@ -972,7 +976,7 @@ language==='Spanish'
 }finally{
 
 button.disabled=false;
-button.textContent=original;
+button.value=original;
 
 }
 
