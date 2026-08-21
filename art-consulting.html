@@ -32,13 +32,14 @@ background:#fff;
 color:#000;
 font-family:FuturaLight,sans-serif;
 -webkit-font-smoothing:antialiased;
+overflow-x:hidden;
 }
 
 .back-home{
 position:fixed;
 top:25px;
 left:20px;
-z-index:10;
+z-index:1000;
 color:#000;
 text-decoration:none;
 text-transform:uppercase;
@@ -51,7 +52,7 @@ opacity:.7;
 position:fixed;
 top:25px;
 right:20px;
-z-index:10;
+z-index:1000;
 font-size:.65rem;
 letter-spacing:2px;
 }
@@ -70,13 +71,13 @@ opacity:.35;
 .lang-btn.active{opacity:1}
 
 .container{
-width:min(1400px,calc(100% - 80px));
+width:min(1200px,calc(100% - 80px));
 margin:auto;
 padding:150px 0 140px;
 }
 
 .section-title{
-margin:0 0 110px;
+margin:0 0 90px;
 font-family:BehindNineties,serif;
 font-size:clamp(2rem,5vw,3rem);
 font-weight:normal;
@@ -86,7 +87,17 @@ text-transform:lowercase;
 .hidden{display:none!important}
 
 
-/* IMAGES */
+/* PROJECT */
+
+.project{
+margin-bottom:150px;
+}
+
+.project-image{
+width:100%;
+max-width:1050px;
+margin:0 auto;
+}
 
 .project-image img{
 display:block;
@@ -94,39 +105,46 @@ width:100%;
 height:auto;
 }
 
+
+/* ARROW */
+
 .arrow{
 display:block;
-margin:35px auto 45px;
+margin:28px auto 40px;
 padding:5px 15px;
 border:0;
 background:none;
 font:inherit;
-font-size:1.5rem;
+font-size:1.4rem;
+color:#000;
 cursor:pointer;
-opacity:.55;
+opacity:.5;
 transition:opacity .3s;
 }
 
-.arrow:hover{opacity:1}
+.arrow:hover{
+opacity:1;
+}
 
 
-/* TEXT */
+/* INFO */
 
 .project-info{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:80px;
-margin-top:45px;
+gap:70px;
 align-items:start;
 }
 
 .project-text{
-max-width:780px;
-font-size:1.15rem;
+max-width:650px;
+font-size:1.1rem;
 line-height:1.85;
 }
 
-.project-text p{margin:0}
+.project-text p{
+margin:0;
+}
 
 .cta{
 text-align:right;
@@ -140,21 +158,24 @@ font:inherit;
 font-size:.8rem;
 text-transform:uppercase;
 letter-spacing:2px;
+color:#000;
 cursor:pointer;
 opacity:.7;
 }
 
-.cta button:hover{opacity:1}
-
-
-/* PROJECTS */
-
-.project{
-margin-bottom:180px;
+.cta button:hover{
+opacity:1;
 }
 
+
+/* RESTAURANT */
+
 .restaurant{
-margin-top:180px;
+margin-top:170px;
+}
+
+.restaurant .project-image{
+max-width:950px;
 }
 
 
@@ -214,8 +235,7 @@ min-height:100px;
 resize:vertical;
 }
 
-.form-submit button,
-.success-close{
+.form-submit button{
 border:0;
 background:none;
 padding:0;
@@ -233,7 +253,7 @@ opacity:.7;
 .success-popup{
 position:fixed;
 inset:0;
-z-index:999;
+z-index:9999;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -251,7 +271,7 @@ visibility:visible;
 }
 
 .success-content{
-max-width:520px;
+width:min(520px,100%);
 text-align:center;
 }
 
@@ -259,6 +279,17 @@ text-align:center;
 margin:0 0 30px;
 font-size:1.1rem;
 line-height:1.8;
+}
+
+.success-content button{
+border:0;
+background:none;
+font:inherit;
+font-size:.7rem;
+text-transform:uppercase;
+letter-spacing:2px;
+cursor:pointer;
+opacity:.65;
 }
 
 
@@ -269,19 +300,21 @@ line-height:1.8;
 .container{
 width:calc(100% - 40px);
 padding-top:120px;
+padding-bottom:100px;
 }
 
 .section-title{
 font-size:2.2rem;
-margin-bottom:65px;
+margin-bottom:60px;
 }
 
 .project{
-margin-bottom:110px;
+margin-bottom:100px;
 }
 
-.restaurant{
-margin-top:110px;
+.project-image,
+.restaurant .project-image{
+max-width:100%;
 }
 
 .project-info{
@@ -293,6 +326,10 @@ gap:30px;
 text-align:left;
 }
 
+.restaurant{
+margin-top:100px;
+}
+
 .form-row{
 grid-template-columns:1fr;
 gap:0;
@@ -301,6 +338,7 @@ gap:0;
 }
 
 </style>
+
 </head>
 
 
@@ -328,13 +366,19 @@ gap:0;
 
 <section class="project">
 
-<div id="house-image" class="project-image">
-<img src="consulting_photos/interior1.png" alt="Private home interior">
+<div class="project-image">
+<img id="house-image-en" src="consulting_photos/interior1.png" alt="Private home interior">
 </div>
 
-<button class="arrow" onclick="reveal('house')" aria-label="Discover the project">↓</button>
+<button
+class="arrow"
+onclick="reveal('house-image-en','consulting_photos/interior2.png',this)"
+aria-label="Discover what happens next"
+>
+↓
+</button>
 
-<div id="house-info" class="project-info hidden">
+<div class="project-info">
 
 <div class="project-text">
 <p>
@@ -357,13 +401,19 @@ Develop a project with us →
 
 <section class="project restaurant">
 
-<div id="restaurant-image" class="project-image">
-<img src="consulting_photos/restaurante1.png" alt="Restaurant interior">
+<div class="project-image">
+<img id="restaurant-image-en" src="consulting_photos/restaurante1.png" alt="Restaurant interior">
 </div>
 
-<button class="arrow" onclick="reveal('restaurant')" aria-label="Discover the project">↓</button>
+<button
+class="arrow"
+onclick="reveal('restaurant-image-en','consulting_photos/restaurante2.png',this)"
+aria-label="Discover what happens next"
+>
+↓
+</button>
 
-<div id="restaurant-info" class="project-info hidden">
+<div class="project-info">
 
 <div class="project-text">
 <p>
@@ -443,13 +493,19 @@ Develop a project with us →
 
 <section class="project">
 
-<div id="house-image-es" class="project-image">
-<img src="consulting_photos/interior1.png" alt="Interior de vivienda privada">
+<div class="project-image">
+<img id="house-image-es" src="consulting_photos/interior1.png" alt="Interior de vivienda privada">
 </div>
 
-<button class="arrow" onclick="reveal('house-es')" aria-label="Descubrir el proyecto">↓</button>
+<button
+class="arrow"
+onclick="reveal('house-image-es','consulting_photos/interior2.png',this)"
+aria-label="Descubrir qué sucede después"
+>
+↓
+</button>
 
-<div id="house-info-es" class="project-info hidden">
+<div class="project-info">
 
 <div class="project-text">
 <p>
@@ -472,13 +528,19 @@ Desarrolla un proyecto con nosotros →
 
 <section class="project restaurant">
 
-<div id="restaurant-image-es" class="project-image">
-<img src="consulting_photos/restaurante1.png" alt="Interior de restaurante">
+<div class="project-image">
+<img id="restaurant-image-es" src="consulting_photos/restaurante1.png" alt="Interior de restaurante">
 </div>
 
-<button class="arrow" onclick="reveal('restaurant-es')" aria-label="Descubrir el proyecto">↓</button>
+<button
+class="arrow"
+onclick="reveal('restaurant-image-es','consulting_photos/restaurante2.png',this)"
+aria-label="Descubrir qué sucede después"
+>
+↓
+</button>
 
-<div id="restaurant-info-es" class="project-info hidden">
+<div class="project-info">
 
 <div class="project-text">
 <p>
@@ -567,7 +629,7 @@ Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamen
 Gracias.
 </p>
 
-<button class="success-close" onclick="closePopup()">Close →</button>
+<button onclick="closePopup()">Close →</button>
 
 </div>
 
@@ -585,48 +647,15 @@ document.getElementById('btn-en').classList.toggle('active',lang==='en');
 document.getElementById('btn-es').classList.toggle('active',lang==='es');
 
 document.documentElement.lang=lang;
-
 localStorage.setItem('senso_lang',lang);
 
 }
 
 
-function reveal(type){
+function reveal(id,src,button){
 
-const data={
-house:{
-image:'house-image',
-info:'house-info',
-src:'consulting_photos/interior2.png',
-alt:'Private home interior with artwork'
-},
-'house-es':{
-image:'house-image-es',
-info:'house-info-es',
-src:'consulting_photos/interior2.png',
-alt:'Interior de vivienda privada con obra de arte'
-},
-restaurant:{
-image:'restaurant-image',
-info:'restaurant-info',
-src:'consulting_photos/restaurante2.png',
-alt:'Restaurant interior with artwork'
-},
-'restaurant-es':{
-image:'restaurant-image-es',
-info:'restaurant-info-es',
-src:'consulting_photos/restaurante2.png',
-alt:'Interior de restaurante con obra de arte'
-}
-};
-
-const d=data[type];
-
-document.querySelector('#'+d.image+' img').src=d.src;
-document.querySelector('#'+d.image+' img').alt=d.alt;
-document.getElementById(d.info).classList.remove('hidden');
-
-event.target.style.display='none';
+document.getElementById(id).src=src;
+button.style.visibility='hidden';
 
 }
 
@@ -638,16 +667,25 @@ const form=document.getElementById('form-'+lang);
 form.classList.toggle('open');
 
 if(form.classList.contains('open')){
+
 setTimeout(()=>{
-form.scrollIntoView({behavior:'smooth',block:'nearest'});
+form.scrollIntoView({
+behavior:'smooth',
+block:'nearest'
+});
 },150);
+
 }
 
 }
 
 
 function closePopup(){
-document.getElementById('success-popup').classList.remove('show');
+
+document
+.getElementById('success-popup')
+.classList.remove('show');
+
 }
 
 
@@ -669,26 +707,44 @@ button.textContent='Sending...';
 
 try{
 
-const response=await fetch(form.action,{
+const response=await fetch(
+form.action,
+{
 method:'POST',
 body:new FormData(form),
 headers:{Accept:'application/json'}
-});
+}
+);
 
 if(!response.ok)throw new Error();
 
-const lang=form.querySelector('[name="language"]').value==='Spanish'?'es':'en';
+const lang=
+form.querySelector('[name="language"]').value==='Spanish'
+?'es'
+:'en';
 
 form.reset();
-form.closest('.form-wrapper').classList.remove('open');
 
-document.getElementById('success-en').classList.toggle('hidden',lang!=='en');
-document.getElementById('success-es').classList.toggle('hidden',lang!=='es');
-document.getElementById('success-popup').classList.add('show');
+form.closest('.form-wrapper')
+.classList.remove('open');
+
+document
+.getElementById('success-en')
+.classList.toggle('hidden',lang!=='en');
+
+document
+.getElementById('success-es')
+.classList.toggle('hidden',lang!=='es');
+
+document
+.getElementById('success-popup')
+.classList.add('show');
 
 }catch{
 
-alert('There was a problem sending your request. Please try again.');
+alert(
+'There was a problem sending your request. Please try again.'
+);
 
 }finally{
 
