@@ -545,34 +545,47 @@ Develop a project with us →
 <div class="process-grid">
 
 <div class="process-item">
+
 <h3>Discover</h3>
+
 <p>
 We begin with the space, the project and its context, understanding what the client is looking to achieve and the role art should play within it.
 </p>
+
 </div>
 
 <div class="process-item">
+
 <h3>Source</h3>
+
 <p>
 We identify artists and artworks through Senso’s network and wider contemporary art research, focusing on works that can bring the right artistic language to the project. We can also commission artists to develop a work specifically for the space.
 </p>
+
 </div>
 
 <div class="process-item">
+
 <h3>Select</h3>
+
 <p>
 We develop a considered selection, advising on works, scale, positioning and acquisition to create a coherent relationship between the art and its surroundings. Where appropriate, we can also present works within the space, allowing clients to experience how they work in context before making a final decision.
 </p>
+
 </div>
 
 <div class="process-item">
+
 <h3>Acquire</h3>
+
 <p>
 We support the client through the acquisition process, from final selection to purchase and placement.
 </p>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="project restaurant-project">
@@ -721,34 +734,47 @@ Desarrolla un proyecto con nosotros →
 <div class="process-grid">
 
 <div class="process-item">
+
 <h3>Descubrir</h3>
+
 <p>
 Comenzamos por el espacio, el proyecto y su contexto, entendiendo qué busca conseguir el cliente y qué papel debe desempeñar el arte dentro de él.
 </p>
+
 </div>
 
 <div class="process-item">
+
 <h3>Seleccionar artistas y obras</h3>
+
 <p>
 Identificamos artistas y obras a través de la red de Senso y de nuestra investigación en arte contemporáneo, buscando el lenguaje artístico adecuado para cada proyecto. También podemos encargar a artistas el desarrollo de una obra específica para el espacio.
 </p>
+
 </div>
 
 <div class="process-item">
+
 <h3>Seleccionar</h3>
+
 <p>
 Desarrollamos una selección cuidada, asesorando sobre obras, escala, ubicación y adquisición para crear una relación coherente entre el arte y su entorno. Cuando es apropiado, también podemos presentar las obras dentro del espacio, permitiendo al cliente experimentar cómo funcionan en contexto antes de tomar una decisión final.
 </p>
+
 </div>
 
 <div class="process-item">
+
 <h3>Adquirir</h3>
+
 <p>
 Acompañamos al cliente durante el proceso de adquisición, desde la selección final hasta la compra y colocación.
 </p>
+
 </div>
 
 </div>
+
 </section>
 
 <section class="project restaurant-project">
@@ -948,22 +974,31 @@ try{
 const response=await fetch(form.action,{
 method:'POST',
 body:new FormData(form),
-headers:{Accept:'application/json'}
+headers:{
+Accept:'application/json'
+}
 });
 
 if(!response.ok)throw new Error();
 
 form.reset();
-form.closest('.form-wrapper').classList.remove('open');
+
+form
+.closest('.form-wrapper')
+.classList
+.remove('open');
 
 document.getElementById('success-en')
-.classList.toggle('hidden',language==='Spanish');
+.classList
+.toggle('hidden',language==='Spanish');
 
 document.getElementById('success-es')
-.classList.toggle('hidden',language!=='Spanish');
+.classList
+.toggle('hidden',language!=='Spanish');
 
 document.getElementById('success-popup')
-.classList.add('show');
+.classList
+.add('show');
 
 }catch{
 
