@@ -35,9 +35,7 @@ font-family:FuturaLight,sans-serif;
 overflow-x:hidden;
 }
 
-button,input,textarea{
-font-family:inherit;
-}
+button,input,textarea{font-family:inherit}
 
 .back-home{
 position:fixed;
@@ -72,9 +70,7 @@ letter-spacing:2px;
 opacity:.35;
 }
 
-.lang-btn.active{
-opacity:1;
-}
+.lang-btn.active{opacity:1}
 
 .container{
 width:min(1200px,calc(100% - 80px));
@@ -90,12 +86,7 @@ font-weight:normal;
 text-transform:lowercase;
 }
 
-.hidden{
-display:none!important;
-}
-
-
-/* PROJECT */
+.hidden{display:none!important}
 
 .project{
 width:100%;
@@ -118,20 +109,11 @@ height:auto;
 transition:opacity .7s ease;
 }
 
-.image-stage img.after{
-opacity:0;
-}
+.image-stage img.after{opacity:0}
 
-.image-stage.after-visible img.before{
-opacity:0;
-}
+.image-stage.after-visible img.before{opacity:0}
 
-.image-stage.after-visible img.after{
-opacity:1;
-}
-
-
-/* ARROW */
+.image-stage.after-visible img.after{opacity:1}
 
 .image-arrow{
 position:absolute;
@@ -159,9 +141,6 @@ opacity:1;
 background:rgba(255,255,255,.95);
 }
 
-
-/* TEXT */
-
 .project-text{
 width:100%;
 max-width:780px;
@@ -179,11 +158,17 @@ margin:0 0 28px;
 margin-bottom:0;
 }
 
-
-/* CTA */
-
 .cta{
-margin-top:28px;
+margin-top:42px;
+}
+
+.house-cta{
+text-align:right;
+}
+
+.restaurant-cta{
+text-align:center;
+margin-top:48px;
 }
 
 .cta button{
@@ -199,16 +184,11 @@ opacity:.7;
 transition:opacity .3s;
 }
 
-.cta button:hover{
-opacity:1;
-}
-
-
-/* RESTAURANT */
+.cta button:hover{opacity:1}
 
 .restaurant-project{
-width:72%;
-max-width:900px;
+width:65%;
+max-width:820px;
 margin:170px auto 150px;
 }
 
@@ -216,9 +196,6 @@ margin:170px auto 150px;
 width:100%;
 max-width:none;
 }
-
-
-/* FORM */
 
 .form-wrapper{
 max-height:0;
@@ -284,9 +261,6 @@ letter-spacing:2px;
 opacity:.7;
 }
 
-
-/* POPUP */
-
 .success-popup{
 position:fixed;
 inset:0;
@@ -328,9 +302,6 @@ letter-spacing:2px;
 opacity:.65;
 }
 
-
-/* MOBILE */
-
 @media(max-width:700px){
 
 .container{
@@ -367,6 +338,11 @@ font-size:21px;
 line-height:36px;
 }
 
+.house-cta,
+.restaurant-cta{
+text-align:left;
+}
+
 .form-row{
 grid-template-columns:1fr;
 gap:0;
@@ -376,7 +352,6 @@ gap:0;
 
 </style>
 </head>
-
 
 <body>
 
@@ -388,43 +363,23 @@ gap:0;
 <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
 </div>
 
-
 <main class="container">
-
-
-<!-- ENGLISH -->
 
 <div id="lang-en">
 
 <h1 class="section-title">art consulting</h1>
 
-
-<!-- HOUSE -->
-
 <section class="project">
 
 <div id="house-stage-en" class="image-stage">
 
-<img
-class="before"
-src="consulting_photos/interior1.png"
-alt="Private home interior"
->
+<img class="before" src="consulting_photos/interior1.png" alt="Private home interior">
 
-<img
-class="after"
-src="consulting_photos/interior2.png"
-alt="Private home interior with artwork"
->
+<img class="after" src="consulting_photos/interior2.png" alt="Private home interior with artwork">
 
-<button
-class="image-arrow"
-onclick="changeImage('house-stage-en',this)"
-aria-label="View next image"
->→</button>
+<button class="image-arrow" onclick="changeImage('house-stage-en',this)" aria-label="View next image">→</button>
 
 </div>
-
 
 <div class="project-text">
 
@@ -438,8 +393,7 @@ We approach each space through its particular character, working with artists an
 
 </div>
 
-
-<div class="cta">
+<div class="cta house-cta">
 <button onclick="toggleForm('en')">
 Develop a project with us →
 </button>
@@ -447,33 +401,17 @@ Develop a project with us →
 
 </section>
 
-
-<!-- RESTAURANT -->
-
 <section class="project restaurant-project">
 
 <div id="restaurant-stage-en" class="image-stage">
 
-<img
-class="before"
-src="consulting_photos/restaurante1.png"
-alt="Restaurant interior"
->
+<img class="before" src="consulting_photos/restaurante1.png" alt="Restaurant interior">
 
-<img
-class="after"
-src="consulting_photos/restaurante2.png"
-alt="Restaurant interior with artwork"
->
+<img class="after" src="consulting_photos/restaurante2.png" alt="Restaurant interior with artwork">
 
-<button
-class="image-arrow"
-onclick="changeImage('restaurant-stage-en',this)"
-aria-label="View next image"
->→</button>
+<button class="image-arrow" onclick="changeImage('restaurant-stage-en',this)" aria-label="View next image">→</button>
 
 </div>
-
 
 <div class="project-text">
 
@@ -487,15 +425,13 @@ From the discovery of an artist to the selection and acquisition of a work, we b
 
 </div>
 
-
-<div class="cta">
+<div class="cta restaurant-cta">
 <button onclick="toggleForm('en')">
 Develop a project with us →
 </button>
 </div>
 
 </section>
-
 
 <div id="form-en" class="form-wrapper">
 
@@ -547,39 +483,21 @@ Develop a project with us →
 </div>
 
 
-<!-- SPANISH -->
-
 <div id="lang-es" class="hidden">
 
 <h1 class="section-title">art consulting</h1>
-
-
-<!-- HOUSE -->
 
 <section class="project">
 
 <div id="house-stage-es" class="image-stage">
 
-<img
-class="before"
-src="consulting_photos/interior1.png"
-alt="Interior de una vivienda privada"
->
+<img class="before" src="consulting_photos/interior1.png" alt="Interior de una vivienda privada">
 
-<img
-class="after"
-src="consulting_photos/interior2.png"
-alt="Interior de una vivienda privada con obra de arte"
->
+<img class="after" src="consulting_photos/interior2.png" alt="Interior de una vivienda privada con obra de arte">
 
-<button
-class="image-arrow"
-onclick="changeImage('house-stage-es',this)"
-aria-label="Ver siguiente imagen"
->→</button>
+<button class="image-arrow" onclick="changeImage('house-stage-es',this)" aria-label="Ver siguiente imagen">→</button>
 
 </div>
-
 
 <div class="project-text">
 
@@ -593,8 +511,7 @@ Abordamos cada espacio desde su carácter particular, trabajando con artistas y 
 
 </div>
 
-
-<div class="cta">
+<div class="cta house-cta">
 <button onclick="toggleForm('es')">
 Desarrolla un proyecto con nosotros →
 </button>
@@ -602,33 +519,17 @@ Desarrolla un proyecto con nosotros →
 
 </section>
 
-
-<!-- RESTAURANT -->
-
 <section class="project restaurant-project">
 
 <div id="restaurant-stage-es" class="image-stage">
 
-<img
-class="before"
-src="consulting_photos/restaurante1.png"
-alt="Interior de un restaurante"
->
+<img class="before" src="consulting_photos/restaurante1.png" alt="Interior de un restaurante">
 
-<img
-class="after"
-src="consulting_photos/restaurante2.png"
-alt="Interior de un restaurante con obra de arte"
->
+<img class="after" src="consulting_photos/restaurante2.png" alt="Interior de un restaurante con obra de arte">
 
-<button
-class="image-arrow"
-onclick="changeImage('restaurant-stage-es',this)"
-aria-label="Ver siguiente imagen"
->→</button>
+<button class="image-arrow" onclick="changeImage('restaurant-stage-es',this)" aria-label="Ver siguiente imagen">→</button>
 
 </div>
-
 
 <div class="project-text">
 
@@ -642,15 +543,13 @@ Desde el descubrimiento de un artista hasta la selección y adquisición de una 
 
 </div>
 
-
-<div class="cta">
+<div class="cta restaurant-cta">
 <button onclick="toggleForm('es')">
 Desarrolla un proyecto con nosotros →
 </button>
 </div>
 
 </section>
-
 
 <div id="form-es" class="form-wrapper">
 
@@ -703,9 +602,6 @@ Desarrolla un proyecto con nosotros →
 
 </main>
 
-
-<!-- SUCCESS POPUP -->
-
 <div id="success-popup" class="success-popup">
 
 <div class="success-popup-content">
@@ -722,17 +618,11 @@ Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamen
 Gracias.
 </p>
 
-<button
-class="success-popup-close"
-onclick="closeSuccessPopup()"
->
-Close →
-</button>
+<button class="success-popup-close" onclick="closeSuccessPopup()">Close →</button>
 
 </div>
 
 </div>
-
 
 <script>
 
@@ -740,7 +630,6 @@ function setLang(lang){
 
 document.getElementById('lang-en').classList.toggle('hidden',lang!=='en');
 document.getElementById('lang-es').classList.toggle('hidden',lang!=='es');
-
 document.getElementById('btn-en').classList.toggle('active',lang==='en');
 document.getElementById('btn-es').classList.toggle('active',lang==='es');
 
@@ -748,7 +637,6 @@ document.documentElement.lang=lang;
 localStorage.setItem('senso_lang',lang);
 
 }
-
 
 function changeImage(id,button){
 
@@ -759,7 +647,6 @@ button.textContent=after?'←':'→';
 
 }
 
-
 function toggleForm(lang){
 
 const form=document.getElementById('form-'+lang);
@@ -767,27 +654,16 @@ const form=document.getElementById('form-'+lang);
 form.classList.toggle('open');
 
 if(form.classList.contains('open')){
-
 setTimeout(()=>{
-form.scrollIntoView({
-behavior:'smooth',
-block:'nearest'
-});
+form.scrollIntoView({behavior:'smooth',block:'nearest'});
 },150);
-
 }
 
 }
-
 
 function closeSuccessPopup(){
-
-document
-.getElementById('success-popup')
-.classList.remove('show');
-
+document.getElementById('success-popup').classList.remove('show');
 }
-
 
 document.addEventListener('DOMContentLoaded',()=>{
 
@@ -821,16 +697,13 @@ form.closest('.form-wrapper').classList.remove('open');
 
 document.getElementById('success-en').classList.toggle('hidden',language==='Spanish');
 document.getElementById('success-es').classList.toggle('hidden',language!=='Spanish');
-
 document.getElementById('success-popup').classList.add('show');
 
 }catch{
 
-alert(
-language==='Spanish'
+alert(language==='Spanish'
 ?'Ha ocurrido un problema. Por favor, inténtalo de nuevo.'
-:'There was a problem sending your request. Please try again.'
-);
+:'There was a problem sending your request. Please try again.');
 
 }finally{
 
