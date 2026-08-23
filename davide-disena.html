@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-       <!-- Meta Pixel Code -->
+
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    if(!f._fbq)f._fbq=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -14,22 +15,29 @@
     fbq('init', '2442677362880993');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
-    /></noscript>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
+        />
+    </noscript>
     <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Senso - Davide Di Sena</title>
-    
+
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
+
         @font-face { 
             font-family: 'FuturaLight'; 
             src: url('Fonts/futura light bt.ttf') format('truetype'); 
             font-display: swap; 
         }
+
         @font-face { 
             font-family: 'BehindNineties'; 
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); 
@@ -85,6 +93,7 @@
             z-index: 1000; 
             transition: opacity 0.3s; 
         }
+
         .back-artists:hover { opacity: 1; }
         
         /* Switcher di lingua */
@@ -96,6 +105,7 @@
             letter-spacing: 2px; 
             z-index: 1000; 
         }
+
         .lang-btn { 
             background: none; 
             border: none; 
@@ -108,6 +118,7 @@
             letter-spacing: inherit; 
             transition: opacity 0.3s; 
         }
+
         .lang-btn.active { opacity: 1; }
 
         .container { 
@@ -410,7 +421,10 @@
 
         .form-input:focus { border-bottom-color: #000; }
 
-        textarea.form-input { resize: none; height: 60px; }
+        textarea.form-input {
+            resize: none;
+            height: 60px;
+        }
 
         .form-submit-btn {
             background: none;
@@ -461,18 +475,42 @@
         }
 
         @media (max-width: 850px) {
-            .artist-content { grid-template-columns: 1fr; gap: 40px; }
-            .img-container { max-width: 420px; margin: 0 auto; } 
-            .container { padding-top: 120px; padding-bottom: 100px; }
-            .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .main-image-frame { height: auto; }
-            .artist-img { max-height: 300px; }
+            .artist-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .img-container {
+                max-width: 420px;
+                margin: 0 auto;
+            }
+
+            .container {
+                padding-top: 120px;
+                padding-bottom: 100px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .main-image-frame {
+                height: auto;
+            }
+
+            .artist-img {
+                max-height: 300px;
+            }
         }
+
     </style>
 </head>
+
 <body>
 
     <div class="bg-container"></div>
+
     <a href="artists.html" class="back-artists">← Artists</a>
 
     <div class="lang-switch">
@@ -482,169 +520,688 @@
 
     <!-- Lightbox -->
     <div class="lightbox-overlay" id="lightbox">
-        <button class="lightbox-close" id="lightbox-close">close</button>
+
+        <button class="lightbox-close" id="lightbox-close">
+            close
+        </button>
+
         <div class="lightbox-wrapper">
-            <img src="" alt="Opera Ingrandita" class="lightbox-img" id="lightbox-img">
+
+            <img
+                src=""
+                alt="Opera Ingrandita"
+                class="lightbox-img"
+                id="lightbox-img"
+            >
+
         </div>
+
     </div>
 
     <main class="container">
+
         <header class="fade-in delay-1">
-            <h1 class="artist-title">Davide Di Sena</h1>
+
+            <h1 class="artist-title">
+                Davide Di Sena
+            </h1>
+
         </header>
 
         <div class="artist-content fade-in delay-2">
+
             <div class="img-container">
+
                 <div class="slider-wrapper" id="swipe-area">
-                    <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
+
+                    <button
+                        class="nav-arrow prev-arrow"
+                        onclick="prevSlide()"
+                    >
+                        ←
+                    </button>
+
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Active Artwork" class="artist-img" onload="alignArrows()">
+
+                        <img
+                            id="active-artwork"
+                            src=""
+                            alt="Active Artwork"
+                            class="artist-img"
+                            onload="alignArrows()"
+                        >
+
                     </div>
-                    <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
+
+                    <button
+                        class="nav-arrow next-arrow"
+                        onclick="nextSlide()"
+                    >
+                        →
+                    </button>
+
                 </div>
 
                 <div class="artwork-caption">
-                    <h3 id="artwork-title" class="artwork-title-text"></h3>
-                    <div id="artwork-size" class="artwork-size-text"></div>
-                    <div id="artwork-tech" class="artwork-tech-text"></div>
+
+                    <h3
+                        id="artwork-title"
+                        class="artwork-title-text"
+                    ></h3>
+
+                    <div
+                        id="artwork-size"
+                        class="artwork-size-text"
+                    ></div>
+
+                    <div
+                        id="artwork-tech"
+                        class="artwork-tech-text"
+                    ></div>
+
                 </div>
 
-                <div class="thumbnail-grid" id="thumbnails-container"></div>
+                <div
+                    class="thumbnail-grid"
+                    id="thumbnails-container"
+                ></div>
+
             </div>
 
             <div class="bio-wrapper">
+
                 <div class="lang-en artist-bio">
-                    Born in 2004 and currently studying at the <span class="important">Academy of Fine Arts in Naples</span>, Davide analyzes the interferences between natural spaces and human traces. His research moves between industrial archaeology and urban landscapes, interpreting the environment as a body that bears the scars of human passage. He works primarily with analog photography, a conscious choice that transforms each frame into an act of slow, tactile observation. He has exhibited at the <span class="important">Area Contesa Arte</span> gallery in <span class="important">Rome (Via Margutta)</span>, advancing a poetic vision that documents the tension between concrete and nature. He currently lives and works in <span class="important">Caserta</span>.
+
+                    Born in 2004 and currently studying at the
+                    <span class="important">Academy of Fine Arts in Naples</span>,
+                    Davide analyzes the interferences between natural spaces and human traces.
+                    His research moves between industrial archaeology and urban landscapes,
+                    interpreting the environment as a body that bears the scars of human passage.
+                    He works primarily with analog photography, a conscious choice that transforms
+                    each frame into an act of slow, tactile observation.
+                    He has exhibited at the
+                    <span class="important">Area Contesa Arte</span>
+                    gallery in
+                    <span class="important">Rome (Via Margutta)</span>,
+                    advancing a poetic vision that documents the tension between concrete and nature.
+                    He currently lives and works in
+                    <span class="important">Caserta</span>.
+
                 </div>
+
                 <div class="lang-es artist-bio hidden">
-                    Nacido en 2004 y estudiante de la <span class="important">Academia de Bellas Artes de Nápoles</span>, Davide analiza las interferencias entre el espacio natural y las huellas humanas. Su investigación se mueve entre la arqueología industrial y los paisajes urbanos, interpretando el entorno como un cuerpo que porta los signos del paso del hombre. Trabaja principalmente con fotografía analógica, una elección consciente que transforma el disparo en un acto de observación lenta y matérica. Ha expuesto en la galería <span class="important">Area Contesa Arte</span> en <span class="important">Roma (Via Margutta)</span>, desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza. Actualmente vive y trabaja en <span class="important">Caserta</span>.
+
+                    Nacido en 2004 y estudiante de la
+                    <span class="important">Academia de Bellas Artes de Nápoles</span>,
+                    Davide analiza las interferencias entre el espacio natural y las huellas humanas.
+                    Su investigación se mueve entre la arqueología industrial y los paisajes urbanos,
+                    interpretando el entorno como un cuerpo que porta los signos del paso del hombre.
+                    Trabaja principalmente con fotografía analógica, una elección consciente que
+                    transforma el disparo en un acto de observación lenta y matérica.
+                    Ha expuesto en la galería
+                    <span class="important">Area Contesa Arte</span>
+                    en
+                    <span class="important">Roma (Via Margutta)</span>,
+                    desarrollando una visión poética que documenta la tensión entre el cemento y la naturaleza.
+                    Actualmente vive y trabaja en
+                    <span class="important">Caserta</span>.
+
                 </div>
 
                 <section class="inquiry-section">
-                    <h2 class="inquiry-title" id="form-title">inquire</h2>
-                    <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
-                        <input type="hidden" name="artist" value="Davide Di Sena">
-                        <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
+
+                    <h2
+                        class="inquiry-title"
+                        id="form-title"
+                    >
+                        inquire
+                    </h2>
+
+                    <form
+                        action="https://formspree.io/f/mgorwree"
+                        method="POST"
+                        class="inquiry-form"
+                        id="contact-form"
+                    >
+
+                        <input
+                            type="hidden"
+                            name="artist"
+                            value="Davide Di Sena"
+                        >
+
+                        <input
+                            type="hidden"
+                            name="artwork"
+                            id="hidden-artwork-title"
+                            value=""
+                        >
+
                         <div class="form-row">
-                            <div class="form-group"><input type="text" name="name" id="input-name" class="form-input" placeholder="Your name" required></div>
-                            <div class="form-group"><input type="email" name="email" id="input-email" class="form-input" placeholder="Your email" required></div>
+
+                            <div class="form-group">
+
+                                <input
+                                    type="text"
+                                    name="name"
+                                    id="input-name"
+                                    class="form-input"
+                                    placeholder="Your name"
+                                    required
+                                >
+
+                            </div>
+
+                            <div class="form-group">
+
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="input-email"
+                                    class="form-input"
+                                    placeholder="Your email"
+                                    required
+                                >
+
+                            </div>
+
                         </div>
-                        <div class="form-group"><textarea name="message" id="input-message" class="form-input" placeholder="Comments" required></textarea></div>
-                        <button type="submit" class="form-submit-btn" id="submit-btn">Send Inquiry →</button>
-                        <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
+
+                        <div class="form-group">
+
+                            <textarea
+                                name="message"
+                                id="input-message"
+                                class="form-input"
+                                placeholder="Comments"
+                                required
+                            ></textarea>
+
+                        </div>
+
+                        <button
+                            type="submit"
+                            class="form-submit-btn"
+                            id="submit-btn"
+                        >
+                            Send Inquiry →
+                        </button>
+
+                        <div
+                            class="error-message"
+                            id="error-msg"
+                        >
+                            An error occurred. Please try again.
+                        </div>
+
                     </form>
-                    <div class="thank-you-container" id="thank-you-block">
-                        <div class="lang-en"><h3 class="thank-you-title">thank you</h3><p class="thank-you-text">Your inquiry has been successfully sent. We will get back to you shortly.</p></div>
-                        <div class="lang-es hidden"><h3 class="thank-you-title">gracias</h3><p class="thank-you-text">Su consulta ha sido enviada con éxito. Nos pondremos en contacto a la brevedad.</p></div>
+
+                    <div
+                        class="thank-you-container"
+                        id="thank-you-block"
+                    >
+
+                        <div class="lang-en">
+
+                            <h3 class="thank-you-title">
+                                thank you
+                            </h3>
+
+                            <p class="thank-you-text">
+                                Your inquiry has been successfully sent.
+                                We will get back to you shortly.
+                            </p>
+
+                        </div>
+
+                        <div class="lang-es hidden">
+
+                            <h3 class="thank-you-title">
+                                gracias
+                            </h3>
+
+                            <p class="thank-you-text">
+                                Su consulta ha sido enviada con éxito.
+                                Nos pondremos en contacto a la brevedad.
+                            </p>
+
+                        </div>
+
                     </div>
+
                 </section>
+
             </div>
+
         </div>
+
     </main>
 
     <script>
+
         const artworks = [
-            { src: "fotos_obras/davidedisena1.jpg", titleEn: "Frammenti Urbani, Opera I", titleEs: "Frammenti Urbani, Opera I", size: "60x40 cm", techEn: "Analog Photography, 2026", techEs: "Fotografía Analógica, 2026" },
-            { src: "fotos_obras/davidedisena2.jpg", titleEn: "Arco felice, Opera IV", titleEs: "Arco felice, Opera IV", size: "60x40 cm", techEn: "Analog Photography, 2025", techEs: "Fotografía Analógica, 2025" },
-            { src: "fotos_obras/davidedisena3.jpg", titleEn: "Area Industriale, Opera I", titleEs: "Area Industriale, Opera I", size: "60x40 cm", techEn: "Analog Photography, 2024", techEs: "Fotografía Analógica, 2024" },
-            { src: "fotos_obras/davidedisena4.jpg", titleEn: "Terremoto", titleEs: "Terremoto", size: "60x40 cm", techEn: "Analog Photography, 2025", techEs: "Fotografía Analógica, 2025" }
+
+            {
+                src: "fotos_obras/davidedisena1.jpg",
+                titleEn: "Frammenti Urbani, Opera I",
+                titleEs: "Frammenti Urbani, Opera I",
+                size: "60x40 cm",
+                techEn: "Digital Photography, 2026",
+                techEs: "Fotografía Digital, 2026"
+            },
+
+            {
+                src: "fotos_obras/davidedisena2.jpg",
+                titleEn: "Arco felice, Opera IV",
+                titleEs: "Arco felice, Opera IV",
+                size: "60x40 cm",
+                techEn: "Digital Photography, 2025",
+                techEs: "Fotografía Digital, 2025"
+            },
+
+            {
+                src: "fotos_obras/davidedisena3.jpg",
+                titleEn: "Area Industriale, Opera I",
+                titleEs: "Area Industriale, Opera I",
+                size: "60x40 cm",
+                techEn: "Digital Photography, 2024",
+                techEs: "Fotografía Digital, 2024"
+            },
+
+            {
+                src: "fotos_obras/davidedisena4.jpg",
+                titleEn: "Terremoto",
+                titleEs: "Terremoto",
+                size: "60x40 cm",
+                techEn: "Digital Photography, 2025",
+                techEs: "Fotografía Digital, 2025"
+            }
+
         ];
 
         let currentIndex = 0;
-        const thumbnailsContainer = document.getElementById('thumbnails-container');
-        const activeArtworkImg = document.getElementById('active-artwork');
-        const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
-        const artworkTitleEl = document.getElementById('artwork-title');
-        const artworkSizeEl = document.getElementById('artwork-size');
-        const artworkTechEl = document.getElementById('artwork-tech');
+
+        const thumbnailsContainer =
+            document.getElementById('thumbnails-container');
+
+        const activeArtworkImg =
+            document.getElementById('active-artwork');
+
+        const hiddenArtworkTitle =
+            document.getElementById('hidden-artwork-title');
+
+        const artworkTitleEl =
+            document.getElementById('artwork-title');
+
+        const artworkSizeEl =
+            document.getElementById('artwork-size');
+
+        const artworkTechEl =
+            document.getElementById('artwork-tech');
+
 
         function alignArrows() {
-            const img = document.getElementById('active-artwork');
-            const prevArrow = document.querySelector('.prev-arrow');
-            const nextArrow = document.querySelector('.next-arrow');
-            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
-                const centerOffset = img.clientHeight / 2;
-                prevArrow.style.top = `${centerOffset}px`;
-                nextArrow.style.top = `${centerOffset}px`;
+
+            const img =
+                document.getElementById('active-artwork');
+
+            const prevArrow =
+                document.querySelector('.prev-arrow');
+
+            const nextArrow =
+                document.querySelector('.next-arrow');
+
+            if (
+                img &&
+                prevArrow &&
+                nextArrow &&
+                img.complete &&
+                img.clientHeight > 0
+            ) {
+
+                const centerOffset =
+                    img.clientHeight / 2;
+
+                prevArrow.style.top =
+                    `${centerOffset}px`;
+
+                nextArrow.style.top =
+                    `${centerOffset}px`;
+
             }
+
         }
+
 
         function initGallery() {
+
             thumbnailsContainer.innerHTML = '';
+
             artworks.forEach((art, index) => {
-                const img = document.createElement('img');
+
+                const img =
+                    document.createElement('img');
+
                 img.src = art.src;
-                img.className = 'thumb-item' + (index === currentIndex ? ' active' : '');
-                img.onclick = () => goToSlide(index);
+
+                img.className =
+                    'thumb-item' +
+                    (index === currentIndex ? ' active' : '');
+
+                img.onclick =
+                    () => goToSlide(index);
+
                 thumbnailsContainer.appendChild(img);
+
             });
+
             updateSlide();
+
         }
+
 
         function updateSlide() {
-            const art = artworks[currentIndex];
-            const isEs = document.getElementById('btn-es').classList.contains('active');
+
+            const art =
+                artworks[currentIndex];
+
+            const isEs =
+                document
+                    .getElementById('btn-es')
+                    .classList
+                    .contains('active');
+
             activeArtworkImg.style.opacity = '0.3';
+
             setTimeout(() => {
-                activeArtworkImg.src = art.src;
-                activeArtworkImg.style.opacity = '1';
-                artworkTitleEl.innerText = isEs ? art.titleEs : art.titleEn;
-                artworkSizeEl.innerText = art.size;
-                artworkTechEl.innerText = isEs ? art.techEs : art.techEn;
-                setTimeout(alignArrows, 50);
+
+                activeArtworkImg.src =
+                    art.src;
+
+                activeArtworkImg.style.opacity =
+                    '1';
+
+                artworkTitleEl.innerText =
+                    isEs
+                        ? art.titleEs
+                        : art.titleEn;
+
+                artworkSizeEl.innerText =
+                    art.size;
+
+                artworkTechEl.innerText =
+                    isEs
+                        ? art.techEs
+                        : art.techEn;
+
+                setTimeout(
+                    alignArrows,
+                    50
+                );
+
             }, 180);
-            document.querySelectorAll('.thumb-item').forEach((t, i) => {
-                t.className = 'thumb-item' + (i === currentIndex ? ' active' : '');
-                if (i === currentIndex) t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            });
-            hiddenArtworkTitle.value = art.titleEn + " (" + art.size + ")";
+
+
+            document
+                .querySelectorAll('.thumb-item')
+                .forEach((t, i) => {
+
+                    t.className =
+                        'thumb-item' +
+                        (i === currentIndex
+                            ? ' active'
+                            : '');
+
+                    if (i === currentIndex) {
+
+                        t.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
+                        });
+
+                    }
+
+                });
+
+
+            hiddenArtworkTitle.value =
+                art.titleEn +
+                " (" +
+                art.size +
+                ")";
+
         }
 
-        function goToSlide(i) { currentIndex = i; updateSlide(); }
-        function nextSlide() { currentIndex = (currentIndex + 1) % artworks.length; updateSlide(); }
-        function prevSlide() { currentIndex = (currentIndex - 1 + artworks.length) % artworks.length; updateSlide(); }
 
-        window.addEventListener('resize', alignArrows);
+        function goToSlide(i) {
 
-        // LIGHTBOX
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
+            currentIndex = i;
+            updateSlide();
+
+        }
+
+
+        function nextSlide() {
+
+            currentIndex =
+                (currentIndex + 1) %
+                artworks.length;
+
+            updateSlide();
+
+        }
+
+
+        function prevSlide() {
+
+            currentIndex =
+                (currentIndex - 1 + artworks.length) %
+                artworks.length;
+
+            updateSlide();
+
+        }
+
+
+        window.addEventListener(
+            'resize',
+            alignArrows
+        );
+
+
+        /* LIGHTBOX */
+
+        const lightbox =
+            document.getElementById('lightbox');
+
+        const lightboxImg =
+            document.getElementById('lightbox-img');
+
         activeArtworkImg.onclick = () => {
-            lightboxImg.src = activeArtworkImg.src;
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        };
-        function closeLightbox() { lightbox.classList.remove('active'); document.body.style.overflow = ''; }
-        lightbox.onclick = (e) => { if (e.target !== lightboxImg) closeLightbox(); };
-        document.onkeydown = (e) => { if (e.key === 'Escape') closeLightbox(); };
 
-        // FORM
-        const contactForm = document.getElementById('contact-form');
-        contactForm.onsubmit = async (e) => {
-            e.preventDefault();
-            const btn = document.getElementById('submit-btn');
-            btn.disabled = true; btn.style.opacity = "0.4";
-            try {
-                const res = await fetch(contactForm.action, { method: 'POST', body: new FormData(contactForm), headers: { 'Accept': 'application/json' } });
-                if (res.ok) { contactForm.style.display = 'none'; document.getElementById('thank-you-block').style.display = 'block'; }
-            } catch (err) { btn.disabled = false; btn.style.opacity = "1"; }
+            lightboxImg.src =
+                activeArtworkImg.src;
+
+            lightbox.classList.add('active');
+
+            document.body.style.overflow =
+                'hidden';
+
         };
+
+
+        function closeLightbox() {
+
+            lightbox.classList.remove('active');
+
+            document.body.style.overflow =
+                '';
+
+        }
+
+
+        lightbox.onclick = (e) => {
+
+            if (e.target !== lightboxImg) {
+                closeLightbox();
+            }
+
+        };
+
+
+        document.onkeydown = (e) => {
+
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+
+        };
+
+
+        /* FORM */
+
+        const contactForm =
+            document.getElementById('contact-form');
+
+        contactForm.onsubmit =
+            async (e) => {
+
+                e.preventDefault();
+
+                const btn =
+                    document.getElementById('submit-btn');
+
+                btn.disabled = true;
+
+                btn.style.opacity = "0.4";
+
+                try {
+
+                    const res =
+                        await fetch(
+                            contactForm.action,
+                            {
+                                method: 'POST',
+                                body: new FormData(contactForm),
+                                headers: {
+                                    'Accept':
+                                        'application/json'
+                                }
+                            }
+                        );
+
+                    if (res.ok) {
+
+                        contactForm.style.display =
+                            'none';
+
+                        document
+                            .getElementById('thank-you-block')
+                            .style.display =
+                            'block';
+
+                    }
+
+                } catch (err) {
+
+                    btn.disabled = false;
+
+                    btn.style.opacity =
+                        "1";
+
+                }
+
+            };
+
 
         function setLang(lang) {
-            const isEs = lang === 'es';
-            document.getElementById('btn-en').className = 'lang-btn' + (isEs ? '' : ' active');
-            document.getElementById('btn-es').className = 'lang-btn' + (isEs ? ' active' : '');
-            document.querySelectorAll('.lang-en').forEach(el => el.classList.toggle('hidden', isEs));
-            document.querySelectorAll('.lang-es').forEach(el => el.classList.toggle('hidden', !isEs));
-            document.getElementById('form-title').innerText = isEs ? "consultar" : "inquire";
-            document.getElementById('input-name').placeholder = isEs ? "Su nombre" : "Your name";
-            document.getElementById('input-email').placeholder = isEs ? "Su correo electrónico" : "Your email";
-            document.getElementById('input-message').placeholder = isEs ? "Comentarios" : "Comments";
-            document.getElementById('submit-btn').innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
+
+            const isEs =
+                lang === 'es';
+
+            document
+                .getElementById('btn-en')
+                .className =
+                'lang-btn' +
+                (isEs ? '' : ' active');
+
+            document
+                .getElementById('btn-es')
+                .className =
+                'lang-btn' +
+                (isEs ? ' active' : '');
+
+
+            document
+                .querySelectorAll('.lang-en')
+                .forEach(el =>
+                    el.classList.toggle(
+                        'hidden',
+                        isEs
+                    )
+                );
+
+
+            document
+                .querySelectorAll('.lang-es')
+                .forEach(el =>
+                    el.classList.toggle(
+                        'hidden',
+                        !isEs
+                    )
+                );
+
+
+            document.getElementById(
+                'form-title'
+            ).innerText =
+                isEs
+                    ? "consultar"
+                    : "inquire";
+
+
+            document.getElementById(
+                'input-name'
+            ).placeholder =
+                isEs
+                    ? "Su nombre"
+                    : "Your name";
+
+
+            document.getElementById(
+                'input-email'
+            ).placeholder =
+                isEs
+                    ? "Su correo electrónico"
+                    : "Your email";
+
+
+            document.getElementById(
+                'input-message'
+            ).placeholder =
+                isEs
+                    ? "Comentarios"
+                    : "Comments";
+
+
+            document.getElementById(
+                'submit-btn'
+            ).innerText =
+                isEs
+                    ? "Enviar consulta →"
+                    : "Send Inquiry →";
+
+
             updateSlide();
+
         }
 
-        window.onload = initGallery;
+
+        window.onload =
+            initGallery;
+
     </script>
+
 </body>
 </html>
