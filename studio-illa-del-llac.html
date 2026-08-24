@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Senso Studio — Illa del Llac</title>
+
+<style>
+@font-face{font-family:FuturaLight;src:url('Fonts/futura light bt.ttf') format('truetype')}
+@font-face{font-family:BehindNineties;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype')}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+margin:0;
+background:#fff;
+color:#000;
+font-family:FuturaLight,sans-serif;
+-webkit-font-smoothing:antialiased
+}
+
+section{padding:110px 7vw}
+
+.hero{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 7vw
+}
+
+.eyebrow,.label{
+margin:0 0 35px;
+font-size:.65rem;
+letter-spacing:2.5px;
+text-transform:uppercase
+}
+
+.hero h1{
+margin:0;
+font-size:clamp(3.5rem,12vw,10rem);
+font-weight:300;
+line-height:.9;
+letter-spacing:-3px
+}
+
+.season{
+margin:45px 0 0;
+font-family:BehindNineties,serif;
+font-size:clamp(2.8rem,8vw,7rem);
+font-style:italic;
+line-height:.9
+}
+
+.nineties{
+margin:12px 0 0;
+font-size:.7rem;
+letter-spacing:3px;
+text-transform:uppercase
+}
+
+.cta{
+margin-top:70px;
+color:#000;
+border-bottom:1px solid #000;
+padding-bottom:7px;
+text-decoration:none;
+font-size:.7rem;
+letter-spacing:2px;
+text-transform:uppercase
+}
+
+.intro,.experience,.packages,.reserve{
+max-width:1200px;
+margin:auto
+}
+
+.intro h2,.reserve h2{
+max-width:900px;
+margin:0;
+font-size:clamp(2.2rem,6vw,5.5rem);
+font-weight:300;
+line-height:1;
+letter-spacing:-1.5px
+}
+
+.intro>p:last-child{
+max-width:520px;
+margin:70px 0 0 auto;
+font-size:1rem;
+line-height:1.7
+}
+
+.text-block{
+max-width:600px;
+margin-left:auto
+}
+
+.text-block p,.reserve-text{
+font-size:1rem;
+line-height:1.7
+}
+
+.statement{
+margin-top:150px;
+display:flex;
+flex-direction:column;
+font-family:BehindNineties,serif;
+font-size:clamp(4rem,13vw,10rem);
+line-height:.8
+}
+
+.statement span:nth-child(2){align-self:center}
+.statement span:nth-child(3){align-self:flex-end}
+
+.package{
+border-top:1px solid #000;
+padding:35px 0 45px;
+display:grid;
+grid-template-columns:60px 1fr;
+gap:10px
+}
+
+.package span{
+font-size:.65rem;
+letter-spacing:2px
+}
+
+.package h3{
+margin:0;
+font-size:clamp(2rem,5vw,4rem);
+font-weight:300
+}
+
+.package p{
+grid-column:2;
+margin:15px 0 20px;
+max-width:400px;
+line-height:1.5
+}
+
+.package strong{
+grid-column:2;
+font-size:.65rem;
+font-weight:400;
+letter-spacing:1.5px;
+text-transform:uppercase
+}
+
+.reserve{padding-bottom:160px}
+
+.reserve h2{max-width:700px}
+
+.reserve-text{
+max-width:450px;
+margin:50px 0
+}
+
+form{max-width:600px}
+
+label{
+display:block;
+margin-bottom:30px;
+font-size:.65rem;
+letter-spacing:2px;
+text-transform:uppercase
+}
+
+input,select,textarea{
+width:100%;
+margin-top:10px;
+padding:12px 0;
+border:0;
+border-bottom:1px solid #000;
+border-radius:0;
+background:transparent;
+color:#000;
+font-family:inherit;
+font-size:1rem;
+outline:none
+}
+
+textarea{resize:vertical}
+
+button{
+margin-top:20px;
+padding:15px 0;
+border:0;
+border-bottom:1px solid #000;
+background:none;
+color:#000;
+font-family:inherit;
+font-size:.7rem;
+letter-spacing:2px;
+text-transform:uppercase;
+cursor:pointer
+}
+
+footer{
+display:flex;
+justify-content:space-between;
+padding:25px 7vw;
+border-top:1px solid #000;
+font-size:.6rem;
+letter-spacing:2px
+}
+
+@media(max-width:600px){
+section{padding:90px 7vw}
+.hero{min-height:100svh}
+.hero h1{letter-spacing:-2px}
+.intro>p:last-child{margin-top:50px}
+.statement{margin-top:100px;font-size:20vw}
+.package{grid-template-columns:35px 1fr}
+footer{gap:20px;flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+<section class="hero">
+<p class="eyebrow">SENSO STUDIO × ILLA DEL LLAC</p>
+<h1>Illa del Llac</h1>
+<p class="season">The Season</p>
+<p class="nineties">Behind The Nineties</p>
+<a href="#reserve" class="cta">Reserve your place</a>
+</section>
+
+<section class="intro">
+<p class="label">01 — THE STUDIO</p>
+<h2>A space for painting,<br>observation and practice.</h2>
+<p>
+Senso Studio at Illa del Llac is a space dedicated to the practice of painting,
+developed around observation, experimentation and individual research.
+</p>
+</section>
+
+<section class="experience">
+<p class="label">02 — THE EXPERIENCE</p>
+<div class="text-block">
+<p>
+The studio is conceived as an open space for developing a personal relationship
+with painting. Less about following a method, more about finding your own way
+of looking and making.
+</p>
+</div>
+
+<div class="statement">
+<span>Look.</span>
+<span>Experiment.</span>
+<span>Make.</span>
+</div>
+</section>
+
+<section class="packages">
+<p class="label">03 — STUDIO PACKAGES</p>
+
+<div class="package">
+<span>01</span>
+<div>
+<h3>4 sessions</h3>
+<p>For a first encounter with the studio.</p>
+<strong>Price — coming soon</strong>
+</div>
+</div>
+
+<div class="package">
+<span>02</span>
+<div>
+<h3>8 sessions</h3>
+<p>For a deeper and more continuous practice.</p>
+<strong>Price — coming soon</strong>
+</div>
+</div>
+
+<div class="package">
+<span>03</span>
+<div>
+<h3>12 sessions</h3>
+<p>For an extended period of research and practice.</p>
+<strong>Price — coming soon</strong>
+</div>
+</div>
+</section>
+
+<section class="reserve" id="reserve">
+<p class="label">04 — JOIN THE STUDIO</p>
+<h2>Interested in joining?</h2>
+
+<p class="reserve-text">
+Leave your details and we will get back to you with upcoming dates,
+availability and package information.
+</p>
+
+<form action="https://formspree.io/f/mgorwree" method="POST">
+
+<label>
+Name
+<input type="text" name="name" required>
+</label>
+
+<label>
+Email
+<input type="email" name="email" required>
+</label>
+
+<label>
+Package
+<select name="package">
+<option value="">Select a package</option>
+<option value="4 sessions">4 sessions</option>
+<option value="8 sessions">8 sessions</option>
+<option value="12 sessions">12 sessions</option>
+</select>
+</label>
+
+<label>
+Message
+<textarea name="message" rows="4"></textarea>
+</label>
+
+<button type="submit">Send enquiry</button>
+
+</form>
+</section>
+
+</main>
+
+<footer>
+<span>SENSO STUDIO</span>
+<span>ILLA DEL LLAC</span>
+</footer>
+
+</body>
+</html>
