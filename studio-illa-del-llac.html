@@ -35,7 +35,7 @@ padding:40px 7vw
 }
 
 .eyebrow{
-margin:0 0 40px;
+margin:0 0 38px;
 font-size:.62rem;
 letter-spacing:2.8px;
 text-transform:uppercase
@@ -61,23 +61,32 @@ text-transform:uppercase
 }
 
 .intro{
-max-width:720px;
+max-width:760px;
 margin:auto;
-padding:120px 7vw 120px;
+padding:110px 7vw 105px;
 text-align:center
+}
+
+.intro h2{
+max-width:650px;
+margin:0 auto 22px;
+font-size:clamp(1.8rem,4vw,3.2rem);
+font-weight:300;
+line-height:1.08;
+letter-spacing:-.7px
 }
 
 .intro p{
 max-width:520px;
-margin:0 auto;
-font-size:.95rem;
+margin:auto;
+font-size:.9rem;
 line-height:1.8
 }
 
 .details{
 max-width:1000px;
 margin:auto;
-padding:80px 7vw 130px
+padding:70px 7vw 120px
 }
 
 .details-grid{
@@ -88,27 +97,27 @@ gap:12vw
 
 .details h3{
 margin:0 0 22px;
-font-size:clamp(1.6rem,3vw,2.6rem);
+font-size:clamp(1.5rem,3vw,2.4rem);
 font-weight:300;
-letter-spacing:-.5px
+letter-spacing:-.4px
 }
 
 .details p{
 margin:0;
-max-width:400px;
-font-size:.88rem;
+max-width:410px;
+font-size:.87rem;
 line-height:1.8
 }
 
 .packages{
 max-width:900px;
 margin:auto;
-padding:70px 7vw 130px
+padding:65px 7vw 125px
 }
 
 .packages-title{
-margin:0 0 35px;
-font-size:.6rem;
+margin:0 0 32px;
+font-size:.58rem;
 letter-spacing:2.5px;
 text-transform:uppercase;
 font-weight:400
@@ -116,9 +125,9 @@ font-weight:400
 
 .package{
 border-top:1px solid #000;
-padding:25px 0;
-display:flex;
-justify-content:space-between;
+padding:25px 0 30px;
+display:grid;
+grid-template-columns:1fr auto;
 align-items:baseline;
 gap:30px
 }
@@ -129,19 +138,19 @@ border-bottom:1px solid #000
 
 .package h3{
 margin:0;
-font-size:clamp(1.5rem,3vw,2.5rem);
+font-size:clamp(1.6rem,3.5vw,2.8rem);
 font-weight:300;
-letter-spacing:-.5px
+letter-spacing:-.7px
 }
 
 .package p{
-margin:6px 0 0;
-font-size:.75rem;
+margin:7px 0 0;
+font-size:.74rem;
 line-height:1.6
 }
 
 .package strong{
-font-size:.58rem;
+font-size:.57rem;
 font-weight:400;
 letter-spacing:1.4px;
 text-transform:uppercase;
@@ -156,9 +165,9 @@ text-align:center
 }
 
 .reserve p{
-max-width:480px;
+max-width:500px;
 margin:0 auto 55px;
-font-size:.9rem;
+font-size:.88rem;
 line-height:1.8
 }
 
@@ -229,11 +238,15 @@ margin-bottom:32px
 }
 
 .intro{
-padding:90px 8vw 90px
+padding:85px 8vw 85px
+}
+
+.intro h2{
+margin-bottom:20px
 }
 
 .details{
-padding:50px 8vw 100px
+padding:45px 8vw 95px
 }
 
 .details-grid{
@@ -242,21 +255,20 @@ gap:60px
 }
 
 .packages{
-padding:50px 8vw 100px
+padding:45px 8vw 95px
 }
 
 .package{
-display:block
+grid-template-columns:1fr;
+gap:10px
 }
 
 .package strong{
-display:block;
-margin-top:12px;
 white-space:normal
 }
 
 .reserve{
-padding:60px 8vw 120px
+padding:55px 8vw 120px
 }
 
 footer{
@@ -285,8 +297,12 @@ Reserva tu plaza
 
 <section class="intro">
 
+<h2>
+Un espacio para desarrollar una práctica artística propia.
+</h2>
+
 <p>
-Un espacio íntimo dedicado a la pintura, la experimentación y la búsqueda personal. Una experiencia para acercarse al proceso creativo con tiempo, libertad y atención.
+Un estudio íntimo dedicado a la pintura, la experimentación y la búsqueda personal. Una experiencia pensada para quienes quieren acercarse al proceso creativo con tiempo, libertad y atención.
 </p>
 
 </section>
@@ -301,7 +317,7 @@ Un espacio íntimo dedicado a la pintura, la experimentación y la búsqueda per
 <h3>La experiencia</h3>
 
 <p>
-Sesiones en un entorno cuidado, con espacio para explorar, observar y trabajar a tu propio ritmo. Una práctica abierta, personal y sin fórmulas cerradas.
+Sesiones en un entorno cuidado, con espacio para explorar, observar y trabajar a tu propio ritmo. No se trata de seguir una fórmula, sino de construir una relación personal con la pintura.
 </p>
 
 </div>
@@ -312,7 +328,7 @@ Sesiones en un entorno cuidado, con espacio para explorar, observar y trabajar a
 <h3>Illa del Llac</h3>
 
 <p>
-Un entorno privado y pausado para crear, compartir y desarrollar una relación más cercana con la pintura.
+Illa del Llac ofrece el contexto para una experiencia más privada y pausada. Un espacio pensado para crear, compartir y formar parte de una pequeña comunidad alrededor del arte.
 </p>
 
 </div>
@@ -336,7 +352,7 @@ Sesiones
 <h3>4 sesiones</h3>
 
 <p>
-Una primera aproximación al estudio.
+Una primera aproximación al estudio y a la práctica.
 </p>
 
 </div>
@@ -355,7 +371,7 @@ Precio próximamente
 <h3>8 sesiones</h3>
 
 <p>
-Para desarrollar una práctica más continua.
+Para desarrollar una práctica más continua y personal.
 </p>
 
 </div>
@@ -374,7 +390,7 @@ Precio próximamente
 <h3>12 sesiones</h3>
 
 <p>
-Para un proceso más profundo y sostenido.
+Un recorrido más profundo y sostenido en el tiempo.
 </p>
 
 </div>
@@ -391,7 +407,7 @@ Precio próximamente
 <section class="reserve" id="reserve">
 
 <p>
-Déjanos tus datos para recibir fechas, disponibilidad y toda la información sobre las sesiones.
+Reserva tu plaza y recibe toda la información sobre fechas, disponibilidad y sesiones.
 </p>
 
 
