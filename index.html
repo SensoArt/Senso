@@ -130,6 +130,31 @@ body {
     filter: brightness(1.1);
 }
 
+.lang-switch {
+    position: fixed;
+    top: 25px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+}
+
+.lang-btn {
+    padding: 0 5px;
+    border: 0;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    opacity: 0.35;
+}
+
+.lang-btn.active {
+    opacity: 1;
+}
+
 nav {
     display: flex;
     gap: 30px;
@@ -147,6 +172,10 @@ nav a {
 
 nav a:hover {
     opacity: 1;
+}
+
+.hidden {
+    display: none;
 }
 
 @media (max-width: 600px) {
@@ -174,7 +203,29 @@ alt="Senso Logo"
 class="logo-home"
 >
 
-<nav>
+<div class="lang-switch">
+
+    <button
+        id="btn-en"
+        class="lang-btn active"
+        onclick="setLang('en')"
+    >
+        EN
+    </button>
+
+    |
+
+    <button
+        id="btn-es"
+        class="lang-btn"
+        onclick="setLang('es')"
+    >
+        ES
+    </button>
+
+</div>
+
+<nav id="nav-en">
 
     <a href="about.html">About</a>
 
@@ -189,6 +240,64 @@ class="logo-home"
     <a href="contacts.html">Contacts</a>
 
 </nav>
+
+<nav id="nav-es" class="hidden">
+
+    <a href="about.html">Quiénes somos</a>
+
+    <a href="exhibitions.html">Exposiciones</a>
+
+    <a href="artists.html">Artistas</a>
+
+    <a href="art-consulting.html">Asesoría de Arte</a>
+
+    <a href="journal.html">Journal</a>
+
+    <a href="contacts.html">Contacto</a>
+
+</nav>
+
+<script>
+
+function setLang(lang) {
+
+    const isSpanish = lang === 'es';
+
+    document
+        .getElementById('nav-en')
+        .classList
+        .toggle('hidden', isSpanish);
+
+    document
+        .getElementById('nav-es')
+        .classList
+        .toggle('hidden', !isSpanish);
+
+    document
+        .getElementById('btn-en')
+        .classList
+        .toggle('active', !isSpanish);
+
+    document
+        .getElementById('btn-es')
+        .classList
+        .toggle('active', isSpanish);
+
+    document.documentElement.lang = lang;
+
+    localStorage.setItem('senso_lang', lang);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    const savedLang =
+        localStorage.getItem('senso_lang') || 'en';
+
+    setLang(savedLang);
+
+});
+
+</script>
 
 </body>
 </html>
