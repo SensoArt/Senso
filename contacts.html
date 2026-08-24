@@ -6,7 +6,7 @@
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    if(!f._fbq)f._fbq=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
@@ -14,12 +14,17 @@
     fbq('init', '2442677362880993');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
-    /></noscript>
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
+        />
+    </noscript>
     <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Senso - Contacts</title>
     
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
@@ -27,6 +32,7 @@
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
     <style>
+
         @font-face {
             font-family: 'FuturaLight';
             src: url('Fonts/futura light bt.ttf') format('truetype');
@@ -37,7 +43,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .fade-in { opacity: 0; animation: fadeIn 1.5s ease-out forwards; }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
         .delay-1 { animation-delay: 0.3s; }
         .delay-2 { animation-delay: 0.8s; }
         .delay-3 { animation-delay: 1.3s; }
@@ -59,37 +69,90 @@
         }
 
         .back-home {
-            position: fixed; top: 25px; left: 20px;
-            text-decoration: none; color: #fff;
-            text-transform: uppercase; font-size: 0.65rem;
-            letter-spacing: 2px; opacity: 0.5; z-index: 1000;
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.5;
+            z-index: 1000;
             transition: 0.3s;
         }
-        .back-home:hover { opacity: 1; }
 
-        .contact-links { margin-bottom: 60px; margin-top: 60px; }
-        .contact-links a {
-            display: block; color: #fff; text-decoration: none;
-            font-size: 1.1rem; letter-spacing: 2px;
-            margin: 15px 0; opacity: 0.8; transition: 0.3s;
+        .back-home:hover {
+            opacity: 1;
         }
-        .contact-links a:hover { opacity: 1; }
+
+        /* SOCIAL / CONTACT ICONS */
+
+        .contact-links {
+            margin-bottom: 60px;
+            margin-top: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.65;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .contact-links a:hover {
+            opacity: 1;
+            transform: translateY(-1px);
+        }
+
+        .contact-links svg {
+            width: 18px;
+            height: 18px;
+            display: block;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-links .linkedin-icon {
+            fill: currentColor;
+            stroke: none;
+        }
 
         .newsletter-box {
-            max-width: 500px; width: 85%;
+            max-width: 500px;
+            width: 85%;
             border-top: 1px solid #1a1a1a;
-            padding-top: 50px; margin-bottom: 60px;
+            padding-top: 50px;
+            margin-bottom: 60px;
             position: relative;
-            min-height: 250px; /* Evita salti di altezza */
+            min-height: 250px;
         }
 
         .newsletter-box p {
-            font-size: 1rem; letter-spacing: 1.5px;
-            margin-bottom: 35px; opacity: 0.9; line-height: 1.8;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            line-height: 1.8;
         }
 
         /* Gestione stati Form e Successo */
-        #form-content { transition: opacity 0.8s ease; }
+
+        #form-content {
+            transition: opacity 0.8s ease;
+        }
         
         #success-message {
             display: none;
@@ -101,121 +164,310 @@
             padding: 40px 0;
         }
 
-        .form-group { display: flex; flex-direction: column; gap: 15px; }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
         
         input {
-            background: transparent; border: none;
-            border-bottom: 1px solid #333; color: #fff;
-            padding: 10px 5px; font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem; letter-spacing: 2px;
-            outline: none; text-transform: uppercase; text-align: center;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #333;
+            color: #fff;
+            padding: 10px 5px;
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            outline: none;
+            text-transform: uppercase;
+            text-align: center;
         }
 
         .submit-btn {
-            background: none; border: 1px solid #333;
-            color: #fff; padding: 14px; margin-top: 20px;
-            cursor: pointer; text-transform: uppercase;
-            letter-spacing: 3px; font-size: 0.65rem; transition: 0.4s;
+            background: none;
+            border: 1px solid #333;
+            color: #fff;
+            padding: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.65rem;
+            transition: 0.4s;
         }
-        .submit-btn:hover:not(:disabled) { background: #fff; color: #000; }
-        .submit-btn:disabled { opacity: 0.3; cursor: default; }
+
+        .submit-btn:hover:not(:disabled) {
+            background: #fff;
+            color: #000;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
 
         .back-btn {
-            background: none; border: none; color: #fff;
+            background: none;
+            border: none;
+            color: #fff;
             font-family: 'FuturaLight', sans-serif;
-            text-transform: uppercase; font-size: 0.55rem;
-            letter-spacing: 3px; opacity: 0.4; cursor: pointer;
-            transition: 0.3s; margin-top: 30px; padding: 10px;
+            text-transform: uppercase;
+            font-size: 0.55rem;
+            letter-spacing: 3px;
+            opacity: 0.4;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 30px;
+            padding: 10px;
         }
-        .back-btn:hover { opacity: 1; }
+
+        .back-btn:hover {
+            opacity: 1;
+        }
 
         @media (max-width: 600px) {
-            .newsletter-box p { font-size: 0.95rem; }
+
+            .newsletter-box p {
+                font-size: 0.95rem;
+            }
+
         }
+
     </style>
 </head>
+
 <body>
 
     <a href="index.html" class="back-home">← Home</a>
 
     <div class="contact-links fade-in delay-1">
-        <a href="mailto:contact@senso-art.com">contact@senso-art.com</a>
-        <a href="https://www.instagram.com/senso_art_/" target="_blank">@senso_art_</a>
+
+        <!-- EMAIL -->
+        <a
+            href="mailto:contact@senso-art.com"
+            aria-label="Email Senso"
+        >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="1"></rect>
+                <path d="M3 6l9 7 9-7"></path>
+            </svg>
+        </a>
+
+        <!-- INSTAGRAM -->
+        <a
+            href="https://www.instagram.com/senso_art_/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Senso on Instagram"
+        >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"></circle>
+            </svg>
+        </a>
+
+        <!-- LINKEDIN -->
+        <a
+            href="https://www.linkedin.com/company/sensoartbarcelona"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Senso on LinkedIn"
+        >
+            <svg
+                class="linkedin-icon"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path d="M5.2 8.1H2.8V21h2.4V8.1ZM4 3C3.2 3 2.5 3.7 2.5 4.5S3.2 6 4 6s1.5-.7 1.5-1.5S4.8 3 4 3ZM21.2 13.6c0-3.9-2.1-5.7-4.9-5.7-2.2 0-3.2 1.2-3.8 2v-1.8h-2.4V21h2.4v-7c0-1.8.3-3.6 2.6-3.6 2.3 0 2.3 2.1 2.3 3.7V21h2.4v-7.4Z"></path>
+            </svg>
+        </a>
+
     </div>
 
-    <div id="newsletter-container" class="newsletter-box fade-in delay-2">
+    <div
+        id="newsletter-container"
+        class="newsletter-box fade-in delay-2"
+    >
+
         <div id="form-content">
-            <p>Get updates on artists, exhibitions, and events.</p>
-            <form action="https://formspree.io/f/mgorwree" method="POST" class="form-group" id="contact-form">
-                <input type="text" name="first_name" placeholder="First Name" required>
-                <input type="text" name="last_name" placeholder="Last Name" required>
-                <input type="email" name="email" placeholder="Email Address" required>
-                <button type="submit" class="submit-btn" id="submit-btn">Subscribe</button>
+
+            <p>
+                Get updates on artists, exhibitions, and events.
+            </p>
+
+            <form
+                action="https://formspree.io/f/mgorwree"
+                method="POST"
+                class="form-group"
+                id="contact-form"
+            >
+
+                <input
+                    type="text"
+                    name="first_name"
+                    placeholder="First Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    name="last_name"
+                    placeholder="Last Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                >
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                    id="submit-btn"
+                >
+                    Subscribe
+                </button>
+
             </form>
+
         </div>
 
         <div id="success-message">
-            <p>Your request has been received.<br>Thank you.</p>
-            <button type="button" class="back-btn" onclick="resetForm()">BACK</button>
+
+            <p>
+                Your request has been received.<br>
+                Thank you.
+            </p>
+
+            <button
+                type="button"
+                class="back-btn"
+                onclick="resetForm()"
+            >
+                BACK
+            </button>
+
         </div>
+
     </div>
 
     <script>
-        const form = document.getElementById('contact-form');
-        const formContent = document.getElementById('form-content');
-        const successMessage = document.getElementById('success-message');
-        const btn = document.getElementById('submit-btn');
+
+        const form =
+            document.getElementById('contact-form');
+
+        const formContent =
+            document.getElementById('form-content');
+
+        const successMessage =
+            document.getElementById('success-message');
+
+        const btn =
+            document.getElementById('submit-btn');
+
 
         form.onsubmit = async (e) => {
+
             e.preventDefault();
+
             btn.innerText = "SENDING...";
             btn.disabled = true;
 
-            const formData = new FormData(form);
+            const formData =
+                new FormData(form);
+
             try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
+
+                const response =
+                    await fetch(
+                        form.action,
+                        {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept':
+                                    'application/json'
+                            }
+                        }
+                    );
 
                 if (response.ok) {
-                    // Sparizione fluida del form
+
                     formContent.style.opacity = "0";
+
                     setTimeout(() => {
+
                         formContent.style.display = "none";
-                        successMessage.style.display = "block";
+
+                        successMessage.style.display =
+                            "block";
+
                         setTimeout(() => {
-                            successMessage.style.opacity = "1";
+
+                            successMessage.style.opacity =
+                                "1";
+
                         }, 50);
+
                     }, 800);
+
                 } else {
-                    btn.innerText = "ERROR. TRY AGAIN.";
+
+                    btn.innerText =
+                        "ERROR. TRY AGAIN.";
+
                     btn.disabled = false;
+
                 }
+
             } catch (error) {
-                btn.innerText = "CONNECTION ERROR.";
+
+                btn.innerText =
+                    "CONNECTION ERROR.";
+
                 btn.disabled = false;
+
             }
+
         };
 
+
         function resetForm() {
-            // Sparizione fluida del messaggio di successo
+
             successMessage.style.opacity = "0";
+
             setTimeout(() => {
-                successMessage.style.display = "none";
-                formContent.style.display = "block";
-                
-                // Reset dati
+
+                successMessage.style.display =
+                    "none";
+
+                formContent.style.display =
+                    "block";
+
                 form.reset();
-                btn.innerText = "SUBSCRIBE";
-                btn.disabled = false;
+
+                btn.innerText =
+                    "SUBSCRIBE";
+
+                btn.disabled =
+                    false;
 
                 setTimeout(() => {
-                    formContent.style.opacity = "1";
+
+                    formContent.style.opacity =
+                        "1";
+
                 }, 50);
+
             }, 800);
+
         }
+
     </script>
 
 </body>
