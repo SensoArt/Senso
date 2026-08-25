@@ -157,6 +157,13 @@ text-transform:uppercase;
 white-space:nowrap
 }
 
+.schedule{
+margin-top:32px;
+font-size:.72rem;
+line-height:1.8;
+letter-spacing:.3px
+}
+
 .reserve{
 max-width:760px;
 margin:auto;
@@ -164,7 +171,7 @@ padding:80px 7vw 160px;
 text-align:center
 }
 
-.reserve p{
+.reserve>p{
 max-width:500px;
 margin:0 auto 55px;
 font-size:.88rem;
@@ -185,6 +192,13 @@ letter-spacing:2px;
 text-transform:uppercase
 }
 
+label span{
+letter-spacing:1px;
+text-transform:none;
+font-size:.55rem;
+opacity:.6
+}
+
 input,
 select,
 textarea{
@@ -198,10 +212,24 @@ background:transparent;
 color:#000;
 font-family:inherit;
 font-size:.95rem;
-outline:none
+outline:none;
+transition:border-color .2s
 }
 
-textarea{resize:vertical}
+input:focus,
+select:focus,
+textarea:focus{
+border-bottom-width:2px
+}
+
+textarea{
+resize:vertical;
+min-height:90px
+}
+
+select{
+cursor:pointer
+}
 
 button{
 display:block;
@@ -215,7 +243,17 @@ font-family:inherit;
 font-size:.62rem;
 letter-spacing:2.3px;
 text-transform:uppercase;
-cursor:pointer
+cursor:pointer;
+transition:opacity .2s
+}
+
+button:hover{
+opacity:.55
+}
+
+button:disabled{
+opacity:.4;
+cursor:default
 }
 
 .confirmation{
@@ -259,7 +297,7 @@ margin-bottom:32px
 }
 
 .intro{
-padding:85px 8vw 85px
+padding:85px 8vw
 }
 
 .intro h2{
@@ -288,6 +326,10 @@ gap:10px
 white-space:normal
 }
 
+.schedule{
+margin-top:28px
+}
+
 .reserve{
 padding:55px 8vw 120px
 }
@@ -305,30 +347,20 @@ flex-direction:column
 <body>
 
 <section class="hero">
-
 <p class="eyebrow">SENSO STUDIO × ILLA DEL LLAC</p>
-
 <h1>Illa del Llac</h1>
-
-<a href="#reserve" class="cta">
-Reserva tu plaza
-</a>
-
+<a href="#reserve" class="cta">Reserva tu plaza</a>
 </section>
-
 
 <section class="intro">
 
-<h2>
-Un espacio para desarrollar una práctica artística propia.
-</h2>
+<h2>Un espacio para desarrollar una práctica artística propia.</h2>
 
 <p>
 Un estudio íntimo dedicado a la pintura, la experimentación y la búsqueda personal. Una experiencia pensada para quienes quieren acercarse al proceso creativo con tiempo, libertad y atención.
 </p>
 
 </section>
-
 
 <section class="details">
 
@@ -344,7 +376,6 @@ Sesiones en un entorno cuidado, con espacio para explorar, observar y trabajar a
 
 </div>
 
-
 <div>
 
 <h3>Illa del Llac</h3>
@@ -359,72 +390,49 @@ Illa del Llac ofrece el contexto para una experiencia más privada y pausada. Un
 
 </section>
 
-
 <section class="packages">
 
-<h2 class="packages-title">
-Sesiones
-</h2>
-
+<h2 class="packages-title">Sesiones</h2>
 
 <div class="package">
 
 <div>
-
 <h3>4 sesiones</h3>
-
-<p>
-Una primera aproximación al estudio y a la práctica.
-</p>
-
+<p>Una primera aproximación al estudio y a la práctica.</p>
 </div>
 
-<strong>
-Precio próximamente
-</strong>
+<strong>Precio próximamente</strong>
 
 </div>
-
 
 <div class="package">
 
 <div>
-
 <h3>8 sesiones</h3>
-
-<p>
-Para desarrollar una práctica más continua y personal.
-</p>
-
+<p>Para desarrollar una práctica más continua y personal.</p>
 </div>
 
-<strong>
-Precio próximamente
-</strong>
+<strong>Precio próximamente</strong>
 
 </div>
-
 
 <div class="package">
 
 <div>
-
 <h3>12 sesiones</h3>
+<p>Un recorrido más profundo y sostenido en el tiempo.</p>
+</div>
 
-<p>
-Un recorrido más profundo y sostenido en el tiempo.
-</p>
+<strong>Precio próximamente</strong>
 
 </div>
 
-<strong>
-Precio próximamente
-</strong>
-
+<div class="schedule">
+Martes · 18:30–20:00<br>
+Viernes · 18:30–20:00
 </div>
 
 </section>
-
 
 <section class="reserve" id="reserve">
 
@@ -434,99 +442,43 @@ Precio próximamente
 Reserva tu plaza y recibe toda la información sobre fechas, disponibilidad y sesiones.
 </p>
 
-
-<form
-id="studio-form"
-action="https://formspree.io/f/mgorwree"
-method="POST"
->
+<form id="studio-form" action="https://formspree.io/f/mgorwree" method="POST">
 
 <label>
-
 Nombre
-
-<input
-type="text"
-name="name"
-required
->
-
+<input type="text" name="name" autocomplete="given-name" required>
 </label>
 
-
 <label>
-
 Apellido
-
-<input
-type="text"
-name="surname"
-required
->
-
+<input type="text" name="surname" autocomplete="family-name" required>
 </label>
 
-
 <label>
-
 Email
-
-<input
-type="email"
-name="email"
-required
->
-
+<input type="email" name="email" autocomplete="email" required>
 </label>
 
-
 <label>
-
 Sesiones
-
 <select name="package">
-
-<option value="">
-Selecciona una opción
-</option>
-
-<option value="4 sesiones">
-4 sesiones
-</option>
-
-<option value="8 sesiones">
-8 sesiones
-</option>
-
-<option value="12 sesiones">
-12 sesiones
-</option>
-
+<option value="">Selecciona una opción</option>
+<option value="4 sesiones">4 sesiones</option>
+<option value="8 sesiones">8 sesiones</option>
+<option value="12 sesiones">12 sesiones</option>
 </select>
-
 </label>
-
 
 <label>
-
-Mensaje
-
-<textarea
-name="message"
-rows="4"
-></textarea>
-
+Mensaje <span>(opcional)</span>
+<textarea name="message" rows="4"></textarea>
 </label>
 
-
-<button type="submit">
-Reserva tu plaza
-</button>
+<button type="submit">Reserva tu plaza</button>
 
 </form>
 
 </div>
-
 
 <div class="confirmation" id="confirmation">
 
@@ -539,11 +491,9 @@ Nos pondremos en contacto contigo para enviarte todos los detalles.
 
 </section>
 
-
 <footer>
 
 <span>SENSO STUDIO</span>
-
 <span>ILLA DEL LLAC</span>
 
 <a href="https://senso-art.com/" target="_blank" rel="noopener">
@@ -552,23 +502,19 @@ Visita Senso
 
 </footer>
 
-
 <script>
 const form=document.getElementById('studio-form');
 const formContent=document.getElementById('form-content');
 const confirmation=document.getElementById('confirmation');
 
-form.addEventListener('submit',async function(e){
-
+form.addEventListener('submit',async e=>{
 e.preventDefault();
 
 const button=form.querySelector('button');
-
 button.disabled=true;
 button.textContent='Enviando...';
 
 try{
-
 const response=await fetch(form.action,{
 method:'POST',
 body:new FormData(form),
@@ -576,28 +522,18 @@ headers:{Accept:'application/json'}
 });
 
 if(response.ok){
-
 formContent.style.display='none';
 confirmation.style.display='block';
-
 }else{
-
 button.disabled=false;
 button.textContent='Reserva tu plaza';
-
 alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
-
 }
-
-}catch(error){
-
+}catch{
 button.disabled=false;
 button.textContent='Reserva tu plaza';
-
 alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
-
 }
-
 });
 </script>
 
