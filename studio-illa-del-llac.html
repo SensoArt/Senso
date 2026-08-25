@@ -144,8 +144,8 @@ letter-spacing:-.7px
 }
 
 .package p{
-margin:8px 0 0;
-font-size:.85rem;
+margin:9px 0 0;
+font-size:.9rem;
 line-height:1.65
 }
 
@@ -158,16 +158,17 @@ white-space:nowrap
 }
 
 .schedule{
-margin-top:65px;
-font-size:.8rem;
-line-height:1.9;
-letter-spacing:.3px
+margin-top:85px;
+padding-top:0;
+font-size:.95rem;
+line-height:2;
+letter-spacing:.2px
 }
 
 .schedule-title{
-margin-bottom:12px;
-font-size:.72rem;
-letter-spacing:2px;
+margin-bottom:18px;
+font-size:.85rem;
+letter-spacing:2.2px;
 text-transform:uppercase
 }
 
@@ -291,13 +292,21 @@ padding-bottom:3px
 
 @media(max-width:650px){
 
-.hero{min-height:90svh}
+.hero{
+min-height:90svh
+}
 
-.eyebrow{margin-bottom:32px}
+.eyebrow{
+margin-bottom:32px
+}
 
-.intro{padding:85px 8vw}
+.intro{
+padding:85px 8vw
+}
 
-.intro h2{margin-bottom:20px}
+.intro h2{
+margin-bottom:20px
+}
 
 .details{
 padding:45px 8vw 95px
@@ -322,13 +331,14 @@ white-space:normal
 }
 
 .schedule{
-margin-top:60px;
-font-size:.82rem
+margin-top:70px;
+font-size:.95rem;
+line-height:2
 }
 
 .schedule-title{
-font-size:.72rem;
-margin-bottom:12px
+margin-bottom:18px;
+font-size:.8rem
 }
 
 .reserve{
@@ -461,7 +471,6 @@ Illa del Llac ofrece el contexto para una experiencia más privada y pausada. Un
 Reserva tu plaza y recibe toda la información sobre fechas, disponibilidad y sesiones.
 </p>
 
-
 <form
 id="studio-form"
 action="https://formspree.io/f/mgorwree"
@@ -473,18 +482,15 @@ Nombre
 <input type="text" name="name" autocomplete="given-name" required>
 </label>
 
-
 <label>
 Apellido
 <input type="text" name="surname" autocomplete="family-name" required>
 </label>
 
-
 <label>
 Email
 <input type="email" name="email" autocomplete="email" required>
 </label>
-
 
 <label>
 Sesiones
@@ -496,16 +502,12 @@ Sesiones
 </select>
 </label>
 
-
 <label>
 Mensaje <span>(opcional)</span>
 <textarea name="message" rows="4"></textarea>
 </label>
 
-
-<button type="submit">
-Reserva tu plaza
-</button>
+<button type="submit">Reserva tu plaza</button>
 
 </form>
 
