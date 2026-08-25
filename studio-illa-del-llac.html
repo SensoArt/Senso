@@ -218,6 +218,19 @@ text-transform:uppercase;
 cursor:pointer
 }
 
+.confirmation{
+display:none;
+max-width:500px;
+margin:auto;
+text-align:center
+}
+
+.confirmation p{
+margin:0;
+font-size:.9rem;
+line-height:1.9
+}
+
 footer{
 display:flex;
 justify-content:space-between;
@@ -317,7 +330,7 @@ Un estudio íntimo dedicado a la pintura, la experimentación y la búsqueda per
 <h3>La experiencia</h3>
 
 <p>
-Sesiones en un entorno cuidado, con espacio para explorar, observar y trabajar a tu propio ritmo. No se trata de seguir una fórmula, sino de construir una relación personal con la pintura.
+Sesiones en un entorno cuidado, con espacio para explorar, observar y trabajar a tu propio ritmo construyendo una relación personal con la pintura.
 </p>
 
 </div>
@@ -406,12 +419,15 @@ Precio próximamente
 
 <section class="reserve" id="reserve">
 
+<div id="form-content">
+
 <p>
 Reserva tu plaza y recibe toda la información sobre fechas, disponibilidad y sesiones.
 </p>
 
 
 <form
+id="studio-form"
 action="https://formspree.io/f/mgorwree"
 method="POST"
 >
@@ -423,6 +439,19 @@ Nombre
 <input
 type="text"
 name="name"
+required
+>
+
+</label>
+
+
+<label>
+
+Apellido
+
+<input
+type="text"
+name="surname"
 required
 >
 
@@ -487,6 +516,18 @@ Reserva tu plaza
 
 </form>
 
+</div>
+
+
+<div class="confirmation" id="confirmation">
+
+<p>
+Hemos recibido tu solicitud y tu plaza ha quedado reservada.<br><br>
+Nos pondremos en contacto contigo para enviarte todos los detalles.
+</p>
+
+</div>
+
 </section>
 
 
@@ -497,6 +538,42 @@ Reserva tu plaza
 <span>ILLA DEL LLAC</span>
 
 </footer>
+
+
+<script>
+const form=document.getElementById('studio-form');
+const formContent=document.getElementById('form-content');
+const confirmation=document.getElementById('confirmation');
+
+form.addEventListener('submit',async function(e){
+e.preventDefault();
+
+const button=form.querySelector('button');
+button.disabled=true;
+button.textContent='Enviando...';
+
+try{
+const response=await fetch(form.action,{
+method:'POST',
+body:new FormData(form),
+headers:{Accept:'application/json'}
+});
+
+if(response.ok){
+formContent.style.display='none';
+confirmation.style.display='block';
+}else{
+button.disabled=false;
+button.textContent='Reserva tu plaza';
+alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
+}
+}catch(error){
+button.disabled=false;
+button.textContent='Reserva tu plaza';
+alert('Ha ocurrido un error. Por favor, inténtalo de nuevo.');
+}
+});
+</script>
 
 </body>
 </html>
