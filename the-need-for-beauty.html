@@ -2,12 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f.fbq=n,n.push=n;n.loaded=!0;n.version='2.0';
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document, 'script',
@@ -15,10 +14,11 @@
     fbq('init', '2442677362880993');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
+
+    <noscript>
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"/>
+    </noscript>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -50,7 +50,6 @@
         }
 
         .delay-1 { animation-delay: 0.3s; }
-        .delay-2 { animation-delay: 0.6s; }
 
         body {
             background-color: #fff;
@@ -86,7 +85,9 @@
             transition: opacity 0.3s;
         }
 
-        .back-journal-top:hover { opacity: 1; }
+        .back-journal-top:hover {
+            opacity: 1;
+        }
 
         .lang-switch {
             position: fixed;
@@ -110,7 +111,9 @@
             transition: opacity 0.3s;
         }
 
-        .lang-btn.active { opacity: 1; }
+        .lang-btn.active {
+            opacity: 1;
+        }
 
         .reader-container {
             max-width: 900px;
@@ -150,12 +153,6 @@
             text-align: left;
             font-size: 0.9rem;
             line-height: 1.6;
-        }
-
-        .sidebar-type {
-            font-weight: normal;
-            color: #000;
-            margin-bottom: 4px;
         }
 
         .sidebar-date {
@@ -235,20 +232,41 @@
             padding: 5px 0;
         }
 
-        .footer-back-btn:hover { opacity: 1; }
+        .footer-back-btn:hover {
+            opacity: 1;
+        }
 
-        .hidden { display: none !important; }
+        .hidden {
+            display: none !important;
+        }
 
         @media (max-width: 800px) {
-            .reader-container { padding-top: 110px; }
-            .reader-essay-title { margin-bottom: 40px; }
+            .reader-container {
+                padding-top: 110px;
+            }
+
+            .reader-essay-title {
+                margin-bottom: 40px;
+            }
+
             .reader-grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            .sidebar-line { display: none; }
-            .back-journal-top { top: 25px; left: 20px; }
-            .lang-switch { top: 25px; right: 20px; }
+
+            .sidebar-line {
+                display: none;
+            }
+
+            .back-journal-top {
+                top: 25px;
+                left: 20px;
+            }
+
+            .lang-switch {
+                top: 25px;
+                right: 20px;
+            }
         }
     </style>
 </head>
@@ -276,13 +294,13 @@
         <div class="reader-grid">
 
             <aside class="reader-sidebar">
-                <span class="sidebar-type lang-en">Essay</span>
-                <span class="sidebar-type lang-es hidden">Ensayo</span>
-                <span class="sidebar-type lang-it hidden">Saggio</span>
 
-                <span class="sidebar-date">August 2026</span>
+                <span class="sidebar-date lang-en">August 2026</span>
+                <span class="sidebar-date lang-es hidden">Agosto 2026</span>
+                <span class="sidebar-date lang-it hidden">Agosto 2026</span>
 
                 <div class="sidebar-line"></div>
+
             </aside>
 
             <div class="reader-content">
@@ -301,7 +319,6 @@
 
                 <article class="reader-body">
 
-                    <!-- ITALIANO -->
                     <div class="lang-it hidden">
 
                         <p>Basta percorrere le strade di Barcellona per accorgersi di quanto sia cambiato il nostro rapporto con il bello. Ci sono angoli in cui anche ciò che appartiene alla vita quotidiana sembra essere stato fatto con il desiderio di renderlo più bello: una facciata, un balcone, un lampione, una panchina. Sono dettagli che forse non servono a nulla, eppure cambiano il modo in cui guardiamo una strada, il modo in cui la viviamo. Oggi molte delle cose che ci circondano hanno perso proprio questo: non devono più essere belle, devono soltanto funzionare.</p>
@@ -324,7 +341,6 @@
 
                     </div>
 
-                    <!-- INGLESE -->
                     <div class="lang-en">
 
                         <p>All it takes is walking through the streets of Barcelona to notice how much our relationship with beauty has changed. There are corners where even the most ordinary things seem to have been made with the desire to make them more beautiful: a façade, a balcony, a streetlamp, a bench. These are details that may serve no practical purpose, and yet they change the way we look at a street, the way we experience it. Today, many of the things around us have lost precisely this quality: they no longer need to be beautiful, they simply need to work.</p>
@@ -347,7 +363,6 @@
 
                     </div>
 
-                    <!-- SPAGNOLO -->
                     <div class="lang-es hidden">
 
                         <p>Basta recorrer las calles de Barcelona para darse cuenta de cuánto ha cambiado nuestra relación con la belleza. Hay rincones en los que incluso aquello que forma parte de la vida cotidiana parece haber sido creado con el deseo de hacerlo más bello: una fachada, un balcón, una farola, un banco. Son detalles que quizá no sirven para nada, y sin embargo cambian la manera en que miramos una calle, la manera en que la vivimos. Hoy muchas de las cosas que nos rodean han perdido precisamente eso: ya no necesitan ser bellas, simplemente tienen que funcionar.</p>
