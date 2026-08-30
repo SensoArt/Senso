@@ -6,7 +6,7 @@
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    if(!f._fbq)f._fbq=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window,document,'script',
@@ -49,8 +49,6 @@
             animation:fadeIn 1.5s ease-out forwards;
         }
 
-        .delay-1 { animation-delay:.3s; }
-
         body {
             background:#fff;
             color:#000;
@@ -82,7 +80,9 @@
             transition:opacity .3s;
         }
 
-        .back-journal-top:hover { opacity:1; }
+        .back-journal-top:hover {
+            opacity:1;
+        }
 
         .lang-switch {
             position:fixed;
@@ -106,7 +106,9 @@
             transition:opacity .3s;
         }
 
-        .lang-btn.active { opacity:1; }
+        .lang-btn.active {
+            opacity:1;
+        }
 
         .reader-container {
             max-width:900px;
@@ -211,9 +213,13 @@
             transition:opacity .3s;
         }
 
-        .footer-back-btn:hover { opacity:1; }
+        .footer-back-btn:hover {
+            opacity:1;
+        }
 
-        .hidden { display:none !important; }
+        .hidden {
+            display:none !important;
+        }
 
         @media (max-width:800px) {
             .reader-container {
@@ -263,8 +269,8 @@
         <div class="reader-category">JOURNAL</div>
 
         <h1 class="reader-title lang-en">The Need for Beauty</h1>
-        <h1 class="reader-title lang-es hidden">La necesidad de la belleza</h1>
-        <h1 class="reader-title lang-it hidden">Il bisogno di bellezza</h1>
+        <h1 class="reader-title lang-es hidden">La Necesidad de la Belleza</h1>
+        <h1 class="reader-title lang-it hidden">Il Bisogno di Bellezza</h1>
 
         <div class="reader-grid">
 
