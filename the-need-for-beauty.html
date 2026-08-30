@@ -9,258 +9,238 @@
     if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document, 'script',
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2442677362880993');
-    fbq('track', 'PageView');
+    fbq('init','2442677362880993');
+    fbq('track','PageView');
     </script>
 
     <noscript>
         <img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"/>
+        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1">
     </noscript>
     <!-- End Meta Pixel Code -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>The Need for Beauty - Journal</title>
-
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         @font-face {
-            font-family: 'FuturaLight';
-            src: url('Fonts/futura light bt.ttf') format('truetype');
-            font-display: swap;
+            font-family:'FuturaLight';
+            src:url('Fonts/futura light bt.ttf') format('truetype');
+            font-display:swap;
         }
 
         @font-face {
-            font-family: 'BehindNineties';
-            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
-            font-display: swap;
+            font-family:'BehindNineties';
+            src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+            font-display:swap;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity:0; transform:translateY(20px); }
+            to { opacity:1; transform:translateY(0); }
         }
 
         .fade-in {
-            opacity: 0;
-            animation: fadeIn 1.5s ease-out forwards;
+            opacity:0;
+            animation:fadeIn 1.5s ease-out forwards;
         }
 
-        .delay-1 { animation-delay: 0.3s; }
+        .delay-1 { animation-delay:.3s; }
 
         body {
-            background-color: #fff;
-            color: #000;
-            margin: 0;
-            padding: 0;
-            font-family: 'FuturaLight', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
+            background:#fff;
+            color:#000;
+            margin:0;
+            padding:0;
+            font-family:'FuturaLight',sans-serif;
+            -webkit-font-smoothing:antialiased;
+            overflow-x:hidden;
         }
 
         .bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            background-color: #fff;
+            position:fixed;
+            inset:0;
+            z-index:-2;
+            background:#fff;
         }
 
         .back-journal-top {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            text-decoration: none;
-            color: #000;
-            text-transform: uppercase;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            opacity: 0.6;
-            z-index: 1000;
-            transition: opacity 0.3s;
+            position:fixed;
+            top:30px;
+            left:30px;
+            z-index:1000;
+            color:#000;
+            text-decoration:none;
+            text-transform:uppercase;
+            font-size:.65rem;
+            letter-spacing:2px;
+            opacity:.6;
+            transition:opacity .3s;
         }
 
-        .back-journal-top:hover {
-            opacity: 1;
-        }
+        .back-journal-top:hover { opacity:1; }
 
         .lang-switch {
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            z-index: 1000;
+            position:fixed;
+            top:30px;
+            right:30px;
+            z-index:1000;
+            font-size:.65rem;
+            letter-spacing:2px;
         }
 
         .lang-btn {
-            background: none;
-            border: none;
-            color: #000;
-            cursor: pointer;
-            padding: 0 5px;
-            opacity: 0.3;
-            text-transform: uppercase;
-            font-family: inherit;
-            letter-spacing: inherit;
-            transition: opacity 0.3s;
+            background:none;
+            border:0;
+            color:#000;
+            cursor:pointer;
+            padding:0 5px;
+            opacity:.3;
+            text-transform:uppercase;
+            font-family:inherit;
+            letter-spacing:inherit;
+            transition:opacity .3s;
         }
 
-        .lang-btn.active {
-            opacity: 1;
-        }
+        .lang-btn.active { opacity:1; }
 
         .reader-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 140px 25px 100px;
+            max-width:900px;
+            margin:0 auto;
+            padding:140px 25px 100px;
         }
 
         .reader-category {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            opacity: 0.5;
-            margin-bottom: 25px;
-            text-align: left;
+            margin-bottom:25px;
+            font-size:.75rem;
+            letter-spacing:2px;
+            text-transform:uppercase;
+            opacity:.5;
         }
 
-        .reader-essay-title {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: clamp(2.2rem, 5.5vw, 3.5rem);
-            font-weight: normal;
-            line-height: 1.15;
-            margin: 0 0 60px 0;
-            max-width: 750px;
-            text-align: left;
+        .reader-title {
+            max-width:750px;
+            margin:0 0 60px;
+            font-family:'FuturaLight',sans-serif;
+            font-size:clamp(2.2rem,5.5vw,3.5rem);
+            font-weight:normal;
+            line-height:1.15;
         }
 
         .reader-grid {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 50px;
-            align-items: start;
+            display:grid;
+            grid-template-columns:200px 1fr;
+            gap:50px;
+            align-items:start;
         }
 
         .reader-sidebar {
-            display: flex;
-            flex-direction: column;
-            text-align: left;
-            font-size: 0.9rem;
-            line-height: 1.6;
+            display:flex;
+            flex-direction:column;
+            font-size:.9rem;
+            line-height:1.6;
         }
 
         .sidebar-date {
-            opacity: 0.6;
-            color: #000;
+            color:#000;
+            opacity:.6;
         }
 
         .sidebar-line {
-            width: 35px;
-            height: 1px;
-            background-color: #000;
-            margin-top: 25px;
-            opacity: 0.25;
+            width:35px;
+            height:1px;
+            margin-top:25px;
+            background:#000;
+            opacity:.25;
         }
 
         .reader-content {
-            max-width: 620px;
-            text-align: left;
+            max-width:620px;
         }
 
         .reader-body p {
-            font-size: 1.05rem;
-            line-height: 2;
-            opacity: 0.85;
-            margin-bottom: 35px;
-            text-align: justify;
-        }
-
-        .reader-body .opening-question {
-            margin-bottom: 35px;
+            margin:0 0 35px;
+            font-size:1.05rem;
+            line-height:2;
+            text-align:justify;
+            opacity:.85;
         }
 
         .reader-footer {
-            margin-top: 80px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            padding-top: 35px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            margin-top:80px;
+            padding-top:35px;
+            border-top:1px solid rgba(0,0,0,.08);
         }
 
         .footer-author {
-            text-align: left;
+            text-align:left;
         }
 
         .author-name {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin: 0 0 3px 0;
-            letter-spacing: 1px;
+            margin:0 0 3px;
+            font-family:'FuturaLight',sans-serif;
+            font-size:.9rem;
+            font-weight:bold;
+            letter-spacing:1px;
         }
 
         .author-role {
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            opacity: 0.6;
-            margin: 0;
-            letter-spacing: 0.5px;
+            margin:0;
+            font-family:'FuturaLight',sans-serif;
+            font-size:.75rem;
+            letter-spacing:.5px;
+            opacity:.6;
         }
 
         .footer-back-btn {
-            color: #000;
-            text-decoration: none;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            padding: 5px 0;
+            padding:5px 0;
+            color:#000;
+            text-decoration:none;
+            text-transform:uppercase;
+            font-family:'FuturaLight',sans-serif;
+            font-size:.75rem;
+            letter-spacing:1.5px;
+            opacity:.7;
+            transition:opacity .3s;
         }
 
-        .footer-back-btn:hover {
-            opacity: 1;
-        }
+        .footer-back-btn:hover { opacity:1; }
 
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display:none !important; }
 
-        @media (max-width: 800px) {
+        @media (max-width:800px) {
             .reader-container {
-                padding-top: 110px;
+                padding-top:110px;
             }
 
-            .reader-essay-title {
-                margin-bottom: 40px;
+            .reader-title {
+                margin-bottom:40px;
             }
 
             .reader-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
+                grid-template-columns:1fr;
+                gap:30px;
             }
 
             .sidebar-line {
-                display: none;
+                display:none;
             }
 
             .back-journal-top {
-                top: 25px;
-                left: 20px;
+                top:25px;
+                left:20px;
             }
 
             .lang-switch {
-                top: 25px;
-                right: 20px;
+                top:25px;
+                right:20px;
             }
         }
     </style>
@@ -278,118 +258,98 @@
         <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
     </div>
 
-    <div class="reader-container fade-in delay-1">
+    <main class="reader-container fade-in">
 
         <div class="reader-category">JOURNAL</div>
 
-        <h1 class="reader-essay-title lang-en">The Need for Beauty</h1>
-        <h1 class="reader-essay-title lang-es hidden">La necesidad de la belleza</h1>
-        <h1 class="reader-essay-title lang-it hidden">Il bisogno di bellezza</h1>
+        <h1 class="reader-title lang-en">The Need for Beauty</h1>
+        <h1 class="reader-title lang-es hidden">La necesidad de la belleza</h1>
+        <h1 class="reader-title lang-it hidden">Il bisogno di bellezza</h1>
 
         <div class="reader-grid">
 
             <aside class="reader-sidebar">
-
                 <span class="sidebar-date lang-en">August 2026</span>
                 <span class="sidebar-date lang-es hidden">Agosto 2026</span>
                 <span class="sidebar-date lang-it hidden">Agosto 2026</span>
-
                 <div class="sidebar-line"></div>
-
             </aside>
 
-            <div class="reader-content">
+            <article class="reader-content reader-body">
 
-                <article class="reader-body">
+                <div class="lang-it hidden">
+                    <p>Quando abbiamo smesso di avere bisogno di bellezza?<br>Basta percorrere le strade di Barcellona per accorgersi di quanto sia cambiato il nostro rapporto con il bello. Ci sono angoli in cui anche ciò che appartiene alla vita quotidiana sembra essere stato fatto con il desiderio di renderlo più bello: una facciata, un balcone, un lampione, una panchina. Sono dettagli che forse non servono a nulla, eppure cambiano il modo in cui guardiamo una strada, il modo in cui la viviamo. Oggi molte delle cose che ci circondano hanno perso proprio questo: non devono più essere belle, devono soltanto funzionare.</p>
 
-                    <div class="lang-it hidden">
+                    <p>Abbiamo separato l'utile dal bello come se fossero due cose incompatibili, e il bello è rimasto dalla parte di ciò che possiamo permetterci solo quando tutto il resto è già stato risolto.</p>
 
-                        <p class="opening-question">Quando abbiamo smesso di avere bisogno di bellezza?</p>
+                    <p>Continuiamo però a cercarlo, nelle cose che compriamo, nei luoghi in cui scegliamo di andare, negli abiti che indossiamo, nelle persone che amiamo, nelle case in cui viviamo. Il bello continua a entrare nelle nostre scelte, anche se abbiamo smesso di considerarlo un bisogno.</p>
 
-                        <p>Basta percorrere le strade di Barcellona per accorgersi di quanto sia cambiato il nostro rapporto con il bello. Ci sono angoli in cui anche ciò che appartiene alla vita quotidiana sembra essere stato fatto con il desiderio di renderlo più bello: una facciata, un balcone, un lampione, una panchina. Sono dettagli che forse non servono a nulla, eppure cambiano il modo in cui guardiamo una strada, il modo in cui la viviamo. Oggi molte delle cose che ci circondano hanno perso proprio questo: non devono più essere belle, devono soltanto funzionare.</p>
+                    <p>Questa contraddizione dice molto del nostro rapporto con la bellezza. La consideriamo forse superflua, ma allo stesso tempo siamo immersi in immagini che ci suggeriscono continuamente cosa desiderare. A forza di vedere le stesse cose, iniziamo a riconoscerle come belle quasi senza pensarci.</p>
 
-                        <p>Abbiamo separato l'utile dal bello come se fossero due cose incompatibili, e il bello è rimasto dalla parte di ciò che possiamo permetterci solo quando tutto il resto è già stato risolto.</p>
+                    <p>Scegliamo soprattutto quello che sappiamo essere bello agli occhi degli altri. E quando quella scelta porta con sé un certo status, è ancora più difficile rinunciarci. Ma dimentichiamo che omologarsi è forte, scegliere di non farlo è potente.</p>
 
-                        <p>Continuiamo però a cercarlo, nelle cose che compriamo, nei luoghi in cui scegliamo di andare, negli abiti che indossiamo, nelle persone che amiamo, nelle case in cui viviamo. Il bello continua a entrare nelle nostre scelte, anche se abbiamo smesso di considerarlo un bisogno.</p>
+                    <p>L'arte qui gioca un ruolo cruciale, lasciando spazio a una scelta diversa, personale. Un'opera entra nelle nostre case perché la vogliamo nella nostra vita, perché ci piace, perché ci ha fermati, perché continuiamo a volerla guardare. Non perché debba piacere agli altri, ma perché parla a noi.</p>
 
-                        <p>Questa contraddizione dice molto del nostro rapporto con la bellezza. La consideriamo forse superflua, ma allo stesso tempo siamo immersi in immagini che ci suggeriscono continuamente cosa desiderare. A forza di vedere le stesse cose, iniziamo a riconoscerle come belle quasi senza pensarci.</p>
+                    <p>E quindi, per quale motivo abbiamo bisogno della bellezza?</p>
 
-                        <p>Scegliamo soprattutto quello che sappiamo essere bello agli occhi degli altri. E quando quella scelta porta con sé un certo status, è ancora più difficile rinunciarci. Ma dimentichiamo che omologarsi è forte, scegliere di non farlo è potente.</p>
+                    <p>Per celebrare la vita. Per restituire qualcosa a questo mondo che non ci è stato dato soltanto per abitarlo, ma per ammirarlo, viverlo, trasformarlo e amarlo.</p>
 
-                        <p>L'arte qui gioca un ruolo cruciale, lasciando spazio a una scelta diversa, personale. Un'opera entra nelle nostre case perché la vogliamo nella nostra vita, perché ci piace, perché ci ha fermati, perché continuiamo a volerla guardare. Non perché debba piacere agli altri, ma perché parla a noi.</p>
+                    <p>La verità è che non abbiamo mai smesso di avere bisogno della bellezza. Ce ne siamo solo dimenticati.</p>
+                </div>
 
-                        <p>E quindi, per quale motivo abbiamo bisogno della bellezza?</p>
+                <div class="lang-en">
+                    <p>When did we stop needing beauty?<br>All you have to do is walk through the streets of Barcelona to notice how much our relationship with beauty has changed. There are corners where even the most ordinary things seem to have been made with the desire to make them more beautiful: a façade, a balcony, a streetlamp, a bench. These details may serve no practical purpose, yet they change the way we look at a street, the way we experience it. Today, many of the things around us have lost precisely this quality: they no longer need to be beautiful, they simply need to work.</p>
 
-                        <p>Per celebrare la vita. Per restituire qualcosa a questo mondo che non ci è stato dato soltanto per abitarlo, ma per ammirarlo, viverlo, trasformarlo e amarlo.</p>
+                    <p>We have separated what is useful from what is beautiful, as though the two were incompatible, and beauty has been relegated to something we can afford only once everything else has already been taken care of.</p>
 
-                        <p>La verità è che non abbiamo mai smesso di avere bisogno della bellezza. Ce ne siamo solo dimenticati.</p>
+                    <p>And yet we continue to seek it, in the things we buy, the places we choose to go, the clothes we wear, the people we love, the homes we live in. Beauty continues to shape our choices, even though we have stopped thinking of it as a need.</p>
 
-                    </div>
+                    <p>This contradiction says a great deal about our relationship with beauty. Perhaps we consider it unnecessary, while at the same time we are surrounded by images constantly telling us what to desire. After seeing the same things again and again, we begin to recognize them as beautiful almost without thinking.</p>
 
-                    <div class="lang-en">
+                    <p>We mostly choose what we know to be beautiful in the eyes of others. And when that choice carries a certain status with it, it becomes even harder to let go of. But we forget that conformity has its own power, while choosing not to conform is powerful in itself.</p>
 
-                        <p class="opening-question">When did we stop needing beauty?</p>
+                    <p>This is where art plays a crucial role, leaving room for a different, personal choice. An artwork enters our homes because we want it in our lives, because we like it, because it stopped us, because we keep wanting to look at it. Not because it needs to please others, but because it speaks to us.</p>
 
-                        <p>All you have to do is walk through the streets of Barcelona to notice how much our relationship with beauty has changed. There are corners where even the most ordinary things seem to have been made with the desire to make them more beautiful: a façade, a balcony, a streetlamp, a bench. These details may serve no practical purpose, yet they change the way we look at a street, the way we experience it. Today, many of the things around us have lost precisely this quality: they no longer need to be beautiful, they simply need to work.</p>
+                    <p>So why do we need beauty?</p>
 
-                        <p>We have separated what is useful from what is beautiful, as though the two were incompatible, and beauty has been relegated to something we can afford only once everything else has already been taken care of.</p>
+                    <p>To celebrate life. To give something back to a world that was not given to us simply to inhabit, but to admire, experience, transform, and love.</p>
 
-                        <p>And yet we continue to seek it, in the things we buy, the places we choose to go, the clothes we wear, the people we love, the homes we live in. Beauty continues to shape our choices, even though we have stopped thinking of it as a need.</p>
+                    <p>The truth is, we never stopped needing beauty. We simply forgot.</p>
+                </div>
 
-                        <p>This contradiction says a great deal about our relationship with beauty. Perhaps we consider it unnecessary, while at the same time we are surrounded by images constantly telling us what to desire. After seeing the same things again and again, we begin to recognize them as beautiful almost without thinking.</p>
+                <div class="lang-es hidden">
+                    <p>¿Cuándo dejamos de necesitar la belleza?<br>Basta con recorrer las calles de Barcelona para darse cuenta de cuánto ha cambiado nuestra relación con la belleza. Hay rincones en los que incluso aquello que forma parte de la vida cotidiana parece haber sido creado con el deseo de hacerlo más bello: una fachada, un balcón, una farola, un banco. Son detalles que quizá no sirven para nada y, sin embargo, cambian la manera en que miramos una calle, la manera en que la vivimos. Hoy muchas de las cosas que nos rodean han perdido precisamente eso: ya no necesitan ser bellas, simplemente tienen que funcionar.</p>
 
-                        <p>We mostly choose what we know to be beautiful in the eyes of others. And when that choice carries a certain status with it, it becomes even harder to let go of. But we forget that conformity has its own power, while choosing not to conform is powerful in itself.</p>
+                    <p>Hemos separado lo útil de lo bello como si fueran dos cosas incompatibles, y la belleza ha quedado relegada a aquello que podemos permitirnos solo cuando todo lo demás ya está resuelto.</p>
 
-                        <p>This is where art plays a crucial role, leaving room for a different, personal choice. An artwork enters our homes because we want it in our lives, because we like it, because it stopped us, because we keep wanting to look at it. Not because it needs to please others, but because it speaks to us.</p>
+                    <p>Sin embargo, seguimos buscándola, en las cosas que compramos, en los lugares a los que elegimos ir, en la ropa que llevamos, en las personas que amamos, en las casas en las que vivimos. La belleza sigue formando parte de nuestras elecciones, aunque hayamos dejado de considerarla una necesidad.</p>
 
-                        <p>So why do we need beauty?</p>
+                    <p>Esta contradicción dice mucho de nuestra relación con la belleza. Quizá la consideramos superflua, pero al mismo tiempo estamos rodeados de imágenes que nos sugieren constantemente qué desear. De tanto ver las mismas cosas, empezamos a reconocerlas como bellas casi sin pensarlo.</p>
 
-                        <p>To celebrate life. To give something back to a world that was not given to us simply to inhabit, but to admire, experience, transform, and love.</p>
+                    <p>Elegimos sobre todo aquello que sabemos que es bello a los ojos de los demás. Y cuando esa elección lleva consigo cierto estatus, resulta todavía más difícil renunciar a ella. Pero olvidamos que conformarse tiene fuerza, mientras que elegir no hacerlo también es una forma de poder.</p>
 
-                        <p>The truth is, we never stopped needing beauty. We simply forgot.</p>
+                    <p>Aquí el arte desempeña un papel crucial, dejando espacio para una elección diferente y personal. Una obra entra en nuestras casas porque la queremos en nuestra vida, porque nos gusta, porque nos ha detenido, porque seguimos queriendo mirarla. No porque tenga que gustar a los demás, sino porque nos habla a nosotros.</p>
 
-                    </div>
+                    <p>Entonces, ¿por qué necesitamos la belleza?</p>
 
-                    <div class="lang-es hidden">
+                    <p>Para celebrar la vida. Para devolver algo a este mundo que no nos fue dado únicamente para habitarlo, sino para admirarlo, vivirlo, transformarlo y amarlo.</p>
 
-                        <p class="opening-question">¿Cuándo dejamos de necesitar la belleza?</p>
+                    <p>La verdad es que nunca hemos dejado de necesitar la belleza. Simplemente lo hemos olvidado.</p>
+                </div>
 
-                        <p>Basta con recorrer las calles de Barcelona para darse cuenta de cuánto ha cambiado nuestra relación con la belleza. Hay rincones en los que incluso aquello que forma parte de la vida cotidiana parece haber sido creado con el deseo de hacerlo más bello: una fachada, un balcón, una farola, un banco. Son detalles que quizá no sirven para nada y, sin embargo, cambian la manera en que miramos una calle, la manera en que la vivimos. Hoy muchas de las cosas que nos rodean han perdido precisamente eso: ya no necesitan ser bellas, simplemente tienen que funcionar.</p>
-
-                        <p>Hemos separado lo útil de lo bello como si fueran dos cosas incompatibles, y la belleza ha quedado relegada a aquello que podemos permitirnos solo cuando todo lo demás ya está resuelto.</p>
-
-                        <p>Sin embargo, seguimos buscándola, en las cosas que compramos, en los lugares a los que elegimos ir, en la ropa que llevamos, en las personas que amamos, en las casas en las que vivimos. La belleza sigue formando parte de nuestras elecciones, aunque hayamos dejado de considerarla una necesidad.</p>
-
-                        <p>Esta contradicción dice mucho de nuestra relación con la belleza. Quizá la consideramos superflua, pero al mismo tiempo estamos rodeados de imágenes que nos sugieren constantemente qué desear. De tanto ver las mismas cosas, empezamos a reconocerlas como bellas casi sin pensarlo.</p>
-
-                        <p>Elegimos sobre todo aquello que sabemos que es bello a los ojos de los demás. Y cuando esa elección lleva consigo cierto estatus, resulta todavía más difícil renunciar a ella. Pero olvidamos que conformarse tiene fuerza, mientras que elegir no hacerlo también es una forma de poder.</p>
-
-                        <p>Aquí el arte desempeña un papel crucial, dejando espacio para una elección diferente y personal. Una obra entra en nuestras casas porque la queremos en nuestra vida, porque nos gusta, porque nos ha detenido, porque seguimos queriendo mirarla. No porque tenga que gustar a los demás, sino porque nos habla a nosotros.</p>
-
-                        <p>Entonces, ¿por qué necesitamos la belleza?</p>
-
-                        <p>Para celebrar la vida. Para devolver algo a este mundo que no nos fue dado únicamente para habitarlo, sino para admirarlo, vivirlo, transformarlo y amarlo.</p>
-
-                        <p>La verdad es que nunca hemos dejado de necesitar la belleza. Simplemente lo hemos olvidado.</p>
-
-                    </div>
-
-                </article>
-            </div>
+            </article>
         </div>
 
         <footer class="reader-footer">
-
             <div class="footer-author">
                 <h4 class="author-name">Claudia Alizieri</h4>
-                <p class="author-role">Founder & Curator, Senso</p>
+                <p class="author-role">Founder &amp; Curator, Senso</p>
             </div>
 
             <a href="journal.html" class="footer-back-btn">&lt; Back to Journal</a>
-
         </footer>
 
-    </div>
+    </main>
 
     <script>
         let currentLang = localStorage.getItem('senso_lang') || 'it';
@@ -398,25 +358,14 @@
             currentLang = lang;
             localStorage.setItem('senso_lang', lang);
 
-            document.querySelectorAll('.lang-btn').forEach(btn =>
-                btn.classList.remove('active')
-            );
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`btn-${lang}`).classList.add('active');
 
-            const activeBtn = document.getElementById(`btn-${lang}`);
-            if (activeBtn) activeBtn.classList.add('active');
-
-            document.querySelectorAll('.lang-en, .lang-es, .lang-it').forEach(el =>
-                el.classList.add('hidden')
-            );
-
-            document.querySelectorAll(`.lang-${lang}`).forEach(el =>
-                el.classList.remove('hidden')
-            );
+            document.querySelectorAll('.lang-en, .lang-es, .lang-it').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
         }
 
-        window.onload = function() {
-            setLang(currentLang);
-        };
+        window.onload = () => setLang(currentLang);
     </script>
 
 </body>
