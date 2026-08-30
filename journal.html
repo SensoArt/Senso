@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,6 @@
             font-display: swap; 
         }
 
-        /* ANIMAZIONE FADE IN */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
@@ -60,7 +60,6 @@
             overflow-x: hidden;
         }
 
-        /* SFONDO BIANCO FISSO */
         .bg-container {
             position: fixed;
             top: 0;
@@ -71,7 +70,6 @@
             background-color: #fff;
         }
 
-        /* Navigazione Superiore Minimalista */
         .back-home { 
             position: fixed; 
             top: 30px; 
@@ -85,6 +83,7 @@
             z-index: 1000; 
             transition: opacity 0.3s; 
         }
+
         .back-home:hover { opacity: 1; }
         
         .lang-switch { 
@@ -95,6 +94,7 @@
             letter-spacing: 2px; 
             z-index: 1000; 
         }
+
         .lang-btn { 
             background: none; 
             border: none; 
@@ -107,9 +107,9 @@
             letter-spacing: inherit; 
             transition: opacity 0.3s; 
         }
+
         .lang-btn.active { opacity: 1; }
 
-        /* CONTENITORE PRINCIPALE */
         .container { 
             max-width: 800px; 
             margin: 0 auto; 
@@ -121,7 +121,6 @@
             text-align: left;
         }
 
-        /* */
         .journal-title { 
             font-family: 'BehindNineties', serif; 
             font-size: clamp(2.5rem, 6vw, 3.8rem); 
@@ -130,15 +129,14 @@
             text-transform: lowercase;
             margin: 0; 
             display: inline-block;
-            overflow: visible; /* Forza il browser a non applicare clip visivi */
-            padding-left: 0.35em; /* Spazio di sicurezza a sinistra per l'occhiello della 'j' */
-            padding-right: 0.15em; /* Spazio di sicurezza a destra */
-            padding-bottom: 0.25em; /* Spazio di sicurezza inferiore per la coda discendente della 'j' */
-            margin-left: -0.32em; /* Margine negativo simmetrico per riallineare il testo perfettamente alla griglia */
-            line-height: 1.4; /* Altezza di riga generosa per evitare tagli verticali del font */
+            overflow: visible;
+            padding-left: 0.35em;
+            padding-right: 0.15em;
+            padding-bottom: 0.25em;
+            margin-left: -0.32em;
+            line-height: 1.4;
         }
 
-        /* GRIGLIA DEGLI ARTICOLI */
         .journal-feed {
             display: flex;
             flex-direction: column;
@@ -168,7 +166,6 @@
             color: #000;
         }
 
-        /* Titolo dell'articolo in FuturaLight */
         .essay-title {
             font-family: 'FuturaLight', sans-serif;
             font-size: clamp(1.2rem, 3vw, 1.7rem);
@@ -189,7 +186,6 @@
 
         .hidden { display: none !important; }
 
-        /* RESPONSIVE */
         @media (max-width: 800px) {
             .container { padding-top: 120px; }
             .back-home { top: 25px; left: 20px; }
@@ -199,27 +195,22 @@
 </head>
 <body>
 
-    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
-    <!-- Navigazione Elegante -->
     <a href="index.html" class="back-home">← Home</a>
 
-    <!-- Selettore di Lingua (EN | ES | IT) -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
         <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
     </div>
 
-    <!-- CONTENUTORE PRINCIPALE FEED -->
     <div class="container">
         
         <header class="journal-header fade-in delay-1">
             <h1 class="journal-title">journal</h1>
         </header>
 
-        <!-- Il Feed degli articoli con il saggio che rimanda a on-opening.html -->
         <main class="journal-feed fade-in delay-2">
             
             <a href="on-opening.html" class="essay-card">
@@ -230,31 +221,36 @@
                 <span class="essay-subtype lang-it hidden">Saggio - Luglio 2026</span>
             </a>
 
+            <a href="the-need-for-beauty.html" class="essay-card">
+                <span class="essay-number">Journal 002</span>
+                <h2 class="essay-title">The Need for Beauty</h2>
+                <span class="essay-subtype lang-en">August 2026</span>
+                <span class="essay-subtype lang-es hidden">Agosto 2026</span>
+                <span class="essay-subtype lang-it hidden">Agosto 2026</span>
+            </a>
+
         </main>
     </div>
 
     <script>
-        // Recupera la lingua attiva memorizzata, altrimenti default a 'it'
         let currentLang = localStorage.getItem('senso_lang') || 'it';
 
         function setLang(lang) {
             currentLang = lang;
             localStorage.setItem('senso_lang', lang);
-            
-            // Aggiorna lo stato dei pulsanti dello switch
+
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById(`btn-${lang}`);
             if (activeBtn) activeBtn.classList.add('active');
 
-            // Mostra/Nasconde i sottotitoli in base alla lingua scelta
             document.querySelectorAll('.essay-subtype').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
         }
 
-        // Avvio automatico al caricamento
         window.onload = function() {
             setLang(currentLang);
         }
     </script>
 </body>
 </html>
+```
