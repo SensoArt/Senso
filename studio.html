@@ -69,7 +69,10 @@ button,input,textarea{font:inherit}
 .field input,.field textarea{width:100%;padding:7px 0 10px;border:0;border-bottom:1px solid #000;outline:none;background:transparent;font-size:.95rem}
 .field textarea{height:100px;resize:vertical}
 .thanks{display:none;margin:55px auto 0;font-size:.95rem;line-height:1.8}
-.es{display:none}
+
+/* Gestione pulita della visibilità delle lingue via CSS */
+html[lang="en"] .es { display: none !important; }
+html[lang="es"] .en { display: none !important; }
 
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
@@ -143,7 +146,8 @@ button,input,textarea{font:inherit}
 <p class="detail-text es">Clases grupales de 90 minutos para adultos, abiertas a todos los niveles. Un espacio para aprender, experimentar y desarrollar tu propia forma de pintar.</p>
 </div>
 <div>
-<h3 class="detail-title">Studio Kids</h3>
+<h3 class="detail-title en">Studio Kids</h3>
+<h3 class="detail-title es">Studio Kids</h3>
 <p class="detail-text en">Painting classes for children, encouraging imagination, experimentation and confidence through art.</p>
 <p class="detail-text es">Clases de pintura para niños, fomentando la imaginación, la experimentación y la confianza a través del arte.</p>
 </div>
@@ -292,16 +296,15 @@ thanks.style.display='block';
 });
 
 function setLanguage(language){
-const spanish=language==='es';
-document.documentElement.lang=language;
-document.querySelectorAll('.en').forEach(el=>el.style.display=spanish?'none':'');
-document.querySelectorAll('.es').forEach(el=>el.style.display=spanish?'':'none');
-document.getElementById('en-button').classList.toggle('active',!spanish);
-document.getElementById('es-button').classList.toggle('active',spanish);
-localStorage.setItem('senso_lang',language);
+document.documentElement.lang = language;
+document.getElementById('en-button').classList.toggle('active', language === 'en');
+document.getElementById('es-button').classList.toggle('active', language === 'es');
+localStorage.setItem('senso_lang', language);
 }
 
-setLanguage(localStorage.getItem('senso_lang')||'en');
+// Imposta la lingua salvata o di default all'avvio
+const savedLang = localStorage.getItem('senso_lang') || 'en';
+setLanguage(savedLang);
 </script>
 </body>
 </html>
