@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-       <!-- Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -18,10 +18,11 @@
     src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Meta Pixel Code -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Senso - Journal</title>
-    
+
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
@@ -84,7 +85,7 @@
         }
 
         .back-home:hover { opacity: 1; }
-        
+
         .lang-switch { 
             position: fixed; 
             top: 30px; 
@@ -151,7 +152,7 @@
             cursor: pointer;
             transition: opacity 0.3s ease;
         }
-        
+
         .essay-card:hover {
             opacity: 0.65;
         }
@@ -205,13 +206,13 @@
     </div>
 
     <div class="container">
-        
+
         <header class="journal-header fade-in delay-1">
             <h1 class="journal-title">journal</h1>
         </header>
 
         <main class="journal-feed fade-in delay-2">
-            
+
             <a href="on-opening.html" class="essay-card">
                 <span class="essay-number">Journal 001</span>
                 <h2 class="essay-title">On Opening an Independent Gallery</h2>
@@ -222,7 +223,13 @@
 
             <a href="the-need-for-beauty.html" class="essay-card">
                 <span class="essay-number">Journal 002</span>
-                <h2 class="essay-title">The Need for Beauty</h2>
+                
+                <!-- Titolo Tradotto -->
+                <h2 class="essay-title lang-en">The Need for Beauty</h2>
+                <h2 class="essay-title lang-es hidden">La Necesidad de la Belleza</h2>
+                <h2 class="essay-title lang-it hidden">Il Bisogno di Bellezza</h2>
+
+                <!-- Sottotitolo / Data -->
                 <span class="essay-subtype lang-en">August 2026</span>
                 <span class="essay-subtype lang-es hidden">Agosto 2026</span>
                 <span class="essay-subtype lang-it hidden">Agosto 2026</span>
@@ -238,11 +245,13 @@
             currentLang = lang;
             localStorage.setItem('senso_lang', lang);
 
+            // Aggiorna lo stato dei bottoni
             document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
             const activeBtn = document.getElementById(`btn-${lang}`);
             if (activeBtn) activeBtn.classList.add('active');
 
-            document.querySelectorAll('.essay-subtype').forEach(el => el.classList.add('hidden'));
+            // Mostra/Nascondi tutti gli elementi con classi multilingua (sia titoli che sottotitoli)
+            document.querySelectorAll('.lang-en, .lang-es, .lang-it').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
         }
 
@@ -252,4 +261,3 @@
     </script>
 </body>
 </html>
-```
