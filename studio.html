@@ -25,11 +25,11 @@ button,input,textarea{font:inherit}
 .page{width:min(1200px,calc(100% - 80px));margin:auto;padding:150px 0 120px}
 .title{margin:0 0 70px;font-family:Behind,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;text-transform:lowercase}
 
-/* MODIFICA HERO: Aggiunto overlay scuro per leggibilità e altezza ottimizzata */
-.hero{position:relative;width:100%;height:360px;overflow:hidden;margin-bottom:90px}
-.hero img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.35);z-index:1}
-.hero-copy{position:absolute;left:7%;top:50%;transform:translateY(-50%);width:min(600px,56%);color:#fff;z-index:2}
+/* CORRETTO: Banner hero ora mostra l'intera immagine senza tagli drastici e con leggibilità pulita */
+.hero{position:relative;width:100%;height:420px;overflow:hidden;margin-bottom:90px;background:#f9f9f9;display:flex;align-items:center;justify-content:center}
+.hero img{width:100%;height:100%;display:block;object-fit:contain;object-position:center}
+.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.25);z-index:1}
+.hero-copy{position:absolute;left:7%;top:50%;transform:translateY(-50%);width:min(600px,56%);color:#fff;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,0.3)}
 .hero-copy p{margin:0 0 22px;font-size:1.15rem;line-height:1.75}
 .hero-copy p:last-child{margin:0}
 
@@ -50,7 +50,9 @@ button,input,textarea{font:inherit}
 .section-title{margin:0 0 65px;font-family:Behind,serif;font-size:1.5rem;font-weight:400;text-transform:lowercase}
 .teacher{display:grid;grid-template-columns:260px 1fr;gap:75px;align-items:center;margin-bottom:100px}
 .teacher.lucia{grid-template-columns:1fr 260px}
-.teacher-image,.teacher-placeholder{width:260px;height:325px;object-fit:cover}
+
+/* CORRETTO: Immagini dei professori con proporzioni eleganti e bordi puliti */
+.teacher-image,.teacher-placeholder{width:260px;height:325px;object-fit:cover;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
 .teacher-image{object-position:center top}
 .teacher.lucia .teacher-image{display:block}
 .teacher-placeholder{display:flex;align-items:center;justify-content:center;background:#f5f5f5;font-size:.55rem;letter-spacing:1.8px;text-transform:uppercase;opacity:.55}
@@ -77,8 +79,8 @@ button,input,textarea{font:inherit}
 @media(max-width:700px){
 .page{width:calc(100% - 40px);padding:110px 0 80px}
 .title{margin-bottom:45px;font-size:2.2rem}
-.hero{height:420px;margin-bottom:75px}
-.hero-copy{left:7%;top:auto;bottom:35px;transform:none;width:86%}
+.hero{height:300px;margin-bottom:75px}
+.hero-copy{left:7%;top:auto;bottom:25px;transform:none;width:86%}
 .hero-copy p{font-size:1.02rem;line-height:1.7;margin-bottom:18px}
 .offer{display:block;margin-bottom:100px}
 .small-title{margin-bottom:45px}
@@ -89,7 +91,7 @@ button,input,textarea{font:inherit}
 .teacher,.teacher.lucia{display:flex;flex-direction:column;align-items:flex-start;gap:28px;margin-bottom:75px}
 .teacher.lucia .teacher-image{order:0}
 .teacher.lucia .teacher-info{order:1}
-.teacher-image,.teacher-placeholder{width:190px;height:238px}
+.teacher-image,.teacher-placeholder{width:100%;max-width:260px;height:325px}
 .form-row{grid-template-columns:1fr;gap:0}
 .contact{margin-top:30px}
 }
