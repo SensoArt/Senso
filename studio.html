@@ -5,14 +5,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Senso Studio</title>
-<meta name="description" content="Senso Studio offers painting classes and art experiences for adults, children and companies in Barcelona.">
+<meta name="description" content="Senso Studio offers painting classes and creative art experiences for adults, children, teams and companies in Barcelona.">
 <link rel="icon" type="image/png" href="favicon.png?v=1000">
 
 <style>
-@font-face{font-family:FuturaLight;src:url('Fonts/futura light bt.ttf')}
+@font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf')}
 @font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf')}
 *{box-sizing:border-box}
-body{margin:0;background:#fff;color:#000;font-family:FuturaLight,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#fff;color:#000;font-family:Futura,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:#000;text-decoration:none}
 button,input,textarea{font:inherit}
 .back-home,.lang{position:fixed;top:25px;z-index:10;font-size:.65rem;letter-spacing:2px}
@@ -20,33 +20,41 @@ button,input,textarea{font:inherit}
 .lang{right:20px}
 .lang button{border:0;background:none;padding:0 5px;cursor:pointer;font-size:.65rem;letter-spacing:2px;opacity:.35}
 .lang button.active{opacity:1}
-.container{width:min(1100px,calc(100% - 80px));margin:auto;padding:150px 0 120px}
-.title,.section-title,.contact-title{font-family:Behind,serif;font-weight:400;text-transform:lowercase}
-.title{margin:0 0 100px;font-size:3rem}
-.intro{max-width:720px;margin-bottom:130px;font-size:1.15rem;line-height:1.8}
-.intro p{margin:0 0 25px}
-.option{max-width:900px;margin-bottom:55px;cursor:pointer}
-.option h2{margin:0 0 12px;font-size:1rem;font-weight:400;letter-spacing:2px;text-transform:uppercase}
-.option>p{margin:0;font-size:.95rem;opacity:.6}
-.content{max-height:0;overflow:hidden;opacity:0;transition:.6s}
-.option.open .content{max-height:450px;margin-top:35px;opacity:1}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:70px}
-.block h3{margin:0 0 18px;font-size:.7rem;font-weight:400;letter-spacing:2px;text-transform:uppercase}
-.block p{max-width:450px;margin:0;font-size:1rem;line-height:1.8}
-.back{margin-top:35px;border:0;background:none;padding:0;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;opacity:.6}
-.statement{max-width:760px;margin:140px 0;font-size:1.15rem;line-height:1.8}
-.statement p{margin:0 0 25px}
-.section-title{margin:0 0 65px;font-size:1.7rem}
-.teacher{display:flex;align-items:flex-end;gap:70px;margin-bottom:100px}
-.teacher:nth-of-type(2){flex-direction:row-reverse;justify-content:flex-end}
-.teacher img,.placeholder{width:230px;aspect-ratio:4/5;object-fit:cover;flex-shrink:0}
+.container{width:min(1150px,calc(100% - 80px));margin:auto;padding:145px 0 110px}
+.title{margin:0 0 110px;font-family:Behind,serif;font-size:3rem;font-weight:400;text-transform:lowercase}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:100px;align-items:end;margin-bottom:150px}
+.hero-copy{max-width:570px;font-size:1.2rem;line-height:1.8}
+.hero-copy p{margin:0 0 25px}
+.hero-note{align-self:start;padding-top:12px;font-size:.7rem;line-height:1.7;letter-spacing:1.5px;text-transform:uppercase;opacity:.6}
+.offer{display:grid;grid-template-columns:1fr 1.6fr;gap:90px;margin-bottom:160px}
+.offer-intro{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;opacity:.65}
+.option{margin-bottom:65px;cursor:pointer}
+.option-head{display:flex;align-items:center;justify-content:space-between}
+.option h2{margin:0;font-size:1.05rem;font-weight:400;letter-spacing:2px;text-transform:uppercase}
+.symbol{font-family:Arial,sans-serif;font-size:20px;font-weight:300;opacity:.65}
+.option-sub{margin:14px 0 0;font-size:.95rem;opacity:.6}
+.content{max-height:0;overflow:hidden;opacity:0;transition:max-height .7s ease,opacity .5s ease}
+.option.open .content{max-height:500px;margin-top:35px;opacity:1}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+.block h3{margin:0 0 17px;font-size:.7rem;font-weight:400;letter-spacing:2px;text-transform:uppercase}
+.block p{margin:0;font-size:.95rem;line-height:1.8}
+.statement{display:grid;grid-template-columns:.8fr 1.2fr;gap:100px;margin-bottom:170px}
+.statement-title{font-family:Behind,serif;font-size:1.8rem;text-transform:lowercase}
+.statement-text{font-size:1.15rem;line-height:1.8}
+.statement-text p{margin:0 0 25px}
+.teachers{margin-bottom:160px}
+.section-title{margin:0 0 75px;font-family:Behind,serif;font-size:1.7rem;font-weight:400;text-transform:lowercase}
+.teacher{display:grid;grid-template-columns:260px 1fr;gap:80px;align-items:end;margin-bottom:110px}
+.teacher:nth-child(3){grid-template-columns:1fr 260px}
+.teacher:nth-child(3) .teacher-image{order:2}
+.teacher-image,.placeholder{width:260px;height:325px;object-fit:cover}
 .placeholder{display:flex;align-items:center;justify-content:center;background:#f5f5f5;font-size:.55rem;letter-spacing:2px}
-.teacher-info{max-width:470px}
-.teacher-name{margin:0 0 12px;font-family:Behind,serif;font-size:1.5rem;font-weight:400}
+.teacher-info{max-width:500px}
+.teacher-name{margin:0 0 13px;font-family:Behind,serif;font-size:1.5rem;font-weight:400}
 .role{margin-bottom:25px;font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase}
 .teacher-info p{margin:0;font-size:.95rem;line-height:1.8}
-.contact{text-align:center;margin-top:140px}
-.contact-title{margin:0 0 35px;font-size:1.7rem}
+.contact{text-align:center;margin-top:20px}
+.contact-title{margin:0 0 35px;font-family:Behind,serif;font-size:1.7rem;font-weight:400;text-transform:lowercase}
 .contact-link{border:0;background:none;padding:0;cursor:pointer;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.7}
 .form{display:none;max-width:600px;margin:60px auto 0;text-align:left}
 .form.open{display:block;animation:fade .5s}
@@ -57,19 +65,25 @@ button,input,textarea{font:inherit}
 .field textarea{height:100px;resize:vertical}
 .submit{border:0;background:none;padding:0;cursor:pointer;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.7}
 .thanks{display:none;max-width:500px;margin:60px auto 0;font-size:1rem;line-height:1.8}
-.hidden{display:none!important}
+.es{display:none}
 @keyframes fade{from{opacity:0}to{opacity:1}}
+
 @media(max-width:700px){
 .container{width:calc(100% - 40px);padding-top:120px}
-.title{font-size:2.2rem;margin-bottom:65px}
-.intro{margin-bottom:100px;font-size:1.05rem}
+.title{font-size:2.2rem;margin-bottom:75px}
+.hero,.offer,.statement{display:block;margin-bottom:110px}
+.hero-copy{font-size:1.05rem;line-height:1.75}
+.hero-note{margin-top:40px}
+.offer-intro{margin-bottom:55px}
+.option{margin-bottom:50px}
 .grid{grid-template-columns:1fr;gap:40px}
-.statement{margin:110px 0;font-size:1.05rem}
-.section-title{font-size:1.5rem}
-.teacher,.teacher:nth-of-type(2){flex-direction:column;align-items:flex-start;gap:30px}
-.teacher img,.placeholder{width:190px}
+.statement-title{margin-bottom:35px;font-size:1.5rem}
+.statement-text{font-size:1.05rem;line-height:1.75}
+.section-title{font-size:1.5rem;margin-bottom:55px}
+.teacher,.teacher:nth-child(3){display:flex;flex-direction:column;align-items:flex-start;gap:30px;margin-bottom:90px}
+.teacher:nth-child(3) .teacher-image{order:0}
+.teacher-image,.placeholder{width:190px;height:238px}
 .row{grid-template-columns:1fr;gap:0}
-.contact{margin-top:110px}
 .contact-title{font-size:1.5rem}
 }
 </style>
@@ -89,113 +103,195 @@ button,input,textarea{font:inherit}
 
 <h1 class="title">senso studio</h1>
 
-<section class="intro">
-<div data-en="Art is something to be experienced." data-es="El arte también se vive."></div>
-<br>
-<div data-en="Senso Studio brings people closer to art through painting, creativity and shared experiences." data-es="Senso Studio acerca a las personas al arte a través de la pintura, la creatividad y las experiencias compartidas."></div>
+<section class="hero">
+
+<div class="hero-copy">
+<div class="en">
+<p>Painting classes and art experiences in Barcelona.</p>
+<p>Senso Studio offers group painting classes for adults and children, as well as tailored experiences for companies and teams.</p>
+</div>
+<div class="es">
+<p>Clases de pintura y experiencias artísticas en Barcelona.</p>
+<p>Senso Studio ofrece clases grupales de pintura para adultos y niños, además de experiencias diseñadas para empresas y equipos.</p>
+</div>
+</div>
+
+<div class="hero-note">
+<span class="en">For individuals · children · teams · companies</span>
+<span class="es">Para particulares · niños · equipos · empresas</span>
+</div>
+
 </section>
 
-<section>
+<section class="offer">
+
+<div class="offer-intro">
+<span class="en">Choose your experience</span>
+<span class="es">Elige tu experiencia</span>
+</div>
+
+<div>
 
 <div class="option" onclick="toggle(this)">
-<h2 data-en="Private" data-es="Particulares"></h2>
-<p data-en="Painting classes for adults and children" data-es="Clases de pintura para adultos y niños"></p>
+<div class="option-head">
+<h2 class="en">Private</h2>
+<h2 class="es">Particulares</h2>
+<span class="symbol">+</span>
+</div>
+<p class="option-sub en">Painting classes for adults and children</p>
+<p class="option-sub es">Clases de pintura para adultos y niños</p>
+
 <div class="content">
 <div class="grid">
 <div class="block">
-<h3 data-en="Painting Classes" data-es="Clases de pintura"></h3>
-<p data-en="90-minute group classes for adults, where painting becomes a way to explore creativity, experiment and experience art from within." data-es="Clases grupales de 90 minutos para adultos, donde la pintura se convierte en una forma de explorar la creatividad, experimentar y vivir el arte desde dentro."></p>
+<h3 class="en">Painting Classes</h3>
+<h3 class="es">Clases de pintura</h3>
+<p class="en">90-minute group classes for adults, designed to explore painting, develop creativity and enjoy the process of creating.</p>
+<p class="es">Clases grupales de 90 minutos para adultos, pensadas para explorar la pintura, desarrollar la creatividad y disfrutar del proceso de crear.</p>
 </div>
 <div class="block">
 <h3>Studio Kids</h3>
-<p data-en="Painting classes for children, created around imagination, experimentation and the freedom to create." data-es="Clases de pintura para niños, creadas alrededor de la imaginación, la experimentación y la libertad de crear."></p>
+<p class="en">Painting classes for children, with space for imagination, experimentation and creative discovery.</p>
+<p class="es">Clases de pintura para niños, con espacio para la imaginación, la experimentación y el descubrimiento creativo.</p>
 </div>
 </div>
-<button class="back" onclick="closeOption(event,this)" data-en="← Back" data-es="← Volver"></button>
 </div>
 </div>
 
 <div class="option" onclick="toggle(this)">
-<h2 data-en="Companies" data-es="Empresas"></h2>
-<p data-en="Art experiences for teams and companies" data-es="Experiencias artísticas para equipos y empresas"></p>
+<div class="option-head">
+<h2 class="en">Companies</h2>
+<h2 class="es">Empresas</h2>
+<span class="symbol">+</span>
+</div>
+<p class="option-sub en">Art experiences for teams and companies</p>
+<p class="option-sub es">Experiencias artísticas para equipos y empresas</p>
+
 <div class="content">
 <div class="grid">
 <div class="block">
-<h3 data-en="Where" data-es="Dónde"></h3>
-<p data-en="Experiences can take place at your company or at Senso Studio." data-es="Las experiencias pueden realizarse en vuestra empresa o en Senso Studio."></p>
+<h3 class="en">Where</h3>
+<h3 class="es">Dónde</h3>
+<p class="en">Choose between your company and Senso Studio.</p>
+<p class="es">Podéis elegir entre vuestra empresa y Senso Studio.</p>
 </div>
 <div class="block">
-<h3 data-en="Formats" data-es="Formatos"></h3>
-<p data-en="90-minute painting classes once a week, team building sessions or corporate events." data-es="Clases de pintura de 90 minutos una vez por semana, sesiones de team building o eventos de empresa."></p>
+<h3 class="en">Formats</h3>
+<h3 class="es">Formatos</h3>
+<p class="en">90-minute painting classes once a week, team building or corporate events.</p>
+<p class="es">Clases de pintura de 90 minutos una vez por semana, team building o eventos de empresa.</p>
 </div>
 </div>
-<button class="back" onclick="closeOption(event,this)" data-en="← Back" data-es="← Volver"></button>
 </div>
 </div>
 
+</div>
 </section>
 
 <section class="statement">
-<p data-en="At Senso, we believe that bringing people closer to art means creating opportunities to experience it." data-es="En Senso creemos que acercar a las personas al arte significa crear oportunidades para experimentarlo."></p>
-<p data-en="Senso Studio is an extension of that vision. A place to step away from looking and start making." data-es="Senso Studio es una extensión de esa visión. Un espacio para dejar de mirar y empezar a crear."></p>
+
+<div class="statement-title en">A different way to approach art.</div>
+<div class="statement-title es">Una forma diferente de acercarse al arte.</div>
+
+<div class="statement-text">
+<div class="en">
+<p>Senso Studio is an extension of Senso's work: creating opportunities for people to encounter contemporary art in a more direct and personal way.</p>
+<p>Through painting, we open a space to learn, experiment and create, regardless of previous experience.</p>
+</div>
+<div class="es">
+<p>Senso Studio es una extensión del trabajo de Senso: crear oportunidades para acercar a las personas al arte contemporáneo de una forma más directa y personal.</p>
+<p>A través de la pintura, abrimos un espacio para aprender, experimentar y crear, independientemente de la experiencia previa.</p>
+</div>
+</div>
+
 </section>
 
-<section>
+<section class="teachers">
 
-<h2 class="section-title" data-en="the teachers" data-es="los profesores"></h2>
+<h2 class="section-title en">the teachers</h2>
+<h2 class="section-title es">los profesores</h2>
 
 <article class="teacher">
-<div class="placeholder" data-en="Portrait coming soon" data-es="Retrato próximamente"></div>
+
+<div class="placeholder">
+<span class="en">Portrait coming soon</span>
+<span class="es">Retrato próximamente</span>
+</div>
+
 <div class="teacher-info">
 <h3 class="teacher-name">Rafael Reyes</h3>
-<div class="role" data-en="Organizational Psychologist & Art Workshop Facilitator" data-es="Psicólogo organizacional & facilitador de talleres artísticos"></div>
-<p data-en="Rafael combines psychology, neuroscience, creativity and art to create experiences that foster personal and team development. With more than 13 years facilitating programs in Europe and Latin America, he brings his background in organizational psychology, leadership and emotional intelligence together with his practice as a self-taught painter." data-es="Rafael combina psicología, neurociencia, creatividad y arte para crear experiencias que potencian el desarrollo personal y de los equipos. Cuenta con más de 13 años facilitando programas en Europa y Latinoamérica y une su formación en psicología organizacional, liderazgo e inteligencia emocional con su práctica como pintor autodidacta."></p>
+<div class="role en">Organizational Psychologist & Art Workshop Facilitator</div>
+<div class="role es">Psicólogo organizacional & facilitador de talleres artísticos</div>
+<p class="en">Rafael combines psychology, neuroscience, creativity and art to create experiences that foster personal and team development. With more than 13 years facilitating programs in Europe and Latin America, he brings his background in organizational psychology, leadership and emotional intelligence together with his practice as a self-taught painter.</p>
+<p class="es">Rafael combina psicología, neurociencia, creatividad y arte para crear experiencias que potencian el desarrollo personal y de los equipos. Cuenta con más de 13 años facilitando programas en Europa y Latinoamérica y une su formación en psicología organizacional, liderazgo e inteligencia emocional con su práctica como pintor autodidacta.</p>
 </div>
+
 </article>
 
 <article class="teacher">
-<img src="fotos_artistas/lucia_cheves_2.jpg" alt="Lucía Cheves Dauber">
+
+<div>
+<img src="fotos_artistas/lucia_cheves_2.jpg" alt="Lucía Cheves Dauber" class="teacher-image">
+</div>
+
 <div class="teacher-info">
 <h3 class="teacher-name">Lucía Cheves Dauber</h3>
-<div class="role" data-en="Artist & Art Educator" data-es="Artista & educadora artística"></div>
-<p data-en="Guatemalan artist based in Barcelona, Lucía explores painting as a form of memory and personal expression. Alongside her artistic practice, she teaches painting to children and adults in Barcelona, creating spaces for experimentation, creativity and curiosity." data-es="Artista guatemalteca afincada en Barcelona, Lucía explora la pintura como una forma de memoria y expresión personal. Paralelamente a su práctica artística, imparte clases de pintura a niños y adultos en Barcelona, creando espacios de experimentación, creatividad y curiosidad."></p>
+<div class="role en">Artist & Art Educator · Represented by Senso</div>
+<div class="role es">Artista & educadora artística · Representada por Senso</div>
+<p class="en">Guatemalan artist based in Barcelona, Lucía explores painting as a form of memory and personal expression. Alongside her artistic practice, she teaches painting to children and adults in Barcelona, creating spaces for experimentation, creativity and curiosity.</p>
+<p class="es">Artista guatemalteca afincada en Barcelona, Lucía explora la pintura como una forma de memoria y expresión personal. Paralelamente a su práctica artística, imparte clases de pintura a niños y adultos en Barcelona, creando espacios de experimentación, creatividad y curiosidad.</p>
 </div>
+
 </article>
 
 </section>
 
 <section class="contact">
 
-<h2 class="contact-title" data-en="experience art with us" data-es="vive el arte con nosotros"></h2>
+<h2 class="contact-title en">experience art with us</h2>
+<h2 class="contact-title es">vive el arte con nosotros</h2>
 
-<button class="contact-link" onclick="showForm()" data-en="Get in touch →" data-es="Contacta con nosotros →"></button>
+<button class="contact-link" onclick="showForm()">
+<span class="en">Get in touch →</span>
+<span class="es">Contacta con nosotros →</span>
+</button>
 
 <form id="form" class="form" action="https://formspree.io/f/mgorwree" method="POST">
 
 <div class="row">
+
 <div class="field">
-<label data-en="First name" data-es="Nombre"></label>
+<label class="en">First name</label>
+<label class="es">Nombre</label>
 <input type="text" name="first_name" required>
 </div>
+
 <div class="field">
-<label data-en="Last name" data-es="Apellidos"></label>
+<label class="en">Last name</label>
+<label class="es">Apellidos</label>
 <input type="text" name="last_name" required>
 </div>
+
 </div>
 
 <div class="row">
+
 <div class="field">
-<label data-en="Phone" data-es="Teléfono"></label>
+<label class="en">Phone</label>
+<label class="es">Teléfono</label>
 <input type="tel" name="phone" required>
 </div>
+
 <div class="field">
 <label>Email</label>
 <input type="email" name="email" required>
 </div>
+
 </div>
 
 <div class="field">
-<label data-en="Message" data-es="Mensaje"></label>
+<label class="en">Message</label>
+<label class="es">Mensaje</label>
 <textarea name="message" required></textarea>
 </div>
 
@@ -203,7 +299,7 @@ button,input,textarea{font:inherit}
 
 </form>
 
-<div id="thanks" class="thanks" data-en="Thank you. Someone from Senso will be in touch with you soon." data-es="Gracias. Alguien de Senso se pondrá en contacto contigo pronto."></div>
+<div id="thanks" class="thanks"></div>
 
 </section>
 
@@ -211,19 +307,19 @@ button,input,textarea{font:inherit}
 
 <script>
 function setLang(lang){
+const es=lang==='es';
 document.documentElement.lang=lang;
-document.querySelectorAll('[data-en]').forEach(el=>el.textContent=el.dataset[lang]);
-document.getElementById('enBtn').classList.toggle('active',lang==='en');
-document.getElementById('esBtn').classList.toggle('active',lang==='es');
+document.querySelectorAll('[data-en]').forEach(x=>x.textContent=x.dataset[lang]);
+document.querySelectorAll('.en').forEach(x=>x.style.display=es?'none':'');
+document.querySelectorAll('.es').forEach(x=>x.style.display=es?'':'none');
+document.getElementById('enBtn').classList.toggle('active',!es);
+document.getElementById('esBtn').classList.toggle('active',es);
 localStorage.setItem('senso_lang',lang);
 }
 function toggle(el){
-document.querySelectorAll('.option').forEach(x=>x!==el&&x.classList.remove('open'));
+document.querySelectorAll('.option').forEach(x=>{if(x!==el){x.classList.remove('open');x.querySelector('.symbol').textContent='+'}});
 el.classList.toggle('open');
-}
-function closeOption(e,btn){
-e.stopPropagation();
-btn.closest('.option').classList.remove('open');
+el.querySelector('.symbol').textContent=el.classList.contains('open')?'−':'+';
 }
 function showForm(){
 document.getElementById('form').classList.add('open');
@@ -233,7 +329,12 @@ document.getElementById('form').addEventListener('submit',async e=>{
 e.preventDefault();
 const form=e.target;
 const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});
-if(res.ok){form.style.display='none';document.getElementById('thanks').style.display='block'}
+if(res.ok){
+form.style.display='none';
+const thanks=document.getElementById('thanks');
+thanks.textContent=document.documentElement.lang==='es'?'Gracias. Alguien de Senso se pondrá en contacto contigo pronto.':'Thank you. Someone from Senso will be in touch with you soon.';
+thanks.style.display='block';
+}
 });
 setLang(localStorage.getItem('senso_lang')||'en');
 </script>
