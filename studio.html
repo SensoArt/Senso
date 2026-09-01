@@ -29,26 +29,69 @@ button,input,textarea,select{font:inherit;color:inherit}
 .hero{position:relative;width:100%;height:420px;overflow:hidden;margin-bottom:110px;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
 .hero img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
 .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.38);z-index:1}
-.hero-copy{position:absolute;left:7%;top:50%;transform:translateY(-50%);width:min(600px,70%);color:#fff;z-index:2}
+.hero-copy{position:absolute;left:7%;top:38%;transform:translateY(-50%);width:min(600px,70%);color:#fff;z-index:2}
 .hero-copy p{margin:0;font-size:1.15rem;line-height:1.75}
 
-/* Offers Section */
-.offer{display:grid;grid-template-columns:.8fr 1.2fr;gap:100px;margin-bottom:145px}
-.small-title{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.55}
-.option{margin-bottom:55px;cursor:pointer}
-.option-header{display:flex;align-items:center;justify-content:space-between}
-.option-title{margin:0;font-size:1rem;font-weight:400;letter-spacing:2px;text-transform:uppercase}
-.plus{font:300 19px Arial,sans-serif;opacity:.6}
-.option-subtitle{margin:12px 0 0;font-size:.9rem;line-height:1.6;opacity:.6}
-.option-content{max-height:0;overflow:hidden;opacity:0;transition:max-height .6s ease,opacity .4s ease}
-.option.open .option-content{max-height:900px;margin-top:32px;opacity:1}
-.details{display:grid;grid-template-columns:1fr 1fr;gap:40px}
-.details.three-cols{grid-template-columns:repeat(3, 1fr)}
-.detail-title{margin:0 0 10px;font-size:.65rem;font-weight:400;letter-spacing:1.8px;text-transform:uppercase}
-.detail-meta{font-size:.72rem;opacity:.5;margin-bottom:12px;text-transform:uppercase;letter-spacing:1px}
-.detail-text{margin:0 0 20px;font-size:.9rem;line-height:1.8}
-.action-btn{display:inline-block;padding:10px 0;border-bottom:1px solid #000;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;opacity:.8;transition:opacity .3s}
-.action-btn:hover{opacity:1}
+/* Service Boxes Section */
+.offer-section{margin-bottom:145px}
+.section-header-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.55;margin-bottom:35px}
+
+.offer-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:25px}
+
+.service-card{
+  background:#fcfcfc;
+  border:1px solid rgba(0,0,0,0.08);
+  border-radius:6px;
+  padding:35px 30px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  position:relative;
+  transition:all .3s ease;
+}
+.service-card:hover{
+  background:#fff;
+  border-color:rgba(0,0,0,0.25);
+  box-shadow:0 12px 35px rgba(0,0,0,0.05);
+  transform:translateY(-3px);
+}
+
+.badge{
+  position:absolute;
+  top:20px;
+  right:20px;
+  font-size:.55rem;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  padding:4px 8px;
+  border:1px solid rgba(0,0,0,0.15);
+  border-radius:20px;
+  opacity:.65;
+}
+
+.card-title{font-family:Behind,serif;font-size:1.4rem;font-weight:400;margin:0 0 10px}
+.card-subtitle{font-size:.65rem;letter-spacing:1.8px;text-transform:uppercase;opacity:.5;margin-bottom:20px;display:block}
+.card-desc{font-size:.88rem;line-height:1.75;opacity:.8;margin:0 0 25px}
+
+.card-details{border-top:1px dashed rgba(0,0,0,0.1);padding-top:18px;margin-bottom:25px}
+.meta-item{font-size:.7rem;letter-spacing:1px;text-transform:uppercase;opacity:.6;margin-bottom:6px;display:block}
+
+.card-btn{
+  display:block;
+  width:100%;
+  padding:14px 0;
+  text-align:center;
+  background:#000;
+  color:#fff;
+  font-size:.62rem;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  border:none;
+  border-radius:3px;
+  cursor:pointer;
+  transition:background .3s ease;
+}
+.card-btn:hover{background:#333}
 
 /* Experience Gallery Carousel Section */
 .gallery-section{margin-bottom:145px}
@@ -70,7 +113,7 @@ button,input,textarea,select{font:inherit;color:inherit}
 .teacher{display:grid;grid-template-columns:260px 1fr;gap:75px;align-items:center;margin-bottom:100px}
 .teacher.lucia{grid-template-columns:1fr 260px}
 .teacher-image{width:260px;height:325px;object-fit:cover;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06);display:block}
-.teacher-rafael{object-position:center 12%}
+.teacher-rafael{object-position:center 8%}
 .teacher-info{max-width:520px}
 .teacher-name{margin:0 0 10px;font-family:Behind,serif;font-size:1.35rem;font-weight:400}
 .teacher-role{margin:0 0 22px;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.6}
@@ -96,8 +139,8 @@ html[lang="es"] .en { display: none !important; }
 
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
-@media(max-width:1000px){
-.details.three-cols{grid-template-columns:1fr 1fr}
+@media(max-width:980px){
+.offer-grid{grid-template-columns:1fr;gap:20px}
 }
 
 @media(max-width:700px){
@@ -106,10 +149,6 @@ html[lang="es"] .en { display: none !important; }
 .hero{height:440px;margin-bottom:75px}
 .hero-copy{left:7%;top:auto;bottom:40px;transform:none;width:86%}
 .hero-copy p{font-size:1.02rem;line-height:1.7}
-.offer{display:block;margin-bottom:100px}
-.small-title{margin-bottom:45px}
-.option{margin-bottom:45px}
-.details,.details.three-cols{grid-template-columns:1fr;gap:35px}
 .gallery-card{flex:0 0 260px;height:320px}
 .teachers{margin-bottom:100px}
 .section-title{margin-bottom:50px;font-size:1.4rem}
@@ -148,92 +187,92 @@ html[lang="es"] .en { display: none !important; }
 </div>
 </section>
 
-<section class="offer" id="experiences">
-<div class="small-title">
-<span class="en">Classes & experiences</span>
-<span class="es">Clases y experiencias</span>
-</div>
-<div>
-
-<!-- Private Option -->
-<div class="option open" onclick="toggleOption(this)">
-<div class="option-header">
-<h2 class="option-title en">Private</h2>
-<h2 class="option-title es">Particulares</h2>
-<span class="plus">−</span>
-</div>
-<p class="option-subtitle en">Painting classes and gift vouchers for individuals and children</p>
-<p class="option-subtitle es">Clases de pintura y bonos de regalo para particulares y niños</p>
-<div class="option-content">
-<div class="details three-cols">
-<div>
-<h3 class="detail-title en">Painting Classes (Adults)</h3>
-<h3 class="detail-title es">Clases de pintura (Adultos)</h3>
-<div class="detail-meta en">90 Min • All Levels • Weekly</div>
-<div class="detail-meta es">90 Min • Todos los niveles • Semanal</div>
-<p class="detail-text en">Group classes open to all levels. A serene space in Barcelona to learn and experiment.</p>
-<p class="detail-text es">Clases grupales abiertas a todos los niveles. Un espacio sereno en Barcelona para aprender y experimentar.</p>
-<span class="action-btn en" onclick="selectInterest('Adult Classes')">Inquire & Reserve →</span>
-<span class="action-btn es" onclick="selectInterest('Clases Adultos')">Consultar y Reservar →</span>
-</div>
-<div>
-<h3 class="detail-title en">Studio Kids</h3>
-<h3 class="detail-title es">Studio Kids</h3>
-<div class="detail-meta en">Ages 6-12 • Materials Included</div>
-<div class="detail-meta es">De 6 a 12 años • Materiales incluidos</div>
-<p class="detail-text en">Engaging painting sessions encouraging creative expression and natural experimentation.</p>
-<p class="detail-text es">Sesiones de pintura dinámicas que fomentan la expresión creativa y la experimentación.</p>
-<span class="action-btn en" onclick="selectInterest('Kids Classes')">Inquire & Reserve →</span>
-<span class="action-btn es" onclick="selectInterest('Clases Niños')">Consultar y Reservar →</span>
-</div>
-<div>
-<h3 class="detail-title en">Gift a Workshop</h3>
-<h3 class="detail-title es">Regala un taller</h3>
-<div class="detail-meta en">Gift Voucher • Flexible Dates</div>
-<div class="detail-meta es">Bono Regalo • Fechas flexibles</div>
-<p class="detail-text en">Give a creative experience. A unique and thoughtful gift voucher for a single class or workshop pack.</p>
-<p class="detail-text es">Regala una experiencia creativa. Un bono regalo especial para una clase o pack de talleres.</p>
-<span class="action-btn en" onclick="selectInterest('Gift Workshop')">Gift a Workshop →</span>
-<span class="action-btn es" onclick="selectInterest('Regala un taller')">Regalar un taller →</span>
-</div>
-</div>
-</div>
+<!-- Boxed Offerings Section -->
+<section class="offer-section" id="experiences">
+<div class="section-header-label">
+<span class="en">How to experience Senso</span>
+<span class="es">Modalidades de experiencia</span>
 </div>
 
-<!-- Companies Option -->
-<div class="option" onclick="toggleOption(this)">
-<div class="option-header">
-<h2 class="option-title en">Companies</h2>
-<h2 class="option-title es">Empresas</h2>
-<span class="plus">+</span>
-</div>
-<p class="option-subtitle en">Art experiences for teams and corporate groups</p>
-<p class="option-subtitle es">Experiencias artísticas para equipos y empresas</p>
-<div class="option-content">
-<div class="details">
-<div>
-<h3 class="detail-title en">Team Building & Events</h3>
-<h3 class="detail-title es">Team Building y Eventos</h3>
-<div class="detail-meta en">Custom Formats • At Studio or On-Site</div>
-<div class="detail-meta es">Formatos a medida • En Studio o In-Company</div>
-<p class="detail-text en">Tailored creative sessions designed to strengthen team cohesion, mindfulness, and creative thinking.</p>
-<p class="detail-text es">Sesiones creativas a medida diseñadas para reforzar la cohesión de equipo, el mindfulness y el pensamiento creativo.</p>
-<span class="action-btn en" onclick="selectInterest('Corporate Events')">Request Proposal →</span>
-<span class="action-btn es" onclick="selectInterest('Empresas')">Solicitar Propuesta →</span>
-</div>
-<div>
-<h3 class="detail-title en">Weekly Corporate Packs</h3>
-<h3 class="detail-title es">Packs Semanales Empresa</h3>
-<div class="detail-meta en">Ongoing Wellbeing Programs</div>
-<div class="detail-meta es">Programas continuos de bienestar</div>
-<p class="detail-text en">Provide regular creative outlets for employees with weekly 90-minute painting workshops at your office or our studio.</p>
-<p class="detail-text es">Ofrece una pausa creativa regular a tu equipo con talleres semanales de 90 minutos en tu oficina o nuestro studio.</p>
-<span class="action-btn en" onclick="selectInterest('Corporate Events')">Get Corporate Deck →</span>
-<span class="action-btn es" onclick="selectInterest('Empresas')">Pedir Dossier →</span>
-</div>
-</div>
-</div>
-</div>
+<div class="offer-grid">
+
+  <!-- Card 1: Classes -->
+  <div class="service-card">
+    <span class="badge en">Popular</span>
+    <span class="badge es">Popular</span>
+    <div>
+      <h2 class="card-title en">Weekly Classes</h2>
+      <h2 class="card-title es">Clases Semanales</h2>
+      <span class="card-subtitle en">Adults & Studio Kids</span>
+      <span class="card-subtitle es">Adultos y Studio Kids</span>
+      <p class="card-desc en">Regular guided painting sessions to learn techniques, experiment with styles, and build a creative routine in Barcelona.</p>
+      <p class="card-desc es">Sesiones guiadas regulares para aprender técnicas, experimentar con estilos y crear una rutina creativa en Barcelona.</p>
+    </div>
+    <div>
+      <div class="card-details">
+        <span class="meta-item en">• 90 Minute sessions</span>
+        <span class="meta-item es">• Sesiones de 90 minutos</span>
+        <span class="meta-item en">• All levels welcome</span>
+        <span class="meta-item es">• Todos los niveles</span>
+        <span class="meta-item en">• Materials included</span>
+        <span class="meta-item es">• Materiales incluidos</span>
+      </div>
+      <button class="card-btn en" onclick="selectInterest('Adult Classes')">Book a Spot →</button>
+      <button class="card-btn es" onclick="selectInterest('Clases Adultos')">Reservar Plaza →</button>
+    </div>
+  </div>
+
+  <!-- Card 2: Gift Voucher -->
+  <div class="service-card">
+    <span class="badge en">Gift Idea</span>
+    <span class="badge es">Para Regalar</span>
+    <div>
+      <h2 class="card-title en">Gift a Workshop</h2>
+      <h2 class="card-title es">Regala un Taller</h2>
+      <span class="card-subtitle en">Vouchers & Gift Cards</span>
+      <span class="card-subtitle es">Bonos y Tarjetas Regalo</span>
+      <p class="card-desc en">Give a unique creative experience. Digital gift vouchers for single workshops or class packs with open dates.</p>
+      <p class="card-desc es">Regala una experiencia creativa única. Tarjeta regalo digital para un taller individual o pack de clases con fecha abierta.</p>
+    </div>
+    <div>
+      <div class="card-details">
+        <span class="meta-item en">• Flexible schedule</span>
+        <span class="meta-item es">• Fecha abierta / Flexible</span>
+        <span class="meta-item en">• Personalized Digital Voucher</span>
+        <span class="meta-item es">• Bono digital personalizado</span>
+        <span class="meta-item en">• Valid for 12 months</span>
+        <span class="meta-item es">• Validez de 12 meses</span>
+      </div>
+      <button class="card-btn en" onclick="selectInterest('Gift Workshop')">Buy Gift Voucher →</button>
+      <button class="card-btn es" onclick="selectInterest('Regala un taller')">Comprar Bono Regalo →</button>
+    </div>
+  </div>
+
+  <!-- Card 3: Corporate -->
+  <div class="service-card">
+    <span class="badge en">For Teams</span>
+    <span class="badge es">Empresas</span>
+    <div>
+      <h2 class="card-title en">Corporate & Teams</h2>
+      <h2 class="card-title es">Empresas y Equipos</h2>
+      <span class="card-subtitle en">Team Building & Wellbeing</span>
+      <span class="card-subtitle es">Team Building y Bienestar</span>
+      <p class="card-desc en">Tailored workshops designed for team cohesion, creative thinking, off-sites, or weekly corporate wellbeing programs.</p>
+      <p class="card-desc es">Talleres a medida diseñados para la cohesión de equipo, pensamiento creativo, eventos o programas semanales.</p>
+    </div>
+    <div>
+      <div class="card-details">
+        <span class="meta-item en">• At studio or on-site</span>
+        <span class="meta-item es">• En nuestro studio o in-company</span>
+        <span class="meta-item en">• Tailored group size</span>
+        <span class="meta-item es">• Adaptado al tamaño del grupo</span>
+        <span class="meta-item en">• Custom proposal</span>
+        <span class="meta-item es">• Propuesta personalizada</span>
+      </div>
+      <button class="card-btn en" onclick="selectInterest('Corporate Events')">Request Proposal →</button>
+      <button class="card-btn es" onclick="selectInterest('Empresas')">Solicitar Propuesta →</button>
+    </div>
+  </div>
 
 </div>
 </section>
@@ -332,12 +371,12 @@ html[lang="es"] .en { display: none !important; }
 </div>
 </div>
 <div class="field">
-<label class="en">Message</label>
-<label class="es">Mensaje</label>
+<label class="en">Message / Preferred Date</label>
+<label class="es">Mensaje / Fecha preferida</label>
 <textarea name="message" required></textarea>
 </div>
-<button type="submit" class="submit en">Send →</button>
-<button type="submit" class="submit es">Enviar →</button>
+<button type="submit" class="submit en">Send Request →</button>
+<button type="submit" class="submit es">Enviar Solicitud →</button>
 </form>
 
 <div id="thanks" class="thanks"></div>
@@ -345,18 +384,6 @@ html[lang="es"] .en { display: none !important; }
 </main>
 
 <script>
-function toggleOption(option){
-const open=option.classList.contains('open');
-document.querySelectorAll('.option').forEach(item=>{
-item.classList.remove('open');
-item.querySelector('.plus').textContent='+';
-});
-if(!open){
-option.classList.add('open');
-option.querySelector('.plus').textContent='−';
-}
-}
-
 function showForm(){
 const form=document.getElementById('contact-form');
 form.classList.add('visible');
@@ -364,7 +391,7 @@ form.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
 function selectInterest(type){
-if(event) event.stopPropagation();
+if(window.event) window.event.stopPropagation();
 showForm();
 const select = document.getElementById('interest-select');
 const searchType = type.toLowerCase();
@@ -399,8 +426,8 @@ if(response.ok){
 form.style.display='none';
 const thanks=document.getElementById('thanks');
 thanks.textContent=document.documentElement.lang==='es'
-?'Gracias. Alguien de Senso se pondrá en contacto contigo pronto.'
-:'Thank you. Someone from Senso will be in touch with you soon.';
+?'Gracias. Te hemos enviado la confirmación con los detalles para finalizar la reserva por Bizum/transferencia.'
+:'Thank you. We have sent you a confirmation email with details to complete your booking via Bizum/transfer.';
 thanks.style.display='block';
 }
 });
