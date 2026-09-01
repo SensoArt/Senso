@@ -43,8 +43,7 @@ button,input,textarea,select{font:inherit;color:inherit}
   -webkit-backdrop-filter:blur(4px);
   color:#fff;
   cursor:pointer;
-  font-size:.65rem;
-  letter-spacing:2px;
+  font-size:.65rem;letter-spacing:2px;
   text-transform:uppercase;
   border-radius:2px;
   transition:all .3s ease;
@@ -138,9 +137,11 @@ button,input,textarea,select{font:inherit;color:inherit}
 .section-title{margin:0 0 65px;font-family:Behind,serif;font-size:1.5rem;font-weight:400;text-transform:lowercase}
 .teacher{display:grid;grid-template-columns:260px 1fr;gap:75px;align-items:center;margin-bottom:100px}
 .teacher.lucia{grid-template-columns:1fr 260px}
-.teacher-image-wrapper{width:260px;height:325px;overflow:hidden;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
 .teacher-image{width:260px;height:325px;object-fit:cover;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06);display:block}
-.teacher-rafael{object-position:center 0%;transform:scale(1.15);transform-origin:top center}
+
+/* Avvicina la testa al bordo superiore dell'inquadratura */
+.teacher-rafael{object-position: center 5%;}
+
 .teacher-info{max-width:520px}
 .teacher-name{margin:0 0 10px;font-family:Behind,serif;font-size:1.35rem;font-weight:400}
 .teacher-role{margin:0 0 22px;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.6}
@@ -183,7 +184,7 @@ html[lang="es"] .en { display: none !important; }
 .teacher,.teacher.lucia{display:flex;flex-direction:column;align-items:flex-start;gap:28px;margin-bottom:75px}
 .teacher.lucia .teacher-image{order:0}
 .teacher.lucia .teacher-info{order:1}
-.teacher-image,.teacher-image-wrapper{width:190px;height:238px}
+.teacher-image{width:190px;height:238px}
 .form-row{grid-template-columns:1fr;gap:0}
 .contact{margin-top:30px}
 }
@@ -334,9 +335,7 @@ html[lang="es"] .en { display: none !important; }
 <h2 class="section-title es">los profesores</h2>
 
 <article class="teacher">
-<div class="teacher-image-wrapper">
-  <img src="rafael_reyes.jpg" alt="Rafael Reyes" class="teacher-image teacher-rafael" loading="lazy">
-</div>
+<img src="rafael_reyes.jpg" alt="Rafael Reyes" class="teacher-image teacher-rafael" loading="lazy">
 <div class="teacher-info">
 <h3 class="teacher-name">Rafael Reyes</h3>
 <div class="teacher-role en">Organizational Psychologist & Art Workshop Facilitator</div>
