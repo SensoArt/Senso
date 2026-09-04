@@ -12,16 +12,21 @@
 <link rel="canonical" href="https://senso-art.com/art-consulting.html">
 <link rel="icon" type="image/png" href="favicon.png?v=1000">
 
+<!-- Preload della prima immagine principale per velocizzare il caricamento senza perdere qualità -->
+<link rel="preload" as="image" href="consulting_photos/interior1.png">
+
 <style>
 
 @font-face{
 font-family:FuturaLight;
 src:url('Fonts/futura light bt.ttf') format('truetype');
+font-display:swap;
 }
 
 @font-face{
 font-family:BehindNineties;
 src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+font-display:swap;
 }
 
 *{box-sizing:border-box}
@@ -48,7 +53,10 @@ text-transform:uppercase;
 font-size:.65rem;
 letter-spacing:2px;
 opacity:.7;
+transition:opacity .3s;
 }
+
+.back-home:hover{opacity:1}
 
 .lang-switch{
 position:fixed;
@@ -68,6 +76,7 @@ cursor:pointer;
 font-size:.65rem;
 letter-spacing:2px;
 opacity:.35;
+transition:opacity .3s;
 }
 
 .lang-btn.active{opacity:1}
@@ -266,7 +275,10 @@ grid-template-columns:1fr 1fr;
 gap:35px;
 }
 
-.form-field{margin-bottom:35px}
+.form-field{
+position:relative;
+margin-bottom:35px;
+}
 
 .form-field label{
 display:block;
@@ -291,10 +303,17 @@ color:#000;
 border-radius:0;
 }
 
+/* Indicatore visibile per la tendina */
 .form-field select{
 cursor:pointer;
 -webkit-appearance:none;
+-moz-appearance:none;
 appearance:none;
+padding-right:25px;
+background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+background-repeat:no-repeat;
+background-position:right 4px center;
+background-size:12px;
 }
 
 .form-field textarea{
@@ -468,8 +487,8 @@ padding-bottom:30px;
 
 <section class="project">
 <div id="house-stage-en" class="image-stage">
-<img class="before" src="consulting_photos/interior1.png" alt="Private home interior">
-<img class="after" src="consulting_photos/interior2.png" alt="Private home interior with artwork">
+<img class="before" src="consulting_photos/interior1.png" alt="Private home interior" fetchpriority="high">
+<img class="after" src="consulting_photos/interior2.png" alt="Private home interior with artwork" loading="lazy">
 <button class="image-arrow" onclick="changeImage('house-stage-en',this)" aria-label="View next image">→</button>
 </div>
 
@@ -512,8 +531,8 @@ padding-bottom:30px;
 <section class="project restaurant-project">
 <div class="restaurant-layout">
 <div id="restaurant-stage-en" class="image-stage">
-<img class="before" src="consulting_photos/restaurante1.png" alt="Restaurant interior">
-<img class="after" src="consulting_photos/restaurante2.png" alt="Restaurant interior with artwork">
+<img class="before" src="consulting_photos/restaurante1.png" alt="Restaurant interior" loading="lazy">
+<img class="after" src="consulting_photos/restaurante2.png" alt="Restaurant interior with artwork" loading="lazy">
 <button class="image-arrow" onclick="changeImage('restaurant-stage-en',this)" aria-label="View next image">→</button>
 </div>
 
@@ -539,8 +558,8 @@ For projects where art matters, Senso brings together the expertise, artists and
 
 <section class="project">
 <div id="house-stage-es" class="image-stage">
-<img class="before" src="consulting_photos/interior1.png" alt="Interior de una vivienda privada">
-<img class="after" src="consulting_photos/interior2.png" alt="Interior de una vivienda privada con obra de arte">
+<img class="before" src="consulting_photos/interior1.png" alt="Interior de una vivienda privada" fetchpriority="high">
+<img class="after" src="consulting_photos/interior2.png" alt="Interior de una vivienda privada con obra de arte" loading="lazy">
 <button class="image-arrow" onclick="changeImage('house-stage-es',this)" aria-label="Ver siguiente imagen">→</button>
 </div>
 
@@ -583,8 +602,8 @@ For projects where art matters, Senso brings together the expertise, artists and
 <section class="project restaurant-project">
 <div class="restaurant-layout">
 <div id="restaurant-stage-es" class="image-stage">
-<img class="before" src="consulting_photos/restaurante1.png" alt="Interior de un restaurante">
-<img class="after" src="consulting_photos/restaurante2.png" alt="Interior de un restaurante con obra de arte">
+<img class="before" src="consulting_photos/restaurante1.png" alt="Interior de un restaurante" loading="lazy">
+<img class="after" src="consulting_photos/restaurante2.png" alt="Interior de un restaurante con obra de arte" loading="lazy">
 <button class="image-arrow" onclick="changeImage('restaurant-stage-es',this)" aria-label="Ver siguiente imagen">→</button>
 </div>
 
@@ -604,13 +623,13 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 </section>
 </div>
 
-<!-- SINGLE DYNAMIC FORM -->
+<!-- FORMULARIO DINÁMICO -->
 <div id="form-wrapper" class="form-wrapper">
 <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
 
 <div class="form-field">
 <label id="lbl-project">Project Type</label>
-<select id="select-project" name="project_type"></select>
+<select id="select-project" name="project_type" required></select>
 </div>
 
 <div class="form-row">
@@ -660,12 +679,12 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 </div>
 
 <script>
-
 let currentLang = 'en';
 
 const i18n = {
 en: {
 project: "Project Type",
+placeholderOption: "Select project type...",
 options: [
 ["Private Residence", "Private Residence"],
 ["Hospitality & Restaurant", "Hospitality & Restaurant"],
@@ -687,6 +706,7 @@ close: "Close →"
 },
 es: {
 project: "Tipo de proyecto",
+placeholderOption: "Selecciona el tipo de proyecto...",
 options: [
 ["Residencia Privada", "Residencia Privada"],
 ["Hospitality y Restauración", "Hospitality y Restauración"],
@@ -734,6 +754,14 @@ document.getElementById('form-lang-input').value = lang === 'es' ? 'Spanish' : '
 
 const select = document.getElementById('select-project');
 select.innerHTML = '';
+
+const defaultOpt = document.createElement('option');
+defaultOpt.value = '';
+defaultOpt.textContent = data.placeholderOption;
+defaultOpt.disabled = true;
+defaultOpt.selected = true;
+select.appendChild(defaultOpt);
+
 data.options.forEach(opt => {
 const o = document.createElement('option');
 o.value = opt[0];
@@ -790,6 +818,7 @@ headers: { Accept: 'application/json' }
 if(!response.ok) throw new Error();
 
 form.reset();
+updateFormTexts(currentLang);
 document.getElementById('form-wrapper').classList.remove('open');
 document.getElementById('success-msg').innerHTML = i18n[currentLang].success;
 document.querySelector('.success-popup-close').textContent = i18n[currentLang].close;
@@ -805,7 +834,6 @@ button.value = original;
 }
 });
 });
-
 </script>
 
 </body>
