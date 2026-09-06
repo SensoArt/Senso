@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Journal | Senso</title>
+
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
@@ -14,15 +18,12 @@
     fbq('init', '2442677362880993');
     fbq('track', 'PageView');
     </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1"
-    /></noscript>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1" alt="" />
+    </noscript>
     <!-- End Meta Pixel Code -->
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Journal | Senso</title>
-
+    <link rel="canonical" href="https://senso-art.com/journal.html">
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
@@ -127,13 +128,10 @@
             font-weight: normal;
             font-style: italic;
             text-transform: lowercase;
-            margin: 0; 
+            margin: 0 0 0 -0.32em; 
             display: inline-block;
             overflow: visible;
-            padding-left: 0.35em;
-            padding-right: 0.15em;
-            padding-bottom: 0.25em;
-            margin-left: -0.32em;
+            padding: 0 0.15em 0.25em 0.35em;
             line-height: 1.4;
         }
 
@@ -195,69 +193,71 @@
 </head>
 <body>
 
-    <div class="bg-container"></div>
+<div class="bg-container"></div>
 
-    <a href="index.html" class="back-home">← Home</a>
+<a href="index.html" class="back-home">← Home</a>
 
-    <div class="lang-switch">
-        <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> | 
-        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
-        <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
-    </div>
+<nav class="lang-switch" aria-label="Language selection">
+    <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> | 
+    <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
+    <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
+</nav>
 
-    <div class="container">
+<div class="container">
 
-        <header class="journal-header fade-in delay-1">
-            <h1 class="journal-title">journal</h1>
-        </header>
+    <header class="journal-header fade-in delay-1">
+        <h1 class="journal-title">journal</h1>
+    </header>
 
-        <main class="journal-feed fade-in delay-2">
+    <main class="journal-feed fade-in delay-2">
 
-            <a href="on-opening.html" class="essay-card">
-                <span class="essay-number">Journal 001</span>
-                <h2 class="essay-title">On Opening an Independent Gallery</h2>
-                <span class="essay-subtype lang-en">Essay - July 2026</span>
-                <span class="essay-subtype lang-es hidden">Ensayo - Julio 2026</span>
-                <span class="essay-subtype lang-it hidden">Saggio - Luglio 2026</span>
-            </a>
+        <a href="on-opening.html" class="essay-card">
+            <span class="essay-number">Journal 001</span>
+            
+            <h2 class="essay-title lang-en">On Opening an Independent Gallery</h2>
+            <h2 class="essay-title lang-es hidden">Sobre la Apertura de una Galería Independiente</h2>
+            <h2 class="essay-title lang-it hidden">Sull'Apertura di una Galleria Indipendente</h2>
 
-            <a href="the-need-for-beauty.html" class="essay-card">
-                <span class="essay-number">Journal 002</span>
-                
-                <!-- Titolo Tradotto -->
-                <h2 class="essay-title lang-en">The Need for Beauty</h2>
-                <h2 class="essay-title lang-es hidden">La Necesidad de la Belleza</h2>
-                <h2 class="essay-title lang-it hidden">Il Bisogno di Bellezza</h2>
+            <span class="essay-subtype lang-en">Essay - July 2026</span>
+            <span class="essay-subtype lang-es hidden">Ensayo - Julio 2026</span>
+            <span class="essay-subtype lang-it hidden">Saggio - Luglio 2026</span>
+        </a>
 
-                <!-- Sottotitolo / Data -->
-                <span class="essay-subtype lang-en">August 2026</span>
-                <span class="essay-subtype lang-es hidden">Agosto 2026</span>
-                <span class="essay-subtype lang-it hidden">Agosto 2026</span>
-            </a>
+        <a href="the-need-for-beauty.html" class="essay-card">
+            <span class="essay-number">Journal 002</span>
+            
+            <h2 class="essay-title lang-en">The Need for Beauty</h2>
+            <h2 class="essay-title lang-es hidden">La Necesidad de la Belleza</h2>
+            <h2 class="essay-title lang-it hidden">Il Bisogno di Bellezza</h2>
 
-        </main>
-    </div>
+            <span class="essay-subtype lang-en">August 2026</span>
+            <span class="essay-subtype lang-es hidden">Agosto 2026</span>
+            <span class="essay-subtype lang-it hidden">Agosto 2026</span>
+        </a>
 
-    <script>
-        let currentLang = localStorage.getItem('senso_lang') || 'it';
+    </main>
+</div>
 
-        function setLang(lang) {
-            currentLang = lang;
-            localStorage.setItem('senso_lang', lang);
+<script>
+    let currentLang = localStorage.getItem('senso_lang') || 'it';
 
-            // Aggiorna lo stato dei bottoni
-            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById(`btn-${lang}`);
-            if (activeBtn) activeBtn.classList.add('active');
+    function setLang(lang) {
+        currentLang = lang;
+        localStorage.setItem('senso_lang', lang);
+        document.documentElement.lang = lang;
 
-            // Mostra/Nascondi tutti gli elementi con classi multilingua (sia titoli che sottotitoli)
-            document.querySelectorAll('.lang-en, .lang-es, .lang-it').forEach(el => el.classList.add('hidden'));
-            document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
-        }
+        document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+        const activeBtn = document.getElementById(`btn-${lang}`);
+        if (activeBtn) activeBtn.classList.add('active');
 
-        window.onload = function() {
-            setLang(currentLang);
-        }
-    </script>
+        document.querySelectorAll('.lang-en, .lang-es, .lang-it').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        setLang(currentLang);
+    });
+</script>
+
 </body>
 </html>
