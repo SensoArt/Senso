@@ -3,9 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Senso Studio</title>
-<meta name="description" content="Senso Studio offers painting classes and creative art experiences for adults, children, teams and companies in Barcelona.">
+<title>Studio - Painting Classes & Art Workshops in Barcelona | Senso</title>
+<meta name="description" content="Senso Studio offers painting classes and art workshops in Barcelona for adults, children, teams and companies. Discover creative experiences designed to make art part of everyday life.">
+<link rel="canonical" href="https://senso-art.com/studio.html">
 <link rel="icon" type="image/png" href="favicon.png">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Service",
+  "name":"Senso Studio",
+  "serviceType":"Painting Classes & Art Workshops",
+  "description":"Painting classes and art workshops in Barcelona for adults, children, teams and companies.",
+  "provider":{
+    "@type":"Organization",
+    "name":"Senso",
+    "url":"https://senso-art.com/"
+  },
+  "areaServed":{
+    "@type":"Place",
+    "name":"Barcelona"
+  },
+  "url":"https://senso-art.com/studio.html"
+}
+</script>
+
 <style>
 @font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf')}
 @font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf')}
@@ -25,83 +47,76 @@ button,input,textarea,select{font:inherit;color:inherit}
 .page{width:min(1200px,calc(100% - 80px));margin:auto;padding:150px 0 120px}
 .title{margin:0 0 70px;font-family:Behind,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;text-transform:lowercase}
 
-/* Hero Section */
 .hero{position:relative;width:100%;height:420px;overflow:hidden;margin-bottom:110px;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
 .hero img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
 .hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.38);z-index:1}
 .hero-copy{position:absolute;left:7%;top:38%;transform:translateY(-50%);width:min(600px,70%);color:#fff;z-index:2}
 .hero-copy p{margin:0;font-size:1.15rem;line-height:1.75}
 
-/* Bottoncino elegante e visibile con gestione corretta del mobile */
 .hero-discover-btn{
-  display:inline-block;
-  margin-top:35px;
-  padding:12px 24px;
-  border:1px solid rgba(255,255,255,0.4);
-  background:rgba(0,0,0,0.45);
-  backdrop-filter:blur(4px);
-  -webkit-backdrop-filter:blur(4px);
-  color:#fff;
-  cursor:pointer;
-  font-size:.65rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  border-radius:2px;
-  transition:all .3s ease;
-  box-shadow:0 4px 15px rgba(0,0,0,0.2);
+display:inline-block;
+margin-top:35px;
+padding:12px 24px;
+border:1px solid rgba(255,255,255,0.4);
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(4px);
+-webkit-backdrop-filter:blur(4px);
+color:#fff;
+cursor:pointer;
+font-size:.65rem;
+letter-spacing:2px;
+text-transform:uppercase;
+border-radius:2px;
+transition:all .3s ease;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Applicato solo su dispositivi con mouse per evitare l'effetto bloccato su mobile */
-@media (hover: hover) {
-  .hero-discover-btn:hover{
-    background:#fff;
-    color:#000;
-    border-color:#fff;
-    transform:translateY(-2px);
-    box-shadow:0 6px 20px rgba(0,0,0,0.25);
-  }
+@media (hover:hover){
+.hero-discover-btn:hover{
+background:#fff;
+color:#000;
+border-color:#fff;
+transform:translateY(-2px);
+box-shadow:0 6px 20px rgba(0,0,0,0.25)
+}
 }
 
-.hero-discover-btn:active{
-  opacity:0.8;
-  transform:scale(0.98);
-}
+.hero-discover-btn:active{opacity:.8;transform:scale(.98)}
 
-/* Service Boxes Section */
 .offer-section{margin-bottom:145px}
 .section-header-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.55;margin-bottom:35px}
-
-.offer-grid{display:grid;grid-template-columns:repeat(3, 1fr);gap:25px}
+.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
 
 .service-card{
-  background:#fcfcfc;
-  border:1px solid rgba(0,0,0,0.08);
-  border-radius:6px;
-  padding:35px 30px;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  position:relative;
-  transition:all .3s ease;
+background:#fcfcfc;
+border:1px solid rgba(0,0,0,0.08);
+border-radius:6px;
+padding:35px 30px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+position:relative;
+transition:all .3s ease;
 }
+
 .service-card:hover{
-  background:#fff;
-  border-color:rgba(0,0,0,0.25);
-  box-shadow:0 12px 35px rgba(0,0,0,0.05);
-  transform:translateY(-3px);
+background:#fff;
+border-color:rgba(0,0,0,0.25);
+box-shadow:0 12px 35px rgba(0,0,0,0.05);
+transform:translateY(-3px)
 }
 
 .badge{
-  position:absolute;
-  top:20px;
-  right:20px;
-  font-size:.55rem;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  padding:4px 8px;
-  border:1px solid rgba(0,0,0,0.15);
-  border-radius:20px;
-  opacity:.65;
+position:absolute;
+top:20px;
+right:20px;
+font-size:.55rem;
+letter-spacing:1.5px;
+text-transform:uppercase;
+padding:4px 8px;
+border:1px solid rgba(0,0,0,0.15);
+border-radius:20px;
+opacity:.65
 }
 
 .card-title{font-family:Behind,serif;font-size:1.4rem;font-weight:400;margin:0 0 10px}
@@ -112,72 +127,111 @@ button,input,textarea,select{font:inherit;color:inherit}
 .meta-item{font-size:.7rem;letter-spacing:1px;text-transform:uppercase;opacity:.6;margin-bottom:6px;display:block}
 
 .card-btn{
-  display:block;
-  width:100%;
-  padding:14px 0;
-  text-align:center;
-  background:#000;
-  color:#fff;
-  font-size:.62rem;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  border:none;
-  border-radius:3px;
-  cursor:pointer;
-  transition:background .3s ease;
+display:block;
+width:100%;
+padding:14px 0;
+text-align:center;
+background:#000;
+color:#fff;
+font-size:.62rem;
+letter-spacing:2px;
+text-transform:uppercase;
+border:none;
+border-radius:3px;
+cursor:pointer;
+transition:background .3s ease
 }
+
 .card-btn:hover{background:#333}
 
-/* Experience Gallery Carousel Section */
 .gallery-section{margin-bottom:145px}
 .gallery-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
 .gallery-header .section-title{margin:0}
 .gallery-nav{display:flex;gap:15px}
-.gallery-arrow{background:none;border:1px solid rgba(0,0,0,0.2);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:all .3s ease;color:#000}
-
-@media (hover: hover) {
-  .gallery-arrow:hover:not(:disabled){border-color:#000;background:#000;color:#fff}
+.gallery-arrow{
+background:none;
+border:1px solid rgba(0,0,0,0.2);
+width:38px;
+height:38px;
+border-radius:50%;
+cursor:pointer;
+font-size:.9rem;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:all .3s ease;
+color:#000
 }
 
-.gallery-arrow:disabled{opacity:0.25;cursor:not-allowed;border-color:rgba(0,0,0,0.1)}
+@media (hover:hover){
+.gallery-arrow:hover:not(:disabled){border-color:#000;background:#000;color:#fff}
+}
 
-.gallery-carousel{display:flex;gap:20px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:10px}
+.gallery-arrow:disabled{opacity:.25;cursor:not-allowed;border-color:rgba(0,0,0,0.1)}
+
+.gallery-carousel{
+display:flex;
+gap:20px;
+overflow-x:auto;
+scroll-behavior:smooth;
+scrollbar-width:none;
+-ms-overflow-style:none;
+padding-bottom:10px
+}
+
 .gallery-carousel::-webkit-scrollbar{display:none}
 .gallery-card{flex:0 0 320px;height:380px;overflow:hidden;border-radius:4px}
 .gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
 .gallery-card:hover img{transform:scale(1.04)}
 
-/* Teachers Section */
 .teachers{margin-bottom:145px}
 .section-title{margin:0 0 65px;font-family:Behind,serif;font-size:1.5rem;font-weight:400;text-transform:lowercase}
 .teacher{display:grid;grid-template-columns:260px 1fr;gap:75px;align-items:center;margin-bottom:100px}
 .teacher.lucia{grid-template-columns:1fr 260px}
 .teacher-image{width:260px;height:325px;object-fit:cover;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06);display:block}
-
-.teacher-rafael{object-position: center 0%;}
-
+.teacher-rafael{object-position:center 0%}
 .teacher-info{max-width:520px}
 .teacher-name{margin:0 0 10px;font-family:Behind,serif;font-size:1.35rem;font-weight:400}
 .teacher-role{margin:0 0 22px;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.6}
 .teacher-text{margin:0;font-size:.9rem;line-height:1.8}
 
-/* Contact Form Section */
 .contact{max-width:700px;margin:auto;text-align:center}
 .contact-title{margin:0 0 30px;font-family:Behind,serif;font-size:1.5rem;font-weight:400}
-.contact-button,.submit{padding:0;border:0;background:none;cursor:pointer;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.65;color:#000;-webkit-tap-highlight-color:transparent}
+.contact-button,.submit{
+padding:0;
+border:0;
+background:none;
+cursor:pointer;
+font-size:.65rem;
+letter-spacing:2px;
+text-transform:uppercase;
+opacity:.65;
+color:#000;
+-webkit-tap-highlight-color:transparent
+}
+
 .form{display:none;max-width:600px;margin:55px auto 0;text-align:left}
 .form.visible{display:block;animation:fade .5s ease}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:30px}
 .field{margin-bottom:28px}
 .field label{display:block;margin-bottom:8px;font-size:.58rem;letter-spacing:1.8px;text-transform:uppercase;opacity:.55}
-.field input,.field textarea,.field select{width:100%;padding:7px 0 10px;border:0;border-bottom:1px solid #000;outline:none;background:transparent;font-size:.95rem;color:#000;border-radius:0}
+.field input,.field textarea,.field select{
+width:100%;
+padding:7px 0 10px;
+border:0;
+border-bottom:1px solid #000;
+outline:none;
+background:transparent;
+font-size:.95rem;
+color:#000;
+border-radius:0
+}
 .field select{cursor:pointer;border-radius:0;-webkit-appearance:none}
 .field textarea{height:100px;resize:vertical}
 .thanks{display:none;margin:55px auto 0;font-size:.95rem;line-height:1.8}
 
-/* Multilanguage Visibility */
-html[lang="en"] .es { display: none !important; }
-html[lang="es"] .en { display: none !important; }
+html[lang="en"] .es{display:none!important}
+html[lang="es"] .en{display:none!important}
 
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
@@ -191,7 +245,7 @@ html[lang="es"] .en { display: none !important; }
 .hero{height:440px;margin-bottom:75px}
 .hero-copy{left:7%;top:30px;bottom:auto;transform:none;width:86%}
 .hero-copy p{font-size:1.02rem;line-height:1.7}
-.hero-discover-btn{margin-top:25px;padding:10px 20px;}
+.hero-discover-btn{margin-top:25px;padding:10px 20px}
 .gallery-card{flex:0 0 260px;height:320px}
 .teachers{margin-bottom:100px}
 .section-title{margin-bottom:50px;font-size:1.4rem}
@@ -204,6 +258,7 @@ html[lang="es"] .en { display: none !important; }
 }
 </style>
 </head>
+
 <body>
 
 <a href="index.html" class="home">← Home</a>
@@ -214,26 +269,31 @@ html[lang="es"] .en { display: none !important; }
 </div>
 
 <main class="page">
+
 <h1 class="title">senso studio</h1>
 
 <section class="hero">
-<img src="senso_studio.png" alt="Senso Studio" fetchpriority="high">
+<img src="senso_studio.png" alt="Senso Studio - Painting Classes and Art Workshops in Barcelona" fetchpriority="high">
+
 <div class="hero-copy">
+
 <div class="en">
 <p>Painting classes designed to make art part of your everyday life.</p>
 <p style="margin-top:12px;">Accessible, hands-on experiences for individuals, children, teams and companies in Barcelona.</p>
 <button class="hero-discover-btn" onclick="scrollToOffer()">Discover the experience →</button>
 </div>
+
 <div class="es">
 <p>Clases de pintura pensadas para hacer del arte parte de tu día a día.</p>
 <p style="margin-top:12px;">Experiencias prácticas y accesibles para particulares, niños, equipos y empresas en Barcelona.</p>
 <button class="hero-discover-btn" onclick="scrollToOffer()">Descubre la experiencia →</button>
 </div>
+
 </div>
 </section>
 
-<!-- Boxed Offerings Section -->
 <section class="offer-section" id="experiences">
+
 <div class="section-header-label">
 <span class="en">How to experience Senso</span>
 <span class="es">Modalidades de experiencia</span>
@@ -241,96 +301,115 @@ html[lang="es"] .en { display: none !important; }
 
 <div class="offer-grid">
 
-  <!-- Card 1: Classes -->
-  <div class="service-card">
-    <span class="badge en">Popular</span>
-    <span class="badge es">Popular</span>
-    <div>
-      <h2 class="card-title en">Weekly Classes</h2>
-      <h2 class="card-title es">Clases Semanales</h2>
-      <span class="card-subtitle en">Adults & Studio Kids</span>
-      <span class="card-subtitle es">Adultos y Studio Kids</span>
-      <p class="card-desc en">Regular guided painting sessions to learn techniques, experiment with styles, and build a creative routine in Barcelona.</p>
-      <p class="card-desc es">Sesiones guiadas regulares para aprender técnicas, experimentar con estilos y crear una rutina creativa en Barcelona.</p>
-    </div>
-    <div>
-      <div class="card-details">
-        <span class="meta-item en">• 90 Minute sessions</span>
-        <span class="meta-item es">• Sesiones de 90 minutos</span>
-        <span class="meta-item en">• All levels welcome</span>
-        <span class="meta-item es">• Todos los niveles</span>
-        <span class="meta-item en">• Materials included</span>
-        <span class="meta-item es">• Materiales incluidos</span>
-        <span class="meta-item en">• Take home your artwork</span>
-        <span class="meta-item es">• Te llevas tu obra a casa</span>
-      </div>
-      <button class="card-btn en" onclick="selectInterest('Adult Classes')">Book a Spot →</button>
-      <button class="card-btn es" onclick="selectInterest('Clases Adultos')">Reservar Plaza →</button>
-    </div>
-  </div>
+<div class="service-card">
 
-  <!-- Card 2: Gift Voucher -->
-  <div class="service-card">
-    <span class="badge en">Gift Idea</span>
-    <span class="badge es">Para Regalar</span>
-    <div>
-      <h2 class="card-title en">Gift a Workshop</h2>
-      <h2 class="card-title es">Regala un Taller</h2>
-      <span class="card-subtitle en">Vouchers & Gift Cards</span>
-      <span class="card-subtitle es">Bonos y Tarjetas Regalo</span>
-      <p class="card-desc en">Give a unique creative experience. Digital gift vouchers for single workshops or class packs with open dates.</p>
-      <p class="card-desc es">Regala una experiencia creativa única. Tarjeta regalo digital para un taller individual o pack de clases con fecha abierta.</p>
-    </div>
-    <div>
-      <div class="card-details">
-        <span class="meta-item en">• Flexible schedule</span>
-        <span class="meta-item es">• Fecha abierta / Flexible</span>
-        <span class="meta-item en">• Personalized Digital Voucher</span>
-        <span class="meta-item es">• Bono digital personalizado</span>
-        <span class="meta-item en">• Valid for 12 months</span>
-        <span class="meta-item es">• Validez de 12 meses</span>
-        <span class="meta-item en">• Take home your artwork</span>
-        <span class="meta-item es">• Te llevas tu obra a casa</span>
-      </div>
-      <button class="card-btn en" onclick="selectInterest('Gift Workshop')">Buy Gift Voucher →</button>
-      <button class="card-btn es" onclick="selectInterest('Regala un taller')">Comprar Bono Regalo →</button>
-    </div>
-  </div>
+<span class="badge en">Popular</span>
+<span class="badge es">Popular</span>
 
-  <!-- Card 3: Corporate -->
-  <div class="service-card">
-    <span class="badge en">For Teams</span>
-    <span class="badge es">Empresas</span>
-    <div>
-      <h2 class="card-title en">Corporate & Teams</h2>
-      <h2 class="card-title es">Empresas y Equipos</h2>
-      <span class="card-subtitle en">Team Building & Wellbeing</span>
-      <span class="card-subtitle es">Team Building y Bienestar</span>
-      <p class="card-desc en">Tailored workshops designed for team cohesion, creative thinking, off-sites, or weekly corporate wellbeing programs.</p>
-      <p class="card-desc es">Talleres a medida diseñados para la cohesión de equipo, pensamiento creativo, eventos o programas semanales.</p>
-    </div>
-    <div>
-      <div class="card-details">
-        <span class="meta-item en">• At studio or on-site</span>
-        <span class="meta-item es">• En nuestro studio o in-company</span>
-        <span class="meta-item en">• Tailored group size</span>
-        <span class="meta-item es">• Adaptado al tamaño del grupo</span>
-        <span class="meta-item en">• Custom proposal</span>
-        <span class="meta-item es">• Propuesta personalizada</span>
-      </div>
-      <button class="card-btn en" onclick="selectInterest('Corporate Events')">Request Proposal →</button>
-      <button class="card-btn es" onclick="selectInterest('Empresas')">Solicitar Propuesta →</button>
-    </div>
-  </div>
+<div>
+<h2 class="card-title en">Weekly Classes</h2>
+<h2 class="card-title es">Clases Semanales</h2>
+
+<span class="card-subtitle en">Adults & Studio Kids</span>
+<span class="card-subtitle es">Adultos y Studio Kids</span>
+
+<p class="card-desc en">Regular guided painting sessions to learn techniques, experiment with styles, and build a creative routine in Barcelona.</p>
+<p class="card-desc es">Sesiones guiadas regulares para aprender técnicas, experimentar con estilos y crear una rutina creativa en Barcelona.</p>
+</div>
+
+<div>
+<div class="card-details">
+<span class="meta-item en">• 90 Minute sessions</span>
+<span class="meta-item es">• Sesiones de 90 minutos</span>
+<span class="meta-item en">• All levels welcome</span>
+<span class="meta-item es">• Todos los niveles</span>
+<span class="meta-item en">• Materials included</span>
+<span class="meta-item es">• Materiales incluidos</span>
+<span class="meta-item en">• Take home your artwork</span>
+<span class="meta-item es">• Te llevas tu obra a casa</span>
+</div>
+
+<button class="card-btn en" onclick="selectInterest('Adult Classes')">Book a Spot →</button>
+<button class="card-btn es" onclick="selectInterest('Clases Adultos')">Reservar Plaza →</button>
+</div>
+
+</div>
+
+<div class="service-card">
+
+<span class="badge en">Gift Idea</span>
+<span class="badge es">Para Regalar</span>
+
+<div>
+<h2 class="card-title en">Gift a Workshop</h2>
+<h2 class="card-title es">Regala un Taller</h2>
+
+<span class="card-subtitle en">Vouchers & Gift Cards</span>
+<span class="card-subtitle es">Bonos y Tarjetas Regalo</span>
+
+<p class="card-desc en">Give a unique creative experience. Digital gift vouchers for single workshops or class packs with open dates.</p>
+<p class="card-desc es">Regala una experiencia creativa única. Tarjeta regalo digital para un taller individual o pack de clases con fecha abierta.</p>
+</div>
+
+<div>
+<div class="card-details">
+<span class="meta-item en">• Flexible schedule</span>
+<span class="meta-item es">• Fecha abierta / Flexible</span>
+<span class="meta-item en">• Personalized Digital Voucher</span>
+<span class="meta-item es">• Bono digital personalizado</span>
+<span class="meta-item en">• Valid for 12 months</span>
+<span class="meta-item es">• Validez de 12 meses</span>
+<span class="meta-item en">• Take home your artwork</span>
+<span class="meta-item es">• Te llevas tu obra a casa</span>
+</div>
+
+<button class="card-btn en" onclick="selectInterest('Gift Workshop')">Buy Gift Voucher →</button>
+<button class="card-btn es" onclick="selectInterest('Regala un taller')">Comprar Bono Regalo →</button>
+</div>
+
+</div>
+
+<div class="service-card">
+
+<span class="badge en">For Teams</span>
+<span class="badge es">Empresas</span>
+
+<div>
+<h2 class="card-title en">Corporate & Teams</h2>
+<h2 class="card-title es">Empresas y Equipos</h2>
+
+<span class="card-subtitle en">Team Building & Wellbeing</span>
+<span class="card-subtitle es">Team Building y Bienestar</span>
+
+<p class="card-desc en">Tailored workshops designed for team cohesion, creative thinking, off-sites, or weekly corporate wellbeing programs.</p>
+<p class="card-desc es">Talleres a medida diseñados para la cohesión de equipo, pensamiento creativo, eventos o programas semanales.</p>
+</div>
+
+<div>
+<div class="card-details">
+<span class="meta-item en">• At studio or on-site</span>
+<span class="meta-item es">• En nuestro studio o in-company</span>
+<span class="meta-item en">• Tailored group size</span>
+<span class="meta-item es">• Adaptado al tamaño del grupo</span>
+<span class="meta-item en">• Custom proposal</span>
+<span class="meta-item es">• Propuesta personalizada</span>
+</div>
+
+<button class="card-btn en" onclick="selectInterest('Corporate Events')">Request Proposal →</button>
+<button class="card-btn es" onclick="selectInterest('Empresas')">Solicitar Propuesta →</button>
+</div>
+
+</div>
 
 </div>
 </section>
 
-<!-- Gallery Atmosphere Carousel Section -->
 <section class="gallery-section">
+
 <div class="gallery-header">
 <h2 class="section-title en">the experience</h2>
 <h2 class="section-title es">la experiencia</h2>
+
 <div class="gallery-nav">
 <button class="gallery-arrow" id="gallery-prev" onclick="scrollGallery(-340)" disabled>←</button>
 <button class="gallery-arrow" id="gallery-next" onclick="scrollGallery(340)">→</button>
@@ -338,57 +417,77 @@ html[lang="es"] .en { display: none !important; }
 </div>
 
 <div class="gallery-carousel" id="gallery-carousel">
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio Experience"></div>
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss3.jpeg" alt="Paint & Materials"></div>
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss5.jpeg" alt="Creative Session"></div>
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss7.JPG" alt="Studio Atmosphere" loading="lazy"></div>
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss2.JPG" alt="Art Details" loading="lazy"></div>
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss6.JPG" alt="Studio Focus" loading="lazy"></div>
-<div class="gallery-card"><img src="Senso_Studio_Foto/ss1.jpeg" alt="Painting Details" loading="lazy"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss8.JPG" alt="Painting class at Senso Studio Barcelona"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss3.jpeg" alt="Painting materials at Senso Studio"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss5.jpeg" alt="Creative art workshop in Barcelona"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio atmosphere" loading="lazy"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss2.JPG" alt="Painting workshop details" loading="lazy"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss6.JPG" alt="Painting session at Senso Studio" loading="lazy"></div>
+<div class="gallery-card"><img src="Senso_Studio_Foto/ss1.jpeg" alt="Painting details at Senso Studio Barcelona" loading="lazy"></div>
 </div>
+
 </section>
 
-<!-- Teachers Section -->
 <section class="teachers">
+
 <h2 class="section-title en">the teachers</h2>
 <h2 class="section-title es">los profesores</h2>
 
 <article class="teacher">
+
 <img src="rafael_reyes.jpg" alt="Rafael Reyes" class="teacher-image teacher-rafael" loading="lazy">
+
 <div class="teacher-info">
+
 <h3 class="teacher-name">Rafael Reyes</h3>
+
 <div class="teacher-role en">Organizational Psychologist & Art Workshop Facilitator</div>
 <div class="teacher-role es">Psicólogo organizacional & facilitador de talleres artísticos</div>
+
 <p class="teacher-text en">Rafael combines psychology, neuroscience, creativity and art to create experiences that foster personal and team development. With more than 13 years facilitating programs in Europe and Latin America, he brings his background in organizational psychology, leadership and emotional intelligence together with his practice as a self-taught painter.</p>
+
 <p class="teacher-text es">Rafael combina psicología, neurociencia, creatividad y arte para crear experiencias que potencian el desarrollo personal y de los equipos. Cuenta con más de 13 años facilitando programas en Europa y Latinoamérica y une su formación en psicología organizacional, liderazgo e inteligencia emocional con su práctica como pintor autodidacta.</p>
+
 </div>
 </article>
 
 <article class="teacher lucia">
+
 <div class="teacher-info">
+
 <h3 class="teacher-name">Lucía Cheves Dauber</h3>
+
 <div class="teacher-role en">Artist & Art Educator</div>
 <div class="teacher-role es">Artista & educadora artística</div>
+
 <p class="teacher-text en">Guatemalan artist based in Barcelona, Lucía is represented by Senso and combines her artistic practice with teaching. She leads painting classes for children and adults in Barcelona, creating spaces for experimentation, creativity and curiosity.</p>
+
 <p class="teacher-text es">Artista guatemalteca afincada en Barcelona, Lucía está representada por Senso y combina su práctica artística con la enseñanza. Imparte clases de pintura a niños y adultos en Barcelona, creando espacios de experimentación, creatividad y curiosidad.</p>
+
 </div>
+
 <img src="fotos_artistas/lucia_cheves_2.jpg" alt="Lucía Cheves Dauber" class="teacher-image" loading="lazy">
+
 </article>
+
 </section>
 
-<!-- Contact Form -->
 <section class="contact" id="contact">
+
 <h2 class="contact-title en">experience art with us</h2>
 <h2 class="contact-title es">vive el arte con nosotros</h2>
+
 <button class="contact-button" onclick="showForm()">
 <span class="en">Get in touch →</span>
 <span class="es">Contacta con nosotros →</span>
 </button>
 
 <form id="contact-form" class="form" action="https://formspree.io/f/mgorwree" method="POST">
+
 <div class="field">
 <label class="en">I am interested in</label>
 <label class="es">Estoy interesado en</label>
+
 <select name="interest" id="interest-select">
 <option value="General Inquiry">General Inquiry / Consulta General</option>
 <option value="Adult Classes">Adult Painting Classes / Clases Adultos</option>
@@ -397,129 +496,149 @@ html[lang="es"] .en { display: none !important; }
 <option value="Corporate Events">Company Events & Team Building / Empresas</option>
 </select>
 </div>
+
 <div class="form-row">
+
 <div class="field">
 <label class="en">First name</label>
 <label class="es">Nombre</label>
 <input type="text" name="first_name" required>
 </div>
+
 <div class="field">
 <label class="en">Last name</label>
 <label class="es">Apellidos</label>
 <input type="text" name="last_name" required>
 </div>
+
 </div>
+
 <div class="form-row">
+
 <div class="field">
 <label class="en">Phone</label>
 <label class="es">Teléfono</label>
 <input type="tel" name="phone" required>
 </div>
+
 <div class="field">
 <label>Email</label>
 <input type="email" name="email" required>
 </div>
+
 </div>
+
 <div class="field">
 <label class="en">Message / Preferred Date</label>
 <label class="es">Mensaje / Fecha preferida</label>
 <textarea name="message" required></textarea>
 </div>
+
 <button type="submit" class="submit en">Send Request →</button>
 <button type="submit" class="submit es">Enviar Solicitud →</button>
+
 </form>
 
 <div id="thanks" class="thanks"></div>
+
 </section>
+
 </main>
 
 <script>
 function scrollToOffer(){
-  const el = document.getElementById('experiences');
-  if(el){
-    el.scrollIntoView({behavior:'smooth'});
-  }
+const el=document.getElementById('experiences');
+if(el)el.scrollIntoView({behavior:'smooth'});
 }
 
 function showForm(){
-  const form=document.getElementById('contact-form');
-  form.classList.add('visible');
-  form.scrollIntoView({behavior:'smooth',block:'center'});
+const form=document.getElementById('contact-form');
+form.classList.add('visible');
+form.scrollIntoView({behavior:'smooth',block:'center'});
 }
 
 function selectInterest(type){
-  if(window.event) window.event.stopPropagation();
-  showForm();
-  const select = document.getElementById('interest-select');
-  const searchType = type.toLowerCase();
+if(window.event)window.event.stopPropagation();
+showForm();
+const select=document.getElementById('interest-select');
+const searchType=type.toLowerCase();
 
-  for(let option of select.options){
-    const val = option.value.toLowerCase();
-    const text = option.text.toLowerCase();
-    if(val.includes(searchType) || text.includes(searchType) || 
-      (searchType.includes('gift') && val.includes('gift')) ||
-      (searchType.includes('regala') && val.includes('gift')) ||
-      (searchType.includes('corporate') && val.includes('corporate')) ||
-      (searchType.includes('empresas') && val.includes('corporate'))){
-      select.value = option.value;
-      break;
-    }
-  }
+for(let option of select.options){
+const val=option.value.toLowerCase();
+const text=option.text.toLowerCase();
+
+if(
+val.includes(searchType)||
+text.includes(searchType)||
+(searchType.includes('gift')&&val.includes('gift'))||
+(searchType.includes('regala')&&val.includes('gift'))||
+(searchType.includes('corporate')&&val.includes('corporate'))||
+(searchType.includes('empresas')&&val.includes('corporate'))
+){
+select.value=option.value;
+break;
+}
+}
 }
 
-/* Controllo scroll galleria con disabilitazione frecce ai margini */
-const carousel = document.getElementById('gallery-carousel');
-const prevBtn = document.getElementById('gallery-prev');
-const nextBtn = document.getElementById('gallery-next');
+const carousel=document.getElementById('gallery-carousel');
+const prevBtn=document.getElementById('gallery-prev');
+const nextBtn=document.getElementById('gallery-next');
 
-function updateGalleryNav() {
-  if(!carousel) return;
-  const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
-  
-  if(prevBtn) prevBtn.disabled = carousel.scrollLeft <= 5;
-  if(nextBtn) nextBtn.disabled = carousel.scrollLeft >= maxScrollLeft - 5;
+function updateGalleryNav(){
+if(!carousel)return;
+
+const maxScrollLeft=carousel.scrollWidth-carousel.clientWidth;
+
+if(prevBtn)prevBtn.disabled=carousel.scrollLeft<=5;
+if(nextBtn)nextBtn.disabled=carousel.scrollLeft>=maxScrollLeft-5;
 }
 
 function scrollGallery(distance){
-  if(!carousel) return;
-  carousel.scrollBy({left: distance, behavior: 'smooth'});
+if(!carousel)return;
+carousel.scrollBy({left:distance,behavior:'smooth'});
 }
 
 if(carousel){
-  carousel.addEventListener('scroll', updateGalleryNav);
-  window.addEventListener('resize', updateGalleryNav);
-  updateGalleryNav();
+carousel.addEventListener('scroll',updateGalleryNav);
+window.addEventListener('resize',updateGalleryNav);
+updateGalleryNav();
 }
 
-/* Invio modulo di contatto */
-document.getElementById('contact-form').addEventListener('submit', async function(event){
-  event.preventDefault();
-  const form = event.target;
-  const response = await fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: { Accept: 'application/json' }
-  });
+document.getElementById('contact-form').addEventListener('submit',async function(event){
+event.preventDefault();
 
-  if(response.ok){
-    form.style.display = 'none';
-    const thanks = document.getElementById('thanks');
-    thanks.textContent = document.documentElement.lang === 'es'
-      ? 'Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.'
-      : 'Thank you for your message. We will get in touch with you soon.';
-    thanks.style.display = 'block';
-  }
+const form=event.target;
+
+const response=await fetch(form.action,{
+method:'POST',
+body:new FormData(form),
+headers:{Accept:'application/json'}
+});
+
+if(response.ok){
+form.style.display='none';
+
+const thanks=document.getElementById('thanks');
+
+thanks.textContent=document.documentElement.lang==='es'
+?'Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.'
+:'Thank you for your message. We will get in touch with you soon.';
+
+thanks.style.display='block';
+}
 });
 
 function setLanguage(language){
-  document.documentElement.lang = language;
-  document.getElementById('en-button').classList.toggle('active', language === 'en');
-  document.getElementById('es-button').classList.toggle('active', language === 'es');
-  localStorage.setItem('senso_lang', language);
+document.documentElement.lang=language;
+document.getElementById('en-button').classList.toggle('active',language==='en');
+document.getElementById('es-button').classList.toggle('active',language==='es');
+localStorage.setItem('senso_lang',language);
 }
 
-const savedLang = localStorage.getItem('senso_lang') || 'en';
+const savedLang=localStorage.getItem('senso_lang')||'en';
 setLanguage(savedLang);
 </script>
+
 </body>
 </html>
