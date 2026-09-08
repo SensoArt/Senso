@@ -103,7 +103,7 @@ button,input,textarea,select{font-family:inherit}
 .container{
     width:min(1200px,calc(100% - 80px));
     margin:auto;
-    padding:150px 0 140px;
+    padding:150px 0 100px;
 }
 
 .section-title{
@@ -178,23 +178,36 @@ button,input,textarea,select{font-family:inherit}
 .project-text p{margin:0 0 28px}
 .project-text p:last-child{margin-bottom:0}
 
-.cta{margin-top:42px}
-.house-cta{text-align:right}
-
-.cta button,.process-cta button{
-    padding:0;
-    border:0;
-    background:none;
-    color:#000;
-    cursor:pointer;
-    text-transform:uppercase;
-    font-size:.8rem;
-    letter-spacing:2px;
-    opacity:.7;
-    transition:.3s;
+/* STILI CTA VISIBILI E COMMERCIALI IN RIQUADRO */
+.cta{
+    margin-top:48px;
 }
 
-.cta button:hover,.process-cta button:hover{opacity:1}
+.house-cta{
+    text-align:right;
+}
+
+.cta button, .process-cta button, .cta-box-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:16px 32px;
+    border:1px solid #000;
+    background:#000;
+    color:#fff;
+    cursor:pointer;
+    text-transform:uppercase;
+    font-size:.85rem;
+    letter-spacing:2.5px;
+    transition:all .3s ease;
+    text-decoration:none;
+}
+
+.cta button:hover, .process-cta button:hover, .cta-box-button:hover{
+    background:#fff;
+    color:#000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
 
 .process{
     width:100%;
@@ -270,6 +283,7 @@ button,input,textarea,select{font-family:inherit}
     text-align:center;
 }
 
+/* FORM WRAPPER */
 .form-wrapper{
     max-height:0;
     overflow:hidden;
@@ -342,38 +356,63 @@ button,input,textarea,select{font-family:inherit}
 .form-actions{
     display:flex;
     align-items:center;
-    justify-content:space-between;
+    justify-content:center;
     margin-top:20px;
-    flex-wrap:wrap;
-    gap:20px;
 }
 
 .submit-button{
-    padding:0;
-    border:0;
-    background:none;
-    color:#000;
+    padding:16px 40px;
+    border:1px solid #000;
+    background:#000;
+    color:#fff;
     cursor:pointer;
+    font-size:.85rem;
+    text-transform:uppercase;
+    letter-spacing:2.5px;
+    transition:all .3s ease;
+    width:100%;
+}
+
+.submit-button:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* SEZIONE WHATSAPP E FOOTER */
+.footer-whatsapp{
+    margin-top:100px;
+    padding-top:50px;
+    border-top:1px solid rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.wa-direct-button{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    padding:16px 36px;
+    border:1px solid #25D366;
+    background:#25D366;
+    color:#fff;
     font-size:.8rem;
     text-transform:uppercase;
     letter-spacing:2px;
-    opacity:.7;
-    transition:.3s;
-}
-
-.submit-button:hover{opacity:1}
-
-.wa-direct-link{
-    font-size:.7rem;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    opacity:.6;
-    color:#000;
     text-decoration:none;
-    transition:.3s;
+    transition:all .3s ease;
 }
 
-.wa-direct-link:hover{opacity:1}
+.wa-direct-button:hover{
+    background:#fff;
+    color:#25D366;
+    box-shadow: 0 4px 15px rgba(37,211,102,0.2);
+}
+
+.wa-icon{
+    width:18px;
+    height:18px;
+    fill:currentColor;
+}
 
 .success-popup{
     position:fixed;
@@ -428,7 +467,7 @@ button,input,textarea,select{font-family:inherit}
     .container{
         width:calc(100% - 40px);
         padding-top:120px;
-        padding-bottom:100px;
+        padding-bottom:80px;
     }
 
     .section-title{
@@ -453,7 +492,11 @@ button,input,textarea,select{font-family:inherit}
     }
 
     .process-cta,.restaurant-cta,.house-cta{
-        text-align:left;
+        text-align:center;
+    }
+
+    .cta button, .process-cta button, .cta-box-button, .wa-direct-button{
+        width:100%;
     }
 
     .restaurant-project{
@@ -481,7 +524,7 @@ button,input,textarea,select{font-family:inherit}
 
     .form-actions{
         flex-direction:column;
-        align-items:flex-start;
+        align-items:stretch;
         gap:25px;
         padding-bottom:30px;
     }
@@ -703,6 +746,7 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 
 </div>
 
+<!-- FORMULARIO DE CONTACTO -->
 <div id="form-wrapper" class="form-wrapper">
 
 <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
@@ -748,16 +792,22 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 <input type="hidden" id="form-lang-input" name="language" value="English">
 
 <div class="form-actions">
-
 <input id="submit-btn" class="submit-button" type="submit" value="Send Request →">
-
-<a id="wa-btn" href="#" target="_blank" rel="noopener" class="wa-direct-link">Direct WhatsApp Line →</a>
-
 </div>
 
 </form>
 
 </div>
+
+<!-- BOTÓN DIRETTO WHATSAPP A PIÈ DI PAGINA -->
+<footer class="footer-whatsapp">
+    <a id="wa-btn" href="#" target="_blank" rel="noopener" class="wa-direct-button">
+        <svg class="wa-icon" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.842-1.001z"/>
+        </svg>
+        <span id="wa-btn-text">Direct WhatsApp Line →</span>
+    </a>
+</footer>
 
 </main>
 
@@ -795,7 +845,7 @@ phone:"Phone",
 comments:"Project Details / Comments",
 send:"Send Request →",
 sending:"Sending...",
-waText:"Direct WhatsApp Line →",
+waText:"Direct WhatsApp Line (+34 623 92 51 79) →",
 waMsg:"https://wa.me/34623925179?text=Hello%20Senso!%20I%20would%20like%20to%20inquire%20about%20your%20Art%20Consulting%20services.",
 success:"Your request has been sent successfully.<br>One of our team members will be in touch with you shortly.<br>Thank you.",
 close:"Close →"
@@ -817,7 +867,7 @@ phone:"Teléfono",
 comments:"Detalles del proyecto / Comentarios",
 send:"Enviar Solicitud →",
 sending:"Enviando...",
-waText:"Línea Directa WhatsApp →",
+waText:"Línea Directa WhatsApp (+34 623 92 51 79) →",
 waMsg:"https://wa.me/34623925179?text=Hola%20Senso!%20Quisiera%20informaci%C3%B3n%20sobre%20el%20servicio%20de%20Art%20Consulting%20para%20un%20proyecto.",
 success:"Tu solicitud se ha enviado correctamente.<br>Uno de los miembros de nuestro equipo se pondrá en contacto contigo próximamente.<br>Gracias.",
 close:"Cerrar →"
@@ -880,8 +930,9 @@ select.appendChild(o);
 });
 
 const waBtn=document.getElementById('wa-btn');
+const waBtnText=document.getElementById('wa-btn-text');
 
-waBtn.textContent=data.waText;
+waBtnText.textContent=data.waText;
 waBtn.href=data.waMsg;
 
 }
