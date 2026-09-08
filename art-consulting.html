@@ -178,13 +178,20 @@ button,input,textarea,select{font-family:inherit}
 .project-text p{margin:0 0 28px}
 .project-text p:last-child{margin-bottom:0}
 
-/* STILE BOTTONI CON EFFETTO ACCENSIONE ALL'HOVER */
-.cta{
+/* GRUPPO BOTTONI CTA: DEVELOP + WHATSAPP SUBITO SOTTO */
+.cta-block{
     margin-top:48px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
 }
 
-.house-cta{
-    text-align:right;
+.house-cta .cta-block, .process-cta .cta-block{
+    align-items:flex-end;
+}
+
+.restaurant-cta .cta-block{
+    align-items:center;
 }
 
 .cta button, .process-cta button, .submit-button, .wa-direct-button{
@@ -248,7 +255,6 @@ button,input,textarea,select{font-family:inherit}
 
 .process-cta{
     margin-top:60px;
-    text-align:right;
 }
 
 .restaurant-project{
@@ -282,7 +288,6 @@ button,input,textarea,select{font-family:inherit}
 
 .restaurant-cta{
     margin-top:70px;
-    text-align:center;
 }
 
 /* FORM WRAPPER */
@@ -355,16 +360,14 @@ button,input,textarea,select{font-family:inherit}
     resize:vertical;
 }
 
-/* AZIONI DEL FORM CON WHATSAPP SUBITO SOTTO IL PULSANTE DI INVIO */
 .form-actions{
     display:flex;
-    flex-direction:column;
     align-items:center;
-    gap:16px;
+    justify-content:center;
     margin-top:20px;
 }
 
-.submit-button, .wa-direct-button{
+.submit-button{
     width:100%;
 }
 
@@ -445,8 +448,8 @@ button,input,textarea,select{font-family:inherit}
         gap:45px;
     }
 
-    .process-cta,.restaurant-cta,.house-cta{
-        text-align:center;
+    .house-cta .cta-block, .process-cta .cta-block, .restaurant-cta .cta-block{
+        align-items:stretch;
     }
 
     .cta button, .process-cta button, .submit-button, .wa-direct-button{
@@ -522,7 +525,10 @@ button,input,textarea,select{font-family:inherit}
 </div>
 
 <div class="cta house-cta">
-<button onclick="toggleForm()">Develop a project with us →</button>
+    <div class="cta-block">
+        <button onclick="toggleForm()">Develop a project with us →</button>
+        <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -556,7 +562,10 @@ button,input,textarea,select{font-family:inherit}
 </div>
 
 <div class="process-cta">
-<button onclick="toggleForm()">Inquire about a private advisory →</button>
+    <div class="cta-block">
+        <button onclick="toggleForm()">Inquire about a private advisory →</button>
+        <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -590,7 +599,10 @@ For projects where art matters, Senso brings together the expertise, artists and
 </div>
 
 <div class="cta restaurant-cta">
-<button onclick="toggleForm()">Develop a project with us →</button>
+    <div class="cta-block">
+        <button onclick="toggleForm()">Develop a project with us →</button>
+        <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -622,7 +634,10 @@ For projects where art matters, Senso brings together the expertise, artists and
 </div>
 
 <div class="cta house-cta">
-<button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+    <div class="cta-block">
+        <button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+        <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -656,7 +671,10 @@ For projects where art matters, Senso brings together the expertise, artists and
 </div>
 
 <div class="process-cta">
-<button onclick="toggleForm()">Consultar para una asesoría privada →</button>
+    <div class="cta-block">
+        <button onclick="toggleForm()">Consultar para una asesoría privada →</button>
+        <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -690,7 +708,10 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 </div>
 
 <div class="cta restaurant-cta">
-<button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+    <div class="cta-block">
+        <button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+        <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -744,7 +765,6 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 
 <div class="form-actions">
 <input id="submit-btn" class="submit-button" type="submit" value="Send Request →">
-<a id="wa-btn" href="#" target="_blank" rel="noopener" class="wa-direct-button">WhatsApp →</a>
 </div>
 
 </form>
@@ -871,10 +891,10 @@ select.appendChild(o);
 
 });
 
-const waBtn=document.getElementById('wa-btn');
-
-waBtn.textContent=data.waText;
-waBtn.href=data.waMsg;
+document.querySelectorAll('.wa-btn').forEach(btn => {
+    btn.textContent=data.waText;
+    btn.href=data.waMsg;
+});
 
 }
 
