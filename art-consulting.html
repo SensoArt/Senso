@@ -281,7 +281,10 @@ button,input,textarea,select{font-family:inherit}
 
 .restaurant-cta{
     margin-top:70px;
-    text-align:center;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
 }
 
 /* FORM WRAPPER */
@@ -354,16 +357,13 @@ button,input,textarea,select{font-family:inherit}
     resize:vertical;
 }
 
-/* UNICO PULSANTE WHATSAPP ALLA FINE DEL FORM */
 .form-actions{
     display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:16px;
+    justify-content:center;
     margin-top:20px;
 }
 
-.submit-button, .wa-direct-button{
+.submit-button{
     width:100%;
 }
 
@@ -444,7 +444,7 @@ button,input,textarea,select{font-family:inherit}
         gap:45px;
     }
 
-    .process-cta,.restaurant-cta,.house-cta{
+    .process-cta,.house-cta{
         text-align:center;
     }
 
@@ -590,6 +590,7 @@ For projects where art matters, Senso brings together the expertise, artists and
 
 <div class="cta restaurant-cta">
     <button onclick="toggleForm()">Develop a project with us →</button>
+    <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
 </div>
 
 </section>
@@ -690,13 +691,14 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 
 <div class="cta restaurant-cta">
     <button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+    <a href="#" target="_blank" rel="noopener" class="wa-btn wa-direct-button">WhatsApp →</a>
 </div>
 
 </section>
 
 </div>
 
-<!-- FORMULARIO DE CONTACTO CON WHATSAPP SOLAMENTE AL FINAL -->
+<!-- FORMULARIO DE CONTACTO -->
 <div id="form-wrapper" class="form-wrapper">
 
 <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
@@ -743,7 +745,6 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 
 <div class="form-actions">
 <input id="submit-btn" class="submit-button" type="submit" value="Send Request →">
-<a id="wa-btn" href="#" target="_blank" rel="noopener" class="wa-direct-button">WhatsApp →</a>
 </div>
 
 </form>
@@ -870,11 +871,10 @@ select.appendChild(o);
 
 });
 
-const waBtn = document.getElementById('wa-btn');
-if(waBtn){
-    waBtn.textContent=data.waText;
-    waBtn.href=data.waMsg;
-}
+document.querySelectorAll('.wa-btn').forEach(btn => {
+    btn.textContent=data.waText;
+    btn.href=data.waMsg;
+});
 
 }
 
