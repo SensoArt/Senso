@@ -178,9 +178,12 @@ button,input,textarea,select{font-family:inherit}
 .project-text p{margin:0 0 28px}
 .project-text p:last-child{margin-bottom:0}
 
-/* STILI CTA VISIBILI IN RIQUADRO */
-.cta{
+/* STILI CTA RAFFINATI ED ELEGANTI CON EFFETTO ACCENSIONE HOVER */
+.cta-group{
     margin-top:48px;
+    display:inline-flex;
+    flex-direction:column;
+    gap:14px;
 }
 
 .house-cta{
@@ -191,22 +194,30 @@ button,input,textarea,select{font-family:inherit}
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    padding:16px 32px;
-    border:1px solid #000;
-    background:#000;
-    color:#fff;
+    padding:15px 30px;
+    border:1px solid #111;
+    background:#fff;
+    color:#111;
     cursor:pointer;
     text-transform:uppercase;
-    font-size:.85rem;
-    letter-spacing:2.5px;
-    transition:all .3s ease;
+    font-size:.8rem;
+    letter-spacing:2px;
+    transition:all .35s cubic-bezier(0.16, 1, 0.3, 1);
     text-decoration:none;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
 }
 
 .cta button:hover, .process-cta button:hover, .wa-direct-button:hover{
-    background:#fff;
-    color:#000;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background:#111;
+    color:#fff;
+    border-color:#111;
+    transform:translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.wa-direct-button{
+    border-style:dashed;
+    opacity:.9;
 }
 
 .process{
@@ -362,28 +373,20 @@ button,input,textarea,select{font-family:inherit}
 
 .submit-button{
     padding:16px 40px;
-    border:1px solid #000;
-    background:#000;
-    color:#fff;
+    border:1px solid #111;
+    background:#fff;
+    color:#111;
     cursor:pointer;
-    font-size:.85rem;
+    font-size:.8rem;
     text-transform:uppercase;
     letter-spacing:2.5px;
-    transition:all .3s ease;
+    transition:all .35s ease;
     width:100%;
 }
 
 .submit-button:hover{
-    background:#fff;
-    color:#000;
-}
-
-/* FOOTER WHATSAPP */
-.footer-whatsapp{
-    margin-top:100px;
-    padding-top:50px;
-    border-top:1px solid rgba(0,0,0,0.1);
-    text-align:center;
+    background:#111;
+    color:#fff;
 }
 
 .success-popup{
@@ -467,7 +470,7 @@ button,input,textarea,select{font-family:inherit}
         text-align:center;
     }
 
-    .cta button, .process-cta button, .wa-direct-button{
+    .cta-group, .cta button, .process-cta button, .wa-direct-button{
         width:100%;
     }
 
@@ -542,8 +545,11 @@ button,input,textarea,select{font-family:inherit}
 
 </div>
 
-<div class="cta house-cta">
-<button onclick="toggleForm()">Develop a project with us →</button>
+<div class="house-cta">
+    <div class="cta-group">
+        <button onclick="toggleForm()">Develop a project with us →</button>
+        <a class="wa-btn wa-direct-button" href="#" target="_blank" rel="noopener">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -577,7 +583,10 @@ button,input,textarea,select{font-family:inherit}
 </div>
 
 <div class="process-cta">
-<button onclick="toggleForm()">Inquire about a private advisory →</button>
+    <div class="cta-group">
+        <button onclick="toggleForm()">Inquire about a private advisory →</button>
+        <a class="wa-btn wa-direct-button" href="#" target="_blank" rel="noopener">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -610,8 +619,11 @@ button,input,textarea,select{font-family:inherit}
 For projects where art matters, Senso brings together the expertise, artists and artworks to make the right project happen.
 </div>
 
-<div class="cta restaurant-cta">
-<button onclick="toggleForm()">Develop a project with us →</button>
+<div class="restaurant-cta">
+    <div class="cta-group">
+        <button onclick="toggleForm()">Develop a project with us →</button>
+        <a class="wa-btn wa-direct-button" href="#" target="_blank" rel="noopener">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -642,8 +654,11 @@ For projects where art matters, Senso brings together the expertise, artists and
 
 </div>
 
-<div class="cta house-cta">
-<button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+<div class="house-cta">
+    <div class="cta-group">
+        <button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+        <a class="wa-btn wa-direct-button" href="#" target="_blank" rel="noopener">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -677,7 +692,10 @@ For projects where art matters, Senso brings together the expertise, artists and
 </div>
 
 <div class="process-cta">
-<button onclick="toggleForm()">Consultar para una asesoría privada →</button>
+    <div class="cta-group">
+        <button onclick="toggleForm()">Consultar para una asesoría privada →</button>
+        <a class="wa-btn wa-direct-button" href="#" target="_blank" rel="noopener">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -710,8 +728,11 @@ For projects where art matters, Senso brings together the expertise, artists and
 Para proyectos en los que el arte importa, Senso reúne la experiencia, los artistas y las obras necesarias para hacer realidad el proyecto adecuado.
 </div>
 
-<div class="cta restaurant-cta">
-<button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+<div class="restaurant-cta">
+    <div class="cta-group">
+        <button onclick="toggleForm()">Desarrolla un proyecto con nosotros →</button>
+        <a class="wa-btn wa-direct-button" href="#" target="_blank" rel="noopener">WhatsApp →</a>
+    </div>
 </div>
 
 </section>
@@ -770,11 +791,6 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 </form>
 
 </div>
-
-<!-- FOOTER WHATSAPP SENZA ICONE -->
-<footer class="footer-whatsapp">
-    <a id="wa-btn" href="#" target="_blank" rel="noopener" class="wa-direct-button">WhatsApp →</a>
-</footer>
 
 </main>
 
@@ -896,10 +912,10 @@ select.appendChild(o);
 
 });
 
-const waBtn=document.getElementById('wa-btn');
-
-waBtn.textContent=data.waText;
-waBtn.href=data.waMsg;
+document.querySelectorAll('.wa-btn').forEach(btn => {
+    btn.textContent=data.waText;
+    btn.href=data.waMsg;
+});
 
 }
 
