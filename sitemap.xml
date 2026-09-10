@@ -9,37 +9,37 @@
 
   <url>
     <loc>https://senso-art.com/about.html</loc>
-    <lastmod>2026-09-03</lastmod>
-    <priority>0.80</priority>
-  </url>
-
-  <url>
-    <loc>https://senso-art.com/art-consulting.html</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
+    <loc>https://senso-art.com/art-consulting.html</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
     <loc>https://senso-art.com/artists.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://senso-art.com/contacts.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <priority>0.70</priority>
   </url>
 
   <url>
     <loc>https://senso-art.com/exhibitions.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <priority>0.80</priority>
   </url>
 
   <url>
     <loc>https://senso-art.com/journal.html</loc>
-    <lastmod>2026-09-03</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <priority>0.80</priority>
   </url>
 
@@ -47,6 +47,71 @@
     <loc>https://senso-art.com/studio.html</loc>
     <lastmod>2026-09-06</lastmod>
     <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/arantxa-martinez-dugas.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/carlotta-valentinis.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/catalogue.html</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/catherine-parra.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/davide-ciaramella.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/davide-disena.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/lucia-cheves.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/on-opening.html</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/paolo-agostini.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/principium.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/rafael-nuesi.html</loc>
+    <lastmod>2026-09-06</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/raul-del-chano.html</loc>
+    <lastmod>2026-08-10</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/the-need-for-beauty.html</loc>
+    <lastmod>2026-09-02</lastmod>
   </url>
 
 </urlset>
