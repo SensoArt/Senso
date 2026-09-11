@@ -116,13 +116,13 @@
             padding: 150px 25px 150px; 
         }
 
-        /* Nome dell'artista */
+        /* Nome dell'artista in alto CON PIÙ RESPIRO SOTTO */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
             text-transform: uppercase;
             letter-spacing: 3px;
-            margin: 0 0 50px 0; 
+            margin: 0 0 50px 0; /* Aumentato il margine per dare respiro */
             font-weight: bold; 
         }
 
@@ -139,24 +139,24 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
-            gap: 0px; 
         }
 
-        /* CONTENITORE SLIDER A ALTEZZA DINAMICA */
+        /* CONTENITORE SLIDER FISSO PER BLOCCARE LE FRECCE */
         .slider-wrapper {
             position: relative;
             width: 100%;
+            height: 400px; /* Altezza fissa dell'area immagine per ancorare le frecce */
             display: flex;
             align-items: center; 
             justify-content: center;
             background-color: transparent;
-            overflow: hidden;
-            margin: 0 !important;
-            padding: 0 !important;
+            margin: 0;
+            padding: 0;
         }
 
         .main-image-frame {
             width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -166,7 +166,7 @@
 
         .artist-img { 
             max-width: 100%; 
-            max-height: 400px;
+            max-height: 100%;
             width: auto;
             height: auto;
             object-fit: contain;
@@ -177,7 +177,7 @@
             padding: 0;
         }
 
-        /* FRECCE DI NAVIGAZIONE */
+        /* FRECCE DI NAVIGAZIONE BLU/BLOCCATE */
         .nav-arrow {
             position: absolute !important;
             top: 50% !important; 
@@ -211,10 +211,11 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* DIDASCALIA IMMEDIATAMENTE SOTTO L'IMMAGINE */
+        /* DIDASCALIA SUBITO SOTTO LA FOTO */
         .artwork-caption {
             text-align: center;
-            margin: 15px auto 15px auto; 
+            margin-top: 15px;
+            margin-bottom: 40px; 
             padding: 0; 
             width: 100%;
             display: flex;
@@ -263,13 +264,12 @@
             font-weight: normal !important;
         }
 
-        /* Miniature */
+        /* Miniature della griglia foto */
         .thumbnail-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             width: 100%;
-            margin-top: 5px;
         }
 
         .thumb-item {
@@ -290,7 +290,11 @@
             border-color: #000;
         }
 
-        /* CONTENITORE BIO FISSO */
+        /* BIO WRAPPER E TESTO A LATO ABBASSATO */
+        .bio-wrapper {
+            margin-top: 15px; /* Abbassa leggermente il blocco testo a lato */
+        }
+
         .bio-container-fixed {
             min-height: 200px;
             margin-bottom: 40px;
@@ -493,11 +497,12 @@
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
+            .slider-wrapper { height: 300px; } /* Regolazione altezza slider su schermi piccoli */
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .artist-img { max-height: 300px; }
             .bio-container-fixed { min-height: auto; }
+            .bio-wrapper { margin-top: 0; }
         }
     </style>
 </head>
@@ -549,13 +554,12 @@
 
             <div class="bio-wrapper">
                 
-                <!-- Biografia sintetica -->
                 <div class="bio-container-fixed">
                     <div class="lang-en artist-bio">
-                        Valentina Bobbo is an Italian multidisciplinary artist based in <span class="important">Barcelona</span>, trained at the <span class="important">Brera Academy of Fine Arts</span> and <span class="important">IED</span> in Milan. Through sculpture, installation, and performance, she investigates the transformation of forms by incorporating salvaged and discarded materials. Her work inhabits an ambiguous space between reality and imagination, reconfiguring ordinary objects to resist fixed definitions and generate new narrative possibilities.
+                        Valentina Bobbo is an Italian artist based in <span class="important">Barcelona</span>, trained at the <span class="important">Brera Academy of Fine Arts</span> and <span class="important">IED Milan</span>. Working across installation, sculpture, video, and performance, her multidisciplinary practice incorporates salvaged materials to explore the transformation and adaptation of forms. She has participated in residencies including <span class="important">Can Serrat</span> and <span class="important">Viafarini</span>, presented solo exhibitions like 'Mostriciattola' and 'L’ora dell’oro', and joined group shows such as 'Good Girl' at <span class="important">MOMO Gallery</span> (Athens) and 'Artefici del Nostro Tempo' for the <span class="important">Venice Biennale</span>. She collaborates with <span class="important">AfterPoema Gallery</span>, participating in <span class="important">Hybrid Art Fair</span> (Madrid) and <span class="important">SWAB Art Fair</span> (Barcelona).
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Valentina Bobbo es una artista multidisciplinaria italiana radicada en <span class="important">Barcelona</span>, formada en la <span class="important">Academia de Bellas Artes de Brera</span> y el <span class="important">IED</span> de Milán. A través de la escultura, la instalación y la performance, investiga la transformación de las formas incorporando materiales rescatados y desechados. Su obra habita un espacio ambiguo entre la realidad y la imaginación, reconfigurando objetos cotidianos para generar nuevas posibilidades narrativas.
+                        Valentina Bobbo es una artista italiana afincada en <span class="important">Barcelona</span>, formada en la <span class="important">Academia de Bellas Artes de Brera</span> y el <span class="important">IED de Milán</span>. A través de la instalación, la escultura, el video y la performance, su práctica multidisciplinaria incorpora materiales rescatados para explorar la transformación y adaptación de las formas. Ha participado en residencias como <span class="important">Can Serrat</span> y <span class="important">Viafarini</span>, realizado exposiciones individuales como 'Mostriciattola' y 'L’ora dell’oro', y formado parte de colectivas como 'Good Girl' en <span class="important">MOMO Gallery</span> (Atenas) y 'Artefici del Nostro Tempo' para la <span class="important">Bienal de Venecia</span>. Colabora con <span class="important">AfterPoema Gallery</span>, participando en <span class="important">Hybrid Art Fair</span> (Madrid) y <span class="important">SWAB Art Fair</span> (Barcelona).
                     </div>
                 </div>
 
@@ -829,7 +833,6 @@
             }
         });
 
-        // Inizializzazione della galleria all'avvio
         document.addEventListener('DOMContentLoaded', initGallery);
     </script>
 </body>
