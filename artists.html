@@ -25,7 +25,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Artists | Senso</title>
+    <title>Valentina Bobbo | Senso</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -42,7 +42,6 @@
             src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype'); 
             font-display: swap; 
         }
-
 
         /* ANIMAZIONE FADE IN */
 
@@ -71,7 +70,6 @@
             animation-delay: 0.9s; 
         }
 
-
         body { 
             background-color: #fff; 
             color: #000; 
@@ -85,7 +83,6 @@
             min-height: 100vh;
         }
 
-
         /* SFONDO BIANCO FISSO */
 
         .bg-container {
@@ -98,8 +95,7 @@
             background-color: #fff;
         }
 
-
-        /* HOME */
+        /* NAVIGATION BACK */
 
         .back-home { 
             position: fixed; 
@@ -118,7 +114,6 @@
         .back-home:hover { 
             opacity: 1; 
         }
-
 
         /* LANGUAGE SWITCH */
 
@@ -148,7 +143,6 @@
             opacity: 1; 
         }
 
-
         /* CONTENITORE */
 
         .container { 
@@ -157,124 +151,51 @@
             padding: 150px 25px 0; 
         }
 
+        /* TITOLO ARTISTA */
 
-        /* TITOLO */
-
-        .section-title { 
+        .artist-title { 
             font-family: 'BehindNineties', serif; 
-            font-size: clamp(2rem, 5vw, 3rem); 
-            margin: 0 0 25px 0; 
+            font-size: clamp(2rem, 5vw, 3.5rem); 
+            margin: 0 0 40px 0; 
             text-transform: lowercase; 
             font-weight: normal; 
         }
 
+        /* IMPOSTAZIONE SCHEDA ARTISTA */
 
-        /* ARTIST STATEMENT */
+        .artist-profile {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
 
-        .artist-statement {
-            max-width: 720px;
-            margin: 0 0 55px 0;
+        .profile-img-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.03);
+        }
+
+        .profile-img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+            filter: grayscale(1);
+            transition: filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .profile-img:hover {
+            filter: grayscale(0);
+        }
+
+        .artist-bio {
             font-family: 'FuturaLight', sans-serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             letter-spacing: 0.3px;
             text-align: left;
         }
-
-
-        /* GRIGLIA A 3 COLONNE */
-
-        .artists-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            column-gap: 30px;
-            row-gap: 50px;
-            width: 100%;
-        }
-
-
-        /* SINGOLA SCHEDA ARTISTA */
-
-        .artist-block { 
-            text-decoration: none !important;
-            display: flex;
-            flex-direction: column;
-            color: #000 !important;
-        }
-        
-        .img-container { 
-            width: 100%; 
-            overflow: hidden; 
-            background-color: rgba(0,0,0,0.03); 
-            margin-bottom: 15px;
-        }
-
-
-        /* IMMAGINE IN BIANCO E NERO */
-
-        .artist-img { 
-            width: 100%; 
-            display: block; 
-            aspect-ratio: 3 / 2; 
-            object-fit: cover; 
-            filter: grayscale(1);
-            transition: 
-                filter 0.8s cubic-bezier(0.25, 1, 0.5, 1), 
-                transform 0.8s cubic-bezier(0.25, 1, 0.5, 1); 
-        }
-
-
-        /* HOVER */
-
-        .artist-block:hover .artist-img { 
-            filter: grayscale(0);
-            transform: scale(1.02); 
-        }
-
-
-        /* INQUADRATURE */
-
-        .img-raul { 
-            object-position: center 20%; 
-        }
-
-        .img-davide { 
-            object-position: center center; 
-        }
-
-        .img-catherine { 
-            object-position: center 75%; 
-        }
-
-        .img-rafael { 
-            object-position: center 48%; 
-        }
-
-        .img-arantxa { 
-            object-position: center 15%; 
-        }
-
-        .img-paolo { 
-            object-position: center 85%; 
-        }
-
-
-        /* META */
-
-        .artist-meta {
-            padding: 0 2px;
-            text-align: left;
-        }
-
-        .artist-name { 
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.75rem; 
-            font-weight: normal; 
-            text-transform: uppercase; 
-            letter-spacing: 2px; 
-            margin: 0; 
-        }
-
 
         /* SPAZIATORE */
 
@@ -284,69 +205,31 @@
             width: 100%;
         }
 
-
         /* RESPONSIVE */
 
-        @media (max-width: 850px) {
-
-            .artists-grid {
-                grid-template-columns: repeat(2, 1fr);
-                column-gap: 30px;
-                row-gap: 40px;
+        @media (max-width: 768px) {
+            .artist-profile {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
-
-        }
-
-
-        @media (max-width: 600px) {
 
             .container { 
                 padding-top: 120px; 
                 padding-left: 20px; 
                 padding-right: 20px; 
             }
-
-            .section-title { 
-                font-size: 2.2rem; 
-                margin-bottom: 20px; 
-            }
-
-            .artist-statement {
-                font-size: 1.05rem;
-                line-height: 1.75;
-                margin-bottom: 40px;
-            }
-
-            .artists-grid {
-                grid-template-columns: 1fr; 
-                row-gap: 35px;
-            }
-
-            .artist-name { 
-                font-size: 0.75rem; 
-            }
-
-            .footer-spacer {
-                min-height: 100px;
-            }
-
         }
 
     </style>
 
 </head>
-
-
 <body>
-
 
     <div class="bg-container"></div>
 
-
-    <a href="index.html" class="back-home">
-        ← Home
+    <a href="artists.html" class="back-home" id="back-link">
+        ← Artists
     </a>
-
 
     <div class="lang-switch">
 
@@ -370,284 +253,41 @@
 
     </div>
 
-
     <main class="container">
-        
 
         <header class="header-section fade-in delay-1">
-
-            <h1 
-                class="section-title" 
-                id="main-title"
-            >
-                artists
+            <h1 class="artist-title">
+                valentina bobbo
             </h1>
-
-
-            <div 
-                id="artist-statement-en" 
-                class="artist-statement"
-            >
-                Senso represents a selected group of contemporary artists, supporting the development of their practices through exhibitions, collaborations and opportunities across different contexts.
-            </div>
-
-
-            <div 
-                id="artist-statement-es" 
-                class="artist-statement"
-                style="display: none;"
-            >
-                Senso representa a un grupo seleccionado de artistas contemporáneos, apoyando el desarrollo de sus prácticas a través de exposiciones, colaboraciones y oportunidades en diferentes contextos.
-            </div>
-
         </header>
 
+        <section class="artist-profile fade-in delay-2">
 
-        <div class="artists-grid fade-in delay-2">
+            <div class="profile-img-container">
+                <img 
+                    src="fotos_artistas/valentina_bobbo.jpg" 
+                    alt="Valentina Bobbo" 
+                    class="profile-img"
+                >
+            </div>
 
+            <div class="artist-bio">
 
-            <a 
-                href="raul-del-chano.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/raul_del_chano.jpg" 
-                        alt="Raúl del Chano" 
-                        class="artist-img img-raul"
-                    >
-
+                <div id="bio-en">
+                    <p>Biography and statement of Valentina Bobbo in English...</p>
                 </div>
 
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Raúl del Chano
-                    </h2>
-
+                <div id="bio-es" style="display: none;">
+                    <p>Biografía e información de Valentina Bobbo en español...</p>
                 </div>
 
-            </a>
+            </div>
 
-
-            <a 
-                href="lucia-cheves.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/lucia_cheves.jpg" 
-                        alt="Lucía Cheves Dauber" 
-                        class="artist-img"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Lucía Cheves Dauber
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="carlotta-valentinis.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/carlotta_valentinis.jpg" 
-                        alt="Carlotta Valentinis Queraltó" 
-                        class="artist-img"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Carlotta Valentinis Queraltó
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="davide-ciaramella.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/davide_ciaramella.jpg" 
-                        alt="Davide Ciaramella" 
-                        class="artist-img img-davide"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Davide Ciaramella
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="davide-disena.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/davide_disena.jpg" 
-                        alt="Davide Di Sena" 
-                        class="artist-img"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Davide Di Sena
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="catherine-parra.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/catherine_parra.jpg" 
-                        alt="Catherine Parra" 
-                        class="artist-img img-catherine"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Catherine Parra
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="rafael-nuesi.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/rafael_nuesi.JPG" 
-                        alt="Rafael Nuesi" 
-                        class="artist-img img-rafael"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Rafael Nuesi
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="arantxa-martinez-dugas.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/arantxa.jpg" 
-                        alt="Arantxa Martinez Dugas" 
-                        class="artist-img img-arantxa"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Arantxa Martinez Dugas
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-            <a 
-                href="paolo-agostini.html" 
-                class="artist-block"
-            >
-
-                <div class="img-container">
-
-                    <img 
-                        src="fotos_artistas/paolo_agostini.jpeg" 
-                        alt="Paolo Agostini - Paul el Pulpo" 
-                        class="artist-img img-paolo"
-                    >
-
-                </div>
-
-                <div class="artist-meta">
-
-                    <h2 class="artist-name">
-                        Paolo Agostini - Paul el Pulpo
-                    </h2>
-
-                </div>
-
-            </a>
-
-
-        </div>
-
+        </section>
 
         <div class="footer-spacer"></div>
 
-
     </main>
-
 
     <script>
 
@@ -655,22 +295,20 @@
 
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
+            const backLink = document.getElementById('back-link');
 
-            const title = document.getElementById('main-title');
-
-            const statementEn = document.getElementById('artist-statement-en');
-            const statementEs = document.getElementById('artist-statement-es');
-
+            const bioEn = document.getElementById('bio-en');
+            const bioEs = document.getElementById('bio-es');
 
             if (lang === 'es') {
 
                 btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
 
-                title.innerText = 'artistas';
+                backLink.innerText = '← Artistas';
 
-                statementEn.style.display = 'none';
-                statementEs.style.display = 'block';
+                bioEn.style.display = 'none';
+                bioEs.style.display = 'block';
 
                 document.documentElement.lang = 'es';
 
@@ -679,32 +317,27 @@
                 btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
 
-                title.innerText = 'artists';
+                backLink.innerText = '← Artists';
 
-                statementEs.style.display = 'none';
-                statementEn.style.display = 'block';
+                bioEs.style.display = 'none';
+                bioEn.style.display = 'block';
 
                 document.documentElement.lang = 'en';
 
             }
 
-
             localStorage.setItem('senso_lang', lang);
 
         }
 
-
         document.addEventListener('DOMContentLoaded', () => {
 
-            const savedLang =
-                localStorage.getItem('senso_lang') || 'en';
-
+            const savedLang = localStorage.getItem('senso_lang') || 'en';
             setLang(savedLang);
 
         });
 
     </script>
-
 
 </body>
 </html>
