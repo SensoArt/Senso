@@ -71,7 +71,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Indietro elegante */
+        /* Pulsante Indietro */
         .back-artists { 
             position: fixed; 
             top: 25px; 
@@ -116,7 +116,7 @@
             padding: 150px 25px 150px; 
         }
 
-        /* Nome dell'artista in grassetto elegante */
+        /* Nome dell'artista */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
@@ -142,13 +142,10 @@
             gap: 0px; 
         }
 
-        /* CONTENITORE SLIDER COMPLETA RIGIDEZZA */
+        /* CONTENITORE SLIDER A ALTEZZA DINAMICA */
         .slider-wrapper {
             position: relative;
             width: 100%;
-            height: 400px; 
-            min-height: 400px;
-            max-height: 400px;
             display: flex;
             align-items: center; 
             justify-content: center;
@@ -160,7 +157,6 @@
 
         .main-image-frame {
             width: 100%;
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -181,10 +177,10 @@
             padding: 0;
         }
 
-        /* FRECCE ASSOLUTAMENTE FISSE */
+        /* FRECCE DI NAVIGAZIONE */
         .nav-arrow {
             position: absolute !important;
-            top: 200px !important; 
+            top: 50% !important; 
             transform: translateY(-50%) !important;
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -215,7 +211,7 @@
         .prev-arrow { left: 15px; }
         .next-arrow { right: 15px; }
 
-        /* DIDASCALIA CON ALTEZZA BLOCCATA */
+        /* DIDASCALIA IMMEDIATAMENTE SOTTO L'IMMAGINE */
         .artwork-caption {
             text-align: center;
             margin: 15px auto 15px auto; 
@@ -227,10 +223,6 @@
             justify-content: flex-start;
             gap: 4px;
             font-family: 'FuturaLight', sans-serif;
-            height: 90px;
-            min-height: 90px;
-            max-height: 90px;
-            overflow: hidden;
         }
 
         .artwork-title-text {
@@ -298,9 +290,9 @@
             border-color: #000;
         }
 
-        /* CONTENITORE BIO FISSO PER IMPEDIRE LO SPOSTAMENTO DEL CURSORE CAMBIANDO LINGUA */
+        /* CONTENITORE BIO FISSO */
         .bio-container-fixed {
-            min-height: 330px; /* ALTEZZA MINIMA FISSA RISERVATA PER IL TESTO */
+            min-height: 200px;
             margin-bottom: 40px;
         }
 
@@ -504,9 +496,7 @@
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .slider-wrapper { height: 300px; min-height: 300px; max-height: 300px; } 
             .artist-img { max-height: 300px; }
-            .nav-arrow { top: 150px !important; }
             .bio-container-fixed { min-height: auto; }
         }
     </style>
@@ -559,13 +549,13 @@
 
             <div class="bio-wrapper">
                 
-                <!-- Contenitore ad altezza fissa per bloccare i salti di lingua -->
+                <!-- Biografia sintetica -->
                 <div class="bio-container-fixed">
                     <div class="lang-en artist-bio">
-                        Valentina Bobbo is an Italian artist based in <span class="important">Barcelona</span>. She trained at the <span class="important">Brera Academy of Fine Arts</span> and <span class="important">IED</span> in Milan, where she obtained a Master in Visual Art for the Digital Age. She has participated in artist residencies including <span class="important">Can Serrat</span> in Barcelona and <span class="important">Viafarini</span> in Milan. She has presented her work in solo exhibitions such as 'Mostriciattola' at <span class="important">Micro Museum</span> in Monza and 'L’ora dell’oro' at <span class="important">Anonima Kunsthalle</span> in Varese, as well as in group exhibitions including 'Good Girl' at <span class="important">MOMO Gallery</span> in Athens and 'Artefici del Nostro Tempo' for the <span class="important">Venice Biennale</span> in Venice. She also actively collaborates with <span class="important">AfterPoema Gallery</span> in Buenos Aires with whom she took part in <span class="important">Hybrid Art Fair</span> in Madrid, and the <span class="important">SWAB Art Fair</span> in Barcelona.<br><br>Her multidisciplinary practice explores the adaptation and transformation of forms, investigating how materials, bodies and objects can shift between different states, meanings and narratives. Working across installation, sculpture, video and performance, she often incorporates salvaged and discarded materials, giving them new configurations and possibilities. Her works inhabit a space between reality and imagination, where recognisable forms become ambiguous figures and fragments of possible worlds. Through processes of transformation, displacement and reconfiguration, she demonstrates how forms can resist fixed definitions and generate new narratives.
+                        Valentina Bobbo is an Italian multidisciplinary artist based in <span class="important">Barcelona</span>, trained at the <span class="important">Brera Academy of Fine Arts</span> and <span class="important">IED</span> in Milan. Through sculpture, installation, and performance, she investigates the transformation of forms by incorporating salvaged and discarded materials. Her work inhabits an ambiguous space between reality and imagination, reconfiguring ordinary objects to resist fixed definitions and generate new narrative possibilities.
                     </div>
                     <div class="lang-es artist-bio hidden">
-                        Valentina Bobbo es una artista italiana radicada en <span class="important">Barcelona</span>. Se formó en la <span class="important">Academia de Bellas Artes de Brera</span> y en el <span class="important">IED</span> de Milán, donde obtuvo un Máster en Arte Visual para la Era Digital. Ha participado en residencias artísticas como <span class="important">Can Serrat</span> en Barcelona y <span class="important">Viafarini</span> en Milán. Ha presentado su trabajo en exposiciones individuales como 'Mostriciattola' en <span class="important">Micro Museum</span> (Monza) y 'L’ora dell’oro' en <span class="important">Anonima Kunsthalle</span> (Varese), así como en exposiciones colectivas como 'Good Girl' en <span class="important">MOMO Gallery</span> (Atenas) y 'Artefici del Nostro Tempo' para la <span class="important">Bienal de Venecia</span>. Colabora activamente con la galería <span class="important">AfterPoema Gallery</span> de Buenos Aires, con la que participó en <span class="important">Hybrid Art Fair</span> en Madrid y en la feria <span class="important">SWAB Art Fair</span> en Barcelona.<br><br>Su práctica multidisciplinaria explora la adaptación y transformación de las formas, investigando cómo los materiales, cuerpos y objetos pueden desplazarse entre diferentes estados, significados y narrativas. Trabajando en instalación, escultura, video y performance, suele incorporar materiales rescatados y desechados, otorgándoles nuevas configuraciones. Sus obras habitan un espacio entre la realidad y la imaginación, donde formas reconocibles se convierten en figuras ambiguas y fragmentos de mundos posibles. A través de procesos de transformación, desplazamiento y reconfiguración, demuestra cómo las formas pueden resistir definiciones fijas y generar nuevas narrativas.
+                        Valentina Bobbo es una artista multidisciplinaria italiana radicada en <span class="important">Barcelona</span>, formada en la <span class="important">Academia de Bellas Artes de Brera</span> y el <span class="important">IED</span> de Milán. A través de la escultura, la instalación y la performance, investiga la transformación de las formas incorporando materiales rescatados y desechados. Su obra habita un espacio ambiguo entre la realidad y la imaginación, reconfigurando objetos cotidianos para generar nuevas posibilidades narrativas.
                     </div>
                 </div>
 
@@ -613,7 +603,7 @@
     <script>
         const artworks = [
             { 
-                src: "personajes de latas rosas.JPG", 
+                src: "fotos_obras/personajes de latas rosas.JPG", 
                 titleEn: "Personajes de lata Rosas", 
                 titleEs: "Personajes de lata Rosas", 
                 size: "", 
@@ -622,7 +612,7 @@
                 sold: false
             },
             { 
-                src: "una stella che non cade mai.jpg", 
+                src: "fotos_obras/una stella che non cade mai.jpg", 
                 titleEn: "Una Stella che non cade mai", 
                 titleEs: "Una Stella che non cade mai", 
                 size: "", 
@@ -631,7 +621,7 @@
                 sold: false
             },
             { 
-                src: "watermelon.jpg", 
+                src: "fotos_obras/watermelon.jpg", 
                 titleEn: "Watermelon", 
                 titleEs: "Watermelon", 
                 size: "", 
@@ -640,7 +630,7 @@
                 sold: false
             },
             { 
-                src: "gelatina dolce.JPG", 
+                src: "fotos_obras/gelatina dolce.JPG", 
                 titleEn: "Gelatina Dolce", 
                 titleEs: "Gelatina Dolce", 
                 size: "", 
@@ -649,7 +639,7 @@
                 sold: false
             },
             { 
-                src: "venere trapiantata nel 2023.JPG", 
+                src: "fotos_obras/venere trapiantata nel 2023.JPG", 
                 titleEn: "Venere trapiantata nel 2023", 
                 titleEs: "Venere trapiantata nel 2023", 
                 size: "", 
