@@ -142,19 +142,22 @@
             position: fixed;
             top: 25px;
             right: 20px;
-            font-family: 'FuturaLight', sans-serif;
+            z-index: 1000;
             font-size: 0.65rem;
             letter-spacing: 2px;
-            z-index: 1000;
+            font-family: 'FuturaLight', sans-serif;
         }
 
         .lang-btn {
+            padding: 0 5px;
+            border: 0;
             background: none;
-            border: none;
             color: #fff;
             cursor: pointer;
-            padding: 0 5px;
-            opacity: 0.4;
+            font-family: inherit;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.35;
             text-transform: uppercase;
             transition: opacity 0.3s;
         }
@@ -240,9 +243,8 @@
 <a href="index.html" class="back-home">← Home</a>
 
 <nav class="lang-switch" aria-label="Language selection">
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> |
-    <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
-    <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
+    <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
+    <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
 </nav>
 
 <header class="fade-in delay-1">
@@ -267,15 +269,6 @@
         <p>Senso parte de la convicción de que el arte no solo debe verse, sino sentirse. Cada encuentro con el arte tiene el poder de despertar la percepción, conmover y dejar una huella duradera. En el centro de Senso existe una mirada curatorial consciente, que da forma al contexto en el que los artistas y sus obras son descubiertos.</p>
         <p>Junto a su práctica curatorial, Senso desarrolla proyectos de asesoría de arte para espacios privados y profesionales, desde hogares y colecciones privadas hasta hospitality, restaurantes, estudios de arquitectura e interiorismo. A través de una selección de artistas y obras adaptada a cada proyecto, busca crear una relación significativa entre el arte, la arquitectura y la identidad de cada espacio, acompañando al cliente en la selección, adquisición y colocación de las obras.</p>
         <p>Operamos en el mercado del arte a través de una galería online y de relaciones directas con artistas y coleccionistas. Nuestra labor de intermediación abarca desde apoyar a artistas en el acceso a nuevos públicos hasta facilitar la adquisición y venta de obras, incluyendo la asistencia a coleccionistas privados que desean revender obras de sus colecciones.</p>
-    </div>
-
-    <div id="lang-it" class="lang-content hidden">
-        <p>Senso è una realtà indipendente d'arte contemporanea con sede a Barcellona, che prende forma attraverso pop-up, mostre ed eventi in spazi e contesti differenti, con una selezione accurata di artisti e opere.</p>
-        <p>Fondata nel 2025 da Claudia Alizieri e Adrian Villanueva, Senso nasce dall'intuizione, dalla passione e dal desiderio di creare qualcosa di significativo: uno spazio in cui scoprire l'arte contemporanea al di là delle forme di esibizione tradizionali.</p>
-        <p>Nel 2026, questa visione si è concretizzata con <span class="principium">PRINCIPIUM - In the Beginning There Was Chaos</span>, la mostra inaugurale di Senso e la prima espressione della sua identità. Più che un'apertura, PRINCIPIUM ha segnato un punto d'origine: uno spazio in cui arte, musica, persone e dialogo si sono incontrati, trasformando un'esposizione in un'esperienza condivisa.</p>
-        <p>Senso si fonda sulla convinzione che l'arte non sia solo da guardare, ma da vivere. Ogni incontro con l'arte ha il potere di risvegliare la percezione, suscitare emozioni e lasciare un'impronta duratura. Al centro vi è una consapevole visione curatoriale, che modella il contesto in cui artisti e opere vengono scoperti.</p>
-        <p>Affianco alla pratica curatoriale, Senso sviluppa progetti di consulenza artistica per spazi privati e professionali, dalle residenze e collezioni private al settore dell'accoglienza, ristorazione, studi di architettura e interior design. Attraverso una selezione su misura, mira a creare una relazione profonda tra arte, architettura e identità dello spazio, affiancando il cliente nella selezione, acquisizione e collocazione delle opere.</p>
-        <p>Operiamo nel mercato dell'arte tramite una galleria online e relazioni dirette con artisti e collezionisti. Il nostro lavoro di intermediazione spazia dal supporto agli artisti nell'ampliare il proprio pubblico fino ad agevolare l'acquisto e la vendita di opere, inclusa l'assistenza a collezionisti privati nella ricollocazione delle loro opere.</p>
     </div>
 
 </main>
@@ -304,7 +297,7 @@
 
     document.addEventListener('DOMContentLoaded', () => {
         const savedLang = localStorage.getItem('senso_lang') || 'en';
-        setLang(savedLang);
+        setLang(savedLang === 'it' ? 'en' : savedLang);
     });
 </script>
 
