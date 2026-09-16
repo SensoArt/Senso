@@ -142,22 +142,24 @@
             position: fixed;
             top: 25px;
             right: 20px;
-            font-family: 'FuturaLight', sans-serif;
-            font-size: 0.55rem;
-            letter-spacing: 1.5px;
             z-index: 1000;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            font-family: 'FuturaLight', sans-serif;
         }
 
         .lang-btn {
+            padding: 0 5px;
+            border: 0;
             background: none;
-            border: none;
             color: #fff;
             cursor: pointer;
-            padding: 0 4px;
-            opacity: 0.4;
+            font-family: inherit;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.35;
             text-transform: uppercase;
             transition: opacity 0.3s;
-            font-size: 0.55rem;
         }
 
         .lang-btn.active {
@@ -241,7 +243,7 @@
 <a href="index.html" class="back-home">← Home</a>
 
 <nav class="lang-switch" aria-label="Language selection">
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> |
+    <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
     <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
 </nav>
 
