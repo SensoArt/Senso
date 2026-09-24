@@ -119,10 +119,21 @@
             -webkit-transform: translateZ(0);
         }
 
-        .back-home {
+        /* Top Bar Container */
+        .top-bar {
             position: fixed;
-            top: 25px;
-            left: 20px;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+
+        .back-home {
             text-decoration: none;
             color: #fff;
             font-family: 'FuturaLight', sans-serif;
@@ -130,22 +141,60 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             opacity: 0.8;
-            z-index: 1000;
             transition: opacity 0.3s;
+            white-space: nowrap;
         }
 
         .back-home:hover {
             opacity: 1;
         }
 
+        /* Navigazione */
+        nav.main-nav {
+            display: flex;
+            gap: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            font-family: 'FuturaLight', sans-serif;
+        }
+
+        nav.main-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.75;
+            position: relative;
+            padding-bottom: 4px;
+            transition: opacity 0.3s;
+        }
+
+        nav.main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a.active-link {
+            opacity: 1;
+        }
+
+        nav.main-nav a:hover::after,
+        nav.main-nav a.active-link::after {
+            width: 100%;
+        }
+
         .lang-switch {
-            position: fixed;
-            top: 25px;
-            right: 20px;
-            z-index: 1000;
             font-size: 0.65rem;
             letter-spacing: 2px;
             font-family: 'FuturaLight', sans-serif;
+            color: #fff;
+            white-space: nowrap;
         }
 
         .lang-btn {
@@ -193,7 +242,8 @@
             display: block;
         }
 
-        .lang-content.hidden {
+        .lang-content.hidden,
+        nav.hidden {
             display: none !important;
         }
 
@@ -212,13 +262,24 @@
             font-size: 1.4rem;
         }
 
-        @media (max-width: 768px) {
-            .bg-container {
-                background-position: center 50%;
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 20px;
+                background-color: rgba(0,0,0,0.8);
+                position: absolute;
+            }
+
+            nav.main-nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                font-size: 0.65rem;
             }
 
             header {
-                padding-top: 120px;
+                padding-top: 180px;
             }
 
             h1 {
@@ -240,12 +301,38 @@
 <div class="bg-container"></div>
 <div class="bg-overlay"></div>
 
-<a href="index.html" class="back-home">← Home</a>
+<!-- Top Navigation Bar -->
+<div class="top-bar">
+    <a href="index.html" class="back-home">← Home</a>
 
-<nav class="lang-switch" aria-label="Language selection">
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
-    <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
-</nav>
+    <!-- Navigazione Inglese -->
+    <nav id="nav-en" class="main-nav">
+        <a href="about.html" class="active-link">About</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="artists.html">Artists</a>
+        <a href="art-consulting.html">Art Consulting</a>
+        <a href="studio.html">Studio</a>
+        <a href="journal.html">Journal</a>
+        <a href="contacts.html">Contacts</a>
+    </nav>
+
+    <!-- Navigazione Spagnolo -->
+    <nav id="nav-es" class="main-nav hidden">
+        <a href="about.html" class="active-link">Quiénes somos</a>
+        <a href="exposiciones.html">Exposiciones</a>
+        <a href="artistas.html">Artistas</a>
+        <a href="asesoria-de-arte.html">Asesoría de Arte</a>
+        <a href="studio.html">Senso Studio</a>
+        <a href="journal.html">Journal</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <!-- Switch Lingua -->
+    <div class="lang-switch" aria-label="Language selection">
+        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
+        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+    </div>
+</div>
 
 <header class="fade-in delay-1">
     <h1>about</h1>
@@ -281,13 +368,18 @@
         const targetBox = document.getElementById(`lang-${lang}`);
         const targetBtn = document.getElementById(`btn-${lang}`);
 
+        const isSpanish = lang === 'es';
+        document.getElementById('nav-en').classList.toggle('hidden', isSpanish);
+        document.getElementById('nav-es').classList.toggle('hidden', !isSpanish);
+
         if (targetBox && targetBtn) {
             targetBox.classList.remove('hidden');
             targetBtn.classList.add('active');
         } else {
-            // Fallback se la lingua non è presente
             document.getElementById('lang-en').classList.remove('hidden');
             document.getElementById('btn-en').classList.add('active');
+            document.getElementById('nav-en').classList.remove('hidden');
+            document.getElementById('nav-es').classList.add('hidden');
             lang = 'en';
         }
 
