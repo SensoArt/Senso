@@ -118,7 +118,7 @@ header {
   height: 110px;
   width: auto;
   display: block;
-  margin-top: -8px; /* Spostato leggermente più in alto */
+  margin-top: -8px;
 }
 
 .tagline-header {
@@ -132,17 +132,21 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 30px;
+  gap: 15px;
   margin-top: 0px;
+  flex: 1; /* Permette di gestire il centraggio */
 }
 
+/* Navigazione centrata e spostata più su */
 nav {
   display: flex;
+  justify-content: center; /* Centrato */
   gap: 20px;
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 0.65rem;
-  margin-top: 35px;
+  margin-top: 10px; /* Più in alto */
+  width: 100%;
 }
 
 /* Link Navigazione con Sottolineatura al Hover */
@@ -171,17 +175,17 @@ nav a:hover {
 }
 
 nav a:hover::after {
-  width: 100%; /* Comparsa della linea nera di sottolineatura */
+  width: 100%;
 }
 
-/* EN | ES ancora più in alto, completamente a destra e meno nero */
+/* EN | ES in alto a destra e sfumato */
 .lang-switch {
   font-size: 0.65rem;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
   color: #777777;
-  margin-top: -10px; /* Spostato ancora più in alto */
+  margin-top: -10px;
 }
 
 .lang-btn {
@@ -197,10 +201,9 @@ nav a:hover::after {
   transition: opacity 0.3s, color 0.3s;
 }
 
-/* Stato attivo meno marcato / meno nero */
 .lang-btn.active {
   opacity: 0.85;
-  color: #333333; /* Meno nero scuro e più armonioso */
+  color: #333333;
   font-weight: 600;
 }
 
@@ -379,6 +382,7 @@ footer {
   nav {
     margin-top: 10px;
     flex-wrap: wrap;
+    justify-content: flex-start;
   }
 
   .hero-banner {
@@ -466,7 +470,7 @@ footer {
     <img src="banner.PNG" alt="Senso Exhibition Banner" class="hero-img">
     
     <div class="hero-text-overlay">
-      <h1>contemporary<br>space expression.</h1>
+      <h1>contemporary<br>expression space.</h1>
       <p>We work with contemporary artists through exhibitions, selected works, art consulting, curatorial project and artist-led experiences.</p>
     </div>
   </section>
