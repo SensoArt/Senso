@@ -164,20 +164,49 @@
 
             min-height: -webkit-fill-available;
 
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
         }
 
 
         /* =========================
-           HOME
+           NAVBAR (NAV)
         ========================= */
 
-        .back-home {
+        .navbar {
 
             position: fixed;
 
-            top: 25px;
+            top: 0;
 
-            left: 20px;
+            left: 0;
+
+            width: 100%;
+
+            padding: 25px 20px;
+
+            box-sizing: border-box;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            z-index: 1000;
+
+            background-color: rgba(255, 255, 255, 0.9);
+
+            backdrop-filter: blur(5px);
+
+        }
+
+
+        .back-home {
 
             text-decoration: none;
 
@@ -193,8 +222,6 @@
 
             opacity: 0.8;
 
-            z-index: 1000;
-
             transition: opacity 0.3s;
 
         }
@@ -205,25 +232,13 @@
         }
 
 
-        /* =========================
-           LANGUAGE SWITCH
-        ========================= */
-
         .lang-switch {
-
-            position: fixed;
-
-            top: 25px;
-
-            right: 20px;
 
             font-family: 'FuturaLight', sans-serif;
 
             font-size: 0.65rem;
 
             letter-spacing: 2px;
-
-            z-index: 1000;
 
         }
 
@@ -272,6 +287,10 @@
 
             margin: 0 auto;
 
+            width: 100%;
+
+            box-sizing: border-box;
+
             text-align: left;
 
         }
@@ -304,9 +323,15 @@
 
             margin: 0 auto;
 
-            padding: 0 25px 160px;
+            padding: 0 25px 100px;
+
+            width: 100%;
+
+            box-sizing: border-box;
 
             text-align: left;
+
+            flex-grow: 1;
 
         }
 
@@ -485,6 +510,29 @@
 
 
         /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 40px 20px;
+
+            text-align: center;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            opacity: 0.5;
+
+        }
+
+
+        /* =========================
            MOBILE
         ========================= */
 
@@ -506,7 +554,7 @@
 
             .content-container {
 
-                padding-bottom: 140px;
+                padding-bottom: 80px;
 
             }
 
@@ -550,36 +598,37 @@
 <body>
 
 
-    <!-- HOME -->
+    <!-- NAVIGATION BAR -->
 
-    <a href="index.html" class="back-home">
-        ← Home
-    </a>
+    <nav class="navbar">
 
+        <a href="index.html" class="back-home">
+            ← Home
+        </a>
 
-    <!-- LANGUAGE SWITCH -->
+        <div class="lang-switch">
 
-    <div class="lang-switch">
+            <button
+                onclick="setLang('en')"
+                id="btn-en"
+                class="lang-btn active"
+            >
+                EN
+            </button>
 
-        <button
-            onclick="setLang('en')"
-            id="btn-en"
-            class="lang-btn active"
-        >
-            EN
-        </button>
+            |
 
-        |
+            <button
+                onclick="setLang('es')"
+                id="btn-es"
+                class="lang-btn"
+            >
+                ES
+            </button>
 
-        <button
-            onclick="setLang('es')"
-            id="btn-es"
-            class="lang-btn"
-        >
-            ES
-        </button>
+        </div>
 
-    </div>
+    </nav>
 
 
     <!-- HEADER -->
@@ -751,6 +800,15 @@
     </main>
 
 
+    <!-- FOOTER -->
+
+    <footer>
+        <span id="footer-text">
+            © 2026 SENSO. ALL RIGHTS RESERVED.
+        </span>
+    </footer>
+
+
     <script>
 
         function setLang(lang) {
@@ -765,6 +823,8 @@
 
             const pageTitle = document.getElementById('page-title');
 
+            const footerText = document.getElementById('footer-text');
+
 
             if (lang === 'es') {
 
@@ -777,6 +837,8 @@
                 btnEs.classList.add('active');
 
                 pageTitle.textContent = 'exposiciones';
+
+                footerText.textContent = '© 2026 SENSO. TODOS LOS DERECHOS RESERVADOS.';
 
                 document.documentElement.lang = 'es';
 
@@ -791,6 +853,8 @@
                 btnEn.classList.add('active');
 
                 pageTitle.textContent = 'exhibitions';
+
+                footerText.textContent = '© 2026 SENSO. ALL RIGHTS RESERVED.';
 
                 document.documentElement.lang = 'en';
 
