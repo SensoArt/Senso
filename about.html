@@ -125,7 +125,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            padding: 25px 30px;
+            padding: 25px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -147,6 +147,14 @@
 
         .back-home:hover {
             opacity: 1;
+        }
+
+        /* Container lato destro (Navigazione + Switch Lingua) */
+        .right-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-left: auto; /* Spinge tutto il blocco verso destra */
         }
 
         /* Navigazione */
@@ -198,7 +206,7 @@
         }
 
         .lang-btn {
-            padding: 0 5px;
+            padding: 0 4px;
             border: 0;
             background: none;
             color: #fff;
@@ -268,8 +276,14 @@
                 align-items: flex-start;
                 gap: 15px;
                 padding: 20px;
-                background-color: rgba(0,0,0,0.8);
-                position: absolute;
+                background-color: rgba(0,0,0,0.85);
+            }
+
+            .right-nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
             }
 
             nav.main-nav {
@@ -279,7 +293,7 @@
             }
 
             header {
-                padding-top: 180px;
+                padding-top: 200px;
             }
 
             h1 {
@@ -305,32 +319,34 @@
 <div class="top-bar">
     <a href="index.html" class="back-home">← Home</a>
 
-    <!-- Navigazione Inglese -->
-    <nav id="nav-en" class="main-nav">
-        <a href="about.html" class="active-link">About</a>
-        <a href="exhibitions.html">Exhibitions</a>
-        <a href="artists.html">Artists</a>
-        <a href="art-consulting.html">Art Consulting</a>
-        <a href="studio.html">Studio</a>
-        <a href="journal.html">Journal</a>
-        <a href="contacts.html">Contacts</a>
-    </nav>
+    <div class="right-nav-container">
+        <!-- Navigazione Inglese -->
+        <nav id="nav-en" class="main-nav">
+            <a href="about.html" class="active-link">About</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="artists.html">Artists</a>
+            <a href="art-consulting.html">Art Consulting</a>
+            <a href="studio.html">Studio</a>
+            <a href="journal.html">Journal</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
 
-    <!-- Navigazione Spagnolo -->
-    <nav id="nav-es" class="main-nav hidden">
-        <a href="about.html" class="active-link">Quiénes somos</a>
-        <a href="exposiciones.html">Exposiciones</a>
-        <a href="artistas.html">Artistas</a>
-        <a href="asesoria-de-arte.html">Asesoría de Arte</a>
-        <a href="studio.html">Senso Studio</a>
-        <a href="journal.html">Journal</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+        <!-- Navigazione Spagnolo -->
+        <nav id="nav-es" class="main-nav hidden">
+            <a href="about.html" class="active-link">Quiénes somos</a>
+            <a href="exposiciones.html">Exposiciones</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="asesoria-de-arte.html">Asesoría de Arte</a>
+            <a href="studio.html">Senso Studio</a>
+            <a href="journal.html">Journal</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
 
-    <!-- Switch Lingua -->
-    <div class="lang-switch" aria-label="Language selection">
-        <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
-        <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+        <!-- Switch Lingua -->
+        <div class="lang-switch" aria-label="Language selection">
+            <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
+            <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+        </div>
     </div>
 </div>
 
