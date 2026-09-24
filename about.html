@@ -1,36 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    arguments.length?arguments.length:0
+    :n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.loaded=!0;n.version='2.0';
     n.queue=[];t=b.createElement(e);t.async=!0;
     t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document, 'script',
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '2442677362880993');
     fbq('track', 'PageView');
     </script>
+
     <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1" alt="" />
+        <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1" alt=""/>
     </noscript>
     <!-- End Meta Pixel Code -->
 
-    <title>About | Senso</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Exhibitions | Senso</title>
+
+    <meta name="description" content="Exhibitions and curatorial projects by Senso, an independent contemporary art project based in Barcelona and working internationally.">
+    <link rel="canonical" href="https://senso-art.com/exhibitions.html">
+
+    <meta property="og:site_name" content="Senso">
+    <meta property="og:title" content="Senso - Exhibitions">
+    <meta property="og:description" content="Exhibitions and curatorial projects by Senso, an independent contemporary art project based in Barcelona and working internationally.">
+    <meta property="og:url" content="https://senso-art.com/exhibitions.html">
+    <meta property="og:type" content="website">
 
     <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
     <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
     <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
-    <meta name="theme-color" content="#000000">
-    <link rel="canonical" href="https://senso-art.com/about.html">
-    <link rel="preload" as="image" href="01-Sillas.jpg?v=1.2">
+    <meta name="theme-color" content="#ffffff">
 
     <style>
         @font-face {
@@ -45,6 +57,9 @@
             font-display: swap;
         }
 
+        /* =========================
+           FADE IN
+        ========================= */
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
@@ -62,41 +77,32 @@
             box-sizing: border-box;
         }
 
+        /* =========================
+           BODY
+        ========================= */
+        html {
+            height: -webkit-fill-available;
+        }
+
         body {
-            background-color: #000;
-            color: #fff;
+            background-color: #fff;
+            color: #000;
             margin: 0;
             padding: 0;
+            font-family: 'FuturaLight', sans-serif;
             -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
             min-height: 100vh;
+            min-height: -webkit-fill-available;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
         }
 
-        /* IMMAGINE DI SFONDO FISSA */
-        .bg-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -2;
-            background-image: url('01-Sillas.jpg?v=1.2');
-            background-size: cover;
-            background-position: center 65%;
-            background-repeat: no-repeat;
-            background-color: #000;
-        }
-
-        .bg-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: rgba(0, 0, 0, 0.45);
-            z-index: -1;
-        }
-
-        /* BARRA DI NAVIGAZIONE IN ALTA PAGINA */
+        /* =========================
+           BARRA DI NAVIGAZIONE IN ALTA PAGINA (IDENTICA AD ABOUT)
+        ========================= */
         .top-bar {
             position: absolute;
             top: 0;
@@ -111,7 +117,7 @@
 
         .back-home {
             text-decoration: none;
-            color: #fff;
+            color: #000;
             font-family: 'FuturaLight', sans-serif;
             text-transform: uppercase;
             font-size: 0.65rem;
@@ -126,7 +132,6 @@
             opacity: 1;
         }
 
-        /* Container lato destro (Navigazione + Switch Lingua) */
         .right-nav-container {
             display: flex;
             align-items: flex-start;
@@ -134,7 +139,6 @@
             margin-left: auto;
         }
 
-        /* Navigazione abbassata ulteriormente rispetto a EN | ES */
         nav.main-nav {
             display: flex;
             gap: 20px;
@@ -146,9 +150,9 @@
         }
 
         nav.main-nav a {
-            color: #ffffff;
+            color: #000000;
             text-decoration: none;
-            opacity: 0.75;
+            opacity: 0.5;
             position: relative;
             padding-bottom: 4px;
             transition: opacity 0.3s;
@@ -161,7 +165,7 @@
             height: 1px;
             bottom: 0;
             left: 0;
-            background-color: #ffffff;
+            background-color: #000000;
             transition: width 0.3s ease;
         }
 
@@ -179,7 +183,7 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             font-family: 'FuturaLight', sans-serif;
-            color: #fff;
+            color: #000;
             white-space: nowrap;
         }
 
@@ -187,7 +191,7 @@
             padding: 0 4px;
             border: 0;
             background: none;
-            color: #fff;
+            color: #000;
             cursor: pointer;
             font-family: inherit;
             font-size: 0.65rem;
@@ -201,11 +205,15 @@
             opacity: 1;
         }
 
+        /* =========================
+           HEADER
+        ========================= */
         header {
-            padding: 160px 20px 40px;
+            padding: 160px 40px 40px;
             max-width: 850px;
             margin: 0 auto;
             width: 100%;
+            box-sizing: border-box;
             text-align: left;
         }
 
@@ -215,15 +223,20 @@
             text-transform: lowercase;
             margin: 0;
             font-weight: normal;
-            color: #fff;
+            color: #000;
         }
 
+        /* =========================
+           CONTENT
+        ========================= */
         .content-container {
             max-width: 850px;
             margin: 0 auto;
-            padding: 0 25px 80px;
-            text-align: left;
+            padding: 0 40px 100px;
             width: 100%;
+            box-sizing: border-box;
+            text-align: left;
+            flex-grow: 1;
         }
 
         .lang-content {
@@ -235,22 +248,90 @@
             display: none !important;
         }
 
-        .lang-content p {
+        /* =========================
+           EXHIBITIONS
+        ========================= */
+        .exhibitions-list {
+            width: 600px;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 100px;
+        }
+
+        .exhibition {
+            width: 100%;
+            text-decoration: none;
+            color: #000;
+            display: block;
+        }
+
+        .image-container {
+            width: 100%;
+            overflow: hidden;
+            background-color: rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+
+        .exhibition-image {
+            width: 100%;
+            display: block;
+            aspect-ratio: 3 / 2;
+            object-fit: cover;
+            object-position: top;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .exhibition:hover .exhibition-image {
+            transform: scale(1.015);
+        }
+
+        .exhibition-meta {
+            padding: 0 2px;
+            text-align: left;
+        }
+
+        .exhibition-title {
             font-family: 'FuturaLight', sans-serif;
-            line-height: 2.1;
-            font-size: 1.25rem;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            font-weight: normal;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 6px 0;
+        }
+
+        .exhibition-date {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            opacity: 0.6;
+            margin: 0;
             letter-spacing: 0.5px;
-            color: #fff;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+            text-transform: uppercase;
         }
 
-        .principium {
-            font-family: 'BehindNineties', serif;
-            font-size: 1.4rem;
+        .upcoming {
+            opacity: 0.4;
+            cursor: default;
         }
 
-        /* FOOTER CON COPYRIGHT A SINISTRA */
+        .upcoming-image {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            background: rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: #666;
+            font-family: 'FuturaLight', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* =========================
+           FOOTER (IDENTICO AD ABOUT)
+        ========================= */
         footer {
             display: flex;
             justify-content: flex-start;
@@ -258,10 +339,8 @@
             padding: 35px 60px;
             font-size: 0.70rem;
             letter-spacing: 1px;
-            color: #ffffff;
+            color: #000000;
             font-family: 'FuturaLight', sans-serif;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            background-color: rgba(0, 0, 0, 0.4);
         }
 
         .footer-left {
@@ -269,6 +348,9 @@
             text-align: left;
         }
 
+        /* =========================
+           MOBILE (RESPONSIVE IDENTICO)
+        ========================= */
         @media (max-width: 900px) {
             .top-bar {
                 flex-direction: column;
@@ -292,15 +374,32 @@
             }
 
             header {
-                padding-top: 180px;
+                padding: 180px 20px 30px;
             }
 
             h1 {
                 font-size: 2.2rem;
             }
 
-            .lang-content p {
-                font-size: 1.15rem;
+            .content-container {
+                padding: 0 20px 80px;
+            }
+
+            .exhibitions-list {
+                width: 100%;
+                gap: 70px;
+            }
+
+            .exhibition-image {
+                aspect-ratio: 4 / 3;
+            }
+
+            .exhibition-title {
+                font-size: 1rem;
+            }
+
+            .exhibition-date {
+                font-size: 0.75rem;
             }
 
             footer {
@@ -311,10 +410,6 @@
 </head>
 <body>
 
-<!-- Immagine di Sfondo e Overlay -->
-<div class="bg-container"></div>
-<div class="bg-overlay"></div>
-
 <!-- Top Navigation Bar -->
 <div class="top-bar">
     <a href="index.html" class="back-home">← Home</a>
@@ -322,8 +417,8 @@
     <div class="right-nav-container">
         <!-- Navigazione Inglese -->
         <nav id="nav-en" class="main-nav">
-            <a href="about.html" class="active-link">About</a>
-            <a href="exhibitions.html">Exhibitions</a>
+            <a href="about.html">About</a>
+            <a href="exhibitions.html" class="active-link">Exhibitions</a>
             <a href="artists.html">Artists</a>
             <a href="art-consulting.html">Art Consulting</a>
             <a href="studio.html">Studio</a>
@@ -333,8 +428,8 @@
 
         <!-- Navigazione Spagnolo -->
         <nav id="nav-es" class="main-nav hidden">
-            <a href="about.html" class="active-link">Quiénes somos</a>
-            <a href="exposiciones.html">Exposiciones</a>
+            <a href="about.html">Quiénes somos</a>
+            <a href="exposiciones.html" class="active-link">Exposiciones</a>
             <a href="artistas.html">Artistas</a>
             <a href="asesoria-de-arte.html">Asesoría de Arte</a>
             <a href="studio.html">Senso Studio</a>
@@ -350,33 +445,75 @@
     </div>
 </div>
 
+<!-- HEADER -->
 <header class="fade-in delay-1">
-    <h1>about</h1>
+    <h1 id="page-title">exhibitions</h1>
 </header>
 
+<!-- CONTENT -->
 <main class="content-container fade-in delay-2">
 
+    <!-- ENGLISH -->
     <div id="lang-en" class="lang-content">
-        <p>Senso is an independent contemporary art company based in Barcelona, taking shape through pop-ups, exhibitions and events across different spaces and contexts, with a carefully curated selection of artists and artworks.</p>
-        <p>Founded in 2025 by Claudia Alizieri and Adrian Villanueva, Senso grew from intuition, passion and the desire to create something meaningful: a space where contemporary art can be discovered beyond traditional forms of display.</p>
-        <p>In 2026, this vision took form through <span class="principium">PRINCIPIUM - In the Beginning There Was Chaos</span>, Senso’s inaugural exhibition and the first expression of its identity. More than an opening, PRINCIPIUM marked a point of origin: a space where art, music, people and conversation came together, transforming an exhibition into a shared experience.</p>
-        <p>Senso is rooted in the belief that art is not only to be seen, but to be felt. Every encounter with art has the power to awaken perception, stir emotion and leave a lasting trace. At its core lies a thoughtful curatorial approach, shaping the context in which artists and artworks are encountered.</p>
-        <p>Alongside its curatorial practice, Senso develops art advisory projects for private and professional spaces, from homes and private collections to hospitality, restaurants, architecture studios and interior design practices. Through a selection of artists and artworks tailored to each project, it seeks to create a meaningful relationship between art, architecture and the identity of each space, supporting clients throughout the selection, acquisition and placement of artworks.</p>
-        <p>We operate within the art market through an online gallery and direct relationships with artists and collectors. Our intermediation work extends from supporting artists in reaching new audiences to facilitating the acquisition and sale of artworks, including assisting private collectors in reselling works from their collections.</p>
+        <div class="exhibitions-list">
+
+            <!-- PRINCIPIUM -->
+            <a href="principium.html" class="exhibition">
+                <div class="image-container">
+                    <img src="atg_principium.jpeg" alt="Principium exhibition by Senso" class="exhibition-image">
+                </div>
+                <div class="exhibition-meta">
+                    <h2 class="exhibition-title">Principium</h2>
+                    <p class="exhibition-date">Chapter I - Barcelona, 2026</p>
+                </div>
+            </a>
+
+            <!-- UPCOMING -->
+            <div class="exhibition upcoming">
+                <div class="image-container">
+                    <div class="upcoming-image">Upcoming Exhibition</div>
+                </div>
+                <div class="exhibition-meta">
+                    <h2 class="exhibition-title">Next Chapter</h2>
+                    <p class="exhibition-date">October 2026</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
+    <!-- SPANISH -->
     <div id="lang-es" class="lang-content hidden">
-        <p>Senso es una compañía independiente de arte contemporáneo con sede en Barcelona, que toma forma a través de pop-ups, exposiciones y eventos en diferentes espacios y contextos, con una cuidada selección de artistas y obras.</p>
-        <p>Fundada en 2025 por Claudia Alizieri y Adrian Villanueva, Senso nació de la intuición, la pasión y el deseo de crear algo significativo: un espacio donde descubrir el arte contemporáneo más allá de las formas tradicionales de exhibición.</p>
-        <p>En 2026, esta visión tomó forma a través de <span class="principium">PRINCIPIUM - In the Beginning There Was Chaos</span>, la exposición inaugural de Senso y la primera expresión de su identidad. Más que una inauguración, PRINCIPIUM marcó un punto de origen: un espacio donde el arte, la música, las personas y la conversación se encontraron, transformando una exposición en una experiencia compartida.</p>
-        <p>Senso parte de la convicción de que el arte no solo debe verse, sino sentirse. Cada encuentro con el arte tiene el poder de despertar la percepción, conmover y dejar una huella duradera. En el centro de Senso existe una mirada curatorial consciente, que da forma al contexto en el que los artistas y sus obras son descubiertos.</p>
-        <p>Junto a su práctica curatorial, Senso desarrolla proyectos de asesoría de arte para espacios privados y profesionales, desde hogares y colecciones privadas hasta hospitality, restaurantes, estudios de arquitectura e interiorismo. A través de una selección de artistas y obras adaptada a cada proyecto, busca crear una relación significativa entre el arte, la arquitectura y la identidad de cada espacio, acompañando al cliente en la selección, adquisición y colocación de las obras.</p>
-        <p>Operamos en el mercado del arte a través de una galería online y de relaciones directas con artistas y coleccionistas. Nuestra labor de intermediación abarca desde apoyar a artistas en el acceso a nuevos públicos hasta facilitar la adquisición y venta de obras, incluyendo la asistencia a coleccionistas privados que desean revender obras de sus colecciones.</p>
+        <div class="exhibitions-list">
+
+            <!-- PRINCIPIUM -->
+            <a href="principium.html" class="exhibition">
+                <div class="image-container">
+                    <img src="atg_principium.jpeg" alt="Exposición Principium de Senso" class="exhibition-image">
+                </div>
+                <div class="exhibition-meta">
+                    <h2 class="exhibition-title">Principium</h2>
+                    <p class="exhibition-date">Capítulo I - Barcelona, 2026</p>
+                </div>
+            </a>
+
+            <!-- PRÓXIMA EXPOSICIÓN -->
+            <div class="exhibition upcoming">
+                <div class="image-container">
+                    <div class="upcoming-image">Próxima exposición</div>
+                </div>
+                <div class="exhibition-meta">
+                    <h2 class="exhibition-title">Próximo Capítulo</h2>
+                    <p class="exhibition-date">Octubre 2026</p>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </main>
 
-<!-- Footer -->
+<!-- FOOTER -->
 <footer>
     <div class="footer-left">
         &copy; 2026 Senso Art. All rights reserved.
@@ -390,6 +527,7 @@
 
         const targetBox = document.getElementById(`lang-${lang}`);
         const targetBtn = document.getElementById(`btn-${lang}`);
+        const pageTitle = document.getElementById('page-title');
 
         const isSpanish = lang === 'es';
         document.getElementById('nav-en').classList.toggle('hidden', isSpanish);
@@ -404,6 +542,10 @@
             document.getElementById('nav-en').classList.remove('hidden');
             document.getElementById('nav-es').classList.add('hidden');
             lang = 'en';
+        }
+
+        if (pageTitle) {
+            pageTitle.textContent = isSpanish ? 'exposiciones' : 'exhibitions';
         }
 
         document.documentElement.lang = lang;
