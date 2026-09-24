@@ -97,12 +97,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Header Navbar */
+/* Header Navbar - Spostato tutto più in basso del 20% */
 header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 40px 50px 30px 50px;
+  padding: 65px 50px 30px 50px; /* Incrementato padding top per scendere tutto */
   background-color: #ffffff;
 }
 
@@ -114,7 +114,7 @@ header {
 }
 
 .logo-header {
-  height: 55px;
+  height: 70px; /* Logo ancora più grande */
   width: auto;
   display: block;
 }
@@ -130,7 +130,7 @@ header {
   display: flex;
   align-items: center;
   gap: 25px;
-  margin-top: 10px;
+  margin-top: 15px; /* Allineato perfettamente con la griglia visuale del logo */
 }
 
 nav {
@@ -180,11 +180,11 @@ nav a:hover {
   display: none !important;
 }
 
-/* Hero Banner Protagonista (Full-Width senza spazi laterali) */
+/* Hero Banner Protagonista (Full-Width) */
 .hero-wrapper {
   width: 100%;
   padding: 0;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .hero-banner {
@@ -206,9 +206,9 @@ nav a:hover {
 
 .hero-text-overlay {
   position: absolute;
-  bottom: 12%; /* Alzato per permettere al testo sotto di stare perfettamente comodo */
+  bottom: 22%; /* Salito ulteriormente */
   left: 50px;
-  max-width: 850px;
+  max-width: 900px;
   color: #ffffff;
   pointer-events: none;
   text-shadow: 0 2px 25px rgba(0,0,0,0.3);
@@ -219,17 +219,18 @@ nav a:hover {
   font-size: 5.5rem;
   font-weight: normal;
   line-height: 0.95;
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
   letter-spacing: -1px;
 }
 
 .hero-text-overlay p {
   font-family: 'FuturaLight', sans-serif;
-  font-size: 0.85rem;
-  line-height: 1.4;
+  font-size: 1.05rem; /* Ingrandito per dare massima evidenza al core business */
+  line-height: 1.45;
   margin: 0;
   letter-spacing: 0.5px;
-  opacity: 0.95;
+  opacity: 1;
+  font-weight: 500;
 }
 
 /* Sezione Next Exhibition */
@@ -308,7 +309,7 @@ footer {
   header {
     flex-direction: column;
     gap: 20px;
-    padding: 20px;
+    padding: 30px 20px 20px 20px;
   }
 
   .brand-container {
@@ -316,13 +317,14 @@ footer {
   }
 
   .logo-header {
-    height: 40px;
+    height: 50px;
   }
 
   .nav-container {
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 0;
   }
 
   .hero-banner {
@@ -333,11 +335,15 @@ footer {
   .hero-text-overlay {
     left: 20px;
     right: 20px;
-    bottom: 8%;
+    bottom: 12%;
   }
 
   .hero-text-overlay h1 {
     font-size: 3.2rem;
+  }
+
+  .hero-text-overlay p {
+    font-size: 0.95rem;
   }
 
   .exhibition-container {
