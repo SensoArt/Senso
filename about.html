@@ -62,13 +62,13 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            margin: 0;
-            padding: 0;
+        body {
             background-color: #000;
             color: #fff;
+            margin: 0;
+            padding: 0;
             -webkit-font-smoothing: antialiased;
-            width: 100%;
+            min-height: 100vh;
         }
 
         /* IMMAGINE DI SFONDO FISSA */
@@ -96,19 +96,17 @@
             z-index: -1;
         }
 
-        /* BARRA COMPLETAMENTE FISSA E IMMOBILE */
+        /* BARRA DI NAVIGAZIONE IN ALTA PAGINA (Scorre via quando scendi) */
         .top-bar {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
-            padding: 35px 60px 20px 60px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px 20px 60px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            z-index: 9999999 !important;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
-            pointer-events: auto;
+            z-index: 10;
         }
 
         .back-home {
@@ -136,7 +134,7 @@
             margin-left: auto;
         }
 
-        /* NAVIGAZIONE ABBASSATA RISPETTO A EN|ES */
+        /* Navigazione abbassata un pelo rispetto a EN | ES */
         nav.main-nav {
             display: flex;
             gap: 20px;
@@ -144,9 +142,7 @@
             text-transform: uppercase;
             font-size: 0.72rem;
             font-family: 'FuturaLight', sans-serif;
-            /* Abbassa i link rispetto a EN|ES */
-            margin-top: 6px;
-            transform: translateY(6px);
+            margin-top: 5px;
         }
 
         nav.main-nav a {
@@ -206,7 +202,7 @@
         }
 
         header {
-            padding: 180px 20px 40px;
+            padding: 160px 20px 40px;
             max-width: 850px;
             margin: 0 auto;
             width: 100%;
@@ -279,7 +275,6 @@
                 align-items: flex-start;
                 gap: 15px;
                 padding: 20px;
-                background-color: rgba(0,0,0,0.85);
             }
 
             .right-nav-container {
@@ -294,11 +289,10 @@
                 gap: 12px;
                 font-size: 0.65rem;
                 margin-top: 0;
-                transform: none;
             }
 
             header {
-                padding-top: 200px;
+                padding-top: 180px;
             }
 
             h1 {
@@ -321,7 +315,7 @@
 <div class="bg-container"></div>
 <div class="bg-overlay"></div>
 
-<!-- Top Navigation Bar (FISSA E BLOCCO ASSOLUTO) -->
+<!-- Top Navigation Bar (Scorre in alto insieme alla pagina) -->
 <div class="top-bar">
     <a href="index.html" class="back-home">← Home</a>
 
