@@ -170,6 +170,8 @@
 
             justify-content: space-between;
 
+            position: relative;
+
         }
 
 
@@ -179,11 +181,11 @@
 
         .back-home {
 
-            position: fixed;
+            position: absolute;
 
-            top: 25px;
+            top: 35px;
 
-            left: 20px;
+            left: 40px;
 
             text-decoration: none;
 
@@ -217,11 +219,11 @@
 
         .lang-switch {
 
-            position: fixed;
+            position: absolute;
 
-            top: 25px;
+            top: 35px;
 
-            right: 20px;
+            right: 60px;
 
             z-index: 1000;
 
@@ -268,11 +270,11 @@
 
         .main-nav {
 
-            position: fixed;
+            position: absolute;
 
-            top: 60px;
+            top: 75px;
 
-            right: 20px;
+            right: 120px;
 
             z-index: 1000;
 
@@ -280,7 +282,7 @@
 
             flex-direction: row;
 
-            gap: 25px;
+            gap: 30px;
 
             align-items: center;
 
@@ -341,7 +343,7 @@
 
         header {
 
-            padding: 150px 20px 40px;
+            padding: 180px 40px 40px;
 
             max-width: 850px;
 
@@ -383,7 +385,7 @@
 
             margin: 0 auto;
 
-            padding: 0 25px 100px;
+            padding: 0 40px 100px;
 
             width: 100%;
 
@@ -575,19 +577,19 @@
 
         footer {
 
-            padding: 40px 20px;
+            padding: 40px 40px;
 
             text-align: left;
 
             font-family: 'FuturaLight', sans-serif;
 
-            font-size: 0.65rem;
+            font-size: 0.70rem;
 
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
 
-            text-transform: uppercase;
+            color: #000;
 
-            opacity: 0.5;
+            opacity: 0.8;
 
         }
 
@@ -596,7 +598,38 @@
            MOBILE
         ========================= */
 
+        @media (max-width: 1024px) {
+
+            .main-nav {
+
+                right: 40px;
+
+                gap: 18px;
+
+            }
+
+        }
+
+
         @media (max-width: 768px) {
+
+            .back-home {
+
+                top: 20px;
+
+                left: 20px;
+
+            }
+
+
+            .lang-switch {
+
+                top: 20px;
+
+                right: 20px;
+
+            }
+
 
             .main-nav {
 
@@ -624,7 +657,7 @@
 
             header {
 
-                padding-top: 140px;
+                padding: 140px 20px 30px;
 
             }
 
@@ -638,7 +671,7 @@
 
             .content-container {
 
-                padding-bottom: 80px;
+                padding: 0 20px 80px;
 
             }
 
@@ -669,6 +702,13 @@
             .exhibition-date {
 
                 font-size: 0.75rem;
+
+            }
+
+
+            footer {
+
+                padding: 30px 20px;
 
             }
 
@@ -908,7 +948,7 @@
 
     <footer>
         <span id="footer-text">
-            &copy; Senso all rights reserved
+            &copy; 2026 Senso Art. All rights reserved.
         </span>
     </footer>
 
@@ -956,7 +996,7 @@
 
                 pageTitle.textContent = 'exposiciones';
 
-                footerText.innerHTML = '&copy; Senso all rights reserved';
+                footerText.innerHTML = '&copy; 2026 Senso Art. All rights reserved.';
 
                 if(navAbout) navAbout.textContent = 'sobre';
 
@@ -986,7 +1026,7 @@
 
                 pageTitle.textContent = 'exhibitions';
 
-                footerText.innerHTML = '&copy; Senso all rights reserved';
+                footerText.innerHTML = '&copy; 2026 Senso Art. All rights reserved.';
 
                 if(navAbout) navAbout.textContent = 'about';
 
