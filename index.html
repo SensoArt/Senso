@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="facebook-domain-verification" content="6u98rjer4rgwon3is7jptjt7s5im58">
 
@@ -31,7 +31,7 @@ src="https://www.facebook.com/tr?id=2442677362880993&ev=PageView&noscript=1">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
 <link rel="apple-touch-icon" href="favicon.png?v=1000">
 
-<meta name="theme-color" content="#000000">
+<meta name="theme-color" content="#ffffff">
 
 <meta
 name="description"
@@ -75,170 +75,369 @@ content="Independent contemporary art company based in Barcelona, offering art c
 <style>
 @font-face{
 font-family:'FuturaLight';
-src:url('Fonts/futura light bt.ttf') format('truetype')
+src:url('Fonts/futura light bt.ttf') format('truetype');
 }
 
-body{
-background-color:#000;
-color:#fff;
-margin:0;
-padding:0;
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-font-family:'FuturaLight',sans-serif;
--webkit-font-smoothing:antialiased;
-overflow:hidden
+* {
+  box-sizing: border-box;
 }
 
-.logo-home{
-width:350px;
-max-width:80%;
-margin-bottom:50px;
-mix-blend-mode:screen;
-filter:brightness(1.1)
+body {
+  background-color: #ffffff;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  font-family: 'FuturaLight', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
-.lang-switch{
-position:fixed;
-top:25px;
-right:20px;
-z-index:1000;
-font-size:.65rem;
-letter-spacing:2px
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #ffffff;
 }
 
-.lang-btn{
-padding:0 5px;
-border:0;
-background:none;
-color:#fff;
-cursor:pointer;
-font-family:inherit;
-font-size:.65rem;
-letter-spacing:2px;
-opacity:.35
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.lang-btn.active{opacity:1}
-
-nav{
-display:flex;
-gap:30px;
-letter-spacing:3px;
-text-transform:uppercase;
-font-size:.9rem
+.logo-header {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
-nav a{
-color:#fff;
-text-decoration:none;
-opacity:.6;
-transition:opacity .3s
+.tagline-header {
+  font-size: 0.55rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333333;
+  white-space: nowrap;
 }
 
-nav a:hover{opacity:1}
-
-.hidden{display:none}
-
-@media(max-width:600px){
-nav{
-flex-direction:column;
-gap:20px
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 25px;
 }
 
-.logo-home{width:280px}
+nav {
+  display: flex;
+  gap: 15px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+}
+
+nav a {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 1;
+}
+
+.lang-switch {
+  font-size: 0.60rem;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.lang-btn {
+  padding: 0 3px;
+  border: 0;
+  background: none;
+  color: #000000;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.60rem;
+  letter-spacing: 2px;
+  opacity: 0.4;
+}
+
+.lang-btn.active {
+  opacity: 1;
+  font-weight: bold;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Banner Protagonista */
+.hero-banner {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  min-height: 550px;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-text-overlay {
+  position: absolute;
+  bottom: 8%;
+  left: 40px;
+  max-width: 650px;
+  color: #ffffff;
+  pointer-events: none;
+}
+
+.hero-text-overlay h1 {
+  font-size: 3.5rem;
+  font-weight: normal;
+  line-height: 0.95;
+  margin: 0 0 15px 0;
+  letter-spacing: -1px;
+}
+
+.hero-text-overlay p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 0;
+  letter-spacing: 0.5px;
+  opacity: 0.95;
+}
+
+/* Next Exhibition Section */
+.exhibition-container {
+  padding: 80px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.exhibition-title-side {
+  font-size: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #000000;
+  margin-top: 10px;
+}
+
+.exhibition-flyer-side {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.flyer-img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 40px;
+  font-size: 0.70rem;
+  letter-spacing: 1px;
+  color: #000000;
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer-left {
+  opacity: 0.8;
+}
+
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-socials a {
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.footer-socials a:hover {
+  opacity: 1;
+}
+
+.footer-socials svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  .nav-container {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .hero-banner {
+    height: 60vh;
+  }
+
+  .hero-text-overlay {
+    left: 20px;
+    right: 20px;
+  }
+
+  .hero-text-overlay h1 {
+    font-size: 2.2rem;
+  }
+
+  .exhibition-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px 20px;
+  }
+
+  .exhibition-flyer-side {
+    justify-content: center;
+    width: 100%;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    text-align: center;
+  }
 }
 </style>
-
 </head>
 
 <body>
 
-<img
-src="senso_logo_blanco.png"
-alt="Senso"
-class="logo-home"
->
+<header>
+  <div class="brand-wrapper">
+    <a href="index.html">
+      <img src="senso_logo_negro.png" alt="Senso" class="logo-header">
+    </a>
+    <span class="tagline-header">BARCELONA · WORKING INTERNATIONALLY</span>
+  </div>
 
-<div class="lang-switch">
+  <div class="nav-container">
+    <nav id="nav-en">
+      <a href="about.html">About</a>
+      <a href="exhibitions.html">Exhibitions</a>
+      <a href="artists.html">Artists</a>
+      <a href="art-consulting.html">Art Consulting</a>
+      <a href="studio.html">Studio</a>
+      <a href="journal.html">Journal</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
 
-<button id="btn-en" class="lang-btn active" onclick="setLang('en')">
-EN
-</button>
+    <nav id="nav-es" class="hidden">
+      <a href="about.html">Quiénes somos</a>
+      <a href="exhibitions.html">Exposiciones</a>
+      <a href="artists.html">Artistas</a>
+      <a href="art-consulting.html">Asesoría de Arte</a>
+      <a href="studio.html">Senso Studio</a>
+      <a href="journal.html">Journal</a>
+      <a href="contacts.html">Contacto</a>
+    </nav>
 
-|
+    <div class="lang-switch">
+      <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+      |
+      <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
+    </div>
+  </div>
+</header>
 
-<button id="btn-es" class="lang-btn" onclick="setLang('es')">
-ES
-</button>
+<!-- BANNER PROTAGONISTA -->
+<section class="hero-banner">
+  <img src="banner.PNG" alt="Senso Exhibition Banner" class="hero-img">
+  
+  <div class="hero-text-overlay">
+    <h1>contemporary<br>space expression.</h1>
+    <p>We work with contemporary artists through exhibitions, selected works, art consulting, curatorial project and artist-led experiences.</p>
+  </div>
+</section>
 
-</div>
+<!-- SEZIONE SCROLLING NEXT EXHIBITION -->
+<section class="exhibition-container">
+  <div class="exhibition-title-side" id="next-exhibition-label">
+    NEXT EXHIBITION
+  </div>
 
-<nav id="nav-en">
+  <div class="exhibition-flyer-side">
+    <img src="RESonance — Flyer Concepts (1).png" alt="RESonance Exhibition Flyer" class="flyer-img">
+  </div>
+</section>
 
-<a href="about.html">About</a>
-<a href="exhibitions.html">Exhibitions</a>
-<a href="artists.html">Artists</a>
-<a href="art-consulting.html">Art Consulting</a>
-<a href="studio.html">Studio</a>
-<a href="journal.html">Journal</a>
-<a href="contacts.html">Contacts</a>
-
-</nav>
-
-<nav id="nav-es" class="hidden">
-
-<a href="about.html">Quiénes somos</a>
-<a href="exhibitions.html">Exposiciones</a>
-<a href="artists.html">Artistas</a>
-<a href="art-consulting.html">Asesoría de Arte</a>
-<a href="studio.html">Senso Studio</a>
-<a href="journal.html">Journal</a>
-<a href="contacts.html">Contacto</a>
-
-</nav>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    &copy; Senso Art. All rights reserved.
+  </div>
+  
+  <div class="footer-socials">
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24">
+        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+      </svg>
+    </a>
+    <!-- Instagram -->
+    <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+      </svg>
+    </a>
+  </div>
+</footer>
 
 <script>
 function setLang(lang){
+  const isSpanish = lang === 'es';
 
-const isSpanish=lang==='es';
+  document.getElementById('nav-en').classList.toggle('hidden', isSpanish);
+  document.getElementById('nav-es').classList.toggle('hidden', !isSpanish);
 
-document
-.getElementById('nav-en')
-.classList
-.toggle('hidden',isSpanish);
+  document.getElementById('btn-en').classList.toggle('active', !isSpanish);
+  document.getElementById('btn-es').classList.toggle('active', isSpanish);
 
-document
-.getElementById('nav-es')
-.classList
-.toggle('hidden',!isSpanish);
+  document.getElementById('next-exhibition-label').textContent = isSpanish ? 'PRÓXIMA EXPOSICIÓN' : 'NEXT EXHIBITION';
 
-document
-.getElementById('btn-en')
-.classList
-.toggle('active',!isSpanish);
-
-document
-.getElementById('btn-es')
-.classList
-.toggle('active',isSpanish);
-
-document.documentElement.lang=lang;
-
-localStorage.setItem('senso_lang',lang);
+  document.documentElement.lang = lang;
+  localStorage.setItem('senso_lang', lang);
 }
 
-document.addEventListener('DOMContentLoaded',function(){
-
-const savedLang=
-localStorage.getItem('senso_lang')||'en';
-
-setLang(savedLang);
-
+document.addEventListener('DOMContentLoaded', function(){
+  const savedLang = localStorage.getItem('senso_lang') || 'en';
+  setLang(savedLang);
 });
 </script>
 
