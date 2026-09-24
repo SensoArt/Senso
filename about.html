@@ -48,11 +48,9 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(15px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
@@ -69,74 +67,53 @@
             animation-delay: 0.5s;
         }
 
-        html {
-            height: -webkit-fill-available;
-        }
-
-        body {
-            background-color: #000;
-            color: #fff;
+        html, body {
             margin: 0;
             padding: 0;
+            background-color: #000;
+            color: #fff;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
             min-height: 100vh;
-            min-height: -webkit-fill-available;
-            display: flex;
-            flex-direction: column;
         }
 
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh;
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2');
             background-size: cover;
             background-position: center 65%;
             background-repeat: no-repeat;
             background-color: #000;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            will-change: transform;
         }
 
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh;
             background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
         }
 
-        /* Top Bar Container FISSA e abbassata un pelo */
+        /* BARRA DI NAVIGAZIONE RIGIDAMENTE FISSA IN ALTO */
         .top-bar {
-            position: fixed !important;
+            position: fixed;
             top: 0;
             left: 0;
+            right: 0;
             width: 100%;
-            padding-top: 50px;
-            padding-bottom: 20px;
-            padding-left: 60px;
-            padding-right: 60px;
+            padding: 35px 60px 20px 60px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            z-index: 9999;
+            align-items: flex-end; /* Allinea gli elementi verso il basso */
+            z-index: 999999;
             box-sizing: border-box;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
         }
 
         .back-home {
@@ -149,6 +126,7 @@
             opacity: 0.8;
             transition: opacity 0.3s;
             white-space: nowrap;
+            padding-bottom: 2px;
         }
 
         .back-home:hover {
@@ -158,12 +136,12 @@
         /* Container lato destro (Navigazione + Switch Lingua) */
         .right-nav-container {
             display: flex;
-            align-items: center;
+            align-items: flex-end; /* Mantiene la navigazione e il selettore lingua allineati in basso */
             gap: 30px;
             margin-left: auto;
         }
 
-        /* Navigazione */
+        /* Navigazione abbassata un pelo rispetto a EN | ES */
         nav.main-nav {
             display: flex;
             gap: 20px;
@@ -171,6 +149,7 @@
             text-transform: uppercase;
             font-size: 0.72rem;
             font-family: 'FuturaLight', sans-serif;
+            padding-top: 5px; /* Abbassa leggermente i link rispetto a EN|ES */
         }
 
         nav.main-nav a {
@@ -209,6 +188,7 @@
             font-family: 'FuturaLight', sans-serif;
             color: #fff;
             white-space: nowrap;
+            padding-bottom: 2px;
         }
 
         .lang-btn {
@@ -230,7 +210,7 @@
         }
 
         header {
-            padding: 190px 20px 40px;
+            padding: 160px 20px 40px;
             max-width: 850px;
             margin: 0 auto;
             width: 100%;
@@ -252,7 +232,6 @@
             margin: 0 auto;
             padding: 0 25px 80px;
             text-align: left;
-            flex: 1;
             width: 100%;
             box-sizing: border-box;
         }
@@ -281,19 +260,18 @@
             font-size: 1.4rem;
         }
 
-        /* Footer Pie di Pagina */
+        /* Footer con solo il Copyright a SINISTRA */
         footer {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            padding: 35px 50px;
+            padding: 35px 60px;
             font-size: 0.70rem;
             letter-spacing: 1px;
             color: #ffffff;
             font-family: 'FuturaLight', sans-serif;
             border-top: 1px solid rgba(255, 255, 255, 0.15);
             background-color: rgba(0, 0, 0, 0.4);
-            margin-top: auto;
         }
 
         .footer-left {
@@ -321,10 +299,11 @@
                 flex-wrap: wrap;
                 gap: 12px;
                 font-size: 0.65rem;
+                padding-top: 0;
             }
 
             header {
-                padding-top: 220px;
+                padding-top: 200px;
             }
 
             h1 {
@@ -346,7 +325,7 @@
 <div class="bg-container"></div>
 <div class="bg-overlay"></div>
 
-<!-- Top Navigation Bar (Fissa in alto) -->
+<!-- Top Navigation Bar (Bloccata in alto) -->
 <div class="top-bar">
     <a href="index.html" class="back-home">← Home</a>
 
