@@ -110,11 +110,11 @@ header {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 35px;
+  gap: 30px;
 }
 
 .logo-header {
-  height: 88px; /* Logo ancora più grande e d'impatto */
+  height: 110px; /* Logo ancora più imponente e visibile */
   width: auto;
   display: block;
 }
@@ -128,9 +128,9 @@ header {
 
 .nav-container {
   display: flex;
-  align-items: center;
-  gap: 25px;
-  margin-top: 15px;
+  align-items: flex-start; /* Allineato in alto per permettere a EN|ES di salire */
+  gap: 30px;
+  margin-top: 10px;
 }
 
 nav {
@@ -139,6 +139,7 @@ nav {
   letter-spacing: 2px;
   text-transform: uppercase;
   font-size: 0.65rem;
+  margin-top: 25px; /* Sincronizzato con l'asse del logo */
 }
 
 nav a {
@@ -152,13 +153,14 @@ nav a:hover {
   opacity: 1;
 }
 
-/* EN | ES spostato più in alto rispetto al nav */
+/* EN | ES ancora più in alto, a destra e dimensione 65% */
 .lang-switch {
-  font-size: 0.60rem;
+  font-size: 0.65rem; /* Dimensione 65 */
   letter-spacing: 2px;
   display: flex;
   align-items: center;
-  margin-top: -12px; /* Sali EN | ES */
+  margin-top: 0px; /* Posizionato in alto a destra */
+  margin-left: 10px;
 }
 
 .lang-btn {
@@ -168,7 +170,7 @@ nav a:hover {
   color: #000000;
   cursor: pointer;
   font-family: inherit;
-  font-size: 0.60rem;
+  font-size: 0.65rem;
   letter-spacing: 2px;
   opacity: 0.4;
 }
@@ -227,18 +229,18 @@ nav a:hover {
 
 .hero-text-overlay p {
   font-family: 'FuturaLight', sans-serif;
-  font-size: 1.20rem; /* Molto più visibile e leggibile */
+  font-size: 1.20rem;
   line-height: 1.5;
   margin: 0;
   letter-spacing: 0.5px;
   color: #ffffff;
   font-weight: 600;
-  text-shadow: 0 2px 15px rgba(0,0,0,0.7); /* Massima evidenza */
+  text-shadow: 0 2px 15px rgba(0,0,0,0.7);
 }
 
-/* Sezione Next Exhibition (Molto più respiro dal banner) */
+/* Sezione Next Exhibition */
 .exhibition-container {
-  padding: 220px 50px 160px 50px; /* Notevole aumento del respiro superiore */
+  padding: 200px 50px 160px 50px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -248,20 +250,34 @@ nav a:hover {
 
 .exhibition-title-side {
   font-family: 'FuturaLight', sans-serif;
-  font-size: 0.80rem;
+  font-size: 0.95rem; /* Un pelo più grande */
   letter-spacing: 2px;
   color: #000000;
   margin-top: 10px;
 }
 
+/* Flyer spostato un po' più verso il centro */
 .exhibition-flyer-side {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  flex: 1;
+  padding-left: 10%;
+}
+
+.flyer-link {
+  display: block;
+  text-decoration: none;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.flyer-link:hover {
+  transform: scale(1.015);
+  opacity: 0.95;
 }
 
 .flyer-img {
   width: 100%;
-  max-width: 520px;
+  max-width: 500px;
   height: auto;
   display: block;
 }
@@ -320,17 +336,17 @@ footer {
   }
 
   .logo-header {
-    height: 60px;
-  }
-
-  .lang-switch {
-    margin-top: 0;
+    height: 75px;
   }
 
   .nav-container {
     width: 100%;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin-top: 0;
+  }
+
+  nav {
     margin-top: 0;
   }
 
@@ -356,11 +372,11 @@ footer {
   .exhibition-container {
     flex-direction: column;
     gap: 40px;
-    padding: 120px 20px 80px 20px;
+    padding: 100px 20px 80px 20px;
   }
 
   .exhibition-flyer-side {
-    justify-content: center;
+    padding-left: 0;
     width: 100%;
   }
 
@@ -425,21 +441,23 @@ footer {
   </section>
 </div>
 
-<!-- SEZIONE NEXT EXHIBITION CON MOLTO PIÙ RESPIRO -->
+<!-- SEZIONE NEXT EXHIBITION -->
 <section class="exhibition-container">
   <div class="exhibition-title-side" id="next-exhibition-label">
     Next Exhibition :
   </div>
 
   <div class="exhibition-flyer-side">
-    <img src="RESonance — Flyer Concepts (1).png" alt="RESonance Exhibition Flyer" class="flyer-img">
+    <a href="resonance.html" class="flyer-link">
+      <img src="RESonance — Flyer Concepts (1).png" alt="RESonance Exhibition Flyer" class="flyer-img">
+    </a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-left">
-    &copy; Senso Art. All rights reserved.
+    &copy; 2026 Senso Art. All rights reserved.
   </div>
   
   <div class="footer-socials">
