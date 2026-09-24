@@ -97,12 +97,12 @@ body {
   overflow-x: hidden;
 }
 
-/* Header Navbar - Spostato tutto più in basso del 20% */
+/* Header Navbar */
 header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 65px 50px 30px 50px; /* Incrementato padding top per scendere tutto */
+  padding: 65px 50px 30px 50px;
   background-color: #ffffff;
 }
 
@@ -114,7 +114,7 @@ header {
 }
 
 .logo-header {
-  height: 70px; /* Logo ancora più grande */
+  height: 88px; /* Logo ancora più grande e d'impatto */
   width: auto;
   display: block;
 }
@@ -130,7 +130,7 @@ header {
   display: flex;
   align-items: center;
   gap: 25px;
-  margin-top: 15px; /* Allineato perfettamente con la griglia visuale del logo */
+  margin-top: 15px;
 }
 
 nav {
@@ -152,11 +152,13 @@ nav a:hover {
   opacity: 1;
 }
 
+/* EN | ES spostato più in alto rispetto al nav */
 .lang-switch {
   font-size: 0.60rem;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
+  margin-top: -12px; /* Sali EN | ES */
 }
 
 .lang-btn {
@@ -206,12 +208,11 @@ nav a:hover {
 
 .hero-text-overlay {
   position: absolute;
-  bottom: 22%; /* Salito ulteriormente */
+  bottom: 22%;
   left: 50px;
-  max-width: 900px;
+  max-width: 950px;
   color: #ffffff;
   pointer-events: none;
-  text-shadow: 0 2px 25px rgba(0,0,0,0.3);
 }
 
 .hero-text-overlay h1 {
@@ -221,21 +222,23 @@ nav a:hover {
   line-height: 0.95;
   margin: 0 0 20px 0;
   letter-spacing: -1px;
+  text-shadow: 0 2px 25px rgba(0,0,0,0.4);
 }
 
 .hero-text-overlay p {
   font-family: 'FuturaLight', sans-serif;
-  font-size: 1.05rem; /* Ingrandito per dare massima evidenza al core business */
-  line-height: 1.45;
+  font-size: 1.20rem; /* Molto più visibile e leggibile */
+  line-height: 1.5;
   margin: 0;
   letter-spacing: 0.5px;
-  opacity: 1;
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.7); /* Massima evidenza */
 }
 
-/* Sezione Next Exhibition */
+/* Sezione Next Exhibition (Molto più respiro dal banner) */
 .exhibition-container {
-  padding: 160px 50px;
+  padding: 220px 50px 160px 50px; /* Notevole aumento del respiro superiore */
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -317,7 +320,11 @@ footer {
   }
 
   .logo-header {
-    height: 50px;
+    height: 60px;
+  }
+
+  .lang-switch {
+    margin-top: 0;
   }
 
   .nav-container {
@@ -343,13 +350,13 @@ footer {
   }
 
   .hero-text-overlay p {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .exhibition-container {
     flex-direction: column;
     gap: 40px;
-    padding: 80px 20px;
+    padding: 120px 20px 80px 20px;
   }
 
   .exhibition-flyer-side {
@@ -390,12 +397,12 @@ footer {
 
     <nav id="nav-es" class="hidden">
       <a href="about.html">Quiénes somos</a>
-      <a href="exhibitions.html">Exposiciones</a>
-      <a href="artists.html">Artistas</a>
-      <a href="art-consulting.html">Asesoría de Arte</a>
+      <a href="exposiciones.html">Exposiciones</a>
+      <a href="artistas.html">Artistas</a>
+      <a href="asesoria-de-arte.html">Asesoría de Arte</a>
       <a href="studio.html">Senso Studio</a>
       <a href="journal.html">Journal</a>
-      <a href="contacts.html">Contacto</a>
+      <a href="contacto.html">Contacto</a>
     </nav>
 
     <div class="lang-switch">
@@ -406,7 +413,7 @@ footer {
   </div>
 </header>
 
-<!-- BANNER PROTAGONISTA (FULL-WIDTH) -->
+<!-- BANNER PROTAGONISTA -->
 <div class="hero-wrapper">
   <section class="hero-banner">
     <img src="banner.PNG" alt="Senso Exhibition Banner" class="hero-img">
@@ -418,7 +425,7 @@ footer {
   </section>
 </div>
 
-<!-- SEZIONE NEXT EXHIBITION -->
+<!-- SEZIONE NEXT EXHIBITION CON MOLTO PIÙ RESPIRO -->
 <section class="exhibition-container">
   <div class="exhibition-title-side" id="next-exhibition-label">
     Next Exhibition :
@@ -436,13 +443,11 @@ footer {
   </div>
   
   <div class="footer-socials">
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24">
         <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
       </svg>
     </a>
-    <!-- Instagram -->
     <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
       <svg viewBox="0 0 24 24">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
