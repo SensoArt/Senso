@@ -174,50 +174,16 @@
 
 
         /* =========================
-           NAVBAR (NAV)
+           HOME
         ========================= */
 
-        .navbar {
+        .back-home {
 
             position: fixed;
 
-            top: 0;
+            top: 25px;
 
-            left: 0;
-
-            width: 100%;
-
-            padding: 25px 20px;
-
-            box-sizing: border-box;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            z-index: 1000;
-
-            background-color: rgba(255, 255, 255, 0.9);
-
-            backdrop-filter: blur(5px);
-
-        }
-
-
-        .nav-links {
-
-            display: flex;
-
-            gap: 20px;
-
-            align-items: center;
-
-        }
-
-
-        .nav-item {
+            left: 20px;
 
             text-decoration: none;
 
@@ -231,17 +197,41 @@
 
             letter-spacing: 2px;
 
-            opacity: 0.5;
+            opacity: 0.8;
+
+            z-index: 1000;
 
             transition: opacity 0.3s;
 
         }
 
 
-        .nav-item:hover,
-        .nav-item.active {
-
+        .back-home:hover {
             opacity: 1;
+        }
+
+
+        /* =========================
+           TOP RIGHT NAV & LANG SWITCH
+        ========================= */
+
+        .top-right-container {
+
+            position: fixed;
+
+            top: 25px;
+
+            right: 20px;
+
+            z-index: 1000;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-end;
+
+            gap: 15px;
 
         }
 
@@ -285,9 +275,47 @@
 
 
         .lang-btn.active {
-
             opacity: 1;
+        }
 
+
+        .main-nav {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-end;
+
+            gap: 6px;
+
+        }
+
+
+        .nav-link {
+
+            text-decoration: none;
+
+            color: #000;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            text-transform: uppercase;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 2px;
+
+            opacity: 0.5;
+
+            transition: opacity 0.3s;
+
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+            opacity: 1;
         }
 
 
@@ -531,19 +559,25 @@
 
         footer {
 
-            padding: 40px 20px;
+            padding: 40px 25px;
 
-            text-align: left;
+            max-width: 850px;
+
+            margin: 0 auto;
+
+            width: 100%;
+
+            box-sizing: border-box;
 
             font-family: 'FuturaLight', sans-serif;
 
-            font-size: 0.70rem;
+            font-size: 0.65rem;
 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
 
-            color: #000;
+            text-transform: uppercase;
 
-            opacity: 0.8;
+            opacity: 0.5;
 
         }
 
@@ -553,22 +587,6 @@
         ========================= */
 
         @media (max-width: 768px) {
-
-            .nav-links {
-
-                gap: 12px;
-
-            }
-
-
-            .nav-item {
-
-                font-size: 0.58rem;
-
-                letter-spacing: 1px;
-
-            }
-
 
             header {
 
@@ -630,33 +648,16 @@
 <body>
 
 
-    <!-- NAVIGATION BAR -->
+    <!-- HOME -->
 
-    <nav class="navbar">
+    <a href="index.html" class="back-home">
+        ← Home
+    </a>
 
-        <div class="nav-links">
 
-            <a href="index.html" class="nav-item">
-                home
-            </a>
+    <!-- TOP RIGHT: LANGUAGE SWITCH & NAVIGATION -->
 
-            <a href="about.html" class="nav-item" id="nav-about">
-                about
-            </a>
-
-            <a href="artists.html" class="nav-item" id="nav-artists">
-                artists
-            </a>
-
-            <a href="exhibitions.html" class="nav-item active" id="nav-exhibitions">
-                exhibitions
-            </a>
-
-            <a href="contact.html" class="nav-item" id="nav-contact">
-                contact
-            </a>
-
-        </div>
+    <div class="top-right-container">
 
         <div class="lang-switch">
 
@@ -680,7 +681,17 @@
 
         </div>
 
-    </nav>
+        <nav class="main-nav">
+            <a href="about.html" class="nav-link" id="nav-about">about</a>
+            <a href="exhibitions.html" class="nav-link active" id="nav-exhibitions">exhibitions</a>
+            <a href="artists.html" class="nav-link" id="nav-artists">artists</a>
+            <a href="art-consulting.html" class="nav-link" id="nav-art-consulting">art consulting</a>
+            <a href="studio.html" class="nav-link" id="nav-studio">studio</a>
+            <a href="journal.html" class="nav-link" id="nav-journal">journal</a>
+            <a href="contacts.html" class="nav-link" id="nav-contacts">contacts</a>
+        </nav>
+
+    </div>
 
 
     <!-- HEADER -->
@@ -856,7 +867,7 @@
 
     <footer>
         <span id="footer-text">
-            &copy; 2026 Senso Art. All rights reserved.
+            © Senso all rights reserved
         </span>
     </footer>
 
@@ -879,11 +890,17 @@
 
             const navAbout = document.getElementById('nav-about');
 
-            const navArtists = document.getElementById('nav-artists');
-
             const navExhibitions = document.getElementById('nav-exhibitions');
 
-            const navContact = document.getElementById('nav-contact');
+            const navArtists = document.getElementById('nav-artists');
+
+            const navArtConsulting = document.getElementById('nav-art-consulting');
+
+            const navStudio = document.getElementById('nav-studio');
+
+            const navJournal = document.getElementById('nav-journal');
+
+            const navContacts = document.getElementById('nav-contacts');
 
 
             if (lang === 'es') {
@@ -898,15 +915,21 @@
 
                 pageTitle.textContent = 'exposiciones';
 
-                footerText.innerHTML = '&copy; 2026 Senso Art. All rights reserved.';
+                footerText.textContent = '© Senso all rights reserved';
 
                 if(navAbout) navAbout.textContent = 'sobre';
 
-                if(navArtists) navArtists.textContent = 'artistas';
-
                 if(navExhibitions) navExhibitions.textContent = 'exposiciones';
 
-                if(navContact) navContact.textContent = 'contacto';
+                if(navArtists) navArtists.textContent = 'artistas';
+
+                if(navArtConsulting) navArtConsulting.textContent = 'consultoría de arte';
+
+                if(navStudio) navStudio.textContent = 'estudio';
+
+                if(navJournal) navJournal.textContent = 'diario';
+
+                if(navContacts) navContacts.textContent = 'contacto';
 
                 document.documentElement.lang = 'es';
 
@@ -922,15 +945,21 @@
 
                 pageTitle.textContent = 'exhibitions';
 
-                footerText.innerHTML = '&copy; 2026 Senso Art. All rights reserved.';
+                footerText.textContent = '© Senso all rights reserved';
 
                 if(navAbout) navAbout.textContent = 'about';
 
-                if(navArtists) navArtists.textContent = 'artists';
-
                 if(navExhibitions) navExhibitions.textContent = 'exhibitions';
 
-                if(navContact) navContact.textContent = 'contact';
+                if(navArtists) navArtists.textContent = 'artists';
+
+                if(navArtConsulting) navArtConsulting.textContent = 'art consulting';
+
+                if(navStudio) navStudio.textContent = 'studio';
+
+                if(navJournal) navJournal.textContent = 'journal';
+
+                if(navContacts) navContacts.textContent = 'contacts';
 
                 document.documentElement.lang = 'en';
 
