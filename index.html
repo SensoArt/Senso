@@ -137,7 +137,7 @@ header {
   flex: 1;
 }
 
-/* Navigazione centrata, in alto e con font leggermente più grande (0.72rem) */
+/* Navigazione leggermente spostata verso destra */
 nav {
   display: flex;
   justify-content: center;
@@ -146,7 +146,8 @@ nav {
   text-transform: uppercase;
   font-size: 0.72rem;
   margin-top: 10px;
-  width: 100%;
+  margin-left: 40px; /* Piccola spinta a destra */
+  width: calc(100% - 40px);
 }
 
 /* Link Navigazione con Sottolineatura al Hover */
@@ -381,6 +382,8 @@ footer {
 
   nav {
     margin-top: 10px;
+    margin-left: 0;
+    width: 100%;
     flex-wrap: wrap;
     justify-content: flex-start;
   }
