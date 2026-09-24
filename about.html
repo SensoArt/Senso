@@ -46,14 +46,8 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .fade-in {
@@ -61,16 +55,11 @@
             animation: fadeIn 1.2s ease-out forwards;
         }
 
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.5s; }
 
-        .delay-2 {
-            animation-delay: 0.5s;
-        }
-
-        html {
-            height: -webkit-fill-available;
+        * {
+            box-sizing: border-box;
         }
 
         body {
@@ -79,50 +68,48 @@
             margin: 0;
             padding: 0;
             -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
             min-height: 100vh;
-            min-height: -webkit-fill-available;
         }
 
+        /* IMMAGINE DI SFONDO FISSA */
         .bg-container {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh;
             z-index: -2;
             background-image: url('01-Sillas.jpg?v=1.2');
             background-size: cover;
             background-position: center 65%;
             background-repeat: no-repeat;
             background-color: #000;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
-            will-change: transform;
         }
 
         .bg-overlay {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
             width: 100vw;
             height: 100vh;
-            height: 100dvh;
             background-color: rgba(0, 0, 0, 0.45);
             z-index: -1;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
+        }
+
+        /* BARRA DI NAVIGAZIONE IN ALTA PAGINA */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
         }
 
         .back-home {
-            position: fixed;
-            top: 25px;
-            left: 20px;
             text-decoration: none;
             color: #fff;
             font-family: 'FuturaLight', sans-serif;
@@ -130,26 +117,74 @@
             font-size: 0.65rem;
             letter-spacing: 2px;
             opacity: 0.8;
-            z-index: 1000;
             transition: opacity 0.3s;
+            white-space: nowrap;
+            margin-top: 2px;
         }
 
         .back-home:hover {
             opacity: 1;
         }
 
+        /* Container lato destro (Navigazione + Switch Lingua) */
+        .right-nav-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-left: auto;
+        }
+
+        /* Navigazione abbassata ulteriormente rispetto a EN | ES */
+        nav.main-nav {
+            display: flex;
+            gap: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            font-family: 'FuturaLight', sans-serif;
+            margin-top: 12px;
+        }
+
+        nav.main-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.75;
+            position: relative;
+            padding-bottom: 4px;
+            transition: opacity 0.3s;
+        }
+
+        nav.main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #ffffff;
+            transition: width 0.3s ease;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a.active-link {
+            opacity: 1;
+        }
+
+        nav.main-nav a:hover::after,
+        nav.main-nav a.active-link::after {
+            width: 100%;
+        }
+
         .lang-switch {
-            position: fixed;
-            top: 25px;
-            right: 20px;
-            z-index: 1000;
             font-size: 0.65rem;
             letter-spacing: 2px;
             font-family: 'FuturaLight', sans-serif;
+            color: #fff;
+            white-space: nowrap;
         }
 
         .lang-btn {
-            padding: 0 5px;
+            padding: 0 4px;
             border: 0;
             background: none;
             color: #fff;
@@ -167,9 +202,10 @@
         }
 
         header {
-            padding: 150px 20px 40px;
+            padding: 160px 20px 40px;
             max-width: 850px;
             margin: 0 auto;
+            width: 100%;
             text-align: left;
         }
 
@@ -185,15 +221,17 @@
         .content-container {
             max-width: 850px;
             margin: 0 auto;
-            padding: 0 25px 160px;
+            padding: 0 25px 80px;
             text-align: left;
+            width: 100%;
         }
 
         .lang-content {
             display: block;
         }
 
-        .lang-content.hidden {
+        .lang-content.hidden,
+        nav.hidden {
             display: none !important;
         }
 
@@ -212,13 +250,49 @@
             font-size: 1.4rem;
         }
 
-        @media (max-width: 768px) {
-            .bg-container {
-                background-position: center 50%;
+        /* FOOTER CON COPYRIGHT A SINISTRA */
+        footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 35px 60px;
+            font-size: 0.70rem;
+            letter-spacing: 1px;
+            color: #ffffff;
+            font-family: 'FuturaLight', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .footer-left {
+            opacity: 0.8;
+            text-align: left;
+        }
+
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .right-nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+
+            nav.main-nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                font-size: 0.65rem;
+                margin-top: 0;
             }
 
             header {
-                padding-top: 120px;
+                padding-top: 180px;
             }
 
             h1 {
@@ -229,23 +303,52 @@
                 font-size: 1.15rem;
             }
 
-            .content-container {
-                padding-bottom: 140px;
+            footer {
+                padding: 25px 20px;
             }
         }
     </style>
 </head>
 <body>
 
+<!-- Immagine di Sfondo e Overlay -->
 <div class="bg-container"></div>
 <div class="bg-overlay"></div>
 
-<a href="index.html" class="back-home">← Home</a>
+<!-- Top Navigation Bar -->
+<div class="top-bar">
+    <a href="index.html" class="back-home">← Home</a>
 
-<nav class="lang-switch" aria-label="Language selection">
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
-    <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
-</nav>
+    <div class="right-nav-container">
+        <!-- Navigazione Inglese -->
+        <nav id="nav-en" class="main-nav">
+            <a href="about.html" class="active-link">About</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="artists.html">Artists</a>
+            <a href="art-consulting.html">Art Consulting</a>
+            <a href="studio.html">Studio</a>
+            <a href="journal.html">Journal</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+
+        <!-- Navigazione Spagnolo -->
+        <nav id="nav-es" class="main-nav hidden">
+            <a href="about.html" class="active-link">Quiénes somos</a>
+            <a href="exposiciones.html">Exposiciones</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="asesoria-de-arte.html">Asesoría de Arte</a>
+            <a href="studio.html">Senso Studio</a>
+            <a href="journal.html">Journal</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <!-- Switch Lingua -->
+        <div class="lang-switch" aria-label="Language selection">
+            <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
+            <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+        </div>
+    </div>
+</div>
 
 <header class="fade-in delay-1">
     <h1>about</h1>
@@ -273,6 +376,13 @@
 
 </main>
 
+<!-- Footer -->
+<footer>
+    <div class="footer-left">
+        &copy; 2026 Senso Art. All rights reserved.
+    </div>
+</footer>
+
 <script>
     function setLang(lang) {
         document.querySelectorAll('.lang-content').forEach(box => box.classList.add('hidden'));
@@ -281,13 +391,18 @@
         const targetBox = document.getElementById(`lang-${lang}`);
         const targetBtn = document.getElementById(`btn-${lang}`);
 
+        const isSpanish = lang === 'es';
+        document.getElementById('nav-en').classList.toggle('hidden', isSpanish);
+        document.getElementById('nav-es').classList.toggle('hidden', !isSpanish);
+
         if (targetBox && targetBtn) {
             targetBox.classList.remove('hidden');
             targetBtn.classList.add('active');
         } else {
-            // Fallback se la lingua non è presente
             document.getElementById('lang-en').classList.remove('hidden');
             document.getElementById('btn-en').classList.add('active');
+            document.getElementById('nav-en').classList.remove('hidden');
+            document.getElementById('nav-es').classList.add('hidden');
             lang = 'en';
         }
 
