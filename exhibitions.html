@@ -164,11 +164,17 @@
 
             min-height: -webkit-fill-available;
 
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
         }
 
 
         /* =========================
-           HOME
+           HOME LINK
         ========================= */
 
         .back-home {
@@ -206,7 +212,7 @@
 
 
         /* =========================
-           LANGUAGE SWITCH
+           TOP RIGHT: LANG & NAV
         ========================= */
 
         .lang-switch {
@@ -217,13 +223,13 @@
 
             right: 20px;
 
+            z-index: 1000;
+
             font-family: 'FuturaLight', sans-serif;
 
             font-size: 0.65rem;
 
             letter-spacing: 2px;
-
-            z-index: 1000;
 
         }
 
@@ -260,6 +266,75 @@
         }
 
 
+        .main-nav {
+
+            position: fixed;
+
+            top: 60px;
+
+            right: 20px;
+
+            z-index: 1000;
+
+            display: flex;
+
+            flex-direction: row;
+
+            gap: 25px;
+
+            align-items: center;
+
+        }
+
+
+        .nav-link {
+
+            text-decoration: none;
+
+            color: #000;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            text-transform: uppercase;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 2px;
+
+            opacity: 0.5;
+
+            transition: opacity 0.3s;
+
+            position: relative;
+
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+            opacity: 1;
+        }
+
+
+        .nav-link.active::after {
+
+            content: '';
+
+            position: absolute;
+
+            bottom: -4px;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 1px;
+
+            background-color: #000;
+
+        }
+
+
         /* =========================
            HEADER
         ========================= */
@@ -271,6 +346,10 @@
             max-width: 850px;
 
             margin: 0 auto;
+
+            width: 100%;
+
+            box-sizing: border-box;
 
             text-align: left;
 
@@ -304,9 +383,15 @@
 
             margin: 0 auto;
 
-            padding: 0 25px 160px;
+            padding: 0 25px 100px;
+
+            width: 100%;
+
+            box-sizing: border-box;
 
             text-align: left;
+
+            flex-grow: 1;
 
         }
 
@@ -485,14 +570,61 @@
 
 
         /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            padding: 40px 20px;
+
+            text-align: left;
+
+            font-family: 'FuturaLight', sans-serif;
+
+            font-size: 0.65rem;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            opacity: 0.5;
+
+        }
+
+
+        /* =========================
            MOBILE
         ========================= */
 
         @media (max-width: 768px) {
 
+            .main-nav {
+
+                top: 55px;
+
+                right: 20px;
+
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                justify-content: flex-end;
+
+            }
+
+
+            .nav-link {
+
+                font-size: 0.55rem;
+
+                letter-spacing: 1px;
+
+            }
+
+
             header {
 
-                padding-top: 120px;
+                padding-top: 140px;
 
             }
 
@@ -506,7 +638,7 @@
 
             .content-container {
 
-                padding-bottom: 140px;
+                padding-bottom: 80px;
 
             }
 
@@ -550,7 +682,7 @@
 <body>
 
 
-    <!-- HOME -->
+    <!-- HOME LINK -->
 
     <a href="index.html" class="back-home">
         ← Home
@@ -580,6 +712,27 @@
         </button>
 
     </div>
+
+
+    <!-- MAIN NAVIGATION -->
+
+    <nav class="main-nav">
+
+        <a href="about.html" class="nav-link" id="nav-about">about</a>
+
+        <a href="exhibitions.html" class="nav-link active" id="nav-exhibitions">exhibitions</a>
+
+        <a href="artists.html" class="nav-link" id="nav-artists">artists</a>
+
+        <a href="art-consulting.html" class="nav-link" id="nav-art-consulting">art consulting</a>
+
+        <a href="studio.html" class="nav-link" id="nav-studio">studio</a>
+
+        <a href="journal.html" class="nav-link" id="nav-journal">journal</a>
+
+        <a href="contacts.html" class="nav-link" id="nav-contacts">contacts</a>
+
+    </nav>
 
 
     <!-- HEADER -->
@@ -751,6 +904,15 @@
     </main>
 
 
+    <!-- FOOTER -->
+
+    <footer>
+        <span id="footer-text">
+            &copy; Senso all rights reserved
+        </span>
+    </footer>
+
+
     <script>
 
         function setLang(lang) {
@@ -765,6 +927,22 @@
 
             const pageTitle = document.getElementById('page-title');
 
+            const footerText = document.getElementById('footer-text');
+
+            const navAbout = document.getElementById('nav-about');
+
+            const navExhibitions = document.getElementById('nav-exhibitions');
+
+            const navArtists = document.getElementById('nav-artists');
+
+            const navArtConsulting = document.getElementById('nav-art-consulting');
+
+            const navStudio = document.getElementById('nav-studio');
+
+            const navJournal = document.getElementById('nav-journal');
+
+            const navContacts = document.getElementById('nav-contacts');
+
 
             if (lang === 'es') {
 
@@ -777,6 +955,22 @@
                 btnEs.classList.add('active');
 
                 pageTitle.textContent = 'exposiciones';
+
+                footerText.innerHTML = '&copy; Senso all rights reserved';
+
+                if(navAbout) navAbout.textContent = 'sobre';
+
+                if(navExhibitions) navExhibitions.textContent = 'exposiciones';
+
+                if(navArtists) navArtists.textContent = 'artistas';
+
+                if(navArtConsulting) navArtConsulting.textContent = 'consultoría de arte';
+
+                if(navStudio) navStudio.textContent = 'estudio';
+
+                if(navJournal) navJournal.textContent = 'diario';
+
+                if(navContacts) navContacts.textContent = 'contacto';
 
                 document.documentElement.lang = 'es';
 
@@ -791,6 +985,22 @@
                 btnEn.classList.add('active');
 
                 pageTitle.textContent = 'exhibitions';
+
+                footerText.innerHTML = '&copy; Senso all rights reserved';
+
+                if(navAbout) navAbout.textContent = 'about';
+
+                if(navExhibitions) navExhibitions.textContent = 'exhibitions';
+
+                if(navArtists) navArtists.textContent = 'artists';
+
+                if(navArtConsulting) navArtConsulting.textContent = 'art consulting';
+
+                if(navStudio) navStudio.textContent = 'studio';
+
+                if(navJournal) navJournal.textContent = 'journal';
+
+                if(navContacts) navContacts.textContent = 'contacts';
 
                 document.documentElement.lang = 'en';
 
