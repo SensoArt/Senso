@@ -206,7 +206,18 @@
         }
 
 
-        .back-home {
+        .nav-links {
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: center;
+
+        }
+
+
+        .nav-item {
 
             text-decoration: none;
 
@@ -220,15 +231,18 @@
 
             letter-spacing: 2px;
 
-            opacity: 0.8;
+            opacity: 0.5;
 
             transition: opacity 0.3s;
 
         }
 
 
-        .back-home:hover {
+        .nav-item:hover,
+        .nav-item.active {
+
             opacity: 1;
+
         }
 
 
@@ -271,7 +285,9 @@
 
 
         .lang-btn.active {
+
             opacity: 1;
+
         }
 
 
@@ -538,6 +554,22 @@
 
         @media (max-width: 768px) {
 
+            .nav-links {
+
+                gap: 12px;
+
+            }
+
+
+            .nav-item {
+
+                font-size: 0.58rem;
+
+                letter-spacing: 1px;
+
+            }
+
+
             header {
 
                 padding-top: 120px;
@@ -602,9 +634,29 @@
 
     <nav class="navbar">
 
-        <a href="index.html" class="back-home">
-            ← Home
-        </a>
+        <div class="nav-links">
+
+            <a href="index.html" class="nav-item">
+                home
+            </a>
+
+            <a href="about.html" class="nav-item" id="nav-about">
+                about
+            </a>
+
+            <a href="artists.html" class="nav-item" id="nav-artists">
+                artists
+            </a>
+
+            <a href="exhibitions.html" class="nav-item active" id="nav-exhibitions">
+                exhibitions
+            </a>
+
+            <a href="contact.html" class="nav-item" id="nav-contact">
+                contact
+            </a>
+
+        </div>
 
         <div class="lang-switch">
 
@@ -825,6 +877,14 @@
 
             const footerText = document.getElementById('footer-text');
 
+            const navAbout = document.getElementById('nav-about');
+
+            const navArtists = document.getElementById('nav-artists');
+
+            const navExhibitions = document.getElementById('nav-exhibitions');
+
+            const navContact = document.getElementById('nav-contact');
+
 
             if (lang === 'es') {
 
@@ -839,6 +899,14 @@
                 pageTitle.textContent = 'exposiciones';
 
                 footerText.innerHTML = '&copy; 2026 Senso Art. All rights reserved.';
+
+                if(navAbout) navAbout.textContent = 'sobre';
+
+                if(navArtists) navArtists.textContent = 'artistas';
+
+                if(navExhibitions) navExhibitions.textContent = 'exposiciones';
+
+                if(navContact) navContact.textContent = 'contacto';
 
                 document.documentElement.lang = 'es';
 
@@ -855,6 +923,14 @@
                 pageTitle.textContent = 'exhibitions';
 
                 footerText.innerHTML = '&copy; 2026 Senso Art. All rights reserved.';
+
+                if(navAbout) navAbout.textContent = 'about';
+
+                if(navArtists) navArtists.textContent = 'artists';
+
+                if(navExhibitions) navExhibitions.textContent = 'exhibitions';
+
+                if(navContact) navContact.textContent = 'contact';
 
                 document.documentElement.lang = 'en';
 
