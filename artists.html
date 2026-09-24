@@ -83,6 +83,8 @@
             overflow-y: auto;
             width: 100%;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
 
@@ -156,6 +158,7 @@
             max-width: 950px; 
             margin: 0 auto; 
             padding: 150px 25px 0; 
+            flex: 1 0 auto;
         }
 
 
@@ -277,12 +280,31 @@
         }
 
 
-        /* SPAZIATORE */
+        /* FOOTER CON BARRA E COPYRIGHT */
 
-        .footer-spacer {
-            height: 18vh;
-            min-height: 140px;
+        .site-footer {
             width: 100%;
+            margin-top: 100px;
+            padding-bottom: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .footer-divider {
+            width: 100%;
+            max-width: 950px;
+            height: 1px;
+            background-color: #000;
+            opacity: 0.15;
+            margin: 0 auto 30px;
+        }
+
+        .footer-copy {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.5;
+            margin: 0;
         }
 
 
@@ -327,8 +349,9 @@
                 font-size: 0.75rem; 
             }
 
-            .footer-spacer {
-                min-height: 100px;
+            .site-footer {
+                margin-top: 70px;
+                padding-bottom: 30px;
             }
 
         }
@@ -670,10 +693,13 @@
         </div>
 
 
-        <div class="footer-spacer"></div>
-
-
     </main>
+
+
+    <footer class="site-footer fade-in delay-2">
+        <div class="footer-divider"></div>
+        <p class="footer-copy">© 2026 Senso Art. All rights reserved.</p>
+    </footer>
 
 
     <script>
