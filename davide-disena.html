@@ -1101,6 +1101,8 @@
                             .style.display =
                             'block';
 
+                    } else {
+                        throw new Error('Server response was not ok');
                     }
 
                 } catch (err) {
@@ -1109,6 +1111,11 @@
 
                     btn.style.opacity =
                         "1";
+
+                    btn.innerText = document.documentElement.lang === 'es'
+                        ? 'Enviar consulta →'
+                        : 'Send Inquiry →';
+                    document.getElementById('error-msg').style.display = 'block';
 
                 }
 
