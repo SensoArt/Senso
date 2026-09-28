@@ -1,289 +1,501 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Studio - Painting Classes & Art Workshops in Barcelona | Senso</title>
-<meta name="description" content="Senso Studio offers painting classes and art workshops in Barcelona for adults, children, teams and companies. Discover creative experiences designed to make art part of everyday life.">
-<link rel="canonical" href="https://senso-art.com/studio.html">
-<link rel="icon" type="image/png" href="favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Service",
-  "name":"Senso Studio",
-  "serviceType":"Painting Classes & Art Workshops",
-  "description":"Painting classes and art workshops in Barcelona for adults, children, teams and companies.",
-  "provider":{
-    "@type":"Organization",
-    "name":"Senso",
-    "url":"https://senso-art.com/"
-  },
-  "areaServed":{
-    "@type":"Place",
-    "name":"Barcelona"
-  },
-  "url":"https://senso-art.com/studio.html"
-}
-</script>
+    <title>Studio - Painting Classes & Art Workshops in Barcelona | Senso</title>
+    <meta name="description" content="Senso Studio offers painting classes and art workshops in Barcelona for adults, children, teams and companies. Discover creative experiences designed to make art part of everyday life.">
+    <link rel="canonical" href="https://senso-art.com/studio.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png?v=1000">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon.png?v=1000">
+    <link rel="apple-touch-icon" href="favicon.png?v=1000">
+    <meta name="theme-color" content="#ffffff">
 
-<style>
-@font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf')}
-@font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf')}
+    <script type="application/ld+json">
+    {
+      "@context":"https://schema.org",
+      "@type":"Service",
+      "name":"Senso Studio",
+      "serviceType":"Painting Classes & Art Workshops",
+      "description":"Painting classes and art workshops in Barcelona for adults, children, teams and companies.",
+      "provider":{
+        "@type":"Organization",
+        "name":"Senso",
+        "url":"https://senso-art.com/"
+      },
+      "areaServed":{
+        "@type":"Place",
+        "name":"Barcelona"
+      },
+      "url":"https://senso-art.com/studio.html"
+    }
+    </script>
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:#000;font-family:Futura,sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
-button,input,textarea,select{font:inherit;color:inherit}
+    <style>
+        @font-face {
+            font-family: 'FuturaLight';
+            src: url('Fonts/futura light bt.ttf') format('truetype');
+            font-display: swap;
+        }
 
-.home,.languages{position:fixed;top:25px;z-index:10;font-size:.65rem;letter-spacing:2px;text-transform:uppercase}
-.home{left:20px;opacity:.65;color:#000}
-.languages{right:20px;color:#000}
-.languages button{padding:0 5px;border:0;background:none;cursor:pointer;font-size:inherit;letter-spacing:inherit;opacity:.35;color:#000;-webkit-tap-highlight-color:transparent}
-.languages button.active{opacity:1;color:#000}
+        @font-face {
+            font-family: 'BehindNineties';
+            src: url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');
+            font-display: swap;
+        }
 
-.page{width:min(1200px,calc(100% - 80px));margin:auto;padding:150px 0 120px}
-.title{margin:0 0 70px;font-family:Behind,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;text-transform:lowercase}
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
-.hero{position:relative;width:100%;height:420px;overflow:hidden;margin-bottom:110px;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
-.hero img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
-.hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.38);z-index:1}
-.hero-copy{position:absolute;left:7%;top:38%;transform:translateY(-50%);width:min(600px,70%);color:#fff;z-index:2}
-.hero-copy p{margin:0;font-size:1.15rem;line-height:1.75}
+        body {
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'FuturaLight', sans-serif;
+            overflow-x: hidden;
+        }
 
-.hero-discover-btn{
-display:inline-block;
-margin-top:35px;
-padding:12px 24px;
-border:1px solid rgba(255,255,255,0.4);
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(4px);
--webkit-backdrop-filter:blur(4px);
-color:#fff;
-cursor:pointer;
-font-size:.65rem;
-letter-spacing:2px;
-text-transform:uppercase;
-border-radius:2px;
-transition:all .3s ease;
-box-shadow:0 4px 15px rgba(0,0,0,0.2);
-}
+        a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+        button, input, textarea, select { font-family: inherit; color: inherit; }
 
-@media (hover:hover){
-.hero-discover-btn:hover{
-background:#fff;
-color:#000;
-border-color:#fff;
-transform:translateY(-2px);
-box-shadow:0 6px 20px rgba(0,0,0,0.25)
-}
-}
+        /* BARRA DI NAVIGAZIONE IN ALTA PAGINA (IDENTICA AD ABOUT) */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
+        }
 
-.hero-discover-btn:active{opacity:.8;transform:scale(.98)}
+        .back-home {
+            text-decoration: none;
+            color: #000;
+            font-family: 'FuturaLight', sans-serif;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+            margin-top: 2px;
+        }
 
-.offer-section{margin-bottom:145px}
-.section-header-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;opacity:.55;margin-bottom:35px}
-.offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+        .back-home:hover {
+            opacity: 1;
+        }
 
-.service-card{
-background:#fcfcfc;
-border:1px solid rgba(0,0,0,0.08);
-border-radius:6px;
-padding:35px 30px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-position:relative;
-transition:all .3s ease;
-}
+        .right-nav-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-left: auto;
+        }
 
-.service-card:hover{
-background:#fff;
-border-color:rgba(0,0,0,0.25);
-box-shadow:0 12px 35px rgba(0,0,0,0.05);
-transform:translateY(-3px)
-}
+        nav.main-nav {
+            display: flex;
+            gap: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            font-family: 'FuturaLight', sans-serif;
+            margin-top: 12px;
+        }
 
-.badge{
-position:absolute;
-top:20px;
-right:20px;
-font-size:.55rem;
-letter-spacing:1.5px;
-text-transform:uppercase;
-padding:4px 8px;
-border:1px solid rgba(0,0,0,0.15);
-border-radius:20px;
-opacity:.65
-}
+        nav.main-nav a {
+            color: #000000;
+            text-decoration: none;
+            opacity: 0.75;
+            position: relative;
+            padding-bottom: 4px;
+            transition: opacity 0.3s;
+        }
 
-.card-title{font-family:Behind,serif;font-size:1.4rem;font-weight:400;margin:0 0 10px}
-.card-subtitle{font-size:.65rem;letter-spacing:1.8px;text-transform:uppercase;opacity:.5;margin-bottom:20px;display:block}
-.card-desc{font-size:.88rem;line-height:1.75;opacity:.8;margin:0 0 25px}
+        nav.main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transition: width 0.3s ease;
+        }
 
-.card-details{border-top:1px dashed rgba(0,0,0,0.1);padding-top:18px;margin-bottom:25px}
-.meta-item{font-size:.7rem;letter-spacing:1px;text-transform:uppercase;opacity:.6;margin-bottom:6px;display:block}
+        nav.main-nav a:hover,
+        nav.main-nav a.active-link {
+            opacity: 1;
+        }
 
-.card-btn{
-display:block;
-width:100%;
-padding:14px 0;
-text-align:center;
-background:#000;
-color:#fff;
-font-size:.62rem;
-letter-spacing:2px;
-text-transform:uppercase;
-border:none;
-border-radius:3px;
-cursor:pointer;
-transition:background .3s ease
-}
+        nav.main-nav a:hover::after,
+        nav.main-nav a.active-link::after {
+            width: 100%;
+        }
 
-.card-btn:hover{background:#333}
+        .lang-switch {
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            font-family: 'FuturaLight', sans-serif;
+            color: #000;
+            white-space: nowrap;
+        }
 
-.gallery-section{margin-bottom:145px}
-.gallery-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}
-.gallery-header .section-title{margin:0}
-.gallery-nav{display:flex;gap:15px}
-.gallery-arrow{
-background:none;
-border:1px solid rgba(0,0,0,0.2);
-width:38px;
-height:38px;
-border-radius:50%;
-cursor:pointer;
-font-size:.9rem;
-display:flex;
-align-items:center;
-justify-content:center;
-transition:all .3s ease;
-color:#000
-}
+        .lang-btn {
+            padding: 0 4px;
+            border: 0;
+            background: none;
+            color: #000;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            opacity: 0.35;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
 
-@media (hover:hover){
-.gallery-arrow:hover:not(:disabled){border-color:#000;background:#000;color:#fff}
-}
+        .lang-btn.active {
+            opacity: 1;
+        }
 
-.gallery-arrow:disabled{opacity:.25;cursor:not-allowed;border-color:rgba(0,0,0,0.1)}
+        .lang-content.hidden,
+        nav.hidden,
+        .hidden {
+            display: none !important;
+        }
 
-.gallery-carousel{
-display:flex;
-gap:20px;
-overflow-x:auto;
-scroll-behavior:smooth;
-scrollbar-width:none;
--ms-overflow-style:none;
-padding-bottom:10px
-}
+        /* LAYOUT PAGINA */
+        .container {
+            width: min(1200px, calc(100% - 80px));
+            margin: 0 auto;
+            padding: 160px 0 60px;
+            flex: 1 0 auto;
+        }
 
-.gallery-carousel::-webkit-scrollbar{display:none}
-.gallery-card{flex:0 0 320px;height:380px;overflow:hidden;border-radius:4px}
-.gallery-card img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
-.gallery-card:hover img{transform:scale(1.04)}
+        .page-title {
+            margin: 0 0 70px;
+            font-family: 'BehindNineties', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: normal;
+            text-transform: lowercase;
+            color: #000;
+        }
 
-.teachers{margin-bottom:145px}
-.section-title{margin:0 0 65px;font-family:Behind,serif;font-size:1.5rem;font-weight:400;text-transform:lowercase}
-.teacher{display:grid;grid-template-columns:260px 1fr;gap:75px;align-items:center;margin-bottom:100px}
-.teacher.lucia{grid-template-columns:1fr 260px}
-.teacher-image{width:260px;height:325px;object-fit:cover;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.06);display:block}
-.teacher-rafael{object-position:center 0%}
-.teacher-info{max-width:520px}
-.teacher-name{margin:0 0 10px;font-family:Behind,serif;font-size:1.35rem;font-weight:400}
-.teacher-role{margin:0 0 22px;font-size:.62rem;letter-spacing:1.5px;text-transform:uppercase;opacity:.6}
-.teacher-text{margin:0;font-size:.9rem;line-height:1.8}
+        /* HERO */
+        .hero { position: relative; width: 100%; height: 420px; overflow: hidden; margin-bottom: 110px; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); }
+        .hero img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: center; }
+        .hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.38); z-index: 1; }
+        .hero-copy { position: absolute; left: 7%; top: 38%; transform: translateY(-50%); width: min(600px, 70%); color: #fff; z-index: 2; }
+        .hero-copy p { margin: 0; font-size: 1.15rem; line-height: 1.75; }
 
-.contact{max-width:700px;margin:auto;text-align:center}
-.contact-title{margin:0 0 30px;font-family:Behind,serif;font-size:1.5rem;font-weight:400}
-.contact-button,.submit{
-padding:0;
-border:0;
-background:none;
-cursor:pointer;
-font-size:.65rem;
-letter-spacing:2px;
-text-transform:uppercase;
-opacity:.65;
-color:#000;
--webkit-tap-highlight-color:transparent
-}
+        .hero-discover-btn {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 12px 24px;
+            border: 1px solid rgba(255,255,255,0.4);
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            color: #fff;
+            cursor: pointer;
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 2px;
+            transition: all .3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
 
-.form{display:none;max-width:600px;margin:55px auto 0;text-align:left}
-.form.visible{display:block;animation:fade .5s ease}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.field{margin-bottom:28px}
-.field label{display:block;margin-bottom:8px;font-size:.58rem;letter-spacing:1.8px;text-transform:uppercase;opacity:.55}
-.field input,.field textarea,.field select{
-width:100%;
-padding:7px 0 10px;
-border:0;
-border-bottom:1px solid #000;
-outline:none;
-background:transparent;
-font-size:.95rem;
-color:#000;
-border-radius:0
-}
-.field select{cursor:pointer;border-radius:0;-webkit-appearance:none}
-.field textarea{height:100px;resize:vertical}
-.thanks{display:none;margin:55px auto 0;font-size:.95rem;line-height:1.8}
+        @media (hover: hover) {
+            .hero-discover-btn:hover {
+                background: #fff;
+                color: #000;
+                border-color: #fff;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            }
+        }
 
-html[lang="en"] .es{display:none!important}
-html[lang="es"] .en{display:none!important}
+        .hero-discover-btn:active { opacity: .8; transform: scale(.98); }
 
-@keyframes fade{from{opacity:0}to{opacity:1}}
+        /* OFFER SECTION */
+        .offer-section { margin-bottom: 145px; }
+        .section-header-label { font-size: .65rem; letter-spacing: 2px; text-transform: uppercase; opacity: .55; margin-bottom: 35px; }
+        .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
 
-@media(max-width:980px){
-.offer-grid{grid-template-columns:1fr;gap:20px}
-}
+        .service-card {
+            background: #fcfcfc;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 6px;
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: all .3s ease;
+        }
 
-@media(max-width:700px){
-.page{width:calc(100% - 40px);padding:110px 0 80px}
-.title{margin-bottom:45px;font-size:2.2rem}
-.hero{height:440px;margin-bottom:75px}
-.hero-copy{left:7%;top:30px;bottom:auto;transform:none;width:86%}
-.hero-copy p{font-size:1.02rem;line-height:1.7}
-.hero-discover-btn{margin-top:25px;padding:10px 20px}
-.gallery-card{flex:0 0 260px;height:320px}
-.teachers{margin-bottom:100px}
-.section-title{margin-bottom:50px;font-size:1.4rem}
-.teacher,.teacher.lucia{display:flex;flex-direction:column;align-items:flex-start;gap:28px;margin-bottom:75px}
-.teacher.lucia .teacher-image{order:0}
-.teacher.lucia .teacher-info{order:1}
-.teacher-image{width:190px;height:238px}
-.form-row{grid-template-columns:1fr;gap:0}
-.contact{margin-top:30px}
-}
-</style>
+        .service-card:hover {
+            background: #fff;
+            border-color: rgba(0,0,0,0.25);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.05);
+            transform: translateY(-3px);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: .55rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 4px 8px;
+            border: 1px solid rgba(0,0,0,0.15);
+            border-radius: 20px;
+            opacity: .65;
+        }
+
+        .card-title { font-family: 'BehindNineties', serif; font-size: 1.4rem; font-weight: 400; margin: 0 0 10px; }
+        .card-subtitle { font-size: .65rem; letter-spacing: 1.8px; text-transform: uppercase; opacity: .5; margin-bottom: 20px; display: block; }
+        .card-desc { font-size: .88rem; line-height: 1.75; opacity: .8; margin: 0 0 25px; }
+
+        .card-details { border-top: 1px dashed rgba(0,0,0,0.1); padding-top: 18px; margin-bottom: 25px; }
+        .meta-item { font-size: .7rem; letter-spacing: 1px; text-transform: uppercase; opacity: .6; margin-bottom: 6px; display: block; }
+
+        .card-btn {
+            display: block;
+            width: 100%;
+            padding: 14px 0;
+            text-align: center;
+            background: #000;
+            color: #fff;
+            font-size: .62rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background .3s ease;
+        }
+
+        .card-btn:hover { background: #333; }
+
+        /* GALLERY SECTION */
+        .gallery-section { margin-bottom: 145px; }
+        .gallery-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 30px; }
+        .gallery-header .section-title { margin: 0; font-family: 'BehindNineties', serif; font-size: 1.5rem; font-weight: 400; text-transform: lowercase; }
+        .gallery-nav { display: flex; gap: 15px; }
+        .gallery-arrow {
+            background: none;
+            border: 1px solid rgba(0,0,0,0.2);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: .9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .3s ease;
+            color: #000;
+        }
+
+        @media (hover: hover) {
+            .gallery-arrow:hover:not(:disabled) { border-color: #000; background: #000; color: #fff; }
+        }
+
+        .gallery-arrow:disabled { opacity: .25; cursor: not-allowed; border-color: rgba(0,0,0,0.1); }
+
+        .gallery-carousel {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding-bottom: 10px;
+        }
+
+        .gallery-carousel::-webkit-scrollbar { display: none; }
+        .gallery-card { flex: 0 0 320px; height: 380px; overflow: hidden; border-radius: 4px; }
+        .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s ease; }
+        .gallery-card:hover img { transform: scale(1.04); }
+
+        /* TEACHERS SECTION */
+        .teachers { margin-bottom: 145px; }
+        .section-title { margin: 0 0 65px; font-family: 'BehindNineties', serif; font-size: 1.5rem; font-weight: 400; text-transform: lowercase; }
+        .teacher { display: grid; grid-template-columns: 260px 1fr; gap: 75px; align-items: center; margin-bottom: 100px; }
+        .teacher.lucia { grid-template-columns: 1fr 260px; }
+        .teacher-image { width: 260px; height: 325px; object-fit: cover; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); display: block; }
+        .teacher-rafael { object-position: center 0%; }
+        .teacher-info { max-width: 520px; }
+        .teacher-name { margin: 0 0 10px; font-family: 'BehindNineties', serif; font-size: 1.35rem; font-weight: 400; }
+        .teacher-role { margin: 0 0 22px; font-size: .62rem; letter-spacing: 1.5px; text-transform: uppercase; opacity: .6; }
+        .teacher-text { margin: 0; font-size: .9rem; line-height: 1.8; }
+
+        /* CONTACT SECTION */
+        .contact { max-width: 700px; margin: auto; text-align: center; }
+        .contact-title { margin: 0 0 30px; font-family: 'BehindNineties', serif; font-size: 1.5rem; font-weight: 400; }
+        .contact-button, .submit {
+            padding: 0;
+            border: 0;
+            background: none;
+            cursor: pointer;
+            font-size: .65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: .65;
+            color: #000;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .form { display: none; max-width: 600px; margin: 55px auto 0; text-align: left; }
+        .form.visible { display: block; animation: fade .5s ease; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .field { margin-bottom: 28px; }
+        .field label { display: block; margin-bottom: 8px; font-size: .58rem; letter-spacing: 1.8px; text-transform: uppercase; opacity: .55; }
+        .field input, .field textarea, .field select {
+            width: 100%;
+            padding: 7px 0 10px;
+            border: 0;
+            border-bottom: 1px solid #000;
+            outline: none;
+            background: transparent;
+            font-size: .95rem;
+            color: #000;
+            border-radius: 0;
+        }
+        .field select { cursor: pointer; border-radius: 0; -webkit-appearance: none; }
+        .field textarea { height: 100px; resize: vertical; }
+        .thanks { display: none; margin: 55px auto 0; font-size: .95rem; line-height: 1.8; }
+
+        /* FOOTER */
+        footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 35px 60px;
+            font-size: 0.70rem;
+            letter-spacing: 1px;
+            color: #000000;
+            font-family: 'FuturaLight', sans-serif;
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            margin-top: 80px;
+        }
+
+        .footer-left {
+            opacity: 0.8;
+            text-align: left;
+        }
+
+        @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+        /* RESPONSIVE (ESATTAMENTE COME ABOUT) */
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .right-nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+
+            nav.main-nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                font-size: 0.65rem;
+                margin-top: 0;
+            }
+
+            .container { width: calc(100% - 40px); padding: 160px 0 40px; }
+            .page-title { margin-bottom: 45px; font-size: 2.2rem; }
+            .hero { height: 440px; margin-bottom: 75px; }
+            .hero-copy { left: 7%; top: 30px; bottom: auto; transform: none; width: 86%; }
+            .hero-copy p { font-size: 1.02rem; line-height: 1.7; }
+            .hero-discover-btn { margin-top: 25px; padding: 10px 20px; }
+            .offer-grid { grid-template-columns: 1fr; gap: 20px; }
+            .gallery-card { flex: 0 0 260px; height: 320px; }
+            .teachers { margin-bottom: 100px; }
+            .section-title { margin-bottom: 50px; font-size: 1.4rem; }
+            .teacher, .teacher.lucia { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; margin-bottom: 75px; }
+            .teacher.lucia .teacher-image { order: 0; }
+            .teacher.lucia .teacher-info { order: 1; }
+            .teacher-image { width: 190px; height: 238px; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .contact { margin-top: 30px; }
+            footer { padding: 25px 20px; margin-top: 50px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<a href="index.html" class="home">← Home</a>
+<!-- Top Navigation Bar -->
+<div class="top-bar">
+    <a href="index.html" class="back-home">← Home</a>
 
-<div class="languages">
-<button id="en-button" class="active" onclick="setLanguage('en')">EN</button> |
-<button id="es-button" onclick="setLanguage('es')">ES</button>
+    <div class="right-nav-container">
+        <!-- Navigazione Inglese -->
+        <nav id="nav-en" class="main-nav">
+            <a href="about.html">About</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="artists.html">Artists</a>
+            <a href="art-consulting.html">Art Consulting</a>
+            <a href="studio.html" class="active-link">Studio</a>
+            <a href="journal.html">Journal</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+
+        <!-- Navigazione Spagnolo -->
+        <nav id="nav-es" class="main-nav hidden">
+            <a href="about.html">Quiénes somos</a>
+            <a href="exposiciones.html">Exposiciones</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="asesoria-de-arte.html">Asesoría de Arte</a>
+            <a href="studio.html" class="active-link">Senso Studio</a>
+            <a href="journal.html">Journal</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <!-- Switch Lingua -->
+        <div class="lang-switch" aria-label="Language selection">
+            <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> |
+            <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
+        </div>
+    </div>
 </div>
 
-<main class="page">
+<main class="container">
 
-<h1 class="title">senso studio</h1>
+<h1 class="page-title">senso studio</h1>
 
 <section class="hero">
 <img src="senso_studio.png" alt="Senso Studio - Painting Classes and Art Workshops in Barcelona" fetchpriority="high">
 
 <div class="hero-copy">
 
-<div class="en">
+<div id="hero-en" class="lang-content">
 <p>Painting classes designed to make art part of your everyday life.</p>
 <p style="margin-top:12px;">Accessible, hands-on experiences for individuals, children, teams and companies in Barcelona.</p>
 <button class="hero-discover-btn" onclick="scrollToOffer()">Discover the experience →</button>
 </div>
 
-<div class="es">
+<div id="hero-es" class="lang-content hidden">
 <p>Clases de pintura pensadas para hacer del arte parte de tu día a día.</p>
 <p style="margin-top:12px;">Experiencias prácticas y accesibles para particulares, niños, equipos y empresas en Barcelona.</p>
 <button class="hero-discover-btn" onclick="scrollToOffer()">Descubre la experiencia →</button>
@@ -295,108 +507,108 @@ html[lang="es"] .en{display:none!important}
 <section class="offer-section" id="experiences">
 
 <div class="section-header-label">
-<span class="en">How to experience Senso</span>
-<span class="es">Modalidades de experiencia</span>
+<span class="lang-en">How to experience Senso</span>
+<span class="lang-es hidden">Modalidades de experiencia</span>
 </div>
 
 <div class="offer-grid">
 
 <div class="service-card">
 
-<span class="badge en">Popular</span>
-<span class="badge es">Popular</span>
+<span class="badge lang-en">Popular</span>
+<span class="badge lang-es hidden">Popular</span>
 
 <div>
-<h2 class="card-title en">Weekly Classes</h2>
-<h2 class="card-title es">Clases Semanales</h2>
+<h2 class="card-title lang-en">Weekly Classes</h2>
+<h2 class="card-title lang-es hidden">Clases Semanales</h2>
 
-<span class="card-subtitle en">Adults & Studio Kids</span>
-<span class="card-subtitle es">Adultos y Studio Kids</span>
+<span class="card-subtitle lang-en">Adults & Studio Kids</span>
+<span class="card-subtitle lang-es hidden">Adultos y Studio Kids</span>
 
-<p class="card-desc en">Regular guided painting sessions to learn techniques, experiment with styles, and build a creative routine in Barcelona.</p>
-<p class="card-desc es">Sesiones guiadas regulares para aprender técnicas, experimentar con estilos y crear una rutina creativa en Barcelona.</p>
+<p class="card-desc lang-en">Regular guided painting sessions to learn techniques, experiment with styles, and build a creative routine in Barcelona.</p>
+<p class="card-desc lang-es hidden">Sesiones guiadas regulares para aprender técnicas, experimentar con estilos y crear una rutina creativa en Barcelona.</p>
 </div>
 
 <div>
 <div class="card-details">
-<span class="meta-item en">• 90 Minute sessions</span>
-<span class="meta-item es">• Sesiones de 90 minutos</span>
-<span class="meta-item en">• All levels welcome</span>
-<span class="meta-item es">• Todos los niveles</span>
-<span class="meta-item en">• Materials included</span>
-<span class="meta-item es">• Materiales incluidos</span>
-<span class="meta-item en">• Take home your artwork</span>
-<span class="meta-item es">• Te llevas tu obra a casa</span>
+<span class="meta-item lang-en">• 90 Minute sessions</span>
+<span class="meta-item lang-es hidden">• Sesiones de 90 minutos</span>
+<span class="meta-item lang-en">• All levels welcome</span>
+<span class="meta-item lang-es hidden">• Todos los niveles</span>
+<span class="meta-item lang-en">• Materials included</span>
+<span class="meta-item lang-es hidden">• Materiales incluidos</span>
+<span class="meta-item lang-en">• Take home your artwork</span>
+<span class="meta-item lang-es hidden">• Te llevas tu obra a casa</span>
 </div>
 
-<button class="card-btn en" onclick="selectInterest('Adult Classes')">Book a Spot →</button>
-<button class="card-btn es" onclick="selectInterest('Clases Adultos')">Reservar Plaza →</button>
+<button class="card-btn lang-en" onclick="selectInterest('Adult Classes')">Book a Spot →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Clases Adultos')">Reservar Plaza →</button>
 </div>
 
 </div>
 
 <div class="service-card">
 
-<span class="badge en">Gift Idea</span>
-<span class="badge es">Para Regalar</span>
+<span class="badge lang-en">Gift Idea</span>
+<span class="badge lang-es hidden">Para Regalar</span>
 
 <div>
-<h2 class="card-title en">Gift a Workshop</h2>
-<h2 class="card-title es">Regala un Taller</h2>
+<h2 class="card-title lang-en">Gift a Workshop</h2>
+<h2 class="card-title lang-es hidden">Regala un Taller</h2>
 
-<span class="card-subtitle en">Vouchers & Gift Cards</span>
-<span class="card-subtitle es">Bonos y Tarjetas Regalo</span>
+<span class="card-subtitle lang-en">Vouchers & Gift Cards</span>
+<span class="card-subtitle lang-es hidden">Bonos y Tarjetas Regalo</span>
 
-<p class="card-desc en">Give a unique creative experience. Digital gift vouchers for single workshops or class packs with open dates.</p>
-<p class="card-desc es">Regala una experiencia creativa única. Tarjeta regalo digital para un taller individual o pack de clases con fecha abierta.</p>
+<p class="card-desc lang-en">Give a unique creative experience. Digital gift vouchers for single workshops or class packs with open dates.</p>
+<p class="card-desc lang-es hidden">Regala una experiencia creativa única. Tarjeta regalo digital para un taller individual o pack de clases con fecha abierta.</p>
 </div>
 
 <div>
 <div class="card-details">
-<span class="meta-item en">• Flexible schedule</span>
-<span class="meta-item es">• Fecha abierta / Flexible</span>
-<span class="meta-item en">• Personalized Digital Voucher</span>
-<span class="meta-item es">• Bono digital personalizado</span>
-<span class="meta-item en">• Valid for 12 months</span>
-<span class="meta-item es">• Validez de 12 meses</span>
-<span class="meta-item en">• Take home your artwork</span>
-<span class="meta-item es">• Te llevas tu obra a casa</span>
+<span class="meta-item lang-en">• Flexible schedule</span>
+<span class="meta-item lang-es hidden">• Fecha abierta / Flexible</span>
+<span class="meta-item lang-en">• Personalized Digital Voucher</span>
+<span class="meta-item lang-es hidden">• Bono digital personalizado</span>
+<span class="meta-item lang-en">• Valid for 12 months</span>
+<span class="meta-item lang-es hidden">• Validez de 12 meses</span>
+<span class="meta-item lang-en">• Take home your artwork</span>
+<span class="meta-item lang-es hidden">• Te llevas tu obra a casa</span>
 </div>
 
-<button class="card-btn en" onclick="selectInterest('Gift Workshop')">Buy Gift Voucher →</button>
-<button class="card-btn es" onclick="selectInterest('Regala un taller')">Comprar Bono Regalo →</button>
+<button class="card-btn lang-en" onclick="selectInterest('Gift Workshop')">Buy Gift Voucher →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Regala un taller')">Comprar Bono Regalo →</button>
 </div>
 
 </div>
 
 <div class="service-card">
 
-<span class="badge en">For Teams</span>
-<span class="badge es">Empresas</span>
+<span class="badge lang-en">For Teams</span>
+<span class="badge lang-es hidden">Empresas</span>
 
 <div>
-<h2 class="card-title en">Corporate & Teams</h2>
-<h2 class="card-title es">Empresas y Equipos</h2>
+<h2 class="card-title lang-en">Corporate & Teams</h2>
+<h2 class="card-title lang-es hidden">Empresas y Equipos</h2>
 
-<span class="card-subtitle en">Team Building & Wellbeing</span>
-<span class="card-subtitle es">Team Building y Bienestar</span>
+<span class="card-subtitle lang-en">Team Building & Wellbeing</span>
+<span class="card-subtitle lang-es hidden">Team Building y Bienestar</span>
 
-<p class="card-desc en">Tailored workshops designed for team cohesion, creative thinking, off-sites, or weekly corporate wellbeing programs.</p>
-<p class="card-desc es">Talleres a medida diseñados para la cohesión de equipo, pensamiento creativo, eventos o programas semanales.</p>
+<p class="card-desc lang-en">Tailored workshops designed for team cohesion, creative thinking, off-sites, or weekly corporate wellbeing programs.</p>
+<p class="card-desc lang-es hidden">Talleres a medida diseñados para la cohesión de equipo, pensamiento creativo, eventos o programas semanales.</p>
 </div>
 
 <div>
 <div class="card-details">
-<span class="meta-item en">• At studio or on-site</span>
-<span class="meta-item es">• En nuestro studio o in-company</span>
-<span class="meta-item en">• Tailored group size</span>
-<span class="meta-item es">• Adaptado al tamaño del grupo</span>
-<span class="meta-item en">• Custom proposal</span>
-<span class="meta-item es">• Propuesta personalizada</span>
+<span class="meta-item lang-en">• At studio or on-site</span>
+<span class="meta-item lang-es hidden">• En nuestro studio o in-company</span>
+<span class="meta-item lang-en">• Tailored group size</span>
+<span class="meta-item lang-es hidden">• Adaptado al tamaño del grupo</span>
+<span class="meta-item lang-en">• Custom proposal</span>
+<span class="meta-item lang-es hidden">• Propuesta personalizada</span>
 </div>
 
-<button class="card-btn en" onclick="selectInterest('Corporate Events')">Request Proposal →</button>
-<button class="card-btn es" onclick="selectInterest('Empresas')">Solicitar Propuesta →</button>
+<button class="card-btn lang-en" onclick="selectInterest('Corporate Events')">Request Proposal →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Empresas')">Solicitar Propuesta →</button>
 </div>
 
 </div>
@@ -407,8 +619,8 @@ html[lang="es"] .en{display:none!important}
 <section class="gallery-section">
 
 <div class="gallery-header">
-<h2 class="section-title en">the experience</h2>
-<h2 class="section-title es">la experiencia</h2>
+<h2 class="section-title lang-en">the experience</h2>
+<h2 class="section-title lang-es hidden">la experiencia</h2>
 
 <div class="gallery-nav">
 <button class="gallery-arrow" id="gallery-prev" onclick="scrollGallery(-340)" disabled>←</button>
@@ -430,8 +642,8 @@ html[lang="es"] .en{display:none!important}
 
 <section class="teachers">
 
-<h2 class="section-title en">the teachers</h2>
-<h2 class="section-title es">los profesores</h2>
+<h2 class="section-title lang-en">the teachers</h2>
+<h2 class="section-title lang-es hidden">los profesores</h2>
 
 <article class="teacher">
 
@@ -441,12 +653,12 @@ html[lang="es"] .en{display:none!important}
 
 <h3 class="teacher-name">Rafael Reyes</h3>
 
-<div class="teacher-role en">Organizational Psychologist & Art Workshop Facilitator</div>
-<div class="teacher-role es">Psicólogo organizacional & facilitador de talleres artísticos</div>
+<div class="teacher-role lang-en">Organizational Psychologist & Art Workshop Facilitator</div>
+<div class="teacher-role lang-es hidden">Psicólogo organizacional & facilitador de talleres artísticos</div>
 
-<p class="teacher-text en">Rafael combines psychology, neuroscience, creativity and art to create experiences that foster personal and team development. With more than 13 years facilitating programs in Europe and Latin America, he brings his background in organizational psychology, leadership and emotional intelligence together with his practice as a self-taught painter.</p>
+<p class="teacher-text lang-en">Rafael combines psychology, neuroscience, creativity and art to create experiences that foster personal and team development. With more than 13 years facilitating programs in Europe and Latin America, he brings his background in organizational psychology, leadership and emotional intelligence together with his practice as a self-taught painter.</p>
 
-<p class="teacher-text es">Rafael combina psicología, neurociencia, creatividad y arte para crear experiencias que potencian el desarrollo personal y de los equipos. Cuenta con más de 13 años facilitando programas en Europa y Latinoamérica y une su formación en psicología organizacional, liderazgo e inteligencia emocional con su práctica como pintor autodidacta.</p>
+<p class="teacher-text lang-es hidden">Rafael combina psicología, neurociencia, creatividad y arte para crear experiencias que potencian el desarrollo personal y de los equipos. Cuenta con más de 13 años facilitando programas en Europa y Latinoamérica y une su formación en psicología organizacional, liderazgo e inteligencia emocional con su práctica como pintor autodidacta.</p>
 
 </div>
 </article>
@@ -457,12 +669,12 @@ html[lang="es"] .en{display:none!important}
 
 <h3 class="teacher-name">Lucía Cheves Dauber</h3>
 
-<div class="teacher-role en">Artist & Art Educator</div>
-<div class="teacher-role es">Artista & educadora artística</div>
+<div class="teacher-role lang-en">Artist & Art Educator</div>
+<div class="teacher-role lang-es hidden">Artista & educadora artística</div>
 
-<p class="teacher-text en">Guatemalan artist based in Barcelona, Lucía is represented by Senso and combines her artistic practice with teaching. She leads painting classes for children and adults in Barcelona, creating spaces for experimentation, creativity and curiosity.</p>
+<p class="teacher-text lang-en">Guatemalan artist based in Barcelona, Lucía is represented by Senso and combines her artistic practice with teaching. She leads painting classes for children and adults in Barcelona, creating spaces for experimentation, creativity and curiosity.</p>
 
-<p class="teacher-text es">Artista guatemalteca afincada en Barcelona, Lucía está representada por Senso y combina su práctica artística con la enseñanza. Imparte clases de pintura a niños y adultos en Barcelona, creando espacios de experimentación, creatividad y curiosidad.</p>
+<p class="teacher-text lang-es hidden">Artista guatemalteca afincada en Barcelona, Lucía está representada por Senso y combina su práctica artística con la enseñanza. Imparte clases de pintura a niños y adultos en Barcelona, creando espacios de experimentación, creatividad y curiosidad.</p>
 
 </div>
 
@@ -474,19 +686,19 @@ html[lang="es"] .en{display:none!important}
 
 <section class="contact" id="contact">
 
-<h2 class="contact-title en">experience art with us</h2>
-<h2 class="contact-title es">vive el arte con nosotros</h2>
+<h2 class="contact-title lang-en">experience art with us</h2>
+<h2 class="contact-title lang-es hidden">vive el arte con nosotros</h2>
 
 <button class="contact-button" onclick="showForm()">
-<span class="en">Get in touch →</span>
-<span class="es">Contacta con nosotros →</span>
+<span class="lang-en">Get in touch →</span>
+<span class="lang-es hidden">Contacta con nosotros →</span>
 </button>
 
 <form id="contact-form" class="form" action="https://formspree.io/f/mgorwree" method="POST">
 
 <div class="field">
-<label class="en">I am interested in</label>
-<label class="es">Estoy interesado en</label>
+<label class="lang-en">I am interested in</label>
+<label class="lang-es hidden">Estoy interesado en</label>
 
 <select name="interest" id="interest-select">
 <option value="General Inquiry">General Inquiry / Consulta General</option>
@@ -500,14 +712,14 @@ html[lang="es"] .en{display:none!important}
 <div class="form-row">
 
 <div class="field">
-<label class="en">First name</label>
-<label class="es">Nombre</label>
+<label class="lang-en">First name</label>
+<label class="lang-es hidden">Nombre</label>
 <input type="text" name="first_name" required>
 </div>
 
 <div class="field">
-<label class="en">Last name</label>
-<label class="es">Apellidos</label>
+<label class="lang-en">Last name</label>
+<label class="lang-es hidden">Apellidos</label>
 <input type="text" name="last_name" required>
 </div>
 
@@ -516,8 +728,8 @@ html[lang="es"] .en{display:none!important}
 <div class="form-row">
 
 <div class="field">
-<label class="en">Phone</label>
-<label class="es">Teléfono</label>
+<label class="lang-en">Phone</label>
+<label class="lang-es hidden">Teléfono</label>
 <input type="tel" name="phone" required>
 </div>
 
@@ -529,13 +741,13 @@ html[lang="es"] .en{display:none!important}
 </div>
 
 <div class="field">
-<label class="en">Message / Preferred Date</label>
-<label class="es">Mensaje / Fecha preferida</label>
+<label class="lang-en">Message / Preferred Date</label>
+<label class="lang-es hidden">Mensaje / Fecha preferida</label>
 <textarea name="message" required></textarea>
 </div>
 
-<button type="submit" class="submit en">Send Request →</button>
-<button type="submit" class="submit es">Enviar Solicitud →</button>
+<button type="submit" class="submit lang-en">Send Request →</button>
+<button type="submit" class="submit lang-es hidden">Enviar Solicitud →</button>
 
 </form>
 
@@ -545,99 +757,131 @@ html[lang="es"] .en{display:none!important}
 
 </main>
 
+<footer>
+    <div class="footer-left">
+        &copy; 2026 Senso Art. All rights reserved.
+    </div>
+</footer>
+
 <script>
+function setLang(lang) {
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+
+    const isSpanish = lang === 'es';
+    document.getElementById('nav-en').classList.toggle('hidden', isSpanish);
+    document.getElementById('nav-es').classList.toggle('hidden', !isSpanish);
+
+    const btnTarget = document.getElementById(`btn-${lang}`);
+    if (btnTarget) btnTarget.classList.add('active');
+
+    document.querySelectorAll('.lang-en').forEach(el => {
+        if (lang === 'en') el.classList.remove('hidden');
+        else el.classList.add('hidden');
+    });
+
+    document.querySelectorAll('.lang-es').forEach(el => {
+        if (lang === 'es') el.classList.remove('hidden');
+        else el.classList.add('hidden');
+    });
+
+    const heroEn = document.getElementById('hero-en');
+    const heroEs = document.getElementById('hero-es');
+    if (heroEn && heroEs) {
+        if (lang === 'es') {
+            heroEn.classList.add('hidden');
+            heroEs.classList.remove('hidden');
+        } else {
+            heroEn.classList.remove('hidden');
+            heroEs.classList.add('hidden');
+        }
+    }
+
+    document.documentElement.lang = lang;
+    localStorage.setItem('senso_lang', lang);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('senso_lang') || 'en';
+    setLang(savedLang === 'it' ? 'en' : savedLang);
+});
+
 function scrollToOffer(){
-const el=document.getElementById('experiences');
-if(el)el.scrollIntoView({behavior:'smooth'});
+    const el = document.getElementById('experiences');
+    if(el) el.scrollIntoView({behavior:'smooth'});
 }
 
 function showForm(){
-const form=document.getElementById('contact-form');
-form.classList.add('visible');
-form.scrollIntoView({behavior:'smooth',block:'center'});
+    const form = document.getElementById('contact-form');
+    form.classList.add('visible');
+    form.scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 function selectInterest(type){
-if(window.event)window.event.stopPropagation();
-showForm();
-const select=document.getElementById('interest-select');
-const searchType=type.toLowerCase();
+    if(window.event) window.event.stopPropagation();
+    showForm();
+    const select = document.getElementById('interest-select');
+    const searchType = type.toLowerCase();
 
-for(let option of select.options){
-const val=option.value.toLowerCase();
-const text=option.text.toLowerCase();
+    for(let option of select.options){
+        const val = option.value.toLowerCase();
+        const text = option.text.toLowerCase();
 
-if(
-val.includes(searchType)||
-text.includes(searchType)||
-(searchType.includes('gift')&&val.includes('gift'))||
-(searchType.includes('regala')&&val.includes('gift'))||
-(searchType.includes('corporate')&&val.includes('corporate'))||
-(searchType.includes('empresas')&&val.includes('corporate'))
-){
-select.value=option.value;
-break;
-}
-}
+        if(
+            val.includes(searchType) ||
+            text.includes(searchType) ||
+            (searchType.includes('gift') && val.includes('gift')) ||
+            (searchType.includes('regala') && val.includes('gift')) ||
+            (searchType.includes('corporate') && val.includes('corporate')) ||
+            (searchType.includes('empresas') && val.includes('corporate'))
+        ){
+            select.value = option.value;
+            break;
+        }
+    }
 }
 
-const carousel=document.getElementById('gallery-carousel');
-const prevBtn=document.getElementById('gallery-prev');
-const nextBtn=document.getElementById('gallery-next');
+const carousel = document.getElementById('gallery-carousel');
+const prevBtn = document.getElementById('gallery-prev');
+const nextBtn = document.getElementById('gallery-next');
 
 function updateGalleryNav(){
-if(!carousel)return;
-
-const maxScrollLeft=carousel.scrollWidth-carousel.clientWidth;
-
-if(prevBtn)prevBtn.disabled=carousel.scrollLeft<=5;
-if(nextBtn)nextBtn.disabled=carousel.scrollLeft>=maxScrollLeft-5;
+    if(!carousel) return;
+    const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+    if(prevBtn) prevBtn.disabled = carousel.scrollLeft <= 5;
+    if(nextBtn) nextBtn.disabled = carousel.scrollLeft >= maxScrollLeft - 5;
 }
 
 function scrollGallery(distance){
-if(!carousel)return;
-carousel.scrollBy({left:distance,behavior:'smooth'});
+    if(!carousel) return;
+    carousel.scrollBy({left: distance, behavior: 'smooth'});
 }
 
 if(carousel){
-carousel.addEventListener('scroll',updateGalleryNav);
-window.addEventListener('resize',updateGalleryNav);
-updateGalleryNav();
+    carousel.addEventListener('scroll', updateGalleryNav);
+    window.addEventListener('resize', updateGalleryNav);
+    updateGalleryNav();
 }
 
-document.getElementById('contact-form').addEventListener('submit',async function(event){
-event.preventDefault();
+document.getElementById('contact-form').addEventListener('submit', async function(event){
+    event.preventDefault();
+    const form = event.target;
+    const currentLang = localStorage.getItem('senso_lang') || 'en';
 
-const form=event.target;
+    const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { Accept: 'application/json' }
+    });
 
-const response=await fetch(form.action,{
-method:'POST',
-body:new FormData(form),
-headers:{Accept:'application/json'}
+    if(response.ok){
+        form.style.display = 'none';
+        const thanks = document.getElementById('thanks');
+        thanks.textContent = currentLang === 'es'
+            ? 'Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.'
+            : 'Thank you for your message. We will get in touch with you soon.';
+        thanks.style.display = 'block';
+    }
 });
-
-if(response.ok){
-form.style.display='none';
-
-const thanks=document.getElementById('thanks');
-
-thanks.textContent=document.documentElement.lang==='es'
-?'Gracias por tu mensaje. Nos pondremos en contacto contigo pronto.'
-:'Thank you for your message. We will get in touch with you soon.';
-
-thanks.style.display='block';
-}
-});
-
-function setLanguage(language){
-document.documentElement.lang=language;
-document.getElementById('en-button').classList.toggle('active',language==='en');
-document.getElementById('es-button').classList.toggle('active',language==='es');
-localStorage.setItem('senso_lang',language);
-}
-
-const savedLang=localStorage.getItem('senso_lang')||'en';
-setLanguage(savedLang);
 </script>
 
 </body>
