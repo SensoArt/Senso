@@ -63,7 +63,7 @@ body {
 a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
 button, input, textarea, select { font-family: inherit; color: inherit; }
 
-/* BARRA DI NAVIGAZIONE IN ALTA PAGINA */
+/* BARRA DI NAVIGAZIONE IN ALTO */
 .top-bar {
     position: absolute;
     top: 0;
@@ -375,53 +375,44 @@ nav.main-nav a.active-link::after {
 .field textarea { height: 100px; resize: vertical; }
 .thanks { display: none; margin: 55px auto 0; font-size: .95rem; line-height: 1.8; }
 
-/* GRIGLIA DI NAVIGAZIONE A FINE PAGINA */
-.nav-grid-container {
-    width: min(1200px, calc(100% - 80px));
-    margin: 80px auto 40px auto;
+/* SEZIONE FOOTER COMPLETA CON GRIGLIA NAVIGAZIONE */
+footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+    padding: 60px 60px 35px 60px;
+    margin-top: 80px;
+    font-family: 'FuturaLight', sans-serif;
 }
 
-.nav-grid {
+.footer-nav-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px 40px;
-}
-
-.nav-item {
-    text-align: center;
+    gap: 25px 45px;
+    margin-bottom: 50px;
     text-transform: uppercase;
     font-size: 0.72rem;
     letter-spacing: 2px;
 }
 
-.nav-item a {
+.footer-nav-grid a {
     color: #000;
     opacity: 0.75;
     transition: opacity 0.3s;
 }
 
-.nav-item a:hover {
+.footer-nav-grid a:hover {
     opacity: 1;
 }
 
-/* FOOTER */
-footer {
+.footer-bottom {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-    padding: 35px 60px;
     font-size: 0.70rem;
     letter-spacing: 1px;
     color: #000000;
-    font-family: 'FuturaLight', sans-serif;
-    border-top: 1px solid rgba(0, 0, 0, 0.15);
-    background-color: #fff;
-}
-
-.footer-left {
     opacity: 0.8;
-    text-align: left;
 }
 
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
@@ -463,9 +454,9 @@ footer {
     .teacher-image { width: 190px; height: 238px; }
     .form-row { grid-template-columns: 1fr; gap: 0; }
     .contact { margin-top: 30px; }
-    .nav-grid-container { width: calc(100% - 40px); margin: 50px auto 30px auto; }
-    .nav-grid { gap: 20px; }
-    footer { padding: 30px 20px; }
+    footer { padding: 40px 20px 30px 20px; margin-top: 50px; }
+    .footer-nav-grid { gap: 18px 25px; margin-bottom: 35px; }
+    .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
 </style>
 </head>
@@ -765,22 +756,18 @@ footer {
 
 </main>
 
-<!-- GRIGLIA NAVIGAZIONE INFERIORE -->
-<div class="nav-grid-container">
-    <div class="nav-grid">
-        <div class="nav-item"><a href="about.html">About</a></div>
-        <div class="nav-item"><a href="exhibitions.html">Exhibitions</a></div>
-        <div class="nav-item"><a href="artists.html">Artists</a></div>
-        <div class="nav-item"><a href="art-consulting.html">Art Consulting</a></div>
-        <div class="nav-item"><a href="studio.html">Studio</a></div>
-        <div class="nav-item"><a href="journal.html">Journal</a></div>
-        <div class="nav-item"><a href="contacts.html">Contacts</a></div>
-    </div>
-</div>
-
 <footer>
-    <div class="footer-left">
-        &copy; 2026 Senso Art. All rights reserved.
+    <div class="footer-nav-grid">
+        <a href="about.html">About</a>
+        <a href="exhibitions.html">Exhibitions</a>
+        <a href="artists.html">Artists</a>
+        <a href="art-consulting.html">Art Consulting</a>
+        <a href="studio.html">Studio</a>
+        <a href="journal.html">Journal</a>
+        <a href="contacts.html">Contacts</a>
+    </div>
+    <div class="footer-bottom">
+        <span>&copy; 2026 Senso Art. All rights reserved.</span>
     </div>
 </footer>
 
