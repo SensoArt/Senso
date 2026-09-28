@@ -38,6 +38,9 @@
             font-display: swap; 
         }
 
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
@@ -59,7 +62,12 @@
             font-family: 'FuturaLight', sans-serif; 
             -webkit-font-smoothing: antialiased; 
             overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
+
+        a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
 
         .bg-container {
             position: fixed;
@@ -71,29 +79,87 @@
             background-color: #fff;
         }
 
+        /* BARRA DI NAVIGAZIONE IN ALTA PAGINA */
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 40px 60px 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            z-index: 10;
+        }
+
         .back-home { 
-            position: fixed; 
-            top: 30px; 
-            left: 30px; 
             text-decoration: none; 
             color: #000; 
+            font-family: 'FuturaLight', sans-serif;
             text-transform: uppercase; 
             font-size: 0.65rem; 
             letter-spacing: 2px; 
-            opacity: 0.6; 
-            z-index: 1000; 
+            opacity: 0.8; 
             transition: opacity 0.3s; 
+            white-space: nowrap;
+            margin-top: 2px;
         }
 
         .back-home:hover { opacity: 1; }
 
+        .right-nav-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-left: auto;
+        }
+
+        nav.main-nav {
+            display: flex;
+            gap: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            font-family: 'FuturaLight', sans-serif;
+            margin-top: 12px;
+        }
+
+        nav.main-nav a {
+            color: #000000;
+            text-decoration: none;
+            opacity: 0.75;
+            position: relative;
+            padding-bottom: 4px;
+            transition: opacity 0.3s;
+        }
+
+        nav.main-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: 0;
+            left: 0;
+            background-color: #000000;
+            transition: width 0.3s ease;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a.active-link {
+            opacity: 1;
+        }
+
+        nav.main-nav a:hover::after,
+        nav.main-nav a.active-link::after {
+            width: 100%;
+        }
+
         .lang-switch { 
-            position: fixed; 
-            top: 30px; 
-            right: 30px; 
             font-size: 0.65rem; 
             letter-spacing: 2px; 
-            z-index: 1000; 
+            font-family: 'FuturaLight', sans-serif;
+            color: #000;
+            white-space: nowrap;
         }
 
         .lang-btn { 
@@ -101,12 +167,12 @@
             border: none; 
             color: #000; 
             cursor: pointer; 
-            padding: 0 5px; 
-            opacity: 0.3; 
+            padding: 0 4px; 
+            opacity: 0.35; 
             text-transform: uppercase; 
             font-family: inherit; 
             font-size: 0.65rem; 
-            letter-spacing: inherit; 
+            letter-spacing: 2px; 
             transition: opacity 0.3s; 
         }
 
@@ -114,8 +180,10 @@
 
         .container { 
             max-width: 800px; 
+            width: calc(100% - 80px);
             margin: 0 auto; 
-            padding: 160px 25px 120px; 
+            padding: 160px 0 120px; 
+            flex: 1 0 auto;
         }
 
         .journal-header {
@@ -185,10 +253,57 @@
 
         .hidden { display: none !important; }
 
-        @media (max-width: 800px) {
-            .container { padding-top: 120px; }
-            .back-home { top: 25px; left: 20px; }
-            .lang-switch { top: 25px; right: 20px; }
+        /* FOOTER */
+        footer {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 35px 60px;
+            font-size: 0.70rem;
+            letter-spacing: 1px;
+            color: #000000;
+            font-family: 'FuturaLight', sans-serif;
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
+            background-color: #fff;
+            margin-top: 80px;
+        }
+
+        .footer-left {
+            opacity: 0.8;
+            text-align: left;
+        }
+
+        @media (max-width: 900px) {
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            .right-nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                width: 100%;
+            }
+
+            nav.main-nav {
+                flex-wrap: wrap;
+                gap: 12px;
+                font-size: 0.65rem;
+                margin-top: 0;
+            }
+
+            .container { 
+                width: calc(100% - 40px);
+                padding-top: 160px; 
+            }
+
+            footer { 
+                padding: 25px 20px; 
+                margin-top: 50px; 
+            }
         }
     </style>
 </head>
@@ -196,13 +311,52 @@
 
 <div class="bg-container"></div>
 
-<a href="index.html" class="back-home">← Home</a>
+<!-- Top Navigation Bar -->
+<div class="top-bar">
+    <a href="index.html" class="back-home">← Home</a>
 
-<nav class="lang-switch" aria-label="Language selection">
-    <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> | 
-    <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
-    <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
-</nav>
+    <div class="right-nav-container">
+        <!-- Navigazione Inglese -->
+        <nav id="nav-en" class="main-nav">
+            <a href="about.html">About</a>
+            <a href="exhibitions.html">Exhibitions</a>
+            <a href="artists.html">Artists</a>
+            <a href="art-consulting.html">Art Consulting</a>
+            <a href="studio.html">Studio</a>
+            <a href="journal.html" class="active-link">Journal</a>
+            <a href="contacts.html">Contacts</a>
+        </nav>
+
+        <!-- Navigazione Spagnolo -->
+        <nav id="nav-es" class="main-nav hidden">
+            <a href="about.html">Quiénes somos</a>
+            <a href="exposiciones.html">Exposiciones</a>
+            <a href="artistas.html">Artistas</a>
+            <a href="asesoria-de-arte.html">Asesoría de Arte</a>
+            <a href="studio.html">Senso Studio</a>
+            <a href="journal.html" class="active-link">Journal</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+
+        <!-- Navigazione Italiano -->
+        <nav id="nav-it" class="main-nav hidden">
+            <a href="about.html">Chi siamo</a>
+            <a href="exhibitions.html">Mostre</a>
+            <a href="artists.html">Artisti</a>
+            <a href="art-consulting.html">Consulenza d'Arte</a>
+            <a href="studio.html">Studio</a>
+            <a href="journal.html" class="active-link">Journal</a>
+            <a href="contacts.html">Contatti</a>
+        </nav>
+
+        <!-- Switch Lingua (3 lingue: EN, ES, IT) -->
+        <div class="lang-switch" aria-label="Language selection">
+            <button onclick="setLang('en')" id="btn-en" class="lang-btn">EN</button> | 
+            <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button> |
+            <button onclick="setLang('it')" id="btn-it" class="lang-btn">IT</button>
+        </div>
+    </div>
+</div>
 
 <div class="container">
 
@@ -239,6 +393,12 @@
     </main>
 </div>
 
+<footer>
+    <div class="footer-left">
+        &copy; 2026 Senso Art. All rights reserved.
+    </div>
+</footer>
+
 <script>
     let currentLang = localStorage.getItem('senso_lang') || 'it';
 
@@ -250,6 +410,14 @@
         document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
         const activeBtn = document.getElementById(`btn-${lang}`);
         if (activeBtn) activeBtn.classList.add('active');
+
+        const navEn = document.getElementById('nav-en');
+        const navEs = document.getElementById('nav-es');
+        const navIt = document.getElementById('nav-it');
+
+        if (navEn) navEn.classList.toggle('hidden', lang !== 'en');
+        if (navEs) navEs.classList.toggle('hidden', lang !== 'es');
+        if (navIt) navIt.classList.toggle('hidden', lang !== 'it');
 
         document.querySelectorAll('.lang-en, .lang-es, .lang-it').forEach(el => el.classList.add('hidden'));
         document.querySelectorAll(`.lang-${lang}`).forEach(el => el.classList.remove('hidden'));
