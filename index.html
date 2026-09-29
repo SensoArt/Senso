@@ -482,27 +482,21 @@ footer {
     
     <div class="hero-text-overlay">
       <h1>contemporary<br>expression space.</h1>
-      <p>We work with contemporary artists through exhibitions, selected works, art consulting, curatorial project and artist-led experiences.</p>
+      <p>We work with contemporary artists through exhibitions, selected works, art consulting, curatorial projects and artist-led experiences.</p>
     </div>
   </section>
 </div>
 
 <!-- REVENUE ROUTER -->
-<section class="revenue-router">
+<section class="revenue-router" id="revenue-router">
   <article class="revenue-route">
-    <h2>collect art.</h2>
-    <p>Discover selected contemporary works and arrange a private viewing with Senso.</p>
-    <a href="catalogue.html">Explore available works →</a>
+    <h2><span class="en-home">collect art.</span><span class="es-home hidden">coleccionar arte.</span></h2><p class="en-home">Discover selected contemporary works and arrange a private viewing with Senso.</p><p class="es-home hidden">Descubre obras contemporáneas seleccionadas y concierta una visita privada con Senso.</p><a href="catalogue.html"><span class="en-home">Explore available works →</span><span class="es-home hidden">Ver obras disponibles →</span></a>
   </article>
   <article class="revenue-route">
-    <h2>art for spaces.</h2>
-    <p>Contemporary art selected for private residences, hospitality and distinctive spaces.</p>
-    <a href="art-consulting.html">Discuss a project →</a>
+    <h2><span class="en-home">art for spaces.</span><span class="es-home hidden">arte para espacios.</span></h2><p class="en-home">Contemporary art selected for private residences, hospitality and distinctive spaces.</p><p class="es-home hidden">Arte contemporáneo seleccionado para residencias privadas, hospitality y espacios con identidad.</p><a href="art-consulting.html"><span class="en-home">Discuss a project →</span><span class="es-home hidden">Cuéntanos tu proyecto →</span></a>
   </article>
   <article class="revenue-route">
-    <h2>art experiences.</h2>
-    <p>Artist-led cultural experiences for companies, teams and private groups.</p>
-    <a href="studio.html">Explore Senso Studio →</a>
+    <h2><span class="en-home">art experiences.</span><span class="es-home hidden">experiencias artísticas.</span></h2><p class="en-home">Artist-led cultural experiences for companies, teams and private groups.</p><p class="es-home hidden">Experiencias dirigidas por artistas para empresas, equipos y grupos privados.</p><a href="studio.html"><span class="en-home">Explore Senso Studio →</span><span class="es-home hidden">Descubrir Senso Studio →</span></a>
   </article>
 </section>
 
@@ -550,6 +544,8 @@ function setLang(lang){
   document.getElementById('btn-es').classList.toggle('active', isSpanish);
 
   document.getElementById('next-exhibition-label').textContent = isSpanish ? 'Próxima Exposición :' : 'Next Exhibition :';
+  document.querySelectorAll('.en-home').forEach(el=>el.classList.toggle('hidden',isSpanish));
+  document.querySelectorAll('.es-home').forEach(el=>el.classList.toggle('hidden',!isSpanish));
 
   document.documentElement.lang = lang;
   localStorage.setItem('senso_lang', lang);
