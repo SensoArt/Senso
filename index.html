@@ -99,7 +99,7 @@ body {
 
 /* Three framed home panels */
 .home-panel{width:100%;min-height:100vh;min-height:100dvh;overflow:hidden}
-.hero-panel{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column;background:#f4f4f4}
+.hero-panel{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column;background:#fff}
 
 /* Header Navbar */
 header {
@@ -231,18 +231,25 @@ nav a:hover::after {
   overflow:hidden;
 }
 
-.hero-banner {
-  position: relative;
-  width: 100%;
+.hero-banner{
+  position:absolute;
+  inset:0;
+  width:100%;
   height:100%;
   min-height:0;
+  margin:0;
+  padding:0;
   overflow:hidden;
   background:#f4f4f4;
 }
 
-.hero-img {
+.hero-img{
+  position:absolute;
+  inset:0;
   width:100%;
   height:100%;
+  margin:0;
+  padding:0;
   object-fit:cover;
   object-position:center;
   display:block;
@@ -407,7 +414,7 @@ footer {
 
   .hero-panel{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column}
   .hero-banner{height:100%;min-height:0}
-  .hero-wrapper{margin-top:0}
+  .hero-wrapper{margin:0}
 
   .hero-text-overlay {
     left: 20px;
