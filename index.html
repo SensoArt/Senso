@@ -98,8 +98,8 @@ body {
 }
 
 /* Three framed home panels */
-.home-panel{width:100%;min-height:100svh;overflow:hidden}
-.hero-panel{height:100svh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr)}
+.home-panel{width:100%;min-height:100vh;min-height:100dvh;overflow:hidden}
+.hero-panel{height:100vh;height:100dvh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr)}
 
 /* Header Navbar */
 header {
@@ -241,10 +241,8 @@ nav a:hover::after {
 }
 
 .hero-img {
-  position:absolute;
-  inset:-3px 0 -3px 0;
   width:100%;
-  height:calc(100% + 6px);
+  height:100%;
   object-fit:cover;
   object-position:center;
   display:block;
@@ -407,7 +405,7 @@ footer {
     justify-content: flex-start;
   }
 
-  .hero-panel{height:100svh;min-height:0;grid-template-rows:auto minmax(0,1fr)}
+  .hero-panel{height:100vh;height:100dvh;min-height:0;grid-template-rows:auto minmax(0,1fr)}
   .hero-banner{height:100%;min-height:0}
   .hero-wrapper{margin-top:0}
 
