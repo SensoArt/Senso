@@ -226,7 +226,7 @@ button,input,textarea,select{font-family:inherit}
 
 .process-grid{
     display:grid;
-    grid-template-columns:repeat(5,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:55px;
 }
 
@@ -547,8 +547,7 @@ button,input,textarea,select{font-family:inherit}
 <p>We develop a considered selection, advising on works, scale, positioning and acquisition to create a coherent relationship between the art and its surroundings. Where appropriate, we can also present works within the space, allowing clients to experience how they work in context before making a final decision.</p>
 </div>
 
-<div class="process-item"><h3>Acquire</h3><p>We support the client through the acquisition process, from final selection to purchase.</p></div>
-<div class="process-item"><h3>Install</h3><p>Where required, we coordinate framing, delivery, placement and installation so the artistic direction carries through to the finished space.</p></div>
+<div class="process-item"><h3>Acquire & place</h3><p>We support acquisition and, where required, coordinate framing, delivery, placement and installation through to the finished space.</p></div>
 
 </div>
 
@@ -646,8 +645,7 @@ For projects where art matters, Senso brings together the expertise, artists and
 <p>Desarrollamos una selección cuidada, asesorando sobre obras, escala, ubicación y adquisición para crear una relación coherente entre el arte y su entorno. Cuando es apropiado, también podemos presentar las obras dentro del espacio, permitiendo al cliente experimentar cómo funcionan en contexto antes de tomar una decisión final.</p>
 </div>
 
-<div class="process-item"><h3>Adquirir</h3><p>Acompañamos al cliente durante el proceso de adquisición, desde la selección final hasta la compra.</p></div>
-<div class="process-item"><h3>Instalar</h3><p>Cuando el proyecto lo requiere, coordinamos enmarcado, transporte, colocación e instalación para mantener la dirección artística hasta el espacio terminado.</p></div>
+<div class="process-item"><h3>Adquirir y situar</h3><p>Acompañamos la adquisición y, cuando el proyecto lo requiere, coordinamos enmarcado, transporte, colocación e instalación hasta el espacio terminado.</p></div>
 
 </div>
 
@@ -696,59 +694,12 @@ Para proyectos en los que el arte importa, Senso reúne la experiencia, los arti
 
 <!-- FORMULARIO DE CONTACTO -->
 <div id="form-wrapper" class="form-wrapper">
-
 <form id="contact-form" class="contact-form" action="https://formspree.io/f/mgorwree" method="POST">
-
-<div class="form-field">
-<label id="lbl-project">Project Type</label>
-<select id="select-project" name="project_type" required></select>
-</div>
-
-<div class="form-row">
-
-<div class="form-field">
-<label id="lbl-first">First name</label>
-<input type="text" name="first_name" required>
-</div>
-
-<div class="form-field">
-<label id="lbl-last">Last name</label>
-<input type="text" name="last_name" required>
-</div>
-
-</div>
-
-<div class="form-row">
-
-<div class="form-field">
-<label id="lbl-email">Email</label>
-<input type="email" name="email" required>
-</div>
-
-<div class="form-field">
-<label id="lbl-phone">Phone</label>
-<input type="tel" name="phone">
-</div>
-
-</div>
-
-<div class="form-field">
-<label id="lbl-location">Project location</label><input type="text" name="project_location" required></div>
-<div class="form-row"><div class="form-field"><label id="lbl-phase">Project phase</label><select name="project_phase" id="select-phase" required><option value="">Select...</option><option>Planning / design</option><option>In progress</option><option>Ready for art</option></select></div><div class="form-field"><label id="lbl-date">Decision / opening date</label><input type="text" name="decision_date" placeholder="Approximate date"></div></div>
-<div class="form-row"><div class="form-field"><label id="lbl-need">What do you need?</label><select name="project_need" id="select-need" required><option value="">Select...</option><option>Artwork selection</option><option>Collection / multiple works</option><option>Artist commission</option><option>Art direction + acquisition</option><option>Installation coordination</option></select></div><div class="form-field"><label id="lbl-budget">Approximate art investment</label><input type="text" name="art_budget" placeholder="Optional"></div></div>
-<div class="form-field"><label id="lbl-comments">Project details / space</label><textarea name="comments" required placeholder="Tell us about the space, scope and who is involved in the decision."></textarea>
-</div>
-
-<input type="hidden" id="form-lang-input" name="language" value="English">
-
-<div class="form-actions">
-<input id="submit-btn" class="submit-button" type="submit" value="Send Request →">
-</div>
-
-</form>
-
-</div>
-
+<div class="form-field"><label id="lbl-project">Project Type</label><select id="select-project" name="project_type" required></select></div>
+<div class="form-row"><div class="form-field"><label id="lbl-first">First name</label><input type="text" name="first_name" required></div><div class="form-field"><label id="lbl-email">Email</label><input type="email" name="email" required></div></div>
+<div class="form-row"><div class="form-field"><label>Project location</label><input type="text" name="project_location" required></div><div class="form-field"><label>Decision / opening date</label><input type="text" name="decision_date" placeholder="Approximate date"></div></div>
+<div class="form-field"><label id="lbl-comments">Tell us about the space</label><textarea name="comments" required placeholder="What are you working on, and what would you like art to do in the space?"></textarea></div>
+<input type="hidden" id="form-lang-input" name="language" value="English"><div class="form-actions"><input id="submit-btn" class="submit-button" type="submit" value="Send Request →"></div></form></div>
 </main>
 
 <div id="success-popup" class="success-popup">
