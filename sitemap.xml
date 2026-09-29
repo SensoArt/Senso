@@ -3,7 +3,7 @@
 
   <url>
     <loc>https://senso-art.com/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-30</lastmod>
     <priority>1.00</priority>
   </url>
 
@@ -112,6 +112,12 @@
   <url>
     <loc>https://senso-art.com/the-need-for-beauty.html</loc>
     <lastmod>2026-09-02</lastmod>
+  </url>
+
+  <url>
+    <loc>https://senso-art.com/resonance.html</loc>
+    <lastmod>2026-09-30</lastmod>
+    <priority>0.80</priority>
   </url>
 
 </urlset>
