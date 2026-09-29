@@ -99,7 +99,7 @@ body {
 
 /* Three framed home panels */
 .home-panel{width:100%;min-height:100svh;overflow:hidden}
-.hero-panel{height:100svh;display:flex;flex-direction:column}
+.hero-panel{height:100svh;min-height:0;display:grid;grid-template-rows:auto minmax(0,1fr)}
 
 /* Header Navbar */
 header {
@@ -405,7 +405,7 @@ footer {
     justify-content: flex-start;
   }
 
-  .hero-panel{height:100svh;min-height:620px}
+  .hero-panel{height:100svh;min-height:0;grid-template-rows:auto minmax(0,1fr)}
   .hero-banner{height:100%;min-height:0}
   .hero-wrapper{margin-top:0}
 
