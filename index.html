@@ -279,14 +279,15 @@ nav a:hover::after {
   text-shadow: 0 2px 15px rgba(0,0,0,0.7);
 }
 
-/* Three editorial entry points */
-.revenue-router{width:min(1500px,100%);min-height:100svh;margin:0 auto;padding:clamp(70px,8vw,120px) 50px;display:flex;flex-direction:column;justify-content:center;gap:clamp(38px,5vw,70px)}
-.route-intro{display:flex;justify-content:space-between;align-items:end;gap:25px}.route-intro p{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;margin:0}.route-intro h2{font-family:'BehindTheNineties',Georgia,serif;font-size:clamp(2rem,3.5vw,3.5rem);font-weight:normal;line-height:1.05;margin:0}
-.route-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.5vw,40px)}
-.revenue-route{display:block;color:#111;text-decoration:none;min-width:0}.route-image{display:block;overflow:hidden;background:#eee9e2;aspect-ratio:4/5}.route-image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.revenue-route:hover .route-image img{transform:scale(1.035)}.revenue-route:focus-visible{outline:2px solid #111;outline-offset:5px}.route-caption{display:flex;align-items:baseline;gap:13px;border-top:1px solid #111;margin-top:20px;padding-top:16px}.route-number{font-size:.65rem;letter-spacing:.13em}.route-caption h3{font-family:'BehindTheNineties',Georgia,serif;font-size:clamp(1.6rem,2.25vw,2.4rem);font-weight:normal;line-height:1;margin:0;flex:1}.route-arrow{font-size:1.2rem;transition:transform .25s ease}.revenue-route:hover .route-arrow{transform:translate(4px,-4px)}
-@media(max-width:900px){.revenue-router{padding:75px 20px}.route-grid{gap:18px}.route-caption{gap:8px}.route-caption h3{font-size:1.55rem}}
-@media(max-width:650px){.revenue-router{gap:34px;padding:68px 20px 80px}.route-intro{display:block}.route-intro p{margin-bottom:14px}.route-grid{grid-template-columns:1fr;gap:42px}.route-image{aspect-ratio:1.45/1}.route-caption{margin-top:13px;padding-top:12px}.route-caption h3{font-size:1.9rem}}
-@media(prefers-reduced-motion:reduce){.route-image img,.route-arrow{transition:none}}
+/* Three quiet entry points */
+.revenue-router{width:min(1450px,100%);min-height:100svh;margin:0 auto;padding:clamp(70px,8vw,125px) 50px;display:flex;flex-direction:column;justify-content:center}
+.route-intro{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;margin:0 0 18px}
+.route-grid{display:block}
+.revenue-route{display:grid;grid-template-columns:72px minmax(0,1fr) 50px;align-items:center;min-height:clamp(132px,16vh,180px);border-top:1px solid #b8b8b8;color:#111;text-decoration:none;transition:padding .25s ease,border-color .25s ease}
+.revenue-route:last-child{border-bottom:1px solid #b8b8b8}.revenue-route:hover{padding-left:12px;border-color:#111}.route-number{font-size:.65rem;letter-spacing:.18em}.revenue-route h2{font-family:'BehindTheNineties',Georgia,serif;font-size:clamp(2.25rem,5vw,5rem);font-weight:normal;line-height:1;margin:0}.route-arrow{font-size:1.55rem;text-align:right;transition:transform .25s ease}.revenue-route:hover .route-arrow{transform:translate(4px,-4px)}.revenue-route:focus-visible{outline:2px solid #111;outline-offset:3px}
+@media(max-width:900px){.revenue-router{padding:70px 20px}.revenue-route{grid-template-columns:45px minmax(0,1fr) 35px}}
+@media(max-width:580px){.revenue-router{min-height:100svh;padding:70px 20px 80px}.route-intro{margin-bottom:14px}.revenue-route{grid-template-columns:32px minmax(0,1fr) 28px;min-height:clamp(130px,18svh,170px)}.revenue-route h2{font-size:clamp(2rem,9vw,2.7rem)}.route-arrow{font-size:1.25rem}}
+@media(prefers-reduced-motion:reduce){.revenue-route,.route-arrow{transition:none}}
 
 /* Sezione Next Exhibition */
 .exhibition-container {
@@ -501,12 +502,12 @@ footer {
 </section>
 
 <!-- REVENUE ROUTER -->
-<section class="revenue-router home-panel" id="revenue-router">
-  <div class="route-intro"><p>01 / <span class="en-home">Explore Senso</span><span class="es-home hidden">Explora Senso</span></p><h2><span class="en-home">Three ways into art.</span><span class="es-home hidden">Tres formas de acercarse al arte.</span></h2></div>
+<section class="revenue-router home-panel" id="revenue-router" aria-label="Explore Senso">
+  <p class="route-intro"><span class="en-home">Explore Senso</span><span class="es-home hidden">Explora Senso</span></p>
   <div class="route-grid">
-    <a class="revenue-route" href="catalogue.html"><span class="route-image"><img src="fotos_obras/obracarlotta_2.jpeg" alt="Contemporary painting by Carlotta Valentinis" loading="lazy"></span><div class="route-caption"><span class="route-number">01</span><h3>COLLECT ART</h3><span class="route-arrow" aria-hidden="true">↗</span></div></a>
-    <a class="revenue-route" href="art-consulting.html"><span class="route-image"><img src="consulting_photos/interior2.png" alt="Contemporary artwork in a private interior" loading="lazy"></span><div class="route-caption"><span class="route-number">02</span><h3>ART CONSULTING</h3><span class="route-arrow" aria-hidden="true">↗</span></div></a>
-    <a class="revenue-route" href="studio.html"><span class="route-image"><img src="Senso_Studio_Foto/ss3.jpeg" alt="Participants making art at Senso Studio" loading="lazy"></span><div class="route-caption"><span class="route-number">03</span><h3>SENSO STUDIO</h3><span class="route-arrow" aria-hidden="true">↗</span></div></a>
+    <a class="revenue-route" href="catalogue.html"><span class="route-number">01</span><h2>COLLECT ART</h2><span class="route-arrow" aria-hidden="true">↗</span></a>
+    <a class="revenue-route" href="art-consulting.html"><span class="route-number">02</span><h2>ART CONSULTING</h2><span class="route-arrow" aria-hidden="true">↗</span></a>
+    <a class="revenue-route" href="studio.html"><span class="route-number">03</span><h2>SENSO STUDIO</h2><span class="route-arrow" aria-hidden="true">↗</span></a>
   </div>
 </section>
 
