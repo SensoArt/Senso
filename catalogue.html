@@ -30,7 +30,7 @@ main{max-width:1440px;margin:auto;padding:125px 42px 130px}.intro{display:grid;g
 body.modal-open{position:fixed;width:100%;overflow:hidden}
 .modal{overflow:hidden;overscroll-behavior:contain;padding:24px max(24px,env(safe-area-inset-right)) max(24px,env(safe-area-inset-bottom)) max(24px,env(safe-area-inset-left))}
 .modal-box{max-height:calc(100dvh - 48px - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;padding:8px 2px 28px;scrollbar-gutter:stable}
-@media(max-width:580px){.modal{align-items:flex-start;padding:max(14px,env(safe-area-inset-top)) 18px max(14px,env(safe-area-inset-bottom))}.modal-box{max-height:calc(100dvh - 72px - env(safe-area-inset-top) - env(safe-area-inset-bottom));margin-top:38px;padding-bottom:28px}.modal label{margin-top:16px}.modal h2{font-size:1.7rem;margin:16px 0}.modal button[type=submit]{margin-bottom:10px}.close{top:max(14px,env(safe-area-inset-top));right:max(18px,env(safe-area-inset-right))}}
+@media(max-width:580px){.modal{align-items:flex-start;top:var(--modal-viewport-top,0px);bottom:auto;height:var(--modal-viewport-height,100dvh);padding:max(14px,env(safe-area-inset-top)) 18px max(14px,env(safe-area-inset-bottom))}.modal-box{max-height:calc(var(--modal-viewport-height,100dvh) - 72px - env(safe-area-inset-top) - env(safe-area-inset-bottom));margin-top:38px;padding-bottom:28px;-webkit-overflow-scrolling:touch}.modal label{margin-top:16px}.modal h2{font-size:1.7rem;margin:16px 0}.modal button[type=submit]{margin-bottom:10px}.close{top:max(14px,env(safe-area-inset-top));right:max(18px,env(safe-area-inset-right));color:#222}}
 </style></head><body><header class="senso-header"><div class="brand-container"><a href="index.html"><img src="senso_logo_negro.png" alt="Senso" class="logo-header"></a><span class="tagline-header"><span data-header-lang="en">BARCELONA · INTERNATIONAL</span><span data-header-lang="es" hidden>BARCELONA · INTERNACIONAL</span></span></div><div class="nav-container"><div class="lang-switch" aria-label="Language / Idioma"><button type="button" class="lang-btn active" data-set-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">|</span><button type="button" class="lang-btn" data-set-lang="es" aria-pressed="false">ES</button></div><nav id="nav-en" aria-label="Primary navigation"><a href="about.html">About</a><a href="exhibitions.html">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a></nav><nav id="nav-es" aria-label="Navegación principal" class="hidden"><a href="about.html">Quiénes somos</a><a href="exhibitions.html">Exposiciones</a><a href="artists.html">Artistas</a><a href="art-consulting.html">Asesoría de Arte</a><a href="studio.html">Senso Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacto</a></nav></div></header><main>
 <section class="intro"><div><div class="eyebrow" data-en="Collect art" data-es="Coleccionar arte">Collect art</div><h1 data-en="COLLECT ART" data-es="COLECCIONAR ARTE">COLLECT ART</h1></div><p data-en="A selection of contemporary works presented by Senso. Ask about a specific work, request further images or arrange a private viewing in Barcelona." data-es="Una selección de obras contemporáneas presentada por Senso. Consulta una obra, solicita más imágenes o concierta una visita privada en Barcelona.">A selection of contemporary works presented by Senso. Ask about a specific work, request further images or arrange a private viewing in Barcelona.</p></section>
 <section class="grid">
@@ -46,6 +46,17 @@ body.modal-open{position:fixed;width:100%;overflow:hidden}
   const artworkField=document.getElementById('artworkField');
   const title=document.getElementById('artTitle');
   let lastTrigger=null, savedScroll=0;
+  function syncModalViewport(){
+    if(!modal.classList.contains('open'))return;
+    const viewport=window.visualViewport;
+    modal.style.setProperty('--modal-viewport-height',(viewport?.height||window.innerHeight)+'px');
+    modal.style.setProperty('--modal-viewport-top',(viewport?.offsetTop||0)+'px');
+  }
+  if(window.visualViewport){
+    window.visualViewport.addEventListener('resize',syncModalViewport);
+    window.visualViewport.addEventListener('scroll',syncModalViewport);
+  }
+  window.addEventListener('resize',syncModalViewport);
   function setLanguage(language){
     const current=language==='es'?'es':'en';
     document.documentElement.lang=current;
@@ -81,6 +92,7 @@ body.modal-open{position:fixed;width:100%;overflow:hidden}
     document.querySelector('main').inert=true;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
+    syncModalViewport();
     modal.querySelector('.close').focus();
   }
   function closeArt(){
