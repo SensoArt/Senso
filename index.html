@@ -234,7 +234,7 @@ nav a:hover::after {
 .hero-banner {
   position:relative;
   width:100%;
-  height:calc(100% + 78px);
+  height:100%;
   min-height:0;
   overflow:hidden;
   background:#f4f4f4;
@@ -245,6 +245,7 @@ nav a:hover::after {
   height:100%;
   object-fit:cover;
   object-position:center;
+  transform:scale(1.45);
   display:block;
 }
 
@@ -371,6 +372,8 @@ footer {
   fill: currentColor;
 }
 
+@media (min-width: 901px) { .logo-header { transform:scale(1.05); transform-origin:left top; } }
+
 /* Responsive */
 @media (max-width: 900px) {
   header {
@@ -453,7 +456,7 @@ footer {
     <a href="index.html">
       <img src="senso_logo_negro.png" alt="Senso" class="logo-header">
     </a>
-    <span class="tagline-header">BARCELONA · WORKING INTERNATIONALLY</span>
+    <span class="tagline-header"><span class="en-home">BARCELONA · INTERNATIONAL</span><span class="es-home hidden">BARCELONA · INTERNACIONAL</span></span>
   </div>
 
   <div class="nav-container">
@@ -491,7 +494,7 @@ footer {
     <img src="banner.PNG" alt="Senso Exhibition Banner" class="hero-img">
     
     <div class="hero-text-overlay">
-      <h1><span class="en-home">contemporary<br>expression space.</span><span class="es-home hidden">espacio de<br>expresión contemporánea.</span></h1>
+      <h1><span class="en-home">contemporary<br>expression space</span><span class="es-home hidden">espacio de<br>expresión contemporánea</span></h1>
       <p><span class="en-home">We work with contemporary artists through exhibitions, selected works, art consulting, curatorial projects and artist-led experiences.</span><span class="es-home hidden">Trabajamos con artistas contemporáneos a través de exposiciones, obras seleccionadas, asesoría de arte, proyectos curatoriales y experiencias dirigidas por artistas.</span></p>
     </div>
   </section>
@@ -501,13 +504,13 @@ footer {
 <!-- REVENUE ROUTER -->
 <section class="revenue-router home-panel" id="revenue-router">
   <article class="revenue-route">
-    <h2><span class="en-home">collect art.</span><span class="es-home hidden">coleccionar arte.</span></h2><p class="en-home">Discover selected contemporary works and arrange a private viewing with Senso.</p><p class="es-home hidden">Descubre obras contemporáneas seleccionadas y concierta una visita privada con Senso.</p><a href="catalogue.html"><span class="en-home">Explore available works →</span><span class="es-home hidden">Ver obras disponibles →</span></a>
+    <h2><span class="en-home">collect art</span><span class="es-home hidden">coleccionar arte</span></h2><p class="en-home">Discover selected contemporary works and arrange a private viewing with Senso.</p><p class="es-home hidden">Descubre obras contemporáneas seleccionadas y concierta una visita privada con Senso.</p><a href="catalogue.html"><span class="en-home">Explore available works →</span><span class="es-home hidden">Ver obras disponibles →</span></a>
   </article>
   <article class="revenue-route">
-    <h2><span class="en-home">art for spaces.</span><span class="es-home hidden">arte para espacios.</span></h2><p class="en-home">Contemporary art selected for private residences, hospitality and distinctive spaces.</p><p class="es-home hidden">Arte contemporáneo seleccionado para residencias privadas, hospitality y espacios con identidad.</p><a href="art-consulting.html"><span class="en-home">Discuss a project →</span><span class="es-home hidden">Cuéntanos tu proyecto →</span></a>
+    <h2><span class="en-home">art for spaces</span><span class="es-home hidden">arte para espacios</span></h2><p class="en-home">Contemporary art selected for private residences, hospitality and distinctive spaces.</p><p class="es-home hidden">Arte contemporáneo seleccionado para residencias privadas, hospitality y espacios con identidad.</p><a href="art-consulting.html"><span class="en-home">Discuss a project →</span><span class="es-home hidden">Cuéntanos tu proyecto →</span></a>
   </article>
   <article class="revenue-route">
-    <h2><span class="en-home">art experiences.</span><span class="es-home hidden">experiencias artísticas.</span></h2><p class="en-home">Artist-led cultural experiences for companies, teams and private groups.</p><p class="es-home hidden">Experiencias dirigidas por artistas para empresas, equipos y grupos privados.</p><a href="studio.html"><span class="en-home">Explore Senso Studio →</span><span class="es-home hidden">Descubrir Senso Studio →</span></a>
+    <h2><span class="en-home">art experiences</span><span class="es-home hidden">experiencias artísticas</span></h2><p class="en-home">Artist-led cultural experiences for companies, teams and private groups.</p><p class="es-home hidden">Experiencias dirigidas por artistas para empresas, equipos y grupos privados.</p><a href="studio.html"><span class="en-home">Explore Senso Studio →</span><span class="es-home hidden">Descubrir Senso Studio →</span></a>
   </article>
 </section>
 
