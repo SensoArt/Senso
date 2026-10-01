@@ -120,6 +120,25 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 /* Requested mobile nav sizing */
 @media(max-width:900px){.senso-header nav{font-size:.65rem;gap:12px}}
 
+
+/* Requested centered Art Consulting statement */
+.bridge-statement{display:block;text-align:center}
+.bridge-statement p{
+  grid-column:auto;
+  margin:0 auto;
+  max-width:860px;
+  font-size:clamp(.98rem,1.15vw,1.12rem);
+  line-height:1.7;
+}
+@media(max-width:700px){
+  .bridge-statement{display:block;text-align:center}
+  .bridge-statement p{grid-column:auto;margin:0 auto;font-size:1rem;line-height:1.7}
+}
+
+/* Unified EN | ES spacing and active-language tone */
+.lang-switch{display:flex!important;align-items:center!important;gap:0!important}
+.lang-switch .lang-btn{padding-left:2px!important;padding-right:2px!important}
+.lang-switch .lang-btn.active{font-weight:400!important;opacity:.72!important}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content / Ir al contenido</a>
