@@ -507,22 +507,22 @@ nav.main-nav{
 .exhibition-image.resonance-flyer{object-fit:contain;object-position:center;background:#fff}
 .exhibition-title.resonance-title{text-transform:none}
 
-/* RESonance: full flyer fitted inside the exact 3:2 exhibition frame */
-.resonance-frame{position:relative;aspect-ratio:3/2;background:#fff}
+/* RESonance: same 3:2 frame as Principium, filled by a deliberate crop */
+.resonance-frame{position:relative;aspect-ratio:3/2;background:#fff;overflow:hidden}
 .resonance-frame .resonance-flyer{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
   aspect-ratio:auto;
-  object-fit:contain!important;
-  object-position:center!important;
+  object-fit:cover!important;
+  object-position:center 42%!important;
   transform:none;
 }
-.exhibition:hover .resonance-frame .resonance-flyer{transform:none}
+.exhibition:hover .resonance-frame .resonance-flyer{transform:scale(1.015)}
 .exhibition-date.resonance-date{
   text-transform:none!important;
-  font-style:italic;
+  font-style:normal!important;
   letter-spacing:.5px;
 }
 </style>
