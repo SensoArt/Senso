@@ -1,0 +1,77 @@
+Senso Studio — auditoría fotográfica de la sesión Primera Clase | Zeit | 31:09
+Ruta local de origen: "/Users/javier/Desktop/Senso Art/Senso Studio/ Primera Clase | Zeit | 31:09 "
+Número total de imágenes: 69
+Orden: nombre de archivo, sin descartes ni selección artística.
+Dimensiones: píxeles del archivo original (ancho × alto, antes de orientación EXIF).
+Los contact sheets son copias reducidas para revisión; los originales permanecen en la ruta de origen.
+
+N.º | Contact sheet | Filename original | Dimensiones originales
+01 | studio-contact-sheet-01.jpg | 288c1501-b853-4b93-9f9a-9a973ea08ae2.JPG | 1536 × 2048
+02 | studio-contact-sheet-01.jpg | 37473b67-e887-4cf5-8534-22cadb5ecdca.JPG | 1536 × 2048
+03 | studio-contact-sheet-01.jpg | 4ce0af6c-e449-4bcf-9b78-216ab8f0879b.JPG | 1536 × 2048
+04 | studio-contact-sheet-01.jpg | 56405181-e9fa-4d7b-8353-59d0fc561c06.JPG | 1536 × 2048
+05 | studio-contact-sheet-01.jpg | 66ce12a5-4b7c-4112-a373-20ff24449c8b.JPG | 1536 × 2048
+06 | studio-contact-sheet-01.jpg | 7a5d1cb8-cc03-4ab1-b44a-b644af8caeeb.JPG | 1536 × 2048
+07 | studio-contact-sheet-01.jpg | 7ee922b6-b05f-4bb8-94be-3574cce21259.JPG | 1536 × 2048
+08 | studio-contact-sheet-01.jpg | 996dbcf3-7107-462d-9afd-640c996ffde9.JPG | 2048 × 1536
+09 | studio-contact-sheet-01.jpg | 9d2dba71-498e-4019-befd-48a0d6d08868.JPG | 1536 × 2048
+10 | studio-contact-sheet-01.jpg | P1010810.JPG | 4608 × 3456
+11 | studio-contact-sheet-01.jpg | P1010811.JPG | 4608 × 3456
+12 | studio-contact-sheet-01.jpg | P1010812.JPG | 4608 × 3456
+13 | studio-contact-sheet-01.jpg | P1010813.JPG | 4608 × 3456
+14 | studio-contact-sheet-01.jpg | P1010814.JPG | 4608 × 3456
+15 | studio-contact-sheet-01.jpg | P1010815.JPG | 4608 × 3456
+16 | studio-contact-sheet-01.jpg | P1010816.JPG | 4608 × 3456
+17 | studio-contact-sheet-01.jpg | P1010817.JPG | 4608 × 3456
+18 | studio-contact-sheet-01.jpg | P1010819.JPG | 4608 × 3456
+19 | studio-contact-sheet-01.jpg | P1010820.JPG | 4608 × 3456
+20 | studio-contact-sheet-01.jpg | P1010823.JPG | 4608 × 3456
+21 | studio-contact-sheet-01.jpg | P1010827.JPG | 4608 × 3456
+22 | studio-contact-sheet-01.jpg | P1010828.JPG | 4608 × 3456
+23 | studio-contact-sheet-01.jpg | P1010829.JPG | 4608 × 3456
+24 | studio-contact-sheet-02.jpg | P1010831.JPG | 4608 × 3456
+25 | studio-contact-sheet-02.jpg | P1010832.JPG | 4608 × 3456
+26 | studio-contact-sheet-02.jpg | P1010834.JPG | 4608 × 3456
+27 | studio-contact-sheet-02.jpg | P1010835.JPG | 4608 × 3456
+28 | studio-contact-sheet-02.jpg | P1010836.JPG | 4608 × 3456
+29 | studio-contact-sheet-02.jpg | P1010837.JPG | 4608 × 3456
+30 | studio-contact-sheet-02.jpg | P1010838.JPG | 4608 × 3456
+31 | studio-contact-sheet-02.jpg | P1010839.JPG | 4608 × 3456
+32 | studio-contact-sheet-02.jpg | P1010840.JPG | 4608 × 3456
+33 | studio-contact-sheet-02.jpg | P1010841.JPG | 4608 × 3456
+34 | studio-contact-sheet-02.jpg | P1010842.JPG | 4608 × 3456
+35 | studio-contact-sheet-02.jpg | P1010844.JPG | 4608 × 3456
+36 | studio-contact-sheet-02.jpg | P1010845.JPG | 4608 × 3456
+37 | studio-contact-sheet-02.jpg | P1010846.JPG | 4608 × 3456
+38 | studio-contact-sheet-02.jpg | P1010847.JPG | 4608 × 3456
+39 | studio-contact-sheet-02.jpg | P1010848.JPG | 4608 × 3456
+40 | studio-contact-sheet-02.jpg | P1010849.JPG | 4608 × 3456
+41 | studio-contact-sheet-02.jpg | P1010850.JPG | 4608 × 3456
+42 | studio-contact-sheet-02.jpg | P1010851.JPG | 4608 × 3456
+43 | studio-contact-sheet-02.jpg | P1010852.JPG | 4608 × 3456
+44 | studio-contact-sheet-02.jpg | P1010853.JPG | 4608 × 3456
+45 | studio-contact-sheet-02.jpg | P1010854.JPG | 4608 × 3456
+46 | studio-contact-sheet-02.jpg | P1010855.JPG | 4608 × 3456
+47 | studio-contact-sheet-03.jpg | P1010856.JPG | 4608 × 3456
+48 | studio-contact-sheet-03.jpg | P1010857.JPG | 4608 × 3456
+49 | studio-contact-sheet-03.jpg | P1010859.JPG | 4608 × 3456
+50 | studio-contact-sheet-03.jpg | P1010860.JPG | 4608 × 3456
+51 | studio-contact-sheet-03.jpg | P1010861.JPG | 4608 × 3456
+52 | studio-contact-sheet-03.jpg | P1010862.JPG | 4608 × 3456
+53 | studio-contact-sheet-03.jpg | P1010863.JPG | 4608 × 3456
+54 | studio-contact-sheet-03.jpg | P1010864.JPG | 4608 × 3456
+55 | studio-contact-sheet-03.jpg | P1010865.JPG | 4608 × 3456
+56 | studio-contact-sheet-03.jpg | P1010866.JPG | 4608 × 3456
+57 | studio-contact-sheet-03.jpg | P1010867.JPG | 4608 × 3456
+58 | studio-contact-sheet-03.jpg | P1010868.JPG | 4608 × 3456
+59 | studio-contact-sheet-03.jpg | P1010869.JPG | 4608 × 3456
+60 | studio-contact-sheet-03.jpg | P1010870.JPG | 4608 × 3456
+61 | studio-contact-sheet-03.jpg | P1010871.JPG | 4608 × 3456
+62 | studio-contact-sheet-03.jpg | P1010872.JPG | 4608 × 3456
+63 | studio-contact-sheet-03.jpg | P1010873.JPG | 4608 × 3456
+64 | studio-contact-sheet-03.jpg | P1010874.JPG | 4608 × 3456
+65 | studio-contact-sheet-03.jpg | P1010875.JPG | 4608 × 3456
+66 | studio-contact-sheet-03.jpg | P1010876.JPG | 4608 × 3456
+67 | studio-contact-sheet-03.jpg | P1010877.JPG | 4608 × 3456
+68 | studio-contact-sheet-03.jpg | P1010882.JPG | 4608 × 3456
+69 | studio-contact-sheet-03.jpg | P1010883.JPG | 4608 × 3456
