@@ -22,8 +22,18 @@ h1{font-family:BehindTheNineties,Georgia,serif;font-size:clamp(3rem,5.5vw,5.2rem
 .action p{line-height:1.7;max-width:480px}.action a{display:inline-block;margin-top:20px;color:#111;text-decoration:none;text-transform:uppercase;font-size:.68rem;letter-spacing:2px;border-bottom:1px solid #111;padding-bottom:5px}
 @media(max-width:800px){main{padding:100px 20px 80px}.hero,.actions{grid-template-columns:1fr;gap:60px}.flyer{margin:0}.statement{margin-top:90px}}
 
-/* Language control only: keep existing menu/layout untouched. */
-@media(max-width:900px){.senso-header .lang-switch{position:absolute;top:24px;right:20px;margin:0;z-index:20}}
+/* MOBILE ONLY — desktop/menu/footer remain unchanged. */
+@media(max-width:900px){
+  .senso-header .lang-switch{
+    position:absolute;
+    top:24px;
+    right:20px;
+    margin:0;
+    z-index:20;
+  }
+  .senso-header .lang-btn.active{font-weight:400}
+}
+
 </style>
 </head>
 <body>
