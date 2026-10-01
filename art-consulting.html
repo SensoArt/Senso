@@ -208,18 +208,21 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
   width:100vw;
   height:100dvh;
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   justify-content:center;
-  padding:0;
-  overflow:hidden;
+  padding:0 0 96px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
 }
 .compare-lightbox-image{
   display:block;
-  width:auto;
+  width:min(76vw,1120px);
   height:auto;
-  max-width:100vw;
-  max-height:100dvh;
+  max-width:none;
+  max-height:none;
   object-fit:contain;
+  flex:0 0 auto;
 }
 .compare-lightbox-controls{
   position:absolute;
@@ -242,8 +245,8 @@ body.compare-lightbox-open{overflow:hidden}
   .compare-open{top:12px;right:12px;padding:9px 10px;font-size:.62rem}
   .compare-lightbox-head{padding:12px 14px}
   .compare-lightbox-title{font-size:.62rem;padding:7px 9px}
-  .compare-lightbox-stage{width:100vw;height:100dvh;padding:0}
-  .compare-lightbox-image{max-width:100vw;max-height:100dvh}
+  .compare-lightbox-stage{width:100vw;height:100dvh;padding:0 0 82px;overflow-y:auto;align-items:flex-start}
+  .compare-lightbox-image{width:100vw;max-width:none;max-height:none}
   .compare-lightbox-controls{bottom:12px}
 }
 </style></head>
