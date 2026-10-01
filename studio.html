@@ -52,12 +52,12 @@ a{color:inherit}
 
 /* quiet audience rail */
 .audience-rail{margin-top:58px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
-.audience-route{padding:18px 18px 17px 0;border-right:1px solid var(--line);text-align:left;cursor:pointer;min-height:92px}
+.audience-route{padding:18px 18px 18px 0;border-right:1px solid var(--line);text-align:left;cursor:pointer;min-height:122px}
 .audience-route:not(:first-child){padding-left:18px}
 .audience-route:last-child{border-right:0}
 .audience-route span{display:block;font-size:.57rem;letter-spacing:.13em;color:var(--muted);margin-bottom:18px}
 .audience-route strong{display:block;font-family:Behind,Georgia,serif;font-weight:400;font-size:1.25rem;line-height:1.05}
-.audience-route em{display:block;font-style:normal;font-size:.72rem;color:var(--muted);margin-top:7px}
+.audience-route em{display:block;font-style:normal;font-size:.76rem;line-height:1.48;color:var(--muted);margin-top:10px;max-width:245px}
 
 /* purchase reasons */
 .why{padding:84px 0 92px;border-top:1px solid var(--line)}
@@ -69,25 +69,6 @@ a{color:inherit}
 .why-item span{font-size:.57rem;letter-spacing:.13em;color:var(--muted)}
 .why-item strong{display:block;font-family:Behind,Georgia,serif;font-size:1.35rem;font-weight:400;margin:28px 0 9px}
 .why-item p{font-size:.82rem;line-height:1.56;color:var(--muted);margin:0;max-width:245px}
-
-/* buyer contexts */
-.contexts{padding:0 0 98px}
-.contexts-head{display:grid;grid-template-columns:.32fr 1.86fr;gap:56px;margin-bottom:30px}
-.contexts-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2rem,3vw,3rem);font-weight:400;line-height:1.04;letter-spacing:-.03em;margin:0}
-.context-list{border-top:1px solid var(--ink)}
-.context-row{display:grid;grid-template-columns:76px minmax(180px,.7fr) minmax(260px,1.1fr) minmax(180px,.7fr) auto;gap:24px;align-items:start;padding:24px 0;border-bottom:1px solid var(--line)}
-.context-num{font-size:.58rem;letter-spacing:.13em;color:var(--muted);padding-top:4px}
-.context-row h3{font-family:Behind,Georgia,serif;font-size:1.65rem;line-height:1.05;font-weight:400;margin:0}
-.context-benefit{font-size:.9rem;line-height:1.58;margin:1px 0 0;max-width:420px}
-.context-examples{font-size:.72rem;line-height:1.55;color:var(--muted);margin:2px 0 0}
-.context-row .text-link{white-space:nowrap;margin-top:3px}
-
-/* production / friction removal */
-.handled{background:var(--paper);padding:44px 0}
-.handled-grid{display:grid;grid-template-columns:.32fr 1.86fr;gap:56px;align-items:start}
-.handled-line{display:flex;gap:20px 34px;flex-wrap:wrap}
-.handled-line span{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
-.handled-note{margin-top:18px;color:var(--muted);font-size:.84rem;line-height:1.55;max-width:650px}
 
 /* recurring */
 .recurring{padding:72px 0 78px;border-top:1px solid var(--line)}
@@ -133,14 +114,12 @@ body.drawer-open{overflow:hidden}
   .senso-header .nav-container{width:100%;align-items:flex-start}
   .senso-header .lang-switch{position:absolute;top:24px;right:20px;margin:0}
   .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:.65rem}
-  .hero-grid,.why-head,.contexts-head,.handled-grid,.recurring-grid{grid-template-columns:1fr;gap:22px}
+  .hero-grid,.why-head,.recurring-grid{grid-template-columns:1fr;gap:22px}
   .audience-rail{grid-template-columns:1fr 1fr}
   .audience-route:nth-child(2){border-right:0}
   .audience-route:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .why-grid{grid-template-columns:1fr 1fr;gap:34px 0}
   .why-item:nth-child(2){border-right:0}
-  .context-row{grid-template-columns:45px 1fr auto}
-  .context-benefit,.context-examples{grid-column:2/4}
 }
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
@@ -152,11 +131,6 @@ body.drawer-open{overflow:hidden}
   .why-grid{grid-template-columns:1fr;gap:0}
   .why-item{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:20px 0}
   .why-item strong{margin:18px 0 7px}
-  .contexts{padding-bottom:75px}
-  .context-row{grid-template-columns:32px 1fr;gap:10px;padding:22px 0}
-  .context-benefit,.context-examples,.context-row .text-link{grid-column:2}
-  .context-row .text-link{justify-self:start}
-  .handled{padding:38px 0}
   .recurring{padding:62px 0 68px}
   .drawer{padding:26px 20px 34px}
   .form-grid{grid-template-columns:1fr}
@@ -199,22 +173,22 @@ body.drawer-open{overflow:hidden}
         <button class="audience-route" type="button" data-interest="Company / team experience" data-open-drawer>
           <span>01</span>
           <strong><span class="lang" data-lang="en">companies & teams</span><span class="lang" data-lang="es" hidden>empresas & equipos</span></strong>
-          <em><span class="lang" data-lang="en">culture · connection · offsites</span><span class="lang" data-lang="es" hidden>cultura · conexión · offsites</span></em>
+          <em><span class="lang" data-lang="en">A cultural alternative to generic team building.</span><span class="lang" data-lang="es" hidden>Una alternativa cultural al team building genérico.</span></em>
         </button>
         <button class="audience-route" type="button" data-interest="Hospitality / brand activation" data-open-drawer>
           <span>02</span>
           <strong>hospitality & brands</strong>
-          <em><span class="lang" data-lang="en">guests · clients · community</span><span class="lang" data-lang="es" hidden>huéspedes · clientes · comunidad</span></em>
+          <em><span class="lang" data-lang="en">Cultural programming guests and communities can remember.</span><span class="lang" data-lang="es" hidden>Programación cultural que huéspedes y comunidades pueden recordar.</span></em>
         </button>
         <button class="audience-route" type="button" data-interest="Adult / private group" data-open-drawer>
           <span>03</span>
           <strong><span class="lang" data-lang="en">adults & private groups</span><span class="lang" data-lang="es" hidden>adultos & grupos privados</span></strong>
-          <em><span class="lang" data-lang="en">friends · occasions · shared time</span><span class="lang" data-lang="es" hidden>amigos · ocasiones · tiempo compartido</span></em>
+          <em><span class="lang" data-lang="en">A more considered way to spend time together through art.</span><span class="lang" data-lang="es" hidden>Una forma más cuidada de compartir tiempo a través del arte.</span></em>
         </button>
         <button class="audience-route" type="button" data-interest="Kids / family" data-open-drawer>
           <span>04</span>
           <strong>Senso Kids</strong>
-          <em><span class="lang" data-lang="en">children · families · groups</span><span class="lang" data-lang="es" hidden>niños · familias · grupos</span></em>
+          <em><span class="lang" data-lang="en">Creative experiences with real artistic content, beyond crafts.</span><span class="lang" data-lang="es" hidden>Experiencias creativas con contenido artístico real, más allá de las manualidades.</span></em>
         </button>
       </div>
     </div>
@@ -259,76 +233,9 @@ body.drawer-open{overflow:hidden}
     </div>
   </section>
 
-  <section class="contexts">
-    <div class="shell">
-      <div class="contexts-head">
-        <p class="micro">02 · By context</p>
-        <div>
-          <div class="lang" data-lang="en"><h2>different reasons to buy Studio.</h2></div>
-          <div class="lang" data-lang="es" hidden><h2>distintas razones para comprar Studio.</h2></div>
-        </div>
-      </div>
-
-      <div class="context-list">
-        <article class="context-row">
-          <span class="context-num">01</span>
-          <h3><span class="lang" data-lang="en">companies & teams.</span><span class="lang" data-lang="es" hidden>empresas & equipos.</span></h3>
-          <div class="lang" data-lang="en"><p class="context-benefit">A cultural alternative to generic team building: something people do together and remember.</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-benefit">Una alternativa cultural al team building genérico: algo que el equipo hace junto y recuerda.</p></div>
-          <div class="lang" data-lang="en"><p class="context-examples">offsites · team moments · internal culture · client groups</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-examples">offsites · equipos · cultura interna · grupos de clientes</p></div>
-          <button class="text-link" type="button" data-interest="Company / team experience" data-open-drawer><span class="lang" data-lang="en">Plan</span><span class="lang" data-lang="es" hidden>Planificar</span><span>→</span></button>
-        </article>
-
-        <article class="context-row">
-          <span class="context-num">02</span>
-          <h3>hospitality & brands.</h3>
-          <div class="lang" data-lang="en"><p class="context-benefit">Give guests, clients or communities a cultural experience that belongs to the place, not another generic activation.</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-benefit">Ofrece a huéspedes, clientes o comunidades una experiencia cultural que pertenece al lugar, no otra activación genérica.</p></div>
-          <div class="lang" data-lang="en"><p class="context-examples">guest programming · launches · communities · private events</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-examples">programación · lanzamientos · comunidades · eventos privados</p></div>
-          <button class="text-link" type="button" data-interest="Hospitality / brand activation" data-open-drawer><span class="lang" data-lang="en">Plan</span><span class="lang" data-lang="es" hidden>Planificar</span><span>→</span></button>
-        </article>
-
-        <article class="context-row">
-          <span class="context-num">03</span>
-          <h3><span class="lang" data-lang="en">adults & private groups.</span><span class="lang" data-lang="es" hidden>adultos & grupos privados.</span></h3>
-          <div class="lang" data-lang="en"><p class="context-benefit">Spend time together through a real artistic process — more considered than a standard class, more participatory than an exhibition visit.</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-benefit">Compartir tiempo desde un proceso artístico real: más cuidado que una clase estándar y más participativo que visitar una exposición.</p></div>
-          <div class="lang" data-lang="en"><p class="context-examples">friends · celebrations · private groups · open sessions</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-examples">amigos · celebraciones · grupos privados · sesiones abiertas</p></div>
-          <button class="text-link" type="button" data-interest="Adult / private group" data-open-drawer><span class="lang" data-lang="en">Plan</span><span class="lang" data-lang="es" hidden>Planificar</span><span>→</span></button>
-        </article>
-
-        <article class="context-row">
-          <span class="context-num">04</span>
-          <h3>Senso Kids.</h3>
-          <div class="lang" data-lang="en"><p class="context-benefit">A creative experience with real artistic content: children explore materials, ideas and ways of making rather than simply copying a craft.</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-benefit">Una experiencia creativa con contenido artístico real: los niños exploran materiales, ideas y formas de crear en lugar de limitarse a copiar una manualidad.</p></div>
-          <div class="lang" data-lang="en"><p class="context-examples">children · families · private groups · partner venues</p></div>
-          <div class="lang" data-lang="es" hidden><p class="context-examples">niños · familias · grupos privados · espacios partner</p></div>
-          <button class="text-link" type="button" data-interest="Kids / family" data-open-drawer><span class="lang" data-lang="en">Plan</span><span class="lang" data-lang="es" hidden>Planificar</span><span>→</span></button>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section class="handled">
-    <div class="shell handled-grid">
-      <p class="micro">03 · Senso handles</p>
-      <div>
-        <div class="handled-line">
-          <span>artist</span><span>concept</span><span>materials</span><span>production</span><span>coordination</span>
-        </div>
-        <div class="lang" data-lang="en"><p class="handled-note">You give us the context. We shape the right format and bring the parts together.</p></div>
-        <div class="lang" data-lang="es" hidden><p class="handled-note">Tú nos das el contexto. Nosotros damos forma al formato y reunimos todas las piezas.</p></div>
-      </div>
-    </div>
-  </section>
-
   <section class="recurring">
     <div class="shell recurring-grid">
-      <p class="micro">04 · Recurring</p>
+      <p class="micro">02 · Recurring</p>
       <div>
         <div class="lang" data-lang="en"><h2>one experience can become a cultural programme.</h2></div>
         <div class="lang" data-lang="es" hidden><h2>una experiencia puede convertirse en un programa cultural.</h2></div>
