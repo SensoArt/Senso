@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f7f5f0">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff">
 <title>Art Consulting | Senso</title>
 <meta name="description" content="Contemporary art consulting for private residences, hospitality and considered spaces. Senso connects art, architecture and the people who live with it.">
 <link rel="canonical" href="https://senso-art.com/art-consulting.html"><link rel="icon" href="favicon.png?v=1000"><link rel="preload" as="image" href="consulting_photos/interior2.png" fetchpriority="high">
@@ -9,7 +9,7 @@
 <style>
 @font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
 @font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');font-display:swap}
-:root{--ink:#171714;--muted:#62625d;--paper:#f7f5f0;--line:#ccc9c0;--accent:#8a392c}
+:root{--ink:#171714;--muted:#62625d;--paper:#fff;--line:#ccc9c0;--accent:#8a392c}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}a{color:inherit}img{display:block;width:100%}:focus-visible{outline:2px solid var(--accent);outline-offset:4px}.skip{position:absolute;z-index:100;left:16px;top:-80px;background:#fff;padding:12px 18px}.skip:focus{top:12px}.shell{width:min(1392px,calc(100% - 96px));margin-inline:auto}.lang[hidden],img[hidden]{display:none!important}
 
 /* Home header geometry, scoped to this page. */
@@ -119,6 +119,31 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 
 /* Requested mobile nav sizing */
 @media(max-width:900px){.senso-header nav{font-size:.65rem;gap:12px}}
+
+/* Requested desktop compare framing only */
+@media(min-width:901px){
+  .visual-frame[data-compare="private"],
+  .visual-frame[data-compare="hospitality"]{
+    aspect-ratio:auto;
+    height:auto;
+    min-height:0;
+    overflow:visible;
+    background:transparent;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .visual-frame[data-compare="private"] img,
+  .visual-frame[data-compare="hospitality"] img{
+    width:auto;
+    max-width:100%;
+    height:auto;
+    max-height:68vh;
+    object-fit:contain;
+    object-position:center;
+    margin:0 auto;
+  }
+}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content / Ir al contenido</a>
