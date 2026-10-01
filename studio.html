@@ -221,11 +221,11 @@ img{display:block;width:100%}
       <div class="hero-main">
         <div class="lang" data-lang="en">
           <p class="kicker">Senso Studio · Artist-led experiences</p>
-          <h1 class="hero-title">art,<br><span class="hero-word" data-words-en="made|felt|shared|lived" data-words-es="creado|sentido|compartido|vivido">made</span>.</h1>
+          <h1 class="hero-title">art,<br><span class="hero-word" data-words="made|felt|shared|lived">made</span>.</h1>
         </div>
         <div class="lang" data-lang="es" hidden>
           <p class="kicker">Senso Studio · Experiencias con artistas</p>
-          <h1 class="hero-title">arte,<br><span class="hero-word">creado</span>.</h1>
+          <h1 class="hero-title">arte,<br><span class="hero-word" data-words="creado|sentido|compartido|vivido">creado</span>.</h1>
         </div>
       </div>
       <div class="hero-side">
@@ -240,7 +240,7 @@ img{display:block;width:100%}
           <p class="micro" style="margin-top:28px">Empresas · hospitality · marcas · grupos privados<br>Barcelona + on-site</p>
         </div>
       </div>
-      <div class="hero-scroll">Scroll to enter the studio</div>
+      <div class="hero-scroll"><span class="lang" data-lang="en">Scroll to enter the studio</span><span class="lang" data-lang="es" hidden>Scroll para entrar al studio</span></div>
     </section>
   </div>
 
@@ -392,14 +392,13 @@ img{display:block;width:100%}
 <script>
 (function(){
   const supported=['en','es']; let currentLang='en';
-  const word=document.querySelector('.hero-word');
   let wordTimer=null, wordIndex=0;
 
   function startWords(){
     clearInterval(wordTimer);
+    const word=document.querySelector('.lang[data-lang="'+currentLang+'"] .hero-word');
     if(!word)return;
-    const key=currentLang==='es'?'wordsEs':'wordsEn';
-    const words=(word.dataset[key]||'').split('|').filter(Boolean);
+    const words=(word.dataset.words||'').split('|').filter(Boolean);
     if(!words.length)return;
     word.textContent=words[0]; wordIndex=0;
     wordTimer=setInterval(()=>{
