@@ -14,19 +14,20 @@
 <style>
 @font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
 @font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');font-display:swap}
-:root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--beige:#e9e5dd;--paper:#f6f4f0;--white:#fff}
+:root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--beige:#e9e5dd;--paper:#f7f5f0;--white:#fff}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--white);color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font:inherit;color:inherit}
 button{border:0;background:none}
 a{color:inherit}
+img{display:block;width:100%}
 [hidden],.hidden{display:none!important}
 :focus-visible{outline:1px solid currentColor;outline-offset:4px}
-.shell{width:min(1340px,calc(100% - 100px));margin-inline:auto}
-.micro,.eyebrow,.drawer-label,.footer{font-size:.61rem;letter-spacing:.15em;text-transform:uppercase}
+.shell{width:min(1360px,calc(100% - 100px));margin-inline:auto}
+.micro,.eyebrow,.drawer-label,.footer{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase}
 
-/* shared Senso navigation */
+/* shared site navigation */
 .senso-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:sticky;top:0;z-index:80}
 .senso-header .brand-container{display:flex;align-items:flex-start;flex:0 0 180.08px}
 .senso-header .home-link{color:#111;text-decoration:none;text-transform:uppercase;font-size:.65rem;letter-spacing:2px;white-space:nowrap}
@@ -40,41 +41,53 @@ a{color:inherit}
 .senso-header .lang-btn{padding:0 4px;cursor:pointer;font-size:.65rem;letter-spacing:2px;opacity:.4}
 .senso-header .lang-btn.active{opacity:.9;font-weight:600}
 
-/* hero */
-.hero{padding:66px 0 48px}
-.hero-grid{display:grid;grid-template-columns:.32fr 1.18fr .68fr;gap:56px;align-items:start}
-.hero-label{color:var(--muted);padding-top:8px}
-.hero h1{font-family:Behind,Georgia,serif;font-size:clamp(3rem,4.8vw,5rem);font-weight:400;line-height:.98;letter-spacing:-.04em;margin:0;max-width:720px}
-.hero-side{padding-top:8px}
-.hero-side p{font-size:.96rem;line-height:1.68;max-width:355px;margin:0 0 24px}
-.text-link{display:inline-flex;align-items:center;gap:14px;border-bottom:1px solid currentColor;padding:0 0 6px;text-decoration:none;text-transform:uppercase;font-size:.62rem;letter-spacing:.14em;cursor:pointer}
-.text-link:hover{border-color:var(--accent)}
+/* hero — same title scale logic as Art Consulting, different composition */
+.hero{padding-top:clamp(54px,7vw,112px);padding-bottom:clamp(54px,6vw,82px)}
+.hero-grid{display:grid;grid-template-columns:.32fr minmax(0,1.18fr) minmax(300px,.68fr);gap:clamp(42px,5vw,76px);align-items:end}
+.hero-label{align-self:start;color:var(--muted);padding-top:8px}
+.hero h1{font-family:Behind,Georgia,serif;font-weight:400;font-size:clamp(2rem,5vw,3rem);line-height:1.1;letter-spacing:0;margin:0;max-width:650px;text-transform:lowercase}
+.hero-side{padding-bottom:4px}
+.hero-side p{font-size:clamp(1.02rem,1.28vw,1.18rem);line-height:1.68;max-width:390px;margin:0 0 29px}
+.text-link{display:inline-flex;align-items:center;gap:15px;border-bottom:1px solid currentColor;padding:0 0 8px;text-decoration:none;text-transform:uppercase;font-size:.63rem;letter-spacing:.14em;cursor:pointer;transition:gap .2s ease,border-color .2s ease}
+.text-link:hover{gap:22px;border-color:var(--accent)}
 
-/* quiet audience rail */
-.audience-rail{margin-top:58px;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
-.audience-route{padding:18px 18px 18px 0;border-right:1px solid var(--line);text-align:left;cursor:pointer;min-height:122px}
-.audience-route:not(:first-child){padding-left:18px}
-.audience-route:last-child{border-right:0}
-.audience-route span{display:block;font-size:.57rem;letter-spacing:.13em;color:var(--muted);margin-bottom:18px}
-.audience-route strong{display:block;font-family:Behind,Georgia,serif;font-weight:400;font-size:1.25rem;line-height:1.05}
-.audience-route em{display:block;font-style:normal;font-size:.76rem;line-height:1.48;color:var(--muted);margin-top:10px;max-width:245px}
+/* audience boxes */
+.audiences{padding:0 0 clamp(86px,9vw,126px)}
+.audiences-head{display:flex;justify-content:space-between;gap:30px;align-items:end;padding:18px 0 18px;border-top:1px solid var(--line)}
+.audiences-head p{margin:0;color:var(--muted);font-size:.78rem;line-height:1.5}
+.audience-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.audience-card{min-height:168px;padding:20px 20px 18px;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;text-align:left;cursor:pointer;background:#fff;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+.audience-card:hover{background:var(--paper);border-color:#aaa79e;transform:translateY(-2px)}
+.audience-card .num{font-size:.56rem;letter-spacing:.13em;color:var(--muted)}
+.audience-card strong{display:block;font-family:Behind,Georgia,serif;font-size:1.45rem;font-weight:400;line-height:1.08;margin:24px 0 9px}
+.audience-card em{display:block;font-style:normal;font-size:.78rem;line-height:1.5;color:var(--muted);max-width:245px}
 
-/* purchase reasons */
-.why{padding:84px 0 92px;border-top:1px solid var(--line)}
-.why-head{display:grid;grid-template-columns:.32fr 1.86fr;gap:56px;margin-bottom:34px}
-.why-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2rem,3vw,3.05rem);font-weight:400;line-height:1.04;letter-spacing:-.03em;margin:0;max-width:650px}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
-.why-item{padding:20px 24px 4px 0;margin-right:24px;border-right:1px solid var(--line)}
-.why-item:last-child{border-right:0;margin-right:0}
-.why-item span{font-size:.57rem;letter-spacing:.13em;color:var(--muted)}
-.why-item strong{display:block;font-family:Behind,Georgia,serif;font-size:1.35rem;font-weight:400;margin:28px 0 9px}
-.why-item p{font-size:.82rem;line-height:1.56;color:var(--muted);margin:0;max-width:245px}
+/* editorial proof with one image */
+.proof{padding:0 0 clamp(95px,10vw,140px)}
+.proof-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:clamp(42px,6vw,90px);align-items:stretch}
+.proof-image{background:#ddd7ce;overflow:hidden;min-height:640px}
+.proof-image img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
+.proof-copy{display:flex;flex-direction:column;justify-content:space-between;padding:12px 0 6px}
+.proof-copy h2{font-family:Behind,Georgia,serif;font-size:clamp(1.85rem,2.6vw,2.7rem);line-height:1.06;font-weight:400;letter-spacing:-.025em;margin:16px 0 24px;max-width:410px}
+.proof-copy>div>p{font-size:.94rem;line-height:1.67;color:var(--muted);max-width:400px;margin:0}
+.proof-facts{margin-top:45px;border-top:1px solid var(--ink)}
+.proof-fact{display:flex;justify-content:space-between;gap:30px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase}
+.proof-fact span:last-child{color:var(--muted);text-align:right}
+.practice-line{margin-top:30px;font-size:.72rem;line-height:1.7;color:var(--muted)}
+.proof-caption{margin-top:12px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 
 /* recurring */
-.recurring{padding:72px 0 78px;border-top:1px solid var(--line)}
-.recurring-grid{display:grid;grid-template-columns:.32fr 1.08fr .78fr;gap:56px;align-items:end}
-.recurring h2{font-family:Behind,Georgia,serif;font-size:clamp(2rem,3.1vw,3.2rem);font-weight:400;line-height:1.03;letter-spacing:-.03em;margin:0}
-.recurring-side p{font-size:.9rem;line-height:1.62;color:var(--muted);margin:0 0 22px;max-width:390px}
+.recurring{padding:clamp(64px,7vw,92px) 0;background:var(--beige)}
+.recurring-grid{display:grid;grid-template-columns:.32fr 1.08fr .7fr;gap:55px;align-items:end}
+.recurring h2{font-family:Behind,Georgia,serif;font-size:clamp(1.95rem,3vw,3.05rem);font-weight:400;line-height:1.05;letter-spacing:-.025em;margin:0;max-width:650px}
+.recurring-side p{font-size:.9rem;line-height:1.62;color:#55524c;margin:0 0 22px;max-width:390px}
+
+/* close quietly */
+.final{padding:68px 0 78px}
+.final-grid{display:grid;grid-template-columns:.32fr 1.08fr .7fr;gap:55px;align-items:center}
+.final-copy{font-family:Behind,Georgia,serif;font-size:1.65rem;line-height:1.12;max-width:540px}
+.final-actions{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-start}
+.final-actions .text-link{white-space:nowrap}
 
 /* enquiry drawer */
 .drawer-overlay{position:fixed;inset:0;background:rgba(23,23,20,.20);z-index:130;opacity:0;pointer-events:none;transition:opacity .3s ease}
@@ -82,7 +95,7 @@ a{color:inherit}
 .drawer{position:absolute;top:0;right:0;width:min(620px,100%);height:100%;background:#fff;padding:34px 38px 42px;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);overflow-y:auto}
 .drawer-overlay.open .drawer{transform:none}
 .drawer-head{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:21px}
-.drawer-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2.4rem,3.5vw,3.8rem);line-height:.98;font-weight:400;margin:15px 0 0}
+.drawer-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2.2rem,3.4vw,3.5rem);line-height:1;font-weight:400;margin:15px 0 0}
 .drawer-close{cursor:pointer;font-size:.72rem;letter-spacing:.13em;text-transform:uppercase}
 .drawer-intro{font-size:.92rem;line-height:1.65;color:var(--muted);margin:24px 0 34px;max-width:470px}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 22px}
@@ -105,8 +118,9 @@ body.drawer-open{overflow:hidden}
 
 @media(max-width:1000px){
   .shell{width:calc(100% - 56px)}
-  .hero-grid,.recurring-grid{grid-template-columns:.28fr 1.12fr .76fr;gap:38px}
-  .context-row{grid-template-columns:55px .75fr 1.1fr .7fr auto;gap:18px}
+  .hero-grid{grid-template-columns:.25fr 1fr .72fr;gap:38px}
+  .proof-grid{grid-template-columns:1.25fr .75fr;gap:45px}
+  .recurring-grid,.final-grid{grid-template-columns:.25fr 1fr .72fr;gap:38px}
 }
 @media(max-width:900px){
   .senso-header{flex-direction:column;gap:20px;padding:30px 20px 20px}
@@ -114,24 +128,27 @@ body.drawer-open{overflow:hidden}
   .senso-header .nav-container{width:100%;align-items:flex-start}
   .senso-header .lang-switch{position:absolute;top:24px;right:20px;margin:0}
   .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:.65rem}
-  .hero-grid,.why-head,.recurring-grid{grid-template-columns:1fr;gap:22px}
-  .audience-rail{grid-template-columns:1fr 1fr}
-  .audience-route:nth-child(2){border-right:0}
-  .audience-route:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .why-grid{grid-template-columns:1fr 1fr;gap:34px 0}
-  .why-item:nth-child(2){border-right:0}
+  .hero-grid,.proof-grid,.recurring-grid,.final-grid{grid-template-columns:1fr;gap:26px}
+  .audience-grid{grid-template-columns:1fr 1fr}
+  .proof-image{min-height:0;aspect-ratio:4/5}
+  .proof-copy{padding:0}
 }
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
-  .hero{padding:48px 0 40px}
-  .hero h1{font-size:clamp(2.8rem,13vw,4rem)}
-  .audience-rail{grid-template-columns:1fr;margin-top:42px}
-  .audience-route{border-right:0!important;border-bottom:1px solid var(--line)!important;padding:17px 0!important;min-height:0}
-  .why{padding:72px 0}
-  .why-grid{grid-template-columns:1fr;gap:0}
-  .why-item{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:20px 0}
-  .why-item strong{margin:18px 0 7px}
-  .recurring{padding:62px 0 68px}
+  .hero{padding-top:53px;padding-bottom:44px}
+  .hero h1{font-size:2.2rem;max-width:550px}
+  .hero-side p{margin-bottom:22px}
+  .audiences{padding-bottom:78px}
+  .audiences-head{display:block}
+  .audiences-head p{margin-top:8px}
+  .audience-grid{grid-template-columns:1fr}
+  .audience-card{min-height:138px}
+  .proof{padding-bottom:82px}
+  .proof-image{aspect-ratio:4/5}
+  .recurring{padding:58px 0 62px}
+  .final{padding:58px 0 64px}
+  .final-actions{display:block}
+  .final-actions .text-link{margin-right:18px;margin-bottom:14px}
   .drawer{padding:26px 20px 34px}
   .form-grid{grid-template-columns:1fr}
   .field.full{grid-column:auto}
@@ -168,66 +185,70 @@ body.drawer-open{overflow:hidden}
           <button class="text-link" type="button" data-open-drawer><span class="lang" data-lang="en">Plan an experience</span><span class="lang" data-lang="es" hidden>Planificar una experiencia</span><span>→</span></button>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="audience-rail">
-        <button class="audience-route" type="button" data-interest="Company / team experience" data-open-drawer>
-          <span>01</span>
-          <strong><span class="lang" data-lang="en">companies & teams</span><span class="lang" data-lang="es" hidden>empresas & equipos</span></strong>
-          <em><span class="lang" data-lang="en">A cultural alternative to generic team building.</span><span class="lang" data-lang="es" hidden>Una alternativa cultural al team building genérico.</span></em>
+  <section class="audiences">
+    <div class="shell">
+      <div class="audiences-head">
+        <p class="micro"><span class="lang" data-lang="en">Choose your context</span><span class="lang" data-lang="es" hidden>Elige tu contexto</span></p>
+        <p><span class="lang" data-lang="en">Senso shapes the experience around who is coming together and why.</span><span class="lang" data-lang="es" hidden>Senso construye la experiencia alrededor de quién se reúne y para qué.</span></p>
+      </div>
+      <div class="audience-grid">
+        <button class="audience-card" type="button" data-interest="Company / team experience" data-open-drawer>
+          <span class="num">01</span>
+          <div>
+            <strong><span class="lang" data-lang="en">companies & teams</span><span class="lang" data-lang="es" hidden>empresas & equipos</span></strong>
+            <em><span class="lang" data-lang="en">A cultural alternative to generic team building.</span><span class="lang" data-lang="es" hidden>Una alternativa cultural al team building genérico.</span></em>
+          </div>
         </button>
-        <button class="audience-route" type="button" data-interest="Hospitality / brand activation" data-open-drawer>
-          <span>02</span>
-          <strong>hospitality & brands</strong>
-          <em><span class="lang" data-lang="en">Cultural programming guests and communities can remember.</span><span class="lang" data-lang="es" hidden>Programación cultural que huéspedes y comunidades pueden recordar.</span></em>
+        <button class="audience-card" type="button" data-interest="Hospitality / brand activation" data-open-drawer>
+          <span class="num">02</span>
+          <div>
+            <strong>hospitality & brands</strong>
+            <em><span class="lang" data-lang="en">Artist-led programming for guests, clients and communities.</span><span class="lang" data-lang="es" hidden>Programación con artistas para huéspedes, clientes y comunidades.</span></em>
+          </div>
         </button>
-        <button class="audience-route" type="button" data-interest="Adult / private group" data-open-drawer>
-          <span>03</span>
-          <strong><span class="lang" data-lang="en">adults & private groups</span><span class="lang" data-lang="es" hidden>adultos & grupos privados</span></strong>
-          <em><span class="lang" data-lang="en">A more considered way to spend time together through art.</span><span class="lang" data-lang="es" hidden>Una forma más cuidada de compartir tiempo a través del arte.</span></em>
+        <button class="audience-card" type="button" data-interest="Adult / private group" data-open-drawer>
+          <span class="num">03</span>
+          <div>
+            <strong><span class="lang" data-lang="en">adults & private groups</span><span class="lang" data-lang="es" hidden>adultos & grupos privados</span></strong>
+            <em><span class="lang" data-lang="en">A more considered way to spend time together through art.</span><span class="lang" data-lang="es" hidden>Una forma más cuidada de compartir tiempo a través del arte.</span></em>
+          </div>
         </button>
-        <button class="audience-route" type="button" data-interest="Kids / family" data-open-drawer>
-          <span>04</span>
-          <strong>Senso Kids</strong>
-          <em><span class="lang" data-lang="en">Creative experiences with real artistic content, beyond crafts.</span><span class="lang" data-lang="es" hidden>Experiencias creativas con contenido artístico real, más allá de las manualidades.</span></em>
+        <button class="audience-card" type="button" data-interest="Kids / family" data-open-drawer>
+          <span class="num">04</span>
+          <div>
+            <strong>Senso Kids</strong>
+            <em><span class="lang" data-lang="en">Creative experiences with real artistic content, beyond crafts.</span><span class="lang" data-lang="es" hidden>Experiencias creativas con contenido artístico real, más allá de las manualidades.</span></em>
+          </div>
         </button>
       </div>
     </div>
   </section>
 
-  <section class="why">
-    <div class="shell">
-      <div class="why-head">
-        <p class="micro">01 · Why Studio</p>
-        <div>
-          <div class="lang" data-lang="en"><h2>an artistic experience with substance, without the operational friction.</h2></div>
-          <div class="lang" data-lang="es" hidden><h2>una experiencia artística con contenido, sin la fricción de organizarla.</h2></div>
+  <section class="proof">
+    <div class="shell proof-grid">
+      <div>
+        <div class="proof-image">
+          <img src="Senso_Studio_Foto/studio-editorial-hero.jpg" alt="Artist working during a Senso Studio experience" loading="lazy" decoding="async">
         </div>
+        <div class="proof-caption"><span class="lang" data-lang="en">Senso Studio · artist-led process</span><span class="lang" data-lang="es" hidden>Senso Studio · proceso con artista</span></div>
       </div>
-
-      <div class="why-grid">
-        <div class="why-item">
-          <span>01</span>
-          <strong><span class="lang" data-lang="en">real artists.</span><span class="lang" data-lang="es" hidden>artistas reales.</span></strong>
-          <div class="lang" data-lang="en"><p>The experience begins with an actual artistic practice, not a generic workshop template.</p></div>
-          <div class="lang" data-lang="es" hidden><p>La experiencia parte de una práctica artística real, no de una plantilla de workshop.</p></div>
+      <div class="proof-copy">
+        <div>
+          <p class="micro"><span class="lang" data-lang="en">Why Studio</span><span class="lang" data-lang="es" hidden>Por qué Studio</span></p>
+          <div class="lang" data-lang="en"><h2>the artistic practice comes first.</h2><p>Senso starts with an artist and builds the experience around the group, the space and the reason for coming together.</p></div>
+          <div class="lang" data-lang="es" hidden><h2>la práctica artística va primero.</h2><p>Senso parte de un artista y construye la experiencia alrededor del grupo, el espacio y el motivo por el que se reúne.</p></div>
         </div>
-        <div class="why-item">
-          <span>02</span>
-          <strong><span class="lang" data-lang="en">made for the context.</span><span class="lang" data-lang="es" hidden>hecho para el contexto.</span></strong>
-          <div class="lang" data-lang="en"><p>Group, purpose, place and level of participation shape the format.</p></div>
-          <div class="lang" data-lang="es" hidden><p>Grupo, objetivo, espacio y nivel de participación definen el formato.</p></div>
-        </div>
-        <div class="why-item">
-          <span>03</span>
-          <strong><span class="lang" data-lang="en">shared, not passive.</span><span class="lang" data-lang="es" hidden>compartido, no pasivo.</span></strong>
-          <div class="lang" data-lang="en"><p>People enter the process together through making, material, conversation or collaboration.</p></div>
-          <div class="lang" data-lang="es" hidden><p>Las personas entran juntas en el proceso a través de creación, material, conversación o colaboración.</p></div>
-        </div>
-        <div class="why-item">
-          <span>04</span>
-          <strong><span class="lang" data-lang="en">Senso produces it.</span><span class="lang" data-lang="es" hidden>Senso lo produce.</span></strong>
-          <div class="lang" data-lang="en"><p>Artist, concept, materials and coordination are brought together in one proposal.</p></div>
-          <div class="lang" data-lang="es" hidden><p>Artista, concepto, materiales y coordinación se integran en una sola propuesta.</p></div>
+        <div>
+          <div class="proof-facts">
+            <div class="proof-fact"><span><span class="lang" data-lang="en">Artist</span><span class="lang" data-lang="es" hidden>Artista</span></span><span><span class="lang" data-lang="en">working practice</span><span class="lang" data-lang="es" hidden>práctica real</span></span></div>
+            <div class="proof-fact"><span><span class="lang" data-lang="en">Format</span><span class="lang" data-lang="es" hidden>Formato</span></span><span><span class="lang" data-lang="en">tailored to context</span><span class="lang" data-lang="es" hidden>adaptado al contexto</span></span></div>
+            <div class="proof-fact"><span><span class="lang" data-lang="en">Production</span><span class="lang" data-lang="es" hidden>Producción</span></span><span><span class="lang" data-lang="en">Senso managed</span><span class="lang" data-lang="es" hidden>gestionada por Senso</span></span></div>
+            <div class="proof-fact"><span><span class="lang" data-lang="en">Rhythm</span><span class="lang" data-lang="es" hidden>Ritmo</span></span><span><span class="lang" data-lang="en">one-off or recurring</span><span class="lang" data-lang="es" hidden>puntual o recurrente</span></span></div>
+          </div>
+          <p class="practice-line"><span class="lang" data-lang="en">Painting · clay · collage · photography · sculpture · mixed media — selected according to artist and context.</span><span class="lang" data-lang="es" hidden>Pintura · barro · collage · fotografía · escultura · técnicas mixtas — seleccionadas según el artista y el contexto.</span></p>
         </div>
       </div>
     </div>
@@ -235,15 +256,26 @@ body.drawer-open{overflow:hidden}
 
   <section class="recurring">
     <div class="shell recurring-grid">
-      <p class="micro">02 · Recurring</p>
+      <p class="micro"><span class="lang" data-lang="en">Recurring Studio</span><span class="lang" data-lang="es" hidden>Studio recurrente</span></p>
       <div>
         <div class="lang" data-lang="en"><h2>one experience can become a cultural programme.</h2></div>
         <div class="lang" data-lang="es" hidden><h2>una experiencia puede convertirse en un programa cultural.</h2></div>
       </div>
       <div class="recurring-side">
-        <div class="lang" data-lang="en"><p>Different artists and practices across the year, without having to invent every activation from zero.</p></div>
-        <div class="lang" data-lang="es" hidden><p>Distintos artistas y prácticas durante el año, sin tener que inventar cada activación desde cero.</p></div>
+        <div class="lang" data-lang="en"><p>Different artists and practices across the year for companies, hotels, clubs and communities.</p></div>
+        <div class="lang" data-lang="es" hidden><p>Diferentes artistas y prácticas durante el año para empresas, hoteles, clubs y comunidades.</p></div>
         <button class="text-link" type="button" data-interest="Recurring cultural programme" data-open-drawer><span class="lang" data-lang="en">Discuss a programme</span><span class="lang" data-lang="es" hidden>Hablar de un programa</span><span>→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="shell final-grid">
+      <p class="micro"><span class="lang" data-lang="en">Start here</span><span class="lang" data-lang="es" hidden>Empieza aquí</span></p>
+      <div class="final-copy"><span class="lang" data-lang="en">Tell us who is coming together. We will shape the right experience.</span><span class="lang" data-lang="es" hidden>Cuéntanos quién se reúne. Daremos forma a la experiencia adecuada.</span></div>
+      <div class="final-actions">
+        <button class="text-link" type="button" data-open-drawer><span class="lang" data-lang="en">Request proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
+        <a id="final-whatsapp" class="text-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/34623925179?text=Hello%20Claudia%2C%20I%20would%20like%20to%20discuss%20a%20Senso%20Studio%20experience." data-wa-en="https://wa.me/34623925179?text=Hello%20Claudia%2C%20I%20would%20like%20to%20discuss%20a%20Senso%20Studio%20experience." data-wa-es="https://wa.me/34623925179?text=Hola%20Claudia%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20una%20experiencia%20de%20Senso%20Studio.">WhatsApp <span>↗</span></a>
       </div>
     </div>
   </section>
