@@ -40,6 +40,74 @@
 @media(max-width:700px){.hero-image-caption{padding-top:14px;font-size:.7rem}.hero-image-caption .artist-credit{font-size:.6rem;max-width:220px}.bridge-statement{grid-template-columns:1fr;padding:70px 0 82px}.bridge-statement p{grid-column:1;font-size:1.12rem;line-height:1.72}.visual-frame.bedroom-compare{aspect-ratio:3/4}.bedroom-compare img{object-position:center 46%}.form-actions{align-items:stretch}.submit,.whatsapp-cta{width:100%;justify-content:space-between}.shell{width:calc(100% - 36px)}h1{font-size:2.2rem}.hero{padding-top:53px}.hero-heading{grid-template-columns:1fr;gap:26px;padding-bottom:36px}h1{max-width:550px}.hero-intro p{margin-bottom:22px}.hero-image img{height:clamp(240px,70vw,340px);object-position:center 55%}.hero-note{font-size:.62rem;line-height:1.5}.statement{grid-template-columns:1fr;gap:25px;padding-block:115px}.use-case,.use-case.reverse{display:flex;flex-direction:column;align-items:stretch;gap:38px;padding-top:35px;padding-bottom:95px}.use-case.reverse .case-visual{order:0}.visual-frame{aspect-ratio:1.45/1}.reverse .visual-frame{aspect-ratio:1.6/1}.case-caption{font-size:.7rem;align-items:flex-start}.artist-credit{font-size:.6rem;max-width:220px}.compare button{padding:8px 10px}.process-grid{grid-template-columns:1fr 1fr;gap:35px 20px}.process-step>span{margin-bottom:22px}.contact-grid{grid-template-columns:1fr;gap:45px}.contact h2{max-width:540px}.contact-intro{margin-bottom:0}}
 @media(max-width:480px){.process-grid,.form-grid{grid-template-columns:1fr}.process-step{padding-top:15px}.process-step>span{margin-bottom:15px}.field.full{grid-column:auto}.footer{flex-direction:column;align-items:center;gap:15px;padding:25px 20px;text-align:center}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Mobile/tablet parity: preserve the desktop composition and hierarchy. */
+@media(max-width:900px){
+  body{overflow-x:hidden}
+  .senso-header{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-rows:auto auto;
+    align-items:start;
+    gap:18px 20px;
+    padding:24px 20px 18px;
+  }
+  .senso-header .brand-container{grid-column:1;grid-row:1;gap:0;min-width:0}
+  .senso-header .nav-container{display:contents}
+  .senso-header .lang-switch{grid-column:2;grid-row:1;justify-self:end;align-self:start;margin-top:0}
+  .senso-header nav{
+    grid-column:1/-1;
+    grid-row:2;
+    width:100%;
+    margin:0;
+    padding:2px 0 8px;
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:18px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    white-space:nowrap;
+  }
+  .senso-header nav::-webkit-scrollbar{display:none}
+  .senso-header nav a{flex:0 0 auto}
+}
+@media(max-width:700px){
+  .shell{width:calc(100% - 40px)}
+  .hero{padding-top:58px}
+  .hero-heading{gap:30px;padding-bottom:46px}
+  .hero-intro p{font-size:1.04rem;line-height:1.68;max-width:100%}
+  .hero-image img{height:auto;aspect-ratio:1.5/1;object-fit:cover;object-position:center 52%}
+  .hero-image-caption{padding-top:14px}
+  .bridge-statement{padding:76px 0 88px}
+  .use-case,.use-case.reverse{
+    gap:42px;
+    padding-top:44px;
+    padding-bottom:108px;
+  }
+  .use-case.reverse .case-visual{order:2}
+  .visual-frame{aspect-ratio:1.16/1}
+  .visual-frame.bedroom-compare{aspect-ratio:4/5}
+  .bedroom-compare img{object-position:center 48%}
+  .reverse .visual-frame{aspect-ratio:1.05/1}
+  .case-caption{align-items:center;gap:12px}
+  .case-copy h2{margin-bottom:26px}
+  .case-copy p:not(.eyebrow){margin-bottom:30px}
+  .process{padding-top:48px}
+  .contact{padding:88px 0}
+  .footer{padding:28px 20px}
+}
+@media(max-width:480px){
+  .shell{width:calc(100% - 32px)}
+  .hero{padding-top:50px}
+  .hero-heading{gap:26px;padding-bottom:38px}
+  .hero-image img{aspect-ratio:1.42/1}
+  .case-caption{align-items:flex-start}
+  .compare{margin-top:1px}
+  .footer{padding-left:16px;padding-right:16px}
+}
 </style></head>
 <body>
 <a class="skip" href="#main">Skip to content / Ir al contenido</a>
