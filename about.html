@@ -329,6 +329,76 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 
 /* Keep primary navigation visible while scrolling */
 .top-bar{position:fixed!important;top:0;left:0;z-index:1000;background:#000}
+
+/* Match Art Consulting primary menu geometry */
+.top-bar{
+  position:fixed!important;
+  top:0;
+  left:0;
+  width:100%;
+  padding:42px 50px 24px 50px;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  z-index:1000;
+  background:rgba(0,0,0,.4);
+}
+.back-home{flex:0 0 180.08px}
+.right-nav-container{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:15px;
+  margin-left:auto;
+  flex:1;
+  min-width:0;
+}
+.right-nav-container .lang-switch{
+  order:-1;
+  align-self:flex-end;
+  margin-top:-10px;
+}
+nav.main-nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:10px;
+  margin-left:40px;
+  width:calc(100% - 40px);
+  font-size:.72rem;
+}
+@media(max-width:900px){
+  .top-bar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+    padding:30px 20px 20px 20px;
+  }
+  .back-home{flex-basis:auto}
+  .right-nav-container{
+    width:100%;
+    align-items:flex-start;
+    gap:15px;
+  }
+  .right-nav-container .lang-switch{
+    position:absolute;
+    top:24px;
+    right:20px;
+    margin:0;
+    z-index:1001;
+  }
+  nav.main-nav{
+    margin-top:10px;
+    margin-left:0;
+    width:100%;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    gap:12px;
+    font-size:.65rem;
+  }
+}
+
+.top-bar{border-bottom:1px solid rgba(255,255,255,.15)}
 </style>
 </head>
 <body>
