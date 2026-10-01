@@ -397,7 +397,11 @@ footer {
   }
 
   .lang-switch {
+    position: absolute;
+    top: 30px;
+    right: 20px;
     margin-top: 0;
+    z-index: 20;
   }
 
   nav {
@@ -408,9 +412,10 @@ footer {
     justify-content: flex-start;
   }
 
-  .hero-panel{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column}
+  .hero-panel{height:auto;min-height:0;display:flex;flex-direction:column}
+  .hero-wrapper{margin-top:0;flex:0 0 auto;height:clamp(360px,100vw,500px)}
   .hero-banner{height:100%;min-height:0}
-  .hero-wrapper{margin-top:0}
+  .hero-img{transform:none;object-fit:cover;object-position:center center}
 
   .hero-text-overlay {
     left: 20px;
