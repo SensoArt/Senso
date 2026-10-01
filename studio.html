@@ -23,10 +23,10 @@ button{border:0;background:none}
 a{color:inherit}
 [hidden],.hidden{display:none!important}
 :focus-visible{outline:1px solid currentColor;outline-offset:4px}
-.shell{width:min(1380px,calc(100% - 100px));margin-inline:auto}
-.micro,.eyebrow,.drawer-label,.footer{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase}
+.shell{width:min(1360px,calc(100% - 100px));margin-inline:auto}
+.micro,.eyebrow,.drawer-label,.footer{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase}
 
-/* shared site navigation */
+/* shared Senso navigation */
 .senso-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:sticky;top:0;z-index:80}
 .senso-header .brand-container{display:flex;align-items:flex-start;flex:0 0 180.08px}
 .senso-header .home-link{color:#111;text-decoration:none;text-transform:uppercase;font-size:.65rem;letter-spacing:2px;white-space:nowrap}
@@ -40,40 +40,55 @@ a{color:inherit}
 .senso-header .lang-btn{padding:0 4px;cursor:pointer;font-size:.65rem;letter-spacing:2px;opacity:.4}
 .senso-header .lang-btn.active{opacity:.9;font-weight:600}
 
-/* editorial hero */
-.hero{min-height:72svh;display:grid;grid-template-rows:auto 1fr auto;border-bottom:1px solid var(--line);padding:42px 0 28px}
-.hero-top{display:flex;justify-content:space-between;gap:30px;color:var(--muted)}
-.hero-top p{margin:0}
-.hero-main{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(310px,.65fr);gap:90px;align-items:end;padding:72px 0 54px}
-.hero-title{font-family:Behind,Georgia,serif;font-size:clamp(4.9rem,7.4vw,7.4rem);line-height:.86;letter-spacing:-.04em;font-weight:400;margin:0}
-.hero-copy{padding-bottom:5px}
-.hero-copy p{font-size:clamp(1.02rem,1.2vw,1.13rem);line-height:1.7;max-width:400px;margin:0 0 27px}
-.text-link{display:inline-flex;align-items:center;gap:16px;border-bottom:1px solid currentColor;padding-bottom:7px;text-decoration:none;text-transform:uppercase;font-size:.64rem;letter-spacing:.14em;cursor:pointer;transition:border-color .2s ease}
+/* quiet cover: not Art Consulting */
+.hero{padding:72px 0 62px}
+.hero-grid{display:grid;grid-template-columns:.35fr 1.25fr .62fr;gap:60px;align-items:start}
+.hero-label{color:var(--muted);padding-top:11px}
+.hero h1{font-family:Behind,Georgia,serif;font-size:clamp(3.6rem,6.2vw,6.5rem);font-weight:400;line-height:.94;letter-spacing:-.045em;margin:0;max-width:800px}
+.hero-side{padding-top:12px}
+.hero-side p{font-size:1rem;line-height:1.7;max-width:360px;margin:0 0 25px}
+.text-link{display:inline-flex;align-items:center;gap:15px;border-bottom:1px solid currentColor;padding:0 0 7px;text-decoration:none;text-transform:uppercase;font-size:.63rem;letter-spacing:.14em;cursor:pointer}
 .text-link:hover{border-color:var(--accent)}
-.hero-bottom{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px;color:var(--muted);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase}
+.audience-index{margin-top:80px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.audience-button{display:flex;min-height:145px;flex-direction:column;justify-content:space-between;text-align:left;padding:20px;border:1px solid var(--line);cursor:pointer;transition:background .22s ease,border-color .22s ease}
+.audience-button:hover{background:#f7f6f3;border-color:#aaa69e}
+.audience-button span:first-child{font-size:.58rem;letter-spacing:.13em;color:var(--muted)}
+.audience-button strong{font-family:Behind,Georgia,serif;font-size:1.65rem;font-weight:400;line-height:1.05}
+.audience-button em{font-style:normal;font-size:.76rem;line-height:1.45;color:var(--muted)}
 
-/* three formats, no cards / no accordions */
-.formats{padding:clamp(88px,9vw,124px) 0}
-.formats-head{display:grid;grid-template-columns:.42fr 1.58fr;gap:65px;margin-bottom:45px}
-.formats-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2.7rem,4.2vw,4.35rem);line-height:1;font-weight:400;letter-spacing:-.038em;margin:0;max-width:760px}
-.formats-list{border-top:1px solid var(--ink)}
-.format{display:grid;grid-template-columns:70px minmax(0,.72fr) minmax(260px,1.28fr) auto;gap:26px;align-items:start;padding:27px 0;border-bottom:1px solid var(--line)}
-.format-index{font-size:.62rem;letter-spacing:.14em;color:var(--muted);padding-top:7px}
-.format h3{font-family:Behind,Georgia,serif;font-size:clamp(1.8rem,2.5vw,2.65rem);font-weight:400;line-height:1.05;margin:0}
-.format p{font-size:.67rem;line-height:1.5;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin:7px 0 0;max-width:500px}
-.format button{white-space:nowrap;margin-top:4px}
-.formats-note{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-top:20px;color:var(--muted);font-size:.61rem;letter-spacing:.11em;text-transform:uppercase}
+/* essence */
+.essence{padding:115px 0;border-top:1px solid var(--line)}
+.essence-grid{display:grid;grid-template-columns:.35fr 1.87fr;gap:60px}
+.essence h2{font-family:Behind,Georgia,serif;font-size:clamp(2.8rem,4.5vw,4.7rem);font-weight:400;line-height:.98;letter-spacing:-.04em;margin:0;max-width:930px}
+.essence-bottom{margin-top:34px;display:grid;grid-template-columns:.35fr 1fr;gap:60px}
+.essence-bottom p{font-size:.96rem;line-height:1.7;color:var(--muted);margin:0;max-width:560px}
 
-/* final recurring + conversion */
-.closing{padding:0 0 clamp(80px,9vw,120px)}
-.closing-box{background:var(--beige);display:grid;grid-template-columns:1.2fr .8fr;gap:80px;padding:clamp(52px,6vw,78px)}
-.closing h2{font-family:Behind,Georgia,serif;font-size:clamp(2.7rem,4.2vw,4.35rem);line-height:1;letter-spacing:-.038em;font-weight:400;margin:0;max-width:700px}
-.closing-side{display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start}
-.closing-side p{font-size:.98rem;line-height:1.68;color:#4f4d47;max-width:410px;margin:0 0 26px}
-.closing-meta{margin-top:28px;padding-top:15px;border-top:1px solid rgba(23,23,20,.3);width:100%;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:.6rem;letter-spacing:.11em;text-transform:uppercase}
+/* offer by use case */
+.offer{padding:0 0 115px}
+.offer-head{display:grid;grid-template-columns:.35fr 1.87fr;gap:60px;margin-bottom:42px}
+.offer h2{font-family:Behind,Georgia,serif;font-size:clamp(2.4rem,3.8vw,3.9rem);font-weight:400;line-height:1;letter-spacing:-.035em;margin:0}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.offer-card{min-height:250px;background:#f6f4f0;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.offer-card:nth-child(2),.offer-card:nth-child(3){background:#fff;border:1px solid var(--line)}
+.offer-card:nth-child(4){background:var(--beige)}
+.offer-card h3{font-family:Behind,Georgia,serif;font-size:2rem;font-weight:400;line-height:1.05;margin:0 0 12px}
+.offer-card p{font-size:.88rem;line-height:1.6;color:var(--muted);margin:0;max-width:430px}
+.offer-card .text-link{align-self:flex-start;margin-top:36px}
+
+/* recurring as commercial upsell */
+.recurring{padding:78px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.recurring-grid{display:grid;grid-template-columns:.35fr 1.05fr .82fr;gap:60px;align-items:end}
+.recurring h2{font-family:Behind,Georgia,serif;font-size:clamp(2.4rem,4vw,4.15rem);font-weight:400;line-height:1;letter-spacing:-.037em;margin:0}
+.recurring-side p{font-size:.94rem;line-height:1.65;color:var(--muted);margin:0 0 23px;max-width:390px}
+
+/* final CTA */
+.final{padding:85px 0 90px}
+.final-grid{display:grid;grid-template-columns:.35fr 1.2fr .67fr;gap:60px;align-items:end}
+.final h2{font-family:Behind,Georgia,serif;font-size:clamp(2.5rem,4.1vw,4.25rem);font-weight:400;line-height:1;letter-spacing:-.038em;margin:0;max-width:720px}
+.final-side{display:flex;flex-direction:column;align-items:flex-start;gap:16px}
 
 /* enquiry drawer */
-.drawer-overlay{position:fixed;inset:0;background:rgba(23,23,20,.22);z-index:130;opacity:0;pointer-events:none;transition:opacity .3s ease}
+.drawer-overlay{position:fixed;inset:0;background:rgba(23,23,20,.20);z-index:130;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .drawer-overlay.open{opacity:1;pointer-events:auto}
 .drawer{position:absolute;top:0;right:0;width:min(620px,100%);height:100%;background:#fff;padding:34px 38px 42px;transform:translateX(100%);transition:transform .45s cubic-bezier(.2,.8,.2,1);overflow-y:auto}
 .drawer-overlay.open .drawer{transform:none}
@@ -101,9 +116,7 @@ body.drawer-open{overflow:hidden}
 
 @media(max-width:1000px){
   .shell{width:calc(100% - 56px)}
-  .hero-main{grid-template-columns:1fr .7fr;gap:58px}
-  .format{grid-template-columns:55px minmax(0,.72fr) minmax(230px,1.28fr) auto}
-  .closing-box{grid-template-columns:1fr .85fr;gap:55px}
+  .hero-grid,.recurring-grid,.final-grid{grid-template-columns:.3fr 1.2fr .72fr;gap:40px}
 }
 @media(max-width:900px){
   .senso-header{flex-direction:column;gap:20px;padding:30px 20px 20px}
@@ -111,28 +124,22 @@ body.drawer-open{overflow:hidden}
   .senso-header .nav-container{width:100%;align-items:flex-start}
   .senso-header .lang-switch{position:absolute;top:24px;right:20px;margin:0}
   .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:.65rem}
-  .hero-main{grid-template-columns:1fr;gap:30px}
-  .formats-head{grid-template-columns:1fr;gap:18px}
-  .format{grid-template-columns:48px 1fr auto}
-  .format p{grid-column:2/4}
-  .closing-box{grid-template-columns:1fr;gap:42px}
+  .hero-grid,.essence-grid,.essence-bottom,.offer-head,.recurring-grid,.final-grid{grid-template-columns:1fr;gap:25px}
+  .hero-side{padding-top:0}
+  .audience-index{margin-top:55px;grid-template-columns:1fr 1fr}
+  .offer-grid{grid-template-columns:1fr}
 }
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
-  .hero{min-height:auto;padding:36px 0 26px}
-  .hero-top{display:block}
-  .hero-top .hero-audience{margin-top:10px}
-  .hero-main{padding:54px 0 38px}
-  .hero-title{font-size:clamp(4.7rem,22vw,6.8rem)}
-  .hero-bottom{display:block}
-  .hero-bottom span{display:block;margin-top:7px}
-  .formats{padding:80px 0}
-  .format{grid-template-columns:36px 1fr;gap:13px;padding:24px 0}
-  .format h3{font-size:2rem}
-  .format p,.format button{grid-column:2}
-  .format button{justify-self:start;margin-top:4px}
-  .closing{padding-bottom:80px}
-  .closing-box{padding:38px 24px}
+  .hero{padding:52px 0 45px}
+  .hero h1{font-size:clamp(3.3rem,16vw,4.8rem)}
+  .audience-index{grid-template-columns:1fr;margin-top:45px}
+  .audience-button{min-height:118px}
+  .essence{padding:85px 0}
+  .offer{padding-bottom:85px}
+  .offer-card{min-height:220px;padding:24px}
+  .recurring{padding:65px 0}
+  .final{padding:70px 0 75px}
   .drawer{padding:26px 20px 34px}
   .form-grid{grid-template-columns:1fr}
   .field.full{grid-column:auto}
@@ -155,99 +162,138 @@ body.drawer-open{overflow:hidden}
 </header>
 
 <main>
-  <div class="shell">
-    <section class="hero">
-      <div class="hero-top">
-        <p class="eyebrow">Senso Studio · Barcelona / on-site</p>
-        <p class="micro hero-audience">
-          <span class="lang" data-lang="en">companies · hospitality · brands · private groups</span>
-          <span class="lang" data-lang="es" hidden>empresas · hospitality · marcas · grupos privados</span>
-        </p>
-      </div>
-
-      <div class="hero-main">
-        <div><p class="hero-title">studio.</p></div>
-        <div class="hero-copy">
-          <div class="lang" data-lang="en">
-            <p>Artist-led contemporary art experiences, built from real artistic practice.</p>
-            <button class="text-link" type="button" data-open-drawer>Plan an experience <span>→</span></button>
-          </div>
-          <div class="lang" data-lang="es" hidden>
-            <p>Experiencias de arte contemporáneo dirigidas por artistas, construidas desde la práctica artística real.</p>
-            <button class="text-link" type="button" data-open-drawer>Planificar una experiencia <span>→</span></button>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-bottom">
-        <span class="lang" data-lang="en">artist-led</span><span class="lang" data-lang="es" hidden>con artistas</span>
-        <span class="lang" data-lang="en">materials included</span><span class="lang" data-lang="es" hidden>materiales incluidos</span>
-        <span>Barcelona + on-site</span>
-      </div>
-    </section>
-  </div>
-
-  <section class="formats">
+  <section class="hero">
     <div class="shell">
-      <div class="formats-head">
-        <p class="micro">01 · Experiences</p>
+      <div class="hero-grid">
+        <p class="eyebrow hero-label">Senso Studio</p>
         <div>
-          <div class="lang" data-lang="en"><h2>three ways into the process.</h2></div>
-          <div class="lang" data-lang="es" hidden><h2>tres formas de entrar en el proceso.</h2></div>
+          <div class="lang" data-lang="en"><h1>contemporary art, experienced together.</h1></div>
+          <div class="lang" data-lang="es" hidden><h1>arte contemporáneo, vivido juntos.</h1></div>
+        </div>
+        <div class="hero-side">
+          <div class="lang" data-lang="en"><p>Artist-led experiences for companies, hospitality, brands, adults and children.</p></div>
+          <div class="lang" data-lang="es" hidden><p>Experiencias con artistas para empresas, hospitality, marcas, adultos y niños.</p></div>
+          <button class="text-link" type="button" data-open-drawer>Plan an experience <span>→</span></button>
         </div>
       </div>
 
-      <div class="formats-list">
-        <article class="format">
-          <span class="format-index">01</span>
-          <h3>collective painting.</h3>
-          <div class="lang" data-lang="en"><p>gesture · colour · composition</p></div>
-          <div class="lang" data-lang="es" hidden><p>gesto · color · composición</p></div>
-          <button class="text-link" type="button" data-experience="Collective Painting" data-open-drawer><span class="lang" data-lang="en">Enquire</span><span class="lang" data-lang="es" hidden>Consultar</span><span>→</span></button>
-        </article>
-
-        <article class="format">
-          <span class="format-index">02</span>
-          <h3>clay & colour.</h3>
-          <div class="lang" data-lang="en"><p>material · form · pigment</p></div>
-          <div class="lang" data-lang="es" hidden><p>material · forma · pigmento</p></div>
-          <button class="text-link" type="button" data-experience="Clay & Colour" data-open-drawer><span class="lang" data-lang="en">Enquire</span><span class="lang" data-lang="es" hidden>Consultar</span><span>→</span></button>
-        </article>
-
-        <article class="format">
-          <span class="format-index">03</span>
-          <h3>artist session.</h3>
-          <div class="lang" data-lang="en"><p>artist · process · making</p></div>
-          <div class="lang" data-lang="es" hidden><p>artista · proceso · práctica</p></div>
-          <button class="text-link" type="button" data-experience="Artist Session" data-open-drawer><span class="lang" data-lang="en">Enquire</span><span class="lang" data-lang="es" hidden>Consultar</span><span>→</span></button>
-        </article>
-      </div>
-
-      <div class="formats-note">
-        <span class="lang" data-lang="en">Each format is adapted to the group and context.</span>
-        <span class="lang" data-lang="es" hidden>Cada formato se adapta al grupo y al contexto.</span>
-        <span>studio · partner venue · on-site</span>
+      <div class="audience-index">
+        <button class="audience-button" type="button" data-interest="Company / team experience" data-open-drawer>
+          <span>01</span>
+          <strong><span class="lang" data-lang="en">companies & teams</span><span class="lang" data-lang="es" hidden>empresas & equipos</span></strong>
+          <em><span class="lang" data-lang="en">one-off or recurring</span><span class="lang" data-lang="es" hidden>puntual o recurrente</span></em>
+        </button>
+        <button class="audience-button" type="button" data-interest="Hospitality / brand activation" data-open-drawer>
+          <span>02</span>
+          <strong>hospitality & brands</strong>
+          <em><span class="lang" data-lang="en">guests · clients · community</span><span class="lang" data-lang="es" hidden>huéspedes · clientes · comunidad</span></em>
+        </button>
+        <button class="audience-button" type="button" data-interest="Adult / private group" data-open-drawer>
+          <span>03</span>
+          <strong><span class="lang" data-lang="en">adults & private groups</span><span class="lang" data-lang="es" hidden>adultos & grupos privados</span></strong>
+          <em><span class="lang" data-lang="en">sessions · occasions · groups</span><span class="lang" data-lang="es" hidden>sesiones · ocasiones · grupos</span></em>
+        </button>
+        <button class="audience-button" type="button" data-interest="Kids / family" data-open-drawer>
+          <span>04</span>
+          <strong>Senso Kids</strong>
+          <em><span class="lang" data-lang="en">children · families · groups</span><span class="lang" data-lang="es" hidden>niños · familias · grupos</span></em>
+        </button>
       </div>
     </div>
   </section>
 
-  <section class="closing">
+  <section class="essence">
     <div class="shell">
-      <div class="closing-box">
+      <div class="essence-grid">
+        <p class="micro">01 · Studio</p>
         <div>
-          <p class="micro">02 · One session / a programme</p>
-          <div class="lang" data-lang="en"><h2>one encounter, or a cultural rhythm across the year.</h2></div>
-          <div class="lang" data-lang="es" hidden><h2>un encuentro, o un ritmo cultural a lo largo del año.</h2></div>
+          <div class="lang" data-lang="en"><h2>the artist's practice is the starting point. the experience is shaped around the people and the context.</h2></div>
+          <div class="lang" data-lang="es" hidden><h2>la práctica del artista es el punto de partida. la experiencia se construye alrededor de las personas y el contexto.</h2></div>
         </div>
-        <div class="closing-side">
-          <div class="lang" data-lang="en"><p>Senso can shape a single experience or a recurring programme with different artists and practices.</p></div>
-          <div class="lang" data-lang="es" hidden><p>Senso puede construir una experiencia puntual o un programa recurrente con distintos artistas y prácticas.</p></div>
-          <button class="text-link" type="button" data-experience="Cultural Programme" data-open-drawer><span class="lang" data-lang="en">Discuss your brief</span><span class="lang" data-lang="es" hidden>Hablar de tu brief</span><span>→</span></button>
-          <div class="closing-meta">
-            <span>one-off / recurring</span>
-            <span>Barcelona / on-site</span>
+      </div>
+      <div class="essence-bottom">
+        <div></div>
+        <div class="lang" data-lang="en"><p>Senso works with artists, materials and spaces to create experiences that can be participatory, tactile, conversational or collective.</p></div>
+        <div class="lang" data-lang="es" hidden><p>Senso trabaja con artistas, materiales y espacios para crear experiencias participativas, táctiles, conversacionales o colectivas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offer">
+    <div class="shell">
+      <div class="offer-head">
+        <p class="micro">02 · What we create</p>
+        <div>
+          <div class="lang" data-lang="en"><h2>built around the reason people are coming together.</h2></div>
+          <div class="lang" data-lang="es" hidden><h2>construido alrededor del motivo por el que las personas se reúnen.</h2></div>
+        </div>
+      </div>
+
+      <div class="offer-grid">
+        <article class="offer-card">
+          <div>
+            <h3><span class="lang" data-lang="en">companies & teams.</span><span class="lang" data-lang="es" hidden>empresas & equipos.</span></h3>
+            <div class="lang" data-lang="en"><p>Artist-led experiences for team moments, offsites and internal culture.</p></div>
+            <div class="lang" data-lang="es" hidden><p>Experiencias con artistas para equipos, offsites y cultura interna.</p></div>
           </div>
-        </div>
+          <button class="text-link" type="button" data-interest="Company / team experience" data-open-drawer><span class="lang" data-lang="en">Tell us the context</span><span class="lang" data-lang="es" hidden>Cuéntanos el contexto</span><span>→</span></button>
+        </article>
+
+        <article class="offer-card">
+          <div>
+            <h3>hospitality & brands.</h3>
+            <div class="lang" data-lang="en"><p>Cultural experiences for guests, clients, communities and special moments.</p></div>
+            <div class="lang" data-lang="es" hidden><p>Experiencias culturales para huéspedes, clientes, comunidades y momentos especiales.</p></div>
+          </div>
+          <button class="text-link" type="button" data-interest="Hospitality / brand activation" data-open-drawer><span class="lang" data-lang="en">Create an activation</span><span class="lang" data-lang="es" hidden>Crear una activación</span><span>→</span></button>
+        </article>
+
+        <article class="offer-card">
+          <div>
+            <h3><span class="lang" data-lang="en">adults & private groups.</span><span class="lang" data-lang="es" hidden>adultos & grupos privados.</span></h3>
+            <div class="lang" data-lang="en"><p>Artist-led sessions for individuals, friends, private groups and occasions.</p></div>
+            <div class="lang" data-lang="es" hidden><p>Sesiones con artistas para particulares, amigos, grupos privados y ocasiones especiales.</p></div>
+          </div>
+          <button class="text-link" type="button" data-interest="Adult / private group" data-open-drawer><span class="lang" data-lang="en">Plan a session</span><span class="lang" data-lang="es" hidden>Planificar una sesión</span><span>→</span></button>
+        </article>
+
+        <article class="offer-card">
+          <div>
+            <h3>Senso Kids.</h3>
+            <div class="lang" data-lang="en"><p>Contemporary-art experiences designed for children and family contexts.</p></div>
+            <div class="lang" data-lang="es" hidden><p>Experiencias de arte contemporáneo diseñadas para niños y contextos familiares.</p></div>
+          </div>
+          <button class="text-link" type="button" data-interest="Kids / family" data-open-drawer><span class="lang" data-lang="en">Ask about Senso Kids</span><span class="lang" data-lang="es" hidden>Consultar Senso Kids</span><span>→</span></button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="recurring">
+    <div class="shell recurring-grid">
+      <p class="micro">03 · Recurring</p>
+      <div>
+        <div class="lang" data-lang="en"><h2>from one experience to a cultural programme.</h2></div>
+        <div class="lang" data-lang="es" hidden><h2>de una experiencia a un programa cultural.</h2></div>
+      </div>
+      <div class="recurring-side">
+        <div class="lang" data-lang="en"><p>Different artists and practices across the year for companies, hotels, clubs and communities.</p></div>
+        <div class="lang" data-lang="es" hidden><p>Diferentes artistas y prácticas durante el año para empresas, hoteles, clubs y comunidades.</p></div>
+        <button class="text-link" type="button" data-interest="Recurring cultural programme" data-open-drawer><span class="lang" data-lang="en">Discuss a programme</span><span class="lang" data-lang="es" hidden>Hablar de un programa</span><span>→</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="shell final-grid">
+      <p class="micro">04 · Start here</p>
+      <div>
+        <div class="lang" data-lang="en"><h2>tell us who, where and why. we shape the rest.</h2></div>
+        <div class="lang" data-lang="es" hidden><h2>cuéntanos quién, dónde y para qué. nosotros damos forma al resto.</h2></div>
+      </div>
+      <div class="final-side">
+        <button class="text-link" type="button" data-open-drawer><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
+        <a id="final-whatsapp" class="text-link" target="_blank" rel="noopener noreferrer" href="https://wa.me/34623925179?text=Hello%20Claudia%2C%20I%20would%20like%20to%20discuss%20a%20Senso%20Studio%20experience." data-wa-en="https://wa.me/34623925179?text=Hello%20Claudia%2C%20I%20would%20like%20to%20discuss%20a%20Senso%20Studio%20experience." data-wa-es="https://wa.me/34623925179?text=Hola%20Claudia%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20una%20experiencia%20de%20Senso%20Studio.">WhatsApp <span>↗</span></a>
       </div>
     </div>
   </section>
@@ -271,13 +317,14 @@ body.drawer-open{overflow:hidden}
       <input type="hidden" name="language" id="form-language" value="en">
       <input type="hidden" name="_subject" value="New Senso Studio enquiry">
       <div class="field full">
-        <label class="drawer-label" for="experience"><span class="lang" data-lang="en">Experience</span><span class="lang" data-lang="es" hidden>Experiencia</span></label>
-        <select name="experience" id="experience">
-          <option value="General experience" data-en="Not sure yet" data-es="Aún por definir">Not sure yet</option>
-          <option value="Collective Painting">Collective Painting</option>
-          <option value="Clay & Colour">Clay & Colour</option>
-          <option value="Artist Session">Artist Session</option>
-          <option value="Cultural Programme" data-en="Cultural Programme" data-es="Programa cultural">Cultural Programme</option>
+        <label class="drawer-label" for="experience"><span class="lang" data-lang="en">What are you planning?</span><span class="lang" data-lang="es" hidden>¿Qué estás organizando?</span></label>
+        <select name="interest" id="experience">
+          <option value="Not sure yet" data-en="Not sure yet" data-es="Aún por definir">Not sure yet</option>
+          <option value="Company / team experience" data-en="Company / team experience" data-es="Experiencia para empresa / equipo">Company / team experience</option>
+          <option value="Hospitality / brand activation" data-en="Hospitality / brand activation" data-es="Hospitality / activación de marca">Hospitality / brand activation</option>
+          <option value="Adult / private group" data-en="Adult / private group" data-es="Adultos / grupo privado">Adult / private group</option>
+          <option value="Kids / family" data-en="Kids / family" data-es="Niños / familia">Kids / family</option>
+          <option value="Recurring cultural programme" data-en="Recurring cultural programme" data-es="Programa cultural recurrente">Recurring cultural programme</option>
         </select>
       </div>
       <div class="form-grid">
@@ -307,7 +354,7 @@ body.drawer-open{overflow:hidden}
 (function(){
   const supported=['en','es'];let current='en';
   const overlay=document.getElementById('drawer-overlay');
-  const experience=document.getElementById('experience');
+  const interest=document.getElementById('experience');
 
   function setLanguage(language){
     current=supported.includes(language)?language:'en';
@@ -323,13 +370,18 @@ body.drawer-open{overflow:hidden}
     document.querySelectorAll('select option[data-en]').forEach(option=>{option.textContent=option.dataset[current]});
     document.querySelectorAll('[data-placeholder-en]').forEach(field=>{field.placeholder=field.dataset[current==='en'?'placeholderEn':'placeholderEs']});
     document.getElementById('form-language').value=current;
-    const wa=document.getElementById('drawer-whatsapp');
-    if(wa)wa.href=wa.dataset[current==='es'?'waEs':'waEn'];
+    ['final-whatsapp','drawer-whatsapp'].forEach(id=>{
+      const el=document.getElementById(id);
+      if(el)el.href=el.dataset[current==='es'?'waEs':'waEn'];
+    });
     try{localStorage.setItem('senso_lang',current)}catch(e){}
   }
 
   function openDrawer(value){
-    if(value&&experience)experience.value=value;
+    if(value&&interest){
+      const match=[...interest.options].some(o=>o.value===value);
+      if(match)interest.value=value;
+    }
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden','false');
     document.body.classList.add('drawer-open');
@@ -342,7 +394,7 @@ body.drawer-open{overflow:hidden}
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
-  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.experience)));
+  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.interest)));
   document.querySelector('[data-close-drawer]').addEventListener('click',closeDrawer);
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeDrawer()});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeDrawer()});
