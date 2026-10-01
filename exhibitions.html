@@ -512,7 +512,7 @@ nav.main-nav{
 
 /* RESonance card: same 3:2 frame as Principium, full flyer visible */
 .exhibition-image.resonance-flyer{object-fit:contain;object-position:center;background:#fff}
-.exhibition-title.resonance-title{font-family:'GilroyExtraBold',Arial,sans-serif;font-weight:800;text-transform:none;letter-spacing:-.02em}
+.exhibition-title.resonance-title{font-family:'FuturaLight',sans-serif;font-weight:normal;text-transform:none;letter-spacing:2px}
 
 /* RESonance: same 3:2 frame as Principium, filled by a deliberate crop */
 .resonance-frame{position:relative;aspect-ratio:3/2;background:#fff;overflow:hidden}
@@ -533,7 +533,7 @@ nav.main-nav{
   left:28px;
   z-index:2;
   color:#202020;
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:'GilroyExtraBold',Arial,sans-serif;
   font-size:clamp(2rem,5vw,3.65rem);
   line-height:.9;
   letter-spacing:-.055em;
@@ -547,6 +547,18 @@ nav.main-nav{
   text-transform:none!important;
   font-style:normal!important;
   letter-spacing:.5px;
+}
+
+/* Exact exhibition-card geometry */
+.exhibitions-list .image-container{aspect-ratio:3/2}
+.exhibitions-list .exhibition-image{
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+}
+.resonance-frame .resonance-flyer{
+  object-fit:cover!important;
+  object-position:center 68%!important;
 }
 </style>
 </head>
