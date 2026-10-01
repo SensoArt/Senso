@@ -32,6 +32,68 @@ body.modal-open{position:fixed;width:100%;overflow:hidden}
 .modal-box{max-height:calc(100dvh - 48px - env(safe-area-inset-bottom));overflow-y:auto;overscroll-behavior:contain;padding:8px 2px 28px;scrollbar-gutter:stable}
 @media(max-width:580px){.modal{align-items:flex-start;top:var(--modal-viewport-top,0px);bottom:auto;height:100vh;height:100dvh;height:var(--modal-viewport-height,100dvh);padding:max(14px,env(safe-area-inset-top)) 18px max(14px,env(safe-area-inset-bottom))}.modal-box{height:calc(100% - 38px);max-height:none;min-height:0;display:flex;flex-direction:column;overflow:hidden;margin-top:38px;padding:0 2px;scrollbar-gutter:auto}.modal-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;padding:8px 0 10px}.modal-footer{flex:0 0 auto;background:#fff;padding:10px 0 0}.modal-footer button{display:inline-flex;align-items:center;min-height:44px;margin-top:0}.modal label{margin-top:16px}.modal h2{font-size:1.7rem;margin:16px 0}.close{top:max(14px,env(safe-area-inset-top));right:max(18px,env(safe-area-inset-right));color:#222}}
 footer{display:flex;justify-content:space-between;align-items:center;padding:35px 50px;font-size:.70rem;letter-spacing:1px;color:#000;border-top:1px solid #f0f0f0}.footer-left{opacity:.8}.footer-socials{display:flex;align-items:center;gap:15px}.footer-socials a{color:#000;text-decoration:none;display:flex;align-items:center;opacity:.8;transition:opacity .3s}.footer-socials a:hover{opacity:1}.footer-socials svg{width:18px;height:18px;fill:currentColor}@media(max-width:900px){footer{flex-direction:column;gap:15px;padding:25px 20px;text-align:center}}
+
+/* Mobile/tablet parity: same catalogue system as desktop, adapted to viewport. */
+@media(max-width:900px){
+  body{overflow-x:hidden}
+  .senso-header{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-rows:auto auto;
+    align-items:start;
+    gap:18px 20px;
+    padding:24px 20px 18px;
+  }
+  .senso-header .brand-container{grid-column:1;grid-row:1;gap:0;min-width:0}
+  .senso-header .nav-container{display:contents}
+  .senso-header .lang-switch{grid-column:2;grid-row:1;justify-self:end;align-self:start;margin-top:0}
+  .senso-header nav{
+    grid-column:1/-1;
+    grid-row:2;
+    width:100%;
+    margin:0;
+    padding:2px 0 8px;
+    display:flex;
+    flex-wrap:nowrap;
+    justify-content:flex-start;
+    gap:18px;
+    overflow-x:auto;
+    overscroll-behavior-x:contain;
+    scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;
+    white-space:nowrap;
+  }
+  .senso-header nav::-webkit-scrollbar{display:none}
+  .senso-header nav a{flex:0 0 auto}
+  main{padding:82px 24px 115px}
+  .grid{gap:64px 22px}
+  .work img{height:clamp(300px,48vw,420px)}
+  footer{flex-direction:row;justify-content:space-between;gap:20px;padding:28px 20px;text-align:left}
+  .footer-left{max-width:260px;line-height:1.5}
+}
+@media(min-width:641px) and (max-width:900px){
+  .intro,.selection{grid-template-columns:1fr 1fr;gap:44px}
+  .intro p{margin:0 0 5px auto}
+}
+@media(max-width:640px){
+  main{padding:68px 18px 100px}
+  .intro{gap:26px;margin-bottom:68px}
+  .selection{gap:28px;margin-top:110px;padding:56px 0}
+  .grid{grid-template-columns:1fr;gap:68px}
+  .work img{
+    width:100%;
+    height:min(68vh,540px);
+    max-height:none;
+    object-fit:contain;
+  }
+  .info{padding-top:16px}
+}
+@media(max-width:420px){
+  .senso-header{padding-left:16px;padding-right:16px;gap:16px}
+  .senso-header nav{gap:16px}
+  main{padding-left:16px;padding-right:16px}
+  footer{padding-left:16px;padding-right:16px}
+}
 </style></head><body><header class="senso-header"><div class="brand-container"><a class="home-link" href="index.html">← HOME</a></div><div class="nav-container"><div class="lang-switch" aria-label="Language / Idioma"><button type="button" class="lang-btn active" data-set-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">|</span><button type="button" class="lang-btn" data-set-lang="es" aria-pressed="false">ES</button></div><nav id="nav-en" aria-label="Primary navigation"><a href="about.html">About</a><a href="exhibitions.html">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a></nav><nav id="nav-es" aria-label="Navegación principal" class="hidden"><a href="about.html">Quiénes somos</a><a href="exhibitions.html">Exposiciones</a><a href="artists.html">Artistas</a><a href="art-consulting.html">Asesoría de Arte</a><a href="studio.html">Senso Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacto</a></nav></div></header><main>
 <section class="intro"><div><div class="eyebrow" data-en="Collect art" data-es="Coleccionar arte">Collect art</div><h1 data-en="available works" data-es="obras disponibles">available works</h1></div><p data-en="A selection of contemporary works presented by Senso. Ask about a specific work, request further images or arrange a private viewing." data-es="Una selección de obras contemporáneas presentada por Senso. Consulta una obra, solicita más imágenes o concierta una visita privada.">A selection of contemporary works presented by Senso. Ask about a specific work, request further images or arrange a private viewing.</p></section>
 <section class="grid">
