@@ -506,6 +506,25 @@ nav.main-nav{
 /* RESonance card: same 3:2 frame as Principium, full flyer visible */
 .exhibition-image.resonance-flyer{object-fit:contain;object-position:center;background:#fff}
 .exhibition-title.resonance-title{text-transform:none}
+
+/* RESonance: full flyer fitted inside the exact 3:2 exhibition frame */
+.resonance-frame{position:relative;aspect-ratio:3/2;background:#fff}
+.resonance-frame .resonance-flyer{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  aspect-ratio:auto;
+  object-fit:contain!important;
+  object-position:center!important;
+  transform:none;
+}
+.exhibition:hover .resonance-frame .resonance-flyer{transform:none}
+.exhibition-date.resonance-date{
+  text-transform:none!important;
+  font-style:italic;
+  letter-spacing:.5px;
+}
 </style>
 </head>
 <body>
@@ -570,12 +589,12 @@ nav.main-nav{
 
             <!-- RESONANCE -->
             <a href="resonance.html" class="exhibition">
-                <div class="image-container">
+                <div class="image-container resonance-frame">
                     <img src="RESonance — Flyer Concepts (1).png" alt="RESonance exhibition flyer" class="exhibition-image resonance-flyer">
                 </div>
                 <div class="exhibition-meta">
                     <h2 class="exhibition-title resonance-title">RESonance</h2>
-                    <p class="exhibition-date">17-24 October, Barcelona</p>
+                    <p class="exhibition-date resonance-date">17-24 October, Barcelona</p>
                 </div>
             </a>
 
@@ -599,12 +618,12 @@ nav.main-nav{
 
             <!-- RESONANCE -->
             <a href="resonance.html" class="exhibition">
-                <div class="image-container">
+                <div class="image-container resonance-frame">
                     <img src="RESonance — Flyer Concepts (1).png" alt="Flyer de la exposición RESonance" class="exhibition-image resonance-flyer">
                 </div>
                 <div class="exhibition-meta">
                     <h2 class="exhibition-title resonance-title">RESonance</h2>
-                    <p class="exhibition-date">17-24 October, Barcelona</p>
+                    <p class="exhibition-date resonance-date">17-24 October, Barcelona</p>
                 </div>
             </a>
 
