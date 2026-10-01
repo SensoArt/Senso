@@ -450,6 +450,21 @@ footer {
     text-align: center;
   }
 }
+
+/* Senso site footer normalization */
+.senso-site-footer .footer-socials{display:flex;align-items:center;gap:15px;margin-left:auto}
+.senso-site-footer .footer-socials a{color:inherit;text-decoration:none;display:flex;align-items:center;opacity:.8;transition:opacity .3s;border:0}
+.senso-site-footer .footer-socials a:hover{opacity:1}
+.senso-site-footer .footer-socials svg{width:18px;height:18px;fill:currentColor}
+.senso-generated-footer{display:flex;justify-content:space-between;align-items:center;padding:35px 50px;font-family:'FuturaLight','Futura',Arial,sans-serif;font-size:.70rem;letter-spacing:1px;color:#000;background:#fff;border-top:1px solid #f0f0f0}
+nav a.active-link,nav a[aria-current="page"]{opacity:1!important}
+nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
+@media(max-width:900px){
+  .senso-site-footer{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:15px!important;padding:25px 20px!important;text-align:center!important}
+  .senso-site-footer .footer-left{text-align:center!important}
+  .senso-site-footer .footer-socials{margin-left:0!important;justify-content:center!important}
+}
+
 </style>
 </head>
 
@@ -533,7 +548,7 @@ footer {
 </section>
 
 <!-- FOOTER -->
-<footer>
+<footer class="senso-site-footer">
   <div class="footer-left">
     &copy; 2026 Senso Art. All rights reserved.
   </div>
