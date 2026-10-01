@@ -31,7 +31,7 @@ a{color:inherit}
 [hidden],.hidden{display:none!important}
 :focus-visible{outline:1px solid currentColor;outline-offset:4px}
 .shell{width:min(1440px,calc(100% - 100px));margin-inline:auto}
-.micro,.eyebrow,.meta,.drawer-label,.footer{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.micro,.eyebrow,.meta,.drawer-label,.footer{font-size:.63rem;letter-spacing:.15em;text-transform:uppercase}
 
 /* shared site navigation */
 .senso-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:sticky;top:0;z-index:80}
@@ -48,18 +48,18 @@ a{color:inherit}
 .senso-header .lang-btn.active{opacity:.9;font-weight:600}
 
 /* hero: typographic cover, no image */
-.hero{min-height:76svh;border-bottom:1px solid var(--line);display:grid;grid-template-rows:auto 1fr auto;padding:46px 0 28px}
+.hero{min-height:68svh;border-bottom:1px solid var(--line);display:grid;grid-template-rows:auto 1fr auto;padding:42px 0 26px}
 .hero-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start}
 .hero-top p{margin:0;color:var(--muted)}
 .hero-top .hero-type{text-align:right;line-height:1.65}
 .hero-main{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(300px,.72fr);gap:78px;align-items:end;padding:78px 0 54px}
-.hero-title{font-family:Behind,Georgia,serif;font-weight:400;font-size:clamp(5.5rem,10.4vw,10.8rem);line-height:.76;letter-spacing:-.05em;margin:0;text-transform:lowercase}
+.hero-title{font-family:Behind,Georgia,serif;font-weight:400;font-size:clamp(5.2rem,8.7vw,8.8rem);line-height:.82;letter-spacing:-.045em;margin:0;text-transform:lowercase}
 .hero-title span{display:block}
-.hero-title .studio-word{color:var(--ink);padding-left:7vw;position:relative}
-.hero-title .studio-word::after{content:'';display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--accent);margin-left:.12em;transform:translateY(-.1em)}
+.hero-title .studio-word{color:var(--ink);padding-left:0}
 .hero-copy{padding-bottom:7px}
 .hero-copy h1{font:inherit;font-size:clamp(1rem,1.15vw,1.12rem);line-height:1.72;font-weight:400;margin:0 0 28px;max-width:390px}
-.text-link{display:inline-flex;align-items:center;gap:16px;border-bottom:1px solid currentColor;padding-bottom:8px;text-decoration:none;text-transform:uppercase;font-size:.66rem;letter-spacing:.15em;cursor:pointer}
+.text-link{display:inline-flex;align-items:center;gap:16px;border-bottom:1px solid currentColor;padding-bottom:8px;text-decoration:none;text-transform:uppercase;font-size:.66rem;letter-spacing:.15em;cursor:pointer;transition:border-color .2s ease,color .2s ease}
+.text-link:hover{border-color:var(--accent);color:#35342f}
 .hero-bottom{display:grid;grid-template-columns:1fr auto auto;gap:30px;align-items:center;border-top:1px solid var(--line);padding-top:15px}
 .hero-bottom span{color:var(--muted);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase}
 
@@ -239,8 +239,8 @@ body.drawer-open{overflow:hidden}
 
       <div class="hero-main">
         <div>
-          <div class="lang" data-lang="en"><p class="hero-title"><span>senso</span><span class="studio-word">studio.</span></p></div>
-          <div class="lang" data-lang="es" hidden><p class="hero-title"><span>senso</span><span class="studio-word">studio.</span></p></div>
+          <div class="lang" data-lang="en"><p class="hero-title"><span class="studio-word">studio.</span></p></div>
+          <div class="lang" data-lang="es" hidden><p class="hero-title"><span class="studio-word">studio.</span></p></div>
         </div>
         <div class="hero-copy">
           <div class="lang" data-lang="en">
