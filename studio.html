@@ -380,9 +380,18 @@ body.drawer-open{overflow:hidden}
 
 <script>
 (function(){
-  const supported=['en','es'];let current='en';
+  const supported=['en','es'];
+  let current='en';
+
   const overlay=document.getElementById('drawer-overlay');
   const interest=document.getElementById('experience');
+  const shift=document.getElementById('studio-shift-text');
+  const shiftWrap=shift?.parentElement;
+  const shiftCopy={
+    en:['for teams','for guests','for adults','for children'],
+    es:['para equipos','para huéspedes','para adultos','para niños']
+  };
+  let shiftIndex=0;
 
   function setLanguage(language){
     current=supported.includes(language)?language:'en';
@@ -402,9 +411,22 @@ body.drawer-open{overflow:hidden}
       const el=document.getElementById(id);
       if(el)el.href=el.dataset[current==='es'?'waEs':'waEn'];
     });
+    if(shift){
+      shiftIndex=0;
+      shift.textContent=shiftCopy[current][0];
+      shiftIndex=1;
+    }
     try{localStorage.setItem('senso_lang',current)}catch(e){}
-    const shiftNow=document.getElementById('studio-shift-text');
-    if(shiftNow&&typeof shiftCopy!=='undefined'){shiftIndex=0;shiftNow.textContent=shiftCopy[current][0];shiftIndex=1;}
+  }
+
+  function renderShift(){
+    if(!shift)return;
+    shiftWrap?.classList.add('changing');
+    setTimeout(()=>{
+      shift.textContent=shiftCopy[current][shiftIndex%shiftCopy[current].length];
+      shiftIndex++;
+      shiftWrap?.classList.remove('changing');
+    },220);
   }
 
   function openDrawer(value){
@@ -417,6 +439,7 @@ body.drawer-open{overflow:hidden}
     document.body.classList.add('drawer-open');
     setTimeout(()=>overlay.querySelector('.drawer-close')?.focus(),180);
   }
+
   function closeDrawer(){
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden','true');
@@ -442,29 +465,8 @@ body.drawer-open{overflow:hidden}
   let initial='en';
   try{initial=localStorage.getItem('senso_lang')||'en'}catch(e){}
   setLanguage(initial);
+  if(shift) setInterval(renderShift,2800);
 })();
-
-  const shift=document.getElementById('studio-shift-text');
-  const shiftWrap=shift?.parentElement;
-  const shiftCopy={
-    en:['for teams','for guests','for adults','for children'],
-    es:['para equipos','para huéspedes','para adultos','para niños']
-  };
-  let shiftIndex=0;
-  function renderShift(){
-    if(!shift)return;
-    shiftWrap?.classList.add('changing');
-    setTimeout(()=>{
-      shift.textContent=shiftCopy[current][shiftIndex%shiftCopy[current].length];
-      shiftIndex++;
-      shiftWrap?.classList.remove('changing');
-    },220);
-  }
-  if(shift){
-    shift.textContent=shiftCopy[current][0];
-    shiftIndex=1;
-    setInterval(renderShift,2800);
-  }
 </script>
 </body>
 </html>
