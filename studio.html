@@ -64,19 +64,16 @@ img{display:block;width:100%}
 .audience-card strong{display:block;font-family:Behind,Georgia,serif;font-size:1.45rem;font-weight:400;line-height:1.08;margin:24px 0 9px}
 .audience-card em{display:block;font-style:normal;font-size:.78rem;line-height:1.5;color:var(--muted);max-width:245px}
 
-/* editorial proof with one image */
+/* editorial Studio proof */
 .proof{padding:0 0 clamp(95px,10vw,140px)}
-.proof-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:clamp(42px,6vw,90px);align-items:stretch}
-.proof-image{background:#ddd7ce;overflow:hidden;min-height:640px}
-.proof-image img{width:100%;height:100%;object-fit:cover;object-position:center 45%}
-.proof-copy{display:flex;flex-direction:column;justify-content:space-between;padding:12px 0 6px}
-.proof-copy h2{font-family:Behind,Georgia,serif;font-size:clamp(1.85rem,2.6vw,2.7rem);line-height:1.06;font-weight:400;letter-spacing:-.025em;margin:16px 0 24px;max-width:410px}
-.proof-copy>div>p{font-size:.94rem;line-height:1.67;color:var(--muted);max-width:400px;margin:0}
-.proof-facts{margin-top:45px;border-top:1px solid var(--ink)}
-.proof-fact{display:flex;justify-content:space-between;gap:30px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase}
-.proof-fact span:last-child{color:var(--muted);text-align:right}
-.practice-line{margin-top:30px;font-size:.72rem;line-height:1.7;color:var(--muted)}
-.proof-caption{margin-top:12px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.proof-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,520px);gap:clamp(60px,9vw,140px);align-items:center}
+.proof-copy{max-width:570px}
+.proof-copy h2{font-family:Behind,Georgia,serif;font-size:clamp(1.85rem,2.6vw,2.7rem);line-height:1.06;font-weight:400;letter-spacing:-.025em;margin:0 0 24px;max-width:540px}
+.proof-copy .lang>p{font-size:.94rem;line-height:1.67;color:var(--muted);max-width:480px;margin:0}
+.proof-facts{margin-top:42px;border-top:1px solid var(--line);max-width:440px}
+.proof-fact{padding:13px 0;border-bottom:1px solid var(--line);font-size:.63rem;letter-spacing:.11em;text-transform:uppercase}
+.proof-image{width:100%;max-width:520px;justify-self:end}
+.proof-image img{width:100%;height:auto}
 
 /* recurring */
 .recurring{padding:clamp(64px,7vw,92px) 0;background:var(--beige)}
@@ -121,7 +118,7 @@ body.drawer-open{overflow:hidden}
 @media(max-width:1000px){
   .shell{width:calc(100% - 56px)}
   .hero-grid{grid-template-columns:.25fr 1fr .72fr;gap:38px}
-  .proof-grid{grid-template-columns:1.25fr .75fr;gap:45px}
+  .proof-grid{grid-template-columns:minmax(0,1fr) minmax(0,440px);gap:45px}
   .recurring-grid,.final-grid{grid-template-columns:.25fr 1fr .72fr;gap:38px}
 }
 @media(max-width:900px){
@@ -132,8 +129,7 @@ body.drawer-open{overflow:hidden}
   .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:.65rem}
   .hero-grid,.proof-grid,.recurring-grid,.final-grid{grid-template-columns:1fr;gap:26px}
   .audience-grid{grid-template-columns:1fr 1fr}
-  .proof-image{min-height:0;aspect-ratio:4/5}
-  .proof-copy{padding:0}
+  .proof-image{max-width:520px}
 }
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
@@ -146,7 +142,6 @@ body.drawer-open{overflow:hidden}
   .audience-grid{grid-template-columns:1fr}
   .audience-card{min-height:138px}
   .proof{padding-bottom:82px}
-  .proof-image{aspect-ratio:4/5}
   .recurring{padding:58px 0 62px}
   .final{padding:58px 0 64px}
   .final-actions{display:block}
@@ -261,27 +256,17 @@ body.drawer-open{overflow:hidden}
 
   <section class="proof">
     <div class="shell proof-grid">
-      <div>
-        <div class="proof-image">
-          <img src="Senso_Studio_Foto/studio-editorial-hero.jpg" alt="Artist working during a Senso Studio experience" loading="lazy" decoding="async">
-        </div>
-        <div class="proof-caption"><span class="lang" data-lang="en">Senso Studio · artist-led process</span><span class="lang" data-lang="es" hidden>Senso Studio · proceso con artista</span></div>
-      </div>
       <div class="proof-copy">
-        <div>
-          <p class="micro"><span class="lang" data-lang="en">Why Studio</span><span class="lang" data-lang="es" hidden>Por qué Studio</span></p>
-          <div class="lang" data-lang="en"><h2>the artistic practice comes first.</h2><p>Senso starts with an artist and builds the experience around the group, the space and the reason for coming together.</p></div>
-          <div class="lang" data-lang="es" hidden><h2>la práctica artística va primero.</h2><p>Senso parte de un artista y construye la experiencia alrededor del grupo, el espacio y el motivo por el que se reúne.</p></div>
+        <div class="lang" data-lang="en"><h2>The artistic practice comes first.</h2><p>Senso builds the experience around the group, the space and the reason for coming together.</p></div>
+        <div class="lang" data-lang="es" hidden><h2>La práctica artística es el punto de partida.</h2><p>Senso construye la experiencia alrededor del grupo, el espacio y el motivo por el que se reúnen.</p></div>
+        <div class="proof-facts">
+          <div class="proof-fact"><span class="lang" data-lang="en">Artist-led</span><span class="lang" data-lang="es" hidden>Con artistas</span></div>
+          <div class="proof-fact"><span class="lang" data-lang="en">Tailored to context</span><span class="lang" data-lang="es" hidden>Adaptado al contexto</span></div>
+          <div class="proof-fact"><span class="lang" data-lang="en">One-off or recurring</span><span class="lang" data-lang="es" hidden>Puntual o recurrente</span></div>
         </div>
-        <div>
-          <div class="proof-facts">
-            <div class="proof-fact"><span><span class="lang" data-lang="en">Artist</span><span class="lang" data-lang="es" hidden>Artista</span></span><span><span class="lang" data-lang="en">working practice</span><span class="lang" data-lang="es" hidden>práctica real</span></span></div>
-            <div class="proof-fact"><span><span class="lang" data-lang="en">Format</span><span class="lang" data-lang="es" hidden>Formato</span></span><span><span class="lang" data-lang="en">tailored to context</span><span class="lang" data-lang="es" hidden>adaptado al contexto</span></span></div>
-            <div class="proof-fact"><span><span class="lang" data-lang="en">Production</span><span class="lang" data-lang="es" hidden>Producción</span></span><span><span class="lang" data-lang="en">Senso managed</span><span class="lang" data-lang="es" hidden>gestionada por Senso</span></span></div>
-            <div class="proof-fact"><span><span class="lang" data-lang="en">Rhythm</span><span class="lang" data-lang="es" hidden>Ritmo</span></span><span><span class="lang" data-lang="en">one-off or recurring</span><span class="lang" data-lang="es" hidden>puntual o recurrente</span></span></div>
-          </div>
-          <p class="practice-line"><span class="lang" data-lang="en">Painting · clay · collage · photography · sculpture · mixed media — selected according to artist and context.</span><span class="lang" data-lang="es" hidden>Pintura · barro · collage · fotografía · escultura · técnicas mixtas — seleccionadas según el artista y el contexto.</span></p>
-        </div>
+      </div>
+      <div class="proof-image">
+        <img src="Senso_Studio_Foto/studio-815.jpg" alt="Quiet Senso Studio space with windows, easel and materials prepared for a session" width="2400" height="1500" loading="lazy" decoding="async">
       </div>
     </div>
   </section>
