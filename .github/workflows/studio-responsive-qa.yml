@@ -1,0 +1,174 @@
+name: Studio responsive QA
+
+on:
+  push:
+    branches:
+      - alex-revenue-sprint-01
+    paths:
+      - "studio-proto-j-gold.html"
+      - "Senso_Studio_Foto/optimized/**"
+      - ".github/workflows/studio-responsive-qa.yml"
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.52.0
+          npx playwright install --with-deps chromium
+
+      - name: Serve site
+        run: |
+          python3 -m http.server 4173 >/tmp/studio-http.log 2>&1 &
+          sleep 2
+
+      - name: Run responsive and interaction QA
+        run: |
+          node <<'JS'
+          const { chromium } = require('playwright');
+
+          const viewports = [
+            {name:'mobile-360', width:360, height:640},
+            {name:'iphone-390', width:390, height:844},
+            {name:'mobile-430', width:430, height:932},
+            {name:'tablet-768', width:768, height:1024},
+            {name:'tablet-landscape-1024', width:1024, height:768},
+            {name:'desktop-1280', width:1280, height:800},
+            {name:'desktop-1440', width:1440, height:900},
+          ];
+
+          const failures=[];
+          const reports=[];
+          const browser=await chromium.launch({headless:true});
+
+          for(const vp of viewports){
+            const context=await browser.newContext({viewport:{width:vp.width,height:vp.height}, deviceScaleFactor:1});
+            const page=await context.newPage();
+            const errors=[];
+            page.on('console',msg=>{ if(msg.type()==='error') errors.push('console: '+msg.text()) });
+            page.on('pageerror',err=>errors.push('pageerror: '+err.message));
+
+            await page.goto('http://127.0.0.1:4173/studio-proto-j-gold.html',{waitUntil:'networkidle'});
+            await page.evaluate(()=>document.fonts.ready);
+
+            const layout=await page.evaluate(()=>{
+              const de=document.documentElement;
+              const selectors=['.senso-header','.hero','.entry','.products','.studio-gallery','.final','.footer'];
+              const boxes={};
+              for(const s of selectors){
+                const el=document.querySelector(s);
+                if(el){
+                  const r=el.getBoundingClientRect();
+                  boxes[s]={left:r.left,right:r.right,width:r.width};
+                }
+              }
+              return {
+                scrollWidth:de.scrollWidth,
+                clientWidth:de.clientWidth,
+                boxes,
+                heroHeight:document.querySelector('.hero-frame')?.getBoundingClientRect().height||0,
+                bodyOverflow:getComputedStyle(document.body).overflowX
+              };
+            });
+
+            if(layout.scrollWidth>layout.clientWidth+2){
+              failures.push(`${vp.name}: page horizontal overflow ${layout.scrollWidth} > ${layout.clientWidth}`);
+            }
+            for(const [sel,b] of Object.entries(layout.boxes)){
+              if(b.left < -2 || b.right > vp.width+2){
+                failures.push(`${vp.name}: ${sel} escapes viewport [${b.left}, ${b.right}] / ${vp.width}`);
+              }
+            }
+
+            // Product/card integrity.
+            const badProducts=await page.$$eval('.product',els=>els
+              .map((el,i)=>({i,r:el.getBoundingClientRect()}))
+              .filter(x=>x.r.left < -2 || x.r.right > innerWidth+2)
+              .map(x=>x.i));
+            if(badProducts.length) failures.push(`${vp.name}: product rows overflow: ${badProducts.join(',')}`);
+
+            // ES language parity.
+            await page.click('[data-set-lang="es"]');
+            const langOk=await page.evaluate(()=>({
+              lang:document.documentElement.lang,
+              final:document.querySelector('.final-copy [data-lang="es"]')?.hidden===false,
+              spanishTitle:document.title.includes('Experiencias de arte contemporáneo')
+            }));
+            if(langOk.lang!=='es'||!langOk.final||!langOk.spanishTitle){
+              failures.push(`${vp.name}: ES language state incomplete ${JSON.stringify(langOk)}`);
+            }
+
+            // Gallery keyboard/navigation.
+            await page.locator('.studio-gallery').scrollIntoViewIfNeeded();
+            await page.waitForTimeout(250);
+            const stage=page.locator('[data-gallery-stage]');
+            await stage.focus();
+            await page.keyboard.press('ArrowRight');
+            await page.waitForTimeout(100);
+            const counter=(await page.locator('[data-gallery-current]').textContent())?.trim();
+            if(counter!=='02') failures.push(`${vp.name}: gallery keyboard nav failed, counter=${counter}`);
+
+            const galleryBox=await stage.boundingBox();
+            if(galleryBox && (galleryBox.x < -2 || galleryBox.x+galleryBox.width > vp.width+2)){
+              failures.push(`${vp.name}: gallery stage overflow`);
+            }
+
+            // Drawer/form.
+            await page.locator('.final').scrollIntoViewIfNeeded();
+            await page.click('.final-action button');
+            await page.waitForSelector('#drawer-overlay.open');
+            const drawer=page.locator('.drawer');
+            const drawerBox=await drawer.boundingBox();
+            if(drawerBox && (drawerBox.x < -2 || drawerBox.x+drawerBox.width > vp.width+2)){
+              failures.push(`${vp.name}: drawer overflow`);
+            }
+
+            const fontSize=await page.locator('#studio-email').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+            if(vp.width<=700 && fontSize<16){
+              failures.push(`${vp.name}: mobile input font-size ${fontSize}px can trigger Safari zoom`);
+            }
+
+            await page.locator('#submit-button').scrollIntoViewIfNeeded();
+            const submitBox=await page.locator('#submit-button').boundingBox();
+            if(!submitBox || submitBox.width < Math.min(280, vp.width-36)){
+              failures.push(`${vp.name}: submit CTA width/reachability issue`);
+            }
+            await page.click('[data-close-drawer]');
+            const focusReturned=await page.evaluate(()=>document.activeElement?.matches('.final-action button'));
+            if(!focusReturned) failures.push(`${vp.name}: drawer did not return focus to trigger`);
+
+            // Resource report after reaching gallery.
+            const resources=await page.evaluate(()=>performance.getEntriesByType('resource')
+              .filter(r=>/Senso_Studio_Foto/.test(r.name))
+              .map(r=>({name:r.name.split('/').pop(),transfer:r.transferSize,decoded:r.decodedBodySize})));
+            const imageBytes=resources.reduce((s,r)=>s+(r.decoded||r.transfer||0),0);
+
+            reports.push({
+              viewport:vp.name,
+              pageWidth:`${layout.clientWidth}/${layout.scrollWidth}`,
+              heroHeight:Math.round(layout.heroHeight),
+              imageBytes,
+              resources:resources.map(r=>r.name)
+            });
+
+            if(errors.length) failures.push(...errors.map(e=>`${vp.name}: ${e}`));
+            await context.close();
+          }
+
+          await browser.close();
+          console.log('STUDIO_QA_REPORT');
+          console.log(JSON.stringify(reports,null,2));
+          if(failures.length){
+            console.error('STUDIO_QA_FAILURES');
+            failures.forEach(x=>console.error('- '+x));
+            process.exit(1);
+          }
+          console.log('STUDIO_QA_OK all viewports passed');
+          JS
