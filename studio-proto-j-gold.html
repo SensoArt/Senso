@@ -4,8 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#ffffff">
+<meta name="robots" content="index,follow">
 <title>Senso Studio | Artist-led contemporary art experiences</title>
 <meta name="description" content="Artist-led contemporary art experiences for organisations and people. Team Studio, cultural activations, private sessions, Senso Kids, family experiences and recurring programmes. Barcelona and on-site.">
+<link rel="canonical" href="https://senso-art.com/studio.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Senso Studio | Artist-led contemporary art experiences">
+<meta property="og:description" content="Contemporary art experiences conceived with artists for companies, teams, adults, families and private groups.">
+<meta property="og:url" content="https://senso-art.com/studio.html">
+<meta property="og:image" content="https://senso-art.com/Senso_Studio_Foto/studio-815.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="Fonts/futura%20light%20bt.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="Fonts/Behind-The-Nineties-Md-It.otf" as="font" type="font/otf" crossorigin>
+<link rel="preload" href="Senso_Studio_Foto/studio-815.jpg" as="image" fetchpriority="high">
 <link rel="icon" href="favicon.png?v=1000">
 <style>
 @font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
@@ -13,8 +24,9 @@
 :root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--white:#fff}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#fff;color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 button,input,select,textarea{font:inherit;color:inherit}
+button,a,select{touch-action:manipulation}
 button{border:0;background:none}
 a{color:inherit}
 img{display:block;width:100%}
@@ -209,49 +221,66 @@ body.drawer-open{overflow:hidden}
 
 @media(max-width:1000px){
   .shell{width:calc(100% - 56px)}
-  .product{grid-template-columns:58px 1fr .8fr 130px auto;gap:18px}
 }
 @media(max-width:900px){
-  .senso-header{flex-direction:column;gap:20px;padding:30px 20px 20px}
-  .senso-header .brand-container{flex-basis:auto}
-  .senso-header .nav-container{width:100%;align-items:flex-start}
-  .senso-header .lang-switch{position:absolute;top:24px;right:20px;margin:0}
-  .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:.65rem}
-  .hero-copy{width:76%}
-  .entry-grid,.featured-grid,.final-grid{grid-template-columns:1fr}
+  .senso-header{position:relative;top:auto;flex-direction:column;gap:12px;padding:26px 28px 16px}
+  .senso-header .brand-container{flex-basis:auto;gap:0}
+  .senso-header .nav-container{width:100%;align-items:flex-start;gap:8px;overflow:hidden}
+  .senso-header .lang-switch{position:absolute;top:25px;right:24px;margin:0}
+  .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:nowrap;justify-content:flex-start;gap:18px;font-size:.64rem;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:0 2px 7px}
+  .senso-header nav::-webkit-scrollbar{display:none}
+  .senso-header nav a{flex:0 0 auto}
+  .hero{padding-top:28px}
+  .hero-frame,.hero-copy{min-height:620px}
+  .hero-copy{width:78%}
+  .entry-grid{grid-template-columns:1fr}
+  .entry-card{min-height:0;padding:42px 0 46px}
   .entry-card+.entry-card{border-left:0;border-top:1px solid var(--line);padding-left:0}
-  .entry-card>.lang{height:auto}
   .entry-card:nth-child(2) .entry-list{margin-bottom:0}
-  .product{grid-template-columns:50px 1fr auto}
-  .product p{grid-column:2/4}
-  .product .aud{grid-column:2}
-  .programme-grid,.practical-grid,.proof-grid{grid-template-columns:1fr;gap:24px}
-  .logic-line{grid-template-columns:1fr;gap:0}
-  .logic-line span{display:none}
-  .logic-line strong{padding:12px 0;border-bottom:1px solid var(--line)}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
 }
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
-  .hero{padding-top:24px}
-  .hero-copy{width:100%;padding:30px 22px 28px}
-  .hero-frame::after{background:rgba(255,255,255,.74)}
+  .senso-header{padding:22px 18px 12px}
+  .senso-header .lang-switch{top:21px;right:14px}
+  .senso-header nav{font-size:.61rem;gap:16px}
+  .hero{padding:18px 0 50px}
+  .hero-frame,.hero-copy{min-height:560px}
+  .hero-copy{width:100%;padding:28px 20px 26px}
+  .hero-frame::after{background:linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.72) 62%,rgba(255,255,255,.38) 100%)}
   .hero-copy h1{font-size:2.2rem}
-  .entry-card{padding:34px 0 38px;min-height:0}
-  .entry-card h3{font-size:2.75rem}
-  .products{padding:76px 0 92px}
-  .products-head,.logic-head{grid-template-columns:1fr;gap:10px}
-  .product{grid-template-columns:34px 1fr auto;gap:12px;padding:18px 0}
-  .product .aud{grid-column:2}
-  .featured-img{height:385px}
-  .info{grid-template-columns:1fr 1fr}
-  .info div:nth-child(3n){border-right:1px solid var(--line)}
-  .info div:nth-child(even){border-right:0}
-  .form-grid{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .drawer{padding:26px 20px 34px}
-  .footer{flex-direction:column;gap:15px;padding:25px 20px;text-align:center}
+  .hero-bottom h2{font-size:1.8rem}
+  .hero-bottom p{font-size:.95rem;line-height:1.62}
+  .entry-card{padding:34px 0 38px}
+  .entry-card h3{font-size:2.6rem}
+  .entry-route{min-height:44px;padding:10px 0}
+  .products-head{padding-left:18px;padding-right:18px}
+  .product{min-height:68px}
+  .gallery-thumbs{scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .gallery-thumb{scroll-snap-align:start}
+  .field input,.field select,.field textarea{font-size:16px}
+  .drawer{padding:24px 18px 32px}
+  .footer{flex-direction:column;gap:15px;padding:25px 18px;text-align:center}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.drawer,.drawer-overlay,.product,.gallery-slide{transition:none}}
+@media(max-width:480px){
+  .hero-frame,.hero-copy{min-height:520px}
+  .hero-copy{padding:24px 16px}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:16px}
+  .entry-card h3{font-size:2.35rem}
+  .entry-action-title{font-size:.62rem}
+  .product strong{font-size:1.78rem}
+  .product p{font-size:.81rem}
+  .gallery-head h3{font-size:2.55rem}
+  .gallery-head-copy p{font-size:.9rem}
+  .gallery-nav{width:38px;height:38px}
+  .gallery-prev{left:10px}.gallery-next{right:10px}
+  .final-copy h3{font-size:2.8rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .drawer,.drawer-overlay,.product,.gallery-slide,.entry-route span:first-child{transition:none}
+}
 </style>
 </head>
 <body>
@@ -271,7 +300,7 @@ body.drawer-open{overflow:hidden}
 <section class="hero">
   <div class="shell">
     <div class="hero-frame">
-      <img src="Senso_Studio_Foto/studio-815.jpg" alt="Senso Studio space prepared for an artist-led experience">
+      <img src="Senso_Studio_Foto/studio-815.jpg" alt="Senso Studio space prepared for an artist-led experience" decoding="async" fetchpriority="high">
       <div class="hero-copy">
         <h1>studio</h1>
         <div class="hero-bottom">
@@ -304,7 +333,7 @@ body.drawer-open{overflow:hidden}
       </div>
       <div class="lang" data-lang="es" hidden>
         <h3>Studio empresas</h3>
-        <p class="entry-action-title">Empresas | Equipos | Espacios culturales | Brands</p>
+        <p class="entry-action-title">Empresas | Equipos | Espacios culturales | Marcas</p>
         <p>Cuéntanos quién participa, el espacio y el objetivo. Senso selecciona al artista, construye el formato y prepara una propuesta — para una experiencia puntual o un programa recurrente.</p>
       </div>
       <div class="entry-actions">
@@ -371,7 +400,7 @@ body.drawer-open{overflow:hidden}
         </button>
         <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Cultural Activation"><strong>Cultural Activation</strong>
           <p><span class="lang" data-lang="en">Artist-led experiences and cultural programming for guests, clients and communities in your space.</span><span class="lang" data-lang="es" hidden>Experiencias y programación cultural con artistas para huéspedes, clientes y comunidades en vuestro espacio.</span></p>
-          <span class="aud">hospitality / brands</span>
+          <span class="aud"><span class="lang" data-lang="en">hospitality / brands</span><span class="lang" data-lang="es" hidden>hospitality / marcas</span></span>
           <span class="action"><span class="lang" data-lang="en">plan →</span><span class="lang" data-lang="es" hidden>planificar →</span></span>
         </button>
         <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme"><strong>Studio Programme</strong>
@@ -432,7 +461,7 @@ body.drawer-open{overflow:hidden}
 
     </div>
 
-    <div class="gallery-stage" data-gallery-stage>
+    <div class="gallery-stage" data-gallery-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Senso Studio experience gallery">
       <div class="gallery-slide active"><img src="Senso_Studio_Foto/ss6.JPG" alt="Senso Studio creative session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
       <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async"></div>
       <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio group experience" loading="lazy" decoding="async"></div>
@@ -442,19 +471,19 @@ body.drawer-open{overflow:hidden}
       <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
       <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
 
-      <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-gallery-prev>←</button>
-      <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-gallery-next>→</button>
+      <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-label-en="Previous image" data-label-es="Imagen anterior" data-gallery-prev>←</button>
+      <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-label-en="Next image" data-label-es="Imagen siguiente" data-gallery-next>→</button>
       <div class="gallery-counter"><span data-gallery-current>01</span> / <span>08</span></div>
     </div>
 
     <div class="gallery-bottom">
       <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb active" type="button" data-gallery-index="0"><img src="Senso_Studio_Foto/ss6.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="4"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="View image 1" data-label-en="View image 1" data-label-es="Ver imagen 1"><img src="Senso_Studio_Foto/ss6.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="View image 2" data-label-en="View image 2" data-label-es="Ver imagen 2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="View image 3" data-label-en="View image 3" data-label-es="Ver imagen 3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="3" aria-label="View image 4" data-label-en="View image 4" data-label-es="Ver imagen 4"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="4" aria-label="View image 5" data-label-en="View image 5" data-label-es="Ver imagen 5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="5" aria-label="View image 6" data-label-en="View image 6" data-label-es="Ver imagen 6"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="" loading="lazy" decoding="async"></button>
       </div>
       <div class="gallery-bottom-cta">
         <button class="gallery-session-cta" type="button" data-open-drawer data-mode="people" data-interest="Open Studio">
@@ -514,9 +543,9 @@ body.drawer-open{overflow:hidden}
       </div>
 
       <div class="form-grid">
-        <div class="field"><label class="drawer-label" for="name-company" id="name-label">Name / company</label><input id="name-company" name="name_company" required></div>
-        <div class="field"><label class="drawer-label" for="studio-email">Email</label><input id="studio-email" type="email" name="email" required></div>
-        <div class="field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone"></div>
+        <div class="field"><label class="drawer-label" for="name-company" id="name-label">Name / company</label><input id="name-company" name="name_company" autocomplete="name" required></div>
+        <div class="field"><label class="drawer-label" for="studio-email">Email</label><input id="studio-email" type="email" name="email" autocomplete="email" required></div>
+        <div class="field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone" autocomplete="tel"></div>
         <div class="field org-only"><label class="drawer-label" for="group-size" id="group-label">Group size</label><input id="group-size" name="group_size" inputmode="numeric"></div>
         <div class="field org-only"><label class="drawer-label" for="preferred-date" id="date-label">Preferred date</label><input id="preferred-date" type="date" name="date"></div>
         <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><select id="location" name="location"></select></div>
@@ -532,7 +561,7 @@ body.drawer-open{overflow:hidden}
 </div>
 
 <footer class="footer senso-site-footer">
-  <div class="footer-left">&copy; 2026 Senso Art. All rights reserved.</div>
+  <div class="footer-left"><span class="lang" data-lang="en">&copy; 2026 Senso Art. All rights reserved.</span><span class="lang" data-lang="es" hidden>&copy; 2026 Senso Art. Todos los derechos reservados.</span></div>
   <div class="footer-socials">
     <a href="https://www.linkedin.com/company/sensoartbarcelona" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 1-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
     <a href="https://www.instagram.com/senso_art_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4 4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
@@ -660,9 +689,34 @@ body.drawer-open{overflow:hidden}
     }
   };
 
+  const pageMeta={
+    en:{
+      title:'Senso Studio | Artist-led contemporary art experiences',
+      description:'Artist-led contemporary art experiences for companies, teams, adults, families and private groups in Barcelona and on-site.',
+      gallery:'Senso Studio experience gallery'
+    },
+    es:{
+      title:'Senso Studio | Experiencias de arte contemporáneo con artistas',
+      description:'Experiencias de arte contemporáneo con artistas para empresas, equipos, adultos, familias y grupos privados en Barcelona y on-site.',
+      gallery:'Galería de experiencias de Senso Studio'
+    }
+  };
+
   function setLanguage(language){
     current=supported.includes(language)?language:'en';
     document.documentElement.lang=current;
+    document.title=pageMeta[current].title;
+    const desc=document.querySelector('meta[name="description"]');
+    if(desc) desc.setAttribute('content',pageMeta[current].description);
+    const ogTitle=document.querySelector('meta[property="og:title"]');
+    const ogDesc=document.querySelector('meta[property="og:description"]');
+    if(ogTitle) ogTitle.setAttribute('content',pageMeta[current].title);
+    if(ogDesc) ogDesc.setAttribute('content',pageMeta[current].description);
+    const galleryStage=document.querySelector('[data-gallery-stage]');
+    if(galleryStage) galleryStage.setAttribute('aria-label',pageMeta[current].gallery);
+    document.querySelectorAll('[data-label-en][data-label-es]').forEach(el=>{
+      el.setAttribute('aria-label',el.dataset[current==='es'?'labelEs':'labelEn']);
+    });
     document.querySelectorAll('.lang').forEach(el=>{el.hidden=el.dataset.lang!==current});
     document.querySelectorAll('[data-set-lang]').forEach(btn=>{
       const active=btn.dataset.setLang===current;
@@ -739,7 +793,9 @@ body.drawer-open{overflow:hidden}
     document.getElementById('drawer-whatsapp').textContent=current==='es'?'WhatsApp ↗':'WhatsApp instead ↗';
   }
 
-  function openDrawer(mode,selected){
+  let drawerTrigger=null;
+  function openDrawer(mode,selected,trigger){
+    drawerTrigger=trigger||document.activeElement;
     drawerMode=mode==='people'?'people':mode==='general'?'general':'org';
     renderDrawer(selected);
     overlay.classList.add('open');
@@ -752,13 +808,23 @@ body.drawer-open{overflow:hidden}
     overlay.classList.remove('open');
     overlay.setAttribute('aria-hidden','true');
     document.body.classList.remove('drawer-open');
+    drawerTrigger?.focus?.();
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
-  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.mode,btn.dataset.interest)));
+  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.mode,btn.dataset.interest,btn)));
   document.querySelector('[data-close-drawer]').addEventListener('click',closeDrawer);
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeDrawer()});
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&overlay.classList.contains('open'))closeDrawer()});
+  document.addEventListener('keydown',e=>{
+    if(e.key==='Escape'&&overlay.classList.contains('open')){closeDrawer();return}
+    if(e.key==='Tab'&&overlay.classList.contains('open')){
+      const focusable=[...overlay.querySelectorAll('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])')].filter(el=>!el.disabled&&!el.hidden&&el.offsetParent!==null);
+      if(!focusable.length) return;
+      const first=focusable[0],last=focusable[focusable.length-1];
+      if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus()}
+      else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus()}
+    }
+  });
 
   const form=document.getElementById('studio-form');
   form.addEventListener('submit',e=>{
@@ -796,8 +862,14 @@ body.drawer-open{overflow:hidden}
   function show(next){
     index=(next+slides.length)%slides.length;
     hydrateAround(index);
-    slides.forEach((el,i)=>el.classList.toggle('active',i===index));
-    thumbs.forEach((el,i)=>el.classList.toggle('active',i===index));
+    slides.forEach((el,i)=>{
+      el.classList.toggle('active',i===index);
+      el.setAttribute('aria-hidden',String(i!==index));
+    });
+    thumbs.forEach((el,i)=>{
+      el.classList.toggle('active',i===index);
+      if(i===index) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
+    });
     if(current) current.textContent=String(index+1).padStart(2,'0');
     if(thumbs[index]) thumbs[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
   }
@@ -808,14 +880,19 @@ body.drawer-open{overflow:hidden}
       hydrateAround(0);
       io.disconnect();
     }
-  },{rootMargin:'250px'});
+  },{rootMargin:'100px'});
   io.observe(root);
+  show(0);
 
   root.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>show(index-1));
   root.querySelector('[data-gallery-next]')?.addEventListener('click',()=>show(index+1));
   thumbs.forEach(btn=>btn.addEventListener('click',()=>show(Number(btn.dataset.galleryIndex))));
 
   const stage=root.querySelector('[data-gallery-stage]');
+  stage?.addEventListener('keydown',e=>{
+    if(e.key==='ArrowLeft'){e.preventDefault();show(index-1)}
+    if(e.key==='ArrowRight'){e.preventDefault();show(index+1)}
+  });
   stage?.addEventListener('pointerdown',e=>{startX=e.clientX});
   stage?.addEventListener('pointerup',e=>{
     if(startX===null) return;
