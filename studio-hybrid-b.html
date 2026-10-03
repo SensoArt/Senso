@@ -1,0 +1,96 @@
+<!doctype html><html lang="en"><head><title>Senso Studio Hybrid B</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.png?v=1000">
+<style>
+@font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');font-display:swap}
+:root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--white:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;width:100%}
+.shell{width:min(1360px,calc(100% - 100px));margin:auto}
+.micro{font-size:.61rem;letter-spacing:.15em;text-transform:uppercase}
+.proto-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:relative;z-index:20}
+.proto-header .home{font-size:.65rem;letter-spacing:2px;text-transform:uppercase}
+.proto-header nav{display:flex;gap:20px;letter-spacing:2px;text-transform:uppercase;font-size:.72rem;margin-top:10px}
+.proto-header nav a{opacity:.72}
+.proto-header nav a.active{opacity:1;border-bottom:1px solid}
+.proto-header .langs{font-size:.65rem;letter-spacing:2px;color:#777;text-align:right;margin-bottom:10px}
+.proto-right{display:flex;flex-direction:column;align-items:flex-end}
+.proto-label{position:fixed;right:18px;bottom:18px;z-index:50;background:#fff;border:1px solid var(--line);padding:9px 12px;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase}
+.cta{display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid;padding-bottom:7px;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){
+ .shell{width:calc(100% - 56px)}
+ .proto-header{padding:30px 20px 20px;flex-direction:column;gap:18px}
+ .proto-right{align-items:flex-start}
+ .proto-header nav{flex-wrap:wrap;gap:12px;font-size:.65rem}
+ .proto-header .langs{position:absolute;right:20px;top:24px}
+}
+@media(max-width:700px){.shell{width:calc(100% - 36px)}}
+</style>
+<style>
+.b-hero{min-height:86vh;padding:28px 0 52px}
+.b-top{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:26px}
+.b-stage{position:relative;height:68vh;min-height:560px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.b-image{position:absolute;inset:12% 28%;z-index:0;overflow:hidden}
+.b-image img{height:100%;object-fit:cover;filter:saturate(.3) contrast(.9) brightness(1.1);opacity:.65;transition:opacity .2s ease,transform .4s ease}
+.b-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;height:100%}
+.b-verb{display:flex;align-items:center;padding:28px 34px;font-family:Behind,Georgia,serif;font-size:clamp(4rem,7.1vw,7.8rem);line-height:.88;text-align:left;mix-blend-mode:multiply}
+.b-verb:nth-child(odd){border-right:1px solid var(--line)}
+.b-verb:nth-child(-n+2){border-bottom:1px solid var(--line)}
+.b-verb small{font-family:Futura,Arial,sans-serif;font-size:.57rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-left:auto;align-self:flex-end}
+.b-bottom{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;align-items:end;padding-top:26px}
+.b-bottom h1{font-family:Behind,Georgia,serif;font-size:clamp(3.1rem,5.2vw,5.5rem);line-height:.9;font-weight:400;margin:0}
+.b-bottom p{font-size:1rem;line-height:1.68;color:var(--muted);max-width:500px;margin:0 0 23px}
+.b-audience{padding:95px 0 120px}
+.b-audience-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:26px}
+.b-audience-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2.3rem,4vw,4rem);font-weight:400;line-height:1;margin:0;max-width:640px}
+.b-list{border-top:1px solid var(--ink)}
+.b-row{display:grid;grid-template-columns:70px 1fr 1fr auto;gap:28px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.b-row strong{font-family:Behind,Georgia,serif;font-size:clamp(2rem,3vw,3.2rem);font-weight:400}
+.b-row p{margin:0;color:var(--muted);line-height:1.55;font-size:.86rem;max-width:430px}
+.b-row:hover strong{transform:translateX(7px)}.b-row strong{transition:transform .2s ease}
+@media(max-width:900px){.b-image{inset:20% 20%}.b-bottom{grid-template-columns:1fr;gap:24px}.b-row{grid-template-columns:50px 1fr auto}.b-row p{grid-column:2/4}}
+@media(max-width:700px){.b-stage{height:auto;min-height:0}.b-image{inset:15% 16%;height:55%;top:22%}.b-grid{grid-template-columns:1fr}.b-verb{min-height:135px;border-right:0!important;border-bottom:1px solid var(--line)!important;font-size:3.7rem;padding:22px 0}.b-audience{padding:70px 0}.b-audience-head{display:block}.b-audience-head h2{margin-top:10px}.b-row{grid-template-columns:36px 1fr auto;gap:12px}}
+</style></head><body><header class="proto-header">
+  <a class="home" href="index.html">← HOME</a>
+  <div class="proto-right">
+    <div class="langs">EN | ES</div>
+    <nav>
+      <a href="about.html">About</a><a href="exhibitions.html">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a class="active" href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="b-hero"><div class="shell">
+  <div class="b-top"><span class="micro">Senso Studio</span><span class="micro">Barcelona / on-site</span></div>
+  <div class="b-stage" id="b-stage">
+    <div class="b-image"><img id="b-img" src="Senso_Studio_Foto/studio-815.jpg" alt=""></div>
+    <div class="b-grid">
+      <button class="b-verb" data-img="Senso_Studio_Foto/studio-company.jpg">make <small>teams</small></button>
+      <button class="b-verb" data-img="Senso_Studio_Foto/studio-hospitality.jpg">host <small>guests</small></button>
+      <button class="b-verb" data-img="Senso_Studio_Foto/studio-adults.jpg">share <small>friends</small></button>
+      <button class="b-verb" data-img="Senso_Studio_Foto/studio-kids.jpg">play <small>children</small></button>
+    </div>
+  </div>
+  <div class="b-bottom"><h1>studio.</h1><div><p>Contemporary art becomes something you enter — through artists, materials, gesture and shared attention.</p><a class="cta" href="studio.html">Plan an experience <span>→</span></a></div></div>
+</div></section>
+<section class="b-audience"><div class="shell">
+  <div class="b-audience-head"><span class="micro">Built around people</span><h2>same artistic standard.<br>different reasons to come together.</h2></div>
+  <div class="b-list">
+    <div class="b-row"><span class="micro">01</span><strong>teams</strong><p>A cultural alternative to generic team building.</p><span>→</span></div>
+    <div class="b-row"><span class="micro">02</span><strong>guests</strong><p>Artist-led programming for hospitality, clients and communities.</p><span>→</span></div>
+    <div class="b-row"><span class="micro">03</span><strong>friends</strong><p>Private artistic experiences for groups and occasions.</p><span>→</span></div>
+    <div class="b-row"><span class="micro">04</span><strong>children</strong><p>Material, play and real artistic processes.</p><span>→</span></div>
+  </div>
+</div></section>
+</main><div class="proto-label">Hybrid B · Playground-first</div>
+<script>
+const bi=document.getElementById('b-img'),bs=document.getElementById('b-stage');
+document.querySelectorAll('.b-verb').forEach(v=>v.addEventListener('mouseenter',()=>{bi.style.opacity='.25';setTimeout(()=>{bi.src=v.dataset.img;bi.style.opacity='.65';bi.style.transform='scale(1.035)'},110)}));
+bs.addEventListener('mouseleave',()=>{bi.src='Senso_Studio_Foto/studio-815.jpg';bi.style.opacity='.65';bi.style.transform='scale(1)'});
+</script></body></html>
