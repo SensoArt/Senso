@@ -1,0 +1,94 @@
+name: Optimize Studio images
+
+on:
+  push:
+    branches:
+      - alex-revenue-sprint-01
+    paths:
+      - "Senso_Studio_Foto/ss1.jpeg"
+      - "Senso_Studio_Foto/ss2.JPG"
+      - "Senso_Studio_Foto/ss3.jpeg"
+      - "Senso_Studio_Foto/ss5.jpeg"
+      - "Senso_Studio_Foto/ss6.JPG"
+      - "Senso_Studio_Foto/ss7.JPG"
+      - "Senso_Studio_Foto/ss8.JPG"
+      - "Senso_Studio_Foto/studio-815.jpg"
+      - "Senso_Studio_Foto/studio-company.jpg"
+      - "Senso_Studio_Foto/studio-kids.jpg"
+      - ".github/workflows/optimize-studio-images.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  optimize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: alex-revenue-sprint-01
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Generate responsive WebP derivatives
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+
+          src = Path("Senso_Studio_Foto")
+          out = src / "optimized"
+          out.mkdir(exist_ok=True)
+
+          items = {
+              "studio-815.jpg": ("hero", [960, 1920]),
+              "studio-company.jpg": ("studio-company", [960, 1920]),
+              "studio-kids.jpg": ("studio-kids", [960, 1600]),
+              "ss1.jpeg": ("ss1", [960, 1600]),
+              "ss2.JPG": ("ss2", [960, 1600]),
+              "ss3.jpeg": ("ss3", [960, 1600]),
+              "ss5.jpeg": ("ss5", [960, 1600]),
+              "ss6.JPG": ("ss6", [960, 1600]),
+              "ss7.JPG": ("ss7", [960, 1600]),
+              "ss8.JPG": ("ss8", [960, 1600]),
+          }
+
+          def save_resized(im, dest, width, quality):
+              if im.width > width:
+                  height = round(im.height * width / im.width)
+                  resized = im.resize((width, height), Image.Resampling.LANCZOS)
+              else:
+                  resized = im.copy()
+              resized.save(dest, "WEBP", quality=quality, method=6)
+
+          for filename, (stem, widths) in items.items():
+              path = src / filename
+              with Image.open(path) as raw:
+                  im = ImageOps.exif_transpose(raw).convert("RGB")
+                  for width in widths:
+                      save_resized(im, out / f"{stem}-{width}.webp", width, 82)
+                  if stem.startswith("ss") or stem == "studio-kids":
+                      save_resized(im, out / f"{stem}-thumb.webp", 360, 76)
+
+          print("Generated:")
+          for p in sorted(out.glob("*.webp")):
+              print(p, p.stat().st_size)
+          PY
+
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Senso_Studio_Foto/optimized
+          if git diff --cached --quiet; then
+            echo "No image changes"
+            exit 0
+          fi
+          git commit -m "Optimize Studio responsive images"
+          git push origin HEAD:alex-revenue-sprint-01
