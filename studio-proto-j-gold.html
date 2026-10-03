@@ -164,30 +164,23 @@ img{display:block;width:100%}
   .gallery-caption{flex-direction:column;gap:7px}
 }
 /* FINAL CONVERSION */
-.final{padding:0 0 94px;border-top:1px solid var(--line)}
-.final-grid{display:grid;grid-template-columns:1fr 1fr}
-.final-card{padding:52px 50px 50px 0;min-height:390px;display:grid;grid-template-rows:auto 1fr auto}
-.final-card+.final-card{border-left:1px solid var(--line);padding-left:50px}
-.final-card>.micro{color:var(--muted);margin-bottom:20px}
-.final-card h3{font-family:Behind,Georgia,serif;font-size:clamp(2.85rem,4.465vw,4.56rem);font-weight:400;line-height:.96;letter-spacing:-.025em;margin:0 0 22px;text-transform:lowercase}
-.final-card p{color:var(--muted);line-height:1.68;max-width:490px;margin:0 0 26px;font-size:.92rem}
-
-@media(max-width:900px){
-  .featured-grid,.final-grid{grid-template-columns:1fr}
-  .programme-grid,.practical-grid{grid-template-columns:32px 1fr;gap:14px}
-  .logic-head{grid-template-columns:32px 1fr;gap:14px}
-  .logic-line{margin-left:46px;grid-template-columns:1fr;gap:0}
-  .logic-line>span{display:none}
-  .logic-line strong{padding:12px 0;border-bottom:1px solid var(--line)}
-  .final-card+.final-card{border-left:0;border-top:1px solid var(--line);padding-left:0}
+.final{border-top:1px solid var(--ink);padding:0 0 104px}
+.final-inner{min-height:410px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:70px;align-items:end;padding:64px 0 58px}
+.final-copy h3{font-family:Behind,Georgia,serif;font-size:clamp(3.4rem,5.4vw,5.6rem);font-weight:400;line-height:.93;letter-spacing:-.03em;margin:0 0 24px;text-transform:lowercase}
+.final-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.68;max-width:680px}
+.final-action{display:flex;justify-content:flex-end;align-items:flex-end}
+.final-action button{min-width:240px;height:62px;border:1px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .2s ease}
+.final-action button:hover{background:#f4f2ed}
+@media(max-width:800px){
+  .final-inner{grid-template-columns:1fr;gap:34px;min-height:0;padding:54px 0 46px}
+  .final-action{justify-content:flex-start}
 }
 @media(max-width:700px){
-  .featured-img{height:385px}
-  .featured-copy h2,.logic-head h3,.programme h3,.practical h3,.final-card h3{font-size:2.6rem}
-  .info{grid-template-columns:1fr 1fr}
-  .info div:nth-child(3n){border-right:1px solid var(--line)}
-  .info div:nth-child(even){border-right:0}
+  .final{padding-bottom:82px}
+  .final-copy h3{font-size:3rem}
+  .final-action button{width:100%;min-width:0}
 }
+
 /* DRAWER */
 .drawer-overlay{position:fixed;inset:0;background:rgba(23,23,20,.2);z-index:130;opacity:0;pointer-events:none;transition:opacity .3s ease}
 .drawer-overlay.open{opacity:1;pointer-events:auto}
@@ -441,14 +434,14 @@ body.drawer-open{overflow:hidden}
     </div>
 
     <div class="gallery-stage" data-gallery-stage>
-      <div class="gallery-slide active"><img src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="Materials and process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide active"><img src="Senso_Studio_Foto/ss6.JPG" alt="Senso Studio creative session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async"></div>
       <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio group experience" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="Materials and process at Senso Studio" loading="lazy" decoding="async"></div>
       <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="Artistic process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss6.JPG" alt="Finished work and participants at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
       <div class="gallery-slide crop-08"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="Creative process at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
 
       <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-gallery-prev>←</button>
       <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-gallery-next>→</button>
@@ -457,12 +450,12 @@ body.drawer-open{overflow:hidden}
 
     <div class="gallery-bottom">
       <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb active" type="button" data-gallery-index="0"><img src="Senso_Studio_Foto/ss8.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0"><img src="Senso_Studio_Foto/ss6.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="" loading="lazy" decoding="async"></button>
         <button class="gallery-thumb" type="button" data-gallery-index="4"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss6.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="" loading="lazy" decoding="async"></button>
       </div>
       <div class="gallery-bottom-cta">
         <button class="gallery-session-cta" type="button" data-open-drawer data-mode="people" data-interest="Open Studio">
@@ -483,39 +476,23 @@ body.drawer-open{overflow:hidden}
 
 
 <section class="final">
-  <div class="shell final-grid">
-    <article class="final-card">
-      <span class="micro">08</span>
-      <div>
-        <div class="lang" data-lang="en">
-          <h3>Studio for business</h3>
-          <p class="section-meta">Team Studio | Cultural Activation | Studio Programme</p>
-          <p>Tell us the group, date and context. Senso will shape the right format and prepare the next step.</p>
-        </div>
-        <div class="lang" data-lang="es" hidden>
-          <h3>Studio empresas</h3>
-          <p class="section-meta">Team Studio | Cultural Activation | Studio Programme</p>
-          <p>Cuéntanos el grupo, la fecha y el contexto. Senso construirá el formato adecuado y preparará el siguiente paso.</p>
-        </div>
+  <div class="shell final-inner">
+    <div class="final-copy">
+      <div class="lang" data-lang="en">
+        <h3>let’s make Studio.</h3>
+        <p>A session, a group, an activation or a programme. Tell us what you have in mind and we will shape the right format around it.</p>
       </div>
-      <button class="section-action-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
-    </article>
-    <article class="final-card">
-      <span class="micro">09</span>
-      <div>
-        <div class="lang" data-lang="en">
-          <h3>Studio for individuals</h3>
-          <p class="section-meta">Open Studio | Private Studio | Senso Kids | Family Studio</p>
-          <p>Tell us what interests you and we will direct you to the right upcoming session or private format.</p>
-        </div>
-        <div class="lang" data-lang="es" hidden>
-          <h3>Studio particulares</h3>
-          <p class="section-meta">Open Studio | Private Studio | Senso Kids | Family Studio</p>
-          <p>Cuéntanos qué te interesa y te dirigiremos a la próxima sesión o al formato privado que mejor encaje.</p>
-        </div>
+      <div class="lang" data-lang="es" hidden>
+        <h3>hagamos Studio.</h3>
+        <p>Una sesión, un grupo, una activación o un programa. Cuéntanos qué tienes en mente y damos forma al formato adecuado.</p>
       </div>
-      <button class="section-action-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Explore sessions</span><span class="lang" data-lang="es" hidden>Explorar sesiones</span><span>→</span></button>
-    </article>
+    </div>
+    <div class="final-action">
+      <button type="button" data-open-drawer data-mode="general">
+        <span class="lang" data-lang="en">Start</span>
+        <span class="lang" data-lang="es" hidden>Empezar</span>
+      </button>
+    </div>
   </div>
 </section>
 </main>
@@ -579,6 +556,20 @@ body.drawer-open{overflow:hidden}
 
   const copy={
     en:{
+      general:{
+        kicker:'Senso Studio',
+        title:'tell us what you have in mind.',
+        intro:'A few details are enough. We will direct you to the right Studio format and next step.',
+        experience:'What interests you?',
+        name:'Name / company',
+        phone:'Phone',
+        context:'Context',
+        placeholder:'Group, occasion, objective, preferred date or anything useful to know.',
+        submit:'Send enquiry',
+        subject:'New Senso Studio enquiry',
+        options:['Not sure yet','Team Studio','Cultural Activation','Studio Programme','Open Studio','Private Studio','Senso Kids','Family Studio'],
+        close:'Close ×'
+      },
       org:{
         kicker:'Senso Studio · Brief',
         title:'tell us what you are planning.',
@@ -620,6 +611,20 @@ body.drawer-open{overflow:hidden}
       }
     },
     es:{
+      general:{
+        kicker:'Senso Studio',
+        title:'cuéntanos qué tienes en mente.',
+        intro:'Con unos pocos detalles es suficiente. Te dirigiremos al formato Studio y al siguiente paso adecuados.',
+        experience:'¿Qué te interesa?',
+        name:'Nombre / empresa',
+        phone:'Teléfono',
+        context:'Contexto',
+        placeholder:'Grupo, ocasión, objetivo, fecha preferida o cualquier detalle útil.',
+        submit:'Enviar consulta',
+        subject:'Nueva consulta Senso Studio',
+        options:['Aún por definir','Team Studio','Cultural Activation','Studio Programme','Open Studio','Private Studio','Senso Kids','Family Studio'],
+        close:'Cerrar ×'
+      },
       org:{
         kicker:'Senso Studio · Brief',
         title:'cuéntanos qué estás preparando.',
@@ -691,7 +696,7 @@ body.drawer-open{overflow:hidden}
     document.getElementById('submit-text').textContent=d.submit;
     document.getElementById('drawer-close').textContent=d.close;
     document.getElementById('form-subject').value=d.subject;
-    document.getElementById('form-journey').value=drawerMode==='org'?'organisation':'people';
+    document.getElementById('form-journey').value=drawerMode==='org'?'organisation':drawerMode==='people'?'people':'general';
 
     document.querySelectorAll('.org-only').forEach(el=>el.classList.toggle('hidden',drawerMode!=='org'));
     document.querySelectorAll('.people-only').forEach(el=>el.classList.toggle('hidden',drawerMode!=='people'));
@@ -708,7 +713,7 @@ body.drawer-open{overflow:hidden}
         opt.textContent=label;
         loc.appendChild(opt);
       });
-    }else{
+    }else if(drawerMode==='people'){
       document.getElementById('people-type-label').textContent=d.peopleType;
       document.getElementById('people-date-label').textContent=d.timing;
       document.getElementById('people-date').placeholder=d.timingPlaceholder;
@@ -734,13 +739,15 @@ body.drawer-open{overflow:hidden}
 
     const waText=drawerMode==='org'
       ? (current==='es'?'Hola Claudia, me gustaría hablar sobre una experiencia de Senso Studio para una organización.':'Hello Claudia, I would like to discuss a Senso Studio experience for an organisation.')
-      : (current==='es'?'Hola Claudia, me gustaría recibir información sobre próximas sesiones de Senso Studio.':'Hello Claudia, I would like information about upcoming Senso Studio sessions.');
+      : drawerMode==='people'
+        ? (current==='es'?'Hola Claudia, me gustaría recibir información sobre próximas sesiones de Senso Studio.':'Hello Claudia, I would like information about upcoming Senso Studio sessions.')
+        : (current==='es'?'Hola Claudia, me gustaría hablar sobre Senso Studio.':'Hello Claudia, I would like to talk about Senso Studio.');
     document.getElementById('drawer-whatsapp').href='https://wa.me/34623925179?text='+encodeURIComponent(waText);
     document.getElementById('drawer-whatsapp').textContent=current==='es'?'WhatsApp ↗':'WhatsApp instead ↗';
   }
 
   function openDrawer(mode,selected){
-    drawerMode=mode==='people'?'people':'org';
+    drawerMode=mode==='people'?'people':mode==='general'?'general':'org';
     renderDrawer(selected);
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden','false');
