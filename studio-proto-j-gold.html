@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preload" href="Fonts/futura%20light%20bt.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="Fonts/Behind-The-Nineties-Md-It.otf" as="font" type="font/otf" crossorigin>
-<link rel="preload" href="Senso_Studio_Foto/studio-815.jpg" as="image" fetchpriority="high">
+<link rel="preload" href="Senso_Studio_Foto/optimized/hero-1920.webp" as="image" type="image/webp" imagesrcset="Senso_Studio_Foto/optimized/hero-960.webp 960w, Senso_Studio_Foto/optimized/hero-1920.webp 1920w" imagesizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" fetchpriority="high">
 <link rel="icon" href="favicon.png?v=1000">
 <style>
 @font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
@@ -54,6 +54,7 @@ img{display:block;width:100%}
 /* HERO — J master */
 .hero{padding:54px 0 76px}
 .hero-frame{position:relative;min-height:72vh;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hero-frame picture{position:absolute;inset:0;width:100%;height:100%}
 .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.66) contrast(.93) brightness(1.045)}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
 .hero-copy{position:relative;z-index:2;min-height:72vh;width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px 42px 42px}
@@ -86,6 +87,7 @@ img{display:block;width:100%}
 /* PRODUCT INDEX */
 .products{padding:0 0 132px;border-top:0;content-visibility:auto;contain-intrinsic-size:1300px}
 .products-head{position:relative;width:100vw;margin-left:calc(50% - 50vw);display:grid;grid-template-columns:1fr;gap:0;align-items:start;margin-bottom:0;padding:70px max(50px,calc((100vw - 1360px)/2)) 80px;overflow:hidden}
+.products-head>picture{position:absolute;inset:0;width:100%;height:100%;z-index:0}
 .products-head-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 82%;z-index:0}
 .products-head::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 100%);z-index:1}
 .products-head>div,.products-head>.micro{position:relative;z-index:2}
@@ -294,7 +296,10 @@ body.drawer-open{overflow:hidden}
 <section class="hero">
   <div class="shell">
     <div class="hero-frame">
-      <img src="Senso_Studio_Foto/studio-815.jpg" alt="Senso Studio space prepared for an artist-led experience" decoding="async" fetchpriority="high">
+      <picture>
+        <source type="image/webp" srcset="Senso_Studio_Foto/optimized/hero-960.webp 960w, Senso_Studio_Foto/optimized/hero-1920.webp 1920w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))">
+        <img src="Senso_Studio_Foto/studio-815.jpg" alt="Senso Studio space prepared for an artist-led experience" decoding="async" fetchpriority="high">
+      </picture>
       <div class="hero-copy">
         <h1>studio</h1>
         <div class="hero-bottom">
@@ -367,7 +372,10 @@ body.drawer-open{overflow:hidden}
 <section class="products" id="ways">
   <div class="shell">
     <div class="products-head">
-      <img class="products-head-bg" src="Senso_Studio_Foto/studio-company.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low">
+      <picture>
+        <source type="image/webp" srcset="Senso_Studio_Foto/optimized/studio-company-960.webp 960w, Senso_Studio_Foto/optimized/studio-company-1920.webp 1920w" sizes="100vw">
+        <img class="products-head-bg" src="Senso_Studio_Foto/studio-company.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low">
+      </picture>
       <div>
         <div class="lang" data-lang="en">
           <h2>enter the practice</h2>
@@ -456,14 +464,14 @@ body.drawer-open{overflow:hidden}
     </div>
 
     <div class="gallery-stage" data-gallery-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Senso Studio experience gallery">
-      <div class="gallery-slide active"><img src="Senso_Studio_Foto/ss6.JPG" alt="Senso Studio creative session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio group experience" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="Materials and process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="Artistic process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-08"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="Creative process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide active"><img src="Senso_Studio_Foto/optimized/ss6-960.webp" srcset="Senso_Studio_Foto/optimized/ss6-960.webp 960w, Senso_Studio_Foto/optimized/ss6-1600.webp 1600w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio creative session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss8-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss8-960.webp 960w, Senso_Studio_Foto/optimized/ss8-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss7-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss7-960.webp 960w, Senso_Studio_Foto/optimized/ss7-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio group experience" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss3-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss3-960.webp 960w, Senso_Studio_Foto/optimized/ss3-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Materials and process at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss2-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss2-960.webp 960w, Senso_Studio_Foto/optimized/ss2-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Artistic process at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-08"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/studio-kids-960.webp" data-srcset="Senso_Studio_Foto/optimized/studio-kids-960.webp 960w, Senso_Studio_Foto/optimized/studio-kids-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Creative process at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss5-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss5-960.webp 960w, Senso_Studio_Foto/optimized/ss5-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss1-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss1-960.webp 960w, Senso_Studio_Foto/optimized/ss1-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
 
       <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-label-en="Previous image" data-label-es="Imagen anterior" data-gallery-prev>←</button>
       <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-label-en="Next image" data-label-es="Imagen siguiente" data-gallery-next>→</button>
@@ -472,12 +480,12 @@ body.drawer-open{overflow:hidden}
 
     <div class="gallery-bottom">
       <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="View image 1" data-label-en="View image 1" data-label-es="Ver imagen 1"><img src="Senso_Studio_Foto/ss6.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="View image 2" data-label-en="View image 2" data-label-es="Ver imagen 2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss8.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="View image 3" data-label-en="View image 3" data-label-es="Ver imagen 3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="3" aria-label="View image 4" data-label-en="View image 4" data-label-es="Ver imagen 4"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="4" aria-label="View image 5" data-label-en="View image 5" data-label-es="Ver imagen 5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="" loading="lazy" decoding="async"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="5" aria-label="View image 6" data-label-en="View image 6" data-label-es="Ver imagen 6"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="View image 1" data-label-en="View image 1" data-label-es="Ver imagen 1"><img src="Senso_Studio_Foto/optimized/ss6-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="View image 2" data-label-en="View image 2" data-label-es="Ver imagen 2"><img src="Senso_Studio_Foto/optimized/ss8-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="View image 3" data-label-en="View image 3" data-label-es="Ver imagen 3"><img src="Senso_Studio_Foto/optimized/ss7-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="3" aria-label="View image 4" data-label-en="View image 4" data-label-es="Ver imagen 4"><img src="Senso_Studio_Foto/optimized/ss3-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="4" aria-label="View image 5" data-label-en="View image 5" data-label-es="Ver imagen 5"><img src="Senso_Studio_Foto/optimized/ss2-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="5" aria-label="View image 6" data-label-en="View image 6" data-label-es="Ver imagen 6"><img src="Senso_Studio_Foto/optimized/studio-kids-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
       </div>
       <div class="gallery-bottom-cta">
         <button class="gallery-session-cta" type="button" data-open-drawer data-mode="people" data-interest="Open Studio">
@@ -845,9 +853,19 @@ body.drawer-open{overflow:hidden}
   let index=0, startX=null;
 
   function hydrate(img){
-    if(!img || !img.dataset.src) return;
-    img.src=img.dataset.src;
-    delete img.dataset.src;
+    if(!img) return;
+    if(img.dataset.srcset){
+      img.srcset=img.dataset.srcset;
+      delete img.dataset.srcset;
+    }
+    if(img.dataset.sizes){
+      img.sizes=img.dataset.sizes;
+      delete img.dataset.sizes;
+    }
+    if(img.dataset.src){
+      img.src=img.dataset.src;
+      delete img.dataset.src;
+    }
   }
   function hydrateAround(i){
     hydrate(slides[i]?.querySelector('img'));
@@ -870,7 +888,6 @@ body.drawer-open{overflow:hidden}
 
   const io=new IntersectionObserver(entries=>{
     if(entries.some(e=>e.isIntersecting)){
-      thumbs.forEach(btn=>hydrate(btn.querySelector('img')));
       hydrateAround(0);
       io.disconnect();
     }
