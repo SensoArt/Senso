@@ -120,41 +120,42 @@ img{display:block;width:100%}
 }
 /* STUDIO GALLERY */
 .studio-gallery{padding:96px 0 108px;border-top:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:900px}
-.gallery-head{display:grid;grid-template-columns:58px 1fr auto;gap:34px;align-items:end;margin-bottom:34px}
-.gallery-head>.micro{padding-bottom:8px;color:var(--muted)}
-.gallery-head h3{font-family:Behind,Georgia,serif;font-size:clamp(2.85rem,4.465vw,4.56rem);font-weight:400;line-height:.96;letter-spacing:-.025em;margin:0;text-transform:lowercase}
-.gallery-head p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:480px}
+.gallery-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr) auto;gap:42px;align-items:end;margin-bottom:30px}
+.gallery-head h3{font-family:Behind,Georgia,serif;font-size:clamp(3.15rem,4.8vw,4.85rem);font-weight:400;line-height:.94;letter-spacing:-.025em;margin:0;text-transform:lowercase}
+.gallery-head-copy{padding-bottom:5px}
+.gallery-head-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.62;max-width:520px}
+.gallery-head-cta{display:flex;justify-content:flex-end;align-items:flex-end;padding-bottom:6px}
+.gallery-head-cta .section-action-link{white-space:nowrap}
 .gallery-stage{position:relative;aspect-ratio:16/8.2;min-height:440px;max-height:610px;overflow:hidden;background:#f3f1ec;touch-action:pan-y}
 .gallery-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease}
 .gallery-slide.active{opacity:1;pointer-events:auto}
-.gallery-slide img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.9) contrast(1.03) brightness(1.02)}
-.gallery-slide.teacher img{object-position:center 38%}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.92) contrast(1.035) brightness(1.02)}
+.gallery-slide.crop-03 img{object-position:center 68%;transform:scale(1.035)}
+.gallery-slide.crop-07 img{object-position:center 36%;transform:scale(1.03)}
+.gallery-slide.crop-08 img{object-position:center 48%}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid rgba(23,23,20,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;font-size:1.1rem}
 .gallery-prev{left:18px}.gallery-next{right:18px}
 .gallery-counter{position:absolute;right:18px;bottom:16px;z-index:3;background:rgba(255,255,255,.84);padding:7px 9px;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
-.gallery-bottom{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:end;margin-top:14px}
+.gallery-bottom{margin-top:14px}
 .gallery-thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
 .gallery-thumb{height:92px;padding:0;border:1px solid transparent;overflow:hidden;cursor:pointer;background:#f3f1ec}
 .gallery-thumb.active{border-color:var(--ink)}
-.gallery-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.02) brightness(1.02)}
-.gallery-cta{display:flex;gap:14px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
-.gallery-cta .section-action-link{white-space:nowrap}
-.gallery-caption{margin-top:14px;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
-.gallery-caption p{margin:0;color:var(--muted);font-size:.76rem;line-height:1.55}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02) brightness(1.02)}
+.gallery-caption{margin-top:13px;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.gallery-caption p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.55}
 .gallery-caption .credit{font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 @media(max-width:900px){
-  .gallery-head{grid-template-columns:32px 1fr;gap:14px}
-  .gallery-head p{grid-column:2}
+  .gallery-head{grid-template-columns:1fr auto;gap:18px}
+  .gallery-head-copy{grid-column:1}
+  .gallery-head-cta{grid-column:2;grid-row:1/3}
   .gallery-stage{aspect-ratio:16/9;min-height:0;max-height:none}
-  .gallery-bottom{grid-template-columns:1fr}
-  .gallery-cta{justify-content:flex-start}
 }
 @media(max-width:700px){
   .studio-gallery{padding:76px 0 86px}
-  .gallery-head{grid-template-columns:1fr;gap:10px}
-  .gallery-head>.micro{padding-bottom:0}
-  .gallery-head h3{font-size:2.6rem}
-  .gallery-head p{grid-column:auto}
+  .gallery-head{grid-template-columns:1fr;gap:12px}
+  .gallery-head h3{font-size:2.85rem}
+  .gallery-head-copy,.gallery-head-cta{grid-column:auto;grid-row:auto}
+  .gallery-head-cta{justify-content:flex-start;padding-bottom:0}
   .gallery-stage{aspect-ratio:4/3;min-height:0}
   .gallery-nav{width:40px;height:40px}
   .gallery-thumbs{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
@@ -427,30 +428,28 @@ body.drawer-open{overflow:hidden}
 <section class="studio-gallery" aria-labelledby="gallery-title">
   <div class="shell">
     <div class="gallery-head">
-      <span class="micro">04</span>
       <div>
-        <div class="lang" data-lang="en">
-          <h3 id="gallery-title">the experience</h3>
-        </div>
-        <div class="lang" data-lang="es" hidden>
-          <h3 id="gallery-title-es">la experiencia</h3>
-        </div>
+        <div class="lang" data-lang="en"><h3 id="gallery-title">the experience</h3></div>
+        <div class="lang" data-lang="es" hidden><h3 id="gallery-title-es">la experiencia</h3></div>
       </div>
-      <div>
-        <p class="lang" data-lang="en">Real sessions, real people, real artistic practice.</p>
-        <p class="lang" data-lang="es" hidden>Sesiones reales, personas reales, práctica artística real.</p>
+      <div class="gallery-head-copy">
+        <p class="lang" data-lang="en">Tell us the group or the occasion. Senso will shape the right experience around it.</p>
+        <p class="lang" data-lang="es" hidden>Cuéntanos el grupo o la ocasión. Senso construye la experiencia adecuada.</p>
+      </div>
+      <div class="gallery-head-cta">
+        <button class="section-action-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Plan an experience</span><span class="lang" data-lang="es" hidden>Planificar una experiencia</span><span>→</span></button>
       </div>
     </div>
 
     <div class="gallery-stage" data-gallery-stage>
       <div class="gallery-slide active"><img src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
-      <div class="gallery-slide"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="Materials and process at Senso Studio" loading="lazy"></div>
-      <div class="gallery-slide"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy"></div>
-      <div class="gallery-slide"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio group experience" loading="lazy"></div>
-      <div class="gallery-slide"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="Artistic process at Senso Studio" loading="lazy"></div>
-      <div class="gallery-slide"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss6.JPG" alt="Finished work and participants at Senso Studio" loading="lazy"></div>
-      <div class="gallery-slide"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy"></div>
-      <div class="gallery-slide teacher"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="fotos_artistas/lucia_cheves_2.jpg" alt="Lucía Cheves, Senso artist and Studio facilitator" loading="lazy"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="Materials and process at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio group experience" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="Artistic process at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss6.JPG" alt="Finished work and participants at Senso Studio" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
+      <div class="gallery-slide crop-08"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/studio-kids.jpg" alt="Creative process at Senso Studio" loading="lazy" decoding="async"></div>
 
       <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-gallery-prev>←</button>
       <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-gallery-next>→</button>
@@ -459,22 +458,18 @@ body.drawer-open{overflow:hidden}
 
     <div class="gallery-bottom">
       <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb active" type="button" data-gallery-index="0"><img src="Senso_Studio_Foto/ss8.JPG" alt=""></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="1"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt=""></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="2"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt=""></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="3"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt=""></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="4"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt=""></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="5"><img loading="lazy" decoding="async" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss6.JPG" alt=""></button>
-      </div>
-      <div class="gallery-cta">
-        <button class="section-action-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
-        <button class="section-action-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Explore sessions</span><span class="lang" data-lang="es" hidden>Explorar sesiones</span><span>→</span></button>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0"><img src="Senso_Studio_Foto/ss8.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss3.jpeg" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss5.jpeg" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="3"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss7.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="4"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss2.JPG" alt="" loading="lazy" decoding="async"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="5"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/ss6.JPG" alt="" loading="lazy" decoding="async"></button>
       </div>
     </div>
 
     <div class="gallery-caption">
-      <p class="lang" data-lang="en">A selection of real Senso Studio sessions in Barcelona.</p>
-      <p class="lang" data-lang="es" hidden>Una selección de sesiones reales de Senso Studio en Barcelona.</p>
+      <p class="lang" data-lang="en">Real Senso Studio sessions in Barcelona.</p>
+      <p class="lang" data-lang="es" hidden>Sesiones reales de Senso Studio en Barcelona.</p>
       <span class="credit">Senso Studio · Barcelona</span>
     </div>
   </div>
