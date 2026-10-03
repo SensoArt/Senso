@@ -295,6 +295,22 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 /* Contacts footer: copyright only */
 .contacts-footer{width:100%;display:flex;justify-content:flex-start;align-items:center;padding:35px 50px;font-family:'FuturaLight',sans-serif;font-size:.70rem;letter-spacing:1px;color:#fff;border-top:1px solid rgba(255,255,255,.15);background:transparent;text-align:left}
 @media(max-width:900px){.contacts-footer{justify-content:center;padding:25px 20px;text-align:center}}
+
+/* PREVIEW ONLY — exact requested alignment */
+@media(min-width:901px){
+  .back-home{top:44px;left:50px}
+}
+@media(max-width:900px){
+  .back-home{top:32px;left:20px}
+}
+body{position:relative;min-height:100dvh}
+.contacts-footer{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+}
+
 </style>
 
 </head>
