@@ -114,13 +114,6 @@ img{display:block;width:100%}
 .info span{display:block;font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
 .info strong{font-family:Behind,Georgia,serif;font-size:1.28rem;font-weight:400;line-height:1.15}
 
-/* PROOF PLACEHOLDER — honest, no invented logos */
-.proof{padding:82px 0 98px;border-top:1px solid var(--line)}
-.proof-grid{display:grid;grid-template-columns:.29fr 1fr .92fr;gap:52px;align-items:start}
-.proof h3{font-family:Behind,Georgia,serif;font-size:clamp(2.35rem,3.8vw,3.95rem);font-weight:400;line-height:.99;margin:0}
-.proof p{font-size:.9rem;line-height:1.66;color:var(--muted);margin:0 0 22px}
-.proof-note{padding-top:13px;border-top:1px solid var(--line);font-size:.61rem;line-height:1.7;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-
 /* FINAL CONVERSION */
 .final{padding:72px 0 86px;border-top:1px solid var(--line)}
 .final-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
@@ -276,8 +269,8 @@ body.drawer-open{overflow:hidden}
     <div class="products-head">
       <span class="micro"><span class="lang" data-lang="en">Ways into Studio</span><span class="lang" data-lang="es" hidden>Formas de entrar en Studio</span></span>
       <div>
-        <div class="lang" data-lang="en"><h2>different formats.<br>one artistic standard.</h2><p>Choose the context. Senso shapes the artist, practice and production around it.</p></div>
-        <div class="lang" data-lang="es" hidden><h2>formatos distintos.<br>un mismo criterio artístico.</h2><p>Elige el contexto. Senso construye el artista, la práctica y la producción alrededor de él.</p></div>
+        <div class="lang" data-lang="en"><h2>different formats.<br>one artistic standard.</h2><p>Choose the context. Senso selects the artist and shapes the practice, format and production around it.</p></div>
+        <div class="lang" data-lang="es" hidden><h2>formatos distintos.<br>un mismo criterio artístico.</h2><p>Elige el contexto. Senso selecciona al artista y construye la práctica, el formato y la producción alrededor de él.</p></div>
       </div>
     </div>
     <div class="product-list">
@@ -392,20 +385,7 @@ body.drawer-open{overflow:hidden}
   </div>
 </section>
 
-<section class="proof">
-  <div class="shell proof-grid">
-    <span class="micro"><span class="lang" data-lang="en">Phase 2 proof layer</span><span class="lang" data-lang="es" hidden>Capa de prueba · Fase 2</span></span>
-    <div>
-      <div class="lang" data-lang="en"><h3>real work will replace explanation.</h3></div>
-      <div class="lang" data-lang="es" hidden><h3>el trabajo real sustituirá a la explicación.</h3></div>
-    </div>
-    <div>
-      <div class="lang" data-lang="en"><p>As Studio grows, this section becomes selected cases: client or context, format, participants, artist, image and outcome. No decorative logo wall.</p></div>
-      <div class="lang" data-lang="es" hidden><p>A medida que Studio crezca, esta sección se convertirá en casos seleccionados: cliente o contexto, formato, participantes, artista, imagen y resultado. Sin un muro decorativo de logos.</p></div>
-      <div class="proof-note"><span class="lang" data-lang="en">Designed now so proof can be added without redesigning the page.</span><span class="lang" data-lang="es" hidden>Diseñado ahora para poder añadir prueba social sin rediseñar la página.</span></div>
-    </div>
-  </div>
-</section>
+
 
 <section class="final">
   <div class="shell final-grid">
@@ -436,7 +416,7 @@ body.drawer-open{overflow:hidden}
         <p class="micro" id="drawer-kicker">Senso Studio · Brief</p>
         <h2 id="drawer-title">tell us what you are planning.</h2>
       </div>
-      <button type="button" class="drawer-close" data-close-drawer>Close ×</button>
+      <button type="button" class="drawer-close" id="drawer-close" data-close-drawer>Close ×</button>
     </div>
 
     <p class="drawer-intro" id="drawer-intro">A short brief is enough. We will come back with the format and next step that make sense.</p>
@@ -458,8 +438,8 @@ body.drawer-open{overflow:hidden}
         <div class="field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone"></div>
         <div class="field org-only"><label class="drawer-label" for="group-size" id="group-label">Group size</label><input id="group-size" name="group_size" inputmode="numeric"></div>
         <div class="field org-only"><label class="drawer-label" for="preferred-date" id="date-label">Preferred date</label><input id="preferred-date" type="date" name="date"></div>
-        <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><select id="location" name="location"><option value="Not sure yet">Not sure yet</option><option value="Barcelona / partner venue">Barcelona / partner venue</option><option value="On-site">At our space / on-site</option></select></div>
-        <div class="field people-only hidden"><label class="drawer-label" for="people-type" id="people-type-label">Who is it for?</label><select id="people-type" name="people_type"><option value="Myself / adult">Myself / adult</option><option value="Young adult">Young adult</option><option value="Child">Child</option><option value="Family">Family</option><option value="Private group">Private group</option></select></div>
+        <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><select id="location" name="location"></select></div>
+        <div class="field people-only hidden"><label class="drawer-label" for="people-type" id="people-type-label">Who is it for?</label><select id="people-type" name="people_type"></select></div>
         <div class="field people-only hidden"><label class="drawer-label" for="people-date" id="people-date-label">Preferred timing</label><input id="people-date" name="preferred_timing" placeholder="Weekday / weekend / flexible"></div>
         <div class="field full"><label class="drawer-label" for="studio-message" id="context-label">Context</label><textarea id="studio-message" name="message" placeholder="Occasion, objective or anything useful to know."></textarea></div>
       </div>
@@ -502,7 +482,11 @@ body.drawer-open{overflow:hidden}
         placeholder:'Occasion, objective or anything useful to know.',
         submit:'Request proposal',
         subject:'New Senso Studio organisation enquiry',
-        options:['Not sure yet','Team Studio','Cultural Activation','Private Studio','Studio Programme']
+        options:['Not sure yet','Team Studio','Cultural Activation','Private Studio','Studio Programme'],
+        locations:['Not sure yet','Barcelona / partner venue','At our space / on-site'],
+        peopleTypes:['Myself / adult','Young adult','Child','Family','Private group'],
+        timingPlaceholder:'Weekday / weekend / flexible',
+        close:'Close ×'
       },
       people:{
         kicker:'Senso Studio · Sessions',
@@ -517,7 +501,11 @@ body.drawer-open{overflow:hidden}
         placeholder:'Age if relevant, private group, occasion or any preference.',
         submit:'Find a session',
         subject:'New Senso Studio people enquiry',
-        options:['Open Studio','Private Studio','Senso Kids','Family Studio']
+        options:['Open Studio','Private Studio','Senso Kids','Family Studio'],
+        locations:['Not sure yet','Barcelona / partner venue','At our space / on-site'],
+        peopleTypes:['Myself / adult','Young adult','Child','Family','Private group'],
+        timingPlaceholder:'Weekday / weekend / flexible',
+        close:'Close ×'
       }
     },
     es:{
@@ -535,7 +523,11 @@ body.drawer-open{overflow:hidden}
         placeholder:'Ocasión, objetivo o cualquier detalle útil.',
         submit:'Solicitar propuesta',
         subject:'Nueva consulta Senso Studio · organización',
-        options:['Aún por definir','Team Studio','Cultural Activation','Private Studio','Studio Programme']
+        options:['Aún por definir','Team Studio','Cultural Activation','Private Studio','Studio Programme'],
+        locations:['Aún por definir','Barcelona / espacio partner','En nuestro espacio / on-site'],
+        peopleTypes:['Yo / adulto','Joven adulto','Niño/a','Familia','Grupo privado'],
+        timingPlaceholder:'Entre semana / fin de semana / flexible',
+        close:'Cerrar ×'
       },
       people:{
         kicker:'Senso Studio · Sesiones',
@@ -550,7 +542,11 @@ body.drawer-open{overflow:hidden}
         placeholder:'Edad si aplica, grupo privado, ocasión o cualquier preferencia.',
         submit:'Encontrar una sesión',
         subject:'Nueva consulta Senso Studio · personas',
-        options:['Open Studio','Private Studio','Senso Kids','Family Studio']
+        options:['Open Studio','Private Studio','Senso Kids','Family Studio'],
+        locations:['Aún por definir','Barcelona / espacio partner','En nuestro espacio / on-site'],
+        peopleTypes:['Yo / adulto','Joven adulto','Niño/a','Familia','Grupo privado'],
+        timingPlaceholder:'Entre semana / fin de semana / flexible',
+        close:'Cerrar ×'
       }
     }
   };
@@ -582,6 +578,7 @@ body.drawer-open{overflow:hidden}
     document.getElementById('context-label').textContent=d.context;
     document.getElementById('studio-message').placeholder=d.placeholder;
     document.getElementById('submit-text').textContent=d.submit;
+    document.getElementById('drawer-close').textContent=d.close;
     document.getElementById('form-subject').value=d.subject;
     document.getElementById('form-journey').value=drawerMode==='org'?'organisation':'people';
 
@@ -592,9 +589,26 @@ body.drawer-open{overflow:hidden}
       document.getElementById('group-label').textContent=d.group;
       document.getElementById('date-label').textContent=d.date;
       document.getElementById('location-label').textContent=d.location;
+      const loc=document.getElementById('location');
+      loc.innerHTML='';
+      d.locations.forEach((label,i)=>{
+        const opt=document.createElement('option');
+        opt.value=copy.en.org.locations[i];
+        opt.textContent=label;
+        loc.appendChild(opt);
+      });
     }else{
       document.getElementById('people-type-label').textContent=d.peopleType;
       document.getElementById('people-date-label').textContent=d.timing;
+      document.getElementById('people-date').placeholder=d.timingPlaceholder;
+      const pt=document.getElementById('people-type');
+      pt.innerHTML='';
+      d.peopleTypes.forEach((label,i)=>{
+        const opt=document.createElement('option');
+        opt.value=copy.en.people.peopleTypes[i];
+        opt.textContent=label;
+        pt.appendChild(opt);
+      });
     }
 
     interest.innerHTML='';
