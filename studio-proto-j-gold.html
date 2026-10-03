@@ -882,7 +882,8 @@ body.drawer-open{overflow:hidden}
     }
   },{rootMargin:'100px'});
   io.observe(root);
-  show(0);
+  slides.forEach((el,i)=>el.setAttribute('aria-hidden',String(i!==0)));
+  if(thumbs[0]) thumbs[0].setAttribute('aria-current','true');
 
   root.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>show(index-1));
   root.querySelector('[data-gallery-next]')?.addEventListener('click',()=>show(index+1));
