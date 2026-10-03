@@ -77,7 +77,7 @@ img{display:block;width:100%}
 .products-head-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 82%;z-index:0}
 .products-head::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 100%);z-index:1}
 .products-head>div,.products-head>.micro{position:relative;z-index:2}
-.products-head::after{content:"";position:absolute;left:max(50px,calc((100vw - 1360px)/2));right:max(50px,calc((100vw - 1360px)/2));bottom:0;border-bottom:1px solid var(--ink)}
+.products-head::after{content:"";position:absolute;left:max(50px,calc((100vw - 1360px)/2));right:max(50px,calc((100vw - 1360px)/2));bottom:0;border-bottom:1px solid var(--ink);z-index:3}
 .products-head>.micro{padding-top:0;color:#252522}
 .products-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2.85rem,4.465vw,4.56rem);font-weight:400;line-height:.96;letter-spacing:-.025em;margin:0 0 22px;text-transform:lowercase}
 .section-meta{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);line-height:1.55;margin:0 0 18px}
@@ -257,7 +257,7 @@ body.drawer-open{overflow:hidden}
   .drawer{padding:26px 20px 34px}
   .footer{flex-direction:column;gap:15px;padding:25px 20px;text-align:center}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.drawer,.drawer-overlay,.product{transition:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.drawer,.drawer-overlay,.product,.gallery-slide{transition:none}}
 </style>
 </head>
 <body>
