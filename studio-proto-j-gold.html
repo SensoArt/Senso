@@ -57,7 +57,10 @@ img{display:block;width:100%}
 .entry-card+.entry-card{border-left:1px solid var(--line);padding-left:50px}
 .entry-card .mode{display:block;color:var(--muted);margin-bottom:20px}
 .entry-card h3{font-family:Behind,Georgia,serif;font-size:clamp(2.85rem,4.465vw,4.56rem);font-weight:400;line-height:.96;letter-spacing:-.025em;text-transform:lowercase;margin:0 0 28px}
-.entry-action-title{font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);margin:0 0 14px}
+.entry-action-title,.entry-action-link{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);line-height:1.55}
+.entry-action-title{margin:0 0 18px}
+.entry-action-link{display:inline-flex;align-items:center;gap:12px;padding:0 0 5px;border-bottom:1px solid currentColor;cursor:pointer;text-decoration:none}
+.entry-action-link:hover{border-color:var(--accent)}
 .entry-card>.lang{min-height:0}
 .entry-card .lang>p{font-size:.92rem;line-height:1.7;color:var(--muted);max-width:520px;margin:0 0 28px}
 .entry-actions{display:flex;gap:24px;flex-wrap:wrap;align-self:end}
@@ -265,44 +268,43 @@ body.drawer-open{overflow:hidden}
       <span class="micro mode">01</span>
       <div class="lang" data-lang="en">
         <h3>for organisations</h3>
-        <p class="entry-action-title">Plan an experience</p>
+        <p class="entry-action-title">Companies | Teams | Cultural spaces | Brands</p>
         <p>Tell us the people, place and purpose. Senso selects the artist, shapes the format and prepares a proposal — for a one-off experience or a recurring programme.</p>
       </div>
       <div class="lang" data-lang="es" hidden>
         <h3>para organizaciones</h3>
-        <p class="entry-action-title">Planificar una experiencia</p>
+        <p class="entry-action-title">Empresas | Equipos | Espacios culturales | Brands</p>
         <p>Cuéntanos quién participa, el espacio y el objetivo. Senso selecciona al artista, construye el formato y prepara una propuesta — para una experiencia puntual o un programa recurrente.</p>
       </div>
       <div class="entry-actions">
-        <button class="text-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
+        <button class="entry-action-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
       </div>
       <div class="entry-list">
-        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Team Studio"><span><span class="lang" data-lang="en">Companies & teams</span><span class="lang" data-lang="es" hidden>Empresas & equipos</span></span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Cultural Activation"><span>Hospitality & brands</span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme"><span><span class="lang" data-lang="en">Clubs & communities</span><span class="lang" data-lang="es" hidden>Clubs & comunidades</span></span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme"><span><span class="lang" data-lang="en">Institutions & cultural spaces</span><span class="lang" data-lang="es" hidden>Instituciones & espacios culturales</span></span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Team Studio"><span>Team Studio</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Cultural Activation"><span>Cultural Activation</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme"><span>Studio Programme</span><span>→</span></button>
       </div>
     </article>
     <article class="entry-card">
       <span class="micro mode">02</span>
       <div class="lang" data-lang="en">
         <h3>for people</h3>
-        <p class="entry-action-title">Find a session</p>
+        <p class="entry-action-title">Adults | Young adults | Kids | Families | Private groups</p>
         <p>Choose who is joining and what interests you. We’ll direct you to the right open or private Studio format.</p>
       </div>
       <div class="lang" data-lang="es" hidden>
         <h3>para personas</h3>
-        <p class="entry-action-title">Encontrar una sesión</p>
+        <p class="entry-action-title">Adultos | Jóvenes | Kids | Familias | Grupos privados</p>
         <p>Elige quién participa y qué te interesa. Te dirigiremos al formato Studio abierto o privado que mejor encaje.</p>
       </div>
       <div class="entry-actions">
-        <button class="text-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Explore sessions</span><span class="lang" data-lang="es" hidden>Explorar sesiones</span><span>→</span></button>
+        <button class="entry-action-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Explore sessions</span><span class="lang" data-lang="es" hidden>Explorar sesiones</span><span>→</span></button>
       </div>
       <div class="entry-list">
-        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span><span class="lang" data-lang="en">Adults & young adults</span><span class="lang" data-lang="es" hidden>Adultos & jóvenes adultos</span></span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span>Open Studio</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Private Studio"><span>Private Studio</span><span>→</span></button>
         <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Senso Kids"><span>Senso Kids</span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Family Studio"><span><span class="lang" data-lang="en">Families</span><span class="lang" data-lang="es" hidden>Familias</span></span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Private Studio"><span><span class="lang" data-lang="en">Private groups</span><span class="lang" data-lang="es" hidden>Grupos privados</span></span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Family Studio"><span>Family Studio</span><span>→</span></button>
       </div>
     </article>
   </div>
