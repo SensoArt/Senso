@@ -31,7 +31,7 @@ jobs:
 
       - name: Run responsive and interaction QA
         run: |
-          node <<'JS'
+          node --input-type=commonjs <<'JS'
           const { chromium } = require('playwright');
 
           const viewports = [
