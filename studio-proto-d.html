@@ -1,0 +1,85 @@
+<!doctype html><html lang="en"><head><title>Senso Studio D — Conversion GOLD</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.png?v=1000">
+<style>
+@font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');font-display:swap}
+:root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--white:#fff}
+*{box-sizing:border-box}html,body{margin:0;background:#fff;color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}img{display:block;width:100%}
+.shell{width:min(1360px,calc(100% - 100px));margin:auto}.micro{font-size:.61rem;letter-spacing:.15em;text-transform:uppercase}
+.proto-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:relative;z-index:20}
+.proto-header .home{font-size:.65rem;letter-spacing:2px;text-transform:uppercase}.proto-right{display:flex;flex-direction:column;align-items:flex-end}
+.proto-header nav{display:flex;gap:20px;letter-spacing:2px;text-transform:uppercase;font-size:.72rem;margin-top:10px}.proto-header nav a{opacity:.72}.proto-header nav a.active{opacity:1;border-bottom:1px solid}
+.proto-header .langs{font-size:.65rem;letter-spacing:2px;color:#777;text-align:right;margin-bottom:10px}
+.proto-label{position:fixed;right:18px;bottom:18px;z-index:50;background:#fff;border:1px solid var(--line);padding:9px 12px;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase}
+.cta{display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid;padding-bottom:7px;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase}
+.pill{display:inline-flex;padding:8px 11px;border:1px solid var(--line);font-size:.56rem;letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:900px){.shell{width:calc(100% - 56px)}.proto-header{padding:30px 20px 20px;flex-direction:column;gap:18px}.proto-right{align-items:flex-start}.proto-header nav{flex-wrap:wrap;gap:12px;font-size:.65rem}.proto-header .langs{position:absolute;right:20px;top:24px}}
+@media(max-width:700px){.shell{width:calc(100% - 36px)}}
+</style>
+<style>
+.d-hero{padding:34px 0 72px;min-height:82vh}.d-top{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:62px}
+.d-title{font-family:Behind,Georgia,serif;font-size:clamp(5rem,8.7vw,8.8rem);font-weight:400;line-height:.82;letter-spacing:-.055em;margin:0 0 44px}
+.d-question{font-family:Behind,Georgia,serif;font-size:clamp(2.7rem,4.6vw,4.9rem);font-weight:400;line-height:.96;max-width:900px;margin:0}
+.d-gates{display:grid;grid-template-columns:1fr 1fr;margin-top:54px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.d-gate{padding:24px 28px 27px 0;text-align:left;min-height:180px;position:relative}.d-gate+ .d-gate{border-left:1px solid var(--line);padding-left:28px}
+.d-gate span{display:block;font-size:.57rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:48px}
+.d-gate strong{font-family:Behind,Georgia,serif;font-size:clamp(2.6rem,4.2vw,4.5rem);font-weight:400}.d-gate small{display:block;color:var(--muted);font-size:.8rem;line-height:1.5;margin-top:12px;max-width:430px}
+.d-gate.active{background:linear-gradient(180deg,#fff 0%,#f8f7f3 100%)}
+.d-segment{padding:0 0 110px}.d-segment-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:70px;border-top:1px solid var(--line);padding-top:38px}
+.d-list{border-top:1px solid var(--ink)}.d-choice{width:100%;display:grid;grid-template-columns:48px 1fr auto;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);text-align:left;align-items:center}
+.d-choice strong{font-family:Behind,Georgia,serif;font-size:clamp(1.75rem,2.5vw,2.6rem);font-weight:400}.d-choice .arr{opacity:.3}.d-choice.active .arr{opacity:1}
+.d-stage{min-height:500px;display:grid;grid-template-rows:1fr auto}.d-visual{height:320px;overflow:hidden;margin-bottom:30px}.d-visual img{height:100%;object-fit:cover;filter:saturate(.42) contrast(.9);transition:opacity .2s ease}
+.d-copy h2{font-family:Behind,Georgia,serif;font-size:clamp(2.5rem,4vw,4.2rem);font-weight:400;line-height:.98;margin:0 0 18px}.d-copy p{font-size:.95rem;line-height:1.7;color:var(--muted);max-width:570px;margin:0 0 24px}
+.d-meta{display:flex;gap:12px 24px;flex-wrap:wrap;margin-top:24px;padding-top:14px;border-top:1px solid var(--line);font-size:.59rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.d-transition{padding:70px 0 90px;border-top:1px solid var(--line)}.d-transition-grid{display:grid;grid-template-columns:.3fr 1fr 1fr;gap:50px;align-items:start}
+.d-transition h3{font-family:Behind,Georgia,serif;font-size:clamp(2rem,3.1vw,3.1rem);font-weight:400;line-height:1.02;margin:0}.d-transition p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.65}
+@media(max-width:900px){.d-segment-grid{grid-template-columns:1fr}.d-transition-grid{grid-template-columns:1fr}.d-stage{min-height:0}}
+@media(max-width:700px){.d-title{font-size:5.2rem}.d-question{font-size:2.8rem}.d-gates{grid-template-columns:1fr}.d-gate+.d-gate{border-left:0;border-top:1px solid var(--line);padding-left:0}.d-gate{min-height:auto}.d-choice{grid-template-columns:34px 1fr auto}.d-visual{height:260px}}
+</style></head><body><header class="proto-header">
+<a class="home" href="index.html">← HOME</a>
+<div class="proto-right"><div class="langs">EN | ES</div><nav>
+<a href="about.html">About</a><a href="exhibitions.html">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a class="active" href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a>
+</nav></div></header>
+<main>
+<section class="d-hero"><div class="shell">
+<div class="d-top"><span class="micro">Senso Studio</span><span class="micro">Barcelona / on-site</span></div>
+<h1 class="d-title">studio.</h1><h2 class="d-question">who are you creating this for?</h2>
+<div class="d-gates">
+<button class="d-gate active" data-gate="org"><span>01</span><strong>organisations</strong><small>Companies, teams, hospitality, brands, clubs and institutions.</small></button>
+<button class="d-gate" data-gate="people"><span>02</span><strong>people</strong><small>Adults, young adults, children and families.</small></button>
+</div></div></section>
+<section class="d-segment"><div class="shell d-segment-grid">
+<div class="d-list" id="d-list"></div>
+<div class="d-stage">
+<div class="d-visual"><img id="d-img" src="Senso_Studio_Foto/studio-company.jpg" alt=""></div>
+<div class="d-copy"><span class="micro" id="d-label">companies & teams</span><h2 id="d-title">make the team enter an artistic process.</h2><p id="d-text">A cultural alternative to generic team building, built around a working artist and produced by Senso from format to materials.</p><a class="cta" href="studio.html" id="d-cta">Request a proposal <span>→</span></a><div class="d-meta" id="d-meta"></div></div>
+</div></div></section>
+<section class="d-transition"><div class="shell d-transition-grid"><span class="micro">Why Studio</span><h3>one artistic standard.<br>two buying journeys.</h3><p>For organisations, Studio becomes a proposal, pilot or recurring cultural programme. For people, it becomes a session, place, date or series to join.</p></div></section>
+</main><div class="proto-label">D · Conversion GOLD</div>
+<script>
+const DATA={
+org:[
+{k:'companies',name:'companies & teams',img:'Senso_Studio_Foto/studio-company.jpg',title:'make the team enter an artistic process.',text:'A cultural alternative to generic team building, built around a working artist and produced by Senso from format to materials.',cta:'Request a proposal',meta:['team moments','offsites','internal culture']},
+{k:'hospitality',name:'hospitality & brands',img:'Senso_Studio_Foto/studio-hospitality.jpg',title:'turn a place into a cultural encounter.',text:'Artist-led activations and programmes for guests, clients and communities, adapted to your space and audience.',cta:'Plan an activation',meta:['guests','clients','community']},
+{k:'clubs',name:'clubs & institutions',img:'Senso_Studio_Foto/studio-815.jpg',title:'build a programme people return to.',text:'Recurring artistic programming for member clubs, cultural spaces, communities and institutions across the year.',cta:'Discuss a programme',meta:['monthly','quarterly','bespoke']}
+],
+people:[
+{k:'adults',name:'adults',img:'Senso_Studio_Foto/studio-adults.jpg',title:'spend time together through art.',text:'Artist-led sessions for adults who want to make, learn and experience contemporary art from inside the process.',cta:'Explore adult sessions',meta:['open sessions','private groups','occasions']},
+{k:'young',name:'young adults',img:'Senso_Studio_Foto/studio-company.jpg',title:'a social way into contemporary art.',text:'Formats for young adults combining artistic practice, conversation and shared experience without the feel of a conventional class.',cta:'Explore young Studio',meta:['18+','social','artist-led']},
+{k:'kids',name:'Senso Kids',img:'Senso_Studio_Foto/studio-kids.jpg',title:'art is something children can enter.',text:'Real artistic processes adapted to children through materials, experimentation and play — beyond crafts.',cta:'Explore Senso Kids',meta:['age-led','materials','small groups']},
+{k:'families',name:'families',img:'Senso_Studio_Foto/studio-815.jpg',title:'make art part of time spent together.',text:'Shared artist-led experiences designed for adults and children to participate in the same creative process.',cta:'Explore family sessions',meta:['adults + children','weekends','shared making']}
+]};
+let mode='org',active=0;
+const list=document.getElementById('d-list'),img=document.getElementById('d-img'),lab=document.getElementById('d-label'),tit=document.getElementById('d-title'),txt=document.getElementById('d-text'),cta=document.getElementById('d-cta'),meta=document.getElementById('d-meta');
+function render(){
+ const arr=DATA[mode];list.innerHTML=arr.map((x,i)=>'<button class="d-choice '+(i===active?'active':'')+'" data-i="'+i+'"><span class="micro">0'+(i+1)+'</span><strong>'+x.name+'</strong><span class="arr">→</span></button>').join('');
+ list.querySelectorAll('.d-choice').forEach(b=>b.onclick=()=>{active=+b.dataset.i;render()});
+ const x=arr[active];img.style.opacity='.2';setTimeout(()=>{img.src=x.img;img.style.opacity='1'},100);lab.textContent=x.name;tit.textContent=x.title;txt.textContent=x.text;cta.childNodes[0].nodeValue=x.cta+' ';meta.innerHTML=x.meta.map(m=>'<span>'+m+'</span>').join('');
+}
+document.querySelectorAll('.d-gate').forEach(b=>b.onclick=()=>{document.querySelectorAll('.d-gate').forEach(x=>x.classList.remove('active'));b.classList.add('active');mode=b.dataset.gate;active=0;render()});
+render();
+</script></body></html>
