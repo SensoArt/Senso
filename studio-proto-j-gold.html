@@ -120,12 +120,10 @@ img{display:block;width:100%}
 }
 /* STUDIO GALLERY */
 .studio-gallery{padding:96px 0 108px;border-top:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:900px}
-.gallery-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.72fr) auto;gap:42px;align-items:end;margin-bottom:30px}
+.gallery-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.78fr);gap:42px;align-items:end;margin-bottom:30px}
 .gallery-head h3{font-family:Behind,Georgia,serif;font-size:clamp(3.15rem,4.8vw,4.85rem);font-weight:400;line-height:.94;letter-spacing:-.025em;margin:0;text-transform:lowercase}
 .gallery-head-copy{padding-bottom:5px}
 .gallery-head-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.62;max-width:520px}
-.gallery-head-cta{display:flex;justify-content:flex-end;align-items:flex-end;padding-bottom:6px}
-.gallery-head-cta .section-action-link{white-space:nowrap}
 .gallery-stage{position:relative;aspect-ratio:16/8.2;min-height:440px;max-height:610px;overflow:hidden;background:#f3f1ec;touch-action:pan-y}
 .gallery-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease}
 .gallery-slide.active{opacity:1;pointer-events:auto}
@@ -138,7 +136,7 @@ img{display:block;width:100%}
 .gallery-bottom{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;align-items:stretch;margin-top:14px}
 .gallery-thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
 .gallery-bottom-cta{display:flex;align-items:stretch}
-.gallery-session-cta{width:100%;min-height:92px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:0 22px;background:#fff;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.gallery-session-cta{width:100%;min-height:92px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;gap:0;padding:0 22px;background:#fff;font-size:.651rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;cursor:pointer}
 .gallery-session-cta:hover{background:#f4f2ed}
 .gallery-thumb{height:92px;padding:0;border:1px solid transparent;overflow:hidden;cursor:pointer;background:#f3f1ec}
 .gallery-thumb.active{border-color:var(--ink)}
@@ -147,9 +145,8 @@ img{display:block;width:100%}
 .gallery-caption p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.55}
 .gallery-caption .credit{font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
 @media(max-width:900px){
-  .gallery-head{grid-template-columns:1fr auto;gap:18px}
-  .gallery-head-copy{grid-column:1}
-  .gallery-head-cta{grid-column:2;grid-row:1/3}
+  .gallery-head{grid-template-columns:1fr 1fr;gap:18px}
+  .gallery-head-copy{grid-column:2}
   .gallery-stage{aspect-ratio:16/9;min-height:0;max-height:none}
   .gallery-bottom{grid-template-columns:1fr}
   .gallery-session-cta{min-height:60px}
@@ -158,8 +155,7 @@ img{display:block;width:100%}
   .studio-gallery{padding:76px 0 86px}
   .gallery-head{grid-template-columns:1fr;gap:12px}
   .gallery-head h3{font-size:2.85rem}
-  .gallery-head-copy,.gallery-head-cta{grid-column:auto;grid-row:auto}
-  .gallery-head-cta{justify-content:flex-start;padding-bottom:0}
+  .gallery-head-copy{grid-column:auto}
   .gallery-stage{aspect-ratio:4/3;min-height:0}
   .gallery-nav{width:40px;height:40px}
   .gallery-thumbs{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
@@ -441,9 +437,7 @@ body.drawer-open{overflow:hidden}
         <p class="lang" data-lang="en">Art, people and practice. Artist-led creative experiences designed to connect, explore and make something of your own.</p>
         <p class="lang" data-lang="es" hidden>Arte, personas y práctica. Experiencias creativas guiadas por artistas, pensadas para conectar, explorar y crear algo propio.</p>
       </div>
-      <div class="gallery-head-cta">
-        <a class="section-action-link" href="#ways"><span class="lang" data-lang="en">View all experiences</span><span class="lang" data-lang="es" hidden>Ver todas las experiencias</span><span>→</span></a>
-      </div>
+
     </div>
 
     <div class="gallery-stage" data-gallery-stage>
@@ -474,7 +468,6 @@ body.drawer-open{overflow:hidden}
         <button class="gallery-session-cta" type="button" data-open-drawer data-mode="people" data-interest="Open Studio">
           <span class="lang" data-lang="en">Plan a session</span>
           <span class="lang" data-lang="es" hidden>Planificar una sesión</span>
-          <span>→</span>
         </button>
       </div>
     </div>
@@ -482,7 +475,7 @@ body.drawer-open{overflow:hidden}
     <div class="gallery-caption">
       <p class="lang" data-lang="en">Real Senso Studio sessions in Barcelona.</p>
       <p class="lang" data-lang="es" hidden>Sesiones reales de Senso Studio en Barcelona.</p>
-      <span class="credit">Senso Studio · Barcelona</span>
+
     </div>
   </div>
 </section>
