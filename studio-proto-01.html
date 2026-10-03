@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><title>Senso Studio Prototype 01</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.png?v=1000">
+<style>
+@font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');font-display:swap}
+:root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--white:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;width:100%}
+.shell{width:min(1360px,calc(100% - 100px));margin:auto}
+.micro{font-size:.61rem;letter-spacing:.15em;text-transform:uppercase}
+.proto-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:relative;z-index:20}
+.proto-header .home{font-size:.65rem;letter-spacing:2px;text-transform:uppercase}
+.proto-header nav{display:flex;gap:20px;letter-spacing:2px;text-transform:uppercase;font-size:.72rem;margin-top:10px}
+.proto-header nav a{opacity:.72}
+.proto-header nav a.active{opacity:1;border-bottom:1px solid}
+.proto-header .langs{font-size:.65rem;letter-spacing:2px;color:#777;text-align:right;margin-bottom:10px}
+.proto-right{display:flex;flex-direction:column;align-items:flex-end}
+.proto-label{position:fixed;right:18px;bottom:18px;z-index:50;background:#fff;border:1px solid var(--line);padding:9px 12px;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase}
+.cta{display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid;padding-bottom:7px;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){
+ .shell{width:calc(100% - 56px)}
+ .proto-header{padding:30px 20px 20px;flex-direction:column;gap:18px}
+ .proto-right{align-items:flex-start}
+ .proto-header nav{flex-wrap:wrap;gap:12px;font-size:.65rem}
+ .proto-header .langs{position:absolute;right:20px;top:24px}
+}
+@media(max-width:700px){.shell{width:calc(100% - 36px)}}
+</style>
+<style>
+.p1-hero{min-height:82vh;padding:24px 0 74px;display:grid;align-items:end}
+.p1-top{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:55px}
+.p1-stage{display:grid;grid-template-columns:.72fr 1.28fr;align-items:end;gap:0;position:relative}
+.p1-copy{position:relative;z-index:2;padding:0 0 54px 0}
+.p1-copy h1{font-family:Behind,Georgia,serif;font-weight:400;font-size:clamp(5.4rem,9.2vw,9rem);line-height:.8;letter-spacing:-.055em;margin:0 0 28px}
+.p1-copy p{font-size:1rem;line-height:1.7;max-width:360px;color:var(--muted);margin:0 0 26px}
+.p1-image{height:61vh;min-height:520px;overflow:hidden;position:relative}
+.p1-image img{width:100%;height:100%;object-fit:cover;object-position:center 48%;filter:saturate(.48) contrast(.9) brightness(1.02)}
+.p1-image::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.13)}
+.p1-word{position:absolute;left:38%;bottom:19%;z-index:3;font-family:Behind,Georgia,serif;font-size:clamp(2.4rem,4vw,4.5rem);line-height:.95;max-width:550px}
+.p1-contexts{padding:100px 0 120px}
+.p1-contexts .head{display:grid;grid-template-columns:.28fr 1fr;gap:50px;margin-bottom:30px}
+.p1-list{border-top:1px solid var(--ink)}
+.p1-row{position:relative;display:grid;grid-template-columns:80px 1fr .85fr auto;gap:28px;align-items:center;padding:26px 0;border-bottom:1px solid var(--line);overflow:hidden}
+.p1-row strong{font-family:Behind,Georgia,serif;font-weight:400;font-size:clamp(2rem,3vw,3.2rem);position:relative;z-index:2}
+.p1-row p{margin:0;color:var(--muted);line-height:1.55;font-size:.87rem;position:relative;z-index:2;max-width:420px}
+.p1-row .arr{position:relative;z-index:2;font-size:1.2rem}
+.p1-row::before{content:"";position:absolute;inset:0;background-image:var(--img);background-size:cover;background-position:center;opacity:0;filter:saturate(.15) brightness(1.2);transition:opacity .35s ease}
+.p1-row::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,.74);opacity:0;transition:opacity .35s ease}
+.p1-row:hover::before{opacity:.19}.p1-row:hover::after{opacity:1}
+@media(max-width:900px){.p1-stage{grid-template-columns:1fr}.p1-image{height:50vh}.p1-word{position:static;margin-top:24px}.p1-row{grid-template-columns:55px 1fr auto}.p1-row p{grid-column:2/4}}
+@media(max-width:700px){.p1-hero{padding-bottom:50px}.p1-copy h1{font-size:5.2rem}.p1-image{min-height:360px}.p1-contexts{padding:70px 0}.p1-contexts .head{grid-template-columns:1fr;gap:8px}.p1-row{grid-template-columns:36px 1fr auto;gap:12px}}
+</style></head><body><header class="proto-header">
+  <a class="home" href="index.html">← HOME</a>
+  <div class="proto-right">
+    <div class="langs">EN | ES</div>
+    <nav>
+      <a href="about.html">About</a><a href="exhibitions.html">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a class="active" href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="p1-hero"><div class="shell">
+  <div class="p1-top"><span class="micro">Senso Studio · Barcelona / on-site</span><span class="micro">artist-led experiences</span></div>
+  <div class="p1-stage">
+    <div class="p1-copy">
+      <h1>studio.</h1>
+      <p>Contemporary art experienced from inside the process — through artists, materials and shared time.</p>
+      <a class="cta" href="studio.html">Plan an experience <span>→</span></a>
+    </div>
+    <div class="p1-image"><img src="Senso_Studio_Foto/studio-815.jpg" alt=""></div>
+    <div class="p1-word">art you enter, not only observe.</div>
+  </div>
+</div></section>
+<section class="p1-contexts"><div class="shell">
+  <div class="head"><span class="micro">Studio for</span><span style="color:var(--muted);max-width:540px;line-height:1.55">Four contexts. One artistic standard. Each experience is built from the reason people are coming together.</span></div>
+  <div class="p1-list">
+    <div class="p1-row" style="--img:url('Senso_Studio_Foto/studio-company.jpg')"><span class="micro">01</span><strong>companies & teams</strong><p>A cultural alternative to generic team building.</p><span class="arr">→</span></div>
+    <div class="p1-row" style="--img:url('Senso_Studio_Foto/studio-hospitality.jpg')"><span class="micro">02</span><strong>hospitality & brands</strong><p>Artist-led programming for guests, clients and communities.</p><span class="arr">→</span></div>
+    <div class="p1-row" style="--img:url('Senso_Studio_Foto/studio-adults.jpg')"><span class="micro">03</span><strong>adults & private groups</strong><p>Shared artistic experiences for friends, groups and occasions.</p><span class="arr">→</span></div>
+    <div class="p1-row" style="--img:url('Senso_Studio_Foto/studio-kids.jpg')"><span class="micro">04</span><strong>Senso Kids</strong><p>Contemporary art through material, play and real artistic processes.</p><span class="arr">→</span></div>
+  </div>
+</div></section>
+</main><div class="proto-label">Prototype 01 · Editorial Immersive</div></body></html>
