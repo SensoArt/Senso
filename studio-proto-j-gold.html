@@ -41,13 +41,12 @@ img{display:block;width:100%}
 
 /* HERO — J master */
 .hero{padding:32px 0 76px}
-.hero-kicker{display:flex;justify-content:space-between;gap:30px;color:var(--muted);margin-bottom:28px}
 .hero-frame{position:relative;min-height:72vh;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.48) contrast(.92) brightness(1.06)}
+.hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.58) contrast(.92) brightness(1.06)}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
 .hero-copy{position:relative;z-index:2;min-height:72vh;width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:40px 46px 38px 38px}
-.hero-copy h1{font-family:Behind,Georgia,serif;font-size:clamp(5rem,8.1vw,8.3rem);font-weight:400;line-height:.82;letter-spacing:-.055em;margin:0}
-.hero-bottom h2{font-family:Behind,Georgia,serif;font-size:clamp(2.85rem,4.8vw,5rem);font-weight:400;line-height:.96;letter-spacing:-.025em;margin:0 0 20px;max-width:680px}
+.hero-copy h1{font-family:Behind,Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0;text-transform:lowercase;margin:0}
+.hero-bottom h2{font-family:Behind,Georgia,serif;font-size:clamp(1.55rem,2.2vw,2.25rem);font-weight:400;line-height:1.12;letter-spacing:0;margin:0 0 17px;max-width:680px}
 .hero-bottom p{font-size:1rem;line-height:1.72;color:var(--muted);max-width:520px;margin:0 0 26px}
 .hero-actions{display:flex;gap:24px;flex-wrap:wrap}
 
@@ -172,11 +171,9 @@ body.drawer-open{overflow:hidden}
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
   .hero{padding-top:24px}
-  .hero-kicker{display:block}
-  .hero-kicker span{display:block;margin-bottom:7px}
   .hero-copy{width:100%;padding:30px 22px 28px}
   .hero-frame::after{background:rgba(255,255,255,.74)}
-  .hero-copy h1{font-size:4.8rem}
+  .hero-copy h1{font-size:2.2rem}
   .entry-card{padding:34px 0 38px;min-height:0}
   .products{padding:76px 0 92px}
   .products-head,.logic-head{grid-template-columns:1fr;gap:10px}
@@ -210,10 +207,6 @@ body.drawer-open{overflow:hidden}
 <main>
 <section class="hero">
   <div class="shell">
-    <div class="hero-kicker">
-      <span class="micro">Senso Studio · Barcelona / on-site</span>
-      <span class="micro"><span class="lang" data-lang="en">artist-led experiences</span><span class="lang" data-lang="es" hidden>experiencias con artistas</span></span>
-    </div>
     <div class="hero-frame">
       <img src="Senso_Studio_Foto/studio-815.jpg" alt="Senso Studio space prepared for an artist-led experience">
       <div class="hero-copy">
