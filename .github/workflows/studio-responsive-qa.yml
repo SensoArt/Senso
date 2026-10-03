@@ -124,6 +124,7 @@ jobs:
             await page.locator('.final').scrollIntoViewIfNeeded();
             await page.click('.final-action button');
             await page.waitForSelector('#drawer-overlay.open');
+            await page.waitForTimeout(550);
             const drawer=page.locator('.drawer');
             const drawerBox=await drawer.boundingBox();
             if(drawerBox && (drawerBox.x < -2 || drawerBox.x+drawerBox.width > vp.width+2)){
