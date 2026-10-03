@@ -147,17 +147,49 @@ img{display:block;width:100%}
 .programme-track{margin-top:38px;border-top:1px solid var(--ink)}
 .programme-track div{display:grid;grid-template-columns:60px 1fr;gap:15px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.63rem;text-transform:uppercase;letter-spacing:.08em}
 
-/* PRACTICAL */
-.practical{padding:92px 0 104px;border-top:1px solid var(--line)}
-.practical-grid{display:grid;grid-template-columns:58px 1fr;gap:34px}
-.practical-grid>.micro{padding-top:7px;color:var(--muted)}
-.practical-main>p{margin:0 0 32px;color:var(--muted);font-size:.92rem;line-height:1.68;max-width:690px}
-.info{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
-.info div{padding:16px 18px 17px 0;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.info div:nth-child(3n){border-right:0}
-.info span{display:block;font-size:.56rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
-.info strong{font-family:Behind,Georgia,serif;font-size:1.28rem;font-weight:400;line-height:1.15}
-
+/* STUDIO GALLERY */
+.studio-gallery{padding:96px 0 108px;border-top:1px solid var(--line)}
+.gallery-head{display:grid;grid-template-columns:58px 1fr auto;gap:34px;align-items:end;margin-bottom:34px}
+.gallery-head>.micro{padding-bottom:8px;color:var(--muted)}
+.gallery-head h3{font-family:Behind,Georgia,serif;font-size:clamp(2.85rem,4.465vw,4.56rem);font-weight:400;line-height:.96;letter-spacing:-.025em;margin:0;text-transform:lowercase}
+.gallery-head p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.6;max-width:480px}
+.gallery-stage{position:relative;height:610px;overflow:hidden;background:#f3f1ec}
+.gallery-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.gallery-slide.active{opacity:1;pointer-events:auto}
+.gallery-slide img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.9) contrast(1.03) brightness(1.02)}
+.gallery-slide.teacher img{object-position:center 38%}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid rgba(23,23,20,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;font-size:1.1rem}
+.gallery-prev{left:18px}.gallery-next{right:18px}
+.gallery-counter{position:absolute;right:18px;bottom:16px;z-index:3;background:rgba(255,255,255,.84);padding:7px 9px;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
+.gallery-bottom{display:grid;grid-template-columns:1fr auto;gap:26px;align-items:end;margin-top:14px}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.gallery-thumb{height:92px;padding:0;border:1px solid transparent;overflow:hidden;cursor:pointer;background:#f3f1ec}
+.gallery-thumb.active{border-color:var(--ink)}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.02) brightness(1.02)}
+.gallery-cta{display:flex;gap:14px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.gallery-cta .section-action-link{white-space:nowrap}
+.gallery-caption{margin-top:14px;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
+.gallery-caption p{margin:0;color:var(--muted);font-size:.76rem;line-height:1.55}
+.gallery-caption .credit{font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:900px){
+  .gallery-head{grid-template-columns:32px 1fr;gap:14px}
+  .gallery-head p{grid-column:2}
+  .gallery-stage{height:520px}
+  .gallery-bottom{grid-template-columns:1fr}
+  .gallery-cta{justify-content:flex-start}
+}
+@media(max-width:700px){
+  .studio-gallery{padding:76px 0 86px}
+  .gallery-head{grid-template-columns:1fr;gap:10px}
+  .gallery-head>.micro{padding-bottom:0}
+  .gallery-head h3{font-size:2.6rem}
+  .gallery-head p{grid-column:auto}
+  .gallery-stage{height:420px}
+  .gallery-nav{width:40px;height:40px}
+  .gallery-thumbs{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
+  .gallery-thumb{flex:0 0 110px;height:76px}
+  .gallery-caption{flex-direction:column;gap:7px}
+}
 /* FINAL CONVERSION */
 .final{padding:0 0 94px;border-top:1px solid var(--line)}
 .final-grid{display:grid;grid-template-columns:1fr 1fr}
@@ -490,28 +522,58 @@ body.drawer-open{overflow:hidden}
   </div>
 </section>
 
-<section class="practical">
-  <div class="shell practical-grid">
-    <span class="micro">07</span>
-    <div class="practical-main">
-      <div class="lang" data-lang="en">
-        <h3>what to expect</h3>
-        <p class="section-meta">Open | Private | Barcelona | On-site</p>
-        <p>The artist, materials and production are built into the format. Studio can work as a one-off experience or as part of a recurring programme.</p>
+<section class="studio-gallery" aria-labelledby="gallery-title">
+  <div class="shell">
+    <div class="gallery-head">
+      <span class="micro">07</span>
+      <div>
+        <div class="lang" data-lang="en">
+          <h3 id="gallery-title">the experience</h3>
+        </div>
+        <div class="lang" data-lang="es" hidden>
+          <h3 id="gallery-title-es">la experiencia</h3>
+        </div>
       </div>
-      <div class="lang" data-lang="es" hidden>
-        <h3>qué puedes esperar</h3>
-        <p class="section-meta">Abierto | Privado | Barcelona | On-site</p>
-        <p>El artista, los materiales y la producción forman parte del formato. Studio puede funcionar como experiencia puntual o como parte de un programa recurrente.</p>
+      <div>
+        <p class="lang" data-lang="en">Real sessions, real people, real artistic practice.</p>
+        <p class="lang" data-lang="es" hidden>Sesiones reales, personas reales, práctica artística real.</p>
       </div>
-      <div class="info">
-        <div><span><span class="lang" data-lang="en">format</span><span class="lang" data-lang="es" hidden>formato</span></span><strong><span class="lang" data-lang="en">open / private</span><span class="lang" data-lang="es" hidden>abierto / privado</span></strong></div>
-        <div><span><span class="lang" data-lang="en">location</span><span class="lang" data-lang="es" hidden>ubicación</span></span><strong>Barcelona / on-site</strong></div>
-        <div><span><span class="lang" data-lang="en">artist</span><span class="lang" data-lang="es" hidden>artista</span></span><strong><span class="lang" data-lang="en">included</span><span class="lang" data-lang="es" hidden>incluido</span></strong></div>
-        <div><span><span class="lang" data-lang="en">materials</span><span class="lang" data-lang="es" hidden>materiales</span></span><strong><span class="lang" data-lang="en">included</span><span class="lang" data-lang="es" hidden>incluidos</span></strong></div>
-        <div><span><span class="lang" data-lang="en">production</span><span class="lang" data-lang="es" hidden>producción</span></span><strong><span class="lang" data-lang="en">Senso managed</span><span class="lang" data-lang="es" hidden>gestionada por Senso</span></strong></div>
-        <div><span><span class="lang" data-lang="en">recurrence</span><span class="lang" data-lang="es" hidden>recurrencia</span></span><strong><span class="lang" data-lang="en">one-off / programme</span><span class="lang" data-lang="es" hidden>puntual / programa</span></strong></div>
+    </div>
+
+    <div class="gallery-stage" data-gallery-stage>
+      <div class="gallery-slide active"><img src="Senso_Studio_Foto/ss8.JPG" alt="Senso Studio session in Barcelona" loading="lazy"></div>
+      <div class="gallery-slide"><img src="Senso_Studio_Foto/ss3.jpeg" alt="Materials and process at Senso Studio" loading="lazy"></div>
+      <div class="gallery-slide"><img src="Senso_Studio_Foto/ss5.jpeg" alt="Participants during a Senso Studio session" loading="lazy"></div>
+      <div class="gallery-slide"><img src="Senso_Studio_Foto/ss7.JPG" alt="Senso Studio group experience" loading="lazy"></div>
+      <div class="gallery-slide"><img src="Senso_Studio_Foto/ss2.JPG" alt="Artistic process at Senso Studio" loading="lazy"></div>
+      <div class="gallery-slide"><img src="Senso_Studio_Foto/ss6.JPG" alt="Finished work and participants at Senso Studio" loading="lazy"></div>
+      <div class="gallery-slide"><img src="Senso_Studio_Foto/ss1.jpeg" alt="Senso Studio atmosphere" loading="lazy"></div>
+      <div class="gallery-slide teacher"><img src="fotos_artistas/lucia_cheves_2.jpg" alt="Lucía Cheves, Senso artist and Studio facilitator" loading="lazy"></div>
+
+      <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-gallery-prev>←</button>
+      <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-gallery-next>→</button>
+      <div class="gallery-counter"><span data-gallery-current>01</span> / <span>08</span></div>
+    </div>
+
+    <div class="gallery-bottom">
+      <div class="gallery-thumbs" data-gallery-thumbs>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0"><img src="Senso_Studio_Foto/ss8.JPG" alt=""></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1"><img src="Senso_Studio_Foto/ss3.jpeg" alt=""></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2"><img src="Senso_Studio_Foto/ss5.jpeg" alt=""></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="3"><img src="Senso_Studio_Foto/ss7.JPG" alt=""></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="4"><img src="Senso_Studio_Foto/ss2.JPG" alt=""></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="5"><img src="Senso_Studio_Foto/ss6.JPG" alt=""></button>
       </div>
+      <div class="gallery-cta">
+        <button class="section-action-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
+        <button class="section-action-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Explore sessions</span><span class="lang" data-lang="es" hidden>Explorar sesiones</span><span>→</span></button>
+      </div>
+    </div>
+
+    <div class="gallery-caption">
+      <p class="lang" data-lang="en">A selection of real Senso Studio sessions in Barcelona.</p>
+      <p class="lang" data-lang="es" hidden>Una selección de sesiones reales de Senso Studio en Barcelona.</p>
+      <span class="credit">Senso Studio · Barcelona</span>
     </div>
   </div>
 </section>
@@ -809,6 +871,26 @@ body.drawer-open{overflow:hidden}
   let initial='en';
   try{initial=localStorage.getItem('senso_lang')||'en'}catch(e){}
   setLanguage(initial==='it'?'en':initial);
+})();
+</script>
+<script>
+(function(){
+  const root=document.querySelector('.studio-gallery');
+  if(!root) return;
+  const slides=[...root.querySelectorAll('.gallery-slide')];
+  const thumbs=[...root.querySelectorAll('.gallery-thumb')];
+  const current=root.querySelector('[data-gallery-current]');
+  let index=0;
+  function show(next){
+    index=(next+slides.length)%slides.length;
+    slides.forEach((el,i)=>el.classList.toggle('active',i===index));
+    thumbs.forEach((el,i)=>el.classList.toggle('active',i===index));
+    if(current) current.textContent=String(index+1).padStart(2,'0');
+    if(thumbs[index]) thumbs[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+  }
+  root.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>show(index-1));
+  root.querySelector('[data-gallery-next]')?.addEventListener('click',()=>show(index+1));
+  thumbs.forEach(btn=>btn.addEventListener('click',()=>show(Number(btn.dataset.galleryIndex))));
 })();
 </script>
 </body>
