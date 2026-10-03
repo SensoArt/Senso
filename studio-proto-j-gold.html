@@ -165,19 +165,18 @@ img{display:block;width:100%}
 }
 /* FINAL CONVERSION */
 .final{border-top:1px solid var(--ink);padding:0 0 104px}
-.final-inner{min-height:410px;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:70px;align-items:end;padding:64px 0 58px}
-.final-copy h3{font-family:Behind,Georgia,serif;font-size:clamp(3.4rem,5.4vw,5.6rem);font-weight:400;line-height:.93;letter-spacing:-.03em;margin:0 0 24px;text-transform:lowercase}
-.final-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.68;max-width:680px}
-.final-action{display:flex;justify-content:flex-end;align-items:flex-end}
-.final-action button{min-width:240px;height:62px;border:1px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .2s ease}
+.final-inner{min-height:360px;display:grid;grid-template-columns:minmax(0,1.45fr) auto;gap:64px;align-items:center;padding:66px 0 58px}
+.final-copy h3{font-family:Behind,Georgia,serif;font-size:clamp(3.6rem,5.8vw,6rem);font-weight:400;line-height:.92;letter-spacing:-.03em;margin:0;text-transform:lowercase}
+.final-action{display:flex;justify-content:flex-end;align-items:center}
+.final-action button{min-width:230px;height:64px;border:1px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .2s ease}
 .final-action button:hover{background:#f4f2ed}
 @media(max-width:800px){
-  .final-inner{grid-template-columns:1fr;gap:34px;min-height:0;padding:54px 0 46px}
+  .final-inner{grid-template-columns:1fr;gap:34px;min-height:0;padding:56px 0 48px}
   .final-action{justify-content:flex-start}
 }
 @media(max-width:700px){
   .final{padding-bottom:82px}
-  .final-copy h3{font-size:3rem}
+  .final-copy h3{font-size:3.15rem}
   .final-action button{width:100%;min-width:0}
 }
 
@@ -478,14 +477,8 @@ body.drawer-open{overflow:hidden}
 <section class="final">
   <div class="shell final-inner">
     <div class="final-copy">
-      <div class="lang" data-lang="en">
-        <h3>let’s make Studio.</h3>
-        <p>A session, a group, an activation or a programme. Tell us what you have in mind and we will shape the right format around it.</p>
-      </div>
-      <div class="lang" data-lang="es" hidden>
-        <h3>hagamos Studio.</h3>
-        <p>Una sesión, un grupo, una activación o un programa. Cuéntanos qué tienes en mente y damos forma al formato adecuado.</p>
-      </div>
+      <div class="lang" data-lang="en"><h3>let’s make Studio</h3></div>
+      <div class="lang" data-lang="es" hidden><h3>hagamos Studio</h3></div>
     </div>
     <div class="final-action">
       <button type="button" data-open-drawer data-mode="general">
