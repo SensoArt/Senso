@@ -40,11 +40,11 @@ img{display:block;width:100%}
 .senso-header .lang-btn.active{opacity:.85;color:#333;font-weight:600}.senso-header .lang-btn:hover{opacity:.9}
 
 /* HERO — J master */
-.hero{padding:32px 0 76px}
+.hero{padding:54px 0 76px}
 .hero-frame{position:relative;min-height:72vh;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.58) contrast(.92) brightness(1.06)}
+.hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.66) contrast(.93) brightness(1.045)}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
-.hero-copy{position:relative;z-index:2;min-height:72vh;width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:40px 46px 38px 38px}
+.hero-copy{position:relative;z-index:2;min-height:72vh;width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px 42px 42px}
 .hero-copy h1{font-family:Behind,Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0;text-transform:lowercase;margin:0}
 .hero-bottom h2{font-family:Behind,Georgia,serif;font-size:clamp(1.55rem,2.2vw,2.25rem);font-weight:400;line-height:1.12;letter-spacing:0;margin:0 0 17px;max-width:680px}
 .hero-bottom p{font-size:1rem;line-height:1.72;color:var(--muted);max-width:520px;margin:0 0 26px}
@@ -57,11 +57,13 @@ img{display:block;width:100%}
 .entry-card+.entry-card{border-left:1px solid var(--line);padding-left:50px}
 .entry-card .mode{display:block;color:var(--muted);margin-bottom:52px}
 .entry-card h3{font-family:Behind,Georgia,serif;font-size:clamp(3.2rem,5vw,5.5rem);font-weight:400;line-height:.93;letter-spacing:-.03em;margin:0 0 20px}
-.entry-card>p{font-size:.92rem;line-height:1.7;color:var(--muted);max-width:520px;margin:0 0 28px}
+.entry-card .lang>p{font-size:.92rem;line-height:1.7;color:var(--muted);max-width:520px;margin:0 0 28px}
 .entry-actions{display:flex;gap:24px;flex-wrap:wrap}
 .entry-list{margin-top:auto;padding-top:36px}
-.entry-list div{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1px solid var(--line);font-size:.66rem;letter-spacing:.09em;text-transform:uppercase}
-.entry-list div:last-child{border-bottom:1px solid var(--line)}
+.entry-route{width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 0;border:0;border-top:1px solid var(--line);background:transparent;text-align:left;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+.entry-route:last-child{border-bottom:1px solid var(--line)}
+.entry-route span:first-child{transition:transform .2s ease}
+.entry-route:hover span:first-child{transform:translateX(6px)}
 
 /* PRODUCT INDEX */
 .products{padding:105px 0 126px}
@@ -233,25 +235,42 @@ body.drawer-open{overflow:hidden}
 <section class="entry">
   <div class="shell entry-grid">
     <article class="entry-card">
-      <span class="micro mode"><span class="lang" data-lang="en">01 · organisations</span><span class="lang" data-lang="es" hidden>01 · organizaciones</span></span>
-      <div class="lang" data-lang="en"><h3>commission Studio.</h3><p>For companies, hospitality, brands, clubs and institutions: one-off experiences, private events and recurring cultural programmes.</p></div>
-      <div class="lang" data-lang="es" hidden><h3>commission Studio.</h3><p>Para empresas, hospitality, marcas, clubs e instituciones: experiencias puntuales, eventos privados y programas culturales recurrentes.</p></div>
-      <div class="entry-actions"><button class="text-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button></div>
+      <span class="micro mode"><span class="lang" data-lang="en">For organisations</span><span class="lang" data-lang="es" hidden>Para organizaciones</span></span>
+      <div class="lang" data-lang="en">
+        <h3>Plan an experience.</h3>
+        <p>Tell us the people, place and purpose. Senso selects the artist, shapes the format and prepares a proposal — for a one-off experience or a recurring programme.</p>
+      </div>
+      <div class="lang" data-lang="es" hidden>
+        <h3>Planifica una experiencia.</h3>
+        <p>Cuéntanos quién participa, el espacio y el objetivo. Senso selecciona al artista, construye el formato y prepara una propuesta — para una experiencia puntual o un programa recurrente.</p>
+      </div>
+      <div class="entry-actions">
+        <button class="text-link" type="button" data-open-drawer data-mode="org" data-interest="Not sure yet"><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
+      </div>
       <div class="entry-list">
-        <div><span><span class="lang" data-lang="en">companies & teams</span><span class="lang" data-lang="es" hidden>empresas & equipos</span></span><span>→</span></div>
-        <div><span>hospitality & brands</span><span>→</span></div>
-        <div><span><span class="lang" data-lang="en">clubs & institutions</span><span class="lang" data-lang="es" hidden>clubs & instituciones</span></span><span>→</span></div>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Team Studio"><span><span class="lang" data-lang="en">Companies & teams</span><span class="lang" data-lang="es" hidden>Empresas & equipos</span></span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Cultural Activation"><span>Hospitality & brands</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme"><span><span class="lang" data-lang="en">Clubs & institutions</span><span class="lang" data-lang="es" hidden>Clubs & instituciones</span></span><span>→</span></button>
       </div>
     </article>
     <article class="entry-card">
-      <span class="micro mode"><span class="lang" data-lang="en">02 · people</span><span class="lang" data-lang="es" hidden>02 · personas</span></span>
-      <div class="lang" data-lang="en"><h3>join Studio.</h3><p>For adults, young adults, children and families: public sessions, private groups and shared artistic experiences.</p></div>
-      <div class="lang" data-lang="es" hidden><h3>join Studio.</h3><p>Para adultos, jóvenes adultos, niños y familias: sesiones abiertas, grupos privados y experiencias artísticas compartidas.</p></div>
-      <div class="entry-actions"><button class="text-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Find a session</span><span class="lang" data-lang="es" hidden>Encontrar una sesión</span><span>→</span></button></div>
+      <span class="micro mode"><span class="lang" data-lang="en">For people</span><span class="lang" data-lang="es" hidden>Para personas</span></span>
+      <div class="lang" data-lang="en">
+        <h3>Find a session.</h3>
+        <p>Choose who is joining and what interests you. We’ll direct you to the right open or private Studio format.</p>
+      </div>
+      <div class="lang" data-lang="es" hidden>
+        <h3>Encuentra una sesión.</h3>
+        <p>Elige quién participa y qué te interesa. Te dirigiremos al formato Studio abierto o privado que mejor encaje.</p>
+      </div>
+      <div class="entry-actions">
+        <button class="text-link" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span class="lang" data-lang="en">Explore sessions</span><span class="lang" data-lang="es" hidden>Explorar sesiones</span><span>→</span></button>
+      </div>
       <div class="entry-list">
-        <div><span><span class="lang" data-lang="en">adults & young adults</span><span class="lang" data-lang="es" hidden>adultos & jóvenes adultos</span></span><span>→</span></div>
-        <div><span>Senso Kids</span><span>→</span></div>
-        <div><span><span class="lang" data-lang="en">families & private groups</span><span class="lang" data-lang="es" hidden>familias & grupos privados</span></span><span>→</span></div>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><span><span class="lang" data-lang="en">Adults & young adults</span><span class="lang" data-lang="es" hidden>Adultos & jóvenes adultos</span></span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Senso Kids"><span>Senso Kids</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Family Studio"><span><span class="lang" data-lang="en">Families</span><span class="lang" data-lang="es" hidden>Familias</span></span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Private Studio"><span><span class="lang" data-lang="en">Private groups</span><span class="lang" data-lang="es" hidden>Grupos privados</span></span><span>→</span></button>
       </div>
     </article>
   </div>
