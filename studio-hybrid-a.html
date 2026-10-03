@@ -1,0 +1,101 @@
+<!doctype html><html lang="en"><head><title>Senso Studio Hybrid A</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="favicon.png?v=1000">
+<style>
+@font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
+@font-face{font-family:Behind;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype');font-display:swap}
+:root{--ink:#171714;--muted:#62625d;--line:#ccc9c0;--accent:#8a392c;--white:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:Futura,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;width:100%}
+.shell{width:min(1360px,calc(100% - 100px));margin:auto}
+.micro{font-size:.61rem;letter-spacing:.15em;text-transform:uppercase}
+.proto-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:relative;z-index:20}
+.proto-header .home{font-size:.65rem;letter-spacing:2px;text-transform:uppercase}
+.proto-header nav{display:flex;gap:20px;letter-spacing:2px;text-transform:uppercase;font-size:.72rem;margin-top:10px}
+.proto-header nav a{opacity:.72}
+.proto-header nav a.active{opacity:1;border-bottom:1px solid}
+.proto-header .langs{font-size:.65rem;letter-spacing:2px;color:#777;text-align:right;margin-bottom:10px}
+.proto-right{display:flex;flex-direction:column;align-items:flex-end}
+.proto-label{position:fixed;right:18px;bottom:18px;z-index:50;background:#fff;border:1px solid var(--line);padding:9px 12px;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase}
+.cta{display:inline-flex;gap:14px;align-items:center;border-bottom:1px solid;padding-bottom:7px;font-size:.63rem;letter-spacing:.14em;text-transform:uppercase}
+@media(max-width:900px){
+ .shell{width:calc(100% - 56px)}
+ .proto-header{padding:30px 20px 20px;flex-direction:column;gap:18px}
+ .proto-right{align-items:flex-start}
+ .proto-header nav{flex-wrap:wrap;gap:12px;font-size:.65rem}
+ .proto-header .langs{position:absolute;right:20px;top:24px}
+}
+@media(max-width:700px){.shell{width:calc(100% - 36px)}}
+</style>
+<style>
+.a-hero{min-height:84vh;padding:38px 0 54px}
+.a-top{display:flex;justify-content:space-between;color:var(--muted);margin-bottom:54px}
+.a-question{font-family:Behind,Georgia,serif;font-weight:400;font-size:clamp(4.6rem,8.2vw,8.4rem);line-height:.88;letter-spacing:-.055em;max-width:1120px;margin:0}
+.a-question em{font-style:normal;color:var(--muted)}
+.a-choices{margin-top:62px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.a-choice{position:relative;padding:18px 18px 23px 0;text-align:left;overflow:hidden;min-height:150px}
+.a-choice:not(:last-child){border-right:1px solid var(--line)}
+.a-choice:not(:first-child){padding-left:18px}
+.a-choice span{display:block;font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+.a-choice strong{display:block;font-family:Behind,Georgia,serif;font-size:clamp(2.15rem,3.3vw,3.7rem);font-weight:400;position:relative;z-index:2}
+.a-choice::after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:3px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.a-choice.active::after,.a-choice:hover::after{transform:scaleX(1)}
+.a-stage{padding:40px 0 110px}
+.a-stage-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:65px;align-items:stretch}
+.a-visual{min-height:540px;overflow:hidden;position:relative}
+.a-visual img{height:100%;object-fit:cover;filter:saturate(.42) contrast(.92) brightness(1.04);transition:opacity .18s ease,transform .35s ease}
+.a-visual .verb{position:absolute;left:28px;bottom:22px;font-family:Behind,Georgia,serif;font-size:clamp(3rem,5vw,5.8rem);color:#fff;mix-blend-mode:difference}
+.a-copy{display:flex;flex-direction:column;justify-content:space-between;padding:4px 0}
+.a-copy h2{font-family:Behind,Georgia,serif;font-size:clamp(2.7rem,4.5vw,4.8rem);line-height:.98;font-weight:400;letter-spacing:-.035em;margin:0 0 22px}
+.a-copy p{font-size:1rem;line-height:1.72;color:var(--muted);max-width:480px;margin:0 0 28px}
+.a-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.a-flow span{padding:13px 10px 0 0;font-size:.59rem;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+@media(max-width:900px){.a-choices{grid-template-columns:1fr 1fr}.a-choice:nth-child(2){border-right:0}.a-choice:nth-child(-n+2){border-bottom:1px solid var(--line)}.a-stage-grid{grid-template-columns:1fr}.a-visual{min-height:430px}}
+@media(max-width:700px){.a-question{font-size:3.6rem}.a-choices{grid-template-columns:1fr}.a-choice{border-right:0!important;border-bottom:1px solid var(--line);min-height:auto;padding:15px 0!important}.a-choice span{margin-bottom:12px}.a-stage{padding-bottom:75px}.a-visual{min-height:340px}.a-flow{grid-template-columns:1fr 1fr;row-gap:10px}}
+</style></head><body><header class="proto-header">
+  <a class="home" href="index.html">← HOME</a>
+  <div class="proto-right">
+    <div class="langs">EN | ES</div>
+    <nav>
+      <a href="about.html">About</a><a href="exhibitions.html">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a class="active" href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a>
+    </nav>
+  </div>
+</header>
+<main>
+<section class="a-hero"><div class="shell">
+  <div class="a-top"><span class="micro">Senso Studio</span><span class="micro">Barcelona / on-site</span></div>
+  <h1 class="a-question">who are you <em>bringing together?</em></h1>
+  <div class="a-choices">
+    <button class="a-choice active" data-key="teams"><span>01</span><strong>teams</strong></button>
+    <button class="a-choice" data-key="guests"><span>02</span><strong>guests</strong></button>
+    <button class="a-choice" data-key="friends"><span>03</span><strong>friends</strong></button>
+    <button class="a-choice" data-key="children"><span>04</span><strong>children</strong></button>
+  </div>
+</div></section>
+<section class="a-stage"><div class="shell a-stage-grid">
+  <div class="a-visual"><img id="a-img" src="Senso_Studio_Foto/studio-company.jpg" alt=""><div class="verb" id="a-verb">make.</div></div>
+  <div class="a-copy">
+    <div><span class="micro" id="a-label">companies & teams</span><h2 id="a-title">not another team-building activity.</h2><p id="a-text">An artist-led experience built around the team: participatory, cultural and fully produced by Senso.</p><a class="cta" href="studio.html">Plan this experience <span>→</span></a></div>
+    <div class="a-flow"><span>artist</span><span>practice</span><span>materials</span><span>production</span></div>
+  </div>
+</div></section>
+</main><div class="proto-label">Hybrid A · Audience-first</div>
+<script>
+const A={
+ teams:{img:'Senso_Studio_Foto/studio-company.jpg',verb:'make.',label:'companies & teams',title:'not another team-building activity.',text:'An artist-led experience built around the team: participatory, cultural and fully produced by Senso.'},
+ guests:{img:'Senso_Studio_Foto/studio-hospitality.jpg',verb:'host.',label:'hospitality & brands',title:'give people a cultural reason to engage with the place.',text:'Artist-led programming for guests, clients and communities — from one activation to a recurring cultural calendar.'},
+ friends:{img:'Senso_Studio_Foto/studio-adults.jpg',verb:'share.',label:'adults & private groups',title:'spend time together through an artistic process.',text:'A private or open session guided by an artist: more participatory than a visit, more considered than a standard class.'},
+ children:{img:'Senso_Studio_Foto/studio-kids.jpg',verb:'play.',label:'Senso Kids',title:'contemporary art through material, play and real artistic processes.',text:'Children enter a real artistic process adapted to their age — exploring ideas and materials rather than reproducing a craft.'}
+};
+document.querySelectorAll('.a-choice').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.a-choice').forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=A[b.dataset.key];
+ const im=document.getElementById('a-img');im.style.opacity='.2';im.style.transform='scale(1.02)';
+ setTimeout(()=>{im.src=d.img;im.style.opacity='1';im.style.transform='scale(1)'},120);
+ document.getElementById('a-verb').textContent=d.verb;document.getElementById('a-label').textContent=d.label;document.getElementById('a-title').textContent=d.title;document.getElementById('a-text').textContent=d.text;
+}));
+</script></body></html>
