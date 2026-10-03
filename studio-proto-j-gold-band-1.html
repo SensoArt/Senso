@@ -86,24 +86,24 @@ img{display:block;width:100%}
 /* Variant 1 — split line */
 .product-group-label{display:flex;align-items:center;gap:18px;margin:0 0 18px;padding:0}
 .product-group-label::before,.product-group-label::after{content:"";height:1px;background:var(--ink);flex:1}
-.product-group-label .micro{display:block;color:var(--ink);margin:0;white-space:nowrap;text-align:center}
+.product-group-label .micro{display:block;color:var(--ink);margin:0;white-space:nowrap;text-align:center;font-size:.65rem}
 
 .product-list{border-top:0}
-.product{width:100%;display:grid;grid-template-columns:58px minmax(250px,1fr) minmax(320px,1.35fr) 160px auto;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:center;text-align:left;cursor:pointer;background:transparent;transition:padding .2s ease}
+.product{width:100%;display:grid;grid-template-columns:minmax(250px,1fr) minmax(320px,1.35fr) 160px auto;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);align-items:center;text-align:left;cursor:pointer;background:transparent;transition:padding .2s ease}
 .product:first-child{border-top:0}
 .product:hover{padding-left:8px;padding-right:8px}
-.product strong{font-family:Behind,Georgia,serif;font-size:clamp(1.9rem,2.8vw,3rem);font-weight:400;line-height:1}
+.product strong{font-family:Behind,Georgia,serif;font-size:clamp(1.82rem,2.69vw,2.88rem);font-weight:400;line-height:1}
 .product p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55;max-width:500px}
 .product .aud{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.45}
 .product .action{font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 @media(max-width:1000px){
-  .product{grid-template-columns:50px minmax(190px,.85fr) 1fr 125px auto;gap:18px}
+  .product{grid-template-columns:minmax(190px,.85fr) 1fr 125px auto;gap:18px}
 }
 @media(max-width:900px){
-  .product{grid-template-columns:48px 1fr auto}
-  .product p{grid-column:2/4}
-  .product .aud{grid-column:2}
-  .product .action{grid-column:3;grid-row:3}
+  .product{grid-template-columns:1fr auto}
+  .product p{grid-column:1/3}
+  .product .aud{grid-column:1}
+  .product .action{grid-column:2;grid-row:3}
 }
 @media(max-width:700px){
   .products{padding:0 0 94px}
@@ -111,8 +111,8 @@ img{display:block;width:100%}
   .products-head::after{left:18px;right:18px}
   .products-head h2{font-size:2.6rem}
   .product-group+.product-group{margin-top:54px}
-  .product{grid-template-columns:32px 1fr auto;gap:12px;padding:18px 0}
-  .product strong{font-size:2rem}
+  .product{grid-template-columns:1fr auto;gap:12px;padding:18px 0}
+  .product strong{font-size:1.92rem}
 }
 /* FEATURE */
 .featured{padding:0 0 122px}
@@ -347,7 +347,6 @@ body.drawer-open{overflow:hidden}
 <section class="products" id="ways">
   <div class="shell">
     <div class="products-head">
-      <span class="micro">03</span>
       <div>
         <div class="lang" data-lang="en">
           <h2>enter the practice</h2>
@@ -367,20 +366,17 @@ body.drawer-open{overflow:hidden}
         <span class="micro"><span class="lang" data-lang="en">Studio for business</span><span class="lang" data-lang="es" hidden>Studio empresas</span></span>
       </div>
       <div class="product-list">
-        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Team Studio">
-          <span class="micro">01</span><strong>Team Studio</strong>
+        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Team Studio"><strong>Team Studio</strong>
           <p><span class="lang" data-lang="en">An artist-led experience designed for teams, offsites and shared moments outside the usual work setting.</span><span class="lang" data-lang="es" hidden>Una experiencia con artistas pensada para equipos, offsites y momentos compartidos fuera del entorno habitual de trabajo.</span></p>
           <span class="aud"><span class="lang" data-lang="en">teams / offsites</span><span class="lang" data-lang="es" hidden>equipos / offsites</span></span>
           <span class="action"><span class="lang" data-lang="en">plan →</span><span class="lang" data-lang="es" hidden>planificar →</span></span>
         </button>
-        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Cultural Activation">
-          <span class="micro">02</span><strong>Cultural Activation</strong>
+        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Cultural Activation"><strong>Cultural Activation</strong>
           <p><span class="lang" data-lang="en">Artist-led experiences and cultural programming for guests, clients and communities in your space.</span><span class="lang" data-lang="es" hidden>Experiencias y programación cultural con artistas para huéspedes, clientes y comunidades en vuestro espacio.</span></p>
           <span class="aud">hospitality / brands</span>
           <span class="action"><span class="lang" data-lang="en">plan →</span><span class="lang" data-lang="es" hidden>planificar →</span></span>
         </button>
-        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme">
-          <span class="micro">03</span><strong>Studio Programme</strong>
+        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Studio Programme"><strong>Studio Programme</strong>
           <p><span class="lang" data-lang="en">A recurring cultural programme built through different artists and practices across the year.</span><span class="lang" data-lang="es" hidden>Un programa cultural recurrente construido a través de distintos artistas y prácticas a lo largo del año.</span></p>
           <span class="aud"><span class="lang" data-lang="en">recurring / bespoke</span><span class="lang" data-lang="es" hidden>recurrente / a medida</span></span>
           <span class="action"><span class="lang" data-lang="en">discuss →</span><span class="lang" data-lang="es" hidden>hablar →</span></span>
@@ -393,26 +389,22 @@ body.drawer-open{overflow:hidden}
         <span class="micro"><span class="lang" data-lang="en">Studio for individuals</span><span class="lang" data-lang="es" hidden>Studio particulares</span></span>
       </div>
       <div class="product-list">
-        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Open Studio">
-          <span class="micro">04</span><strong>Open Studio</strong>
+        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Open Studio"><strong>Open Studio</strong>
           <p><span class="lang" data-lang="en">Scheduled artist-led sessions for adults and young adults who want to experience contemporary art through practice.</span><span class="lang" data-lang="es" hidden>Sesiones programadas con artistas para adultos y jóvenes adultos que quieren vivir el arte contemporáneo desde la práctica.</span></p>
           <span class="aud"><span class="lang" data-lang="en">adults / young adults</span><span class="lang" data-lang="es" hidden>adultos / jóvenes adultos</span></span>
           <span class="action"><span class="lang" data-lang="en">explore →</span><span class="lang" data-lang="es" hidden>explorar →</span></span>
         </button>
-        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Private Studio">
-          <span class="micro">05</span><strong>Private Studio</strong>
+        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Private Studio"><strong>Private Studio</strong>
           <p><span class="lang" data-lang="en">A private artist-led experience for friends, groups, celebrations or a reason to do something different together.</span><span class="lang" data-lang="es" hidden>Una experiencia privada con artistas para amigos, grupos, celebraciones o simplemente para hacer algo diferente juntos.</span></p>
           <span class="aud"><span class="lang" data-lang="en">private groups</span><span class="lang" data-lang="es" hidden>grupos privados</span></span>
           <span class="action"><span class="lang" data-lang="en">plan →</span><span class="lang" data-lang="es" hidden>planificar →</span></span>
         </button>
-        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Senso Kids">
-          <span class="micro">06</span><strong>Senso Kids</strong>
+        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Senso Kids"><strong>Senso Kids</strong>
           <p><span class="lang" data-lang="en">Contemporary art for children through real artistic processes, materials, experimentation and play.</span><span class="lang" data-lang="es" hidden>Arte contemporáneo para niños a través de procesos artísticos reales, materiales, experimentación y juego.</span></p>
           <span class="aud"><span class="lang" data-lang="en">children</span><span class="lang" data-lang="es" hidden>niños</span></span>
           <span class="action"><span class="lang" data-lang="en">explore →</span><span class="lang" data-lang="es" hidden>explorar →</span></span>
         </button>
-        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Family Studio">
-          <span class="micro">07</span><strong>Family Studio</strong>
+        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Family Studio"><strong>Family Studio</strong>
           <p><span class="lang" data-lang="en">A shared artist-led experience designed for adults and children to take part in the same creative process.</span><span class="lang" data-lang="es" hidden>Una experiencia con artistas diseñada para que adultos y niños participen juntos en un mismo proceso creativo.</span></p>
           <span class="aud"><span class="lang" data-lang="en">families</span><span class="lang" data-lang="es" hidden>familias</span></span>
           <span class="action"><span class="lang" data-lang="en">explore →</span><span class="lang" data-lang="es" hidden>explorar →</span></span>
