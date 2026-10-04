@@ -81,6 +81,11 @@ jobs:
             if(layout.scrollWidth>layout.clientWidth+2){
               failures.push(`${vp.name}: page horizontal overflow ${layout.scrollWidth} > ${layout.clientWidth}`);
             }
+
+            const entryTop=await page.locator('.entry').evaluate(el=>el.getBoundingClientRect().top);
+            if(entryTop < vp.height-1){
+              failures.push(`${vp.name}: Studio empresas/particulares visible on initial viewport (entryTop=${Math.round(entryTop)}, viewport=${vp.height})`);
+            }
             for(const [sel,b] of Object.entries(layout.boxes)){
               if(b.left < -2 || b.right > vp.width+2){
                 failures.push(`${vp.name}: ${sel} escapes viewport [${b.left}, ${b.right}] / ${vp.width}`);
