@@ -54,18 +54,18 @@ img{display:block;width:100%}
 /* HERO — J master */
 .hero{padding:0}
 .hero>.shell{width:100%;max-width:none}
-.hero-frame{position:relative;min-height:72vh;overflow:hidden;border-top:0;border-bottom:1px solid var(--line)}
+.hero-frame{position:relative;min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);overflow:hidden;border-top:0;border-bottom:1px solid var(--line)}
 .hero-frame picture{position:absolute;inset:0;width:100%;height:100%}
 .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 46%;filter:saturate(.84) contrast(.93) brightness(1.045)}
 .hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
-.hero-copy{position:relative;z-index:2;min-height:72vh;width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px 42px 42px}
+.hero-copy{position:relative;z-index:2;min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px 42px 42px}
 .hero-copy h1,.entry-card h3,.products-head h2,.gallery-head h3,.final-copy h3{font-family:Behind,Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0;text-transform:lowercase;margin:0}
 .hero-bottom h2{font-family:Behind,Georgia,serif;font-size:clamp(1.55rem,2.2vw,2.25rem);font-weight:400;line-height:1.12;letter-spacing:0;margin:0 0 17px;max-width:680px}
 .hero-bottom p{font-size:1rem;line-height:1.72;color:var(--muted);max-width:520px;margin:0 0 26px}
 .hero-actions{display:flex;gap:24px;flex-wrap:wrap}
 
 /* TWO JOURNEYS */
-.entry{border-bottom:1px solid var(--line)}
+.entry{border-bottom:0}
 .entry-grid{display:grid;grid-template-columns:1fr 1fr}
 .entry-card{padding:50px 50px 54px 0;min-height:465px;display:grid;grid-template-rows:auto 1fr auto auto;align-content:stretch}
 .entry-card+.entry-card{border-left:1px solid var(--line);padding-left:50px}
@@ -110,8 +110,8 @@ img{display:block;width:100%}
 .product:first-child{border-top:0}
 .product:hover{padding-left:8px;padding-right:8px}
 .product strong{font-family:Behind,Georgia,serif;font-size:clamp(1.82rem,2.69vw,2.88rem);font-weight:400;line-height:1}
-.business-group .product strong{font-family:Futura,Arial,sans-serif;font-size:.713rem;font-weight:400;line-height:1.55;letter-spacing:.09em;text-transform:uppercase}
-.business-group .product-group-label .micro{font-size:.763rem}
+.business-group .product strong,.individuals-group .product strong{font-family:Futura,Arial,sans-serif;font-size:.713rem;font-weight:400;line-height:1.55;letter-spacing:.09em;text-transform:uppercase}
+.business-group .product-group-label .micro,.individuals-group .product-group-label .micro{font-size:.839rem;font-weight:700}
 .product p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55;max-width:500px}
 .product .aud{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.45}
 .product .action{font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
@@ -132,7 +132,7 @@ img{display:block;width:100%}
   .product-group+.product-group{margin-top:54px}
   .product{grid-template-columns:1fr auto;gap:12px;padding:18px 0}
   .product strong{font-size:1.92rem}
-  .business-group .product strong{font-size:.713rem}
+  .business-group .product strong,.individuals-group .product strong{font-size:.713rem}
 }
 /* STUDIO GALLERY */
 .studio-gallery{padding:96px 0 108px;border-top:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:900px}
@@ -237,7 +237,6 @@ body.drawer-open{overflow:hidden}
   .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:nowrap;justify-content:flex-start;gap:18px;font-size:.64rem;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:0 2px 7px}
   .senso-header nav::-webkit-scrollbar{display:none}
   .senso-header nav a{flex:0 0 auto}
-  .hero-frame,.hero-copy{min-height:620px}
   .hero-copy{width:78%}
   .entry-grid{grid-template-columns:1fr}
   .entry-card{min-height:0;padding:42px 0 46px}
@@ -251,7 +250,6 @@ body.drawer-open{overflow:hidden}
   .senso-header{padding:22px 18px 12px}
   .senso-header .lang-switch{top:21px;right:14px}
   .senso-header nav{font-size:.61rem;gap:16px}
-  .hero-frame,.hero-copy{min-height:560px}
   .hero-copy{width:100%;padding:28px 20px 26px}
   .hero-frame::after{background:linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.72) 62%,rgba(255,255,255,.38) 100%)}
   .hero-copy h1,.entry-card h3,.products-head h2,.gallery-head h3,.final-copy h3{font-size:2.2rem}
@@ -268,12 +266,11 @@ body.drawer-open{overflow:hidden}
   .footer{flex-direction:column;gap:15px;padding:25px 18px;text-align:center}
 }
 @media(max-width:480px){
-  .hero-frame,.hero-copy{min-height:520px}
   .hero-copy{padding:24px 16px}
   .hero-actions{flex-direction:column;align-items:flex-start;gap:16px}
   .entry-action-title{font-size:.62rem}
   .product strong{font-size:1.78rem}
-  .business-group .product strong{font-size:.713rem}
+  .business-group .product strong,.individuals-group .product strong{font-size:.713rem}
   .product p{font-size:.81rem}
   .gallery-head-copy p{font-size:.9rem}
   .gallery-nav{width:38px;height:38px}
@@ -413,7 +410,7 @@ body.drawer-open{overflow:hidden}
       </div>
     </div>
 
-    <div class="product-group">
+    <div class="product-group individuals-group">
       <div class="product-group-label">
         <span class="micro"><span class="lang" data-lang="en">Studio for individuals</span><span class="lang" data-lang="es" hidden>Studio particulares</span></span>
       </div>
