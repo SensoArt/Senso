@@ -384,12 +384,10 @@ body.drawer-open{overflow:hidden}
         <div class="lang" data-lang="en">
           <h2>enter the practice</h2>
           <p class="section-meta">Artists | Process | Experience | Context</p>
-          <p>Studio brings people, groups and spaces closer to contemporary artistic practice through experiences conceived from within the artist’s process.</p>
         </div>
         <div class="lang" data-lang="es" hidden>
           <h2>entrar en la práctica</h2>
           <p class="section-meta">Artistas | Proceso | Experiencia | Contexto</p>
-          <p>Studio acerca la práctica de artistas contemporáneos a personas, grupos y espacios a través de experiencias concebidas para participar desde dentro.</p>
         </div>
       </div>
     </div>
@@ -461,8 +459,8 @@ body.drawer-open{overflow:hidden}
         <div class="lang" data-lang="es" hidden><h3 id="gallery-title-es">la experiencia</h3></div>
       </div>
       <div class="gallery-head-copy">
-        <p class="lang" data-lang="en">Art, people and practice. Artist-led creative experiences designed to connect, explore and make something of your own.</p>
-        <p class="lang" data-lang="es" hidden>Arte, personas y práctica. Experiencias creativas guiadas por artistas, pensadas para conectar, explorar y crear algo propio.</p>
+        <p class="lang" data-lang="en">Artist-led experiences designed to connect, explore and make something of your own.</p>
+        <p class="lang" data-lang="es" hidden>Experiencias guiadas por artistas, pensadas para conectar, explorar y crear algo propio.</p>
       </div>
 
     </div>
@@ -551,11 +549,10 @@ body.drawer-open{overflow:hidden}
       <div class="form-grid">
         <div class="field"><label class="drawer-label" for="name-company" id="name-label">Name / company</label><input id="name-company" name="name_company" autocomplete="name" required></div>
         <div class="field"><label class="drawer-label" for="studio-email">Email</label><input id="studio-email" type="email" name="email" autocomplete="email" required></div>
-        <div class="field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone" autocomplete="tel"></div>
+        <div class="field phone-field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone" autocomplete="tel"></div>
         <div class="field org-only"><label class="drawer-label" for="group-size" id="group-label">Group size</label><input id="group-size" name="group_size" inputmode="numeric"></div>
         <div class="field org-only"><label class="drawer-label" for="preferred-date" id="date-label">Preferred date</label><input id="preferred-date" type="date" name="date"></div>
-        <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><select id="location" name="location"></select></div>
-        <div class="field people-only hidden"><label class="drawer-label" for="people-type" id="people-type-label">Who is it for?</label><select id="people-type" name="people_type"></select></div>
+        <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><input id="location" name="location"></div>
         <div class="field people-only hidden"><label class="drawer-label" for="people-date" id="people-date-label">Preferred timing</label><input id="people-date" name="preferred_timing" placeholder="Weekday / weekend / flexible"></div>
         <div class="field full"><label class="drawer-label" for="studio-message" id="context-label">Context</label><textarea id="studio-message" name="message" placeholder="Occasion, objective or anything useful to know."></textarea></div>
       </div>
@@ -588,53 +585,49 @@ body.drawer-open{overflow:hidden}
       general:{
         kicker:'Senso Studio',
         title:'tell us what you have in mind.',
-        intro:'A few details are enough. We will direct you to the right Studio format and next step.',
-        experience:'What interests you?',
+        intro:'A few details are enough. We’ll reply with the right format and next step.',
+        experience:'What are you looking for?',
         name:'Name / company',
         phone:'Phone',
-        context:'Context',
+        context:'Tell us a little more',
         placeholder:'Group, occasion, objective, preferred date or anything useful to know.',
         submit:'Send enquiry',
         subject:'New Senso Studio enquiry',
-        options:['Not sure yet','Team Studio','Cultural Activation','Studio Programme','Open Studio','Private Studio','Senso Kids','Family Studio'],
+        options:['Not sure yet','Company / team','Hospitality / brand / space','Adults / young adults','Private group','Kids / family'],
         close:'Close ×'
       },
       org:{
         kicker:'Senso Studio · Brief',
         title:'tell us what you are planning.',
-        intro:'A short brief is enough. We will come back with the format and next step that make sense.',
+        intro:'Tell us the essentials. We’ll prepare the right format and next step.',
         experience:'What are you planning?',
         name:'Name / company',
         phone:'Phone',
         group:'Group size',
         date:'Preferred date',
         location:'Location',
+        locationPlaceholder:'Barcelona / your space / another city',
         context:'Context',
         placeholder:'Occasion, objective or anything useful to know.',
         submit:'Request proposal',
         subject:'New Senso Studio organisation enquiry',
         options:['Not sure yet','Team Studio','Cultural Activation','Studio Programme'],
-        locations:['Not sure yet','Barcelona / partner venue','At our space / on-site'],
-        peopleTypes:['Myself / adult','Young adult','Child','Family','Private group'],
         timingPlaceholder:'Weekday / weekend / flexible',
         close:'Close ×'
       },
       people:{
         kicker:'Senso Studio · Sessions',
         title:'what are you looking for?',
-        intro:'Tell us what interests you. We will point you to the right upcoming session or private format.',
+        intro:'Tell us what interests you. We’ll point you to the option that fits best.',
         experience:'Studio format',
         name:'Name',
         phone:'Phone',
-        peopleType:'Who is it for?',
         timing:'Preferred timing',
-        context:'Anything useful to know',
+        context:'Tell us a little more',
         placeholder:'Age if relevant, private group, occasion or any preference.',
         submit:'Get options',
         subject:'New Senso Studio people enquiry',
         options:['Open Studio','Private Studio','Senso Kids','Family Studio'],
-        locations:['Not sure yet','Barcelona / partner venue','At our space / on-site'],
-        peopleTypes:['Myself / adult','Young adult','Child','Family','Private group'],
         timingPlaceholder:'Weekday / weekend / flexible',
         close:'Close ×'
       }
@@ -643,53 +636,49 @@ body.drawer-open{overflow:hidden}
       general:{
         kicker:'Senso Studio',
         title:'cuéntanos qué tienes en mente.',
-        intro:'Con unos pocos detalles es suficiente. Te dirigiremos al formato Studio y al siguiente paso adecuados.',
-        experience:'¿Qué te interesa?',
+        intro:'Con unos pocos detalles es suficiente. Te responderemos con el formato y el siguiente paso adecuados.',
+        experience:'¿Qué estás buscando?',
         name:'Nombre / empresa',
         phone:'Teléfono',
-        context:'Contexto',
+        context:'Cuéntanos un poco más',
         placeholder:'Grupo, ocasión, objetivo, fecha preferida o cualquier detalle útil.',
         submit:'Enviar consulta',
         subject:'Nueva consulta Senso Studio',
-        options:['Aún por definir','Team Studio','Cultural Activation','Studio Programme','Open Studio','Private Studio','Senso Kids','Family Studio'],
+        options:['Aún por definir','Empresa / equipo','Hospitality / marca / espacio','Adultos / jóvenes','Grupo privado','Kids / familia'],
         close:'Cerrar ×'
       },
       org:{
         kicker:'Senso Studio · Brief',
         title:'cuéntanos qué estás preparando.',
-        intro:'Un brief corto es suficiente. Volveremos con el formato y el siguiente paso que tengan sentido.',
+        intro:'Cuéntanos lo esencial. Prepararemos el formato y el siguiente paso adecuados.',
         experience:'¿Qué estás organizando?',
         name:'Nombre / empresa',
         phone:'Teléfono',
         group:'Número de personas',
         date:'Fecha preferida',
         location:'Ubicación',
+        locationPlaceholder:'Barcelona / vuestro espacio / otra ciudad',
         context:'Contexto',
         placeholder:'Ocasión, objetivo o cualquier detalle útil.',
         submit:'Solicitar propuesta',
         subject:'Nueva consulta Senso Studio · organización',
         options:['Aún por definir','Team Studio','Cultural Activation','Studio Programme'],
-        locations:['Aún por definir','Barcelona / espacio partner','En nuestro espacio / on-site'],
-        peopleTypes:['Yo / adulto','Joven adulto','Niño/a','Familia','Grupo privado'],
         timingPlaceholder:'Entre semana / fin de semana / flexible',
         close:'Cerrar ×'
       },
       people:{
         kicker:'Senso Studio · Sesiones',
         title:'¿qué estás buscando?',
-        intro:'Cuéntanos qué te interesa. Te indicaremos la próxima sesión o formato privado adecuado.',
+        intro:'Cuéntanos qué te interesa. Te indicaremos la opción que mejor encaje.',
         experience:'Formato Studio',
         name:'Nombre',
         phone:'Teléfono',
-        peopleType:'¿Para quién es?',
         timing:'Momento preferido',
-        context:'Cualquier detalle útil',
+        context:'Cuéntanos un poco más',
         placeholder:'Edad si aplica, grupo privado, ocasión o cualquier preferencia.',
         submit:'Recibir opciones',
         subject:'Nueva consulta Senso Studio · personas',
         options:['Open Studio','Private Studio','Senso Kids','Family Studio'],
-        locations:['Aún por definir','Barcelona / espacio partner','En nuestro espacio / on-site'],
-        peopleTypes:['Yo / adulto','Joven adulto','Niño/a','Familia','Grupo privado'],
         timingPlaceholder:'Entre semana / fin de semana / flexible',
         close:'Cerrar ×'
       }
@@ -756,31 +745,16 @@ body.drawer-open{overflow:hidden}
 
     document.querySelectorAll('.org-only').forEach(el=>el.classList.toggle('hidden',drawerMode!=='org'));
     document.querySelectorAll('.people-only').forEach(el=>el.classList.toggle('hidden',drawerMode!=='people'));
+    document.querySelectorAll('.phone-field').forEach(el=>el.classList.toggle('hidden',drawerMode==='general'));
 
     if(drawerMode==='org'){
       document.getElementById('group-label').textContent=d.group;
       document.getElementById('date-label').textContent=d.date;
       document.getElementById('location-label').textContent=d.location;
-      const loc=document.getElementById('location');
-      loc.innerHTML='';
-      d.locations.forEach((label,i)=>{
-        const opt=document.createElement('option');
-        opt.value=copy.en.org.locations[i];
-        opt.textContent=label;
-        loc.appendChild(opt);
-      });
+      document.getElementById('location').placeholder=d.locationPlaceholder;
     }else if(drawerMode==='people'){
-      document.getElementById('people-type-label').textContent=d.peopleType;
       document.getElementById('people-date-label').textContent=d.timing;
       document.getElementById('people-date').placeholder=d.timingPlaceholder;
-      const pt=document.getElementById('people-type');
-      pt.innerHTML='';
-      d.peopleTypes.forEach((label,i)=>{
-        const opt=document.createElement('option');
-        opt.value=copy.en.people.peopleTypes[i];
-        opt.textContent=label;
-        pt.appendChild(opt);
-      });
     }
 
     interest.innerHTML='';
