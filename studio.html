@@ -230,7 +230,12 @@
         /* OFFER SECTION */
         .offer-section { margin-bottom: 145px; }
         .section-header-label { font-size: .65rem; letter-spacing: 2px; text-transform: uppercase; opacity: .55; margin-bottom: 35px; }
-        .offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .offer-group { margin-bottom: 75px; }
+.offer-group:last-child { margin-bottom: 0; }
+.offer-group-title { margin: 0 0 30px; font-family: 'BehindNineties', serif; font-size: 1.5rem; font-weight: 400; text-transform: lowercase; }
+.offer-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.service-card { min-width: 0; }
+@media (max-width: 1180px) and (min-width: 901px) { .offer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 
         .service-card {
             background: #fcfcfc;
@@ -430,6 +435,9 @@
             .hero-copy p { font-size: 1.02rem; line-height: 1.7; }
             .hero-discover-btn { margin-top: 25px; padding: 10px 20px; }
             .offer-grid { grid-template-columns: 1fr; gap: 20px; }
+            .offer-group { margin-bottom: 60px; }
+            .offer-group-title { margin-bottom: 24px; }
+            .service-card { padding: 30px 24px; }
             .gallery-card { flex: 0 0 260px; height: 320px; }
             .teachers { margin-bottom: 100px; }
             .section-title { margin-bottom: 50px; font-size: 1.4rem; }
@@ -602,112 +610,109 @@ nav.main-nav{
 <section class="offer-section" id="experiences">
 
 <div class="section-header-label">
-<span class="lang-en">How to experience Senso</span>
-<span class="lang-es hidden">Modalidades de experiencia</span>
+<span class="lang-en">Senso Studio</span>
+<span class="lang-es hidden">Senso Studio</span>
 </div>
+
+<div class="offer-group">
+<h2 class="offer-group-title lang-en">for companies</h2>
+<h2 class="offer-group-title lang-es hidden">para empresas</h2>
 
 <div class="offer-grid">
 
 <div class="service-card">
-
-<span class="badge lang-en">Popular</span>
-<span class="badge lang-es hidden">Popular</span>
-
 <div>
-<h2 class="card-title lang-en">Weekly Classes</h2>
-<h2 class="card-title lang-es hidden">Clases Semanales</h2>
-
-<span class="card-subtitle lang-en">Adults & Studio Kids</span>
-<span class="card-subtitle lang-es hidden">Adultos y Studio Kids</span>
-
-<p class="card-desc lang-en">Regular guided painting sessions to learn techniques, experiment with styles, and build a creative routine in Barcelona.</p>
-<p class="card-desc lang-es hidden">Sesiones guiadas regulares para aprender técnicas, experimentar con estilos y crear una rutina creativa en Barcelona.</p>
+<h3 class="card-title">Team Building</h3>
+<p class="card-desc lang-en"><strong>Take your team out of the everyday routine and give them something to create together.</strong> An artistic experience to share, experiment and connect in a different way, accompanied throughout by artists and professionals.</p>
+<p class="card-desc lang-es hidden"><strong>Saca a tu equipo de la rutina y haz que cree algo juntos.</strong> Una experiencia artística diferente para compartir, experimentar y relacionarse desde otro lugar, acompañados durante todo el proceso por artistas y profesionales.</p>
 </div>
-
-<div>
-<div class="card-details">
-<span class="meta-item lang-en">• 90 Minute sessions</span>
-<span class="meta-item lang-es hidden">• Sesiones de 90 minutos</span>
-<span class="meta-item lang-en">• All levels welcome</span>
-<span class="meta-item lang-es hidden">• Todos los niveles</span>
-<span class="meta-item lang-en">• Materials included</span>
-<span class="meta-item lang-es hidden">• Materiales incluidos</span>
-<span class="meta-item lang-en">• Take home your artwork</span>
-<span class="meta-item lang-es hidden">• Te llevas tu obra a casa</span>
-</div>
-
-<button class="card-btn lang-en" onclick="selectInterest('Adult Classes')">Book a Spot →</button>
-<button class="card-btn lang-es hidden" onclick="selectInterest('Clases Adultos')">Reservar Plaza →</button>
-</div>
-
+<button class="card-btn lang-en" onclick="selectInterest('Team Building')">Request a proposal →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Team Building')">Solicitar propuesta →</button>
 </div>
 
 <div class="service-card">
-
-<span class="badge lang-en">Gift Idea</span>
-<span class="badge lang-es hidden">Para Regalar</span>
-
 <div>
-<h2 class="card-title lang-en">Gift a Workshop</h2>
-<h2 class="card-title lang-es hidden">Regala un Taller</h2>
-
-<span class="card-subtitle lang-en">Vouchers & Gift Cards</span>
-<span class="card-subtitle lang-es hidden">Bonos y Tarjetas Regalo</span>
-
-<p class="card-desc lang-en">Give a unique creative experience. Digital gift vouchers for single workshops or class packs with open dates.</p>
-<p class="card-desc lang-es hidden">Regala una experiencia creativa única. Tarjeta regalo digital para un taller individual o pack de clases con fecha abierta.</p>
+<h3 class="card-title">Mindfulness Activity</h3>
+<p class="card-desc lang-en"><strong>Give your team a moment to pause, change pace and refocus.</strong> Through artistic practice, we guide them through an experience of observation, experimentation and creation where the process matters more than the result.</p>
+<p class="card-desc lang-es hidden"><strong>Regala a tu equipo un momento para parar, cambiar el ritmo y volver a concentrarse.</strong> A través de la práctica artística, les acompañamos en una experiencia de observación, experimentación y creación donde el proceso importa más que el resultado.</p>
 </div>
-
-<div>
-<div class="card-details">
-<span class="meta-item lang-en">• Flexible schedule</span>
-<span class="meta-item lang-es hidden">• Fecha abierta / Flexible</span>
-<span class="meta-item lang-en">• Personalized Digital Voucher</span>
-<span class="meta-item lang-es hidden">• Bono digital personalizado</span>
-<span class="meta-item lang-en">• Valid for 12 months</span>
-<span class="meta-item lang-es hidden">• Validez de 12 meses</span>
-<span class="meta-item lang-en">• Take home your artwork</span>
-<span class="meta-item lang-es hidden">• Te llevas tu obra a casa</span>
-</div>
-
-<button class="card-btn lang-en" onclick="selectInterest('Gift Workshop')">Buy Gift Voucher →</button>
-<button class="card-btn lang-es hidden" onclick="selectInterest('Regala un taller')">Comprar Bono Regalo →</button>
-</div>
-
+<button class="card-btn lang-en" onclick="selectInterest('Mindfulness Activity')">Request a proposal →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Mindfulness Activity')">Solicitar propuesta →</button>
 </div>
 
 <div class="service-card">
-
-<span class="badge lang-en">For Teams</span>
-<span class="badge lang-es hidden">Empresas</span>
-
 <div>
-<h2 class="card-title lang-en">Corporate & Teams</h2>
-<h2 class="card-title lang-es hidden">Empresas y Equipos</h2>
-
-<span class="card-subtitle lang-en">Team Building & Wellbeing</span>
-<span class="card-subtitle lang-es hidden">Team Building y Bienestar</span>
-
-<p class="card-desc lang-en">Tailored workshops designed for team cohesion, creative thinking, off-sites, or weekly corporate wellbeing programs.</p>
-<p class="card-desc lang-es hidden">Talleres a medida diseñados para la cohesión de equipo, pensamiento creativo, eventos o programas semanales.</p>
+<h3 class="card-title">Workshops &amp; Events</h3>
+<p class="card-desc lang-en"><strong>Turn a gathering, event or stay into something your guests can experience and remember.</strong> We create participatory artistic experiences adapted to the space, audience and occasion, guided by artists and professionals.</p>
+<p class="card-desc lang-es hidden"><strong>Convierte un encuentro, evento o estancia en algo que tus invitados puedan vivir y recordar.</strong> Diseñamos experiencias artísticas participativas adaptadas al espacio, al público y a la ocasión, acompañando todo el proceso junto a artistas y profesionales.</p>
+</div>
+<button class="card-btn lang-en" onclick="selectInterest('Workshops & Events')">Tell us about your event →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Workshops & Events')">Cuéntanos tu evento →</button>
 </div>
 
+<div class="service-card">
 <div>
-<div class="card-details">
-<span class="meta-item lang-en">• At studio or on-site</span>
-<span class="meta-item lang-es hidden">• En nuestro studio o in-company</span>
-<span class="meta-item lang-en">• Tailored group size</span>
-<span class="meta-item lang-es hidden">• Adaptado al tamaño del grupo</span>
-<span class="meta-item lang-en">• Custom proposal</span>
-<span class="meta-item lang-es hidden">• Propuesta personalizada</span>
+<h3 class="card-title lang-en">Recurring Programs</h3>
+<h3 class="card-title lang-es hidden">Programas recurrentes</h3>
+<p class="card-desc lang-en"><strong>Make art part of your organisation's experience throughout the year.</strong> We design an ongoing programme so your teams, clients or community can discover, experiment and create on a recurring basis.</p>
+<p class="card-desc lang-es hidden"><strong>Haz que el arte forme parte de la experiencia de tu empresa durante todo el año.</strong> Diseñamos un programa continuado para que tus equipos, clientes o comunidad puedan descubrir, experimentar y crear de forma recurrente.</p>
 </div>
-
-<button class="card-btn lang-en" onclick="selectInterest('Corporate Events')">Request Proposal →</button>
-<button class="card-btn lang-es hidden" onclick="selectInterest('Empresas')">Solicitar Propuesta →</button>
+<button class="card-btn lang-en" onclick="selectInterest('Recurring Programs')">Design a program →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Recurring Programs')">Diseñar un programa →</button>
 </div>
 
 </div>
+</div>
 
+<div class="offer-group">
+<h2 class="offer-group-title lang-en">for individuals</h2>
+<h2 class="offer-group-title lang-es hidden">para particulares</h2>
+
+<div class="offer-grid">
+
+<div class="service-card">
+<div>
+<h3 class="card-title">Workshops</h3>
+<p class="card-desc lang-en"><strong>Experiment, create and discover new ways to express yourself.</strong> Artists and professionals accompany you as you explore materials, techniques and processes in your own way, whether you have previous experience or not.</p>
+<p class="card-desc lang-es hidden"><strong>Experimenta, crea y descubre nuevas formas de expresarte.</strong> Te acompañamos junto a artistas y profesionales para que explores materiales, técnicas y procesos a tu manera, tengas o no experiencia previa.</p>
+</div>
+<button class="card-btn lang-en" onclick="selectInterest('Workshops')">See availability →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Workshops')">Consultar disponibilidad →</button>
+</div>
+
+<div class="service-card">
+<div>
+<h3 class="card-title lang-en">Private Sessions</h3>
+<h3 class="card-title lang-es hidden">Sesiones privadas</h3>
+<p class="card-desc lang-en"><strong>An artistic experience designed around you.</strong> Enjoy a private session where you can experiment, create and develop your own ideas, accompanied by an artist or professional, at your own pace and in a fully personalised format.</p>
+<p class="card-desc lang-es hidden"><strong>Una experiencia artística pensada alrededor de ti.</strong> Disfruta de una sesión privada en la que podrás experimentar, crear y desarrollar tus propias ideas acompañado por un artista o profesional, a tu ritmo y de forma totalmente personalizada.</p>
+</div>
+<button class="card-btn lang-en" onclick="selectInterest('Private Sessions')">Plan your session →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Private Sessions')">Diseñar mi sesión →</button>
+</div>
+
+<div class="service-card">
+<div>
+<h3 class="card-title lang-en">Contemporary Art Courses</h3>
+<h3 class="card-title lang-es hidden">Cursos de arte contemporáneo</h3>
+<p class="card-desc lang-en"><strong>Find your own way to create.</strong> Across several sessions, explore different techniques, materials and processes with professionals who help you experiment, evolve and develop an increasingly personal practice.</p>
+<p class="card-desc lang-es hidden"><strong>Encuentra tu propia manera de crear.</strong> A lo largo de varias sesiones podrás experimentar con diferentes técnicas, materiales y procesos, acompañado por profesionales que te ayudarán a explorar, evolucionar y desarrollar una práctica cada vez más personal.</p>
+</div>
+<button class="card-btn lang-en" onclick="selectInterest('Contemporary Art Courses')">Ask about courses →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Contemporary Art Courses')">Consultar cursos →</button>
+</div>
+
+<div class="service-card">
+<div>
+<h3 class="card-title">Senso Kids</h3>
+<p class="card-desc lang-en"><strong>A space to imagine, experiment and create freely.</strong> Accompanied by artists and professionals, children explore materials, ideas and new ways of expressing themselves, without looking for a single result or one right way to create.</p>
+<p class="card-desc lang-es hidden"><strong>Un espacio para imaginar, experimentar y crear con libertad.</strong> Acompañados por artistas y profesionales, los más pequeños exploran materiales, ideas y nuevas formas de expresarse, sin buscar un único resultado ni una manera correcta de hacerlo.</p>
+</div>
+<button class="card-btn lang-en" onclick="selectInterest('Senso Kids')">Ask about Senso Kids →</button>
+<button class="card-btn lang-es hidden" onclick="selectInterest('Senso Kids')">Consultar Senso Kids →</button>
+</div>
+
+</div>
 </div>
 </section>
 
@@ -781,12 +786,12 @@ nav.main-nav{
 
 <section class="contact" id="contact">
 
-<h2 class="contact-title lang-en">experience art with us</h2>
-<h2 class="contact-title lang-es hidden">vive el arte con nosotros</h2>
+<h2 class="contact-title lang-en">tell us what you have in mind</h2>
+<h2 class="contact-title lang-es hidden">cuéntanos qué tienes en mente</h2>
 
 <button class="contact-button" onclick="showForm()">
-<span class="lang-en">Get in touch →</span>
-<span class="lang-es hidden">Contacta con nosotros →</span>
+<span class="lang-en">Start your experience →</span>
+<span class="lang-es hidden">Empezar →</span>
 </button>
 
 <form id="contact-form" class="form" action="https://formspree.io/f/mgorwree" method="POST">
@@ -796,11 +801,15 @@ nav.main-nav{
 <label class="lang-es hidden">Estoy interesado en</label>
 
 <select name="interest" id="interest-select">
-<option value="General Inquiry">General Inquiry / Consulta General</option>
-<option value="Adult Classes">Adult Painting Classes / Clases Adultos</option>
-<option value="Kids Classes">Studio Kids / Clases Niños</option>
-<option value="Gift Workshop">Gift a Workshop / Regalar un taller</option>
-<option value="Corporate Events">Company Events & Team Building / Empresas</option>
+<option value="General Inquiry">General Inquiry / Consulta general</option>
+<option value="Team Building">Team Building</option>
+<option value="Mindfulness Activity">Mindfulness Activity</option>
+<option value="Workshops & Events">Workshops & Events / Workshops y eventos</option>
+<option value="Recurring Programs">Recurring Programs / Programas recurrentes</option>
+<option value="Workshops">Workshops</option>
+<option value="Private Sessions">Private Sessions / Sesiones privadas</option>
+<option value="Contemporary Art Courses">Contemporary Art Courses / Cursos de arte contemporáneo</option>
+<option value="Senso Kids">Senso Kids</option>
 </select>
 </div>
 
@@ -836,8 +845,8 @@ nav.main-nav{
 </div>
 
 <div class="field">
-<label class="lang-en">Message / Preferred Date</label>
-<label class="lang-es hidden">Mensaje / Fecha preferida</label>
+<label class="lang-en">Tell us what you are looking for</label>
+<label class="lang-es hidden">Cuéntanos qué estás buscando</label>
 <textarea name="message" required></textarea>
 </div>
 
@@ -915,24 +924,8 @@ function selectInterest(type){
     if(window.event) window.event.stopPropagation();
     showForm();
     const select = document.getElementById('interest-select');
-    const searchType = type.toLowerCase();
-
-    for(let option of select.options){
-        const val = option.value.toLowerCase();
-        const text = option.text.toLowerCase();
-
-        if(
-            val.includes(searchType) ||
-            text.includes(searchType) ||
-            (searchType.includes('gift') && val.includes('gift')) ||
-            (searchType.includes('regala') && val.includes('gift')) ||
-            (searchType.includes('corporate') && val.includes('corporate')) ||
-            (searchType.includes('empresas') && val.includes('corporate'))
-        ){
-            select.value = option.value;
-            break;
-        }
-    }
+    const option = Array.from(select.options).find(item => item.value === type);
+    if(option) select.value = type;
 }
 
 const carousel = document.getElementById('gallery-carousel');
