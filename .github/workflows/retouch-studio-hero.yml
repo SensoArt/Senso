@@ -33,7 +33,7 @@ jobs:
           from pathlib import Path
 
           src=Path("Senso_Studio_Foto/studio-815.jpg")
-          dst=Path("Senso_Studio_Foto/studio-815-retouched.jpg")
+          dst=Path("Senso_Studio_Foto/studio-815-retouched-v2.jpg")
 
           img=cv2.imread(str(src))
           if img is None:
@@ -42,47 +42,31 @@ jobs:
           h,w=img.shape[:2]
           gray=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
-          # Limit all intervention to the blank upper-right wall/ceiling area.
-          roi=np.zeros((h,w),np.uint8)
-          x0=int(w*0.80)
-          y0=int(h*0.015)
-          y1=int(h*0.56)
-          roi[y0:y1,x0:w]=255
+          # Surgical mask: only the visible blemish and vertical wall seam
+          # in the far-right blank wall area. Coordinates are tied to the
+          # source image dimensions and intentionally avoid furniture/table.
+          mask=np.zeros((h,w),np.uint8)
 
-          # Detect narrow vertical marks/seams only in that region.
-          gx=cv2.Sobel(gray,cv2.CV_32F,1,0,ksize=3)
-          edge=np.abs(gx)
-          vals=edge[roi>0]
-          thr=np.percentile(vals,97.8)
-          vmask=((edge>thr).astype(np.uint8)*255)
-          vmask=cv2.bitwise_and(vmask,roi)
-          kernel=cv2.getStructuringElement(cv2.MORPH_RECT,(3,19))
-          vmask=cv2.morphologyEx(vmask,cv2.MORPH_CLOSE,kernel)
-          vmask=cv2.morphologyEx(vmask,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_RECT,(1,11)))
+          # Small dark blemish on upper-right wall.
+          cv2.ellipse(
+              mask,
+              (int(w*0.925), int(h*0.315)),
+              (max(10,int(w*0.012)), max(10,int(h*0.018))),
+              0,0,360,255,-1
+          )
 
-          # Detect small/local dark blotches without flattening the wall globally.
-          blackhat=cv2.morphologyEx(gray,cv2.MORPH_BLACKHAT,
-                                    cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(41,41)))
-          bvals=blackhat[roi>0]
-          bthr=max(5,float(np.percentile(bvals,98.8)))
-          bmask=((blackhat>bthr).astype(np.uint8)*255)
-          bmask=cv2.bitwise_and(bmask,roi)
+          # Faint vertical seam on the same right wall.
+          x=int(w*0.885)
+          cv2.rectangle(
+              mask,
+              (x-max(2,int(w*0.0025)), int(h*0.16)),
+              (x+max(2,int(w*0.0025)), int(h*0.57)),
+              255,-1
+          )
 
-          # Keep modest components only; avoid changing broad natural illumination.
-          n,labels,stats,_=cv2.connectedComponentsWithStats(bmask,8)
-          clean=np.zeros_like(bmask)
-          for i in range(1,n):
-              area=stats[i,cv2.CC_STAT_AREA]
-              if 10 <= area <= 1800:
-                  clean[labels==i]=255
-
-          mask=cv2.bitwise_or(vmask,clean)
-          mask=cv2.dilate(mask,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5)),iterations=1)
-
-          # Prevent edits touching the outer frame itself.
-          mask[:4,:]=0; mask[-4:,:]=0; mask[:,:4]=0; mask[:,-4:]=0
-
-          out=cv2.inpaint(img,mask,5,cv2.INPAINT_TELEA)
+          # Feather/dilate just enough for seamless content-aware fill.
+          mask=cv2.dilate(mask,cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(7,7)),iterations=1)
+          out=cv2.inpaint(img,mask,7,cv2.INPAINT_TELEA)
 
           # High-quality JPEG, preserving original dimensions.
           cv2.imwrite(str(dst),out,[int(cv2.IMWRITE_JPEG_QUALITY),96])
@@ -93,6 +77,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add Senso_Studio_Foto/studio-815-retouched.jpg
-          git commit -m "Create Studio hero retouch candidate"
+          git add Senso_Studio_Foto/studio-815-retouched-v2.jpg
+          git commit -m "Create refined Studio hero retouch candidate"
           git push origin HEAD:alex-revenue-sprint-01
