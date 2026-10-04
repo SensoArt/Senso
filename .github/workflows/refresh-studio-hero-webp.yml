@@ -1,0 +1,55 @@
+name: Refresh Studio hero WebP
+
+on:
+  push:
+    branches:
+      - alex-revenue-sprint-01
+    paths:
+      - ".github/workflows/refresh-studio-hero-webp.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: alex-revenue-sprint-01
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --disable-pip-version-check pillow
+
+      - name: Regenerate hero WebP
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+
+          src=Path("Senso_Studio_Foto/studio-815.jpg")
+          out=Path("Senso_Studio_Foto/optimized")
+          out.mkdir(exist_ok=True)
+
+          with Image.open(src) as raw:
+              im=ImageOps.exif_transpose(raw).convert("RGB")
+              for width in (960,1920):
+                  if im.width > width:
+                      height=round(im.height*width/im.width)
+                      resized=im.resize((width,height),Image.Resampling.LANCZOS)
+                  else:
+                      resized=im.copy()
+                  resized.save(out/f"hero-{width}.webp","WEBP",quality=82,method=6)
+          PY
+
+      - name: Commit refreshed hero WebP
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Senso_Studio_Foto/optimized/hero-960.webp Senso_Studio_Foto/optimized/hero-1920.webp
+          git commit -m "Refresh optimized Studio hero image"
+          git push origin HEAD:alex-revenue-sprint-01
