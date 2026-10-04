@@ -57,7 +57,7 @@ img{display:block;width:100%}
 .hero-frame{position:relative;min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);overflow:hidden;border-top:0;border-bottom:1px solid var(--line)}
 .hero-frame picture{position:absolute;inset:0;width:100%;height:100%}
 .hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;filter:saturate(.84) contrast(.93) brightness(1.045)}
-.hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
+.hero-frame::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 18% 16% at 94% 8%,rgba(255,255,255,.13) 0%,rgba(255,255,255,.075) 38%,rgba(255,255,255,0) 76%),linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
 .hero-copy{position:relative;z-index:2;min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px 42px 58px}
 .hero-copy h1,.entry-card h3,.products-head h2,.gallery-head h3,.final-copy h3{font-family:Behind,Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0;text-transform:lowercase;margin:0}
 .hero-bottom{transform:translateY(-56px)}
