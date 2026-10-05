@@ -142,6 +142,20 @@ img{display:block;width:100%}
   .product strong{font-size:1.92rem}
   .business-group .product strong,.individuals-group .product strong{font-size:.713rem}
 }
+/* OCT-01 — commercial FAQ */
+.business-faq{padding:84px 0 112px;border-top:1px solid var(--line)}
+.business-faq-head{display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1.28fr);gap:60px;margin-bottom:42px}
+.business-faq-head h2{font-family:Behind,Georgia,serif;font-size:clamp(2rem,3vw,3rem);font-weight:400;line-height:1.05;margin:0;text-transform:lowercase}
+.business-faq-head p{margin:0;max-width:620px;color:var(--muted);font-size:1rem;line-height:1.7}
+.business-faq-list{border-top:1px solid var(--line)}
+.business-faq details{border-bottom:1px solid var(--line);padding:0}
+.business-faq summary{list-style:none;cursor:pointer;padding:22px 0;display:flex;justify-content:space-between;gap:24px;align-items:center;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase}
+.business-faq summary::-webkit-details-marker{display:none}
+.business-faq summary::after{content:'+';font-size:1rem;font-weight:300}
+.business-faq details[open] summary::after{content:'−'}
+.business-faq .faq-answer{max-width:760px;padding:0 0 24px;color:var(--muted);font-size:.98rem;line-height:1.7}
+@media(max-width:700px){.business-faq{padding:64px 0 82px}.business-faq-head{grid-template-columns:1fr;gap:18px;margin-bottom:30px}.business-faq summary{padding:19px 0;font-size:.66rem}}
+
 /* STUDIO GALLERY */
 .studio-gallery{padding:96px 0 108px;border-top:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:900px}
 .gallery-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.78fr);gap:42px;align-items:end;margin-bottom:30px}
@@ -285,6 +299,9 @@ body.drawer-open{overflow:hidden}
   .drawer,.drawer-overlay,.product,.gallery-slide,.entry-route span:first-child{transition:none}
 }
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Where can a Senso Studio experience take place?","acceptedAnswer":{"@type":"Answer","text":"In Barcelona, in selected spaces or at the client’s own location. Senso adapts the format to the space, group and occasion."}},{"@type":"Question","name":"Who leads a Senso Studio experience?","acceptedAnswer":{"@type":"Answer","text":"Senso develops each experience with contemporary artists and professionals, starting from real artistic practice."}},{"@type":"Question","name":"Is the Senso Studio format fixed?","acceptedAnswer":{"@type":"Answer","text":"No. Team building, workshops and events are adapted to the objective, group and context."}},{"@type":"Question","name":"Can Senso Studio become a recurring programme?","acceptedAnswer":{"@type":"Answer","text":"Yes. Art & Wellbeing can begin with one session and evolve into a recurring programme shaped around the team, calendar and company culture."}},{"@type":"Question","name":"How do we start a Senso Studio project?","acceptedAnswer":{"@type":"Answer","text":"Send a short brief with the type of experience, group, preferred date and location. Senso will reply with the most suitable format and next step."}}]}
+</script>
 </head>
 <body>
 
@@ -481,6 +498,43 @@ body.drawer-open{overflow:hidden}
 </section>
 
 
+
+<section class="business-faq" aria-labelledby="business-faq-title">
+  <div class="shell">
+    <div class="business-faq-head">
+      <div>
+        <div class="lang" data-lang="en"><h2 id="business-faq-title">before we begin</h2></div>
+        <div class="lang" data-lang="es" hidden><h2 id="business-faq-title-es">antes de empezar</h2></div>
+      </div>
+      <div>
+        <p class="lang" data-lang="en">A Senso Studio experience starts with the context, not a fixed activity. These are the essentials companies and partners usually need to know before sending a brief.</p>
+        <p class="lang" data-lang="es" hidden>Una experiencia de Senso Studio parte del contexto, no de una actividad cerrada. Esto es lo esencial que empresas y partners suelen necesitar antes de enviarnos un brief.</p>
+      </div>
+    </div>
+    <div class="business-faq-list">
+      <details>
+        <summary><span class="lang" data-lang="en">Where can a Senso Studio experience take place?</span><span class="lang" data-lang="es" hidden>¿Dónde puede realizarse una experiencia Senso Studio?</span></summary>
+        <div class="faq-answer"><span class="lang" data-lang="en">In Barcelona, in selected spaces or at the client’s own location. We adapt the format to the space, group and occasion.</span><span class="lang" data-lang="es" hidden>En Barcelona, en espacios seleccionados o directamente en el espacio del cliente. Adaptamos el formato al lugar, al grupo y a la ocasión.</span></div>
+      </details>
+      <details>
+        <summary><span class="lang" data-lang="en">Who leads the experience?</span><span class="lang" data-lang="es" hidden>¿Quién guía la experiencia?</span></summary>
+        <div class="faq-answer"><span class="lang" data-lang="en">Senso develops each experience with contemporary artists and professionals, starting from real artistic practice rather than a standard activity format.</span><span class="lang" data-lang="es" hidden>Senso desarrolla cada experiencia junto a artistas contemporáneos y profesionales, partiendo de una práctica artística real y no de un formato de actividad estándar.</span></div>
+      </details>
+      <details>
+        <summary><span class="lang" data-lang="en">Is the format fixed?</span><span class="lang" data-lang="es" hidden>¿El formato es cerrado?</span></summary>
+        <div class="faq-answer"><span class="lang" data-lang="en">No. Team building, workshops and events are adapted to the objective, group and context. A short brief is enough for us to propose the right next step.</span><span class="lang" data-lang="es" hidden>No. Team building, workshops y eventos se adaptan al objetivo, al grupo y al contexto. Con un brief breve es suficiente para que propongamos el siguiente paso adecuado.</span></div>
+      </details>
+      <details>
+        <summary><span class="lang" data-lang="en">Can it become a recurring programme?</span><span class="lang" data-lang="es" hidden>¿Puede convertirse en un programa recurrente?</span></summary>
+        <div class="faq-answer"><span class="lang" data-lang="en">Yes. Art & Wellbeing can begin with one session and evolve into a recurring programme shaped around the team, calendar and company culture.</span><span class="lang" data-lang="es" hidden>Sí. Art & Wellbeing puede comenzar con una sesión y evolucionar hacia un programa recurrente adaptado al equipo, su calendario y la cultura de la empresa.</span></div>
+      </details>
+      <details>
+        <summary><span class="lang" data-lang="en">What is the fastest way to start?</span><span class="lang" data-lang="es" hidden>¿Cuál es la forma más rápida de empezar?</span></summary>
+        <div class="faq-answer"><span class="lang" data-lang="en">Send the short brief with the type of experience, group, preferred date and location. We will come back with the format and next step that make sense.</span><span class="lang" data-lang="es" hidden>Envíanos el brief con el tipo de experiencia, grupo, fecha preferida y ubicación. Volveremos con el formato y el siguiente paso que tengan sentido.</span></div>
+      </details>
+    </div>
+  </div>
+</section>
 
 <section class="final">
   <div class="shell final-inner">
