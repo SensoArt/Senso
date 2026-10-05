@@ -342,7 +342,7 @@ body.drawer-open{overflow:hidden}
         <p class="entry-action-title">Empresas | Equipos | Hospitality | Marcas</p>
       </div>
       <div class="entry-actions">
-        <a class="entry-action-link" href="studio-for-business.html"><span class="lang" data-lang="en">View formats</span><span class="lang" data-lang="es" hidden>Ver formatos</span></a>
+        <a class="entry-action-link" href="#studio-business"><span class="lang" data-lang="en">View formats</span><span class="lang" data-lang="es" hidden>Ver formatos</span></a>
       </div>
       <div class="entry-list">
         <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Team Building"><span>Team Building</span><span>→</span></button>
@@ -579,6 +579,8 @@ body.drawer-open{overflow:hidden}
 <script>
 (function(){
   const supported=['en','es'];
+  const campaignInterestRaw=new URLSearchParams(location.search).get('interest');
+  const campaignInterest=['Team Building','Workshops & Events','Art & Wellbeing Programs'].includes(campaignInterestRaw)?campaignInterestRaw:null;
   let current='en';
   let drawerMode='org';
   const overlay=document.getElementById('drawer-overlay');
@@ -799,7 +801,7 @@ body.drawer-open{overflow:hidden}
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
-  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.mode,btn.dataset.interest,btn)));
+  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.mode,btn.dataset.interest||campaignInterest,btn)));
   document.querySelector('[data-close-drawer]').addEventListener('click',closeDrawer);
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeDrawer()});
   document.addEventListener('keydown',e=>{
