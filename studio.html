@@ -259,7 +259,7 @@ body.drawer-open{overflow:hidden}
 
       <div class="studio-for-grid">
         <div class="audience-list" role="tablist" aria-label="Studio offers">
-          <div class="audience-group-label"><span class="lang" data-lang="en">Studio for companies</span><span class="lang" data-lang="es" hidden>Studio empresas</span></div>
+          <div class="audience-group-label" role="presentation"><span class="lang" data-lang="en">Studio for companies</span><span class="lang" data-lang="es" hidden>Studio empresas</span></div>
 
           <button class="audience-choice active" type="button" role="tab" aria-selected="true" data-audience-target="team-building">
             <span class="num">01</span>
@@ -282,7 +282,7 @@ body.drawer-open{overflow:hidden}
             <span class="mark">→</span>
           </button>
 
-          <div class="audience-group-label audience-group-label--second"><span class="lang" data-lang="en">Studio for individuals</span><span class="lang" data-lang="es" hidden>Studio particulares</span></div>
+          <div class="audience-group-label audience-group-label--second" role="presentation"><span class="lang" data-lang="en">Studio for individuals</span><span class="lang" data-lang="es" hidden>Studio particulares</span></div>
 
           <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="workshops">
             <span class="num">05</span>
@@ -524,19 +524,33 @@ body.drawer-open{overflow:hidden}
     try{localStorage.setItem('senso_lang',current)}catch(e){}
   }
 
+  function segmentForInterest(value){
+    const business=['Team Building','Mindfulness Activity','Workshops & Events','Recurring Programs'];
+    const individual=['Workshops','Private Sessions','Contemporary Art Courses','Senso Kids'];
+    if(business.includes(value)) return 'business';
+    if(individual.includes(value)) return 'individual';
+    return '';
+  }
+
+  function syncFormSegment(segment){
+    const resolved=segment||segmentForInterest(interest?.value);
+    const leadSegment=document.getElementById('lead-segment');
+    if(leadSegment) leadSegment.value=resolved;
+    const submitEn=document.getElementById('submit-label-en');
+    const submitEs=document.getElementById('submit-label-es');
+    if(submitEn) submitEn.textContent=resolved==='business'?'Request proposal':'Send enquiry';
+    if(submitEs) submitEs.textContent=resolved==='business'?'Solicitar propuesta':'Enviar consulta';
+    return resolved;
+  }
+
   function openDrawer(value,segment){
     if(value&&interest){
       const match=[...interest.options].some(o=>o.value===value);
       if(match)interest.value=value;
     }
-    const leadSegment=document.getElementById('lead-segment');
-    if(leadSegment) leadSegment.value=segment||'';
-    const submitEn=document.getElementById('submit-label-en');
-    const submitEs=document.getElementById('submit-label-es');
-    if(submitEn) submitEn.textContent=segment==='business'?'Request proposal':'Send enquiry';
-    if(submitEs) submitEs.textContent=segment==='business'?'Solicitar propuesta':'Enviar consulta';
+    const resolvedSegment=syncFormSegment(segment);
     if(value && window.dataLayer){
-      window.dataLayer.push({event:'studio_offer_open',studio_offer:value,studio_segment:segment||'unspecified'});
+      window.dataLayer.push({event:'studio_offer_open',studio_offer:value,studio_segment:resolvedSegment||'unspecified'});
     }
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden','false');
@@ -563,6 +577,7 @@ body.drawer-open{overflow:hidden}
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
   document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.interest,btn.dataset.segment)));
+  if(interest) interest.addEventListener('change',()=>syncFormSegment());
   document.querySelectorAll('[data-audience-target]').forEach(btn=>btn.addEventListener('click',()=>setAudience(btn.dataset.audienceTarget)));
   document.querySelector('[data-close-drawer]').addEventListener('click',closeDrawer);
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeDrawer()});
