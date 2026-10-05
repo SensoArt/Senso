@@ -44,11 +44,11 @@ jobs:
               page.on('pageerror',e=>errors.push(e.message));
               page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
 
-              await page.goto('http://127.0.0.1:4173/'+p,{waitUntil:'networkidle'});
+              await page.goto('http://127.0.0.1:4173/'+p,{waitUntil:'domcontentloaded'}); await page.waitForTimeout(80);
               await page.evaluate(()=>{
                 localStorage.setItem('senso_consent_v1',JSON.stringify({analytics:false,marketing:false,updated_at:new Date().toISOString()}));
               });
-              await page.reload({waitUntil:'networkidle'});
+              await page.reload({waitUntil:'domcontentloaded'}); await page.waitForTimeout(80);
 
               const floating=await page.locator('#senso-cookie-settings').count();
               const link=page.locator('.senso-cookie-footer-link');
