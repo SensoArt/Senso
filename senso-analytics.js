@@ -103,7 +103,8 @@
     const campaign=(attr.utm_campaign||'').toLowerCase();
     if(attr.gclid||/(cpc|ppc|paid_search|search_ads)/.test(medium)) return 'paid_search';
     if(/partner|dmc|agency|referral_partner/.test(medium+' '+source+' '+campaign)) return 'partner_outreach';
-    if(/email|outbound|founder_outreach/.test(medium+' '+campaign)) return 'email_outreach';
+    if(/newsletter/.test(medium+' '+source+' '+campaign)) return 'email_newsletter';
+    if(/email|outbound|founder_outreach/.test(medium+' '+source+' '+campaign)) return 'email_outreach';
     if(/social/.test(medium)||/linkedin|instagram|facebook|meta/.test(source)) return 'organic_social';
     if(/referral/.test(medium)) return 'referral';
     if(source&&/google|bing|duckduckgo|yahoo/.test(source)) return 'organic_search';
