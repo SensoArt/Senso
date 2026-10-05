@@ -82,7 +82,8 @@ jobs:
           await es.evaluate(()=>{localStorage.setItem('senso_lang','es');localStorage.removeItem('senso_consent_v1')});
           await es.reload({waitUntil:'networkidle'});
           const copy=await es.locator('#senso-consent').innerText();
-          if(!/Aceptar todo|Rechazar|Configurar/.test(copy)) failures.push('Spanish consent copy missing');
+          const esState=await es.evaluate(()=>({stored:localStorage.getItem('senso_lang'),html:document.documentElement.lang,btnEs:document.querySelector('#btn-es')?.className}));
+          if(!/Aceptar todo|Rechazar|Configurar/.test(copy)) failures.push('Spanish consent copy missing '+JSON.stringify({copy,esState}));
           await esCtx.close();
           await browser.close();
           if(failures.length){console.error(failures.join('\n'));process.exit(1)}
