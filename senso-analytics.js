@@ -22,11 +22,11 @@
   }
 
   function currentLanguage(){
-    try{
-      return (localStorage.getItem('senso_lang')||document.documentElement.lang||'en').toLowerCase().startsWith('es')?'es':'en';
-    }catch(e){
-      return (document.documentElement.lang||'en').toLowerCase().startsWith('es')?'es':'en';
-    }
+    const root=(document.documentElement.lang||'').toLowerCase();
+    const esActive=!!document.querySelector('#btn-es.active,[data-set-lang="es"].active,.lang-btn[data-lang="es"].active');
+    let stored='';
+    try{stored=(localStorage.getItem('senso_lang')||'').toLowerCase()}catch(e){}
+    return esActive||root.startsWith('es')||stored.startsWith('es')?'es':'en';
   }
 
   function businessArea(){
@@ -457,6 +457,6 @@
     addEventListener('scroll',onScroll,{passive:true});
   }
 
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',boot,{once:true});
-  else boot();
+  if(document.readyState==='complete') boot();
+  else document.addEventListener('DOMContentLoaded',boot,{once:true});
 })();
