@@ -48,11 +48,7 @@ ul{margin:0;padding-left:18px}
  .legal-grid dd{margin-bottom:14px}
  .cookie-row{grid-template-columns:1fr;gap:4px;padding:18px 0}
  .cookie-row.head{display:none}
- .cookie-row>div:before{display:block;font-size:8px;letter-spacing:1px;text-transform:uppercase;opacity:.48;margin-bottom:2px}
- .cookie-row>div:nth-child(1):before{content:'Name'}
- .cookie-row>div:nth-child(2):before{content:'Provider'}
- .cookie-row>div:nth-child(3):before{content:'Purpose'}
- .cookie-row>div:nth-child(4):before{content:'Duration'}
+ .cookie-row>div:before{content:attr(data-label);display:block;font-size:8px;letter-spacing:1px;text-transform:uppercase;opacity:.48;margin-bottom:2px}
  .senso-site-footer{padding:24px 20px 30px;align-items:flex-end}
 }
 </style>
@@ -147,11 +143,18 @@ ul{margin:0;padding-left:18px}
 </div></footer>
 <script>
 (function(){
+  function setCookieLabels(es){
+    const labels=es?['Nombre','Proveedor','Finalidad','Duración']:['Name','Provider','Purpose','Duration'];
+    document.querySelectorAll('.cookie-row:not(.head)').forEach(row=>{
+      [...row.children].forEach((cell,i)=>cell.dataset.label=labels[i]||'');
+    });
+  }
   function setLang(lang){
     const es=lang==='es';
     document.querySelectorAll('[data-legal-content]').forEach(el=>el.hidden=el.dataset.legalContent!==(es?'es':'en'));
     document.querySelectorAll('[data-legal-lang]').forEach(b=>b.classList.toggle('active',b.dataset.legalLang===(es?'es':'en')));
     document.documentElement.lang=es?'es':'en';
+    setCookieLabels(es);
     try{localStorage.setItem('senso_lang',es?'es':'en')}catch(e){}
   }
   document.querySelectorAll('[data-legal-lang]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.legalLang)));
