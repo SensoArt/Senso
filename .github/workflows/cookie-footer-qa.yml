@@ -57,12 +57,10 @@ jobs:
               const overflow=await page.evaluate(()=>{
                 const wrap=document.querySelector('.senso-cookie-footer-wrap');
                 const withLink=document.documentElement.scrollWidth;
-                const clone=wrap?.cloneNode(true);
-                const parent=wrap?.parentNode;
-                const next=wrap?.nextSibling||null;
-                wrap?.remove();
+                const previousDisplay=wrap?.style.display||'';
+                if(wrap) wrap.style.display='none';
                 const withoutLink=document.documentElement.scrollWidth;
-                if(parent&&clone) parent.insertBefore(clone,next);
+                if(wrap) wrap.style.display=previousDisplay;
                 return {withLink,withoutLink,cw:document.documentElement.clientWidth};
               });
 
