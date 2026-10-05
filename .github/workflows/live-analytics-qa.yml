@@ -1,0 +1,110 @@
+name: Live analytics verification
+on:
+  push:
+    branches:
+      - analytics-live-qa-20261005
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.52.0
+          npx playwright install --with-deps chromium
+      - name: Verify production analytics consent
+        run: |
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+
+          const browser=await chromium.launch({headless:true});
+          const failures=[];
+
+          // Analytics-only consent on Studio with attribution
+          {
+            const context=await browser.newContext({viewport:{width:390,height:844}});
+            const page=await context.newPage();
+            const requests=[];
+            const errors=[];
+            page.on('request',r=>requests.push(r.url()));
+            page.on('pageerror',e=>errors.push(e.message));
+            page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
+
+            await page.goto('https://senso-art.com/studio.html?utm_source=qa&utm_medium=live&utm_campaign=analytics_verify',{waitUntil:'networkidle'});
+            await page.waitForTimeout(1500);
+
+            if(await page.locator('#senso-consent').count()!==1) failures.push('Consent banner missing on fresh Studio visit');
+            if(requests.some(u=>/googletagmanager\.com\/gtag\/js|connect\.facebook\.net\/.*fbevents\.js/i.test(u))){
+              failures.push('Third-party analytics loaded before consent');
+            }
+
+            const utm=await page.locator('form input[name="senso_utm_source"]').first().inputValue().catch(()=>null);
+            const area=await page.locator('form input[name="senso_business_area"]').first().inputValue().catch(()=>null);
+            if(utm!=='qa') failures.push('UTM source not persisted into Studio form');
+            if(area!=='studio') failures.push('Business area not persisted into Studio form');
+
+            await page.click('[data-sc="settings"]');
+            await page.check('[data-sc-option="analytics"]');
+            await page.uncheck('[data-sc-option="marketing"]');
+            await page.click('[data-sc="save"]');
+
+            await page.waitForTimeout(3000);
+            if(!requests.some(u=>u.includes('googletagmanager.com/gtag/js?id=G-6KCBPBC06L'))){
+              failures.push('GA4 script did not load after analytics consent');
+            }
+            if(requests.some(u=>/connect\.facebook\.net\/.*fbevents\.js/i.test(u))){
+              failures.push('Meta loaded despite marketing consent being off');
+            }
+
+            const state=await page.evaluate(()=>({
+              consent:JSON.parse(localStorage.getItem('senso_consent_v1')||'null'),
+              track:typeof window.sensoTrack,
+              scriptCount:[...document.scripts].filter(s=>s.src.includes('senso-analytics.js')).length
+            }));
+            if(!state.consent?.analytics||state.consent?.marketing) failures.push('Saved analytics-only consent is wrong');
+            if(state.track!=='function') failures.push('window.sensoTrack missing');
+            if(state.scriptCount!==1) failures.push('senso-analytics.js loaded '+state.scriptCount+' times on Studio');
+            if(errors.length) failures.push(...errors.map(e=>'Studio console: '+e));
+
+            await context.close();
+          }
+
+          // Accept-all on Home
+          {
+            const context=await browser.newContext({viewport:{width:1280,height:800}});
+            const page=await context.newPage();
+            const requests=[];
+            const errors=[];
+            page.on('request',r=>requests.push(r.url()));
+            page.on('pageerror',e=>errors.push(e.message));
+            page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
+
+            await page.goto('https://senso-art.com/',{waitUntil:'networkidle'});
+            await page.waitForTimeout(1000);
+            if(await page.locator('#senso-consent').count()!==1) failures.push('Consent banner missing on fresh Home visit');
+            await page.click('[data-sc="accept"]');
+            await page.waitForTimeout(3500);
+
+            if(!requests.some(u=>u.includes('googletagmanager.com/gtag/js?id=G-6KCBPBC06L'))){
+              failures.push('GA4 script did not load after accept all');
+            }
+            if(!requests.some(u=>/connect\.facebook\.net\/.*fbevents\.js/i.test(u))){
+              failures.push('Meta Pixel script did not load after accept all');
+            }
+            const state=await page.evaluate(()=>JSON.parse(localStorage.getItem('senso_consent_v1')||'null'));
+            if(!state?.analytics||!state?.marketing) failures.push('Accept-all consent state is wrong');
+            if(errors.length) failures.push(...errors.map(e=>'Home console: '+e));
+
+            await context.close();
+          }
+
+          await browser.close();
+          if(failures.length){
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          console.log('LIVE_ANALYTICS_QA_OK');
+          JS
