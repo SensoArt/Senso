@@ -15,12 +15,12 @@ jobs:
         run: |
           npm install --no-save playwright@1.52.0
           npx playwright install --with-deps chromium
-      - name: Serve
-        run: |
-          python3 -m http.server 4173 >/tmp/senso-http.log 2>&1 &
-          sleep 2
       - name: QA Studio and footer icons
         run: |
+          python3 -m http.server 4173 >/tmp/senso-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 2
           node --input-type=module <<'JS'
           import { chromium } from 'playwright';
           import fs from 'node:fs';
