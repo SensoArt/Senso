@@ -162,7 +162,7 @@
     try{localStorage.setItem(CONSENT_KEY,JSON.stringify(value))}catch(e){}
     applyConsent(value);
     hideConsent();
-    showSettingsButton();
+    ensureFooterSettingsLink();
   }
 
   function clearCookie(name){
@@ -204,7 +204,7 @@
       #senso-consent .sc-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
       #senso-consent .sc-copy{max-width:760px;font-size:12px;line-height:1.5;letter-spacing:.01em}
       #senso-consent .sc-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-      #senso-consent button,#senso-cookie-settings{font:inherit;text-transform:uppercase;letter-spacing:.11em;font-size:10px;border:0;background:none;color:#111;cursor:pointer;padding:7px 0;border-bottom:1px solid #111}
+      #senso-consent button{font:inherit;text-transform:uppercase;letter-spacing:.11em;font-size:10px;border:0;background:none;color:#111;cursor:pointer;padding:7px 0;border-bottom:1px solid #111}
       #senso-consent button+button{margin-left:5px}
       #senso-consent .sc-settings{display:none;border-top:1px solid rgba(0,0,0,.14);margin-top:16px;padding-top:14px}
       #senso-consent.open .sc-settings{display:block}
@@ -212,8 +212,8 @@
       #senso-consent .sc-options{display:flex;gap:28px;align-items:center;flex-wrap:wrap}
       #senso-consent label{font-size:12px;display:flex;align-items:center;gap:8px}
       #senso-consent input{accent-color:#111}
-      #senso-cookie-settings{position:fixed;z-index:2147482999;left:14px;bottom:10px;opacity:.55;background:rgba(255,255,255,.82);padding:5px 7px;border:0}
-      #senso-cookie-settings:hover{opacity:1}
+      .senso-cookie-footer-link{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0 0 0 12px;cursor:pointer;text-decoration:underline;text-underline-offset:2px;opacity:.72}
+      .senso-cookie-footer-link:hover,.senso-cookie-footer-link:focus-visible{opacity:1}
       @media(max-width:700px){
         #senso-consent{left:10px;right:10px;bottom:10px;padding:16px}
         #senso-consent .sc-row{align-items:flex-start;flex-direction:column;gap:14px}
@@ -230,7 +230,6 @@
   function showConsent(openSettings=false){
     consentCSS();
     hideConsent();
-    document.getElementById('senso-cookie-settings')?.remove();
     const c=consentCopy();
     const saved=readConsent()||{analytics:false,marketing:false};
     const box=document.createElement('div');
@@ -275,16 +274,19 @@
     document.body.appendChild(box);
   }
 
-  function showSettingsButton(){
-    if(!readConsent()||document.getElementById('senso-cookie-settings')) return;
+  function ensureFooterSettingsLink(){
     consentCSS();
+    if(document.querySelector('.senso-cookie-footer-link')) return;
+    const footer=document.querySelector('.senso-site-footer, footer');
+    if(!footer) return;
+    const host=footer.querySelector('.footer-left')||footer;
     const b=document.createElement('button');
-    b.id='senso-cookie-settings';
+    b.className='senso-cookie-footer-link';
     b.type='button';
     b.textContent=consentCopy().reopen;
     b.setAttribute('aria-label',consentCopy().title);
     b.addEventListener('click',()=>showConsent(true));
-    document.body.appendChild(b);
+    host.appendChild(b);
   }
 
   function canAnalytics(){
@@ -452,8 +454,9 @@
   function boot(){
     enrichForms();
     const consent=readConsent();
-    if(consent){applyConsent(consent);showSettingsButton()}
+    if(consent) applyConsent(consent);
     else showConsent(false);
+    ensureFooterSettingsLink();
     addEventListener('scroll',onScroll,{passive:true});
   }
 
