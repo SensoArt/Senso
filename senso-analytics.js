@@ -362,7 +362,7 @@
     const form=event.target?.closest?.('form');
     if(!form||form.dataset.sensoStarted==='1'||!event.target.matches('input,select,textarea')) return;
     form.dataset.sensoStarted='1';
-    window.sensoTrack('senso_form_start',{form_name:formName(form)});
+    window.sensoTrack('senso_form_start',formContext(form));
   },true);
 
   function formContext(form){
