@@ -78,8 +78,9 @@ jobs:
           // Spanish copy
           const esCtx=await browser.newContext({viewport:{width:390,height:844}});
           const es=await esCtx.newPage();
-          await es.addInitScript(()=>localStorage.setItem('senso_lang','es'));
           await es.goto('http://127.0.0.1:4173/index.html',{waitUntil:'networkidle'});
+          await es.evaluate(()=>{localStorage.setItem('senso_lang','es');localStorage.removeItem('senso_consent_v1')});
+          await es.reload({waitUntil:'networkidle'});
           const copy=await es.locator('#senso-consent').innerText();
           if(!/Aceptar todo|Rechazar|Configurar/.test(copy)) failures.push('Spanish consent copy missing');
           await esCtx.close();
