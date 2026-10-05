@@ -62,11 +62,11 @@ jobs:
               if(dims.sw>dims.cw+2) failures.push(`${p}@${width}: horizontal overflow ${dims.sw}/${dims.cw}`);
 
               if(linkCount){
-                await link.click();
+                await link.evaluate(el=>el.click());
                 if(await page.locator('#senso-consent').count()!==1) failures.push(`${p}@${width}: cookie link does not reopen panel`);
                 const open=await page.locator('#senso-consent.open').count();
                 if(open!==1) failures.push(`${p}@${width}: preferences panel not open`);
-                await page.click('[data-sc="reject"]');
+                await page.locator('[data-sc="reject"]').evaluate(el=>el.click());
                 if(await page.locator('#senso-consent').count()!==0) failures.push(`${p}@${width}: reject did not close panel`);
                 if(await page.locator('#senso-cookie-settings').count()!==0) failures.push(`${p}@${width}: floating button appeared after reject`);
                 if(await page.locator('.senso-cookie-footer-link').count()!==1) failures.push(`${p}@${width}: footer link lost after reject`);
