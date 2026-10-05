@@ -74,15 +74,16 @@ img{display:block;width:100%}
 .entry-card h3{margin-bottom:28px}
 .entry-action-title,.entry-action-link{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);line-height:1.55}
 .entry-action-title{margin:0 0 18px}
-.entry-action-link{display:inline-flex;align-items:center;gap:12px;padding:0 0 5px;border-bottom:1px solid currentColor;cursor:pointer;text-decoration:none}
-.entry-action-link:hover{border-color:var(--accent)}
+.entry-action-link{display:inline-flex;align-items:center;gap:12px;padding:0 0 5px;border-bottom:1px solid currentColor;cursor:pointer;text-decoration:none;transition:border-color .2s ease,transform .2s ease}
+.entry-action-link:hover{border-color:var(--accent);transform:translateX(6px)}
 .entry-card>.lang{min-height:0}
 .entry-actions{display:flex;gap:24px;flex-wrap:wrap;align-self:end;min-height:30px;align-items:flex-end}
 .entry-list{margin-top:0;padding-top:30px}
 .entry-route{width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 0;border:0;border-top:1px solid var(--line);background:transparent;text-align:left;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
 .entry-route:last-child{border-bottom:1px solid var(--line)}
-.entry-route span:first-child{transition:transform .2s ease}
+.entry-route span:first-child,.entry-route span:last-child{transition:transform .2s ease}
 .entry-route:hover span:first-child{transform:translateX(6px)}
+.entry-route:hover span:last-child{transform:translateX(4px)}
 
 
 /* PRODUCT INDEX */
@@ -345,9 +346,8 @@ body.drawer-open{overflow:hidden}
       </div>
       <div class="entry-list">
         <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Team Building"><span>Team Building</span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Mindfulness Activity"><span>Mindfulness Activity</span><span>→</span></button>
         <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Workshops & Events"><span>Workshops & Events</span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Recurring Programs"><span class="lang" data-lang="en">Recurring Programs</span><span class="lang" data-lang="es" hidden>Programas recurrentes</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="org" data-interest="Art & Wellbeing Programs"><span>Art &amp; Wellbeing Programs</span><span>→</span></button>
       </div>
     </article>
     <article class="entry-card">
@@ -364,8 +364,7 @@ body.drawer-open{overflow:hidden}
         <a class="entry-action-link" href="#studio-individuals"><span class="lang" data-lang="en">View formats</span><span class="lang" data-lang="es" hidden>Ver formatos</span></a>
       </div>
       <div class="entry-list">
-        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Workshops"><span>Workshops</span><span>→</span></button>
-        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Private Sessions"><span class="lang" data-lang="en">Private Sessions</span><span class="lang" data-lang="es" hidden>Sesiones privadas</span><span>→</span></button>
+        <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Workshops & Private Sessions"><span>Workshops &amp; Private Sessions</span><span>→</span></button>
         <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Contemporary Art Courses"><span class="lang" data-lang="en">Contemporary Art Courses</span><span class="lang" data-lang="es" hidden>Cursos de arte contemporáneo</span><span>→</span></button>
         <button class="entry-route" type="button" data-open-drawer data-mode="people" data-interest="Senso Kids"><span>Senso Kids</span><span>→</span></button>
       </div>
@@ -404,24 +403,17 @@ body.drawer-open{overflow:hidden}
           <span class="action" aria-hidden="true">→</span>
         </button>
 
-        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Mindfulness Activity">
-          <strong>Mindfulness Activity</strong>
-          <p><span class="lang" data-lang="en">Give your team a moment to pause, change pace and refocus. Through artistic practice, we guide them through an experience of observation, experimentation and creation where the process matters more than the result.</span><span class="lang" data-lang="es" hidden>Regala a tu equipo un momento para parar, cambiar el ritmo y volver a concentrarse. A través de la práctica artística, les acompañamos en una experiencia de observación, experimentación y creación donde el proceso importa más que el resultado.</span></p>
-          <span class="aud"><span class="lang" data-lang="en">teams / wellbeing</span><span class="lang" data-lang="es" hidden>equipos / bienestar</span></span>
-          <span class="action" aria-hidden="true">→</span>
-        </button>
-
         <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Workshops & Events">
-          <strong>Workshops & Events</strong>
+          <strong>Workshops &amp; Events</strong>
           <p><span class="lang" data-lang="en">Turn a gathering, event or stay into something your guests can experience and remember. We create participatory artistic experiences adapted to the space, audience and occasion, guided by artists and professionals.</span><span class="lang" data-lang="es" hidden>Convierte un encuentro, evento o estancia en algo que tus invitados puedan vivir y recordar. Diseñamos experiencias artísticas participativas adaptadas al espacio, al público y a la ocasión, acompañando todo el proceso junto a artistas y profesionales.</span></p>
           <span class="aud"><span class="lang" data-lang="en">hospitality / brands / events</span><span class="lang" data-lang="es" hidden>hospitality / marcas / eventos</span></span>
           <span class="action" aria-hidden="true">→</span>
         </button>
 
-        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Recurring Programs">
-          <strong><span class="lang" data-lang="en">Recurring Programs</span><span class="lang" data-lang="es" hidden>Programas recurrentes</span></strong>
-          <p><span class="lang" data-lang="en">Make art part of your organisation's experience throughout the year. We design an ongoing programme so your teams, clients or community can discover, experiment and create on a recurring basis.</span><span class="lang" data-lang="es" hidden>Haz que el arte forme parte de la experiencia de tu empresa durante todo el año. Diseñamos un programa continuado para que tus equipos, clientes o comunidad puedan descubrir, experimentar y crear de forma recurrente.</span></p>
-          <span class="aud"><span class="lang" data-lang="en">teams / clients / community</span><span class="lang" data-lang="es" hidden>equipos / clientes / comunidad</span></span>
+        <button class="product" type="button" data-open-drawer data-mode="org" data-interest="Art & Wellbeing Programs">
+          <strong>Art &amp; Wellbeing Programs</strong>
+          <p><span class="lang" data-lang="en">Through artistic practice, we create moments to pause, change pace and refocus. It can begin with one session and evolve into a recurring programme adapted to the team, calendar and company culture.</span><span class="lang" data-lang="es" hidden>A través de la práctica artística creamos momentos para parar, cambiar el ritmo y recuperar la atención. Puede comenzar con una sesión y evolucionar hacia un programa recurrente adaptado al equipo, su calendario y cultura.</span></p>
+          <span class="aud"><span class="lang" data-lang="en">teams / wellbeing / recurring</span><span class="lang" data-lang="es" hidden>equipos / bienestar / recurrencia</span></span>
           <span class="action" aria-hidden="true">→</span>
         </button>
       </div>
@@ -432,17 +424,10 @@ body.drawer-open{overflow:hidden}
         <span class="micro"><span class="lang" data-lang="en">Studio for individuals</span><span class="lang" data-lang="es" hidden>Studio particulares</span></span>
       </div>
       <div class="product-list">
-        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Workshops">
-          <strong>Workshops</strong>
-          <p><span class="lang" data-lang="en">Experiment, create and discover new ways to express yourself. Sessions guided by contemporary artists to discover their practice from the inside and experiment directly with the materials, techniques and processes that shape their work.</span><span class="lang" data-lang="es" hidden>Experimenta, crea y descubre nuevas formas de expresarte. Sesiones guiadas por artistas contemporáneos para descubrir su práctica desde dentro y experimentar directamente con los materiales, técnicas y procesos que forman parte de su trabajo.</span></p>
-          <span class="aud"><span class="lang" data-lang="en">adults / young adults</span><span class="lang" data-lang="es" hidden>adultos / jóvenes</span></span>
-          <span class="action" aria-hidden="true">→</span>
-        </button>
-
-        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Private Sessions">
-          <strong><span class="lang" data-lang="en">Private Sessions</span><span class="lang" data-lang="es" hidden>Sesiones privadas</span></strong>
-          <p><span class="lang" data-lang="en">An artistic experience designed around you. A more personal experience with a contemporary artist, designed for one person or a small group and adapted to their interests, pace and context.</span><span class="lang" data-lang="es" hidden>Una experiencia artística pensada alrededor de ti. Una experiencia más personal junto a un artista contemporáneo, diseñada para una persona o un pequeño grupo y adaptada a sus intereses, ritmo y contexto.</span></p>
-          <span class="aud"><span class="lang" data-lang="en">private / personalised</span><span class="lang" data-lang="es" hidden>privado / personalizado</span></span>
+        <button class="product" type="button" data-open-drawer data-mode="people" data-interest="Workshops & Private Sessions">
+          <strong>Workshops &amp; Private Sessions</strong>
+          <p><span class="lang" data-lang="en">Sessions guided by contemporary artists to discover their practice from within and experiment with their materials, techniques and processes, through scheduled workshops or private formats for one person or a small group.</span><span class="lang" data-lang="es" hidden>Sesiones guiadas por artistas contemporáneos para descubrir su práctica desde dentro y experimentar con sus materiales, técnicas y procesos, en workshops programados o formatos privados para una persona o un pequeño grupo.</span></p>
+          <span class="aud"><span class="lang" data-lang="en">adults / private groups</span><span class="lang" data-lang="es" hidden>adultos / grupos privados</span></span>
           <span class="action" aria-hidden="true">→</span>
         </button>
 
@@ -630,7 +615,7 @@ body.drawer-open{overflow:hidden}
         placeholder:'Occasion, objective or anything useful to know.',
         submit:'Request proposal',
         subject:'New Senso Studio organisation enquiry',
-        options:['Not sure yet','Team Building','Mindfulness Activity','Workshops & Events','Recurring Programs'],
+        options:['Not sure yet','Team Building','Workshops & Events','Art & Wellbeing Programs'],
         timingPlaceholder:'Weekday / weekend / flexible',
         close:'Close ×'
       },
@@ -646,7 +631,7 @@ body.drawer-open{overflow:hidden}
         placeholder:'Age if relevant, private group, occasion or any preference.',
         submit:'Get options',
         subject:'New Senso Studio people enquiry',
-        options:['Workshops','Private Sessions','Contemporary Art Courses','Senso Kids'],
+        options:['Workshops & Private Sessions','Contemporary Art Courses','Senso Kids'],
         timingPlaceholder:'Weekday / weekend / flexible',
         close:'Close ×'
       }
@@ -681,7 +666,7 @@ body.drawer-open{overflow:hidden}
         placeholder:'Ocasión, objetivo o cualquier detalle útil.',
         submit:'Solicitar propuesta',
         subject:'Nueva consulta Senso Studio · organización',
-        options:['Aún por definir','Team Building','Mindfulness Activity','Workshops & Events','Programas recurrentes'],
+        options:['Aún por definir','Team Building','Workshops & Events','Art & Wellbeing Programs'],
         timingPlaceholder:'Entre semana / fin de semana / flexible',
         close:'Cerrar ×'
       },
@@ -697,7 +682,7 @@ body.drawer-open{overflow:hidden}
         placeholder:'Edad si aplica, grupo privado, ocasión o cualquier preferencia.',
         submit:'Recibir opciones',
         subject:'Nueva consulta Senso Studio · personas',
-        options:['Workshops','Sesiones privadas','Cursos de arte contemporáneo','Senso Kids'],
+        options:['Workshops & Private Sessions','Cursos de arte contemporáneo','Senso Kids'],
         timingPlaceholder:'Entre semana / fin de semana / flexible',
         close:'Cerrar ×'
       }
