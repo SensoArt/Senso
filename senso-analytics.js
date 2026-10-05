@@ -15,6 +15,9 @@
   let lastForm=null;
   let gaLoaded=false;
   let metaLoaded=false;
+  let engaged30s=false;
+  let reached50=false;
+  let qualifiedVisitSent=false;
 
   function safeText(value,max=180){
     if(value==null) return undefined;
@@ -560,10 +563,18 @@
     }
   },true);
 
+  function maybeQualifiedVisit(){
+    if(qualifiedVisitSent||!engaged30s||!reached50) return;
+    if(!['studio','art_consulting','collect_art'].includes(businessArea())) return;
+    qualifiedVisitSent=true;
+    window.sensoTrack('senso_qualified_visit',{qualification:'30s_and_50pct'});
+  }
+
   function onScroll(){
     const doc=document.documentElement;
     const max=Math.max(1,doc.scrollHeight-innerHeight);
     const pct=Math.round((scrollY/max)*100);
+    if(pct>=50){reached50=true;maybeQualifiedVisit()}
     [25,50,75,90].forEach(mark=>{
       if(pct>=mark&&!scrollMarks.has(mark)){
         scrollMarks.add(mark);
@@ -580,6 +591,12 @@
     if(consent) applyConsent(consent);
     else showConsent(false);
     addEventListener('scroll',onScroll,{passive:true});
+    setTimeout(()=>{
+      if(document.visibilityState==='visible'){
+        engaged30s=true;
+        maybeQualifiedVisit();
+      }
+    },30000);
   }
 
   if(document.readyState==='complete') boot();
