@@ -94,6 +94,27 @@
   let attr=attribution();
   let sid=consentAllowsAnalytics()?sessionId():undefined;
 
+  function acquisitionChannel(){
+    const medium=(attr.utm_medium||'').toLowerCase();
+    const source=(attr.utm_source||'').toLowerCase();
+    const campaign=(attr.utm_campaign||'').toLowerCase();
+    if(attr.gclid||/(cpc|ppc|paid_search|search_ads)/.test(medium)) return 'paid_search';
+    if(/partner|dmc|agency|referral_partner/.test(medium+' '+source+' '+campaign)) return 'partner_outreach';
+    if(/email|outbound|founder_outreach/.test(medium+' '+campaign)) return 'email_outreach';
+    if(/social/.test(medium)||/linkedin|instagram|facebook|meta/.test(source)) return 'organic_social';
+    if(/referral/.test(medium)) return 'referral';
+    if(source&&/google|bing|duckduckgo|yahoo/.test(source)) return 'organic_search';
+    try{
+      if(attr.referrer){
+        const host=new URL(attr.referrer,location.href).hostname.toLowerCase();
+        if(/google\.|bing\.|duckduckgo\.|search\.yahoo\./.test(host)) return 'organic_search';
+        if(/linkedin\.|instagram\.|facebook\.|t\.co$|x\.com$/.test(host)) return 'organic_social';
+        if(host&&host!==location.hostname) return 'referral';
+      }
+    }catch(e){}
+    return source?'other_campaign':'direct';
+  }
+
   function readConsent(){
     try{
       const c=JSON.parse(localStorage.getItem(CONSENT_KEY)||'null');
@@ -371,6 +392,7 @@
       page_title:document.title,
       language:currentLanguage(),
       business_area:businessArea(),
+      acquisition_channel:acquisitionChannel(),
       ...attr,
       ...params
     });
@@ -417,6 +439,7 @@
     document.querySelectorAll('form').forEach(form=>{
       const fields={
         senso_business_area:businessArea(),
+        senso_acquisition_channel:acquisitionChannel(),
         senso_landing_page:attr.landing_page||path,
         senso_referrer:attr.referrer,
         senso_utm_source:attr.utm_source,
