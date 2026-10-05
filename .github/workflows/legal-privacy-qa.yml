@@ -1,0 +1,163 @@
+name: Legal privacy layer QA
+on:
+  push:
+    branches:
+      - legal-privacy-layer-20261005
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.52.0
+          npx playwright install --with-deps chromium
+      - name: Run legal and consent QA
+        run: |
+          node --check senso-analytics.js
+          python3 -m http.server 4173 >/tmp/senso-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 2
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+
+          const failures=[];
+          const browser=await chromium.launch({headless:true});
+
+          // Legal pages responsive + language + metadata
+          for(const width of [360,390,768,1280]){
+            for(const p of ['privacy.html','cookie-policy.html']){
+              const context=await browser.newContext({viewport:{width,height:width<700?844:900}});
+              const page=await context.newPage();
+              const errors=[];
+              page.on('pageerror',e=>errors.push(e.message));
+              page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
+              await page.goto('http://127.0.0.1:4173/'+p,{waitUntil:'domcontentloaded'});
+              await page.waitForTimeout(120);
+
+              const dims=await page.evaluate(()=>({sw:document.documentElement.scrollWidth,cw:document.documentElement.clientWidth}));
+              if(dims.sw>dims.cw+2) failures.push(`${p}@${width}: overflow ${dims.sw}/${dims.cw}`);
+              const robots=await page.locator('meta[name="robots"]').getAttribute('content');
+              if(robots!=='noindex,follow') failures.push(`${p}: robots=${robots}`);
+              const canonical=await page.locator('link[rel="canonical"]').getAttribute('href');
+              if(!canonical?.startsWith('https://senso-art.com/')) failures.push(`${p}: canonical missing`);
+
+              await page.locator('[data-legal-lang="es"]').click();
+              if(await page.locator('[data-legal-content="es"]:visible').count()!==1) failures.push(`${p}@${width}: ES content not visible`);
+              if(await page.evaluate(()=>document.documentElement.lang)!=='es') failures.push(`${p}@${width}: html lang not ES`);
+              await page.waitForTimeout(30);
+              const privacyFooter=await page.locator('.senso-privacy-footer-link').textContent().catch(()=>null);
+              if(privacyFooter!=='Privacidad') failures.push(`${p}@${width}: footer privacy not localized: ${privacyFooter}`);
+
+              if(errors.length) failures.push(...errors.map(e=>`${p}@${width}: ${e}`));
+              await context.close();
+            }
+          }
+
+          // No attribution/session persistence before analytics consent
+          {
+            const context=await browser.newContext({viewport:{width:390,height:844}});
+            const page=await context.newPage();
+            await page.goto('http://127.0.0.1:4173/studio.html?utm_source=qa&utm_medium=legal&utm_campaign=preconsent',{waitUntil:'domcontentloaded'});
+            await page.waitForTimeout(120);
+            const state=await page.evaluate(()=>({
+              attr:sessionStorage.getItem('senso_attribution_v1'),
+              sid:sessionStorage.getItem('senso_session_id_v1'),
+              consent:localStorage.getItem('senso_consent_v1')
+            }));
+            if(state.attr!==null) failures.push('Attribution persisted before consent');
+            if(state.sid!==null) failures.push('Session id persisted before consent');
+            if(state.consent!==null) failures.push('Consent pre-created unexpectedly');
+
+            const policyHref=await page.locator('#senso-consent .sc-more a').getAttribute('href').catch(()=>null);
+            if(policyHref!=='cookie-policy.html') failures.push('Banner Cookie Policy link missing');
+
+            const formUtm=await page.locator('form input[name="senso_utm_source"]').inputValue().catch(()=>null);
+            if(formUtm!=='qa') failures.push('Current-page UTM not attached to form');
+
+            await page.locator('[data-sc="settings"]').click();
+            await page.locator('[data-sc-option="analytics"]').check();
+            await page.locator('[data-sc-option="marketing"]').uncheck();
+            await page.locator('[data-sc="save"]').click();
+            await page.waitForTimeout(40);
+
+            const accepted=await page.evaluate(()=>({
+              attr:sessionStorage.getItem('senso_attribution_v1'),
+              sid:sessionStorage.getItem('senso_session_id_v1'),
+              consent:JSON.parse(localStorage.getItem('senso_consent_v1')||'null')
+            }));
+            if(!accepted.attr) failures.push('Attribution not created after analytics consent');
+            if(!accepted.sid) failures.push('Session id not created after analytics consent');
+            if(!accepted.consent?.analytics||accepted.consent?.marketing) failures.push('Analytics-only consent state incorrect');
+
+            if(await page.locator('#senso-cookie-settings').count()!==0) failures.push('Floating cookie control exists');
+            if(await page.locator('.senso-privacy-footer-link').count()!==1) failures.push('Privacy footer link missing');
+            if(await page.locator('.senso-cookie-footer-link:not(.senso-privacy-footer-link)').count()!==1) failures.push('Cookie footer control missing');
+
+            await context.close();
+          }
+
+          // Expired consent >24 months must be renewed
+          {
+            const context=await browser.newContext({viewport:{width:1280,height:800}});
+            const page=await context.newPage();
+            await page.goto('http://127.0.0.1:4173/index.html',{waitUntil:'domcontentloaded'});
+            await page.evaluate(()=>{
+              const old=new Date(Date.now()-731*24*60*60*1000).toISOString();
+              localStorage.setItem('senso_consent_v1',JSON.stringify({analytics:true,marketing:true,updated_at:old}));
+              sessionStorage.setItem('senso_attribution_v1','{"utm_source":"old"}');
+              sessionStorage.setItem('senso_session_id_v1','old-session');
+            });
+            await page.reload({waitUntil:'domcontentloaded'});
+            await page.waitForTimeout(100);
+            if(await page.locator('#senso-consent').count()!==1) failures.push('Expired consent did not trigger banner');
+            const state=await page.evaluate(()=>({
+              consent:localStorage.getItem('senso_consent_v1'),
+              attr:sessionStorage.getItem('senso_attribution_v1'),
+              sid:sessionStorage.getItem('senso_session_id_v1')
+            }));
+            if(state.consent!==null) failures.push('Expired consent not cleared');
+            if(state.attr!==null||state.sid!==null) failures.push('Expired analytics session storage not cleared');
+            await context.close();
+          }
+
+          // Privacy disclosure on all public forms
+          for(const p of ['studio.html','art-consulting.html','catalogue.html','contacts.html']){
+            const context=await browser.newContext({viewport:{width:390,height:844}});
+            const page=await context.newPage();
+            await page.goto('http://127.0.0.1:4173/'+p,{waitUntil:'domcontentloaded'});
+            await page.waitForTimeout(100);
+            const forms=await page.locator('form').count();
+            const notes=await page.locator('form .senso-privacy-note').count();
+            if(forms!==notes) failures.push(`${p}: forms=${forms}, privacy notes=${notes}`);
+            const links=await page.locator('form .senso-privacy-note a[href="privacy.html"]').count();
+            if(forms!==links) failures.push(`${p}: privacy links=${links}`);
+            await context.close();
+          }
+
+          // Cookie policy preference action
+          {
+            const context=await browser.newContext({viewport:{width:390,height:844}});
+            const page=await context.newPage();
+            await page.goto('http://127.0.0.1:4173/cookie-policy.html',{waitUntil:'domcontentloaded'});
+            await page.waitForTimeout(120);
+            await page.evaluate(()=>localStorage.setItem('senso_consent_v1',JSON.stringify({analytics:false,marketing:false,updated_at:new Date().toISOString()})));
+            await page.reload({waitUntil:'domcontentloaded'});
+            await page.waitForTimeout(120);
+            await page.locator('[data-open-cookie-settings]').first().click();
+            if(await page.locator('#senso-consent.open').count()!==1) failures.push('Cookie policy manage-preferences action failed');
+            await context.close();
+          }
+
+          await browser.close();
+          if(failures.length){
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          console.log('LEGAL_PRIVACY_QA_OK');
+          JS
