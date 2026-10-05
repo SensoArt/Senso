@@ -524,6 +524,9 @@
     if(el.matches('[data-open-drawer]')){
       window.sensoTrack('senso_studio_interest',{interest:safeText(el.dataset.interest||label,120),journey:safeText(el.dataset.mode,60)});return;
     }
+    if(el.dataset.sensoIntent){
+      window.sensoTrack('senso_commercial_intent',{intent:safeText(el.dataset.sensoIntent,80),label});return;
+    }
     if(el.matches('.oldmail')){
       const work=el.closest('.work');
       window.sensoTrack('senso_artwork_enquiry_open',{
