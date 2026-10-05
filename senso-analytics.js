@@ -493,7 +493,7 @@
         artist:safeText(work?.querySelector('.artist')?.textContent,120)
       });return;
     }
-    if(el.matches('[data-set-lang],.lang-btn,[data-lang-btn],#btn-en,#btn-es')){
+    if(el.matches('[data-set-lang],[data-legal-lang],.lang-btn,[data-lang-btn],#btn-en,#btn-es')){
       const selected=el.dataset.setLang||el.dataset.langBtn||safeText(el.textContent,8);
       window.sensoTrack('senso_language_change',{selected_language:safeText(selected,8)});
       setTimeout(()=>{
