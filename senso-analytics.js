@@ -365,10 +365,24 @@
     window.sensoTrack('senso_form_start',{form_name:formName(form)});
   },true);
 
+  function formContext(form){
+    const read=name=>safeText(form?.querySelector('[name="'+name+'"]')?.value,120);
+    return clean({
+      form_name:formName(form),
+      source:read('source'),
+      artwork:read('artwork'),
+      artist:read('artist'),
+      request:read('request'),
+      interest:read('interest'),
+      journey:read('journey'),
+      project_type:read('project_type')
+    });
+  }
+
   document.addEventListener('submit',event=>{
     const form=event.target;
-    lastForm={name:formName(form),area:businessArea(),time:Date.now()};
-    window.sensoTrack('senso_form_submit_attempt',{form_name:lastForm.name});
+    lastForm={...formContext(form),area:businessArea(),time:Date.now()};
+    window.sensoTrack('senso_form_submit_attempt',lastForm);
   },true);
 
   const nativeFetch=window.fetch?.bind(window);
@@ -382,7 +396,8 @@
         if(response.ok&&method==='POST'&&/formspree\.io\/f\//i.test(url)){
           const recent=lastForm&&Date.now()-lastForm.time<15000?lastForm:null;
           window.sensoTrack('generate_lead',{
-            form_name:recent?.name||'formspree',
+            ...(recent||{}),
+            form_name:recent?.form_name||'formspree',
             lead_type:recent?.area||businessArea()
           });
         }
