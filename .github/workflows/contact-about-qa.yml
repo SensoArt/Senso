@@ -1,0 +1,78 @@
+name: Contact and About preview QA
+on:
+  push:
+    branches:
+      - alex-contact-about-extra-gold-20261005
+    paths:
+      - "contacts.html"
+      - "about.html"
+      - ".github/workflows/contact-about-qa.yml"
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.52.0
+          npx playwright install --with-deps chromium
+      - name: Serve site
+        run: |
+          python3 -m http.server 4173 >/tmp/senso-http.log 2>&1 &
+          sleep 2
+      - name: Validate Contact and About
+        run: |
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          const browser=await chromium.launch({headless:true});
+          const viewports=[
+            {name:'mobile-360',width:360,height:740},
+            {name:'iphone-390',width:390,height:844},
+            {name:'tablet-768',width:768,height:1024},
+            {name:'desktop-1280',width:1280,height:800},
+            {name:'desktop-1440',width:1440,height:900},
+          ];
+          const failures=[];
+          for(const vp of viewports){
+            const ctx=await browser.newContext({viewport:{width:vp.width,height:vp.height}});
+            const page=await ctx.newPage();
+            const errors=[];
+            page.on('pageerror',e=>errors.push(e.message));
+            page.on('console',m=>{if(m.type()==='error')errors.push(m.text())});
+            for(const file of ['contacts.html','about.html']){
+              await page.goto('http://127.0.0.1:4173/'+file,{waitUntil:'networkidle'});
+              await page.evaluate(()=>document.fonts.ready);
+              const dims=await page.evaluate(()=>({sw:document.documentElement.scrollWidth,cw:document.documentElement.clientWidth}));
+              if(dims.sw>dims.cw+2)failures.push(`${vp.name} ${file}: overflow ${dims.sw}>${dims.cw}`);
+              await page.evaluate(()=>{try{localStorage.setItem('senso_lang','es')}catch(e){}});
+              await page.reload({waitUntil:'networkidle'});
+              if(await page.getAttribute('html','lang')!=='es')failures.push(`${vp.name} ${file}: ES state failed`);
+              if(file==='contacts.html'){
+                const routes=await page.locator('[data-route]').count();
+                if(routes!==5)failures.push(`${vp.name}: contact routes=${routes}`);
+                await page.locator('[data-route="studio"]').click();
+                if((await page.locator('#form-interest').inputValue())!=='Studio')failures.push(`${vp.name}: Studio routing failed`);
+                const fs=await page.locator('#email').evaluate(el=>parseFloat(getComputedStyle(el).fontSize));
+                if(vp.width<=620&&fs<16)failures.push(`${vp.name}: email font-size ${fs}`);
+                const sb=await page.locator('#submit-button').boundingBox();
+                if(!sb||sb.x<0||sb.x+sb.width>vp.width+2)failures.push(`${vp.name}: submit out of viewport`);
+              } else {
+                const routes=await page.locator('.route').count();
+                if(routes!==4)failures.push(`${vp.name}: about routes=${routes}`);
+                const hrefs=await page.locator('.route').evaluateAll(es=>es.map(e=>e.getAttribute('href')));
+                for(const href of hrefs){
+                  const r=await page.request.get('http://127.0.0.1:4173/'+href);
+                  if(!r.ok())failures.push(`${vp.name}: broken About route ${href}`);
+                }
+              }
+              if(errors.length)failures.push(...errors.map(e=>`${vp.name} ${file}: ${e}`));
+            }
+            await ctx.close();
+          }
+          await browser.close();
+          if(failures.length){console.error(failures.join('\n'));process.exit(1)}
+          console.log('CONTACT_ABOUT_QA_OK');
+          JS
