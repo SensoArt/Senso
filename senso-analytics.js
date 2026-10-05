@@ -7,6 +7,7 @@
   const CONSENT_KEY='senso_consent_v1';
   const ATTR_KEY='senso_attribution_v1';
   const SESSION_KEY='senso_session_id_v1';
+  const CONSENT_MAX_AGE_MS=1000*60*60*24*730;
   const isProduction=/^(www\.)?senso-art\.com$/i.test(location.hostname);
   const path=(location.pathname.replace(/\/index\.html$/,'/')||'/').replace(/\/+/g,'/');
   const dataLayer=window.dataLayer=window.dataLayer||[];
@@ -53,6 +54,17 @@
     }catch(e){return undefined}
   }
 
+  function rawConsent(){
+    try{return JSON.parse(localStorage.getItem(CONSENT_KEY)||'null')}catch(e){return null}
+  }
+
+  function consentAllowsAnalytics(){
+    const c=rawConsent();
+    if(!c||c.analytics!==true) return false;
+    const updated=Date.parse(c.updated_at||'');
+    return Number.isFinite(updated) && Date.now()-updated<=CONSENT_MAX_AGE_MS;
+  }
+
   function attribution(){
     const qs=new URLSearchParams(location.search);
     const incoming={
@@ -66,6 +78,7 @@
       landing_page:path,
       referrer:document.referrer?safeText(document.referrer,220):undefined
     };
+    if(!consentAllowsAnalytics()) return incoming;
     try{
       const saved=JSON.parse(sessionStorage.getItem(ATTR_KEY)||'{}');
       const campaignHit=incoming.utm_source||incoming.utm_medium||incoming.utm_campaign||incoming.gclid||incoming.fbclid;
@@ -78,13 +91,21 @@
     }catch(e){return incoming}
   }
 
-  const attr=attribution();
-  const sid=sessionId();
+  let attr=attribution();
+  let sid=consentAllowsAnalytics()?sessionId():undefined;
 
   function readConsent(){
     try{
       const c=JSON.parse(localStorage.getItem(CONSENT_KEY)||'null');
-      if(c&&typeof c.analytics==='boolean'&&typeof c.marketing==='boolean') return c;
+      if(!c||typeof c.analytics!=='boolean'||typeof c.marketing!=='boolean') return null;
+      const updated=Date.parse(c.updated_at||'');
+      if(!Number.isFinite(updated)||Date.now()-updated>CONSENT_MAX_AGE_MS){
+        localStorage.removeItem(CONSENT_KEY);
+        sessionStorage.removeItem(ATTR_KEY);
+        sessionStorage.removeItem(SESSION_KEY);
+        return null;
+      }
+      return c;
     }catch(e){}
     return null;
   }
@@ -160,6 +181,14 @@
   function saveConsent(consent){
     const value={analytics:!!consent.analytics,marketing:!!consent.marketing,updated_at:new Date().toISOString()};
     try{localStorage.setItem(CONSENT_KEY,JSON.stringify(value))}catch(e){}
+    if(value.analytics){
+      attr=attribution();
+      sid=sessionId();
+      enrichForms();
+    }else{
+      try{sessionStorage.removeItem(ATTR_KEY);sessionStorage.removeItem(SESSION_KEY)}catch(e){}
+      sid=undefined;
+    }
     applyConsent(value);
     hideConsent();
     ensureFooterSettingsLink();
@@ -187,11 +216,13 @@
     return currentLanguage()==='es'?{
       text:'Usamos cookies de analítica para entender cómo se utiliza Senso y, si lo aceptas, cookies de marketing para medir campañas.',
       accept:'Aceptar todo',reject:'Rechazar',settings:'Configurar',save:'Guardar',
-      analytics:'Analítica',marketing:'Marketing',title:'Preferencias de cookies',reopen:'Cookies'
+      analytics:'Analítica',marketing:'Marketing',title:'Preferencias de cookies',reopen:'Cookies',
+      policy:'Política de cookies',privacy:'Privacidad'
     }:{
       text:'We use analytics cookies to understand how Senso is used and, if you accept, marketing cookies to measure campaigns.',
       accept:'Accept all',reject:'Reject',settings:'Settings',save:'Save',
-      analytics:'Analytics',marketing:'Marketing',title:'Cookie preferences',reopen:'Cookies'
+      analytics:'Analytics',marketing:'Marketing',title:'Cookie preferences',reopen:'Cookies',
+      policy:'Cookie policy',privacy:'Privacy'
     };
   }
 
@@ -203,6 +234,9 @@
       #senso-consent{position:fixed;z-index:2147483000;left:18px;right:18px;bottom:18px;background:#f2efe8;color:#111;border:1px solid rgba(0,0,0,.16);padding:18px 20px;font-family:Futura,Arial,sans-serif;box-shadow:0 10px 35px rgba(0,0,0,.12)}
       #senso-consent .sc-row{display:flex;align-items:center;justify-content:space-between;gap:24px}
       #senso-consent .sc-copy{max-width:760px;font-size:12px;line-height:1.5;letter-spacing:.01em}
+      #senso-consent .sc-more{margin-top:7px;font-size:10px;letter-spacing:.06em}
+      #senso-consent .sc-more a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(0,0,0,.45);padding-bottom:1px}
+      #senso-consent .sc-more a:hover{border-bottom-color:#111}
       #senso-consent .sc-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
       #senso-consent button{font:inherit;text-transform:uppercase;letter-spacing:.11em;font-size:10px;border:0;background:none;color:#111;cursor:pointer;padding:7px 0;border-bottom:1px solid #111}
       #senso-consent button+button{margin-left:5px}
@@ -216,6 +250,8 @@
       .senso-cookie-footer-separator{opacity:.45}
       .senso-cookie-footer-link{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;letter-spacing:inherit;text-transform:none;font-size:inherit;line-height:inherit;opacity:.68}
       .senso-cookie-footer-link:hover,.senso-cookie-footer-link:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:2px}
+      .senso-privacy-note{font-family:inherit;font-size:10px;line-height:1.45;opacity:.62;margin:10px 0 0}
+      .senso-privacy-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
       @media(max-width:700px){
         .senso-cookie-footer-wrap{margin-left:.55em;gap:.55em}
       }
@@ -245,7 +281,7 @@
     if(openSettings) box.classList.add('open');
     box.innerHTML=`
       <div class="sc-row">
-        <div class="sc-copy">${c.text}</div>
+        <div class="sc-copy">${c.text}<div class="sc-more"><a href="cookie-policy.html">${c.policy}</a></div></div>
         <div class="sc-actions">
           <button type="button" data-sc="accept">${c.accept}</button>
           <button type="button" data-sc="reject">${c.reject}</button>
@@ -289,6 +325,11 @@
     const wrap=document.createElement('span');
     wrap.className='senso-cookie-footer-wrap';
 
+    const privacy=document.createElement('a');
+    privacy.className='senso-cookie-footer-link senso-privacy-footer-link';
+    privacy.href='privacy.html';
+    privacy.textContent=consentCopy().privacy;
+
     const separator=document.createElement('span');
     separator.className='senso-cookie-footer-separator';
     separator.setAttribute('aria-hidden','true');
@@ -301,7 +342,7 @@
     button.setAttribute('aria-label',consentCopy().title);
     button.addEventListener('click',()=>showConsent(true));
 
-    wrap.append(separator,button);
+    wrap.append(privacy,separator,button);
     target.appendChild(wrap);
   }
 
@@ -353,6 +394,23 @@
       input.type='hidden';input.name=name;form.appendChild(input);
     }
     input.value=String(value);
+  }
+
+  function ensureFormPrivacyNotes(){
+    const es=currentLanguage()==='es';
+    document.querySelectorAll('form').forEach(form=>{
+      let note=form.querySelector('.senso-privacy-note');
+      if(!note){
+        note=document.createElement('p');
+        note.className='senso-privacy-note';
+        const submit=form.querySelector('button[type="submit"],input[type="submit"]');
+        if(submit) submit.insertAdjacentElement('beforebegin',note);
+        else form.appendChild(note);
+      }
+      note.innerHTML=es
+        ? 'Usaremos tus datos únicamente para gestionar tu solicitud. <a href="privacy.html">Privacidad</a>.'
+        : 'We will use your data only to manage your request. <a href="privacy.html">Privacy</a>.';
+    });
   }
 
   function enrichForms(){
@@ -435,9 +493,15 @@
         artist:safeText(work?.querySelector('.artist')?.textContent,120)
       });return;
     }
-    if(el.matches('[data-set-lang],.lang-btn,[data-lang-btn]')){
+    if(el.matches('[data-set-lang],.lang-btn,[data-lang-btn],#btn-en,#btn-es')){
       const selected=el.dataset.setLang||el.dataset.langBtn||safeText(el.textContent,8);
-      window.sensoTrack('senso_language_change',{selected_language:safeText(selected,8)});return;
+      window.sensoTrack('senso_language_change',{selected_language:safeText(selected,8)});
+      setTimeout(()=>{
+        ensureFormPrivacyNotes();
+        const privacy=document.querySelector('.senso-privacy-footer-link');
+        if(privacy) privacy.textContent=consentCopy().privacy;
+      },0);
+      return;
     }
     if(href&&/^(https?:)?\/\//i.test(href)){
       try{
@@ -469,6 +533,7 @@
 
   function boot(){
     enrichForms();
+    ensureFormPrivacyNotes();
     const consent=readConsent();
     ensureFooterSettingsLink();
     if(consent) applyConsent(consent);
