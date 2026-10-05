@@ -1,0 +1,87 @@
+name: Cookie footer responsive QA
+on:
+  push:
+    branches:
+      - cookie-footer-link-20261005
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@1.52.0
+          npx playwright install --with-deps chromium
+      - name: Run cookie footer QA
+        run: |
+          node --check senso-analytics.js
+          python3 -m http.server 4173 >/tmp/senso-http.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID || true' EXIT
+          sleep 2
+          node --input-type=module <<'JS'
+          import { chromium } from 'playwright';
+          import fs from 'node:fs';
+
+          const failures=[];
+          const pages=fs.readdirSync('.')
+            .filter(x=>/\.html$/i.test(x))
+            .filter(x=>!/-extra-gold-preview\.html$/i.test(x))
+            .filter(x=>{
+              const h=fs.readFileSync(x,'utf8');
+              return /senso-analytics\.js/.test(h) && /<footer\b/i.test(h);
+            });
+
+          const browser=await chromium.launch({headless:true});
+          for(const width of [360,390,768,1280]){
+            for(const p of pages){
+              const context=await browser.newContext({viewport:{width,height:width<700?844:900}});
+              const page=await context.newPage();
+              const errors=[];
+              page.on('pageerror',e=>errors.push(e.message));
+              page.on('console',m=>{if(m.type()==='error') errors.push(m.text())});
+
+              await page.goto('http://127.0.0.1:4173/'+p,{waitUntil:'networkidle'});
+              await page.evaluate(()=>{
+                localStorage.setItem('senso_consent_v1',JSON.stringify({analytics:false,marketing:false,updated_at:new Date().toISOString()}));
+              });
+              await page.reload({waitUntil:'networkidle'});
+
+              const floating=await page.locator('#senso-cookie-settings').count();
+              const link=page.locator('.senso-cookie-footer-link');
+              const linkCount=await link.count();
+              const insideFooter=linkCount?await link.evaluate(el=>!!el.closest('footer')):false;
+              const dims=await page.evaluate(()=>({sw:document.documentElement.scrollWidth,cw:document.documentElement.clientWidth}));
+
+              if(floating!==0) failures.push(`${p}@${width}: floating cookie button remains`);
+              if(linkCount!==1) failures.push(`${p}@${width}: footer cookie links=${linkCount}`);
+              if(linkCount && !insideFooter) failures.push(`${p}@${width}: cookie link outside footer`);
+              if(dims.sw>dims.cw+2) failures.push(`${p}@${width}: horizontal overflow ${dims.sw}/${dims.cw}`);
+
+              if(linkCount){
+                await link.click();
+                if(await page.locator('#senso-consent').count()!==1) failures.push(`${p}@${width}: cookie link does not reopen panel`);
+                const open=await page.locator('#senso-consent.open').count();
+                if(open!==1) failures.push(`${p}@${width}: preferences panel not open`);
+                await page.click('[data-sc="reject"]');
+                if(await page.locator('#senso-consent').count()!==0) failures.push(`${p}@${width}: reject did not close panel`);
+                if(await page.locator('#senso-cookie-settings').count()!==0) failures.push(`${p}@${width}: floating button appeared after reject`);
+                if(await page.locator('.senso-cookie-footer-link').count()!==1) failures.push(`${p}@${width}: footer link lost after reject`);
+              }
+
+              if(errors.length) failures.push(...errors.map(e=>`${p}@${width}: ${e}`));
+              await context.close();
+            }
+          }
+          await browser.close();
+
+          if(!pages.length) failures.push('No public pages found');
+          if(failures.length){
+            console.error(failures.join('\n'));
+            process.exit(1);
+          }
+          console.log('COOKIE_FOOTER_QA_OK pages='+pages.length);
+          JS
