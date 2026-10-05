@@ -358,20 +358,47 @@ body.compare-lightbox-open{overflow:hidden}
   const consultingForm=document.getElementById('consulting-form');
   const submitButton=consultingForm?.querySelector('.submit');
   if(consultingForm&&submitButton){
-    submitButton.addEventListener('click',event=>{
-      if(window.matchMedia('(max-width: 900px)').matches&&!consultingForm.checkValidity()){
-        event.preventDefault();
+    consultingForm.addEventListener('submit',async event=>{
+      event.preventDefault();
+      if(!consultingForm.checkValidity()){
         const invalid=consultingForm.querySelector(':invalid');
         if(invalid){
-          invalid.scrollIntoView({behavior:'smooth',block:'center'});
-          setTimeout(()=>{invalid.focus({preventScroll:true});invalid.reportValidity();},280);
+          if(window.matchMedia('(max-width: 900px)').matches) invalid.scrollIntoView({behavior:'smooth',block:'center'});
+          setTimeout(()=>{invalid.focus({preventScroll:true});invalid.reportValidity();},120);
         }
+        return;
       }
-    });
-    consultingForm.addEventListener('submit',()=>{
-      if(window.matchMedia('(max-width: 900px)').matches){
-        submitButton.style.opacity='.65';
-        submitButton.style.pointerEvents='none';
+      const lang=document.documentElement.lang==='es'?'es':'en';
+      let status=consultingForm.querySelector('.web01-form-status');
+      if(!status){
+        status=document.createElement('p');
+        status.className='form-note web01-form-status';
+        consultingForm.appendChild(status);
+      }
+      submitButton.disabled=true;
+      submitButton.style.opacity='.65';
+      submitButton.style.pointerEvents='none';
+      status.textContent=lang==='es'?'Enviando…':'Sending…';
+      try{
+        const response=await fetch(consultingForm.action,{
+          method:'POST',
+          body:new FormData(consultingForm),
+          headers:{Accept:'application/json'}
+        });
+        if(!response.ok) throw new Error('Form submission failed');
+        consultingForm.reset();
+        document.getElementById('form-language').value=lang;
+        status.textContent=lang==='es'
+          ?'Gracias. Hemos recibido tu proyecto y te responderemos lo antes posible.'
+          :'Thank you. We’ve received your project and will get back to you as soon as possible.';
+      }catch(error){
+        status.textContent=lang==='es'
+          ?'No hemos podido enviar el formulario. Prueba de nuevo o contáctanos por WhatsApp.'
+          :'We couldn’t send the form. Please try again or contact us on WhatsApp.';
+      }finally{
+        submitButton.disabled=false;
+        submitButton.style.opacity='';
+        submitButton.style.pointerEvents='';
       }
     });
   }
