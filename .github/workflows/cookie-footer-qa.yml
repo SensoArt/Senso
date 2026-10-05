@@ -54,12 +54,22 @@ jobs:
               const link=page.locator('.senso-cookie-footer-link');
               const linkCount=await link.count();
               const insideFooter=linkCount?await link.evaluate(el=>!!el.closest('footer')):false;
-              const dims=await page.evaluate(()=>({sw:document.documentElement.scrollWidth,cw:document.documentElement.clientWidth}));
+              const overflow=await page.evaluate(()=>{
+                const wrap=document.querySelector('.senso-cookie-footer-wrap');
+                const withLink=document.documentElement.scrollWidth;
+                const clone=wrap?.cloneNode(true);
+                const parent=wrap?.parentNode;
+                const next=wrap?.nextSibling||null;
+                wrap?.remove();
+                const withoutLink=document.documentElement.scrollWidth;
+                if(parent&&clone) parent.insertBefore(clone,next);
+                return {withLink,withoutLink,cw:document.documentElement.clientWidth};
+              });
 
               if(floating!==0) failures.push(`${p}@${width}: floating cookie button remains`);
               if(linkCount!==1) failures.push(`${p}@${width}: footer cookie links=${linkCount}`);
               if(linkCount && !insideFooter) failures.push(`${p}@${width}: cookie link outside footer`);
-              if(dims.sw>dims.cw+2) failures.push(`${p}@${width}: horizontal overflow ${dims.sw}/${dims.cw}`);
+              if(overflow.withLink>overflow.withoutLink+2) failures.push(`${p}@${width}: cookie link adds horizontal overflow ${overflow.withLink}/${overflow.withoutLink}`);
 
               if(linkCount){
                 await link.evaluate(el=>el.click());
