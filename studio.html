@@ -62,6 +62,8 @@ img{display:block;width:100%}
 .studio-for-head{display:grid;grid-template-columns:.31fr 1fr;gap:54px;margin-bottom:28px;align-items:end}
 .studio-for-head p{margin:0}
 .studio-for-head .lead{max-width:570px;color:var(--muted);font-size:.9rem;line-height:1.6}
+.audience-group-label{padding:19px 0 10px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line)}
+.audience-group-label--second{padding-top:34px}
 .studio-for-grid{display:grid;grid-template-columns:minmax(300px,.84fr) minmax(0,1.16fr);gap:clamp(60px,8vw,120px);align-items:start}
 .audience-list{border-top:1px solid var(--ink)}
 .audience-choice{width:100%;display:grid;grid-template-columns:54px 1fr auto;gap:18px;align-items:center;padding:19px 0;border-bottom:1px solid var(--line);text-align:left;cursor:pointer}
@@ -252,59 +254,112 @@ body.drawer-open{overflow:hidden}
     <div class="shell">
       <div class="studio-for-head">
         <p class="micro"><span class="lang" data-lang="en">Studio for</span><span class="lang" data-lang="es" hidden>Studio para</span></p>
-        <p class="lead"><span class="lang" data-lang="en">The same artistic standard, built around four very different reasons to come together.</span><span class="lang" data-lang="es" hidden>El mismo criterio artístico, construido alrededor de cuatro motivos muy distintos para reunirse.</span></p>
+        <p class="lead"><span class="lang" data-lang="en">Two ways into Studio: for companies, or through a more personal experience. Each format is shaped around the artist, the people and the context.</span><span class="lang" data-lang="es" hidden>Dos formas de entrar en Studio: como empresa o desde una experiencia más personal. Cada formato se construye alrededor del artista, las personas y el contexto.</span></p>
       </div>
 
       <div class="studio-for-grid">
-        <div class="audience-list" role="tablist" aria-label="Studio audiences">
-          <button class="audience-choice active" type="button" role="tab" aria-selected="true" data-audience-target="companies">
+        <div class="audience-list" role="tablist" aria-label="Studio offers">
+          <div class="audience-group-label"><span class="lang" data-lang="en">Studio for companies</span><span class="lang" data-lang="es" hidden>Studio empresas</span></div>
+
+          <button class="audience-choice active" type="button" role="tab" aria-selected="true" data-audience-target="team-building">
             <span class="num">01</span>
-            <strong><span class="lang" data-lang="en">companies & teams</span><span class="lang" data-lang="es" hidden>empresas & equipos</span></strong>
+            <strong>Team Building</strong>
             <span class="mark">→</span>
           </button>
-          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="hospitality">
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="mindfulness">
             <span class="num">02</span>
-            <strong>hospitality & brands</strong>
+            <strong>Mindfulness Activity</strong>
             <span class="mark">→</span>
           </button>
-          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="adults">
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="events">
             <span class="num">03</span>
-            <strong><span class="lang" data-lang="en">adults & private groups</span><span class="lang" data-lang="es" hidden>adultos & grupos privados</span></strong>
+            <strong>Workshops &amp; Events</strong>
             <span class="mark">→</span>
           </button>
-          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="kids">
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="recurring-programs">
             <span class="num">04</span>
+            <strong><span class="lang" data-lang="en">Recurring Programs</span><span class="lang" data-lang="es" hidden>Programas recurrentes</span></strong>
+            <span class="mark">→</span>
+          </button>
+
+          <div class="audience-group-label audience-group-label--second"><span class="lang" data-lang="en">Studio for individuals</span><span class="lang" data-lang="es" hidden>Studio particulares</span></div>
+
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="workshops">
+            <span class="num">05</span>
+            <strong>Workshops</strong>
+            <span class="mark">→</span>
+          </button>
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="private-sessions">
+            <span class="num">06</span>
+            <strong><span class="lang" data-lang="en">Private Sessions</span><span class="lang" data-lang="es" hidden>Sesiones privadas</span></strong>
+            <span class="mark">→</span>
+          </button>
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="courses">
+            <span class="num">07</span>
+            <strong><span class="lang" data-lang="en">Contemporary Art Courses</span><span class="lang" data-lang="es" hidden>Cursos de arte contemporáneo</span></strong>
+            <span class="mark">→</span>
+          </button>
+          <button class="audience-choice" type="button" role="tab" aria-selected="false" data-audience-target="senso-kids">
+            <span class="num">08</span>
             <strong>Senso Kids</strong>
             <span class="mark">→</span>
           </button>
         </div>
 
-        <div class="audience-stage">
-          <div class="audience-detail active" data-audience-panel="companies">
-            <div class="lang" data-lang="en"><h2>not another team-building activity.</h2><p>An artist-led experience designed around the team: participatory, material and cultural, with Senso coordinating the artist, format and production.</p></div>
-            <div class="lang" data-lang="es" hidden><h2>no es otro team building.</h2><p>Una experiencia con artista construida alrededor del equipo: participativa, material y cultural, con Senso coordinando artista, formato y producción.</p></div>
-            <button class="text-link" type="button" data-interest="Company / team experience" data-open-drawer><span class="lang" data-lang="en">Plan for a team</span><span class="lang" data-lang="es" hidden>Planificar para un equipo</span><span>→</span></button>
-            <div class="audience-meta"><span>offsites</span><span>team moments</span><span>internal culture</span></div>
+        <div class="audience-stage" aria-live="polite">
+          <div class="audience-detail active" data-audience-panel="team-building">
+            <div class="lang" data-lang="en"><h2>take your team out of the routine and give them something to create together.</h2><p>A different artistic experience to share, experiment and connect in a new way, accompanied throughout the process by artists and professionals.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>saca a tu equipo de la rutina y haz que cree algo juntos.</h2><p>Una experiencia artística diferente para compartir, experimentar y relacionarse desde otro lugar, acompañados durante todo el proceso por artistas y profesionales.</p></div>
+            <button class="text-link" type="button" data-interest="Team Building" data-segment="business" data-open-drawer><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar una propuesta</span><span>→</span></button>
+            <div class="audience-meta"><span>teams</span><span>offsites</span><span>internal culture</span></div>
           </div>
 
-          <div class="audience-detail" data-audience-panel="hospitality">
-            <div class="lang" data-lang="en"><h2>a cultural reason to engage with the place.</h2><p>Artist-led programming for guests, clients or communities — from one activation to a recurring cultural calendar.</p></div>
-            <div class="lang" data-lang="es" hidden><h2>una razón cultural para relacionarse con el lugar.</h2><p>Programación con artistas para huéspedes, clientes o comunidades: desde una activación puntual hasta un calendario cultural recurrente.</p></div>
-            <button class="text-link" type="button" data-interest="Hospitality / brand activation" data-open-drawer><span class="lang" data-lang="en">Plan an activation</span><span class="lang" data-lang="es" hidden>Planificar una activación</span><span>→</span></button>
-            <div class="audience-meta"><span>guests</span><span>clients</span><span>community</span></div>
+          <div class="audience-detail" data-audience-panel="mindfulness">
+            <div class="lang" data-lang="en"><h2>give your team a moment to pause, change pace and refocus.</h2><p>Through artistic practice, we guide them through an experience of observation, experimentation and creation where the process matters more than the result.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>regala a tu equipo un momento para parar, cambiar el ritmo y volver a concentrarse.</h2><p>A través de la práctica artística, les acompañamos en una experiencia de observación, experimentación y creación donde el proceso importa más que el resultado.</p></div>
+            <button class="text-link" type="button" data-interest="Mindfulness Activity" data-segment="business" data-open-drawer><span class="lang" data-lang="en">Request a proposal</span><span class="lang" data-lang="es" hidden>Solicitar una propuesta</span><span>→</span></button>
+            <div class="audience-meta"><span>teams</span><span>wellbeing</span><span>focus</span></div>
           </div>
 
-          <div class="audience-detail" data-audience-panel="adults">
-            <div class="lang" data-lang="en"><h2>spend time together through an artistic process.</h2><p>A private or open session guided by an artist: more participatory than a visit, more considered than a standard class.</p></div>
-            <div class="lang" data-lang="es" hidden><h2>compartir tiempo a través de un proceso artístico.</h2><p>Una sesión privada o abierta guiada por un artista: más participativa que una visita y más cuidada que una clase convencional.</p></div>
-            <button class="text-link" type="button" data-interest="Adult / private group" data-open-drawer><span class="lang" data-lang="en">Plan a session</span><span class="lang" data-lang="es" hidden>Planificar una sesión</span><span>→</span></button>
-            <div class="audience-meta"><span>friends</span><span>private groups</span><span>occasions</span></div>
+          <div class="audience-detail" data-audience-panel="events">
+            <div class="lang" data-lang="en"><h2>turn a gathering, event or stay into something your guests can experience and remember.</h2><p>We design participatory artistic experiences adapted to the space, audience and occasion, guiding the whole process together with artists and professionals.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>convierte un encuentro, evento o estancia en algo que tus invitados puedan vivir y recordar.</h2><p>Diseñamos experiencias artísticas participativas adaptadas al espacio, al público y a la ocasión, acompañando todo el proceso junto a artistas y profesionales.</p></div>
+            <button class="text-link" type="button" data-interest="Workshops & Events" data-segment="business" data-open-drawer><span class="lang" data-lang="en">Tell us about your event</span><span class="lang" data-lang="es" hidden>Cuéntanos sobre tu evento</span><span>→</span></button>
+            <div class="audience-meta"><span>hospitality</span><span>brands</span><span>events</span></div>
           </div>
 
-          <div class="audience-detail" data-audience-panel="kids">
-            <div class="lang" data-lang="en"><h2>contemporary art through making, material and play.</h2><p>Children enter a real artistic process adapted to their age — exploring ideas and materials rather than simply reproducing a craft.</p></div>
-            <div class="lang" data-lang="es" hidden><h2>arte contemporáneo a través de creación, material y juego.</h2><p>Los niños entran en un proceso artístico real adaptado a su edad: exploran ideas y materiales en lugar de limitarse a reproducir una manualidad.</p></div>
-            <button class="text-link" type="button" data-interest="Kids / family" data-open-drawer><span class="lang" data-lang="en">Ask about Senso Kids</span><span class="lang" data-lang="es" hidden>Consultar Senso Kids</span><span>→</span></button>
+          <div class="audience-detail" data-audience-panel="recurring-programs">
+            <div class="lang" data-lang="en"><h2>make art part of your organisation's experience throughout the year.</h2><p>We design an ongoing programme so your teams, clients or community can discover, experiment and create on a recurring basis.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>haz que el arte forme parte de la experiencia de tu empresa durante todo el año.</h2><p>Diseñamos un programa continuado para que tus equipos, clientes o comunidad puedan descubrir, experimentar y crear de forma recurrente.</p></div>
+            <button class="text-link" type="button" data-interest="Recurring Programs" data-segment="business" data-open-drawer><span class="lang" data-lang="en">Design a programme</span><span class="lang" data-lang="es" hidden>Diseñar un programa</span><span>→</span></button>
+            <div class="audience-meta"><span>teams</span><span>clients</span><span>community</span></div>
+          </div>
+
+          <div class="audience-detail" data-audience-panel="workshops">
+            <div class="lang" data-lang="en"><h2>experiment, create and discover new ways to express yourself.</h2><p>Sessions guided by contemporary artists to discover their practice from the inside and experiment directly with the materials, techniques and processes that shape their work.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>experimenta, crea y descubre nuevas formas de expresarte.</h2><p>Sesiones guiadas por artistas contemporáneos para descubrir su práctica desde dentro y experimentar directamente con los materiales, técnicas y procesos que forman parte de su trabajo.</p></div>
+            <button class="text-link" type="button" data-interest="Workshops" data-segment="individual" data-open-drawer><span class="lang" data-lang="en">Check availability</span><span class="lang" data-lang="es" hidden>Consultar disponibilidad</span><span>→</span></button>
+            <div class="audience-meta"><span>adults</span><span>young adults</span><span>practice</span></div>
+          </div>
+
+          <div class="audience-detail" data-audience-panel="private-sessions">
+            <div class="lang" data-lang="en"><h2>an artistic experience designed around you.</h2><p>A more personal experience with a contemporary artist, designed for one person or a small group and adapted to their interests, pace and context.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>una experiencia artística pensada alrededor de ti.</h2><p>Una experiencia más personal junto a un artista contemporáneo, diseñada para una persona o un pequeño grupo y adaptada a sus intereses, ritmo y contexto.</p></div>
+            <button class="text-link" type="button" data-interest="Private Sessions" data-segment="individual" data-open-drawer><span class="lang" data-lang="en">Request a private session</span><span class="lang" data-lang="es" hidden>Solicitar sesión privada</span><span>→</span></button>
+            <div class="audience-meta"><span>one-to-one</span><span>small groups</span><span>personalised</span></div>
+          </div>
+
+          <div class="audience-detail" data-audience-panel="courses">
+            <div class="lang" data-lang="en"><h2>find your own way to create.</h2><p>Multi-session programmes to deepen artistic practice, explore different techniques and processes, and develop a more sustained relationship with contemporary creation.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>encuentra tu propia manera de crear.</h2><p>Programas de varias sesiones para profundizar en la práctica artística, explorar diferentes técnicas y procesos y desarrollar una relación más continuada con la creación contemporánea.</p></div>
+            <button class="text-link" type="button" data-interest="Contemporary Art Courses" data-segment="individual" data-open-drawer><span class="lang" data-lang="en">Ask about courses</span><span class="lang" data-lang="es" hidden>Consultar cursos</span><span>→</span></button>
+            <div class="audience-meta"><span>courses</span><span>practice</span><span>continuity</span></div>
+          </div>
+
+          <div class="audience-detail" data-audience-panel="senso-kids">
+            <div class="lang" data-lang="en"><h2>a space to imagine, experiment and create freely.</h2><p>Contemporary art experiences for children where they observe, experiment and create through materials, techniques and processes adapted to each age.</p></div>
+            <div class="lang" data-lang="es" hidden><h2>un espacio para imaginar, experimentar y crear con libertad.</h2><p>Experiencias de arte contemporáneo para niños donde observar, experimentar y crear a través de materiales, técnicas y procesos adaptados a cada edad.</p></div>
+            <button class="text-link" type="button" data-interest="Senso Kids" data-segment="individual" data-open-drawer><span class="lang" data-lang="en">Ask about Senso Kids</span><span class="lang" data-lang="es" hidden>Consultar Senso Kids</span><span>→</span></button>
             <div class="audience-meta"><span>children</span><span>families</span><span>groups</span></div>
           </div>
         </div>
@@ -368,7 +423,7 @@ body.drawer-open{overflow:hidden}
           <span class="lang" data-lang="es" hidden>Diferentes artistas y prácticas a lo largo del año, adaptados a vuestro calendario, público y espacio.</span>
         </div>
         <div class="recurring-action">
-          <button class="text-link" type="button" data-interest="Recurring cultural programme" data-open-drawer><span class="lang" data-lang="en">Discuss a programme</span><span class="lang" data-lang="es" hidden>Hablar de un programa</span><span>→</span></button>
+          <button class="text-link" type="button" data-interest="Recurring Programs" data-segment="business" data-open-drawer><span class="lang" data-lang="en">Discuss a programme</span><span class="lang" data-lang="es" hidden>Hablar de un programa</span><span>→</span></button>
         </div>
       </div>
     </div>
@@ -403,15 +458,19 @@ body.drawer-open{overflow:hidden}
       <input type="hidden" name="source" value="Senso Studio website">
       <input type="hidden" name="language" id="form-language" value="en">
       <input type="hidden" name="_subject" value="New Senso Studio enquiry">
+      <input type="hidden" name="segment" id="lead-segment" value="">
       <div class="field full">
         <label class="drawer-label" for="experience"><span class="lang" data-lang="en">What are you planning?</span><span class="lang" data-lang="es" hidden>¿Qué estás organizando?</span></label>
         <select name="interest" id="experience">
           <option value="Not sure yet" data-en="Not sure yet" data-es="Aún por definir">Not sure yet</option>
-          <option value="Company / team experience" data-en="Company / team experience" data-es="Experiencia para empresa / equipo">Company / team experience</option>
-          <option value="Hospitality / brand activation" data-en="Hospitality / brand activation" data-es="Hospitality / activación de marca">Hospitality / brand activation</option>
-          <option value="Adult / private group" data-en="Adult / private group" data-es="Adultos / grupo privado">Adult / private group</option>
-          <option value="Kids / family" data-en="Kids / family" data-es="Niños / familia">Kids / family</option>
-          <option value="Recurring cultural programme" data-en="Recurring cultural programme" data-es="Programa cultural recurrente">Recurring cultural programme</option>
+          <option value="Team Building" data-en="Team Building" data-es="Team Building">Team Building</option>
+          <option value="Mindfulness Activity" data-en="Mindfulness Activity" data-es="Mindfulness Activity">Mindfulness Activity</option>
+          <option value="Workshops & Events" data-en="Workshops & Events" data-es="Workshops y eventos">Workshops & Events</option>
+          <option value="Recurring Programs" data-en="Recurring Programs" data-es="Programas recurrentes">Recurring Programs</option>
+          <option value="Workshops" data-en="Workshops" data-es="Workshops">Workshops</option>
+          <option value="Private Sessions" data-en="Private Sessions" data-es="Sesiones privadas">Private Sessions</option>
+          <option value="Contemporary Art Courses" data-en="Contemporary Art Courses" data-es="Cursos de arte contemporáneo">Contemporary Art Courses</option>
+          <option value="Senso Kids" data-en="Senso Kids" data-es="Senso Kids">Senso Kids</option>
         </select>
       </div>
       <div class="form-grid">
@@ -423,7 +482,7 @@ body.drawer-open{overflow:hidden}
         <div class="field"><label class="drawer-label" for="location"><span class="lang" data-lang="en">Location</span><span class="lang" data-lang="es" hidden>Ubicación</span></label><select id="location" name="location"><option value="Not sure yet" data-en="Not sure yet" data-es="Aún por definir">Not sure yet</option><option value="Senso / partner venue" data-en="Senso / partner venue" data-es="Senso / espacio partner">Senso / partner venue</option><option value="On-site" data-en="At our space / on-site" data-es="En nuestro espacio / in-company">At our space / on-site</option></select></div>
         <div class="field full"><label class="drawer-label" for="studio-message"><span class="lang" data-lang="en">Context</span><span class="lang" data-lang="es" hidden>Contexto</span></label><textarea id="studio-message" name="message" data-placeholder-en="Occasion, objective or anything useful to know." data-placeholder-es="Ocasión, objetivo o cualquier detalle útil." placeholder="Occasion, objective or anything useful to know."></textarea></div>
       </div>
-      <button class="submit" type="submit"><span class="lang" data-lang="en">Request proposal</span><span class="lang" data-lang="es" hidden>Solicitar propuesta</span><span>→</span></button>
+      <button class="submit" type="submit"><span class="lang" data-lang="en" id="submit-label-en">Send enquiry</span><span class="lang" data-lang="es" id="submit-label-es" hidden>Enviar consulta</span><span>→</span></button>
       <a id="drawer-whatsapp" class="drawer-whatsapp" target="_blank" rel="noopener noreferrer" href="https://wa.me/34623925179?text=Hello%20Claudia%2C%20I%20would%20like%20to%20discuss%20a%20Senso%20Studio%20experience." data-wa-en="https://wa.me/34623925179?text=Hello%20Claudia%2C%20I%20would%20like%20to%20discuss%20a%20Senso%20Studio%20experience." data-wa-es="https://wa.me/34623925179?text=Hola%20Claudia%2C%20me%20gustar%C3%ADa%20hablar%20sobre%20una%20experiencia%20de%20Senso%20Studio.">WhatsApp instead ↗</a>
     </form>
   </aside>
@@ -465,10 +524,19 @@ body.drawer-open{overflow:hidden}
     try{localStorage.setItem('senso_lang',current)}catch(e){}
   }
 
-  function openDrawer(value){
+  function openDrawer(value,segment){
     if(value&&interest){
       const match=[...interest.options].some(o=>o.value===value);
       if(match)interest.value=value;
+    }
+    const leadSegment=document.getElementById('lead-segment');
+    if(leadSegment) leadSegment.value=segment||'';
+    const submitEn=document.getElementById('submit-label-en');
+    const submitEs=document.getElementById('submit-label-es');
+    if(submitEn) submitEn.textContent=segment==='business'?'Request proposal':'Send enquiry';
+    if(submitEs) submitEs.textContent=segment==='business'?'Solicitar propuesta':'Enviar consulta';
+    if(value && window.dataLayer){
+      window.dataLayer.push({event:'studio_offer_open',studio_offer:value,studio_segment:segment||'unspecified'});
     }
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden','false');
@@ -494,7 +562,7 @@ body.drawer-open{overflow:hidden}
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
-  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.interest)));
+  document.querySelectorAll('[data-open-drawer]').forEach(btn=>btn.addEventListener('click',()=>openDrawer(btn.dataset.interest,btn.dataset.segment)));
   document.querySelectorAll('[data-audience-target]').forEach(btn=>btn.addEventListener('click',()=>setAudience(btn.dataset.audienceTarget)));
   document.querySelector('[data-close-drawer]').addEventListener('click',closeDrawer);
   overlay.addEventListener('click',e=>{if(e.target===overlay)closeDrawer()});
@@ -513,7 +581,7 @@ body.drawer-open{overflow:hidden}
   let initial='en';
   try{initial=localStorage.getItem('senso_lang')||'en'}catch(e){}
   setLanguage(initial);
-  setAudience('companies');
+  setAudience('team-building');
 })();
 </script>
 </body>
