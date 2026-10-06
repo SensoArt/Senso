@@ -8,6 +8,7 @@ Base audited: `main` at `ab92a0c4466e7f70e8d5d3f297fe1900e5505b55`, 6 October 20
 - The consent UI, footer settings link, 24-month renewal, consent-gated storage, attribution fields, GA4 page views and generic engagement events already existed. No visual cookie change was made.
 - The shared script counted every successful Formspree POST as `generate_lead`; this mixed artwork, Studio, Consulting and newsletter submissions. It also sent raw click identifiers and a full referrer string as custom event parameters. Conversion status inside GA4 was not verifiable.
 - Sixteen production Formspree forms were found, plus an unlisted contact preview form. The production Contacts form is a newsletter subscription, not a general contact enquiry. Paolo Agostini's form used native navigation, so its success state was not measurable by the shared fetch instrumentation.
+- Davide Di Sena's form left its submit button disabled after a non-2xx response. Its existing error message was never shown in that case.
 - `contact-extra-gold-preview.html` is unlisted and has no shared analytics script. It is excluded from production conversion reporting until approved as a live route.
 
 ## Implemented events
@@ -38,6 +39,8 @@ Conversion payloads include `page_path`, `language`, `conversion_type`, `busines
 - Chrome headless, 1440×900 and 390×844. Local Formspree responses were intercepted and simulated; no real enquiry was sent.
 - Catalogue: enquiry opening, 500 error followed by 200 success; zero conversion on error, one on success, correct artwork event.
 - Art Consulting, Studio, Contacts newsletter and Paolo Agostini: 200 success states and one correctly typed event on both viewports; no JavaScript errors.
+- All 16 production Formspree forms were also exercised with simulated HTTP 200 responses on desktop and mobile: one POST, one correctly typed conversion or newsletter event, and zero JavaScript errors per form. This broad pass used programmatic `requestSubmit`; the five visible user flows above received separate interaction QA.
+- Davide Di Sena: simulated HTTP 500 showed the existing error message, restored the button, and produced zero conversions; retry with HTTP 200 showed the success state and produced one conversion on both viewports.
 - Ten main routes smoke-tested on both viewports, including EN/ES controls where present; no JavaScript errors. Consent tested with the production hostname simulated locally: zero GA4/Meta requests before consent or after rejection; one GA4 load after analytics consent, one Meta load after marketing consent, one GA4 config.
 - `node --check` and `git diff --check` passed. Page content, CSS and responsive styles were not edited.
 

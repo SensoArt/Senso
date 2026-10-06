@@ -1076,6 +1076,11 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 const btn =
                     document.getElementById('submit-btn');
 
+                const errorMsg =
+                    document.getElementById('error-msg');
+
+                errorMsg.style.display = 'none';
+
                 btn.disabled = true;
 
                 btn.style.opacity = "0.4";
@@ -1105,6 +1110,8 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                             .style.display =
                             'block';
 
+                    } else {
+                        throw new Error('Form submission failed');
                     }
 
                 } catch (err) {
@@ -1113,6 +1120,8 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 
                     btn.style.opacity =
                         "1";
+
+                    errorMsg.style.display = 'block';
 
                 }
 
