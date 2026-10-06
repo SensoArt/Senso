@@ -1,0 +1,18 @@
+# Senso legacy URL consolidation — permanent redirects
+# Spanish aliases
+/artistas.html /artists.html 301
+/artistas /artists.html 301
+/exposiciones.html /exhibitions.html 301
+/exposiciones /exhibitions.html 301
+/asesoria-de-arte.html /art-consulting.html 301
+/asesoria-de-arte /art-consulting.html 301
+/contacto.html /contacts.html 301
+/contacto /contacts.html 301
+
+# Discarded/preview routes
+/studio-for-business.html /studio.html 301
+/studio-for-business /studio.html 301
+/about-extra-gold-preview.html /about.html 301
+/about-extra-gold-preview /about.html 301
+/contact-extra-gold-preview.html /contacts.html 301
+/contact-extra-gold-preview /contacts.html 301
