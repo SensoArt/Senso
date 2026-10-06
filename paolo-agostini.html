@@ -814,6 +814,47 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             if (e.target === lightbox) closeLightbox();
         });
 
+        // FORMSPREE AJAX
+        const contactForm = document.getElementById('contact-form');
+        const submitBtnForm = document.getElementById('submit-btn');
+        const thankYouBlock = document.getElementById('thank-you-block');
+        const errorMsg = document.getElementById('error-msg');
+
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const isEs = document.getElementById('btn-es').classList.contains('active');
+
+            submitBtnForm.disabled = true;
+            submitBtnForm.style.opacity = "0.4";
+            submitBtnForm.innerText = isEs ? "Enviando..." : "Sending...";
+            errorMsg.style.display = "none";
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (!response.ok) throw new Error('Form submission failed');
+
+                contactForm.style.display = 'none';
+                thankYouBlock.style.display = 'block';
+                if (isEs) {
+                    thankYouBlock.querySelector('.lang-en').classList.add('hidden');
+                    thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
+                } else {
+                    thankYouBlock.querySelector('.lang-es').classList.add('hidden');
+                    thankYouBlock.querySelector('.lang-en').classList.remove('hidden');
+                }
+            } catch (error) {
+                submitBtnForm.disabled = false;
+                submitBtnForm.style.opacity = "1";
+                submitBtnForm.innerText = isEs ? "Enviar consulta →" : "Send Inquiry →";
+                errorMsg.innerText = isEs ? "Se ha producido un error. Por favor, inténtelo de nuevo." : "An error occurred. Please try again.";
+                errorMsg.style.display = "block";
+            }
+        });
+
         // SWITCHER LINGUA
         function setLang(lang) {
             const btnEn = document.getElementById('btn-en');
