@@ -3,3 +3,11 @@
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: SAMEORIGIN
+
+# Keep Cloudflare technical domains out of search indexes.
+# Does not affect the custom production domain senso-art.com.
+https://senso-preview.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.senso-preview.pages.dev/*
+  X-Robots-Tag: noindex

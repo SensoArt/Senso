@@ -9,17 +9,31 @@
   const SESSION_KEY='senso_session_id_v1';
   const CONSENT_MAX_AGE_MS=1000*60*60*24*730;
   const isProduction=/^(www\.)?senso-art\.com$/i.test(location.hostname);
-  const path=(location.pathname.replace(/\/index\.html$/,'/')||'/').replace(/\/+/g,'/');
+  const query=new URLSearchParams(location.search);
+  if(query.get('senso_internal')==='1'){
+    try{sessionStorage.setItem('senso_internal_v1','1')}catch(e){}
+  }
+  let internalSession=false;
+  try{internalSession=sessionStorage.getItem('senso_internal_v1')==='1'}catch(e){}
+  const isQa=query.get('senso_qa')==='1'||query.get('senso_internal')==='1'||internalSession;
+  const pagePath=location.protocol==='file:'?'/'+location.pathname.split('/').pop():location.pathname;
+  const path=(pagePath.replace(/\/index\.html$/,'/')||'/').replace(/\/+/g,'/');
   const dataLayer=window.dataLayer=window.dataLayer||[];
   const scrollMarks=new Set();
   let lastForm=null;
+  const successfulForms=new WeakMap();
   let gaLoaded=false;
   let metaLoaded=false;
+  let engaged30s=false;
+  let reached50=false;
+  let qualifiedVisitSent=false;
 
   function safeText(value,max=180){
     if(value==null) return undefined;
     const s=String(value).replace(/\s+/g,' ').trim();
-    return s?s.slice(0,max):undefined;
+    // Analytics dimensions must never contain contact details or arbitrary URLs.
+    if(!s||/@|(?:\+?\d[\d ().-]{7,}\d)|[?&#=]/.test(s)) return undefined;
+    return s.slice(0,max);
   }
 
   function currentLanguage(){
@@ -27,7 +41,12 @@
     const esActive=!!document.querySelector('#btn-es.active,[data-set-lang="es"].active,.lang-btn[data-lang="es"].active');
     let stored='';
     try{stored=(localStorage.getItem('senso_lang')||'').toLowerCase()}catch(e){}
-    return esActive||root.startsWith('es')||stored.startsWith('es')?'es':'en';
+    const enActive=!!document.querySelector('#btn-en.active,[data-set-lang="en"].active,.lang-btn[data-lang="en"].active');
+    if(esActive||enActive) return esActive?'es':'en';
+    if(root.startsWith('it')) return 'it';
+    if(root.startsWith('es')) return 'es';
+    if(root.startsWith('en')) return 'en';
+    return stored.startsWith('es')?'es':'en';
   }
 
   function businessArea(){
@@ -76,7 +95,7 @@
       gclid:safeText(qs.get('gclid'),120),
       fbclid:safeText(qs.get('fbclid'),160),
       landing_page:path,
-      referrer:document.referrer?safeText(document.referrer,220):undefined
+      referrer:document.referrer?referrerDomain(document.referrer):undefined
     };
     if(!consentAllowsAnalytics()) return incoming;
     try{
@@ -91,6 +110,10 @@
     }catch(e){return incoming}
   }
 
+  function referrerDomain(value){
+    try{return new URL(value).hostname.toLowerCase().slice(0,120)}catch(e){return undefined}
+  }
+
   let attr=attribution();
   let sid=consentAllowsAnalytics()?sessionId():undefined;
 
@@ -99,14 +122,16 @@
     const source=(attr.utm_source||'').toLowerCase();
     const campaign=(attr.utm_campaign||'').toLowerCase();
     if(attr.gclid||/(cpc|ppc|paid_search|search_ads)/.test(medium)) return 'paid_search';
+    if(medium==='referral') return 'referral';
     if(/partner|dmc|agency|referral_partner/.test(medium+' '+source+' '+campaign)) return 'partner_outreach';
+    if(/newsletter/.test(medium+' '+source+' '+campaign)) return 'email_newsletter';
     if(/email|outbound|founder_outreach/.test(medium+' '+campaign)) return 'email_outreach';
     if(/social/.test(medium)||/linkedin|instagram|facebook|meta/.test(source)) return 'organic_social';
     if(/referral/.test(medium)) return 'referral';
     if(source&&/google|bing|duckduckgo|yahoo/.test(source)) return 'organic_search';
     try{
       if(attr.referrer){
-        const host=new URL(attr.referrer,location.href).hostname.toLowerCase();
+        const host=attr.referrer.toLowerCase();
         if(/google\.|bing\.|duckduckgo\.|search\.yahoo\./.test(host)) return 'organic_search';
         if(/linkedin\.|instagram\.|facebook\.|t\.co$|x\.com$/.test(host)) return 'organic_social';
         if(host&&host!==location.hostname) return 'referral';
@@ -160,7 +185,7 @@
   }
 
   function loadGA(){
-    if(gaLoaded||!isProduction) return;
+    if(gaLoaded||!isProduction||isQa) return;
     gaLoaded=true;
     const s=document.createElement('script');
     s.async=true;
@@ -175,7 +200,7 @@
   }
 
   function loadMeta(){
-    if(metaLoaded||!isProduction) return;
+    if(metaLoaded||!isProduction||isQa) return;
     metaLoaded=true;
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;
@@ -200,6 +225,7 @@
   }
 
   function saveConsent(consent){
+    const hadAnalytics=canAnalytics();
     const value={analytics:!!consent.analytics,marketing:!!consent.marketing,updated_at:new Date().toISOString()};
     try{localStorage.setItem(CONSENT_KEY,JSON.stringify(value))}catch(e){}
     if(value.analytics){
@@ -211,6 +237,12 @@
       sid=undefined;
     }
     applyConsent(value);
+    if(value.analytics&&!hadAnalytics){
+      window.sensoTrack('senso_section_view',{section:businessArea()});
+      if(businessArea()==='collect_art'&&path!=='/catalogue.html')
+        window.sensoTrack('senso_artist_view',{artist:path.slice(1).replace(/\.html$/,'')});
+      document.dispatchEvent(new Event('senso:consent'));
+    }
     hideConsent();
     ensureFooterSettingsLink();
   }
@@ -375,10 +407,10 @@
   }
 
   function meta(event,params){
-    if(!canMarketing()||typeof window.fbq!=='function') return;
+    if(isQa||!canMarketing()||typeof window.fbq!=='function') return;
     const p=clean(params);
     try{
-      if(event==='generate_lead') window.fbq('track','Lead',p);
+      if(['artwork_enquiry','artist_enquiry','studio_enquiry','consulting_enquiry','general_contact'].includes(event)) window.fbq('track','Lead',p);
       else if(event==='senso_contact_click') window.fbq('track','Contact',p);
       else if(event==='senso_artwork_enquiry_open') window.fbq('trackCustom','ArtworkEnquiryOpen',p);
       else if(event==='senso_studio_interest') window.fbq('trackCustom','StudioInterest',p);
@@ -393,15 +425,47 @@
       language:currentLanguage(),
       business_area:businessArea(),
       acquisition_channel:acquisitionChannel(),
-      ...attr,
+      landing_page:attr.landing_page,
+      utm_source:attr.utm_source,
+      utm_medium:attr.utm_medium,
+      utm_campaign:attr.utm_campaign,
+      referrer_domain:attr.referrer,
       ...params
     });
+    if(!isProduction||isQa){
+      (window.sensoDebugEvents=window.sensoDebugEvents||[]).push({event,payload});
+      return payload;
+    }
     if(canAnalytics()&&typeof window.gtag==='function'){
       try{window.gtag('event',event,payload)}catch(e){}
     }
     meta(event,payload);
     return payload;
   };
+
+  function decorateInternalCampaignLinks(){
+    if(consentAllowsAnalytics()) return;
+    const campaign={
+      utm_source:attr.utm_source,
+      utm_medium:attr.utm_medium,
+      utm_campaign:attr.utm_campaign,
+      utm_content:attr.utm_content,
+      utm_term:attr.utm_term
+    };
+    if(!Object.values(campaign).some(Boolean)) return;
+    document.querySelectorAll('a[href]').forEach(a=>{
+      const raw=a.getAttribute('href')||'';
+      if(!raw||/^#|^mailto:|^tel:|^javascript:/i.test(raw)) return;
+      try{
+        const u=new URL(raw,location.href);
+        if(u.origin!==location.origin) return;
+        Object.entries(campaign).forEach(([k,v])=>{
+          if(v&&!u.searchParams.has(k)) u.searchParams.set(k,v);
+        });
+        a.setAttribute('href',u.pathname+u.search+u.hash);
+      }catch(e){}
+    });
+  }
 
   function formName(form){
     if(!form) return 'unknown';
@@ -451,22 +515,38 @@
         senso_fbclid:attr.fbclid,
         senso_session_id:sid
       };
+      if(isQa) fields.senso_test_submission='true';
       Object.entries(fields).forEach(([k,v])=>addHidden(form,k,v));
     });
   }
 
   function formContext(form){
     const read=name=>safeText(form?.querySelector('[name="'+name+'"]')?.value,120);
+    const selectedArtwork=read('artwork');
+    const artworkParts=selectedArtwork?.split(' — ')||[];
     return clean({
       form_name:formName(form),
       source:read('source'),
-      artwork:read('artwork'),
-      artist:read('artist'),
+      artwork:artworkParts.length===2?artworkParts[0]:selectedArtwork,
+      artist:read('artist')||(artworkParts.length===2?artworkParts[1]:undefined),
       request:read('request'),
       interest:read('interest'),
       journey:read('journey'),
       project_type:read('project_type')
     });
+  }
+
+  function conversionType(form,context){
+    if(path==='/contacts.html'||path==='/contacto.html') return 'newsletter_signup';
+    if(path==='/catalogue.html') return 'artwork_enquiry';
+    if(businessArea()==='collect_art'&&path!=='/catalogue.html') return 'artist_enquiry';
+    if(context.interest&&path==='/contact-extra-gold-preview.html'){
+      if(/studio/i.test(context.interest)) return 'studio_enquiry';
+      if(/consulting/i.test(context.interest)) return 'consulting_enquiry';
+    }
+    if(context.project_type||/art-consulting|asesoria-de-arte/.test(path)) return 'consulting_enquiry';
+    if(/studio/.test(path)) return 'studio_enquiry';
+    return 'general_contact';
   }
 
   document.addEventListener('focusin',event=>{
@@ -478,7 +558,7 @@
 
   document.addEventListener('submit',event=>{
     const form=event.target;
-    lastForm={...formContext(form),area:businessArea(),time:Date.now()};
+    lastForm={form,...formContext(form),area:businessArea(),time:Date.now()};
     window.sensoTrack('senso_form_submit_attempt',lastForm);
   },true);
 
@@ -492,11 +572,17 @@
         const method=(opts.method||req?.method||'GET').toUpperCase();
         if(response.ok&&method==='POST'&&/formspree\.io\/f\//i.test(url)){
           const recent=lastForm&&Date.now()-lastForm.time<15000?lastForm:null;
-          window.sensoTrack('generate_lead',{
-            ...(recent||{}),
-            form_name:recent?.form_name||'formspree',
-            lead_type:recent?.area||businessArea()
-          });
+          const form=recent?.form;
+          if(form){
+            const context=formContext(form);
+            const key=JSON.stringify(context);
+            const previous=successfulForms.get(form);
+            if(!previous||previous.key!==key||Date.now()-previous.time>10000){
+              successfulForms.set(form,{key,time:Date.now()});
+              const type=conversionType(form,context);
+              window.sensoTrack(type,{...context,conversion_type:type,service:recent.area});
+            }
+          }
         }
       }catch(e){}
       return response;
@@ -522,14 +608,21 @@
       window.sensoTrack('senso_social_click',{network:/instagram/i.test(href)?'instagram':'linkedin',label});return;
     }
     if(el.matches('[data-open-drawer]')){
-      window.sensoTrack('senso_studio_interest',{interest:safeText(el.dataset.interest||label,120),journey:safeText(el.dataset.mode,60)});return;
+      window.sensoTrack('senso_studio_interest',{interest:safeText(el.dataset.interest||label,120),journey:safeText(el.dataset.mode,60)});
+      window.sensoTrack('senso_form_open',{form_name:'studio-form'});return;
+    }
+    if(el.dataset.sensoIntent){
+      window.sensoTrack('senso_commercial_intent',{intent:safeText(el.dataset.sensoIntent,80),label});return;
     }
     if(el.matches('.oldmail')){
       const work=el.closest('.work');
-      window.sensoTrack('senso_artwork_enquiry_open',{
+      const artwork={
         artwork:safeText(work?.querySelector('.title')?.textContent,120),
         artist:safeText(work?.querySelector('.artist')?.textContent,120)
-      });return;
+      };
+      window.sensoTrack('senso_artwork_click',artwork);
+      window.sensoTrack('senso_artwork_enquiry_open',artwork);
+      window.sensoTrack('senso_form_open',{form_name:'artEnquiryForm'});return;
     }
     if(el.matches('[data-set-lang],[data-legal-lang],.lang-btn,[data-lang-btn],#btn-en,#btn-es')){
       const selected=el.dataset.setLang||el.dataset.langBtn||safeText(el.textContent,8);
@@ -551,16 +644,29 @@
     }
     if(href&&!/^#|^javascript:/i.test(href)){
       const commercial=/(?:contacts|contacto|art-consulting|asesoria-de-arte|studio|catalogue)\.html/i.test(href);
+      if(/(?:arantxa|carlotta|catherine|ciaramella|disena|lucia|paolo|rafael|raul|valentina)[^/]*\.html/i.test(href)){
+        window.sensoTrack('senso_artist_click',{target:safeText(href,120)});
+        return;
+      }
       window.sensoTrack(commercial?'senso_commercial_click':'senso_internal_link_click',{
         target:safeText(href,180),label
       });
     }
   },true);
 
+  function maybeQualifiedVisit(){
+    if(qualifiedVisitSent||!engaged30s||!reached50) return;
+    if(!['studio','art_consulting','collect_art'].includes(businessArea())) return;
+    if(isProduction&&!canAnalytics()) return;
+    qualifiedVisitSent=true;
+    window.sensoTrack('senso_qualified_visit',{qualification:'30s_and_50pct'});
+  }
+
   function onScroll(){
     const doc=document.documentElement;
     const max=Math.max(1,doc.scrollHeight-innerHeight);
     const pct=Math.round((scrollY/max)*100);
+    if(pct>=50){reached50=true;maybeQualifiedVisit()}
     [25,50,75,90].forEach(mark=>{
       if(pct>=mark&&!scrollMarks.has(mark)){
         scrollMarks.add(mark);
@@ -571,12 +677,40 @@
 
   function boot(){
     enrichForms();
+    decorateInternalCampaignLinks();
     ensureFormPrivacyNotes();
     const consent=readConsent();
     ensureFooterSettingsLink();
     if(consent) applyConsent(consent);
     else showConsent(false);
+    window.sensoTrack('senso_section_view',{section:businessArea()});
+    if(businessArea()==='collect_art'&&path!=='/catalogue.html')
+      window.sensoTrack('senso_artist_view',{artist:path.slice(1).replace(/\.html$/,'')});
+    if(path==='/catalogue.html'&&'IntersectionObserver' in window){
+      const seen=new WeakSet();
+      const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+        if(!entry.isIntersecting||seen.has(entry.target)) return;
+        if(isProduction&&!canAnalytics()) return;
+        seen.add(entry.target);
+        window.sensoTrack('senso_artwork_view',{
+          artwork:safeText(entry.target.querySelector('.title')?.textContent,120),
+          artist:safeText(entry.target.querySelector('.artist')?.textContent,120)
+        });
+      }),{threshold:.5});
+      const cards=document.querySelectorAll('.work');
+      cards.forEach(card=>observer.observe(card));
+      document.addEventListener('senso:consent',()=>cards.forEach(card=>{
+        if(!seen.has(card)){observer.unobserve(card);observer.observe(card)}
+      }));
+    }
     addEventListener('scroll',onScroll,{passive:true});
+    document.addEventListener('senso:consent',maybeQualifiedVisit);
+    setTimeout(()=>{
+      if(document.visibilityState==='visible'){
+        engaged30s=true;
+        maybeQualifiedVisit();
+      }
+    },30000);
   }
 
   if(document.readyState==='complete') boot();

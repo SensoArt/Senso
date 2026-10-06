@@ -7,9 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Davide Di Sena | Senso</title>
-<meta name="description" content="Explore the work of Davide Di Sena at Senso, with selected artworks, artist context and enquiries.">
+    <title>Davide Di Sena | Contemporary Artist | Senso</title>
+<meta name="description" content="Explore the work of Davide Di Sena at Senso, including selected artworks, artist context and enquiries for available works.">
 <link rel="canonical" href="https://senso-art.com/davide-disena.html">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Davide Di Sena | Contemporary Artist | Senso">
+<meta property="og:description" content="Explore the work of Davide Di Sena at Senso, including selected artworks, artist context and enquiries for available works.">
+<meta property="og:url" content="https://senso-art.com/davide-disena.html">
 
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -509,6 +513,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 .lang-switch .lang-btn{padding-left:2px!important;padding-right:2px!important}
 .lang-switch .lang-btn.active{font-weight:400!important;opacity:.72!important}
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"https://senso-art.com/davide-disena.html","name":"Davide Di Sena | Contemporary Artist | Senso","mainEntity":{"@type":"Person","name":"Davide Di Sena","url":"https://senso-art.com/davide-disena.html","jobTitle":"Contemporary artist"},"publisher":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"}}</script>
 </head>
 
 <body>
@@ -1076,6 +1081,11 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 const btn =
                     document.getElementById('submit-btn');
 
+                const errorMsg =
+                    document.getElementById('error-msg');
+
+                errorMsg.style.display = 'none';
+
                 btn.disabled = true;
 
                 btn.style.opacity = "0.4";
@@ -1105,6 +1115,8 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                             .style.display =
                             'block';
 
+                    } else {
+                        throw new Error('Form submission failed');
                     }
 
                 } catch (err) {
@@ -1113,6 +1125,8 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 
                     btn.style.opacity =
                         "1";
+
+                    errorMsg.style.display = 'block';
 
                 }
 
