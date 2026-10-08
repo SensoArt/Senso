@@ -303,6 +303,7 @@
       .senso-cookie-footer-separator{opacity:.45}
       .senso-cookie-footer-link{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;cursor:pointer;letter-spacing:inherit;text-transform:none;font-size:inherit;line-height:inherit;opacity:.68}
       .senso-cookie-footer-link:hover,.senso-cookie-footer-link:focus-visible{opacity:1;text-decoration:underline;text-underline-offset:2px}
+      .senso-privacy-footer-link,.senso-privacy-footer-link:hover,.senso-privacy-footer-link:focus-visible{text-decoration:none!important}
       .senso-privacy-note{font-family:inherit;font-size:10px;line-height:1.45;opacity:.62;margin:10px 0 0}
       .senso-privacy-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
       @media(max-width:700px){
