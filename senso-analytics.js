@@ -372,7 +372,7 @@
   function ensureFooterSettingsLink(){
     if(document.querySelector('.senso-cookie-footer-link')) return;
     consentCSS();
-    const footer=document.querySelector('footer');
+    const footer=document.querySelector('.senso-site-footer')||Array.from(document.querySelectorAll('footer')).at(-1);
     if(!footer) return;
     const target=footer.querySelector('.footer-left')||footer.firstElementChild||footer;
     const wrap=document.createElement('span');
