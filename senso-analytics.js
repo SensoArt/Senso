@@ -13,6 +13,8 @@
   // Persist QA exclusion per browser; explicit ?senso_internal=0 reverses it.
   const INTERNAL_KEY='senso_internal_v1';
   const internalMode=query.get('senso_internal');
+  let legacyInternal=false;
+  try{legacyInternal=sessionStorage.getItem(INTERNAL_KEY)==='1'}catch(e){}
   if(internalMode==='1'||internalMode==='0'){
     try{
       if(internalMode==='1') localStorage.setItem(INTERNAL_KEY,'1');
@@ -22,7 +24,11 @@
   }
   let internalBrowser=internalMode==='1';
   if(internalMode!=='0'){
-    try{internalBrowser=internalBrowser||localStorage.getItem(INTERNAL_KEY)==='1'}catch(e){}
+    internalBrowser=internalBrowser||legacyInternal;
+    try{
+      internalBrowser=internalBrowser||localStorage.getItem(INTERNAL_KEY)==='1';
+      if(internalBrowser) localStorage.setItem(INTERNAL_KEY,'1');
+    }catch(e){}
   }
   const isQa=query.get('senso_qa')==='1'||internalBrowser;
   const pagePath=location.protocol==='file:'?'/'+location.pathname.split('/').pop():location.pathname;
