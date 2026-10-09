@@ -96,6 +96,7 @@ img{display:block;width:100%}
 .products-head-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 82%;z-index:0}
 .products-head::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 100%);z-index:1}
 .products-head>div,.products-head>.micro{position:relative;z-index:2}
+.products-head>div{transform:translateY(42px)}
 .products-head::after{content:none}
 .products-head>.micro{padding-top:0;color:#252522}
 .products-head h2{margin-bottom:22px}
@@ -116,7 +117,7 @@ img{display:block;width:100%}
 .product:first-child{border-top:0}
 .product:hover{padding-left:8px;padding-right:8px}
 .product strong{font-family:Behind,Georgia,serif;font-size:clamp(1.82rem,2.69vw,2.88rem);font-weight:400;line-height:1}
-.business-group .product strong,.individuals-group .product strong{font-family:Futura,Arial,sans-serif;font-size:.713rem;font-weight:400;line-height:1.55;letter-spacing:.09em;text-transform:uppercase}
+.business-group .product strong,.individuals-group .product strong{font-family:GilroyExtraBold,Arial,sans-serif;font-size:.713rem;font-weight:800;line-height:1.55;letter-spacing:.09em;text-transform:uppercase}
 .business-group .product-group-label .micro,.individuals-group .product-group-label .micro{font-size:.839rem;font-family:GilroyExtraBold,Arial,sans-serif;font-weight:800;-webkit-text-stroke:0}
 .product p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55;max-width:540px}
 @media(min-width:901px){.product p{margin-left:-24px}}
@@ -135,6 +136,7 @@ img{display:block;width:100%}
   .hero-bottom{transform:translateY(-28px)}
   .products{padding:56px 0 94px}
   .products-head{grid-template-columns:1fr;gap:0;margin-bottom:0;padding:55px 18px 63px}
+  .products-head>div{transform:translateY(28px)}
   .products-head-bg{object-position:center 82%}
   .business-group{margin-top:56px}
   .product-group+.product-group{margin-top:54px}
@@ -390,11 +392,9 @@ body.drawer-open{overflow:hidden}
       <div>
         <div class="lang" data-lang="en">
           <h2>enter the practice</h2>
-          <p class="section-meta">Artists | Process | Experience | Context</p>
         </div>
         <div class="lang" data-lang="es" hidden>
           <h2>entrar en la práctica</h2>
-          <p class="section-meta">Artistas | Proceso | Experiencia | Contexto</p>
         </div>
       </div>
     </div>
