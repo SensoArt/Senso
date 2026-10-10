@@ -10,12 +10,27 @@
   const CONSENT_MAX_AGE_MS=1000*60*60*24*730;
   const isProduction=/^(www\.)?senso-art\.com$/i.test(location.hostname);
   const query=new URLSearchParams(location.search);
-  if(query.get('senso_internal')==='1'){
-    try{sessionStorage.setItem('senso_internal_v1','1')}catch(e){}
+  // Persist QA exclusion per browser; explicit ?senso_internal=0 reverses it.
+  const INTERNAL_KEY='senso_internal_v1';
+  const internalMode=query.get('senso_internal');
+  let legacyInternal=false;
+  try{legacyInternal=sessionStorage.getItem(INTERNAL_KEY)==='1'}catch(e){}
+  if(internalMode==='1'||internalMode==='0'){
+    try{
+      if(internalMode==='1') localStorage.setItem(INTERNAL_KEY,'1');
+      else localStorage.removeItem(INTERNAL_KEY);
+      sessionStorage.removeItem(INTERNAL_KEY);
+    }catch(e){}
   }
-  let internalSession=false;
-  try{internalSession=sessionStorage.getItem('senso_internal_v1')==='1'}catch(e){}
-  const isQa=query.get('senso_qa')==='1'||query.get('senso_internal')==='1'||internalSession;
+  let internalBrowser=internalMode==='1';
+  if(internalMode!=='0'){
+    internalBrowser=internalBrowser||legacyInternal;
+    try{
+      internalBrowser=internalBrowser||localStorage.getItem(INTERNAL_KEY)==='1';
+      if(internalBrowser) localStorage.setItem(INTERNAL_KEY,'1');
+    }catch(e){}
+  }
+  const isQa=query.get('senso_qa')==='1'||internalBrowser;
   const pagePath=location.protocol==='file:'?'/'+location.pathname.split('/').pop():location.pathname;
   const path=(pagePath.replace(/\/index\.html$/,'/')||'/').replace(/\/+/g,'/');
   const dataLayer=window.dataLayer=window.dataLayer||[];
