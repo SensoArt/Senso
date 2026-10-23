@@ -116,7 +116,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
     document.querySelectorAll('[data-set-lang]').forEach(el=>{el.classList.toggle('active',el.dataset.setLang===current);el.setAttribute('aria-pressed',String(el.dataset.setLang===current))});
     const selection=document.getElementById('selection-whatsapp');
     selection.href=selection.dataset[current==='es'?'waEs':'waEn'];
-    document.title=current==='es'?'Obras disponibles | Senso':'Available Works | Senso';
+    document.title=current==='es'?'Arte contemporáneo en venta | Obras disponibles | Senso':'Contemporary Art for Sale | Available Works | Senso';
     try{localStorage.setItem('senso_lang',current)}catch(error){}
   }
   function openArt(button){
