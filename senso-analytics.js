@@ -33,6 +33,8 @@
   const isQa=query.get('senso_qa')==='1'||internalBrowser;
   const pagePath=location.protocol==='file:'?'/'+location.pathname.split('/').pop():location.pathname;
   const path=(pagePath.replace(/\/index\.html$/,'/')||'/').replace(/\/+/g,'/');
+  // Match the same page on hosts that serve .html or clean URLs; retain raw paths in analytics.
+  const routePath=path.replace(/\/$/,'').replace(/\.html$/,'')||'/';
   const dataLayer=window.dataLayer=window.dataLayer||[];
   const scrollMarks=new Set();
   let lastForm=null;
@@ -254,7 +256,7 @@
     applyConsent(value);
     if(value.analytics&&!hadAnalytics){
       window.sensoTrack('senso_section_view',{section:businessArea()});
-      if(businessArea()==='collect_art'&&path!=='/catalogue.html')
+      if(businessArea()==='collect_art'&&routePath!=='/catalogue')
         window.sensoTrack('senso_artist_view',{artist:path.slice(1).replace(/\.html$/,'')});
       document.dispatchEvent(new Event('senso:consent'));
     }
@@ -553,10 +555,10 @@
   }
 
   function conversionType(form,context){
-    if(path==='/contacts.html'||path==='/contacto.html') return 'newsletter_signup';
-    if(path==='/catalogue.html') return 'artwork_enquiry';
-    if(businessArea()==='collect_art'&&path!=='/catalogue.html') return 'artist_enquiry';
-    if(context.interest&&path==='/contact-extra-gold-preview.html'){
+    if(routePath==='/contacts'||routePath==='/contacto') return 'newsletter_signup';
+    if(routePath==='/catalogue') return 'artwork_enquiry';
+    if(businessArea()==='collect_art'&&routePath!=='/catalogue') return 'artist_enquiry';
+    if(context.interest&&routePath==='/contact-extra-gold-preview'){
       if(/studio/i.test(context.interest)) return 'studio_enquiry';
       if(/consulting/i.test(context.interest)) return 'consulting_enquiry';
     }
@@ -700,9 +702,9 @@
     if(consent) applyConsent(consent);
     else showConsent(false);
     window.sensoTrack('senso_section_view',{section:businessArea()});
-    if(businessArea()==='collect_art'&&path!=='/catalogue.html')
+    if(businessArea()==='collect_art'&&routePath!=='/catalogue')
       window.sensoTrack('senso_artist_view',{artist:path.slice(1).replace(/\.html$/,'')});
-    if(path==='/catalogue.html'&&'IntersectionObserver' in window){
+    if(routePath==='/catalogue'&&'IntersectionObserver' in window){
       const seen=new WeakSet();
       const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
         if(!entry.isIntersecting||seen.has(entry.target)) return;
