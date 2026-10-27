@@ -501,7 +501,7 @@ header{position:sticky!important;top:0;z-index:1000}
 <!-- SEZIONE NEXT EXHIBITION -->
 <section class="exhibition-container home-panel">
   <div class="exhibition-title-side" id="next-exhibition-label">
-    Next Exhibition :
+    Last Exhibition :
   </div>
 
   <div class="exhibition-flyer-side">
@@ -541,7 +541,7 @@ function setLang(lang){
   document.getElementById('btn-en').classList.toggle('active', !isSpanish);
   document.getElementById('btn-es').classList.toggle('active', isSpanish);
 
-  document.getElementById('next-exhibition-label').textContent = isSpanish ? 'Próxima Exposición :' : 'Next Exhibition :';
+  document.getElementById('next-exhibition-label').textContent = isSpanish ? 'Última Exposición :' : 'Last Exhibition :';
   document.querySelectorAll('.en-home').forEach(el=>el.classList.toggle('hidden',isSpanish));
   document.querySelectorAll('.es-home').forEach(el=>el.classList.toggle('hidden',!isSpanish));
 
