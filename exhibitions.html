@@ -541,6 +541,17 @@ nav.main-nav{
   object-fit:cover!important;
   object-position:center 68%!important;
 }
+/* Preview only: conceal artist names printed into the RESonance flyer image. */
+.resonance-frame::after{
+  content:"";
+  position:absolute;
+  left:50%;top:69%;width:46%;height:12%;
+  z-index:1;pointer-events:none;
+  -webkit-backdrop-filter:blur(34px);
+  backdrop-filter:blur(34px);
+  -webkit-mask-image:radial-gradient(ellipse 77% 70% at center,#000 56%,transparent 100%);
+  mask-image:radial-gradient(ellipse 77% 70% at center,#000 56%,transparent 100%);
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Senso Exhibitions","url":"https://senso-art.com/exhibitions.html","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Event","name":"PRINCIPIUM","url":"https://senso-art.com/principium.html","location":{"@type":"City","name":"Barcelona"}}},{"@type":"ListItem","position":2,"item":{"@type":"ExhibitionEvent","name":"RESonance","url":"https://senso-art.com/resonance.html","startDate":"2026-10-17","endDate":"2026-10-24","location":{"@type":"Place","name":"NauART","address":"Espronceda 154, Barcelona, Spain"}}}]}}</script>
 </head>
