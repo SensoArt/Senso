@@ -18,7 +18,6 @@
 .slide img{display:block;width:100%;height:100%;object-fit:contain}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:12;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.85);color:#111;font:300 1.75rem/1 FuturaLight,sans-serif;cursor:pointer}
 .gallery-prev{left:24px}.gallery-next{right:24px}
-.gallery-count{position:absolute;right:28px;bottom:24px;z-index:12;font-size:.65rem;letter-spacing:1.8px;background:rgba(255,255,255,.85);padding:8px 10px}
 main{max-width:1320px;margin:auto;padding:110px 50px 125px}
 .archive-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:120px;align-items:start}
 .kicker{text-transform:uppercase;letter-spacing:3px;font-size:.7rem;margin:8px 0 32px}
@@ -33,29 +32,51 @@ h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(4rem,7vw,7.2rem)
 .senso-generated-footer{display:flex;justify-content:space-between;align-items:center;padding:35px 50px;font-family:'FuturaLight','Futura',Arial,sans-serif;font-size:.70rem;letter-spacing:1px;color:#000;background:#fff;border-top:1px solid #f0f0f0}
 @media(max-width:900px){
   .back{top:14px;left:12px}.gallery{height:76vh;min-height:520px}
-  .gallery-nav{width:40px;height:40px}.gallery-prev{left:12px}.gallery-next{right:12px}.gallery-count{right:14px;bottom:16px}
+  .gallery-nav{width:40px;height:40px}.gallery-prev{left:12px}.gallery-next{right:12px}
   main{padding:82px 20px 90px}.archive-grid{grid-template-columns:1fr;gap:64px}h1{font-size:clamp(3.6rem,18vw,5.3rem)}
   .statement{font-size:1.05rem}
   .senso-site-footer{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:15px!important;padding:25px 20px!important;text-align:center!important}
   .senso-site-footer .footer-left{text-align:center!important}.senso-site-footer .footer-socials{margin-left:0!important;justify-content:center!important}
 }
+
+/* Shared Senso header, scoped to this preview page */
+.senso-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:sticky;top:0;z-index:80}
+.senso-header .brand-container{display:flex;flex-direction:column;align-items:flex-start;gap:30px;flex:0 0 180.08px}
+.senso-header .home-link{color:#111;text-decoration:none;text-transform:uppercase;font-size:.65rem;letter-spacing:2px;white-space:nowrap;margin-top:2px}
+.senso-header .nav-container{display:flex;flex-direction:column;align-items:flex-end;gap:15px;margin-top:0;flex:1;min-width:0}
+.senso-header nav{display:flex;justify-content:center;gap:20px;letter-spacing:2px;text-transform:uppercase;font-size:.72rem;margin-top:10px;margin-left:40px;width:calc(100% - 40px)}
+.senso-header nav a{color:#000;text-decoration:none;opacity:.78;position:relative;padding-bottom:4px}
+.senso-header nav a::after{content:'';position:absolute;width:0;height:1px;bottom:0;left:0;background:#000;transition:width .3s ease}
+.senso-header nav a:hover{opacity:1}.senso-header nav a:hover::after{width:100%}
+.senso-header .lang-switch{font-size:.65rem;letter-spacing:2px;display:flex;align-items:center;color:#777;margin-top:-10px}
+.senso-header .lang-btn{padding:0 2px;border:0;background:none;color:#666;cursor:pointer;font-family:inherit;font-size:.65rem;letter-spacing:2px;opacity:.4;transition:opacity .3s,color .3s}
+.senso-header .lang-btn.active{opacity:.72;color:#333;font-weight:400}
+.hidden{display:none!important}
+.gallery{margin-top:0}
+@media(max-width:900px){
+.senso-header{flex-direction:column;gap:20px;padding:30px 20px 20px}
+.senso-header .brand-container{flex:0 0 auto;gap:15px}
+.senso-header .nav-container{width:100%;align-items:flex-start}
+.senso-header .lang-switch{position:absolute;top:30px;right:20px;margin-top:0;z-index:20}
+.senso-header nav{margin-top:10px;margin-left:0;width:100%;flex-wrap:wrap;justify-content:flex-start}
+}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExhibitionEvent","name":"RESonance","url":"https://senso-art.com/resonance.html","startDate":"2026-10-17","endDate":"2026-10-24","eventStatus":"https://schema.org/EventCompleted","location":{"@type":"Place","name":"NauART","address":"Espronceda 154, Barcelona, Spain"},"organizer":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"},"performer":[{"@type":"Person","name":"Paolo Agostini","url":"https://senso-art.com/paolo-agostini.html"},{"@type":"Person","name":"Catherine Parra","url":"https://senso-art.com/catherine-parra.html"},{"@type":"Person","name":"Rafael Nuesi","url":"https://senso-art.com/rafael-nuesi.html"},{"@type":"Person","name":"Lucía Cheves Dauber","url":"https://senso-art.com/lucia-cheves.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExhibitionEvent","name":"RESonance","url":"https://senso-art.com/resonance.html","startDate":"2026-10-17","endDate":"2026-10-24","eventStatus":"https://schema.org/EventCompleted","location":{"@type":"Place","name":"NauART","address":"Barcelona, Spain"},"organizer":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"},"performer":[{"@type":"Person","name":"Paolo Agostini","url":"https://senso-art.com/paolo-agostini.html"},{"@type":"Person","name":"Catherine Parra","url":"https://senso-art.com/catherine-parra.html"},{"@type":"Person","name":"Rafael Nuesi","url":"https://senso-art.com/rafael-nuesi.html"},{"@type":"Person","name":"Lucía Cheves Dauber","url":"https://senso-art.com/lucia-cheves.html"}]}</script>
 </head>
 <body>
-<a class="back" href="index.html">← Home</a>
+<header class="senso-header">
+  <div class="brand-container"><a class="home-link" href="index.html">← HOME</a></div>
+  <div class="nav-container">
+    <div class="lang-switch" aria-label="Language / Idioma">
+      <button type="button" class="lang-btn active" data-set-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">|</span><button type="button" class="lang-btn" data-set-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <nav id="nav-en" aria-label="Primary navigation"><a href="about.html">About</a><a href="exhibitions.html" aria-current="page">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a></nav>
+    <nav id="nav-es" aria-label="Navegación principal" class="hidden"><a href="about.html">Quiénes somos</a><a href="exhibitions.html" aria-current="page">Exposiciones</a><a href="artists.html">Artistas</a><a href="art-consulting.html">Asesoría de Arte</a><a href="studio.html">Senso Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacto</a></nav>
+  </div>
+</header>
 
 <section class="gallery" id="resonance-gallery" aria-label="RESonance installation views">
-  <figure class="slide active"><img src="resonance/photos/resonance-01.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-02.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-03.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-04.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-05.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-06.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-07.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-08.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/resonance-09.jpg" alt="RESonance exhibition installation view at NauART, Barcelona"></figure>
-  <figure class="slide"><img src="resonance/photos/_MG_4370.jpg" alt="RESonance exhibition, additional installation view 10 at NauART, Barcelona" loading="lazy"></figure>
+  <figure class="slide active"><img src="resonance/photos/_MG_4370.jpg" alt="RESonance exhibition, additional installation view 10 at NauART, Barcelona" loading="lazy"></figure>
   <figure class="slide"><img src="resonance/photos/_MG_4385.jpg" alt="RESonance exhibition, additional installation view 11 at NauART, Barcelona" loading="lazy"></figure>
   <figure class="slide"><img src="resonance/photos/_MG_4481.jpg" alt="RESonance exhibition, additional installation view 12 at NauART, Barcelona" loading="lazy"></figure>
   <figure class="slide"><img src="resonance/photos/_MG_4449.jpg" alt="RESonance exhibition, additional installation view 13 at NauART, Barcelona" loading="lazy"></figure>
@@ -65,32 +86,31 @@ h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(4rem,7vw,7.2rem)
   <figure class="slide"><img src="resonance/photos/_MG_4383.jpg" alt="RESonance exhibition, additional installation view 17 at NauART, Barcelona" loading="lazy"></figure>
   <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image">‹</button>
   <button class="gallery-nav gallery-next" type="button" aria-label="Next image">›</button>
-  <div class="gallery-count"><span id="gallery-current">01</span> / 17</div>
 </section>
 
 <main>
 <section class="archive-grid">
   <div>
-    <div class="kicker">Group exhibition</div>
+    <div class="kicker"><span data-copy-en>Group exhibition</span><span data-copy-es hidden>Exposición colectiva</span></div>
     <h1>RESonance</h1>
     <div class="meta">
-      17–24 October 2026<br>
-      NauART · Espronceda 154 · Barcelona
+      <span data-copy-en>17–24 October 2026</span><span data-copy-es hidden>17–24 de octubre de 2026</span><br>
+      NauART · Barcelona
       <div class="artists">
         <a href="paolo-agostini.html">Paolo Agostini</a><br>
         <a href="catherine-parra.html">Catherine Parra</a><br>
         <a href="rafael-nuesi.html">Rafael Nuesi</a><br>
         <a href="lucia-cheves.html">Lucía Cheves Dauber</a>
       </div>
-      <div style="margin-top:28px">Curated by Claudia Alizieri</div>
+      <div style="margin-top:28px"><span data-copy-en>Curated by Claudia Alizieri</span><span data-copy-es hidden>Comisariada por Claudia Alizieri</span></div>
     </div>
   </div>
   <div class="statement">
-    <p><strong>Where does the artwork end and our interpretation begin?</strong></p>
-    <p>Looking is never a neutral act.</p>
-    <p>Every form we recognise, every connection we imagine, every meaning we attribute arises from the encounter between what the artwork offers us and what we bring to it.</p>
-    <p>Resonances, contrasts and correspondences emerge between the works, progressively altering our perception.</p>
-    <p><strong>Where do we end and the artwork begin?</strong></p>
+    <p><strong><span data-copy-en>Where does the artwork end and our interpretation begin?</span><span data-copy-es hidden>¿Dónde termina la obra y comienza nuestra interpretación?</span></strong></p>
+    <p><span data-copy-en>Looking is never a neutral act.</span><span data-copy-es hidden>Mirar nunca es un acto neutral.</span></p>
+    <p><span data-copy-en>Every form we recognise, every connection we imagine, every meaning we attribute arises from the encounter between what the artwork offers us and what we bring to it.</span><span data-copy-es hidden>Cada forma que reconocemos, cada conexión que imaginamos, cada significado que atribuimos surge del encuentro entre lo que la obra nos ofrece y lo que nosotros aportamos.</span></p>
+    <p><span data-copy-en>Resonances, contrasts and correspondences emerge between the works, progressively altering our perception.</span><span data-copy-es hidden>Entre las obras emergen resonancias, contrastes y correspondencias que transforman progresivamente nuestra percepción.</span></p>
+    <p><strong><span data-copy-en>Where do we end and the artwork begin?</span><span data-copy-es hidden>¿Dónde terminamos nosotros y comienza la obra?</span></strong></p>
   </div>
 </section>
 </main>
@@ -99,7 +119,6 @@ h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(4rem,7vw,7.2rem)
 <script>
 (function(){
   const slides=[...document.querySelectorAll('.slide')];
-  const current=document.getElementById('gallery-current');
   const gallery=document.getElementById('resonance-gallery');
   let index=0,timer,startX=0;
   function schedule(){
@@ -110,7 +129,6 @@ h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(4rem,7vw,7.2rem)
     slides[index].classList.remove('active');
     index=(next+slides.length)%slides.length;
     slides[index].classList.add('active');
-    current.textContent=String(index+1).padStart(2,'0');
     schedule();
   }
   document.querySelector('.gallery-next').addEventListener('click',()=>show(index+1));
@@ -121,6 +139,28 @@ h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(4rem,7vw,7.2rem)
   gallery.addEventListener('mouseenter',()=>clearTimeout(timer));
   gallery.addEventListener('mouseleave',schedule);
   schedule();
+})();
+</script>
+<script>
+(function(){
+  const buttons=document.querySelectorAll('[data-set-lang]');
+  function changeLang(lang){
+    const es=lang==='es';
+    document.documentElement.lang=es?'es':'en';
+    document.getElementById('nav-en').classList.toggle('hidden',es);
+    document.getElementById('nav-es').classList.toggle('hidden',!es);
+    document.querySelectorAll('[data-copy-en]').forEach(el=>el.hidden=es);
+    document.querySelectorAll('[data-copy-es]').forEach(el=>el.hidden=!es);
+    buttons.forEach(button=>{
+      const selected=button.dataset.setLang===lang;
+      button.classList.toggle('active',selected);
+      button.setAttribute('aria-pressed',String(selected));
+    });
+    try{localStorage.setItem('senso_lang',lang)}catch(e){}
+  }
+  buttons.forEach(button=>button.addEventListener('click',()=>changeLang(button.dataset.setLang)));
+  let saved='en';try{saved=localStorage.getItem('senso_lang')||'en'}catch(e){}
+  changeLang(saved==='es'?'es':'en');
 })();
 </script>
 <script src="senso-analytics.js" defer></script>
