@@ -9,73 +9,169 @@
 <style>
 @font-face{font-family:FuturaLight;src:url('Fonts/futura light bt.ttf') format('truetype')}
 @font-face{font-family:BehindTheNineties;src:url('Fonts/Behind-The-Nineties-Md-It.otf') format('opentype')}
-*{box-sizing:border-box}body{margin:0;color:#111;background:#fff;font-family:FuturaLight,sans-serif;-webkit-font-smoothing:antialiased}
-.back{position:fixed;top:25px;left:25px;z-index:5;color:#111;text-decoration:none;text-transform:uppercase;font-size:.65rem;letter-spacing:2px}
-main{max-width:1400px;margin:auto;padding:130px 50px 120px}
-.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:100px;align-items:start}
-.kicker{text-transform:uppercase;letter-spacing:3px;font-size:.7rem;margin:8px 0 35px}
-h1{font-family:BehindTheNineties,Georgia,serif;font-size:clamp(3rem,5.5vw,5.2rem);font-weight:normal;line-height:.9;margin:0 0 45px}
-.meta{font-size:.9rem;line-height:1.9;letter-spacing:.5px}
-.flyer{width:100%;max-width:600px;display:block;margin-left:auto}
-.statement{max-width:760px;margin:130px auto 0;font-size:1.15rem;line-height:1.9}
-.actions{margin-top:90px;border-top:1px solid #111;padding-top:35px;display:grid;grid-template-columns:1fr 1fr;gap:70px}
-.action h2{font-family:BehindTheNineties,Georgia,serif;font-weight:normal;font-size:2rem;margin:0 0 20px}
-.action p{line-height:1.7;max-width:480px}.action a{display:inline-block;margin-top:20px;color:#111;text-decoration:none;text-transform:uppercase;font-size:.68rem;letter-spacing:2px;border-bottom:1px solid #111;padding-bottom:5px}
-@media(max-width:800px){main{padding:100px 20px 80px}.hero,.actions{grid-template-columns:1fr;gap:60px}.flyer{margin:0}.statement{margin-top:90px}}
-
-/* MOBILE ONLY — desktop/menu/footer remain unchanged. */
-@media(max-width:900px){
-  .senso-header .lang-switch{
-    position:absolute;
-    top:24px;
-    right:20px;
-    margin:0;
-    z-index:20;
-  }
-  .senso-header .lang-btn.active{font-weight:400}
-}
-
-
-
-/* Senso site footer normalization */
+@font-face{font-family:GilroyExtraBold;src:url('Fonts/Gilroy-ExtraBold.otf') format('opentype');font-weight:800;font-display:swap}
+*{box-sizing:border-box}html,body{margin:0;color:#111;background:#fff;font-family:FuturaLight,sans-serif;-webkit-font-smoothing:antialiased}
+.back{position:fixed;top:25px;left:25px;z-index:40;color:#111;text-decoration:none;text-transform:uppercase;font-size:.65rem;letter-spacing:2px;background:transparent}
+.gallery{position:relative;width:100%;height:92vh;min-height:620px;overflow:hidden;background:#fff}
+.slide{position:absolute;inset:0;margin:0;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .9s ease}
+.slide.active{opacity:1;pointer-events:auto;z-index:2}
+.slide img{display:block;width:100%;height:100%;object-fit:contain}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);z-index:12;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.85);color:#111;font:300 1.75rem/1 FuturaLight,sans-serif;cursor:pointer}
+.gallery-prev{left:24px}.gallery-next{right:24px}
+main{max-width:1320px;margin:auto;padding:110px 50px 125px}
+.archive-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:120px;align-items:start}
+.kicker{text-transform:uppercase;letter-spacing:3px;font-size:.7rem;margin:8px 0 32px}
+h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(4rem,7vw,7.2rem);font-weight:800;line-height:.95;margin:0 0 45px}
+.meta{font-size:.9rem;line-height:1.9;letter-spacing:.4px}
+.meta .artists{margin-top:28px}.meta a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(0,0,0,.22)}
+.statement{font-family:FuturaLight,sans-serif;font-size:1.15rem;line-height:1.45;max-width:790px}
+.statement p{margin:0 0 1.15em}.statement strong{font-weight:normal}
 .senso-site-footer .footer-socials{display:flex;align-items:center;gap:15px;margin-left:auto}
 .senso-site-footer .footer-socials a{color:inherit;text-decoration:none;display:flex;align-items:center;opacity:.8;transition:opacity .3s;border:0}
-.senso-site-footer .footer-socials a:hover{opacity:1}
-.senso-site-footer .footer-socials svg{width:18px;height:18px;fill:currentColor}
+.senso-site-footer .footer-socials a:hover{opacity:1}.senso-site-footer .footer-socials svg{width:18px;height:18px;fill:currentColor}
 .senso-generated-footer{display:flex;justify-content:space-between;align-items:center;padding:35px 50px;font-family:'FuturaLight','Futura',Arial,sans-serif;font-size:.70rem;letter-spacing:1px;color:#000;background:#fff;border-top:1px solid #f0f0f0}
-nav a.active-link,nav a[aria-current="page"]{opacity:1!important}
-nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 @media(max-width:900px){
+  .back{top:14px;left:12px}.gallery{height:76vh;min-height:520px}
+  .gallery-nav{width:40px;height:40px}.gallery-prev{left:12px}.gallery-next{right:12px}
+  main{padding:82px 20px 90px}.archive-grid{grid-template-columns:1fr;gap:64px}h1{font-size:clamp(3.6rem,18vw,5.3rem)}
+  .statement{font-size:1.05rem}
   .senso-site-footer{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:15px!important;padding:25px 20px!important;text-align:center!important}
-  .senso-site-footer .footer-left{text-align:center!important}
-  .senso-site-footer .footer-socials{margin-left:0!important;justify-content:center!important}
+  .senso-site-footer .footer-left{text-align:center!important}.senso-site-footer .footer-socials{margin-left:0!important;justify-content:center!important}
 }
 
-
-/* Unified EN | ES spacing and active-language tone */
-.lang-switch{display:flex!important;align-items:center!important;gap:0!important}
-.lang-switch .lang-btn{padding-left:2px!important;padding-right:2px!important}
-.lang-switch .lang-btn.active{font-weight:400!important;opacity:.72!important}
+/* Shared Senso header, scoped to this preview page */
+.senso-header{display:flex;justify-content:space-between;align-items:flex-start;padding:42px 50px 24px;background:#fff;position:sticky;top:0;z-index:80}
+.senso-header .brand-container{display:flex;flex-direction:column;align-items:flex-start;gap:30px;flex:0 0 180.08px}
+.senso-header .home-link{color:#111;text-decoration:none;text-transform:uppercase;font-size:.65rem;letter-spacing:2px;white-space:nowrap;margin-top:2px}
+.senso-header .nav-container{display:flex;flex-direction:column;align-items:flex-end;gap:15px;margin-top:0;flex:1;min-width:0}
+.senso-header nav{display:flex;justify-content:center;gap:20px;letter-spacing:2px;text-transform:uppercase;font-size:.72rem;margin-top:10px;margin-left:40px;width:calc(100% - 40px)}
+.senso-header nav a{color:#000;text-decoration:none;opacity:.78;position:relative;padding-bottom:4px}
+.senso-header nav a::after{content:'';position:absolute;width:0;height:1px;bottom:0;left:0;background:#000;transition:width .3s ease}
+.senso-header nav a:hover{opacity:1}.senso-header nav a:hover::after{width:100%}
+.senso-header .lang-switch{font-size:.65rem;letter-spacing:2px;display:flex;align-items:center;color:#777;margin-top:-10px}
+.senso-header .lang-btn{padding:0 2px;border:0;background:none;color:#666;cursor:pointer;font-family:inherit;font-size:.65rem;letter-spacing:2px;opacity:.4;transition:opacity .3s,color .3s}
+.senso-header .lang-btn.active{opacity:.72;color:#333;font-weight:400}
+.hidden{display:none!important}
+.gallery{margin-top:0}
+@media(max-width:900px){
+.senso-header{flex-direction:column;gap:20px;padding:30px 20px 20px}
+.senso-header .brand-container{flex:0 0 auto;gap:15px}
+.senso-header .nav-container{width:100%;align-items:flex-start}
+.senso-header .lang-switch{position:absolute;top:30px;right:20px;margin-top:0;z-index:20}
+.senso-header nav{margin-top:10px;margin-left:0;width:100%;flex-wrap:wrap;justify-content:flex-start}
+}
+.catalogue-cta{margin:56px 0 0;font-size:.67rem;letter-spacing:1.6px;text-transform:uppercase}.catalogue-cta a{color:inherit;text-decoration:none;border-bottom:1px solid #111;padding-bottom:8px}.catalogue-cta a:hover{opacity:.65}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExhibitionEvent","name":"RESonance","url":"https://senso-art.com/resonance.html","startDate":"2026-10-17","endDate":"2026-10-24","location":{"@type":"Place","name":"NauART","address":"Espronceda 154, Barcelona, Spain"},"organizer":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"},"performer":[{"@type":"Person","name":"Paolo Agostini","url":"https://senso-art.com/paolo-agostini.html"},{"@type":"Person","name":"Catherine Parra","url":"https://senso-art.com/catherine-parra.html"},{"@type":"Person","name":"Rafael Nuesi","url":"https://senso-art.com/rafael-nuesi.html"},{"@type":"Person","name":"Lucía Cheves Dauber","url":"https://senso-art.com/lucia-cheves.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ExhibitionEvent","name":"RESonance","url":"https://senso-art.com/resonance.html","startDate":"2026-10-17","endDate":"2026-10-24","eventStatus":"https://schema.org/EventCompleted","location":{"@type":"Place","name":"NauART","address":"Barcelona, Spain"},"organizer":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"},"performer":[{"@type":"Person","name":"Paolo Agostini","url":"https://senso-art.com/paolo-agostini.html"},{"@type":"Person","name":"Catherine Parra","url":"https://senso-art.com/catherine-parra.html"},{"@type":"Person","name":"Rafael Nuesi","url":"https://senso-art.com/rafael-nuesi.html"},{"@type":"Person","name":"Lucía Cheves Dauber","url":"https://senso-art.com/lucia-cheves.html"}]}</script>
+<style>
+/* Preview only: discreet link in existing statement column. */
+.statement .resonance-artwork-enquiry{margin-top:28px}
+.statement .resonance-artwork-enquiry a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:3px;font:inherit;font-size:.82em}
+.statement .resonance-artwork-enquiry a:hover{opacity:.65}
+</style>
 </head>
 <body>
-<a class="back" href="index.html">← Home</a>
+<header class="senso-header">
+  <div class="brand-container"><a class="home-link" href="index.html">← HOME</a></div>
+  <div class="nav-container">
+    <div class="lang-switch" aria-label="Language / Idioma">
+      <button type="button" class="lang-btn active" data-set-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">|</span><button type="button" class="lang-btn" data-set-lang="es" aria-pressed="false">ES</button>
+    </div>
+    <nav id="nav-en" aria-label="Primary navigation"><a href="about.html">About</a><a href="exhibitions.html" aria-current="page">Exhibitions</a><a href="artists.html">Artists</a><a href="art-consulting.html">Art Consulting</a><a href="studio.html">Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacts</a></nav>
+    <nav id="nav-es" aria-label="Navegación principal" class="hidden"><a href="about.html">Quiénes somos</a><a href="exhibitions.html" aria-current="page">Exposiciones</a><a href="artists.html">Artistas</a><a href="art-consulting.html">Asesoría de Arte</a><a href="studio.html">Senso Studio</a><a href="journal.html">Journal</a><a href="contacts.html">Contacto</a></nav>
+  </div>
+</header>
+
+<section class="gallery" id="resonance-gallery" aria-label="RESonance installation views">
+  <figure class="slide active"><img src="resonance/photos/MG_4370.jpg" alt="RESonance exhibition, additional installation view 10 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/MG_4385.jpg" alt="RESonance exhibition, additional installation view 11 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/MG_4481.jpg" alt="RESonance exhibition, additional installation view 12 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/MG_4449.jpg" alt="RESonance exhibition, additional installation view 13 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/IMG_3036.jpg" alt="RESonance exhibition, additional installation view 14 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/IMG_2858.jpg" alt="RESonance exhibition, additional installation view 15 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/MG_4384.jpg" alt="RESonance exhibition, additional installation view 16 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <figure class="slide"><img src="resonance/photos/MG_4383.jpg" alt="RESonance exhibition, additional installation view 17 at NauART, Barcelona" loading="eager" decoding="async"></figure>
+  <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image">‹</button>
+  <button class="gallery-nav gallery-next" type="button" aria-label="Next image">›</button>
+</section>
+
 <main>
-<section class="hero">
-<div><div class="kicker">Current exhibition</div><div class="meta">17-24 October 2026<br>Opening · 17 October · 17:30-21:30<br>NauART · Espronceda 154 · Barcelona<br><br><a href="paolo-agostini.html" style="color:inherit;text-decoration:none">Paolo Agostini</a> · <a href="catherine-parra.html" style="color:inherit;text-decoration:none">Catherine Parra</a> · <a href="rafael-nuesi.html" style="color:inherit;text-decoration:none">Rafael Nuesi</a> · <a href="lucia-cheves.html" style="color:inherit;text-decoration:none">Lucía Cheves Dauber</a><br>Curated by Claudia Alizieri</div></div>
-<img class="flyer" src="RESonance — Flyer Concepts (1).png" alt="RESonance exhibition">
-</section>
-<section class="statement">
-<p><strong>Where does the artwork end and our interpretation begin?</strong></p>
-<p>Looking is never a neutral act.</p>
-<p>Every form we recognise, every connection we imagine, every meaning we attribute arises from the encounter between what the artwork offers us and what we bring to it.</p>
-<p>Resonances, contrasts and correspondences emerge between the works, progressively altering our perception.</p>
-<p><strong>Where do we end and the artwork begin?</strong></p>
-</section>
-<section class="actions"><article class="action"><h2>visit</h2><p>RESonance is open at NauART, Barcelona, from 17 to 24 October.</p><a href="mailto:contact@senso-art.com?subject=RESonance visit">Plan your visit →</a></article><article class="action"><h2>works & private preview</h2><p>If a particular artist or work stays with you, ask Senso for availability, further images or a private viewing.</p><a href="mailto:contact@senso-art.com?subject=RESonance collector preview">Ask about the works →</a></article>
+<section class="archive-grid">
+  <div>
+    <div class="kicker"><span data-copy-en>Group exhibition</span><span data-copy-es hidden>Exposición colectiva</span></div>
+    <h1>RESonance</h1>
+    <div class="meta">
+      <span data-copy-en>17–24 October 2026</span><span data-copy-es hidden>17–24 de octubre de 2026</span><br>
+      NauART · Barcelona
+      <div class="artists">
+        <a href="paolo-agostini.html">Paolo Agostini</a><br>
+        <a href="catherine-parra.html">Catherine Parra</a><br>
+        <a href="rafael-nuesi.html">Rafael Nuesi</a><br>
+        <a href="lucia-cheves.html">Lucía Cheves Dauber</a>
+      </div>
+      <div style="margin-top:28px"><span data-copy-en>Curated by Claudia Alizieri</span><span data-copy-es hidden>Comisariada por Claudia Alizieri</span></div>
+    </div>
+  </div>
+  <div class="statement">
+    <p><strong><span data-copy-en>Where does the artwork end and our interpretation begin?</span><span data-copy-es hidden>¿Dónde termina la obra y comienza nuestra interpretación?</span></strong></p>
+    <p><span data-copy-en>Looking is never a neutral act.</span><span data-copy-es hidden>Mirar nunca es un acto neutral.</span></p>
+    <p><span data-copy-en>Every form we recognise, every connection we imagine, every meaning we attribute arises from the encounter between what the artwork offers us and what we bring to it.</span><span data-copy-es hidden>Cada forma que reconocemos, cada conexión que imaginamos, cada significado que atribuimos surge del encuentro entre lo que la obra nos ofrece y lo que nosotros aportamos.</span></p>
+    <p><span data-copy-en>Resonances, contrasts and correspondences emerge between the works, progressively altering our perception.</span><span data-copy-es hidden>Entre las obras emergen resonancias, contrastes y correspondencias que transforman progresivamente nuestra percepción.</span></p>
+    <p><strong><span data-copy-en>Where do we end and the artwork begin?</span><span data-copy-es hidden>¿Dónde terminamos nosotros y comienza la obra?</span></strong></p>
+    <p class="resonance-artwork-enquiry"><a href="mailto:contact@senso-art.com?subject=RESonance%20%E2%80%94%20Artwork%20Enquiry"><span data-copy-en>Enquire about an artwork</span><span data-copy-es hidden>Consultar una obra</span> ↗</a></p>
+    <p class="catalogue-cta"><a href="resonance-catalogue.html"><span data-copy-en>VIEW EXHIBITION CATALOGUE</span><span data-copy-es hidden>VER CATÁLOGO DE LA EXPOSICIÓN</span> <span aria-hidden="true">↗</span></a></p>
+  </div>
 </section>
 </main>
+
 <footer class="senso-site-footer senso-generated-footer"><div class="footer-left">&copy; 2026 Senso Art. All rights reserved.</div><div class="footer-socials"><a href="https://www.linkedin.com/company/sensoartbarcelona" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a><a href="https://www.instagram.com/senso_art_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></div></footer>
+<script>
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const gallery=document.getElementById('resonance-gallery');
+  let index=0,timer,startX=0;
+  function schedule(){
+    clearTimeout(timer);
+    timer=setTimeout(()=>show(index+1),6000);
+  }
+  function show(next){
+    slides[index].classList.remove('active');
+    index=(next+slides.length)%slides.length;
+    slides[index].classList.add('active');
+    schedule();
+  }
+  document.querySelector('.gallery-next').addEventListener('click',()=>show(index+1));
+  document.querySelector('.gallery-prev').addEventListener('click',()=>show(index-1));
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(index+1);if(e.key==='ArrowLeft')show(index-1)});
+  gallery.addEventListener('touchstart',e=>{startX=e.touches[0].clientX},{passive:true});
+  gallery.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-startX;if(Math.abs(dx)>45)show(index+(dx<0?1:-1))},{passive:true});
+  gallery.addEventListener('mouseenter',()=>clearTimeout(timer));
+  gallery.addEventListener('mouseleave',schedule);
+  schedule();
+})();
+</script>
+<script>
+(function(){
+  const buttons=document.querySelectorAll('[data-set-lang]');
+  function changeLang(lang){
+    const es=lang==='es';
+    document.documentElement.lang=es?'es':'en';
+    document.getElementById('nav-en').classList.toggle('hidden',es);
+    document.getElementById('nav-es').classList.toggle('hidden',!es);
+    document.querySelectorAll('[data-copy-en]').forEach(el=>el.hidden=es);
+    document.querySelectorAll('[data-copy-es]').forEach(el=>el.hidden=!es);
+    buttons.forEach(button=>{
+      const selected=button.dataset.setLang===lang;
+      button.classList.toggle('active',selected);
+      button.setAttribute('aria-pressed',String(selected));
+    });
+    try{localStorage.setItem('senso_lang',lang)}catch(e){}
+  }
+  buttons.forEach(button=>button.addEventListener('click',()=>changeLang(button.dataset.setLang)));
+  let saved='en';try{saved=localStorage.getItem('senso_lang')||'en'}catch(e){}
+  changeLang(saved==='es'?'es':'en');
+})();
+</script>
 <script src="senso-analytics.js" defer></script>
-</body></html>
+</body>
+</html>

@@ -1,49 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Senso | Contemporary Art Expression</title>
-<meta name="description" content="RESonance exhibition catalogue by Senso.">
-<link rel="icon" type="image/png" href="/favicon.png?v=1000">
-<meta name="theme-color" content="#ffffff">
-<style>
-@font-face{font-family:FuturaLight;src:url('/Fonts/futura light bt.ttf') format('truetype');font-display:swap}
-@font-face{font-family:GilroyExtraBold;src:url('/Fonts/Gilroy-ExtraBold.otf') format('opentype');font-display:swap}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;background:#fff;color:#111}
-body{font-family:FuturaLight,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-.page{min-height:100svh;display:flex;flex-direction:column;padding:28px 28px 26px}
-.back{align-self:flex-start;color:#111;text-decoration:none;text-transform:uppercase;font-size:.62rem;letter-spacing:2px;padding:8px 0}
-main{width:100%;max-width:1100px;margin:auto;display:flex;flex-direction:column;align-items:center;text-align:center;padding:70px 0 90px}
-h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(3.4rem,9vw,7.2rem);line-height:.9;margin:0;letter-spacing:-.035em}
-.subtitle{margin:26px 0 64px;font-size:.7rem;text-transform:uppercase;letter-spacing:2.4px}
-.languages{display:flex;align-items:center;justify-content:center;gap:46px}
-.languages a{color:#111;text-decoration:none;font-size:.76rem;letter-spacing:2.2px;text-transform:uppercase;padding:12px 0;border-bottom:1px solid transparent;transition:border-color .2s ease}
-.languages a:hover,.languages a:focus-visible{border-color:#111;outline:none}
-footer{margin-top:auto;text-align:center;font-size:.58rem;letter-spacing:1.7px;text-transform:uppercase;padding-top:20px}
-@media(max-width:600px){
-  .page{padding:22px 20px 24px}
-  main{padding:50px 0 75px}
-  h1{font-size:clamp(3.4rem,18vw,5.8rem)}
-  .subtitle{margin:24px 0 52px;font-size:.64rem}
-  .languages{gap:28px}
-  .languages a{font-size:.7rem;min-height:44px;display:flex;align-items:center}
-}
-</style>
-</head>
-<body>
-<div class="page">
-<a class="back" href="/resonance.html">← RESonance</a>
-<main>
-<h1>RESonance</h1>
-<p class="subtitle">Exhibition catalogue</p>
-<nav class="languages" aria-label="Catalogue language">
-<a href="/resonance-catalogue-en.pdf">English →</a>
-<a href="/resonance-catalogue-es.pdf" lang="es">Español →</a>
-</nav>
-</main>
-<footer>Senso · Contemporary Art Expression</footer>
-</div>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>RESonance — Exhibition Catalogue | Senso</title><link rel="icon" href="favicon.png?v=1000"><style>
+@font-face{font-family:FuturaLight;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
+@font-face{font-family:GilroyExtraBold;src:url('Fonts/Gilroy-ExtraBold.otf') format('opentype');font-display:swap;font-weight:800}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:#111;font-family:FuturaLight,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+header{height:120px;padding:42px 50px 24px;display:flex;justify-content:space-between;align-items:flex-start}
+.back{color:#111;text-decoration:none;font-size:.65rem;letter-spacing:2px;text-transform:uppercase}.lang{display:inline-flex;gap:0;white-space:nowrap;align-items:center;font-size:.65rem;letter-spacing:2px}
+.lang button{font:inherit;border:0;background:transparent;cursor:pointer;opacity:.4;padding:0 2px}.lang button.active{opacity:1}
+main{max-width:1230px;margin:0 auto;padding:20px 50px 130px}
+h1{font-family:GilroyExtraBold,Arial,sans-serif;font-size:clamp(2.5rem,5vw,4.6rem);letter-spacing:-.045em;line-height:1;margin:0 0 14px}
+.subtitle{font-size:.7rem;letter-spacing:2.4px;text-transform:uppercase;margin:0 0 110px}
+.artwork{margin-bottom:140px}.artist{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;margin:0 0 30px}
+.work-grid{display:grid;grid-template-columns:1fr;gap:45px}.work-grid.multi{grid-template-columns:repeat(2,minmax(0,1fr))}.work-grid.diptych .image{height:440px;min-height:0}.work-grid.diptych .image img{width:100%;height:100%;max-height:none;object-fit:contain}
+.image{background:#fff;display:flex;align-items:center;justify-content:center;min-height:340px}
+.image img{display:block;max-width:100%;max-height:75vh;width:auto;height:auto;object-fit:contain}
+.artwork:last-of-type .image{height:410px;min-height:410px;align-items:center}.artwork:last-of-type .image img{height:100%;width:100%;max-height:none;object-fit:contain}.artwork:last-of-type .work-grid{align-items:start}
+.details{margin-top:24px}.details h2{font-weight:400;font-size:1.15rem;margin:0 0 10px}.details p{font-size:.89rem;margin:0;line-height:1.6}
+footer{margin:0 50px;padding:35px 0;border-top:1px solid #eee;font-size:.7rem;letter-spacing:1px}
+@media(max-width:700px){header{height:95px;padding:27px 20px}main{padding:25px 20px 75px}h1{font-size:clamp(2.5rem,10vw,3.9rem)}.subtitle{margin-bottom:75px}.artwork{margin-bottom:92px}.work-grid.multi{grid-template-columns:1fr}.work-grid.diptych .image{height:310px}.image{min-height:200px}.image img{max-height:62vh}.artwork:last-of-type .image{height:300px;min-height:300px}footer{margin:0 20px}}
+
+/* Catalogue QA: artwork proportions, consistent vase display and navigation */
+.lang{display:flex;align-items:center;gap:0;letter-spacing:0;white-space:nowrap}
+.lang button{padding:0 1px;letter-spacing:1px}.lang span{padding:0 1px}
+.artwork:has(img[src*="raices-de-piedra-1"]) .work:first-child .image{height:430px;min-height:0}
+.artwork:has(img[src*="raices-de-piedra-1"]) .work:nth-child(2) .image{height:310px;min-height:0}
+.artwork:has(img[src*="raices-de-piedra-1"]) .work .image img{height:100%;width:auto;max-height:100%;object-fit:contain}
+.artwork:last-of-type .image{height:400px;min-height:400px;overflow:hidden}
+.artwork:last-of-type .image img{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain}
+@media(max-width:700px){.artwork:has(img[src*="raices-de-piedra-1"]) .work:first-child .image{height:340px}.artwork:has(img[src*="raices-de-piedra-1"]) .work:nth-child(2) .image{height:235px}.artwork:last-of-type .image{height:310px;min-height:310px}}
+</style></head><body><header><a class="back" href="resonance.html">← RESonance</a><div class="lang" aria-label="Language / Idioma"><button type="button" data-language="en" class="active">EN</button><span>|</span><button type="button" data-language="es">ES</button></div></header><main><h1>RESonance</h1><p class="subtitle" data-en="Exhibition catalogue" data-es="Catálogo de la exposición">Exhibition catalogue</p><article class="artwork"><p class="artist">Catherine Parra</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/artwork-vegan-isolated.png" alt="Catherine Parra — Vegan" loading="lazy" decoding="async"></div><div class="details"><h2>Vegan</h2><p><span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 90 × 70 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Catherine Parra</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/sidobre-33-corrected.jpg" alt="Catherine Parra — Sidobre 33" loading="lazy" decoding="async"></div><div class="details"><h2>Sidobre 33</h2><p>2025 · <span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 133 × 92 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Catherine Parra</p><div class="work-grid multi"><div class="work"><div class="image"><img src="resonance/catalogue/tete-en-long-corrected.jpg" alt="Catherine Parra — Tête en long" loading="lazy" decoding="async"></div><div class="details"><h2>Tête en long</h2><p>2022 · <span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 127 × 104 cm</p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/tete-au-carre-corrected.jpg" alt="Catherine Parra — Tête au carré" loading="lazy" decoding="async"></div><div class="details"><h2>Tête au carré</h2><p>2022 · <span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 123 × 93 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Catherine Parra</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/sidobre-31-corrected.jpg" alt="Catherine Parra — Sidobre 31" loading="lazy" decoding="async"></div><div class="details"><h2>Sidobre 31</h2><p>2022 · <span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 142 × 112 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Catherine Parra</p><div class="work-grid multi diptych"><div class="work"><div class="image"><img src="resonance/catalogue/diptych-philippe-bright.jpg" alt="Catherine Parra — Diptyque Philippe" loading="lazy" decoding="async"></div><div class="details"><h2>Diptyque Philippe</h2><p>2026 · <span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 100 × 120 cm</p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/diptych-caro-bright.jpg" alt="Catherine Parra — Diptyque Caro" loading="lazy" decoding="async"></div><div class="details"><h2>Diptyque Caro</h2><p>2026 · <span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 100 × 120 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Catherine Parra</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/artwork-p14-1.jpg" alt="Catherine Parra — Noir et blanc" loading="lazy" decoding="async"></div><div class="details"><h2>Noir et blanc</h2><p><span data-en="Acrylic on linen" data-es="Acrílico sobre lino">Acrylic on linen</span> · 120 × 90 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Paolo Maria Agostini</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/artwork-p15-1.jpg" alt="Paolo Maria Agostini — Amazing Amazon" loading="lazy" decoding="async"></div><div class="details"><h2>Amazing Amazon</h2><p>2026 · <span data-en="Acrylic and oil on canvas" data-es="Acrílico y óleo sobre lienzo">Acrylic and oil on canvas</span> · 150 × 100 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Paolo Maria Agostini</p><div class="work-grid multi"><div class="work"><div class="image"><img src="resonance/catalogue/rusty-nails-cropped.jpg" alt="Paolo Maria Agostini — Rusty Nails" loading="lazy" decoding="async"></div><div class="details"><h2>Rusty Nails</h2><p>2025 · <span data-en="Acrylic and oil on canvas" data-es="Acrílico y óleo sobre lienzo">Acrylic and oil on canvas</span> · 130 × 100 cm</p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/artwork-p16-2.jpg" alt="Paolo Maria Agostini — Beneath the Rose" loading="lazy" decoding="async"></div><div class="details"><h2>Beneath the Rose</h2><p>2025 · <span data-en="Acrylic and candle wax on canvas" data-es="Acrílico y cera de vela sobre lienzo">Acrylic and candle wax on canvas</span> · 150 × 100 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Paolo Maria Agostini</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/fading-sun-cropped.jpg" alt="Paolo Maria Agostini — Fading Sun" loading="lazy" decoding="async"></div><div class="details"><h2>Fading Sun</h2><p>2026 · <span data-en="Acrylic and oil on canvas" data-es="Acrílico y óleo sobre lienzo">Acrylic and oil on canvas</span> · 230 × 150 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Lucía Cheves Dauber</p><div class="work-grid "><div class="work"><div class="image"><img src="resonance/catalogue/artwork-p18-1.jpg" alt="Lucía Cheves Dauber — Guardiana del legado" loading="lazy" decoding="async"></div><div class="details"><h2>Guardiana del legado</h2><p><span data-en="Acrylic and oil on canvas" data-es="Acrílico y óleo sobre lienzo">Acrylic and oil on canvas</span> · 97 × 130 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Lucía Cheves Dauber</p><div class="work-grid multi"><div class="work"><div class="image"><img src="resonance/catalogue/raices-de-piedra-1.png" alt="Lucía Cheves Dauber — Raíces de piedra - serie de tres obras" loading="lazy" decoding="async"></div><div class="details"><h2>Raíces de piedra - serie de tres obras</h2><p><span data-en="Oil and acrylic on canvas" data-es="Óleo y acrílico sobre lienzo">Oil and acrylic on canvas</span> · 60 × 40 cm</p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/raices-de-piedra-2.png" alt="Lucía Cheves Dauber — Raíces de piedra - serie de tres obras" loading="lazy" decoding="async"></div><div class="details"><h2>Raíces de piedra - serie de tres obras</h2><p><span data-en="Oil and acrylic on canvas" data-es="Óleo y acrílico sobre lienzo">Oil and acrylic on canvas</span> · 50 × 70 cm</p></div></div></div></article>
+<article class="artwork"><p class="artist">Rafael Nuesi</p><div class="work-grid multi"><div class="work"><div class="image"><img src="resonance/catalogue/vase-blue-isolated-v2.png" alt="Rafael Nuesi — Onda - serie" loading="lazy" decoding="async"></div><div class="details"><h2>Onda - serie</h2><p><span data-en="Ceramic" data-es="Cerámica">Ceramic</span></p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/vase-marble-isolated-v2.png" alt="Rafael Nuesi — Onda - serie" loading="lazy" decoding="async"></div><div class="details"><h2>Onda - serie</h2><p><span data-en="Ceramic" data-es="Cerámica">Ceramic</span></p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/vase-brown-isolated-v2.png" alt="Rafael Nuesi — Onda - serie" loading="lazy" decoding="async"></div><div class="details"><h2>Onda - serie</h2><p><span data-en="Ceramic" data-es="Cerámica">Ceramic</span></p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/vase-white-sculpted-isolated-v2.png" alt="Rafael Nuesi — Onda - serie" loading="lazy" decoding="async"></div><div class="details"><h2>Onda - serie</h2><p><span data-en="Ceramic" data-es="Cerámica">Ceramic</span></p></div></div><div class="work"><div class="image"><img src="resonance/catalogue/vase-white-isolated-v2.png" alt="Rafael Nuesi - Onda - fifth ceramic vase" loading="lazy" decoding="async"></div><div class="details"><h2>Onda - serie</h2><p><span data-en="Ceramic" data-es="Cerámica">Ceramic</span></p></div></div></div></article></main><footer>© 2026 Senso Art. All rights reserved.</footer><script>(function(){function setLang(l){document.documentElement.lang=l;document.querySelectorAll('[data-en][data-es]').forEach(e=>e.textContent=e.getAttribute('data-'+l));document.querySelectorAll('[data-language]').forEach(b=>b.classList.toggle('active',b.dataset.language===l));try{localStorage.setItem('senso_lang',l)}catch(e){}}document.querySelectorAll('[data-language]').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.language)));let l='en';try{l=localStorage.getItem('senso_lang')||'en'}catch(e){}setLang(l==='es'?'es':'en')})();</script></body></html>
