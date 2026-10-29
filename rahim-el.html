@@ -608,7 +608,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 thumbnailsContainer.appendChild(img);
             });
             if (artworks.length) updateSlide();
-            else document.querySelector('.img-container').style.display = 'none';
+            else { document.querySelector('.slider-wrapper').style.visibility = 'hidden'; document.querySelector('.artwork-caption').style.display = 'none'; }
         }
 
         function updateSlide() {
