@@ -827,6 +827,7 @@ body.drawer-open{overflow:hidden}
   const form=document.getElementById('studio-form');
   form.addEventListener('submit',async e=>{
     e.preventDefault();
+    if(form.dataset.sensoSending==='1') return;
     if(!form.checkValidity()){
       const invalid=form.querySelector(':invalid');
       invalid?.scrollIntoView({behavior:'smooth',block:'center'});
@@ -836,6 +837,7 @@ body.drawer-open{overflow:hidden}
 
     const submit=document.getElementById('submit-button');
     const status=document.getElementById('form-status');
+    form.dataset.sensoSending='1';
     submit.disabled=true;
     status.className='form-status';
     status.textContent=current==='es'?'Enviando…':'Sending…';
@@ -867,6 +869,7 @@ body.drawer-open{overflow:hidden}
         ?'No hemos podido enviar la consulta. Prueba de nuevo o escríbenos por WhatsApp.'
         :'We couldn’t send your enquiry. Please try again or contact us on WhatsApp.';
     }finally{
+      delete form.dataset.sensoSending;
       submit.disabled=false;
     }
   });

@@ -10,6 +10,7 @@
   const CONSENT_MAX_AGE_MS=1000*60*60*24*730;
   const isProduction=/^(www\.)?senso-art\.com$/i.test(location.hostname);
   const query=new URLSearchParams(location.search);
+  const isTagAssistantDebug=query.has('_dbg')||query.has('gtm_debug');
   // Persist QA exclusion per browser; explicit ?senso_internal=0 reverses it.
   const INTERNAL_KEY='senso_internal_v1';
   const internalMode=query.get('senso_internal');
@@ -36,7 +37,7 @@
   const dataLayer=window.dataLayer=window.dataLayer||[];
   const scrollMarks=new Set();
   let lastForm=null;
-  const successfulForms=new WeakMap();
+  const inFlightForms=new WeakSet();
   let gaLoaded=false;
   let metaLoaded=false;
   let engaged30s=false;
@@ -75,6 +76,22 @@
     if(/contacts|contacto/.test(p)) return 'contact';
     if(/about/.test(p)) return 'about';
     return 'home';
+  }
+
+  function pageType(){
+    const p=path.toLowerCase();
+    if(p==='/'||/\/index\.html$/.test(p)) return 'home';
+    if(/studio/.test(p)) return 'studio';
+    if(/art-consulting|asesoria-de-arte/.test(p)) return 'art_consulting';
+    if(p==='/catalogue.html') return 'artwork_catalogue';
+    if(/arantxa|carlotta|catherine|ciaramella|disena|lucia|paolo|rafael|raul|valentina/.test(p)) return 'artist_detail';
+    if(/artists|artistas/.test(p)) return 'artist_index';
+    if(/exhibitions|exposiciones|principium|resonance\.html/.test(p)) return 'exhibition';
+    if(/journal|on-opening|the-need-for-beauty|resonance-journal/.test(p)) return 'journal';
+    if(/contacts|contacto/.test(p)) return 'contact';
+    if(/privacy|cookie-policy/.test(p)) return 'legal';
+    if(/about/.test(p)) return 'about';
+    return 'content';
   }
 
   function sessionId(){
@@ -210,7 +227,10 @@
     window.gtag('config',GA4_ID,{
       send_page_view:true,
       allow_google_signals:false,
-      business_area:businessArea()
+      business_area:businessArea(),
+      page_type:pageType(),
+      language:currentLanguage(),
+      ...(isTagAssistantDebug?{debug_mode:true}:{})
     });
   }
 
@@ -250,6 +270,7 @@
     }else{
       try{sessionStorage.removeItem(ATTR_KEY);sessionStorage.removeItem(SESSION_KEY)}catch(e){}
       sid=undefined;
+      enrichForms();
     }
     applyConsent(value);
     if(value.analytics&&!hadAnalytics){
@@ -438,6 +459,7 @@
     const payload=clean({
       page_path:path,
       page_title:document.title,
+      page_type:pageType(),
       language:currentLanguage(),
       business_area:businessArea(),
       acquisition_channel:acquisitionChannel(),
@@ -446,6 +468,7 @@
       utm_medium:attr.utm_medium,
       utm_campaign:attr.utm_campaign,
       referrer_domain:attr.referrer,
+      ...(isTagAssistantDebug?{debug_mode:true}:{}),
       ...params
     });
     if(!isProduction||isQa){
@@ -459,33 +482,18 @@
     return payload;
   };
 
-  function decorateInternalCampaignLinks(){
-    if(consentAllowsAnalytics()) return;
-    const campaign={
-      utm_source:attr.utm_source,
-      utm_medium:attr.utm_medium,
-      utm_campaign:attr.utm_campaign,
-      utm_content:attr.utm_content,
-      utm_term:attr.utm_term
-    };
-    if(!Object.values(campaign).some(Boolean)) return;
-    document.querySelectorAll('a[href]').forEach(a=>{
-      const raw=a.getAttribute('href')||'';
-      if(!raw||/^#|^mailto:|^tel:|^javascript:/i.test(raw)) return;
-      try{
-        const u=new URL(raw,location.href);
-        if(u.origin!==location.origin) return;
-        Object.entries(campaign).forEach(([k,v])=>{
-          if(v&&!u.searchParams.has(k)) u.searchParams.set(k,v);
-        });
-        a.setAttribute('href',u.pathname+u.search+u.hash);
-      }catch(e){}
-    });
-  }
-
   function formName(form){
     if(!form) return 'unknown';
     return safeText(form.querySelector('input[name="source"]')?.value||form.id||form.getAttribute('name')||'form',80);
+  }
+
+  function formId(form){
+    if(path==='/contacts.html') return 'newsletter-signup';
+    if(path==='/catalogue.html') return 'artwork-enquiry';
+    if(/art-consulting|asesoria-de-arte/.test(path)) return 'consulting-enquiry';
+    if(/studio/.test(path)) return 'studio-enquiry';
+    if(businessArea()==='collect_art') return 'artist-enquiry';
+    return safeText(form?.id||form?.getAttribute('name')||'form',80);
   }
 
   function addHidden(form,name,value){
@@ -517,6 +525,16 @@
 
   function enrichForms(){
     document.querySelectorAll('form').forEach(form=>{
+      const attributionFields=[
+        'senso_business_area','senso_acquisition_channel','senso_landing_page','senso_referrer',
+        'senso_utm_source','senso_utm_medium','senso_utm_campaign','senso_utm_content',
+        'senso_utm_term','senso_gclid','senso_fbclid','senso_session_id'
+      ];
+      if(!consentAllowsAnalytics()){
+        attributionFields.forEach(name=>form.querySelectorAll('input[name="'+CSS.escape(name)+'"]').forEach(input=>input.remove()));
+        if(isQa) addHidden(form,'senso_test_submission','true');
+        return;
+      }
       const fields={
         senso_business_area:businessArea(),
         senso_acquisition_channel:acquisitionChannel(),
@@ -540,11 +558,20 @@
     const read=name=>safeText(form?.querySelector('[name="'+name+'"]')?.value,120);
     const selectedArtwork=read('artwork');
     const artworkParts=selectedArtwork?.split(' — ')||[];
+    const artworkTitle=artworkParts.length===2?artworkParts[0]:selectedArtwork;
+    const artistName=read('artist')||(artworkParts.length===2?artworkParts[1]:undefined);
+    const serviceType=read('interest')||read('project_type');
     return clean({
+      page_type:pageType(),
+      language:currentLanguage(),
+      form_id:formId(form),
       form_name:formName(form),
       source:read('source'),
-      artwork:artworkParts.length===2?artworkParts[0]:selectedArtwork,
-      artist:read('artist')||(artworkParts.length===2?artworkParts[1]:undefined),
+      artwork_title:artworkTitle,
+      artist_name:artistName,
+      service_type:serviceType,
+      artwork:artworkTitle,
+      artist:artistName,
       request:read('request'),
       interest:read('interest'),
       journey:read('journey'),
@@ -574,34 +601,48 @@
 
   document.addEventListener('submit',event=>{
     const form=event.target;
-    lastForm={form,...formContext(form),area:businessArea(),time:Date.now()};
-    window.sensoTrack('senso_form_submit_attempt',lastForm);
+    if(!form||form.tagName!=='FORM') return;
+    if(inFlightForms.has(form)||form.dataset.sensoSending==='1'){
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      return;
+    }
+    const context=formContext(form);
+    lastForm={form,context,area:businessArea()};
+    window.sensoTrack('senso_form_submit_attempt',context);
   },true);
 
   const nativeFetch=window.fetch?.bind(window);
   if(nativeFetch){
     window.fetch=async (...args)=>{
-      const response=await nativeFetch(...args);
+      const req=args[0],opts=args[1]||{};
+      const url=typeof req==='string'?req:req?.url||'';
+      const method=(opts.method||req?.method||'GET').toUpperCase();
+      const isFormspreePost=method==='POST'&&/formspree\.io\/f\//i.test(url);
+      const submission=isFormspreePost?lastForm:null;
+      if(submission) lastForm=null;
+      const form=submission?.form;
+      if(form){
+        inFlightForms.add(form);
+        form.dataset.sensoSending='1';
+      }
       try{
-        const req=args[0],opts=args[1]||{};
-        const url=typeof req==='string'?req:req?.url||'';
-        const method=(opts.method||req?.method||'GET').toUpperCase();
-        if(response.ok&&method==='POST'&&/formspree\.io\/f\//i.test(url)){
-          const recent=lastForm&&Date.now()-lastForm.time<15000?lastForm:null;
-          const form=recent?.form;
-          if(form){
-            const context=formContext(form);
-            const key=JSON.stringify(context);
-            const previous=successfulForms.get(form);
-            if(!previous||previous.key!==key||Date.now()-previous.time>10000){
-              successfulForms.set(form,{key,time:Date.now()});
-              const type=conversionType(form,context);
-              window.sensoTrack(type,{...context,conversion_type:type,service:recent.area});
-            }
-          }
+        const response=await nativeFetch(...args);
+        if(response.ok&&submission){
+          const type=conversionType(form,submission.context);
+          window.sensoTrack(type,{
+            ...submission.context,
+            conversion_type:type,
+            service:submission.area
+          });
         }
-      }catch(e){}
-      return response;
+        return response;
+      }finally{
+        if(form){
+          inFlightForms.delete(form);
+          delete form.dataset.sensoSending;
+        }
+      }
     };
   }
 
@@ -693,7 +734,6 @@
 
   function boot(){
     enrichForms();
-    decorateInternalCampaignLinks();
     ensureFormPrivacyNotes();
     const consent=readConsent();
     ensureFooterSettingsLink();
