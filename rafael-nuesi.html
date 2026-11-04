@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="senso-staging-only" content="do-not-publish-to-production">
+<meta http-equiv="Content-Security-Policy" content="form-action 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'">
+<script src="/staging/guard.js"></script>
        
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -541,7 +544,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                     <h2 class="inquiry-title" id="form-title">consultar</h2>
                     
                     <!-- Form con endpoint Formspree -->
-                    <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
+                    <form action="/__senso_staging_mock__/form" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Rafael Nuesi">
                         <!-- Campo nascosto per passare il titolo dell'opera attiva via mail -->
                         <input type="hidden" name="artwork" id="hidden-artwork-title" value="">

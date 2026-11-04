@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<meta name="senso-staging-only" content="do-not-publish-to-production">
+<meta http-equiv="Content-Security-Policy" content="form-action 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'">
+<script src="/staging/guard.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
@@ -152,7 +155,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 <div id="form-content">
 <p>Reserva tu plaza y recibe toda la información sobre fechas, disponibilidad y sesiones.</p>
 
-<form id="studio-form" action="https://formspree.io/f/mgorwree" method="POST">
+<form id="studio-form" action="/__senso_staging_mock__/form" method="POST">
 
 <label>Nombre
 <input type="text" name="name" autocomplete="given-name" required>

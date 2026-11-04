@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="senso-staging-only" content="do-not-publish-to-production">
+<meta http-equiv="Content-Security-Policy" content="form-action 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'">
+<script src="/staging/guard.js"></script>
 
     
 
@@ -392,7 +395,7 @@ body{position:relative;min-height:100dvh}
             </p>
 
             <form
-                action="https://formspree.io/f/mgorwree"
+                action="/__senso_staging_mock__/form"
                 method="POST"
                 class="form-group"
                 id="contact-form"

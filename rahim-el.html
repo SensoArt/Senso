@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta name="senso-staging-only" content="do-not-publish-to-production">
+<meta http-equiv="Content-Security-Policy" content="form-action 'self'; connect-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; object-src 'none'; base-uri 'self'">
+<script src="/staging/guard.js"></script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -538,7 +541,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
-                    <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
+                    <form action="/__senso_staging_mock__/form" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Rahim EL">
                         <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
                         
