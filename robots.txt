@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://senso-art.com/sitemap.xml
+Sitemap: https://senso-art.com/sitemap-images.xml
