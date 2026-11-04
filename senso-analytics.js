@@ -33,6 +33,7 @@
   const isQa=query.get('senso_qa')==='1'||internalBrowser;
   const pagePath=location.protocol==='file:'?'/'+location.pathname.split('/').pop():location.pathname;
   const path=(pagePath.replace(/\/index\.html$/,'/')||'/').replace(/\/+/g,'/');
+  const routePath=path.replace(/\/$/,'').replace(/\.html$/,'')||'/';
   const dataLayer=window.dataLayer=window.dataLayer||[];
   const scrollMarks=new Set();
   let lastForm=null;
@@ -553,10 +554,10 @@
   }
 
   function conversionType(form,context){
-    if(path==='/contacts.html'||path==='/contacto.html') return 'newsletter_signup';
-    if(path==='/catalogue.html') return 'artwork_enquiry';
-    if(businessArea()==='collect_art'&&path!=='/catalogue.html') return 'artist_enquiry';
-    if(context.interest&&path==='/contact-extra-gold-preview.html'){
+    if(routePath==='/contacts'||routePath==='/contacto') return 'newsletter_signup';
+    if(routePath==='/catalogue') return 'artwork_enquiry';
+    if(businessArea()==='collect_art'&&routePath!=='/catalogue') return 'artist_enquiry';
+    if(context.interest&&routePath==='/contact-extra-gold-preview'){
       if(/studio/i.test(context.interest)) return 'studio_enquiry';
       if(/consulting/i.test(context.interest)) return 'consulting_enquiry';
     }
@@ -581,23 +582,26 @@
   const nativeFetch=window.fetch?.bind(window);
   if(nativeFetch){
     window.fetch=async (...args)=>{
+      const req=args[0],opts=args[1]||{};
+      const url=typeof req==='string'?req:req?.url||'';
+      const method=(opts.method||req?.method||'GET').toUpperCase();
+      const isFormspreePost=method==='POST'&&/formspree\.io\/f\//i.test(url);
+      const recent=isFormspreePost&&lastForm&&Date.now()-lastForm.time<15000?lastForm:null;
+      const pending=recent?.form?{
+        form:recent.form,
+        context:formContext(recent.form),
+        area:recent.area
+      }:null;
       const response=await nativeFetch(...args);
       try{
-        const req=args[0],opts=args[1]||{};
-        const url=typeof req==='string'?req:req?.url||'';
-        const method=(opts.method||req?.method||'GET').toUpperCase();
-        if(response.ok&&method==='POST'&&/formspree\.io\/f\//i.test(url)){
-          const recent=lastForm&&Date.now()-lastForm.time<15000?lastForm:null;
-          const form=recent?.form;
-          if(form){
-            const context=formContext(form);
-            const key=JSON.stringify(context);
-            const previous=successfulForms.get(form);
-            if(!previous||previous.key!==key||Date.now()-previous.time>10000){
-              successfulForms.set(form,{key,time:Date.now()});
-              const type=conversionType(form,context);
-              window.sensoTrack(type,{...context,conversion_type:type,service:recent.area});
-            }
+        if(response.ok&&pending){
+          const {form,context,area}=pending;
+          const key=JSON.stringify(context);
+          const previous=successfulForms.get(form);
+          if(!previous||previous.key!==key||Date.now()-previous.time>10000){
+            successfulForms.set(form,{key,time:Date.now()});
+            const type=conversionType(form,context);
+            window.sensoTrack(type,{...context,conversion_type:type,service:area});
           }
         }
       }catch(e){}
