@@ -24,3 +24,16 @@
 
 ## Definition of done
 A task is done only when its authorized change is implemented, relevant checks pass, unintended changes are absent, and the result is clearly reported. Production publication requires its own explicit approval.
+
+
+## Change contract and verification
+- Before editing, define the authorized scope, acceptance criteria, protected files/elements and rollback path. If the request is ambiguous, choose the narrowest safe interpretation; ask only if a material decision cannot be inferred.
+- Run the relevant existing build, lint, tests and targeted checks when available; do not invent passing results. For forms and analytics, test validation, submission behavior, success/error states, consent, event names, deduplication and exclusion of internal tests where relevant.
+- Check regression risk for shared components, navigation, mobile/desktop and supported languages. Do not expand the edit merely because a test reveals an unrelated issue; report it separately.
+- Deliver a concise change log: branch/commit, exact files changed, tests run and outcomes, preview URL only if verified, known risks, rollback approach and whether production approval is pending.
+
+## Revenue-oriented technical priorities
+- Favor qualified inbound leads, reliable enquiry forms, measurement integrity, SEO discoverability, performance and conversion over cosmetic changes or vanity metrics, but never use this priority as authorization to edit unrelated content.
+- Distinguish source-confirmed conversions from tests, spam, assumptions and unattributed enquiries. Preserve traceability from web enquiry to CRM without exposing private lead data.
+- Propose automation only when the underlying workflow and data are validated; avoid new infrastructure, paid services and background agents without clear expected benefit and approval.
+- Recurring research, sales outreach, publication, analytics monitoring and lead handling belong to separately authorized operational workflows, not to website deployments or this repository's AGENTS.md. Never claim this file schedules or runs agents.
