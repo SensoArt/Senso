@@ -37,11 +37,33 @@ Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-p
 The comparison is a standalone, reversible design study. Artwork cards open an individual work-detail view with previous/next navigation, artist-profile link and enquiry handoff; variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form that continues through the visitor’s mail client; it is **not** connected to Formspree, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
 
 
+
+## D · Senso Collect: Ciscla case
+
+The fourth direction combines A’s editorial grid and typography, B’s commercial discovery affordances (filters remain visibly marked as demonstration-only), and C’s private-viewing route from the individual work detail. The featured card uses the image already published in the catalogue and its displayed facts: **Ciscla Series**, Raúl del Chano, iron, wicker and acrylic, 2026. Its short narrative is based on the artist context already published by Senso.
+
+### Commercial checklist for the featured work
+
+- Confirm the displayed title, physical unit and its durable catalogue/inventory identifier before offering it.
+- Confirm sale authority and image-use rights for product presentation.
+- Verify dimensions, condition, edition or uniqueness, provenance, and any care or framing details before publishing them.
+- Confirm current physical availability and reservation status.
+- Approve public price, currency, taxes, commissions, shipping, insurance, delivery and installation terms.
+- Approve returns/cancellation, buyer terms, and who owns order fulfilment.
+- Decide if direct sale is appropriate. Only after approval, prepare and test a payment-provider link, receipt, reconciliation, refund and fulfilment path. This preview has no payment link or payment action.
+- Choose a private-viewing route only when Senso confirms it is appropriate for the work.
+
+The preview does not display a price or assert availability. The purchase control is disabled pending commercial approval. Enquiry and private-view CTAs use a demonstration-only form; submit is intercepted locally and sends nothing. Production Formspree endpoints remain unchanged.
+
+## Visual recommendation
+
+Use **Senso Collect** as the leading hybrid concept for review: retain A’s space and art-first composition, use B’s filters once artist/medium metadata is verified, and add C’s discreet private-view path on selected work details when Senso confirms that context is appropriate. Keep artwork status and enquiry prominent. Hold direct purchase disabled until the Ciscla identity, availability, public price and terms are approved and payments are configured. This recommendation is based on source review and interaction design; Chromium screenshot testing remains unverified because the browser policy blocks the local preview and disallows reaching it through an alternate route.
+
 ## Refinement requested for review
 
 The comparison preview initializes A explicitly and preserves the current viewport mode while switching A/B/C; the selected proposal is reflected by `aria-pressed`. Filter labels are marked as demonstration-only and are not interactive. The enquiry modal is also demonstration-only: its submit is intercepted locally and displays “Nothing was sent.” It does not call Formspree, email, analytics or payment services, and the production artist forms remain unchanged.
 
-**Visual recommendation (design hypothesis, pending Chromium review):** combine A’s editorial hierarchy and generous image-led layout with B’s future, verified artist/medium filters, result count and consistent acquisition states; offer C’s private-viewing route on individual work details where an approved commercial policy designates a high-value or context-sensitive work. Keep every work on enquiry until Senso approves its price and availability. This is a source-based recommendation, not a measured winner from screenshot testing.
+**Earlier visual hypothesis:** combine A’s editorial hierarchy, verified discovery controls from B and C’s private-viewing route. The Ciscla-specific Senso Collect refinement and recommendation are documented above; neither is presented as a measured winner from screenshot testing.
 
 **Requested Chromium evidence is pending.** The available browser surface currently has the local `file:` preview blocked by its URL policy. The policy also prohibits opening the same file through a workaround or another browser surface. I therefore did not claim six viewport checks or fabricate screenshots. Once the preview is opened in an authorized Chromium session, capture A/B/C at desktop and mobile and inspect the detail view, previous/next controls, enquiry modal, selected-button state and console.
 
