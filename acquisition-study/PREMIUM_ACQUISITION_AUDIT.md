@@ -36,6 +36,15 @@ Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-p
 
 The comparison is a standalone, reversible design study. Artwork cards open an individual work-detail view with previous/next navigation, artist-profile link and enquiry handoff; variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form that continues through the visitor’s mail client; it is **not** connected to Formspree, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
 
+
+## Refinement requested for review
+
+The comparison preview initializes A explicitly and preserves the current viewport mode while switching A/B/C; the selected proposal is reflected by `aria-pressed`. Filter labels are marked as demonstration-only and are not interactive. The enquiry modal is also demonstration-only: its submit is intercepted locally and displays “Nothing was sent.” It does not call Formspree, email, analytics or payment services, and the production artist forms remain unchanged.
+
+**Visual recommendation (design hypothesis, pending Chromium review):** combine A’s editorial hierarchy and generous image-led layout with B’s future, verified artist/medium filters, result count and consistent acquisition states; offer C’s private-viewing route on individual work details where an approved commercial policy designates a high-value or context-sensitive work. Keep every work on enquiry until Senso approves its price and availability. This is a source-based recommendation, not a measured winner from screenshot testing.
+
+**Requested Chromium evidence is pending.** The available browser surface currently has the local `file:` preview blocked by its URL policy. The policy also prohibits opening the same file through a workaround or another browser surface. I therefore did not claim six viewport checks or fabricate screenshots. Once the preview is opened in an authorized Chromium session, capture A/B/C at desktop and mobile and inspect the detail view, previous/next controls, enquiry modal, selected-button state and console.
+
 ## Minimum plan for the first online sale
 
 1. Select one work and record written approval from the artist/rights holder and Senso sale owner; confirm title, image rights, unique inventory/edition, condition, price and currency, VAT/taxes, shipping, insurance, delivery, returns/cancellation, buyer terms and who handles fulfilment.
