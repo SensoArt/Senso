@@ -24,9 +24,9 @@ The public catalogue currently signals that works are available, while every ins
 
 Eight actual records copied from the public catalogue with their displayed names, artists, image references and displayed attributes: *Guifal*, *Keylan*, *Kintu*, *Ciscla Series*, *Distaccato*, *Sguardo su Fiore*, *Tokoyol Boogie*, and *Lieber Leser* innen*. The preview labels all eight **“Price on request · Availability on request.”** No direct-buy button, fabricated price, inventory claim, edition, provenance or new artwork fact was added. Images/fonts are referenced from the repository’s existing published assets. Public presence is evidence that Senso publishes these assets; it does not establish third-party rights or current stock, so rights and stock should be reconfirmed before sale or reuse outside the site.
 
-## Three comparable directions
+## Four comparable directions
 
-Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-proposals.html). It uses the same eight artworks, typography, Senso logo, navigation and request-only status in all three concepts. Use the top controls to switch variants and toggle a mobile viewport.
+Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-proposals.html). A, B and C use the same eight artworks; D features Ciscla as its main case. All four retain the Senso typography, logo and navigation. Use the top controls to switch variants and toggle a mobile viewport.
 
 - **A · Editorial:** generous whitespace, art-led staggered grid, quieter hierarchy and artist-led discovery. Best fit for identity; conversion relies on a clear enquiry path.
 - **B · Collect:** compact four-column desktop grid, scannable product cards and filter affordances. Most transactional; only make filters live when controlled artwork metadata exists.
@@ -34,17 +34,17 @@ Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-p
 
 ## Technical differences in the prototype
 
-The comparison is a standalone, reversible design study. Artwork cards open an individual work-detail view with previous/next navigation, artist-profile link and enquiry handoff; variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form that continues through the visitor’s mail client; it is **not** connected to Formspree, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
+The comparison is a standalone, reversible design study. Artwork cards open an individual work-detail view with previous/next navigation, artist-profile link and enquiry handoff; variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form whose submit is intercepted locally and sends nothing; it is **not** connected to Formspree, email, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
 
 
 
-## D · Senso Collect: Ciscla case
+## D · Senso Collect: featured-work case
 
-The fourth direction combines A’s editorial grid and typography, B’s commercial discovery affordances (filters remain visibly marked as demonstration-only), and C’s private-viewing route from the individual work detail. The featured card uses the image already published in the catalogue and its displayed facts: **Ciscla Series**, Raúl del Chano, iron, wicker and acrylic, 2026. Its short narrative is based on the artist context already published by Senso.
+The fourth direction combines A’s editorial grid and typography, B’s discovery affordances (filters remain marked as demonstration-only), and C’s private-viewing route on the individual work detail. The featured card uses an image and displayed artwork facts already present in the public catalogue. Its short artist narrative is based on the artist context published by Senso.
 
-### Commercial checklist for the featured work
+### Commercial checklist
 
-- Confirm the displayed title, physical unit and its durable catalogue/inventory identifier before offering it.
+- Confirm the displayed title, physical unit and durable catalogue/inventory identifier before offering a work.
 - Confirm sale authority and image-use rights for product presentation.
 - Verify dimensions, condition, edition or uniqueness, provenance, and any care or framing details before publishing them.
 - Confirm current physical availability and reservation status.
@@ -65,7 +65,7 @@ The comparison preview initializes A explicitly and preserves the current viewpo
 
 **Earlier visual hypothesis:** combine A’s editorial hierarchy, verified discovery controls from B and C’s private-viewing route. The Ciscla-specific Senso Collect refinement and recommendation are documented above; neither is presented as a measured winner from screenshot testing.
 
-**Requested Chromium evidence is pending.** The available browser surface currently has the local `file:` preview blocked by its URL policy. The policy also prohibits opening the same file through a workaround or another browser surface. I therefore did not claim six viewport checks or fabricate screenshots. Once the preview is opened in an authorized Chromium session, capture A/B/C at desktop and mobile and inspect the detail view, previous/next controls, enquiry modal, selected-button state and console.
+**Requested Chromium evidence is pending.** The available browser surface currently has the local `file:` preview blocked by its URL policy. The policy also prohibits opening the same file through a workaround or another browser surface. I therefore did not claim six viewport checks or fabricate screenshots. Once the preview is opened in a permitted Chromium session, capture A/B/C/D at desktop and mobile and inspect the detail view, previous/next controls, enquiry modal, selected-button state and console.
 
 ## Minimum plan for the first online sale
 
@@ -77,4 +77,4 @@ The comparison preview initializes A explicitly and preserves the current viewpo
 
 ## Limits and next inputs
 
-This review was performed against repository source through the connected GitHub read API because the provided workspace contained no local clone. The branch was created remotely from `main`; no source page changes have yet been made on the branch. Live browser, network waterfall, real form submission, SumUp account readiness, inventory, sale contracts, image rights and current production behavior were not independently verified. The preview is a responsive HTML view with desktop/mobile toggles, not a live production preview. A browser visual run could not be completed because the controlled browser blocks local `file:` URLs; the files received static integrity checks only.
+This review was performed against repository source through the connected GitHub read API because the provided workspace contained no local clone. The branch was created remotely from `main`; no source page changes have yet been made on the branch. Live browser, network waterfall, real form submission, SumUp account readiness, inventory, sale contracts, image rights and current production behavior were not independently verified. The preview is a responsive HTML view with desktop/mobile toggles, not a live production preview. A browser visual run could not be completed because the controlled browser blocks local `file:` URLs and explicitly disallows opening the same preview by an alternate route. No HTTP server was started. The files received static integrity checks only.
