@@ -55,6 +55,15 @@ The fourth direction combines A’s editorial grid and typography, B’s discove
 
 The preview does not display a price or assert availability. The purchase control is disabled pending commercial approval. Enquiry and private-view CTAs use a demonstration-only form; submit is intercepted locally and sends nothing. Production Formspree endpoints remain unchanged.
 
+## D · Senso Collect validation review (static)
+
+- **Legibility:** keeps the existing Futura/Behind pairing, adds a larger work title and a short 16px narrative, and separates status from material/year. Utility labels remain small; visual contrast was not measured in Chromium.
+- **Responsive:** the featured image/text columns stack at 800px; the collection grid changes to two columns and then one at 480px. The device toggle preserves D and `aria-pressed` while switching layout state. Actual overflow and touch-target checks remain unverified.
+- **Accessibility:** uses descriptive image alternatives, labeled form fields, dialog roles and names, Escape handling, close-button focus, return focus, and a live demo-success message. The demo filters are static spans, visibly marked non-interactive. Focus trapping and measured color contrast were not verified.
+- **Interaction:** selecting A/B/C/D changes active copy and button state; artwork opens a detail view; previous/next cycles through the eight records; inquiry and private-view actions open the local-only modal. The demo form prevents external submission. These were reviewed in source, not exercised in Chromium.
+- **Performance:** the featured image is eager with high fetch priority; grid images are lazy with async decoding; wrappers reserve visual space. Remote fonts and images require network access. No browser transfer-size, LCP, or mobile throttling measurement was possible.
+- **Evidence:** the embedded browser showed a URL-policy block for `file:`. Its instruction prohibits opening the same local preview through HTTP or another surface, so no local server was started. No six-screen capture set is claimed or attached.
+
 ## Visual recommendation
 
 Use **Senso Collect** as the leading hybrid concept for review: retain A’s space and art-first composition, use B’s filters once artist/medium metadata is verified, and add C’s discreet private-view path on selected work details when Senso confirms that context is appropriate. Keep artwork status and enquiry prominent. Hold direct purchase disabled until the Ciscla identity, availability, public price and terms are approved and payments are configured. This recommendation is based on source review and interaction design; Chromium screenshot testing remains unverified because the browser policy blocks the local preview and disallows reaching it through an alternate route.
