@@ -34,7 +34,7 @@ Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-p
 
 ## Technical differences in the prototype
 
-The comparison is a standalone, reversible design study. Variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form that continues through the visitor’s mail client; it is **not** connected to Formspree, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
+The comparison is a standalone, reversible design study. Artwork cards open an individual work-detail view with previous/next navigation, artist-profile link and enquiry handoff; variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form that continues through the visitor’s mail client; it is **not** connected to Formspree, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
 
 ## Minimum plan for the first online sale
 
@@ -46,4 +46,4 @@ The comparison is a standalone, reversible design study. Variant selection and v
 
 ## Limits and next inputs
 
-This review was performed against repository source through the connected GitHub read API because the provided workspace contained no local clone. The branch was created remotely from `main`; no source page changes have yet been made on the branch. Live browser, network waterfall, real form submission, SumUp account readiness, inventory, sale contracts, image rights and current production behavior were not independently verified. The preview is a real responsive HTML view, not a live production preview.
+This review was performed against repository source through the connected GitHub read API because the provided workspace contained no local clone. The branch was created remotely from `main`; no source page changes have yet been made on the branch. Live browser, network waterfall, real form submission, SumUp account readiness, inventory, sale contracts, image rights and current production behavior were not independently verified. The preview is a responsive HTML view with desktop/mobile toggles, not a live production preview. A browser visual run could not be completed because the controlled browser blocks local `file:` URLs; the files received static integrity checks only.
