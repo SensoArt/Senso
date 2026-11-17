@@ -1,89 +1,83 @@
 # Senso — premium art acquisition audit
 
-**Date:** 16 November 2026 · **Scope:** `catalogue.html`, `index.html`, representative artist pages and the acquisition journey. **Working branch:** `test/premium-art-acquisition-20261116` (created from `main`). No edits to `main`, production, SEO metadata, analytics, domain settings, or payment credentials.
+**Date:** 17 November 2026 · **Scope:** acquisition proposal preview, artwork photo selection, `catalogue.html`, `index.html`, and representative artist pages. **Working branch:** `test/premium-art-acquisition-20261116`. No changes to `main`, production pages, SEO, analytics, payment settings, or domains; no merge or deployment.
 
-## Executive finding
+## Recommendation
 
-The public catalogue currently signals that works are available, while every inspected card says **“Price on request · Availability on request.”** The catalogue and artist pages support an enquiry, but no inspected work has an approved public price, confirmed inventory, direct-sale terms, or a prepared SumUp checkout. A trustworthy direct purchase cannot be enabled from the repository evidence alone. The first sale is presently blocked by missing commercial/product data and a completed payment/fulfilment path, not by lack of artwork presentation.
+Advance **Senso Collect** as the hybrid design for review: keep A Editorial’s space and artwork-first hierarchy, use B Collect’s discovery affordances only after metadata is verified, and provide C Private Viewing as a discreet option on selected artwork details. The photo filter leaves two suitable existing artwork images for this prototype. The homepage banner remains unverified and is not reused. The recommendation is visual and source-based; it is not a browser-tested winner.
 
 ## Prioritised findings
 
 | Priority | Finding | Evidence / buyer impact | Recommendation |
 |---|---|---|---|
-| P0 | No purchase-ready inventory | All eight sampled catalogue cards use request-only price and availability; no approved price or stock state is present. | Obtain per-work owner approval for price, availability, edition, condition, delivery, taxes, returns and sale authority. Until then use enquiry / private viewing only. |
-| P0 | Enquiry is not checkout | Catalogue actions open `mailto:`. Sample artist pages submit to the same Formspree endpoint; no visible cart, reservation, payment, receipt or fulfilment flow. | Choose a named human owner and response SLA; test enquiry delivery. Use SumUp payment links only for approved, direct-sale-ready works, with amount and work reference reconciled. |
-| P1 | Catalogue hierarchy and legibility | Three-column grid at desktop, fixed 480px image wells, small uppercase artist/title/meta/action text, long metadata in the card; price/status sits inside `.meta`. | Give artwork title and artist a clear type scale; make details scannable; separate material/size/year from status and action; provide consistent image framing and whitespace. |
-| P1 | No focused discovery controls | 48 items are declared in JSON-LD; the visible grid is long. No active filters/search/sort controls were observed in the inspected catalogue source. | Add accessible artist/medium filters, result count, clear-all, and useful sorting once metadata has been verified. Keep filters functional and URL-shareable. |
-| P1 | Artwork detail path is inconsistent | Catalogue CTA requests enquiry directly. Artist pages show artist bio, artwork carousel/lightbox and a generic inquiry form, but no stable artwork-specific details URL/selection context was confirmed across pages. | Give each selected work a durable detail state/URL, artist link, previous/next navigation and work-specific enquiry context. Keep attribution and data source explicit. |
-| P1 | Form feedback and operational confidence | Artist templates contain Formspree POST forms and success copy. Repository inspection does not prove delivery, spam handling, consent treatment, confirmation email or ownership. | Submit controlled QA enquiries in staging, verify receipt and reply path; add clear privacy/consent treatment only after policy review. Keep a real error state. |
-| P2 | Performance and responsive risk | Catalogue lazy-loads images but specifies no intrinsic dimensions on sampled cards; artist pages include large inline CSS/JS and image sliders. | Add accurate width/height or aspect-ratio reservations; serve responsive modern formats only when rights/source workflow supports it; preload only the true hero; audit font loading and total transfer on mobile. |
-| P2 | Accessibility | Small .58–.7rem utility text, low opacity metadata, image-only affordances and custom modal controls require contrast, keyboard and screen-reader checks. | Aim for readable body/metadata sizes and contrast; semantic buttons/links, visible focus, descriptive image alt, labeled fields, keyboard-close/focus return, reduced-motion and touch targets. |
-| P2 | Conversion measurement | The existing site has analytics code, but this proposal intentionally changes no analytics. The reviewed purchase path offers no verified payment-complete event. | After authorization, define consent-aware events for artwork view, enquiry start/submit/success, private-view request, checkout start, payment success/refund. Do not count mailto clicks as confirmed enquiries or payment. |
+| P0 | No purchase-ready inventory | The public catalogue labels selected works “Price on request · Availability on request.” No approved public price or current stock state is present in the reviewed public source. | Approve one physical unit, title, sale authority, image rights, price, stock, terms and fulfilment owner before offering direct purchase. |
+| P0 | Enquiry is not checkout | Production catalogue CTAs use `mailto:`; sampled artist pages contain Formspree forms. No inspected page provides a confirmed reservation, payment, receipt or fulfilment flow. | Keep consultation available. Only prepare a SumUp link after commercial approval, then test its receipt, settlement, refund and fulfilment path. |
+| P1 | Catalogue hierarchy and discovery | The catalogue has a long grid and no active filters/search/sort in the reviewed source. Details and availability are not consistently separated. | Improve scannable artwork details and add accessible filters only when their data is verified. |
+| P1 | Artwork detail path | Catalogue actions do not provide a consistent work-specific detail URL with previous/next navigation and enquiry context. | Use a durable artwork detail state, artist link and work-specific enquiry context. |
+| P1 | Enquiry confidence | Source inspection does not prove form delivery, ownership, spam handling or response time. | Name an enquiry owner and SLA; verify delivery in an authorized staging environment before launch. |
+| P2 | Performance and responsive risk | Existing catalogue images are lazy-loaded without intrinsic dimensions on sampled cards; artist pages include large inline CSS/JS and image sliders. | Reserve image dimensions, optimize approved image sources and verify network weight/LCP on real mobile widths. |
+| P2 | Accessibility and conversion evidence | Small utility labels, contrast, keyboard focus trapping and measured target sizes remain unverified. No payment-complete event was observed. | Check contrast, focus behavior and touch targets; after authorization, define consent-aware enquiry and payment events without changing current analytics in this proposal. |
 
-## Sampled works
+## Strict photo review
 
-Eight actual records copied from the public catalogue with their displayed names, artists, image references and displayed attributes: *Guifal*, *Keylan*, *Kintu*, *Ciscla Series*, *Distaccato*, *Sguardo su Fiore*, *Tokoyol Boogie*, and *Lieber Leser* innen*. The preview labels all eight **“Price on request · Availability on request.”** No direct-buy button, fabricated price, inventory claim, edition, provenance or new artwork fact was added. Images/fonts are referenced from the repository’s existing published assets. Public presence is evidence that Senso publishes these assets; it does not establish third-party rights or current stock, so rights and stock should be reconfirmed before sale or reuse outside the site.
+The preview retains two current catalogue/artist-page image assets. Both were inspected at their original dimensions. No people, ceramic objects, studio tools, visible prohibited names or readable labels appear in either selected image. The same full compositions are used on desktop and mobile; the card, feature, and detail views use `object-fit: contain`. The two source files total about 1.10 MB; the grid lazy-loads its images, while Senso Collect loads its featured image eagerly. No crop, retouch, object removal or generated photography was applied.
 
-## Four comparable directions
+| Candidate | Review | Decision |
+|---|---|---|
+| Raúl del Chano · `fotos_obras/raul1.jpg` | 1199 × 1369 px; 693,964 bytes. Three round woven works on a rough stone-textured wall; no person, ceramic object, tool or visible text. This is an existing artist-profile image; the match to the exact catalogue unit is not confirmed. | Retained as a clearly labelled image reference, pending unit match |
+| Davide Ciaramella · `Assets/Catalogue/obradavide_2.jpeg` / *Sguardo su Fiore* | 960 × 1280 px; 459,251 bytes. Painting on a textured wall; no visible person, ceramic object, tool or readable text. | Retained |
+| Carlotta Valentinis · *Guifal*, `obracarlotta_2.jpeg` | 960 × 1280 px. Gallery label present; text cannot be checked reliably at source resolution. | Excluded |
+| Carlotta Valentinis · *Keylan*, `obracarlotta_3.jpeg` | 960 × 1280 px. Gallery label present; text cannot be checked reliably at source resolution. | Excluded |
+| Carlotta Valentinis · *Kintu*, `obracarlotta.jpeg` | 960 × 1280 px. Gallery label present; text cannot be checked reliably at source resolution. | Excluded |
+| Raúl del Chano · *Ciscla Series*, `obraraul.jpeg` | 960 × 1280 px. Three woven works; gallery labels are too small to verify. | Excluded; use the profile photo only with the image-to-unit caveat above |
+| Davide Ciaramella · *Distaccato*, `obradavidei.jpeg` | 960 × 1280 px. Figurative portrait; sitter identity could not be confidently checked. No inference from skin tone. | Excluded |
+| Lucía Cheves Dauber · *Tokoyol Boogie*, `obra lucia_3.jpeg` | 960 × 1280 px. Human figure and grid-patterned wall; identity and wall material cannot be confidently resolved. | Excluded |
+| Lucía Cheves Dauber · *Lieber Leser* innen, `obralucia_2.jpeg` | 960 × 1280 px. Collage includes small photographic people and text; figures and text cannot all be checked confidently. | Excluded |
 
-Interactive visual comparison is in [`acquisition-proposals.html`](acquisition-proposals.html). A, B and C use the same eight artworks; D features Ciscla as its main case. All four retain the Senso typography, logo and navigation. Use the top controls to switch variants and toggle a mobile viewport.
+The current home source references a separate banner asset and a flyer. The banner could not be visually reviewed: the GitHub binary fetch returned no image data and Chromium displayed a black capture. It remains **unverified** and is excluded from the proposal. The flyer was previously visually identified as containing disallowed text and is also excluded from the proposal. Neither production asset was changed. The preview includes no studio/activity-photo cover or human-photo carousel.
 
-- **A · Editorial:** generous whitespace, art-led staggered grid, quieter hierarchy and artist-led discovery. Best fit for identity; conversion relies on a clear enquiry path.
-- **B · Collect:** compact four-column desktop grid, scannable product cards and filter affordances. Most transactional; only make filters live when controlled artwork metadata exists.
-- **C · Private Viewing:** larger two-column presentation, editorial story and consultation CTA. Strong for high-value or context-led works; slower to scan a broad inventory.
+## Four comparable proposals
 
-## Technical differences in the prototype
+The responsive comparison is `acquisition-proposals.html`. It uses the existing Senso Futura/Behind pairing, logo and navigation. It contains two screened artworks only. A, B and C show the same two full images; D features the Raúl image reference once and hides its duplicate grid card. The device control switches desktop/mobile layout without resetting the selected proposal.
 
-The comparison is a standalone, reversible design study. Artwork cards open an individual work-detail view with previous/next navigation, artist-profile link and enquiry handoff; variant selection and viewport toggling are local presentation controls. Artwork enquiry opens an illustrative form whose submit is intercepted locally and sends nothing; it is **not** connected to Formspree, email, SumUp or analytics. No payment is taken, no real availability is implied and no SEO/structured-data/analytics/domain settings are changed. Images/fonts load from the public GitHub asset URLs, so local preview requires network access. The source catalogue itself has not been overwritten by this design study.
+- **A · Editorial:** spacious, artwork-led grid and quieter enquiry path.
+- **B · Collect:** denser cards and visible discovery controls, with filters marked “Demonstration filters · not interactive.”
+- **C · Private Viewing:** more contextual layout and consultation CTA; full source images remain uncropped.
+- **D · Senso Collect:** A’s editorial hierarchy, B’s discovery affordances and C’s private-view path, with an explicit image/unit-match note and confirmation-only availability status.
 
+In D, the displayed catalogue facts are limited to *Ciscla Series*, Raúl del Chano, iron/wicker/acrylic and 2026. The narrative paraphrases the artist context already published by Senso. “Availability and sale status: to be confirmed with Senso” is shown without a price. The direct-purchase button is disabled pending commercial approval.
 
+## Catalogue-to-inventory reconciliation
 
-## D · Senso Collect: featured-work case
+The displayed catalogue title, artist-profile photograph and a separate internal commercial record have not been proven to refer to the same physical unit. No approved price or current stock state is implied. Confirm the unit and image mapping before offering the work.
 
-The fourth direction combines A’s editorial grid and typography, B’s discovery affordances (filters remain marked as demonstration-only), and C’s private-viewing route on the individual work detail. The featured card uses an image and displayed artwork facts already present in the public catalogue. Its short artist narrative is based on the artist context published by Senso.
+## Commercial checklist for Ciscla
 
-### Commercial checklist
+- Confirm that the public title, physical artwork, selected photograph and commercial record all refer to one unit; assign a durable work/inventory ID.
+- Confirm artist/Senso sale authority and image-use rights.
+- Confirm dimensions, medium, year, condition, edition/uniqueness, provenance and care/framing details.
+- Confirm current physical availability, reservation status and location.
+- Approve public price and currency, VAT/tax, commission, shipping, insurance, delivery and installation.
+- Approve geography, timing, packaging, returns/cancellation, buyer terms and the fulfilment owner.
+- Decide whether the work is direct sale or private-viewing led; do not assume a price threshold.
+- Only after approval, configure and test a SumUp link, payment confirmation, receipt, reconciliation, refund and fulfilment. No payment link or payment action is in the preview.
 
-- Confirm the displayed title, physical unit and durable catalogue/inventory identifier before offering a work.
-- Confirm sale authority and image-use rights for product presentation.
-- Verify dimensions, condition, edition or uniqueness, provenance, and any care or framing details before publishing them.
-- Confirm current physical availability and reservation status.
-- Approve public price, currency, taxes, commissions, shipping, insurance, delivery and installation terms.
-- Approve returns/cancellation, buyer terms, and who owns order fulfilment.
-- Decide if direct sale is appropriate. Only after approval, prepare and test a payment-provider link, receipt, reconciliation, refund and fulfilment path. This preview has no payment link or payment action.
-- Choose a private-viewing route only when Senso confirms it is appropriate for the work.
+## Prototype behavior and review limits
 
-The preview does not display a price or assert availability. The purchase control is disabled pending commercial approval. Enquiry and private-view CTAs use a demonstration-only form; submit is intercepted locally and sends nothing. Production Formspree endpoints remain unchanged.
+The HTML initializes A and marks it selected with `aria-pressed`. Selecting A/B/C/D updates the active button while preserving the device mode. Artwork details open in a dialog with previous/next navigation, artist link, enquiry and private-view actions. The inquiry form is demonstration-only; submit is intercepted locally and reports that nothing was sent. It does not call Formspree, email, analytics or SumUp. Production Formspree forms remain untouched. Filters are static demonstration labels.
 
-## D · Senso Collect validation review (static)
+Static source review covers the 800px and 480px layout rules, full-image containment, semantic labels, dialog names, Escape handling, focus return, disabled purchase action, lazy-loaded cards and eager featured image. Color contrast, focus trapping, broken links in Chromium, touch-target dimensions, real mobile overflow, network waterfall and live form delivery were not verified.
 
-- **Legibility:** keeps the existing Futura/Behind pairing, adds a larger work title and a short 16px narrative, and separates status from material/year. Utility labels remain small; visual contrast was not measured in Chromium.
-- **Responsive:** the featured image/text columns stack at 800px; the collection grid changes to two columns and then one at 480px. The device toggle preserves D and `aria-pressed` while switching layout state. Actual overflow and touch-target checks remain unverified.
-- **Accessibility:** uses descriptive image alternatives, labeled form fields, dialog roles and names, Escape handling, close-button focus, return focus, and a live demo-success message. The demo filters are static spans, visibly marked non-interactive. Focus trapping and measured color contrast were not verified.
-- **Interaction:** selecting A/B/C/D changes active copy and button state; artwork opens a detail view; previous/next cycles through the eight records; inquiry and private-view actions open the local-only modal. The demo form prevents external submission. These were reviewed in source, not exercised in Chromium.
-- **Performance:** the featured image is eager with high fetch priority; grid images are lazy with async decoding; wrappers reserve visual space. Remote fonts and images require network access. No browser transfer-size, LCP, or mobile throttling measurement was possible.
-- **Evidence:** the embedded browser showed a URL-policy block for `file:`. Its instruction prohibits opening the same local preview through HTTP or another surface, so no local server was started. No six-screen capture set is claimed or attached.
+The controlled Chromium browser blocked the local `file:` preview and prohibits reaching that same preview through a local HTTP server or alternate surface. No server was started. Six screenshots, interactive Chromium validation and a browser performance trace are **not available**; no such validation is claimed. The raw banner capture was black, so that image also remains unverified.
 
-## Visual recommendation
+## First-sale plan
 
-Use **Senso Collect** as the leading hybrid concept for review: retain A’s space and art-first composition, use B’s filters once artist/medium metadata is verified, and add C’s discreet private-view path on selected work details when Senso confirms that context is appropriate. Keep artwork status and enquiry prominent. Hold direct purchase disabled until the Ciscla identity, availability, public price and terms are approved and payments are configured. This recommendation is based on source review and interaction design; Chromium screenshot testing remains unverified because the browser policy blocks the local preview and disallows reaching it through an alternate route.
+1. Confirm one work’s identity, physical unit, sale authority, image rights, condition, price/currency, taxes, delivery, returns and fulfilment owner in writing.
+2. Decide direct sale versus private viewing. For an approved direct sale, create a SumUp payment link and verify payment confirmation, receipt, reconciliation, refund and fulfilment; never enable checkout from a calculated scenario.
+3. Publish one accessible work detail page with truthful status, approved total price and terms, clear CTA and manual contact fallback.
+4. Verify desktop/mobile layout, image loading, keyboard/focus, form delivery and payment success/cancel/refund in an authorized environment.
+5. Only after approval, publish the change and wire consent-aware conversion events.
 
-## Refinement requested for review
+## Branch scope
 
-The comparison preview initializes A explicitly and preserves the current viewport mode while switching A/B/C; the selected proposal is reflected by `aria-pressed`. Filter labels are marked as demonstration-only and are not interactive. The enquiry modal is also demonstration-only: its submit is intercepted locally and displays “Nothing was sent.” It does not call Formspree, email, analytics or payment services, and the production artist forms remain unchanged.
-
-**Earlier visual hypothesis:** combine A’s editorial hierarchy, verified discovery controls from B and C’s private-viewing route. The Ciscla-specific Senso Collect refinement and recommendation are documented above; neither is presented as a measured winner from screenshot testing.
-
-**Requested Chromium evidence is pending.** The available browser surface currently has the local `file:` preview blocked by its URL policy. The policy also prohibits opening the same file through a workaround or another browser surface. I therefore did not claim six viewport checks or fabricate screenshots. Once the preview is opened in a permitted Chromium session, capture A/B/C/D at desktop and mobile and inspect the detail view, previous/next controls, enquiry modal, selected-button state and console.
-
-## Minimum plan for the first online sale
-
-1. Select one work and record written approval from the artist/rights holder and Senso sale owner; confirm title, image rights, unique inventory/edition, condition, price and currency, VAT/taxes, shipping, insurance, delivery, returns/cancellation, buyer terms and who handles fulfilment.
-2. Decide whether this work is direct sale or consultation-led. For a direct sale, create a SumUp product/payment link only after the amount and terms are approved; do not collect card data on Senso. Verify fee/settlement, payment confirmation, receipt, refund path and order reconciliation with a low-risk internal transaction or provider sandbox if available.
-3. Build one accessible work detail page with accurate status, total price and delivery/returns terms, one clear action, and a manual fallback contact. For higher-value/context-sensitive work, use “Request a private viewing” and capture work ID plus contact details.
-4. Test desktop/mobile, image failures, keyboard/focus, field validation, form receipt, payment success/cancel/refund, confirmation email and fulfilment handoff. Verify links/assets and establish a response owner/SLA.
-5. Only after explicit authorization, publish the approved page and wire consent-aware conversion events. Compare enquiry-to-sale outcomes before scaling the catalogue.
-
-## Limits and next inputs
-
-This review was performed against repository source through the connected GitHub read API because the provided workspace contained no local clone. The branch was created remotely from `main`; no source page changes have yet been made on the branch. Live browser, network waterfall, real form submission, SumUp account readiness, inventory, sale contracts, image rights and current production behavior were not independently verified. The preview is a responsive HTML view with desktop/mobile toggles, not a live production preview. A browser visual run could not be completed because the controlled browser blocks local `file:` URLs and explicitly disallows opening the same preview by an alternate route. No HTTP server was started. The files received static integrity checks only.
+The proposal and this audit are committed only to the requested test branch. Production pages, `main`, SEO, analytics, payment settings and domains are unchanged. No merge or deployment was performed.
