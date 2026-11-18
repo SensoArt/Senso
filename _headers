@@ -11,3 +11,7 @@ https://senso-preview.pages.dev/*
 
 https://:version.senso-preview.pages.dev/*
   X-Robots-Tag: noindex
+
+/*
+  X-Robots-Tag: noindex, nofollow
+  Content-Security-Policy: connect-src 'none'; form-action 'none'; script-src 'self' 'unsafe-inline';
