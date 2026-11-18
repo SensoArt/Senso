@@ -128,21 +128,25 @@ img{display:block;width:100%}
 .gallery-head{grid-column:2;grid-row:1;display:grid;gap:14px;align-self:end}
 .gallery-head-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.62;max-width:36ch}
 .gallery-stage{grid-column:1;grid-row:1 / 5;position:relative;aspect-ratio:8/5;overflow:hidden;background:#f3f1ec;touch-action:pan-y}
-.gallery-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease}
-.gallery-slide.active{opacity:1;pointer-events:auto}
+.gallery-slide{position:absolute;inset:0}
+.gallery-slide.active{animation:gallery-reveal .28s ease}
+@keyframes gallery-reveal{from{opacity:.45}to{opacity:1}}
 .gallery-slide picture,.gallery-slide img{display:block;width:100%;height:100%}
 .gallery-slide img{object-fit:contain}
 .gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.94);border:1px solid rgba(23,23,20,.2);display:grid;place-items:center;cursor:pointer;padding:0;z-index:3;font-size:1.1rem}
 .gallery-prev{left:14px}.gallery-next{right:14px}
 .gallery-counter{position:absolute;right:14px;bottom:14px;z-index:3;background:#fff;padding:7px 9px;font-size:.58rem;letter-spacing:.12em}
-.gallery-bottom{grid-column:2;display:grid;gap:14px}
-.gallery-thumbs{display:flex;gap:8px}
+.gallery-bottom{grid-column:2;grid-row:3;display:grid;gap:12px}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;max-width:430px}
 .gallery-session-cta{justify-self:start;min-height:44px;padding:6px 0;border-bottom:1px solid currentColor;font-size:.651rem;letter-spacing:.12em;text-transform:uppercase;text-align:left;cursor:pointer}
 .gallery-session-cta:hover{border-color:var(--accent)}
-.gallery-thumb{flex:0 1 96px;height:60px;padding:2px;border:1px solid transparent;overflow:hidden;cursor:pointer;min-width:0;background:transparent}
+.gallery-thumb{aspect-ratio:4/3;min-height:44px;padding:2px;border:1px solid transparent;overflow:hidden;cursor:pointer;min-width:0;background:transparent}
 .gallery-thumb.active{border-color:var(--ink)}
 .gallery-thumb img{width:100%;height:100%;object-fit:cover}
-.gallery-caption{grid-column:2;margin:0;color:var(--muted);font-size:.72rem;line-height:1.55}
+.gallery-caption{grid-column:2;grid-row:2;margin:0;color:var(--muted);font-size:.72rem;line-height:1.55}
+.gallery-caption-item{display:grid;gap:2px}
+.gallery-caption-item>.lang{color:var(--ink)}
+.gallery-caption-source{display:block}
 @media(max-width:900px){
   .gallery-layout{display:flex;flex-direction:column;gap:14px;align-items:stretch}
   .gallery-head{align-self:auto}
@@ -153,7 +157,6 @@ img{display:block;width:100%}
   .studio-gallery{padding:30px 0 36px}
   .gallery-stage{aspect-ratio:16/10}
   .gallery-nav{width:44px;height:44px}
-  .gallery-thumb{height:52px}
 }
 /* FINAL CONVERSION */
 .final{border-top:1px solid var(--ink)}
@@ -245,7 +248,8 @@ body.drawer-open{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .drawer,.drawer-overlay,.product,.gallery-slide,.entry-route span:first-child{transition:none}
+  .drawer,.drawer-overlay,.product,.entry-route span:first-child{transition:none}
+  .gallery-slide.active{animation:none}
 }
 
 /* Studio mobile header/footer aligned with the shared Senso pattern */
@@ -295,8 +299,8 @@ body.drawer-open{overflow:hidden}
       </div>
       <figure class="hero-image">
         <picture>
-          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011200-mobile.webp" width="900" height="675">
-          <img src="studio-editorial-assets/P1011200-desktop.webp" width="1800" height="1125" alt="A brush painting beside a blue cup depicted on canvas" data-alt-es="Un pincel pinta junto a una taza azul representada en el lienzo" decoding="async" fetchpriority="high">
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011098-mobile.webp" width="780" height="693">
+          <img src="studio-editorial-assets/P1011098-desktop.webp" width="1500" height="1300" alt="Two participants exchange a look across the worktable" data-alt-es="Dos participantes intercambian una mirada en la mesa de trabajo" fetchpriority="high" decoding="async">
         </picture>
         <figcaption><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></figcaption>
       </figure>
@@ -360,44 +364,154 @@ body.drawer-open{overflow:hidden}
     </div>
 
     <div class="gallery-stage" data-gallery-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Senso Studio experience gallery">
-      <div class="gallery-slide active" aria-hidden="false">
+      <div class="gallery-slide active">
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011196-mobile.webp" width="780" height="547">
+          <img src="studio-editorial-assets/P1011196-desktop.webp" width="1500" height="1028" alt="A participant concentrates on her painting" data-alt-es="Una participante se concentra en su pintura" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" hidden>
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011078-mobile.webp" width="780" height="607">
+          <img src="studio-editorial-assets/P1011078-desktop.webp" width="1500" height="1121" alt="Paintbrushes laid out on the studio table" data-alt-es="Pinceles preparados en la mesa del estudio" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" hidden>
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011098-mobile.webp" width="780" height="693">
+          <img src="studio-editorial-assets/P1011098-desktop.webp" width="1500" height="1300" alt="Two participants exchange a look across the worktable" data-alt-es="Dos participantes intercambian una mirada en la mesa de trabajo" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" hidden>
         <picture>
           <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011151-mobile.webp" width="900" height="566">
           <img src="studio-editorial-assets/P1011151-desktop.webp" width="1800" height="1120" alt="A hand drawing in pencil on paper" data-alt-es="Una mano dibuja a lápiz sobre papel" loading="lazy" decoding="async">
         </picture>
       </div>
-      <div class="gallery-slide" aria-hidden="true">
+      <div class="gallery-slide" hidden>
         <picture>
           <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011174-mobile.webp" width="900" height="501">
           <img src="studio-editorial-assets/P1011174-desktop.webp" width="1800" height="1125" alt="A brush mixing colours on a palette" data-alt-es="Un pincel mezcla colores en una paleta" loading="lazy" decoding="async">
         </picture>
       </div>
-      <div class="gallery-slide" aria-hidden="true">
+      <div class="gallery-slide" hidden>
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011200-mobile.webp" width="900" height="675">
+          <img src="studio-editorial-assets/P1011200-desktop.webp" width="1800" height="1125" alt="A brush painting beside a blue cup depicted on canvas" data-alt-es="Un pincel pinta junto a una taza azul representada en el lienzo" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" hidden>
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011198-mobile.webp" width="780" height="523">
+          <img src="studio-editorial-assets/P1011198-desktop.webp" width="1500" height="963" alt="A painting of a cup with red contours and a floral motif" data-alt-es="Una taza pintada con contorno rojo y motivos florales" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" hidden>
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011199-mobile.webp" width="780" height="618">
+          <img src="studio-editorial-assets/P1011199-desktop.webp" width="1500" height="1137" alt="A brush adds colour to a pink cup on a blue ground" data-alt-es="Un pincel añade color a una taza rosa sobre fondo azul" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" hidden>
         <picture>
           <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011204-mobile.webp" width="900" height="588">
           <img src="studio-editorial-assets/P1011204-desktop.webp" width="1800" height="1128" alt="Paintings from the session arranged together" data-alt-es="Pinturas de la sesión reunidas" loading="lazy" decoding="async">
         </picture>
       </div>
+      <div class="gallery-slide" hidden>
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1010811-mobile.webp" width="780" height="618">
+          <img src="studio-editorial-assets/P1010811-desktop.webp" width="1500" height="1197" alt="A table set for painting with an easel at the far end" data-alt-es="Una mesa preparada para pintar con un caballete al fondo" loading="lazy" decoding="async">
+        </picture>
+      </div>
       <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-label-en="Previous image" data-label-es="Imagen anterior" data-gallery-prev>←</button>
       <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-label-en="Next image" data-label-es="Imagen siguiente" data-gallery-next>→</button>
-      <div class="gallery-counter" aria-live="polite"><span data-gallery-current>01</span> / <span>03</span></div>
+      <div class="gallery-counter" aria-live="polite"><span data-gallery-current>01</span> / <span>10</span></div>
     </div>
+
+    <p class="gallery-caption">
+      <span class="gallery-caption-item" data-gallery-caption>
+        <span class="lang" data-lang="en">Concentration at the table</span><span class="lang" data-lang="es" hidden>Concentración en la mesa</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">The table before painting</span><span class="lang" data-lang="es" hidden>La mesa antes de pintar</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">A moment of exchange</span><span class="lang" data-lang="es" hidden>Un momento de intercambio</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">The first lines</span><span class="lang" data-lang="es" hidden>Las primeras líneas</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">Mixing colour</span><span class="lang" data-lang="es" hidden>La mezcla del color</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">Colour on canvas</span><span class="lang" data-lang="es" hidden>El color en el lienzo</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">A floral interpretation</span><span class="lang" data-lang="es" hidden>Una interpretación floral</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">A study in pink and blue</span><span class="lang" data-lang="es" hidden>Un estudio en rosa y azul</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">The works together</span><span class="lang" data-lang="es" hidden>Las obras reunidas</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></span>
+      </span>
+      <span class="gallery-caption-item" data-gallery-caption hidden>
+        <span class="lang" data-lang="en">The studio before the session</span><span class="lang" data-lang="es" hidden>El estudio antes de la sesión</span>
+        <span class="gallery-caption-source"><span class="lang" data-lang="en">Studio pilot at Zeit</span><span class="lang" data-lang="es" hidden>Prueba de Studio en Zeit</span></span>
+      </span>
+    </p>
 
     <div class="gallery-bottom">
       <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="A hand drawing in pencil on paper" data-label-en="A hand drawing in pencil on paper" data-label-es="Una mano dibuja a lápiz sobre papel"><img src="studio-editorial-assets/P1011151-mobile.webp" alt="" loading="lazy" decoding="async" width="900" height="566"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="A brush mixing colours on a palette" data-label-en="A brush mixing colours on a palette" data-label-es="Un pincel mezcla colores en una paleta"><img src="studio-editorial-assets/P1011174-mobile.webp" alt="" loading="lazy" decoding="async" width="900" height="501"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="Paintings from the session arranged together" data-label-en="Paintings from the session arranged together" data-label-es="Pinturas de la sesión reunidas"><img src="studio-editorial-assets/P1011204-mobile.webp" alt="" loading="lazy" decoding="async" width="900" height="588"></button>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="A participant concentrates on her painting" data-label-en="A participant concentrates on her painting" data-label-es="Una participante se concentra en su pintura" aria-current="true">
+          <img src="studio-editorial-assets/P1011196-thumb.webp" alt="" width="240" height="168" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="Paintbrushes laid out on the studio table" data-label-en="Paintbrushes laid out on the studio table" data-label-es="Pinceles preparados en la mesa del estudio">
+          <img src="studio-editorial-assets/P1011078-thumb.webp" alt="" width="240" height="187" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="Two participants exchange a look across the worktable" data-label-en="Two participants exchange a look across the worktable" data-label-es="Dos participantes intercambian una mirada en la mesa de trabajo">
+          <img src="studio-editorial-assets/P1011098-thumb.webp" alt="" width="240" height="213" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="3" aria-label="A hand drawing in pencil on paper" data-label-en="A hand drawing in pencil on paper" data-label-es="Una mano dibuja a lápiz sobre papel">
+          <img src="studio-editorial-assets/P1011151-thumb.webp" alt="" width="240" height="151" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="4" aria-label="A brush mixing colours on a palette" data-label-en="A brush mixing colours on a palette" data-label-es="Un pincel mezcla colores en una paleta">
+          <img src="studio-editorial-assets/P1011174-thumb.webp" alt="" width="240" height="134" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="5" aria-label="A brush painting beside a blue cup depicted on canvas" data-label-en="A brush painting beside a blue cup depicted on canvas" data-label-es="Un pincel pinta junto a una taza azul representada en el lienzo">
+          <img src="studio-editorial-assets/P1011200-thumb.webp" alt="" width="240" height="180" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="6" aria-label="A painting of a cup with red contours and a floral motif" data-label-en="A painting of a cup with red contours and a floral motif" data-label-es="Una taza pintada con contorno rojo y motivos florales">
+          <img src="studio-editorial-assets/P1011198-thumb.webp" alt="" width="240" height="161" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="7" aria-label="A brush adds colour to a pink cup on a blue ground" data-label-en="A brush adds colour to a pink cup on a blue ground" data-label-es="Un pincel añade color a una taza rosa sobre fondo azul">
+          <img src="studio-editorial-assets/P1011199-thumb.webp" alt="" width="240" height="190" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="8" aria-label="Paintings from the session arranged together" data-label-en="Paintings from the session arranged together" data-label-es="Pinturas de la sesión reunidas">
+          <img src="studio-editorial-assets/P1011204-thumb.webp" alt="" width="240" height="157" loading="lazy" decoding="async">
+        </button>
+        <button class="gallery-thumb" type="button" data-gallery-index="9" aria-label="A table set for painting with an easel at the far end" data-label-en="A table set for painting with an easel at the far end" data-label-es="Una mesa preparada para pintar con un caballete al fondo">
+          <img src="studio-editorial-assets/P1010811-thumb.webp" alt="" width="240" height="190" loading="lazy" decoding="async">
+        </button>
       </div>
       <div class="gallery-bottom-cta">
         <button class="gallery-session-cta" type="button" data-open-drawer data-mode="general">
-          <span class="lang" data-lang="en">Plan a session</span>
-          <span class="lang" data-lang="es" hidden>Planificar una sesión</span>
+          <span class="lang" data-lang="en">Request a proposal</span>
+          <span class="lang" data-lang="es" hidden>Solicitar una propuesta</span>
         </button>
       </div>
     </div>
-
-    <p class="gallery-caption"><span class="lang" data-lang="en">Drawing, colour and finished works from the painting session on 13 November 2026.</span><span class="lang" data-lang="es" hidden>Dibujo, color y obras terminadas en la sesión de pintura del 13 de noviembre de 2026.</span></p>
   </div>
 </section>
 
@@ -480,8 +594,8 @@ body.drawer-open{overflow:hidden}
     </div>
     <div class="final-action">
       <button type="button" data-open-drawer data-mode="general">
-        <span class="lang" data-lang="en">Plan an experience</span>
-        <span class="lang" data-lang="es" hidden>Planificar una experiencia</span>
+        <span class="lang" data-lang="en">Request a proposal</span>
+        <span class="lang" data-lang="es" hidden>Solicitar una propuesta</span>
       </button>
     </div>
   </div>
@@ -837,6 +951,7 @@ body.drawer-open{overflow:hidden}
   if(!root) return;
   const slides=[...root.querySelectorAll('.gallery-slide')];
   const thumbs=[...root.querySelectorAll('.gallery-thumb')];
+  const captions=[...root.querySelectorAll('[data-gallery-caption]')];
   const current=root.querySelector('[data-gallery-current]');
   let index=0, startX=null;
 
@@ -844,17 +959,15 @@ body.drawer-open{overflow:hidden}
     index=(next+slides.length)%slides.length;
     slides.forEach((el,i)=>{
       el.classList.toggle('active',i===index);
-      el.setAttribute('aria-hidden',String(i!==index));
+      el.hidden=i!==index;
     });
     thumbs.forEach((el,i)=>{
       el.classList.toggle('active',i===index);
       if(i===index) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
     });
+    captions.forEach((caption,i)=>{caption.hidden=i!==index});
     if(current) current.textContent=String(index+1).padStart(2,'0');
   }
-
-  slides.forEach((el,i)=>el.setAttribute('aria-hidden',String(i!==0)));
-  if(thumbs[0]) thumbs[0].setAttribute('aria-current','true');
 
   root.querySelector('[data-gallery-prev]')?.addEventListener('click',()=>show(index-1));
   root.querySelector('[data-gallery-next]')?.addEventListener('click',()=>show(index+1));
