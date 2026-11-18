@@ -18,7 +18,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","@id":"https://senso-art.com/studio.html#service","name":"Senso Studio","serviceType":"Artist-led contemporary art experiences for companies, teams and private groups","description":"Artist-led contemporary art experiences in Barcelona for companies and individuals, from team sessions and events to private workshops, courses and Senso Kids.","provider":{"@type":"Organization","@id":"https://senso-art.com/#organization","name":"Senso Art","url":"https://senso-art.com/"},"areaServed":[{"@type":"City","name":"Barcelona"},{"@type":"Country","name":"Spain"}],"url":"https://senso-art.com/studio.html"}</script>
 <link rel="preload" href="Fonts/futura%20light%20bt.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="Fonts/Behind-The-Nineties-Md-It.otf" as="font" type="font/otf" crossorigin>
-<link rel="preload" href="Senso_Studio_Foto/optimized/hero-1920.webp?v=hero-clean-1" as="image" type="image/webp" imagesrcset="Senso_Studio_Foto/optimized/hero-960.webp?v=hero-clean-1 960w, Senso_Studio_Foto/optimized/hero-1920.webp?v=hero-clean-1 1920w" imagesizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" fetchpriority="high">
+
 <link rel="icon" href="favicon.png?v=1000">
 <style>
 @font-face{font-family:Futura;src:url('Fonts/futura light bt.ttf') format('truetype');font-display:swap}
@@ -54,34 +54,30 @@ img{display:block;width:100%}
 .senso-header .lang-btn{padding:0 2px;border:0;background:none;color:#666;cursor:pointer;font-family:inherit;font-size:.65rem;letter-spacing:2px;opacity:.4;transition:opacity .3s,color .3s}
 .senso-header .lang-btn.active{opacity:.72;color:#333;font-weight:400}.senso-header .lang-btn:hover{opacity:.9}
 
-/* HERO — J master */
-.hero{padding:0}
-.hero>.shell{width:100%;max-width:none}
-.hero-frame{position:relative;min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);overflow:hidden;border-top:0;border-bottom:1px solid var(--line)}
-.hero-frame picture{position:absolute;inset:0;width:100%;height:100%}
-.hero-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 50%;filter:saturate(.84) contrast(.93) brightness(1.045)}
-.hero-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.95) 0%,rgba(255,255,255,.76) 39%,rgba(255,255,255,.16) 76%)}
-.hero-copy{position:relative;z-index:2;min-height:calc(100vh - 84px);min-height:calc(100svh - 84px);width:60%;display:flex;flex-direction:column;justify-content:space-between;padding:52px 54px 42px 58px}
+/* HERO */
+.hero-frame{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);align-items:center;gap:clamp(28px,4vw,64px);padding:22px 0 42px;border-bottom:1px solid var(--line)}
+.hero-frame figure{margin:0}
+.hero-frame picture{display:block}
+.hero-frame img{height:auto}
+.hero-image figcaption{margin-top:10px;color:var(--muted);font-size:.72rem;line-height:1.55}
+.hero-copy{display:grid;gap:clamp(24px,4vw,56px);padding:0 0 22px}
 .hero-copy h1,.entry-card h3,.products-head h2,.gallery-head h3,.final-copy h3{font-family:Behind,Georgia,serif;font-size:clamp(2rem,5vw,3rem);font-weight:400;line-height:1.1;letter-spacing:0;text-transform:lowercase;margin:0}
-.hero-bottom{transform:translateY(-56px)}
 .hero-bottom h2{font-family:Behind,Georgia,serif;font-size:clamp(1.55rem,2.2vw,2.25rem);font-weight:400;line-height:1.12;letter-spacing:0;margin:0 0 17px;max-width:680px}
 .hero-bottom p{font-size:1rem;line-height:1.72;color:var(--muted);max-width:520px;margin:0 0 26px}
 .hero-actions{display:flex;gap:24px;flex-wrap:wrap}
 
 /* TWO JOURNEYS */
 .entry{border-bottom:0}
-.entry-grid{display:grid;grid-template-columns:1fr 1fr}
-.entry-card{padding:50px 50px 54px 0;min-height:465px;display:grid;grid-template-rows:auto 1fr auto auto;align-content:stretch}
-.entry-card+.entry-card{border-left:1px solid var(--line);padding-left:50px}
-.entry-card .mode{display:block;color:var(--muted);margin-bottom:20px}
-.entry-card h3{margin-bottom:28px}
+.entry-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));scroll-margin-top:155px}
+.entry-card{padding:36px 38px 38px 0}
+.entry-card+.entry-card{border-left:1px solid var(--line);padding-left:38px}
+.entry-card h3{margin-bottom:12px}
 .entry-action-title,.entry-action-link{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);line-height:1.55}
-.entry-action-title{margin:0 0 18px}
+.entry-action-title{margin:0 0 12px}
 .entry-action-link{display:inline-flex;align-items:center;gap:12px;padding:0 0 5px;border-bottom:1px solid currentColor;cursor:pointer;text-decoration:none;transition:border-color .2s ease,transform .2s ease}
 .entry-action-link:hover{border-color:var(--accent);transform:translateX(6px)}
-.entry-card>.lang{min-height:0}
-.entry-actions{display:flex;gap:24px;flex-wrap:wrap;align-self:end;min-height:30px;align-items:flex-end}
-.entry-list{margin-top:0;padding-top:30px}
+.entry-actions{display:flex;gap:24px;flex-wrap:wrap;align-items:center}
+.entry-list{margin-top:18px}
 .entry-route{width:100%;display:flex;justify-content:space-between;align-items:center;padding:12px 0;border:0;border-top:1px solid var(--line);background:transparent;text-align:left;font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
 .entry-route:last-child{border-bottom:1px solid var(--line)}
 .entry-route span:first-child,.entry-route span:last-child{transition:transform .2s ease}
@@ -90,21 +86,10 @@ img{display:block;width:100%}
 
 
 /* PRODUCT INDEX */
-.products{padding:72px 0 132px;border-top:0;content-visibility:auto;contain-intrinsic-size:1400px}
-.products-head{position:relative;width:100vw;margin-left:calc(50% - 50vw);display:grid;grid-template-columns:1fr;gap:0;align-items:start;margin-bottom:0;padding:90px max(50px,calc((100vw - 1360px)/2)) 101px;overflow:hidden}
-.products-head>picture{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.products-head-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 82%;z-index:0}
-.products-head::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.32) 50%,rgba(255,255,255,.06) 100%);z-index:1}
-.products-head>div,.products-head>.micro{position:relative;z-index:2}
-.products-head>div{transform:translateY(42px)}
-.products-head::after{content:none}
-.products-head>.micro{padding-top:0;color:#252522}
+.products{padding:52px 0 64px;border-top:1px solid var(--line);scroll-margin-top:150px}
 .products-head h2{margin-bottom:22px}
-.section-meta{font-size:.66rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink);line-height:1.55;margin:0 0 18px}
-.products-head p{margin:0;color:#2e2e2a;line-height:1.68;max-width:690px;font-size:.92rem}
-.product-group{display:block;border-top:0;padding-top:22px;scroll-margin-top:118px}
-.business-group{margin-top:72px}
-.product-group+.product-group{margin-top:72px;border-top:0}
+.product-group{display:block;padding-top:10px;scroll-margin-top:150px}
+.product-group+.product-group{margin-top:30px}
 .product-group-label p{display:none}
 
 /* Variant 1 — split line */
@@ -120,90 +105,70 @@ img{display:block;width:100%}
 .business-group .product strong,.individuals-group .product strong{font-family:GilroyExtraBold,Arial,sans-serif;font-size:.713rem;font-weight:800;line-height:1.55;letter-spacing:.09em;text-transform:uppercase}
 .business-group .product-group-label .micro,.individuals-group .product-group-label .micro{font-size:.839rem;font-family:GilroyExtraBold,Arial,sans-serif;font-weight:800;-webkit-text-stroke:0}
 .product p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.55;max-width:540px}
-@media(min-width:901px){.product p{margin-left:-24px}}
 .product .aud{font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.45}
 .product .action{font-size:.58rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
 @media(max-width:1000px){
   .product{grid-template-columns:minmax(190px,.85fr) 1fr 125px auto;gap:18px}
 }
 @media(max-width:900px){
-  .product{grid-template-columns:1fr auto}
+  .product{grid-template-columns:minmax(0,1fr) auto}
   .product p{grid-column:1/3}
   .product .aud{grid-column:1}
   .product .action{grid-column:2;grid-row:3}
 }
 @media(max-width:700px){
-  .hero-bottom{transform:translateY(-28px)}
-  .products{padding:56px 0 94px}
-  .products-head{grid-template-columns:1fr;gap:0;margin-bottom:0;padding:55px 18px 63px}
-  .products-head>div{transform:translateY(28px)}
-  .products-head-bg{object-position:center 82%}
-  .business-group{margin-top:56px}
-  .product-group+.product-group{margin-top:54px}
-  .product{grid-template-columns:1fr auto;gap:12px;padding:18px 0}
+  .products{padding:36px 0 46px}
+  .product{gap:10px;padding:16px 0}
   .product strong{font-size:1.92rem}
   .business-group .product strong,.individuals-group .product strong{font-size:.713rem}
 }
 /* STUDIO GALLERY */
-.studio-gallery{padding:96px 0 108px;border-top:1px solid var(--line);content-visibility:auto;contain-intrinsic-size:900px}
-.gallery-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.78fr);gap:42px;align-items:end;margin-bottom:30px}
-.gallery-head h3{margin:0}
-.gallery-head-copy{padding-bottom:5px}
-.gallery-head-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.62;max-width:520px}
-.gallery-stage{position:relative;aspect-ratio:16/8.2;min-height:440px;max-height:610px;overflow:hidden;background:#f3f1ec;touch-action:pan-y}
+.studio-gallery{padding:42px 0 48px;border-top:1px solid var(--line)}
+.gallery-layout{display:grid;grid-template-columns:minmax(0,1.85fr) minmax(0,1fr);grid-template-rows:1fr auto auto 1fr;gap:16px 42px;align-items:start}
+.gallery-head{grid-column:2;grid-row:1;display:grid;gap:14px;align-self:end}
+.gallery-head-copy p{margin:0;color:#4a4944;font-size:.94rem;line-height:1.62;max-width:36ch}
+.gallery-stage{grid-column:1;grid-row:1 / 5;position:relative;aspect-ratio:8/5;overflow:hidden;background:#f3f1ec;touch-action:pan-y}
 .gallery-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .35s ease}
 .gallery-slide.active{opacity:1;pointer-events:auto}
-.gallery-slide img{width:100%;height:100%;object-fit:cover;object-position:center center;filter:saturate(.92) contrast(1.035) brightness(1.02)}
-.gallery-slide.crop-03 img,.gallery-slide.crop-07 img{object-fit:contain;object-position:center;background:#f3f1ec;transform:none}
-.gallery-slide.crop-08 img{object-position:center 48%}
-.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.9);border:1px solid rgba(23,23,20,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;font-size:1.1rem}
-.gallery-prev{left:18px}.gallery-next{right:18px}
-.gallery-counter{position:absolute;right:18px;bottom:16px;z-index:3;background:rgba(255,255,255,.84);padding:7px 9px;font-size:.58rem;letter-spacing:.12em;text-transform:uppercase}
-.gallery-bottom{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:24px;align-items:stretch;margin-top:14px}
-.gallery-thumbs{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
-.gallery-bottom-cta{display:flex;align-items:stretch}
-.gallery-session-cta{width:100%;min-height:92px;border:1px solid var(--ink);display:flex;align-items:center;justify-content:center;gap:0;padding:0 22px;background:#fff;font-size:.651rem;letter-spacing:.12em;text-transform:uppercase;text-align:center;cursor:pointer}
-.gallery-session-cta:hover{background:#f4f2ed}
-.gallery-thumb{height:92px;padding:0;border:1px solid transparent;overflow:hidden;cursor:pointer;background:#f3f1ec}
+.gallery-slide picture,.gallery-slide img{display:block;width:100%;height:100%}
+.gallery-slide img{object-fit:contain}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.94);border:1px solid rgba(23,23,20,.2);display:grid;place-items:center;cursor:pointer;padding:0;z-index:3;font-size:1.1rem}
+.gallery-prev{left:14px}.gallery-next{right:14px}
+.gallery-counter{position:absolute;right:14px;bottom:14px;z-index:3;background:#fff;padding:7px 9px;font-size:.58rem;letter-spacing:.12em}
+.gallery-bottom{grid-column:2;display:grid;gap:14px}
+.gallery-thumbs{display:flex;gap:8px}
+.gallery-session-cta{justify-self:start;min-height:44px;padding:6px 0;border-bottom:1px solid currentColor;font-size:.651rem;letter-spacing:.12em;text-transform:uppercase;text-align:left;cursor:pointer}
+.gallery-session-cta:hover{border-color:var(--accent)}
+.gallery-thumb{flex:0 1 96px;height:60px;padding:2px;border:1px solid transparent;overflow:hidden;cursor:pointer;min-width:0;background:transparent}
 .gallery-thumb.active{border-color:var(--ink)}
-.gallery-thumb img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.02) brightness(1.02)}
-.gallery-caption{margin-top:13px;display:flex;justify-content:space-between;gap:24px;align-items:flex-start}
-.gallery-caption p{margin:0;color:var(--muted);font-size:.72rem;line-height:1.55}
-.gallery-caption .credit{font-size:.58rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.gallery-thumb img{width:100%;height:100%;object-fit:cover}
+.gallery-caption{grid-column:2;margin:0;color:var(--muted);font-size:.72rem;line-height:1.55}
 @media(max-width:900px){
-  .gallery-head{grid-template-columns:1fr 1fr;gap:18px}
-  .gallery-head-copy{grid-column:2}
-  .gallery-stage{aspect-ratio:16/9;min-height:0;max-height:none}
-  .gallery-bottom{grid-template-columns:1fr}
-  .gallery-session-cta{min-height:60px}
+  .gallery-layout{display:flex;flex-direction:column;gap:14px;align-items:stretch}
+  .gallery-head{align-self:auto}
+  .gallery-head-copy p{max-width:55ch}
+  .gallery-bottom{gap:5px}
 }
 @media(max-width:700px){
-  .studio-gallery{padding:76px 0 86px}
-  .gallery-head{grid-template-columns:1fr;gap:12px}
-  .gallery-head-copy{grid-column:auto}
-  .gallery-stage{aspect-ratio:4/3;min-height:0}
-  .gallery-nav{width:40px;height:40px}
-  .gallery-thumbs{display:flex;overflow-x:auto;gap:8px;padding-bottom:4px}
-  .gallery-thumb{flex:0 0 110px;height:76px}
-  .gallery-bottom-cta{display:none}
-  .gallery-session-cta{min-height:56px}
-  .gallery-caption{flex-direction:column;gap:7px}
+  .studio-gallery{padding:30px 0 36px}
+  .gallery-stage{aspect-ratio:16/10}
+  .gallery-nav{width:44px;height:44px}
+  .gallery-thumb{height:52px}
 }
 /* FINAL CONVERSION */
-.final{border-top:1px solid var(--ink);padding:0 0 104px}
-.final-inner{min-height:360px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:72px 0 62px;text-align:center}
+.final{border-top:1px solid var(--ink)}
+.final-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;padding:58px 0;text-align:center}
 .final-copy h3{margin:0}
 .final-action{display:flex;justify-content:center;align-items:center}
-.final-action button{min-width:190px;height:54px;border:1px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .2s ease}
+.final-action button{min-width:190px;min-height:54px;padding:8px 14px;border:1px solid var(--ink);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;cursor:pointer;transition:background .2s ease}
 .final-action button:hover{background:#f4f2ed}
 @media(max-width:800px){
   .final-inner{min-height:0;gap:30px;padding:58px 0 50px}
 }
 @media(max-width:700px){
-  .final{padding-bottom:82px}
   .final-inner{gap:26px;padding:52px 0 44px}
   .final-action{width:100%}
-  .final-action button{width:190px;min-width:0}
+  .final-action button{max-width:100%}
 }
 
 /* DRAWER */
@@ -246,40 +211,36 @@ body.drawer-open{overflow:hidden}
   .senso-header .nav-container{width:100%;align-items:flex-start;gap:15px;overflow:visible}
   .senso-header .lang-switch{position:absolute;top:24px;right:20px;margin:0}
   .senso-header nav{margin:10px 0 0;width:100%;flex-wrap:wrap;justify-content:flex-start;gap:12px;font-size:.65rem;overflow:visible;padding:0}
-  .hero-copy{width:78%}
-  .entry-grid{grid-template-columns:1fr}
-  .entry-card{min-height:0;padding:42px 0 46px}
-  .entry-card+.entry-card{border-left:0;border-top:1px solid var(--line);padding-left:0}
-  .entry-card:nth-child(2) .entry-list{margin-bottom:0}
   .form-grid{grid-template-columns:1fr}
   .field.full{grid-column:auto}
 }
 @media(max-width:700px){
   .shell{width:calc(100% - 36px)}
-  .hero-copy{width:100%;padding:28px 24px 26px}
-  .hero-frame::after{background:linear-gradient(90deg,rgba(255,255,255,.88) 0%,rgba(255,255,255,.72) 62%,rgba(255,255,255,.38) 100%)}
+  .hero-frame{grid-template-columns:1fr;gap:20px;padding:18px 0 26px}
+  .hero-copy{padding:0;gap:16px}
+  .hero-image{grid-row:1}
   .hero-copy h1,.entry-card h3,.products-head h2,.gallery-head h3,.final-copy h3{font-size:2.2rem}
   .hero-bottom h2{font-size:1.8rem}
   .hero-bottom p{font-size:.95rem;line-height:1.62}
-  .entry-card{padding:34px 0 38px}
+  .entry-grid{grid-template-columns:1fr}
+  .entry-card{padding:25px 0 29px}
+  .entry-card+.entry-card{border-left:0;border-top:1px solid var(--line);padding-left:0}
   .entry-route{min-height:44px;padding:10px 0}
-  .products-head{padding-left:18px;padding-right:18px}
   .product{min-height:68px}
-  .gallery-thumbs{scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
-  .gallery-thumb{scroll-snap-align:start}
   .field input,.field select,.field textarea{font-size:16px}
   .drawer{padding:24px 18px 32px}
+  .drawer-head{gap:12px}
+  .drawer-close{flex:none;min-height:44px}
   .footer{flex-direction:column;gap:15px;padding:25px 18px;text-align:center}
 }
 @media(max-width:480px){
-  .hero-copy{padding:24px 20px}
-  .hero-actions{flex-direction:column;align-items:flex-start;gap:16px}
+  .entry-grid,.product-group,.products{scroll-margin-top:200px}
+  .hero-actions{gap:12px 16px}
   .entry-action-title{font-size:.62rem}
   .product strong{font-size:1.78rem}
   .business-group .product strong,.individuals-group .product strong{font-size:.713rem}
   .product p{font-size:.81rem}
   .gallery-head-copy p{font-size:.9rem}
-  .gallery-nav{width:38px;height:38px}
   .gallery-prev{left:10px}.gallery-next{right:10px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -315,10 +276,6 @@ body.drawer-open{overflow:hidden}
 <section class="hero">
   <div class="shell">
     <div class="hero-frame">
-      <picture>
-        <source type="image/webp" srcset="Senso_Studio_Foto/optimized/hero-960.webp?v=hero-clean-1 960w, Senso_Studio_Foto/optimized/hero-1920.webp?v=hero-clean-1 1920w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))">
-        <img src="Senso_Studio_Foto/studio-815.jpg?v=hero-clean-1" alt="Senso Studio space prepared for an artist-led experience" decoding="async" fetchpriority="high">
-      </picture>
       <div class="hero-copy">
         <h1>studio</h1>
         <div class="hero-bottom">
@@ -331,19 +288,25 @@ body.drawer-open{overflow:hidden}
             <p>Experiencias concebidas junto a artistas, construidas desde una práctica real y adaptadas al contexto, al espacio y a las personas que participan.</p>
           </div>
           <div class="hero-actions">
-            <a class="text-link" href="#ways"><span class="lang" data-lang="en">Discover Studio</span><span class="lang" data-lang="es" hidden>Descubrir Studio</span><span>↓</span></a>
+            <a class="text-link" href="#studio-formats"><span class="lang" data-lang="en">Discover Studio</span><span class="lang" data-lang="es" hidden>Descubrir Studio</span><span>↓</span></a>
             <button class="text-link" type="button" data-open-drawer data-mode="general"><span class="lang" data-lang="en">Plan an experience</span><span class="lang" data-lang="es" hidden>Planificar una experiencia</span><span>→</span></button>
           </div>
         </div>
       </div>
+      <figure class="hero-image">
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011200-mobile.webp" width="900" height="675">
+          <img src="studio-editorial-assets/P1011200-desktop.webp" width="1800" height="1125" alt="A brush painting beside a blue cup depicted on canvas" data-alt-es="Un pincel pinta junto a una taza azul representada en el lienzo" decoding="async" fetchpriority="high">
+        </picture>
+        <figcaption><span class="lang" data-lang="en">Painting session, 13 November 2026</span><span class="lang" data-lang="es" hidden>Sesión de pintura, 13 de noviembre de 2026</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
 <section class="entry">
-  <div class="shell entry-grid">
+  <div class="shell entry-grid" id="studio-formats">
     <article class="entry-card">
-      <span class="micro mode">01</span>
       <div class="lang" data-lang="en">
         <h3>Studio for business</h3>
         <p class="entry-action-title">Companies | Teams | Hospitality | Brands</p>
@@ -362,7 +325,6 @@ body.drawer-open{overflow:hidden}
       </div>
     </article>
     <article class="entry-card">
-      <span class="micro mode">02</span>
       <div class="lang" data-lang="en">
         <h3>Studio for individuals</h3>
         <p class="entry-action-title">Adults | Families | Children | Private groups</p>
@@ -383,13 +345,65 @@ body.drawer-open{overflow:hidden}
   </div>
 </section>
 
+<section class="studio-gallery">
+  <div class="shell gallery-layout">
+    <div class="gallery-head">
+      <div>
+        <div class="lang" data-lang="en"><h3>the experience</h3></div>
+        <div class="lang" data-lang="es" hidden><h3>la experiencia</h3></div>
+      </div>
+      <div class="gallery-head-copy">
+        <p class="lang" data-lang="en">Artist-led experiences designed to connect, explore and make something of your own.</p>
+        <p class="lang" data-lang="es" hidden>Experiencias guiadas por artistas, pensadas para conectar, explorar y crear algo propio.</p>
+      </div>
+
+    </div>
+
+    <div class="gallery-stage" data-gallery-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Senso Studio experience gallery">
+      <div class="gallery-slide active" aria-hidden="false">
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011151-mobile.webp" width="900" height="566">
+          <img src="studio-editorial-assets/P1011151-desktop.webp" width="1800" height="1120" alt="A hand drawing in pencil on paper" data-alt-es="Una mano dibuja a lápiz sobre papel" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" aria-hidden="true">
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011174-mobile.webp" width="900" height="501">
+          <img src="studio-editorial-assets/P1011174-desktop.webp" width="1800" height="1125" alt="A brush mixing colours on a palette" data-alt-es="Un pincel mezcla colores en una paleta" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <div class="gallery-slide" aria-hidden="true">
+        <picture>
+          <source media="(max-width:1000px)" srcset="studio-editorial-assets/P1011204-mobile.webp" width="900" height="588">
+          <img src="studio-editorial-assets/P1011204-desktop.webp" width="1800" height="1128" alt="Paintings from the session arranged together" data-alt-es="Pinturas de la sesión reunidas" loading="lazy" decoding="async">
+        </picture>
+      </div>
+      <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-label-en="Previous image" data-label-es="Imagen anterior" data-gallery-prev>←</button>
+      <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-label-en="Next image" data-label-es="Imagen siguiente" data-gallery-next>→</button>
+      <div class="gallery-counter" aria-live="polite"><span data-gallery-current>01</span> / <span>03</span></div>
+    </div>
+
+    <div class="gallery-bottom">
+      <div class="gallery-thumbs" data-gallery-thumbs>
+        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="A hand drawing in pencil on paper" data-label-en="A hand drawing in pencil on paper" data-label-es="Una mano dibuja a lápiz sobre papel"><img src="studio-editorial-assets/P1011151-mobile.webp" alt="" loading="lazy" decoding="async" width="900" height="566"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="A brush mixing colours on a palette" data-label-en="A brush mixing colours on a palette" data-label-es="Un pincel mezcla colores en una paleta"><img src="studio-editorial-assets/P1011174-mobile.webp" alt="" loading="lazy" decoding="async" width="900" height="501"></button>
+        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="Paintings from the session arranged together" data-label-en="Paintings from the session arranged together" data-label-es="Pinturas de la sesión reunidas"><img src="studio-editorial-assets/P1011204-mobile.webp" alt="" loading="lazy" decoding="async" width="900" height="588"></button>
+      </div>
+      <div class="gallery-bottom-cta">
+        <button class="gallery-session-cta" type="button" data-open-drawer data-mode="general">
+          <span class="lang" data-lang="en">Plan a session</span>
+          <span class="lang" data-lang="es" hidden>Planificar una sesión</span>
+        </button>
+      </div>
+    </div>
+
+    <p class="gallery-caption"><span class="lang" data-lang="en">Drawing, colour and finished works from the painting session on 13 November 2026.</span><span class="lang" data-lang="es" hidden>Dibujo, color y obras terminadas en la sesión de pintura del 13 de noviembre de 2026.</span></p>
+  </div>
+</section>
+
 <section class="products" id="ways">
   <div class="shell">
     <div class="products-head">
-      <picture>
-        <source type="image/webp" srcset="Senso_Studio_Foto/optimized/studio-company-960.webp 960w, Senso_Studio_Foto/optimized/studio-company-1920.webp 1920w" sizes="100vw">
-        <img class="products-head-bg" src="Senso_Studio_Foto/studio-company.jpg" alt="" loading="lazy" decoding="async" fetchpriority="low">
-      </picture>
       <div>
         <div class="lang" data-lang="en">
           <h2>enter the practice</h2>
@@ -458,68 +472,6 @@ body.drawer-open{overflow:hidden}
   </div>
 </section>
 
-
-
-
-
-
-
-<section class="studio-gallery" aria-labelledby="gallery-title">
-  <div class="shell">
-    <div class="gallery-head">
-      <div>
-        <div class="lang" data-lang="en"><h3 id="gallery-title">the experience</h3></div>
-        <div class="lang" data-lang="es" hidden><h3 id="gallery-title-es">la experiencia</h3></div>
-      </div>
-      <div class="gallery-head-copy">
-        <p class="lang" data-lang="en">Artist-led experiences designed to connect, explore and make something of your own.</p>
-        <p class="lang" data-lang="es" hidden>Experiencias guiadas por artistas, pensadas para conectar, explorar y crear algo propio.</p>
-      </div>
-
-    </div>
-
-    <div class="gallery-stage" data-gallery-stage tabindex="0" role="region" aria-roledescription="carousel" aria-label="Senso Studio experience gallery">
-      <div class="gallery-slide active"><img src="Senso_Studio_Foto/optimized/ss6-960.webp" srcset="Senso_Studio_Foto/optimized/ss6-960.webp 960w, Senso_Studio_Foto/optimized/ss6-1600.webp 1600w" sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio creative session in Barcelona" loading="lazy" decoding="async" fetchpriority="low"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss8-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss8-960.webp 960w, Senso_Studio_Foto/optimized/ss8-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio session in Barcelona" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss7-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss7-960.webp 960w, Senso_Studio_Foto/optimized/ss7-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio group experience" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss3-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss3-960.webp 960w, Senso_Studio_Foto/optimized/ss3-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Materials and process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss2-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss2-960.webp 960w, Senso_Studio_Foto/optimized/ss2-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Artistic process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-08"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/studio-kids-960.webp" data-srcset="Senso_Studio_Foto/optimized/studio-kids-960.webp 960w, Senso_Studio_Foto/optimized/studio-kids-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Creative process at Senso Studio" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-03"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss5-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss5-960.webp 960w, Senso_Studio_Foto/optimized/ss5-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Participants during a Senso Studio session" loading="lazy" decoding="async"></div>
-      <div class="gallery-slide crop-07"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="Senso_Studio_Foto/optimized/ss1-960.webp" data-srcset="Senso_Studio_Foto/optimized/ss1-960.webp 960w, Senso_Studio_Foto/optimized/ss1-1600.webp 1600w" data-sizes="(max-width:700px) calc(100vw - 36px), (max-width:1000px) calc(100vw - 56px), min(1360px, calc(100vw - 100px))" alt="Senso Studio atmosphere" loading="lazy" decoding="async"></div>
-
-      <button class="gallery-nav gallery-prev" type="button" aria-label="Previous image" data-label-en="Previous image" data-label-es="Imagen anterior" data-gallery-prev>←</button>
-      <button class="gallery-nav gallery-next" type="button" aria-label="Next image" data-label-en="Next image" data-label-es="Imagen siguiente" data-gallery-next>→</button>
-      <div class="gallery-counter"><span data-gallery-current>01</span> / <span>08</span></div>
-    </div>
-
-    <div class="gallery-bottom">
-      <div class="gallery-thumbs" data-gallery-thumbs>
-        <button class="gallery-thumb active" type="button" data-gallery-index="0" aria-label="View image 1" data-label-en="View image 1" data-label-es="Ver imagen 1"><img src="Senso_Studio_Foto/optimized/ss6-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="1" aria-label="View image 2" data-label-en="View image 2" data-label-es="Ver imagen 2"><img src="Senso_Studio_Foto/optimized/ss8-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="2" aria-label="View image 3" data-label-en="View image 3" data-label-es="Ver imagen 3"><img src="Senso_Studio_Foto/optimized/ss7-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="3" aria-label="View image 4" data-label-en="View image 4" data-label-es="Ver imagen 4"><img src="Senso_Studio_Foto/optimized/ss3-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="4" aria-label="View image 5" data-label-en="View image 5" data-label-es="Ver imagen 5"><img src="Senso_Studio_Foto/optimized/ss2-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
-        <button class="gallery-thumb" type="button" data-gallery-index="5" aria-label="View image 6" data-label-en="View image 6" data-label-es="Ver imagen 6"><img src="Senso_Studio_Foto/optimized/studio-kids-thumb.webp" alt="" loading="lazy" decoding="async" width="360"></button>
-      </div>
-      <div class="gallery-bottom-cta">
-        <button class="gallery-session-cta" type="button" data-open-drawer data-mode="general">
-          <span class="lang" data-lang="en">Plan a session</span>
-          <span class="lang" data-lang="es" hidden>Planificar una sesión</span>
-        </button>
-      </div>
-    </div>
-
-    <div class="gallery-caption">
-      <p class="lang" data-lang="en">Real Senso Studio sessions in Barcelona.</p>
-      <p class="lang" data-lang="es" hidden>Sesiones reales de Senso Studio en Barcelona.</p>
-
-    </div>
-  </div>
-</section>
-
-
-
 <section class="final">
   <div class="shell final-inner">
     <div class="final-copy">
@@ -528,16 +480,16 @@ body.drawer-open{overflow:hidden}
     </div>
     <div class="final-action">
       <button type="button" data-open-drawer data-mode="general">
-        <span class="lang" data-lang="en">Start</span>
-        <span class="lang" data-lang="es" hidden>Empezar</span>
+        <span class="lang" data-lang="en">Plan an experience</span>
+        <span class="lang" data-lang="es" hidden>Planificar una experiencia</span>
       </button>
     </div>
   </div>
 </section>
 </main>
 
-<div class="drawer-overlay" id="drawer-overlay" aria-hidden="true">
-  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+<div class="drawer-overlay" id="drawer-overlay" aria-hidden="true" inert>
+  <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-describedby="drawer-intro">
     <div class="drawer-head">
       <div>
         <p class="micro" id="drawer-kicker">Senso Studio · Brief</p>
@@ -562,10 +514,10 @@ body.drawer-open{overflow:hidden}
       <div class="form-grid">
         <div class="field"><label class="drawer-label" for="name-company" id="name-label">Name / company</label><input id="name-company" name="name_company" autocomplete="name" required></div>
         <div class="field"><label class="drawer-label" for="studio-email">Email</label><input id="studio-email" type="email" name="email" autocomplete="email" required></div>
-        <div class="field phone-field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone" autocomplete="tel"></div>
-        <div class="field org-only"><label class="drawer-label" for="group-size" id="group-label">Group size</label><input id="group-size" name="group_size" inputmode="numeric"></div>
+        <div class="field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone" autocomplete="tel"></div>
+        <div class="field"><label class="drawer-label" for="group-size" id="group-label">Group size</label><input id="group-size" name="group_size" inputmode="numeric"></div>
         <div class="field org-only"><label class="drawer-label" for="preferred-date" id="date-label">Preferred date</label><input id="preferred-date" type="date" name="date"></div>
-        <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><input id="location" name="location"></div>
+        <div class="field"><label class="drawer-label" for="location" id="location-label">Location</label><input id="location" name="location"></div>
         <div class="field people-only hidden"><label class="drawer-label" for="people-date" id="people-date-label">Preferred timing</label><input id="people-date" name="preferred_timing" placeholder="Weekday / weekend / flexible"></div>
         <div class="field full"><label class="drawer-label" for="studio-message" id="context-label">Context</label><textarea id="studio-message" name="message" placeholder="Occasion, objective or anything useful to know."></textarea></div>
       </div>
@@ -608,7 +560,7 @@ body.drawer-open{overflow:hidden}
         placeholder:'Group, occasion, objective, preferred date or anything useful to know.',
         submit:'Send enquiry',
         subject:'New Senso Studio enquiry',
-        options:['Not sure yet','Company / team','Hospitality / brand / space','Adults / families','Private group','Kids / family'],
+        options:['Not sure yet','Company / team','Hospitality / brand / space','Adults / families','Private group','Kids / family','Team Building','Workshops & Events','Art & Wellbeing Programs','Workshops & Private Sessions','Contemporary Art Courses','Senso Kids'],
         close:'Close ×'
       },
       org:{
@@ -637,7 +589,7 @@ body.drawer-open{overflow:hidden}
         experience:'Studio format',
         name:'Name',
         phone:'Phone',
-        timing:'Preferred timing',
+        timing:'Approximate date or timing',
         context:'Tell us a little more',
         placeholder:'Age if relevant, private group, occasion or any preference.',
         submit:'Get options',
@@ -659,7 +611,7 @@ body.drawer-open{overflow:hidden}
         placeholder:'Grupo, ocasión, objetivo, fecha preferida o cualquier detalle útil.',
         submit:'Enviar consulta',
         subject:'Nueva consulta Senso Studio',
-        options:['Aún por definir','Empresa / equipo','Hospitality / marca / espacio','Adultos / familias','Grupo privado','Kids / familia'],
+        options:['Aún por definir','Empresa / equipo','Hospitality / marca / espacio','Adultos / familias','Grupo privado','Kids / familia','Team Building','Workshops & Events','Art & Wellbeing Programs','Workshops & Private Sessions','Cursos de arte contemporáneo','Senso Kids'],
         close:'Cerrar ×'
       },
       org:{
@@ -688,7 +640,7 @@ body.drawer-open{overflow:hidden}
         experience:'Formato Studio',
         name:'Nombre',
         phone:'Teléfono',
-        timing:'Momento preferido',
+        timing:'Fecha o momento aproximado',
         context:'Cuéntanos un poco más',
         placeholder:'Edad si aplica, grupo privado, ocasión o cualquier preferencia.',
         submit:'Recibir opciones',
@@ -728,6 +680,10 @@ body.drawer-open{overflow:hidden}
     document.querySelectorAll('[data-label-en][data-label-es]').forEach(el=>{
       el.setAttribute('aria-label',el.dataset[current==='es'?'labelEs':'labelEn']);
     });
+    document.querySelectorAll('img[data-alt-es]').forEach(img=>{
+      img.dataset.altEn ||= img.alt;
+      img.alt=current==='es'?img.dataset.altEs:img.dataset.altEn;
+    });
     document.querySelectorAll('.lang').forEach(el=>{el.hidden=el.dataset.lang!==current});
     document.querySelectorAll('[data-set-lang]').forEach(btn=>{
       const active=btn.dataset.setLang===current;
@@ -737,7 +693,7 @@ body.drawer-open{overflow:hidden}
     document.getElementById('nav-en').classList.toggle('hidden',current!=='en');
     document.getElementById('nav-es').classList.toggle('hidden',current!=='es');
     document.getElementById('form-language').value=current;
-    if(overlay.classList.contains('open')) renderDrawer();
+    if(overlay.classList.contains('open')) renderDrawer(interest.value);
     try{localStorage.setItem('senso_lang',current)}catch(e){}
   }
 
@@ -758,19 +714,20 @@ body.drawer-open{overflow:hidden}
     if(formStatus){formStatus.textContent='';formStatus.className='form-status'}
     document.getElementById('form-journey').value=drawerMode==='org'?'organisation':drawerMode==='people'?'people':'general';
 
-    document.querySelectorAll('.org-only').forEach(el=>el.classList.toggle('hidden',drawerMode!=='org'));
-    document.querySelectorAll('.people-only').forEach(el=>el.classList.toggle('hidden',drawerMode!=='people'));
-    document.querySelectorAll('.phone-field').forEach(el=>el.classList.toggle('hidden',drawerMode==='general'));
+    const organisation=drawerMode==='org';
+    document.querySelectorAll('.org-only,.people-only').forEach(field=>{
+      const visible=field.classList.contains('org-only')===organisation;
+      field.classList.toggle('hidden',!visible);
+      field.querySelector('input').disabled=!visible;
+    });
 
-    if(drawerMode==='org'){
-      document.getElementById('group-label').textContent=d.group;
-      document.getElementById('date-label').textContent=d.date;
-      document.getElementById('location-label').textContent=d.location;
-      document.getElementById('location').placeholder=d.locationPlaceholder;
-    }else if(drawerMode==='people'){
-      document.getElementById('people-date-label').textContent=d.timing;
-      document.getElementById('people-date').placeholder=d.timingPlaceholder;
-    }
+    const labels=copy[current].org;
+    document.getElementById('group-label').textContent=labels.group;
+    document.getElementById('date-label').textContent=labels.date;
+    document.getElementById('location-label').textContent=labels.location;
+    document.getElementById('location').placeholder=organisation?labels.locationPlaceholder:(current==='es'?'Ciudad o espacio':'City or venue');
+    document.getElementById('people-date-label').textContent=copy[current].people.timing;
+    document.getElementById('people-date').placeholder=labels.timingPlaceholder;
 
     interest.innerHTML='';
     d.options.forEach((label,i)=>{
@@ -796,17 +753,19 @@ body.drawer-open{overflow:hidden}
     drawerTrigger=trigger||document.activeElement;
     drawerMode=mode==='people'?'people':mode==='general'?'general':'org';
     renderDrawer(selected);
+    overlay.inert=false;
     overlay.classList.add('open');
     overlay.setAttribute('aria-hidden','false');
     document.body.classList.add('drawer-open');
-    setTimeout(()=>overlay.querySelector('.drawer-close')?.focus(),180);
+    overlay.querySelector('.drawer-close').focus({preventScroll:true});
   }
 
   function closeDrawer(){
     overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden','true');
     document.body.classList.remove('drawer-open');
-    drawerTrigger?.focus?.();
+    drawerTrigger?.focus({preventScroll:true});
+    overlay.inert=true;
+    overlay.setAttribute('aria-hidden','true');
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(btn=>btn.addEventListener('click',()=>setLanguage(btn.dataset.setLang)));
@@ -827,6 +786,8 @@ body.drawer-open{overflow:hidden}
   const form=document.getElementById('studio-form');
   form.addEventListener('submit',async e=>{
     e.preventDefault();
+    const submit=document.getElementById('submit-button');
+    if(submit.disabled) return;
     if(!form.checkValidity()){
       const invalid=form.querySelector(':invalid');
       invalid?.scrollIntoView({behavior:'smooth',block:'center'});
@@ -834,7 +795,6 @@ body.drawer-open{overflow:hidden}
       return;
     }
 
-    const submit=document.getElementById('submit-button');
     const status=document.getElementById('form-status');
     submit.disabled=true;
     status.className='form-status';
@@ -848,17 +808,12 @@ body.drawer-open{overflow:hidden}
       });
       if(!response.ok) throw new Error('Form submission failed');
 
+      const selected=interest.value;
+      form.reset();
+      document.getElementById('form-language').value=current;
+      renderDrawer(selected);
       status.className='form-status success';
       status.textContent=current==='es'
-        ?'Gracias. Hemos recibido tu consulta y te responderemos lo antes posible.'
-        :'Thank you. We’ve received your enquiry and will get back to you as soon as possible.';
-
-      const keepLanguage=current;
-      form.reset();
-      document.getElementById('form-language').value=keepLanguage;
-      renderDrawer();
-      status.className='form-status success';
-      status.textContent=keepLanguage==='es'
         ?'Gracias. Hemos recibido tu consulta y te responderemos lo antes posible.'
         :'Thank you. We’ve received your enquiry and will get back to you as soon as possible.';
     }catch(error){
@@ -885,28 +840,8 @@ body.drawer-open{overflow:hidden}
   const current=root.querySelector('[data-gallery-current]');
   let index=0, startX=null;
 
-  function hydrate(img){
-    if(!img) return;
-    if(img.dataset.srcset){
-      img.srcset=img.dataset.srcset;
-      delete img.dataset.srcset;
-    }
-    if(img.dataset.sizes){
-      img.sizes=img.dataset.sizes;
-      delete img.dataset.sizes;
-    }
-    if(img.dataset.src){
-      img.src=img.dataset.src;
-      delete img.dataset.src;
-    }
-  }
-  function hydrateAround(i){
-    hydrate(slides[i]?.querySelector('img'));
-    hydrate(slides[(i+1)%slides.length]?.querySelector('img'));
-  }
   function show(next){
     index=(next+slides.length)%slides.length;
-    hydrateAround(index);
     slides.forEach((el,i)=>{
       el.classList.toggle('active',i===index);
       el.setAttribute('aria-hidden',String(i!==index));
@@ -916,16 +851,8 @@ body.drawer-open{overflow:hidden}
       if(i===index) el.setAttribute('aria-current','true'); else el.removeAttribute('aria-current');
     });
     if(current) current.textContent=String(index+1).padStart(2,'0');
-    if(thumbs[index]) thumbs[index].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
   }
 
-  const io=new IntersectionObserver(entries=>{
-    if(entries.some(e=>e.isIntersecting)){
-      hydrateAround(0);
-      io.disconnect();
-    }
-  },{rootMargin:'100px'});
-  io.observe(root);
   slides.forEach((el,i)=>el.setAttribute('aria-hidden',String(i!==0)));
   if(thumbs[0]) thumbs[0].setAttribute('aria-current','true');
 
@@ -938,7 +865,8 @@ body.drawer-open{overflow:hidden}
     if(e.key==='ArrowLeft'){e.preventDefault();show(index-1)}
     if(e.key==='ArrowRight'){e.preventDefault();show(index+1)}
   });
-  stage?.addEventListener('pointerdown',e=>{startX=e.clientX});
+  stage?.addEventListener('pointerdown',e=>{startX=e.target.closest('button')?null:e.clientX});
+  stage?.addEventListener('pointercancel',()=>{startX=null});
   stage?.addEventListener('pointerup',e=>{
     if(startX===null) return;
     const dx=e.clientX-startX; startX=null;
