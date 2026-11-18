@@ -1,0 +1,4 @@
+interface:
+  display_name: "Senso Web GOLD"
+  short_description: "Identidad premium, captación y conversión para Senso"
+  default_prompt: "Usa $senso-web-gold para elevar esta página de Senso con criterio de marca, captación y conversión."
