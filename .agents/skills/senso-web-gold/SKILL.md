@@ -42,6 +42,8 @@ Valorar impacto comercial, confianza, diferenciación, probabilidad, rapidez, es
 Para cada recomendación material, conectar evidencia → consecuencia → acción → validación. Conservar lo que funciona y preferir el cambio más pequeño que resuelva el problema.
 
 ## Entregar
+Entregar revisiones y propuestas web como páginas HTML con enlaces directos que puedan abrirse en Chrome. Comprobar el enlace antes de entregarlo. Si es un servidor local, indicar su alcance y no presentarlo como un alojamiento público permanente. No usar el visor de documentos como vía principal de revisión web salvo petición del usuario.
+
 Empezar por el resultado o la decisión principal. Explicar lo hecho, su propósito, lo comprobado y los límites. Proporcionar preview navegable cuando esté disponible; no presentar capturas, archivos o código como un despliegue.
 
 Para una auditoría, identificar página y fecha, evidencias, prioridades y propuesta lista para revisar. Para implementación, identificar versión, alcance, pruebas y URL real si existe. Mostrar una imagen del resultado cuando ayude a evaluarlo.
