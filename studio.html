@@ -285,6 +285,10 @@ body:has(.viewer[open]){overflow:hidden}
 @media(max-width:700px){.atlas .mosaic-curated{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.final{padding-bottom:82px}.final-inner{gap:26px;padding:52px 0 44px}.final-action{width:100%}.final-action button{width:190px;min-width:0}}
 @media(max-width:360px){.atlas .mosaic-curated{gap:6px}}
 @media(prefers-reduced-motion:reduce){.atlas .mosaic-curated .tile img{transition:none!important;transform:none!important}}
+
+/* GOLD V6 finishing touch: Royal Talens in place of NauART; maintain peer visual weight */
+.studio-trust-v5 .royaltalens-mark{width:100%;max-width:238px;height:124px;object-fit:cover;object-position:center 32%;mix-blend-mode:multiply}
+.studio-trust-v5 .brand-mark:has(.royaltalens-mark){justify-content:center;padding-top:12px}
 </style>
 </head>
 <body data-segment="org">
@@ -331,7 +335,7 @@ body:has(.viewer[open]){overflow:hidden}
 <section class="studio-trust-v5 shell" aria-label="Colaboradores y empresas">
   <div class="trust-side"><span class="eyebrow" data-en="04 / COLLABORATORS" data-es="04 / COLABORADORES">04 / COLABORADORES</span><h2 data-en="Collaborators" data-es="Colaboradores">Colaboradores</h2>
     <div class="logo-pair">
-      <a class="brand-mark" href="https://www.nauart.com/" target="_blank" rel="noopener noreferrer" aria-label="NauART"><img class="nauart-small" loading="lazy" alt="" src="https://www.google.com/s2/favicons?domain=nauart.com&amp;sz=128" onerror="this.style.display='none'"><span class="wordmark">NAUART</span></a>
+      <a class="brand-mark" href="https://www.royaltalens.com/es" target="_blank" rel="noopener noreferrer" aria-label="Royal Talens"><img class="royaltalens-mark" loading="lazy" alt="Royal Talens" src="https://cdn.shopify.com/s/files/1/0828/6850/2839/files/Royal_Talens_Logo_Larger_1f338906-4feb-4ae9-ac1a-8230735e763c.jpg?height=628&amp;pad_color=fff&amp;v=1707790520&amp;width=1200" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><span class="wordmark" hidden>ROYAL TALENS</span></a>
       <a class="brand-mark" href="https://nuesiceramics.com/" target="_blank" rel="noopener noreferrer" aria-label="Nuesi Ceramics"><img class="nuesi-mark" loading="lazy" alt="Nuesi Ceramics" src="https://nuesiceramics.com/cdn/shop/files/NC_LOGO_NO_FONDO.png?v=1754932972&amp;width=1000" onerror="this.style.display='none';this.nextElementSibling.hidden=false"><span class="wordmark" hidden>NUESI CERAMICS</span></a>
     </div>
   </div>
