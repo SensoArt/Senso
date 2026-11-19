@@ -296,6 +296,18 @@ body:has(.viewer[open]){overflow:hidden}
 .studio-trust-v5 .brand-mark:has(.royaltalens-mark),.studio-trust-v5 .brand-mark:has(.nuesi-mark){padding-top:10px}
 .studio-trust-v5 .logo-pair{align-items:center}
 @media(max-width:700px){.studio-trust-v5 .brand-mark{padding-top:8px}.studio-trust-v5 .logo-pair{gap:12px}.studio-trust-v5 .wordmark{font-size:16px}}
+
+/* V7 bilingual mobile QA guards: keep headlines, links and form controls within the viewport. */
+@media(max-width:700px){
+ .atlas .mosaic .tile{min-width:0;overflow:hidden}
+ .atlas .mosaic .tile img{max-width:100%;height:100%;object-fit:cover}
+ .studio-trust-v5 .trust-side{min-width:0}
+ .studio-trust-v5 .brand-mark{min-width:0}
+ .studio-trust-v5 .brand-mark img{max-width:100%}
+ .studio-hero-link{max-width:100%}
+ .studio-trust-v5 h2{overflow-wrap:break-word}
+}
+@media(max-width:360px){.studio-trust-v5 .logo-pair{gap:8px}.studio-trust-v5 .brand-mark{padding-left:4px;padding-right:4px}}
 </style>
 </head>
 <body data-segment="org">
@@ -303,7 +315,7 @@ body:has(.viewer[open]){overflow:hidden}
   <div class="brand-container"><a class="home-link" href="index.html">← HOME</a></div>
 
   <div class="nav-container">
-    <div class="lang-switch" aria-label="Language / Idioma">
+    <div class="lang-switch" aria-label="Language | Idioma">
       <button type="button" class="lang-btn active" data-set-lang="en" aria-pressed="true">EN</button>
       |
       <button type="button" class="lang-btn" data-set-lang="es" aria-pressed="false">ES</button>
@@ -422,13 +434,13 @@ body:has(.viewer[open]){overflow:hidden}
       </div>
 
       <div class="form-grid">
-        <div class="field"><label class="drawer-label" for="name-company" id="name-label">Name / company</label><input id="name-company" name="name_company" autocomplete="name" required></div>
+        <div class="field"><label class="drawer-label" for="name-company" id="name-label">Name | company</label><input id="name-company" name="name_company" autocomplete="name" required></div>
         <div class="field"><label class="drawer-label" for="studio-email">Email</label><input id="studio-email" type="email" name="email" autocomplete="email" required></div>
         <div class="field phone-field"><label class="drawer-label" for="studio-phone" id="phone-label">Phone</label><input id="studio-phone" type="tel" name="phone" autocomplete="tel"></div>
         <div class="field org-only"><label class="drawer-label" for="group-size" id="group-label">Group size</label><input id="group-size" name="group_size" inputmode="numeric"></div>
         <div class="field org-only"><label class="drawer-label" for="preferred-date" id="date-label">Preferred date</label><input id="preferred-date" type="date" name="date"></div>
         <div class="field org-only"><label class="drawer-label" for="location" id="location-label">Location</label><input id="location" name="location"></div>
-        <div class="field people-only hidden"><label class="drawer-label" for="people-date" id="people-date-label">Preferred timing</label><input id="people-date" name="preferred_timing" placeholder="Weekday / weekend / flexible"></div>
+        <div class="field people-only hidden"><label class="drawer-label" for="people-date" id="people-date-label">Preferred timing</label><input id="people-date" name="preferred_timing" placeholder="Weekday | weekend | flexible"></div>
         <div class="field full"><label class="drawer-label" for="studio-message" id="context-label">Context</label><textarea id="studio-message" name="message" placeholder="Occasion, objective or anything useful to know."></textarea></div>
       </div>
 
@@ -457,13 +469,13 @@ body:has(.viewer[open]){overflow:hidden}
         title:'tell us what you have in mind.',
         intro:'A few details are enough. We’ll reply with the right format and next step.',
         experience:'What are you looking for?',
-        name:'Name / company',
+        name:'Name | company',
         phone:'Phone',
         context:'Tell us a little more',
         placeholder:'Group, occasion, objective, preferred date or anything useful to know.',
         submit:'Send enquiry',
         subject:'New Senso Studio enquiry',
-        options:['Not sure yet','Company / team','Hospitality / brand / space','Adults / families','Private group','Kids / family'],
+        options:['Not sure yet','Company | team','Hospitality | brand | space','Adults | families','Private group','Kids | family'],
         close:'Close ×'
       },
       org:{
@@ -471,18 +483,18 @@ body:has(.viewer[open]){overflow:hidden}
         title:'tell us what you are planning.',
         intro:'Tell us the essentials. We’ll prepare the right format and next step.',
         experience:'What are you planning?',
-        name:'Name / company',
+        name:'Name | company',
         phone:'Phone',
         group:'Group size',
         date:'Preferred date',
         location:'Location',
-        locationPlaceholder:'Barcelona / your space / another city',
+        locationPlaceholder:'Barcelona | your space | another city',
         context:'Context',
         placeholder:'Occasion, objective or anything useful to know.',
         submit:'Request proposal',
         subject:'New Senso Studio organisation enquiry',
         options:['Not sure yet','Team Building','Workshops & Events','Art & Wellbeing Programs'],
-        timingPlaceholder:'Weekday / weekend / flexible',
+        timingPlaceholder:'Weekday | weekend | flexible',
         close:'Close ×'
       },
       people:{
@@ -498,7 +510,7 @@ body:has(.viewer[open]){overflow:hidden}
         submit:'Get options',
         subject:'New Senso Studio people enquiry',
         options:['Workshops & Private Sessions','Contemporary Art Courses','Senso Kids'],
-        timingPlaceholder:'Weekday / weekend / flexible',
+        timingPlaceholder:'Weekday | weekend | flexible',
         close:'Close ×'
       }
     },
@@ -508,13 +520,13 @@ body:has(.viewer[open]){overflow:hidden}
         title:'cuéntanos qué tienes en mente.',
         intro:'Con unos pocos detalles es suficiente. Te responderemos con el formato y el siguiente paso adecuados.',
         experience:'¿Qué estás buscando?',
-        name:'Nombre / empresa',
+        name:'Nombre | empresa',
         phone:'Teléfono',
         context:'Cuéntanos un poco más',
         placeholder:'Grupo, ocasión, objetivo, fecha preferida o cualquier detalle útil.',
         submit:'Enviar consulta',
         subject:'Nueva consulta Senso Studio',
-        options:['Aún por definir','Empresa / equipo','Hospitality / marca / espacio','Adultos / familias','Grupo privado','Kids / familia'],
+        options:['Aún por definir','Empresa | equipo','Hospitality | marca | espacio','Adultos | familias','Grupo privado','Kids | familia'],
         close:'Cerrar ×'
       },
       org:{
@@ -522,18 +534,18 @@ body:has(.viewer[open]){overflow:hidden}
         title:'cuéntanos qué estás preparando.',
         intro:'Cuéntanos lo esencial. Prepararemos el formato y el siguiente paso adecuados.',
         experience:'¿Qué estás organizando?',
-        name:'Nombre / empresa',
+        name:'Nombre | empresa',
         phone:'Teléfono',
         group:'Número de personas',
         date:'Fecha preferida',
         location:'Ubicación',
-        locationPlaceholder:'Barcelona / vuestro espacio / otra ciudad',
+        locationPlaceholder:'Barcelona | vuestro espacio | otra ciudad',
         context:'Contexto',
         placeholder:'Ocasión, objetivo o cualquier detalle útil.',
         submit:'Solicitar propuesta',
         subject:'Nueva consulta Senso Studio · organización',
         options:['Aún por definir','Team Building','Workshops & Events','Art & Wellbeing Programs'],
-        timingPlaceholder:'Entre semana / fin de semana / flexible',
+        timingPlaceholder:'Entre semana | fin de semana | flexible',
         close:'Cerrar ×'
       },
       people:{
@@ -549,7 +561,7 @@ body:has(.viewer[open]){overflow:hidden}
         submit:'Recibir opciones',
         subject:'Nueva consulta Senso Studio · personas',
         options:['Workshops & Private Sessions','Cursos de arte contemporáneo','Senso Kids'],
-        timingPlaceholder:'Entre semana / fin de semana / flexible',
+        timingPlaceholder:'Entre semana | fin de semana | flexible',
         close:'Cerrar ×'
       }
     }
