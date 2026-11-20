@@ -1,0 +1,198 @@
+/* Header and footer from the production Home. Only Studio loads this stylesheet. */
+.senso-site-header,.senso-site-footer {
+  font-family:FuturaLight,Futura,Arial,sans-serif;
+  line-height:normal;
+}
+.senso-site-footer {background:#fff}
+.senso-site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 42px 50px 24px 50px;
+  background-color: #ffffff;
+  position: relative;
+  flex:0 0 auto;
+}
+.senso-site-header .brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+.senso-site-header .logo-header {
+  height: 140.3px;
+  width: auto;
+  display: block;
+  margin-top: -8px;
+}
+.senso-site-header .tagline-header {
+  font-size: 0.60rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #333333;
+}
+.senso-site-header .nav-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 15px;
+  margin-top: 0px;
+  flex: 1;
+}
+.senso-site-header nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin-top: 10px;
+  margin-left: 40px;
+  width: calc(100% - 40px);
+}
+.senso-site-header nav a {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.8;
+  position: relative;
+  padding-bottom: 4px;
+  transition: opacity 0.3s;
+}
+.senso-site-header nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: #000000;
+  transition: width 0.3s ease;
+}
+.senso-site-header nav a:hover {
+  opacity: 1;
+}
+.senso-site-header nav a:hover::after {
+  width: 100%;
+}
+.senso-site-header .lang-switch {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  color: #777777;
+  margin-top: -10px;
+}
+.senso-site-header .lang-btn {
+  padding: 0 4px;
+  border: 0;
+  background: none;
+  color: #666666;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  opacity: 0.4;
+  transition: opacity 0.3s, color 0.3s;
+}
+.senso-site-header .lang-btn.active {
+  opacity: 0.85;
+  color: #333333;
+  font-weight: 600;
+}
+.senso-site-header .lang-btn:hover {
+  opacity: 0.9;
+}
+.senso-site-header nav a.active-link,
+.senso-site-header nav a[aria-current="page"] {opacity:1!important}
+.senso-site-header nav a.active-link::after,
+.senso-site-header nav a[aria-current="page"]::after {width:100%!important}
+.senso-site-header {position:sticky!important;top:0;z-index:1000}
+.senso-site-header .lang-switch {display:flex!important;align-items:center!important;gap:0!important}
+.senso-site-header .lang-switch .lang-btn {padding-left:2px!important;padding-right:2px!important}
+.senso-site-header .lang-switch .lang-btn.active {font-weight:400!important;opacity:.72!important}
+@media (min-width:901px) {
+  .senso-site-header .logo-header {transform:scale(1.05);transform-origin:left top}
+}
+@media (max-width:900px) {
+.senso-site-header {
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px 20px 20px;
+  }
+.senso-site-header .brand-container {
+    gap: 15px;
+  }
+.senso-site-header .logo-header {
+    height: 82px;
+    margin-top: 0;
+  }
+.senso-site-header .nav-container {
+    width: 100%;
+    align-items: flex-start;
+  }
+.senso-site-header .lang-switch {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    margin-top: 0;
+    z-index: 20;
+  }
+.senso-site-header nav {
+    margin-top: 10px;
+    margin-left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+.senso-site-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 50px;
+  font-size: 0.70rem;
+  letter-spacing: 1px;
+  color: #000000;
+  border-top: 1px solid #f0f0f0;
+}
+.senso-site-footer .footer-left {
+  opacity: 0.8;
+}
+.senso-site-footer .footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.senso-site-footer .footer-socials a {
+  color: #000000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.senso-site-footer .footer-socials a:hover {
+  opacity: 1;
+}
+.senso-site-footer .footer-socials svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+.senso-site-footer .footer-socials{display:flex;align-items:center;gap:15px;margin-left:auto}
+.senso-site-footer .footer-socials a{color:inherit;text-decoration:none;display:flex;align-items:center;opacity:.8;transition:opacity .3s;border:0}
+.senso-site-footer .footer-socials a:hover{opacity:1}
+.senso-site-footer .footer-socials svg{width:18px;height:18px;fill:currentColor}
+@media (max-width:900px) {
+.senso-site-footer {
+    flex-direction: column;
+    gap: 15px;
+    padding: 25px 20px;
+    text-align: center;
+  }
+}
+@media(max-width:900px){
+  .senso-site-footer{flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:15px!important;padding:25px 20px!important;text-align:center!important}
+  .senso-site-footer .footer-left{text-align:center!important}
+  .senso-site-footer .footer-socials{margin-left:0!important;justify-content:center!important}
+}
