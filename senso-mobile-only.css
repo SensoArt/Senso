@@ -1,10 +1,11 @@
 /* Mobile-only navigation and arrow normalization. Desktop is intentionally untouched. */
 @media (max-width: 900px) {
-  .senso-mobile-menu-toggle { position:absolute; z-index:1002; top:24px; right:18px; width:42px; height:42px; padding:10px; border:0; background:transparent; color:#111; cursor:pointer; }
+  .senso-mobile-menu-toggle { position:absolute; z-index:1002; top:24px; left:18px; width:42px; height:42px; padding:10px; border:0; background:transparent; color:#111; cursor:pointer; }
   .senso-mobile-menu-toggle__lines,.senso-mobile-menu-toggle__lines::before,.senso-mobile-menu-toggle__lines::after { display:block; width:22px; height:1px; background:currentColor; content:""; transition:transform .2s ease,opacity .2s ease; }
   .senso-mobile-menu-toggle__lines { position:relative; margin:auto; }
   .senso-mobile-menu-toggle__lines::before { position:absolute; top:-7px; }
   .senso-mobile-menu-toggle__lines::after { position:absolute; top:7px; }
+  header > .nav-container,header > .right-nav-container,.top-bar > .nav-container,.top-bar > .right-nav-container { display:none!important; }
   .senso-mobile-menu-panel { position:fixed; z-index:1001; inset:0; display:none; overflow:auto; padding:82px 28px 32px; background:#fff; }
   body.senso-mobile-menu-open { overflow:hidden; }
   body.senso-mobile-menu-open .senso-mobile-menu-panel { display:block; }
