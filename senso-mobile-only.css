@@ -13,11 +13,11 @@
   body.senso-mobile-menu-open .senso-mobile-menu-toggle__lines::before { transform:translateY(7px) rotate(45deg); }
   body.senso-mobile-menu-open .senso-mobile-menu-toggle__lines::after { transform:translateY(-7px) rotate(-45deg); }
   .senso-mobile-menu-panel .nav-container,.senso-mobile-menu-panel .right-nav-container { display:flex!important; width:100%!important; margin:0!important; padding:0!important; align-items:flex-start!important; flex-direction:column!important; gap:18px!important; }
-  .senso-mobile-menu-panel .lang-switch { position:static!important; display:flex!important; align-items:center!important; order:-1; margin:0 0 14px!important; font-size:12px!important; letter-spacing:.12em!important; color:#111!important; }
-  .senso-mobile-menu-panel .lang-switch .lang-btn { display:inline-block!important; padding:0 2px!important; border:0!important; background:transparent!important; color:#111!important; font-weight:400!important; opacity:.72!important; }
-  .senso-mobile-menu-panel .lang-switch .lang-btn.active,.lang-switch .lang-btn.active { color:inherit!important; background:transparent!important; font-weight:400!important; opacity:.72!important; }
-  body > .home-panel.hero-panel .logo-header { transform:translateY(-12px); }
-  body > .home-panel.hero-panel .tagline-header { display:inline-block; transform:translateY(10px); }
+  .senso-mobile-menu-panel .lang-switch { position:static!important; display:flex!important; align-items:center!important; order:-1; margin:0 0 14px!important; padding:0!important; font-size:11px!important; line-height:1!important; letter-spacing:.12em!important; color:#111!important; }
+  .senso-mobile-menu-panel .lang-switch .lang-btn,.senso-mobile-menu-panel .lang-switch .lang-btn.active { display:inline-block!important; margin:0!important; padding:0 2px!important; border:0!important; background:transparent!important; color:#111!important; font-size:11px!important; font-weight:400!important; opacity:.72!important; }
+  body > .home-panel.hero-panel .logo-header { position:relative!important; top:-20px!important; transform:none!important; }
+  body > .home-panel.hero-panel .tagline-header { display:inline-block!important; position:relative!important; top:18px!important; transform:none!important; }
+  .senso-site-header + main > .hero:has(#hero-photo) { margin-top:38px!important; }
   .senso-mobile-menu-panel nav,.senso-mobile-menu-panel .main-nav { display:flex!important; width:100%!important; margin:0!important; padding:0!important; flex-direction:column!important; align-items:flex-start!important; gap:0!important; }
   .senso-mobile-menu-panel nav.hidden,.senso-mobile-menu-panel .main-nav.hidden { display:none!important; }
   .senso-mobile-menu-panel nav a,.senso-mobile-menu-panel .main-nav a { width:100%; padding:15px 0!important; border-bottom:1px solid #e3e3e0; color:#111!important; font-size:14px!important; line-height:1.2!important; letter-spacing:.08em!important; text-decoration:none!important; text-transform:uppercase; }
