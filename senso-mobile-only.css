@@ -1,6 +1,7 @@
 /* Mobile-only navigation and arrow normalization. Desktop is intentionally untouched. */
 @media (max-width: 900px) {
   .senso-mobile-menu-toggle { position:fixed; z-index:1002; top:72px; left:18px; width:42px; height:42px; padding:10px; border:0; background:transparent; color:#111; cursor:pointer; }
+  .senso-mobile-menu-toggle::before { position:fixed; z-index:-1; top:54px; left:0; width:100%; height:78px; background:#fff; content:""; }
   .senso-mobile-menu-toggle__lines,.senso-mobile-menu-toggle__lines::before,.senso-mobile-menu-toggle__lines::after { display:block; width:22px; height:1px; background:currentColor; content:""; transition:transform .2s ease,opacity .2s ease; }
   .senso-mobile-menu-toggle__lines { position:relative; margin:auto; }
   .senso-mobile-menu-toggle__lines::before { position:absolute; top:-7px; }
