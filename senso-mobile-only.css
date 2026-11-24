@@ -2,9 +2,11 @@
 @media (max-width: 900px) {
   .senso-mobile-menu-band { position:fixed; z-index:1000; top:54px; left:0; width:100%; height:78px; background:#fff; pointer-events:none; }
   .senso-mobile-menu-toggle { position:fixed; z-index:1002; top:72px; left:18px; width:42px; height:42px; padding:10px; border:0; background:transparent; color:#111; cursor:pointer; }
+  body.senso-mobile-menu-open .senso-mobile-menu-toggle { left:auto; right:18px; }
   body.senso-mobile-about-page .top-bar { min-height:132px!important; }
   body.senso-mobile-about-page .senso-mobile-menu-toggle { color:#fff; }
   body.senso-mobile-menu-open.senso-mobile-about-page .senso-mobile-menu-toggle { color:#111; }
+  body.senso-mobile-home-page header { z-index:1!important; }
   .senso-mobile-menu-toggle__lines,.senso-mobile-menu-toggle__lines::before,.senso-mobile-menu-toggle__lines::after { display:block; width:22px; height:1px; background:currentColor; content:""; transition:transform .2s ease,opacity .2s ease; }
   .senso-mobile-menu-toggle__lines { position:relative; margin:auto; }
   .senso-mobile-menu-toggle__lines::before { position:absolute; top:-7px; }
