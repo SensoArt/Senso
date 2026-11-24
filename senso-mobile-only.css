@@ -1,15 +1,14 @@
 /* Mobile-only navigation and arrow normalization. Desktop is intentionally untouched. */
 @media (max-width: 900px) {
-  .senso-mobile-menu-toggle { position:fixed; z-index:1002; isolation:isolate; top:72px; left:18px; width:42px; height:42px; padding:10px; border:0; background:transparent; color:#111; cursor:pointer; }
-  .senso-mobile-menu-toggle::before { position:fixed; z-index:0; top:54px; left:0; width:100%; height:78px; background:#fff; content:""; }
+  .senso-mobile-menu-band { position:fixed; z-index:1000; top:54px; left:0; width:100%; height:78px; background:#fff; pointer-events:none; }
+  .senso-mobile-menu-toggle { position:fixed; z-index:1002; top:72px; left:18px; width:42px; height:42px; padding:10px; border:0; background:transparent; color:#111; cursor:pointer; }
+  body.senso-mobile-about-page .top-bar { min-height:132px!important; }
+  body.senso-mobile-about-page .senso-mobile-menu-toggle { color:#fff; }
+  body.senso-mobile-menu-open.senso-mobile-about-page .senso-mobile-menu-toggle { color:#111; }
   .senso-mobile-menu-toggle__lines,.senso-mobile-menu-toggle__lines::before,.senso-mobile-menu-toggle__lines::after { display:block; width:22px; height:1px; background:currentColor; content:""; transition:transform .2s ease,opacity .2s ease; }
-  .senso-mobile-menu-toggle__lines { position:relative; z-index:1; margin:auto; }
+  .senso-mobile-menu-toggle__lines { position:relative; margin:auto; }
   .senso-mobile-menu-toggle__lines::before { position:absolute; top:-7px; }
   .senso-mobile-menu-toggle__lines::after { position:absolute; top:7px; }
-  body:has(.top-bar) .senso-mobile-menu-toggle { color:#fff; }
-  body:has(.top-bar) .senso-mobile-menu-toggle::before { background:rgba(0,0,0,.4); border-bottom:1px solid rgba(255,255,255,.15); }
-  body.senso-mobile-menu-open:has(.top-bar) .senso-mobile-menu-toggle { color:#111; }
-  body.senso-mobile-menu-open:has(.top-bar) .senso-mobile-menu-toggle::before { background:#fff; border-bottom:0; }
   header > .nav-container nav,header > .right-nav-container nav,.top-bar > .nav-container nav,.top-bar > .right-nav-container nav { display:none!important; }
   .senso-mobile-menu-panel { position:fixed; z-index:1001; inset:0; display:none; overflow:auto; padding:82px 28px 32px; background:#fff; }
   body.senso-mobile-menu-open { overflow:hidden; }
