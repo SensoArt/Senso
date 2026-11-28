@@ -118,11 +118,16 @@
         }
 
         /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
-        .artist-content { 
-            display: grid; 
-            grid-template-columns: 380px 1fr; 
-            gap: 60px; 
-            align-items: start; 
+        .artist-content {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .inquiry-section-full {
+            margin-top: 60px;
+            width: 100%;
         }
         
         .img-container { 
@@ -570,9 +575,12 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 <div class="lang-es artist-bio hidden">
                     Teresa Moreno es una artista plástica española nacida en <span class="important">Toledo</span>, cuya relación con la pintura se remonta a la infancia. De formación principalmente autodidacta, ha desarrollado a lo largo de los años un lenguaje artístico propio, marcado por la experimentación, la intuición y una profunda conexión con la naturaleza. Su obra transita entre la figuración, el realismo y la abstracción, integrando estos lenguajes en composiciones donde las formas reconocibles conviven con estructuras orgánicas, sugerencias y elementos imaginarios. Su investigación más personal se centra en la técnica del pliegue, un procedimiento experimental mediante el cual el pigmento, el papel y la presión generan formas, figuras y estructuras singulares. Durante más de dos décadas ha compaginado su actividad artística con la enseñanza de la pintura. Su trabajo aborda la naturaleza, la identidad, lo trascendente y la expresión interior. Desde <span class="important">2023</span> forma parte de la agrupación artística <span class="important">Mancharte</span>.
                 </div>
+            </div>
+        </div>
+
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
-                <section class="inquiry-section">
+                <section class="inquiry-section inquiry-section-full">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
                     <!-- Form con endpoint Formspree reale dell'utente -->
@@ -610,10 +618,6 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                         </div>
                     </div>
                 </section>
-
-            </div>
-        </div>
-
     </main>
 
     <script>
@@ -634,6 +638,11 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
         ];
 
         let currentIndex = 0;
+
+        const previewImageBase = location.hostname === 'htmlpreview.github.io'
+            ? 'https://raw.githubusercontent.com/SensoArt/Senso/codex/teresa-moreno-profile/'
+            : '';
+        const artworkUrl = (src) => previewImageBase + src;
 
         const thumbnailsContainer = document.getElementById('thumbnails-container');
         const activeArtworkImg = document.getElementById('active-artwork');
@@ -659,7 +668,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
-                img.src = art.src;
+                img.src = artworkUrl(art.src);
                 img.alt = art.titleEn;
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
@@ -679,7 +688,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             // Aggiorna immagine principale
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
-                activeArtworkImg.src = activeArt.src;
+                activeArtworkImg.src = artworkUrl(activeArt.src);
                 activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
 
@@ -879,8 +888,10 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             updateSlide();
         }
 
-        // Avvio automatico al caricamento
-        window.onload = function() {
+        // Avvio della galleria anche nella preview remota
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initGallery, { once: true });
+        } else {
             initGallery();
         }
 
