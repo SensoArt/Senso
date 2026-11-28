@@ -142,8 +142,9 @@
         .slider-wrapper {
             position: relative;
             width: 100%;
+            height: 420px;
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: center;
             background-color: transparent;
             overflow: visible;
@@ -153,10 +154,10 @@
 
         .main-image-frame {
             width: 100%;
+            height: 420px;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            height: auto; 
+            align-items: center; 
             margin: 0;
             padding: 0;
         }
@@ -165,8 +166,8 @@
         .artist-img { 
             width: 100%;
             max-width: 100%;
-            max-height: none;
-            height: auto;
+            height: 420px;
+            max-height: 420px;
             object-fit: contain;
             display: block;
             cursor: pointer;
@@ -483,8 +484,8 @@
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
             .lightbox-close { top: 25px; right: 20px; }
-            .main-image-frame { height: auto; }
-            .artist-img { max-height: 300px; }
+            .slider-wrapper, .main-image-frame { height: 320px; }
+            .artist-img { height: 320px; max-height: 320px; }
         }
     
 
@@ -575,12 +576,10 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 <div class="lang-es artist-bio hidden">
                     Teresa Moreno es una artista plástica española nacida en <span class="important">Toledo</span>, cuya relación con la pintura se remonta a la infancia. De formación principalmente autodidacta, ha desarrollado a lo largo de los años un lenguaje artístico propio, marcado por la experimentación, la intuición y una profunda conexión con la naturaleza. Su obra transita entre la figuración, el realismo y la abstracción, integrando estos lenguajes en composiciones donde las formas reconocibles conviven con estructuras orgánicas, sugerencias y elementos imaginarios. Su investigación más personal se centra en la técnica del pliegue, un procedimiento experimental mediante el cual el pigmento, el papel y la presión generan formas, figuras y estructuras singulares. Durante más de dos décadas ha compaginado su actividad artística con la enseñanza de la pintura. Su trabajo aborda la naturaleza, la identidad, lo trascendente y la expresión interior. Desde <span class="important">2023</span> forma parte de la agrupación artística <span class="important">Mancharte</span>.
                 </div>
-            </div>
-        </div>
 
 
                 <!-- Sezione Richiesta d'opera (Inquire) -->
-                <section class="inquiry-section inquiry-section-full">
+                <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
                     <!-- Form con endpoint Formspree reale dell'utente -->
@@ -618,6 +617,8 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                         </div>
                     </div>
                 </section>
+            </div>
+        </div>
     </main>
 
     <script>
@@ -654,14 +655,9 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 
         // Allinea perfettamente le frecce di navigazione a metà altezza della foto attiva
         function alignArrows() {
-            const img = document.getElementById('active-artwork');
-            const prevArrow = document.querySelector('.prev-arrow');
-            const nextArrow = document.querySelector('.next-arrow');
-            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
-                const centerOffset = img.clientHeight / 2;
-                prevArrow.style.top = `${centerOffset}px`;
-                nextArrow.style.top = `${centerOffset}px`;
-            }
+            document.querySelectorAll('.nav-arrow').forEach(arrow => {
+                arrow.style.top = '50%';
+            });
         }
 
         function initGallery() {
