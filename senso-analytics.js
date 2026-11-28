@@ -680,8 +680,9 @@
 
   function onScroll(){
     const doc=document.documentElement;
-    const max=Math.max(1,doc.scrollHeight-innerHeight);
-    const pct=Math.round((scrollY/max)*100);
+    const region=matchMedia("(max-width:900px)").matches?document.querySelector(".artist-scroll-region"):null;
+    const max=Math.max(1,region?region.scrollHeight-region.clientHeight:doc.scrollHeight-innerHeight);
+    const pct=Math.round(((region?region.scrollTop:scrollY)/max)*100);
     if(pct>=50){reached50=true;maybeQualifiedVisit()}
     [25,50,75,90].forEach(mark=>{
       if(pct>=mark&&!scrollMarks.has(mark)){
@@ -720,6 +721,7 @@
       }));
     }
     addEventListener('scroll',onScroll,{passive:true});
+    document.querySelector('.artist-scroll-region')?.addEventListener('scroll',onScroll,{passive:true});
     document.addEventListener('senso:consent',maybeQualifiedVisit);
     setTimeout(()=>{
       if(document.visibilityState==='visible'){
