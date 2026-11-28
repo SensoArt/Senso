@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+       
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Teresa Moreno | Contemporary Artist | Senso</title>
 <meta name="description" content="Explore the work of Teresa Moreno at Senso, including selected artworks, artist context and enquiries for available works.">
-<link rel="canonical" href="https://senso-art.com/lucia-cheves.html">
+<link rel="canonical" href="https://senso-art.com/teresa-moreno.html">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Teresa Moreno | Contemporary Artist | Senso">
 <meta property="og:description" content="Explore the work of Teresa Moreno at Senso, including selected artworks, artist context and enquiries for available works.">
-<meta property="og:url" content="https://senso-art.com/lucia-cheves.html">
+<meta property="og:url" content="https://senso-art.com/teresa-moreno.html">
     
     <link rel="icon" type="image/png" href="favicon.png">
 
@@ -61,7 +61,7 @@
             background-color: #fff;
         }
 
-        /* Pulsante Indietro */
+        /* Pulsante Indietro elegante */
         .back-artists { 
             position: fixed; 
             top: 25px; 
@@ -107,7 +107,7 @@
             padding: 150px 25px 150px; 
         }
 
-        /* Nome dell'artista */
+        /* Nome dell'artista in grassetto elegante */
         .artist-title { 
             font-family: 'FuturaLight', sans-serif; 
             font-size: 1.3rem; 
@@ -117,7 +117,7 @@
             font-weight: bold; 
         }
 
-        /* Layout a due colonne */
+        /* Layout a due colonne (Slideshow a sinistra, Bio a destra) */
         .artist-content { 
             display: grid; 
             grid-template-columns: 380px 1fr; 
@@ -130,32 +130,33 @@
             background-color: transparent; 
             display: flex;
             flex-direction: column;
+            gap: 0px; 
         }
 
-        /* CONTENITORE IMMAGINE CON ALTEZZA FISSA: EVITA CHE LA STRUTTURA SALTI */
+        /* Contenitore per l'immagine attiva principale - Zero distanze */
         .slider-wrapper {
             position: relative;
             width: 100%;
-            height: 400px; /* Altezza fissa per bloccare la posizione */
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             background-color: transparent;
             overflow: hidden;
-            margin: 0;
-            padding: 0;
+            margin-bottom: 0px !important; 
+            padding-bottom: 0px !important;
         }
 
         .main-image-frame {
             width: 100%;
-            height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            height: auto; 
             margin: 0;
             padding: 0;
         }
 
+        /* Immagine attiva interattiva e cliccabile per Lightbox */
         .artist-img { 
             max-width: 100%; 
             max-height: 400px;
@@ -165,12 +166,13 @@
             display: block;
             cursor: pointer;
             transition: opacity 0.2s ease;
+            margin: 0 auto;
+            padding: 0;
         }
 
-        /* FRECCE BLOCCATE IN POSIZIONE PERFETTA CON CSS PURO (SENZA JS) */
+        /* Frecce di Navigazione Minimali centrate dinamicamente sulla foto */
         .nav-arrow {
             position: absolute;
-            top: 50%; /* Sempre a metà altezza del box di 400px */
             transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.85); 
             -webkit-backdrop-filter: blur(5px);
@@ -187,7 +189,7 @@
             cursor: pointer;
             opacity: 0.6; 
             z-index: 10;
-            transition: opacity 0.3s, background-color 0.3s, box-shadow 0.3s;
+            transition: opacity 0.3s, transform 0.2s, background-color 0.3s, box-shadow 0.3s, top 0.2s ease;
             outline: none;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04); 
         }
@@ -196,15 +198,17 @@
             opacity: 1;
             background: #fff;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            transform: translateY(-50%) scale(1.05);
         }
 
-        .prev-arrow { left: 10px; }
-        .next-arrow { right: 10px; }
+        .prev-arrow { left: 15px; }
+        .next-arrow { right: 15px; }
 
-        /* Didascalia posizionata sotto */
+        /* Didascalia posizionata subito sotto l'immagine con altezza minima fissa per evitare salti della griglia */
         .artwork-caption {
             text-align: center;
-            margin: 15px auto 25px auto; 
+            margin: 8px auto 25px auto; 
+            padding-top: 0px; 
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -212,9 +216,10 @@
             justify-content: center;
             gap: 4px;
             font-family: 'FuturaLight', sans-serif;
-            min-height: 65px; 
+            min-height: 80px; /* Blocca l'altezza impedendo qualsiasi sbalzo strutturale */
         }
 
+        /* Titolo dell'opera in chiaro e leggero, rigorosamente non in grassetto */
         .artwork-title-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.85rem;
@@ -224,7 +229,7 @@
             color: #000;
         }
 
-        .artwork-size-text, .artwork-tech-text {
+        .artwork-size-text {
             font-family: 'FuturaLight', sans-serif;
             font-size: 0.8rem;
             letter-spacing: 1.5px;
@@ -234,10 +239,20 @@
             font-weight: normal !important;
         }
 
-        /* Miniature */
+        .artwork-tech-text {
+            font-family: 'FuturaLight', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            color: #000;
+            opacity: 0.6;
+            margin: 0;
+            font-weight: normal !important;
+        }
+
+        /* Miniature in griglia geometrica pulita */
         .thumbnail-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 8px;
             width: 100%;
             margin-top: 10px;
@@ -277,7 +292,7 @@
         
         .hidden { display: none; }
 
-        /* LIGHTBOX */
+        /* STILI LIGHTBOX PER INGRANDIMENTO OPERE */
         .lightbox-overlay {
             position: fixed;
             top: 0;
@@ -337,9 +352,11 @@
             z-index: 2010;
         }
 
-        .lightbox-close:hover { opacity: 1; }
+        .lightbox-close:hover {
+            opacity: 1;
+        }
 
-        /* SEZIONE FORM DE CONSULTA */
+        /* SEZIONE FORM DI RICHIESTA (INQUIRE) */
         .inquiry-section {
             border-top: 1px solid rgba(0, 0, 0, 0.08);
             padding-top: 35px;
@@ -394,7 +411,9 @@
             letter-spacing: 1.5px;
         }
 
-        .form-input:focus { border-bottom-color: #000; }
+        .form-input:focus {
+            border-bottom-color: #000;
+        }
 
         textarea.form-input {
             resize: none;
@@ -416,8 +435,11 @@
             font-weight: bold;
         }
 
-        .form-submit-btn:hover { opacity: 0.5; }
+        .form-submit-btn:hover {
+            opacity: 0.5;
+        }
 
+        /* Messaggio di successo */
         .thank-you-container {
             display: none;
             animation: fadeIn 0.8s ease-out forwards;
@@ -446,15 +468,18 @@
             letter-spacing: 1px;
             margin-top: 10px;
             display: none;
+            animation: fadeIn 0.4s ease forwards;
         }
 
+        /* Responsive per Tablet e Mobile */
         @media (max-width: 850px) {
             .artist-content { grid-template-columns: 1fr; gap: 40px; }
             .img-container { max-width: 420px; margin: 0 auto; } 
             .container { padding-top: 120px; padding-bottom: 100px; }
             .form-row { grid-template-columns: 1fr; gap: 25px; }
-            .slider-wrapper { height: 320px; }
-            .artist-img { max-height: 320px; }
+            .lightbox-close { top: 25px; right: 20px; }
+            .main-image-frame { height: auto; }
+            .artist-img { max-height: 300px; }
         }
     
 
@@ -478,20 +503,24 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 .lang-switch .lang-btn{padding-left:2px!important;padding-right:2px!important}
 .lang-switch .lang-btn.active{font-weight:400!important;opacity:.72!important}
 </style>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"https://senso-art.com/lucia-cheves.html","name":"Teresa Moreno | Contemporary Artist | Senso","mainEntity":{"@type":"Person","name":"Teresa Moreno","url":"https://senso-art.com/lucia-cheves.html","jobTitle":"Contemporary artist"},"publisher":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","url":"https://senso-art.com/teresa-moreno.html","name":"Teresa Moreno | Contemporary Artist | Senso","mainEntity":{"@type":"Person","name":"Teresa Moreno","url":"https://senso-art.com/teresa-moreno.html","jobTitle":"Contemporary artist"},"publisher":{"@type":"Organization","name":"Senso","url":"https://senso-art.com/"}}</script>
 <link rel="stylesheet" href="senso-mobile-only.css?v=20261123b">
 </head>
 <body>
 
+    <!-- Sfondo Bianco -->
     <div class="bg-container"></div>
 
+    <!-- Ritorno alla griglia artisti -->
     <a href="artists.html" class="back-artists">← Artists</a>
 
+    <!-- Switcher della lingua interna -->
     <div class="lang-switch">
         <button onclick="setLang('en')" id="btn-en" class="lang-btn active">EN</button> | 
         <button onclick="setLang('es')" id="btn-es" class="lang-btn">ES</button>
     </div>
 
+    <!-- Contenitore Lightbox -->
     <div class="lightbox-overlay" id="lightbox">
         <button class="lightbox-close" id="lightbox-close">close</button>
         <div class="lightbox-wrapper">
@@ -507,28 +536,34 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
 
         <div class="artist-content fade-in delay-2">
             
+            <!-- Contenitore d'opera interattivo a slideshow con miniature -->
             <div class="img-container">
                 
+                <!-- Spazio immagine principale con frecce -->
                 <div class="slider-wrapper" id="swipe-area">
                     <button class="nav-arrow prev-arrow" onclick="prevSlide()">←</button>
                     <div class="main-image-frame">
-                        <img id="active-artwork" src="" alt="Teresa Moreno — Active Artwork" class="artist-img">
+                        <img id="active-artwork" src="" alt="Teresa Moreno - Active Artwork" class="artist-img" onload="alignArrows()">
                     </div>
                     <button class="nav-arrow next-arrow" onclick="nextSlide()">→</button>
                 </div>
 
+                <!-- Didascalie posizionate subito sotto l'immagine con altezza minima fissa per evitare salti della griglia -->
                 <div class="artwork-caption">
                     <h3 id="artwork-title" class="artwork-title-text"></h3>
                     <div id="artwork-size" class="artwork-size-text"></div>
                     <div id="artwork-tech" class="artwork-tech-text"></div>
                 </div>
 
+                <!-- Griglia delle miniature -->
                 <div class="thumbnail-grid" id="thumbnails-container"></div>
                 
             </div>
 
+            <!-- Area Bio ed Inquiry Form -->
             <div class="bio-wrapper">
                 
+                <!-- Testi Biografici -->
                 <div class="lang-en artist-bio">
                     Teresa Moreno is a Spanish visual artist born in <span class="important">Toledo</span>, whose relationship with painting began in childhood. Largely self-taught, she has developed a personal artistic language marked by experimentation, intuition and a profound connection with nature. Her work moves between figuration, realism and abstraction, integrating recognisable forms with organic structures and imagined elements. Her most personal research focuses on folding, an experimental process through which pigment, paper and pressure generate singular forms, figures and structures. For more than two decades she has combined her artistic practice with teaching painting. Her work addresses nature, identity, the transcendent and inner expression. Since <span class="important">2023</span>, she has been part of the artistic collective <span class="important">Mancharte</span>.
                 </div>
@@ -536,11 +571,14 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                     Teresa Moreno es una artista plástica española nacida en <span class="important">Toledo</span>, cuya relación con la pintura se remonta a la infancia. De formación principalmente autodidacta, ha desarrollado a lo largo de los años un lenguaje artístico propio, marcado por la experimentación, la intuición y una profunda conexión con la naturaleza. Su obra transita entre la figuración, el realismo y la abstracción, integrando estos lenguajes en composiciones donde las formas reconocibles conviven con estructuras orgánicas, sugerencias y elementos imaginarios. Su investigación más personal se centra en la técnica del pliegue, un procedimiento experimental mediante el cual el pigmento, el papel y la presión generan formas, figuras y estructuras singulares. Durante más de dos décadas ha compaginado su actividad artística con la enseñanza de la pintura. Su trabajo aborda la naturaleza, la identidad, lo trascendente y la expresión interior. Desde <span class="important">2023</span> forma parte de la agrupación artística <span class="important">Mancharte</span>.
                 </div>
 
+                <!-- Sezione Richiesta d'opera (Inquire) -->
                 <section class="inquiry-section">
                     <h2 class="inquiry-title" id="form-title">inquire</h2>
                     
+                    <!-- Form con endpoint Formspree reale dell'utente -->
                     <form action="https://formspree.io/f/mgorwree" method="POST" class="inquiry-form" id="contact-form">
                         <input type="hidden" name="artist" value="Teresa Moreno">
+                        <!-- Campo nascosto per passare il titolo dell'opera attiva via mail -->
                         <input type="hidden" name="artwork" id="hidden-artwork-title" value="">
                         
                         <div class="form-row">
@@ -560,6 +598,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                         <div class="error-message" id="error-msg">An error occurred. Please try again.</div>
                     </form>
 
+                    <!-- Stato di ringraziamento (Thanks) visualizzato dinamicamente -->
                     <div class="thank-you-container" id="thank-you-block">
                         <div class="lang-en">
                             <h3 class="thank-you-title">thank you</h3>
@@ -578,6 +617,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
     </main>
 
     <script>
+        // Array ordinato delle opere con metadati strutturati e traduzioni complete
         const artworks = [
             { src: "fotos_obras/teresa/2.jpg", altSrc: "", titleEn: "Mirada", titleEs: "Mirada", size: "104 x 60 cm", techEn: "Oil on panel", techEs: "Óleo sobre tabla" },
             { src: "fotos_obras/teresa/4.jpg", altSrc: "", titleEn: "Conexión dorada", titleEs: "Conexión dorada", size: "104 x 74 cm", techEn: "Gouache on stone paper", techEs: "Guache sobre papel piedra" },
@@ -598,27 +638,35 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
         const thumbnailsContainer = document.getElementById('thumbnails-container');
         const activeArtworkImg = document.getElementById('active-artwork');
         const hiddenArtworkTitle = document.getElementById('hidden-artwork-title');
+        const inputMessage = document.getElementById('input-message');
         const artworkTitleEl = document.getElementById('artwork-title');
         const artworkSizeEl = document.getElementById('artwork-size');
         const artworkTechEl = document.getElementById('artwork-tech');
+
+        // Allinea perfettamente le frecce di navigazione a metà altezza della foto attiva
+        function alignArrows() {
+            const img = document.getElementById('active-artwork');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            if (img && prevArrow && nextArrow && img.complete && img.clientHeight > 0) {
+                const centerOffset = img.clientHeight / 2;
+                prevArrow.style.top = `${centerOffset}px`;
+                nextArrow.style.top = `${centerOffset}px`;
+            }
+        }
 
         function initGallery() {
             thumbnailsContainer.innerHTML = '';
             artworks.forEach((art, index) => {
                 const img = document.createElement('img');
                 img.src = art.src;
-                img.alt = art.titleEn || "Artwork " + (index + 1);
+                img.alt = art.titleEn;
                 img.className = 'thumb-item';
                 if (index === currentIndex) img.classList.add('active');
                 
-                img.onerror = function() {
-                    if (!this.dataset.retry) {
-                        this.dataset.retry = "1";
-                        if (art.altSrc) this.src = art.altSrc;
-                    }
-                };
-
-                img.addEventListener('click', () => goToSlide(index));
+                img.addEventListener('click', () => {
+                    goToSlide(index);
+                });
                 thumbnailsContainer.appendChild(img);
             });
             updateSlide();
@@ -628,38 +676,34 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             const activeArt = artworks[currentIndex];
             const isEs = document.getElementById('btn-es').classList.contains('active');
 
+            // Aggiorna immagine principale
             activeArtworkImg.style.opacity = '0.3';
             setTimeout(() => {
                 activeArtworkImg.src = activeArt.src;
-                activeArtworkImg.alt = isEs ? (activeArt.titleEs || "Obra") : (activeArt.titleEn || "Artwork");
+                activeArtworkImg.alt = isEs ? activeArt.titleEs : activeArt.titleEn;
                 activeArtworkImg.style.opacity = '1';
-                
-                activeArtworkImg.onerror = function() {
-                    if (!this.dataset.retry) {
-                        this.dataset.retry = "1";
-                        if (activeArt.altSrc) this.src = activeArt.altSrc;
-                    }
-                };
 
-                artworkTitleEl.innerText = (isEs ? activeArt.titleEs : activeArt.titleEn) || "";
-                artworkSizeEl.innerText = activeArt.size || "";
-                artworkTechEl.innerText = (isEs ? activeArt.techEs : activeArt.techEn) || "";
+                // Aggiorna didascalie testuali
+                artworkTitleEl.innerText = isEs ? activeArt.titleEs : activeArt.titleEn;
+                artworkSizeEl.innerText = activeArt.size;
+                artworkTechEl.innerText = isEs ? activeArt.techEs : activeArt.techEn;
+
+                setTimeout(alignArrows, 50); // Ricalcola frecce appena la foto si posiziona
             }, 180);
 
+            // Aggiorna miniature attive
             const thumbs = document.querySelectorAll('.thumb-item');
             thumbs.forEach((thumb, idx) => {
                 if (idx === currentIndex) {
                     thumb.classList.add('active');
+                    thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 } else {
                     thumb.classList.remove('active');
                 }
             });
 
-            if (activeArt.titleEn) {
-                hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
-            } else {
-                hiddenArtworkTitle.value = "Artwork (" + activeArt.src.split('/').pop() + ")";
-            }
+            // Aggiorna il form con l'opera d'arte selezionata usando l'etichetta silenziosa
+            hiddenArtworkTitle.value = activeArt.titleEn + " (" + activeArt.size + ")";
         }
 
         function goToSlide(index) {
@@ -677,19 +721,30 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             updateSlide();
         }
 
-        // SWIPE MOBILE
-        let touchStartX = 0, touchEndX = 0;
+        // --- GESTIONE TOUCH SWIPE SU MOBILE ---
+        let touchStartX = 0;
+        let touchEndX = 0;
         const swipeArea = document.getElementById('swipe-area');
 
-        swipeArea.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
-        swipeArea.addEventListener('touchend', (e) => { touchEndX = e.changedTouches[0].screenX; handleSwipe(); }, { passive: true });
+        swipeArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        swipeArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
 
         function handleSwipe() {
-            if (touchStartX - touchEndX > 50) nextSlide(); 
-            if (touchEndX - touchStartX > 50) prevSlide(); 
+            if (touchStartX - touchEndX > 50) {
+                nextSlide(); // swipe sinistra -> prossima opera
+            }
+            if (touchEndX - touchStartX > 50) {
+                prevSlide(); // swipe destra -> opera precedente
+            }
         }
 
-        // LIGHTBOX
+        // --- FUNZIONALITÀ LIGHTBOX ---
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
         const lightboxClose = document.getElementById('lightbox-close');
@@ -704,7 +759,9 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
         function closeLightbox() {
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
-            setTimeout(() => { lightboxImg.src = ''; }, 400);
+            setTimeout(() => {
+                lightboxImg.src = '';
+            }, 400);
         }
 
         lightbox.addEventListener('click', (e) => {
@@ -713,11 +770,14 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             }
         });
 
+        // Chiudi con ESC tastiera
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+            if (e.key === 'Escape') {
+                if (lightbox.classList.contains('active')) closeLightbox();
+            }
         });
 
-        // FORM FORMSPREE
+        // --- INVIO FORM AJAX (FORMSPREE) ---
         const contactForm = document.getElementById('contact-form');
         const submitBtn = document.getElementById('submit-btn');
         const thankYouBlock = document.getElementById('thank-you-block');
@@ -738,12 +798,15 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: data,
-                    headers: { 'Accept': 'application/json' }
+                    headers: {
+                        'Accept': 'application/json'
+                    }
                 });
 
                 if (response.ok) {
                     contactForm.style.display = 'none';
                     thankYouBlock.style.display = 'block';
+                    
                     if (isEs) {
                         thankYouBlock.querySelector('.lang-en').classList.add('hidden');
                         thankYouBlock.querySelector('.lang-es').classList.remove('hidden');
@@ -752,7 +815,7 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
                         thankYouBlock.querySelector('.lang-en').classList.remove('hidden');
                     }
                 } else {
-                    throw new Error('Server error');
+                    throw new Error('Server response was not ok');
                 }
             } catch (error) {
                 submitBtn.disabled = false;
@@ -763,51 +826,68 @@ nav a.active-link::after,nav a[aria-current="page"]::after{width:100%!important}
             }
         });
 
-        // LINGUA
+        // --- CAMBIO LINGUA ---
         function setLang(lang) {
+            const en = document.querySelectorAll('.lang-en');
+            const es = document.querySelectorAll('.lang-es');
             const btnEn = document.getElementById('btn-en');
             const btnEs = document.getElementById('btn-es');
-            const bioEn = document.querySelector('.artist-bio.lang-en');
-            const bioEs = document.querySelector('.artist-bio.lang-es');
+
             const formTitle = document.getElementById('form-title');
             const inputName = document.getElementById('input-name');
             const inputEmail = document.getElementById('input-email');
             const inputMessage = document.getElementById('input-message');
-            const submitBtn = document.getElementById('submit-btn');
+            const submitBtnElement = document.getElementById('submit-btn');
 
             if (lang === 'es') {
-                btnEs.classList.add('active');
+                en.forEach(el => el.classList.add('hidden'));
+                es.forEach(el => el.classList.remove('hidden'));
+                btnEs.classList.add('active'); 
                 btnEn.classList.remove('active');
-                bioEn.classList.add('hidden');
-                bioEs.classList.remove('hidden');
 
-                if (formTitle) formTitle.innerText = "consultar";
-                if (inputName) inputName.placeholder = "Su nombre";
-                if (inputEmail) inputEmail.placeholder = "Su correo electrónico";
-                if (inputMessage) inputMessage.placeholder = "Comentarios";
-                if (submitBtn) submitBtn.innerText = "Enviar consulta →";
+                formTitle.innerText = "consultar";
+                inputName.placeholder = "Su nombre";
+                inputEmail.placeholder = "Su correo electrónico";
+                inputMessage.placeholder = "Comentarios";
+                
+                if (!submitBtnElement.disabled) {
+                    submitBtnElement.innerText = "Enviar consulta →";
+                } else {
+                    submitBtnElement.innerText = "Enviando...";
+                }
+                lightboxClose.innerText = "cerrar";
             } else {
-                btnEn.classList.add('active');
+                es.forEach(el => el.classList.add('hidden'));
+                en.forEach(el => el.classList.remove('hidden'));
+                btnEn.classList.add('active'); 
                 btnEs.classList.remove('active');
-                bioEs.classList.add('hidden');
-                bioEn.classList.remove('hidden');
 
-                if (formTitle) formTitle.innerText = "inquire";
-                if (inputName) inputName.placeholder = "Your name";
-                if (inputEmail) inputEmail.placeholder = "Your email";
-                if (inputMessage) inputMessage.placeholder = "Comments";
-                if (submitBtn) submitBtn.innerText = "Send Inquiry →";
+                formTitle.innerText = "inquire";
+                inputName.placeholder = "Your name";
+                inputEmail.placeholder = "Your email";
+                inputMessage.placeholder = "Comments";
+                
+                if (!submitBtnElement.disabled) {
+                    submitBtnElement.innerText = "Send Inquiry →";
+                } else {
+                    submitBtnElement.innerText = "Sending...";
+                }
+                lightboxClose.innerText = "close";
             }
 
+            // Forza l'aggiornamento didascalie dell'opera corrente
             updateSlide();
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
+        // Avvio automatico al caricamento
+        window.onload = function() {
             initGallery();
-        });
+        }
+
+        window.addEventListener('resize', alignArrows);
     </script>
 
-<footer class="senso-site-footer senso-generated-footer"><div class="footer-left">&copy; 2026 Senso Art. All rights reserved.</div><div class="footer-socials"><a href="https://www.linkedin.com/company/sensoartbarcelona" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a><a href="https://www.instagram.com/senso_art_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></div></footer>
+<footer class="senso-site-footer senso-generated-footer"><div class="footer-left">&copy; 2026 Senso Art. All rights reserved.</div><div class="footer-socials"><a href="https://www.linkedin.com/company/sensoartbarcelona" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 1-1.69-1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a><a href="https://www.instagram.com/senso_art_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a></div></footer>
 <script src="senso-analytics.js" defer></script>
 <script src="senso-mobile-only.js?v=20261123b" defer></script>
 </body>
